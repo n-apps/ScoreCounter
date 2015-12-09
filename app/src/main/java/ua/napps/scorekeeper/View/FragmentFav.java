@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.View;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -11,17 +12,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Adapters.FavoriteSetsAdapter;
 import ua.napps.scorekeeper.DialogAddFavSet;
 import ua.napps.scorekeeper.DialogEditFav;
-import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
+import ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl;
 import ua.napps.scorekeeper.Models.FavoriteSet;
-
-import static ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl.getInstance;
 
 public class FragmentFav extends Fragment {
 
@@ -36,6 +40,8 @@ public class FragmentFav extends Fragment {
 
     @Bind(R.id.addFavSetFAB)
     FloatingActionButton mFloatingActionButton;
+    FavoriteSetsAdapter adapter;
+
 
     @Nullable
     @Override
@@ -53,17 +59,93 @@ public class FragmentFav extends Fragment {
                 context.closeFragment();
             }
         });
+        adapter = new FavoriteSetsAdapter(FavoritesInteractorImpl.getInstance(getContext()).getFavorites());
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
                                                      @Override
                                                      public void onClick(View v) {
-                                                         new DialogAddFavSet(context);
+                                                         new DialogEditFav(getContext(), adapter, null,  true);
                                                      }
                                                  }
         );
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        favoritesRecyclerView.setAdapter(new FavoriteSetsAdapter(context, emptyState));
+
+        favoritesRecyclerView.setAdapter(adapter);
         return view;
     }
 
+    class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        @Bind(R.id.editTextDiceEdges)
+        TextView name;
+        @Bind(R.id.editSet)
+        ImageView mEditSetImageView;
+
+        public FavoritesViewHolder(View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+            ButterKnife.bind(this, itemView);
+            mEditSetImageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            int id = v.getId();
+
+            switch (id) {
+                case R.id.favItem:
+//                        EventBus.getDefault().post(new FavoriteSetLoaded(pos));
+
+                    break;
+                case R.id.editSet:
+                    new DialogEditFav(getContext(), adapter, FavoritesInteractorImpl.getInstance(getContext()).getFavSet(position), false);
+                    break;
+            }
+        }
+    }
+
+    public class FavoriteSetsAdapter extends RecyclerView.Adapter<FavoritesViewHolder> {
+
+        private ArrayList<FavoriteSet> mFavoriteSets;
+
+        public FavoriteSetsAdapter(ArrayList<FavoriteSet> favoriteSets) {
+            mFavoriteSets = favoriteSets;
+        }
+
+        @Override
+        public FavoritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            View v = layoutInflater.inflate(R.layout.fav_item, parent, false);
+            return new FavoritesViewHolder(v);
+        }
+
+        @Override
+        public void onBindViewHolder(FavoritesViewHolder holder, int position) {
+            holder.name.setText(String.format("%s: %d", mFavoriteSets.get(position).getName(), position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mFavoriteSets.size();
+        }
+
+        public void add(FavoriteSet item) {
+            int position = mFavoriteSets.size();
+            mFavoriteSets.add(position, item);
+            notifyItemInserted(position);
+        }
+
+        public void update(FavoriteSet item) {
+            int position = mFavoriteSets.indexOf(item);
+            notifyItemChanged(position);
+        }
+
+        public void remove(FavoriteSet item) {
+            int position = mFavoriteSets.indexOf(item);
+            mFavoriteSets.remove(position);
+            notifyItemRemoved(position);
+        }
+
+    }
 
 }

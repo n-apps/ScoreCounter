@@ -52,6 +52,7 @@ public class FavoritesInteractorImpl implements FavoritesInteractor {
                 }.getType();
                 mFavoriteSets = new Gson().fromJson(json, listType);
                 LogUtils.i(String.format("mFavorites size: %d", mFavoriteSets.size()));
+                LogUtils.i(String.format("json:%s", json));
             } catch (JsonSyntaxException ex) {
                 LogUtils.e(ex.getMessage());
             }

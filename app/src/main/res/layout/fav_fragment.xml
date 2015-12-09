@@ -27,6 +27,7 @@
             android:layout_gravity="center"
             android:alpha="@dimen/alpha_empty_state"
             android:gravity="center"
+            android:visibility="gone"
             android:orientation="vertical">
 
             <ImageView

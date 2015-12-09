@@ -14,8 +14,6 @@ import android.widget.SeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Adapters.FavoriteSetsAdapter;
-import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;

@@ -62,17 +62,13 @@ public class AdapterRecent extends RecyclerView.Adapter<AdapterRecent.RecentView
         @Bind(R.id.editTextDiceEdges)
         TextView name;
 
-        @Bind(R.id.currentSet)
-        ImageView currentSet;
-
-        @Bind(R.id.savedSet)
+        @Bind(R.id.editSet)
         ImageView savedSet;
 
         public RecentViewHolder(View view) {
             super(view);
             this.view = view;
             ButterKnife.bind(this, view);
-            currentSet.setVisibility(View.INVISIBLE);
             savedSet.setVisibility(View.INVISIBLE);
             view.setOnClickListener(this);
         }

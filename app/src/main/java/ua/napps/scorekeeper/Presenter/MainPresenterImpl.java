@@ -68,6 +68,7 @@ public class MainPresenterImpl implements MainPresenter {
     public void onResume() {
         loadSettings();
         mView.clearViews();
+        loadFragment(); //TODO: only for debug
     }
 
     @Override
