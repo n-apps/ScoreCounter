@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="divider_height">0.5dp</dimen>
+
+    <item name="alpha_empty_state" format="float" type="dimen">0.27</item>
+    <item name="alpha_icons" format="float" type="dimen">0.54</item>
+</resources>

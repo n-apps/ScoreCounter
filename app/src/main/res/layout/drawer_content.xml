@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#fff"
+    android:clickable="true"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded">
+
+    <TextView
+        android:id="@+id/upperTextView"
+        style="@style/TextAppearance.AppCompat.Menu"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/drawer_top_list_header"
+        android:textColor="@color/textColorSecondary" />
+
+    <include layout="@layout/divider" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recentRv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never" />
+
+    <TextView
+        android:id="@+id/addCounter"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_add_counter"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:onClick="onClickAddCounter"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/add_new_counter" />
+
+    <include layout="@layout/divider" />
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_favorite_black_24dp"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:onClick="onFavButtonClick"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/favorites" />
+
+    <TextView
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:drawableLeft="@drawable/ic_settings_black_24dp"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:onClick="onPrefButtonClick"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/settings" />
+
+</LinearLayout>

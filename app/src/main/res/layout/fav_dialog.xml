@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/setName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:minEms="10" />
+
+        <FrameLayout
+            android:id="@+id/paintedView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#247BA0" />
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/redSeekBar"
+        android:splitTrack="false"
+        style="@style/MySeekBar.Red" />
+
+    <SeekBar
+        android:id="@+id/greenSeekBar"
+        android:splitTrack="false"
+        style="@style/MySeekBar.Green" />
+
+    <SeekBar
+        android:id="@+id/blueSeekBar"
+        android:splitTrack="false"
+        style="@style/MySeekBar.Blue" />
+
+</LinearLayout>
