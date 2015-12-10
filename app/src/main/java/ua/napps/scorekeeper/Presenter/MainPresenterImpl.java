@@ -2,30 +2,30 @@ package ua.napps.scorekeeper.Presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.apkfuns.logutils.LogUtils;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.AwesomeLayout;
 import ua.napps.scorekeeper.DiceDialog;
 import ua.napps.scorekeeper.Events.CounterCaptionClick;
 import ua.napps.scorekeeper.Events.DiceDialogClosed;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
+import ua.napps.scorekeeper.Helpers.Constants;
+import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
 import ua.napps.scorekeeper.Interactors.FavoritesInteractor;
 import ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.Dice;
-import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.View.FragmentFav;
 import ua.napps.scorekeeper.View.MainView;
 
+import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
@@ -76,6 +76,16 @@ public class MainPresenterImpl implements MainPresenter {
         LogUtils.i("loadSettings");
         LogUtils.i("access to SharedPreferences");
         SharedPreferences sp = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String activeCountersJson = sp.getString(Constants.ACTIVE_COUNTERS, "");
+        Type listType = new TypeToken<ArrayList<Counter>>() {
+        }.getType();
+        ArrayList<Counter> counters = new Gson().fromJson(activeCountersJson, listType);
+        LogUtils.i(String.format("activeCountersJson: %s", activeCountersJson));
+        if (counters == null) {
+            counters = new ArrayList<>();
+            counters.add(new Counter(mContext.getResources().getString(R.string.counter_title_default)));
+        }
+        CurrentSetInteractor.getInstance().setCounters(counters);
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
         else mView.toggleKeepScreenOn(false);
@@ -99,13 +109,18 @@ public class MainPresenterImpl implements MainPresenter {
     public void saveSettings() {
         LogUtils.i("saveSettings");
         LogUtils.i("access to SharedPreferences");
-        String json = new Gson().toJson(mFavoritesInteractor.getFavorites());
+
+        CurrentSetInteractor.getInstance().setCounters(mCounters);
+
+        String favSetsJson = new Gson().toJson(mFavoritesInteractor.getFavorites());
+        String activeCountersJson = new Gson().toJson(CurrentSetInteractor.getInstance().getCounters());
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(PREFS_DICE_AMOUNT, Dice.getInstance().getAmount());
         editor.putInt(PREFS_DICE_MIN_EDGE, Dice.getInstance().getMinEdge());
         editor.putInt(PREFS_DICE_MAX_EDGE, Dice.getInstance().getMaxEdge());
         editor.putInt(PREFS_DICE_BONUS, Dice.getInstance().getBonus());
-        editor.putString(FAV_ARRAY, json);
+        editor.putString(FAV_ARRAY, favSetsJson);
+        editor.putString(ACTIVE_COUNTERS, activeCountersJson);
         editor.apply();
     }
 
@@ -150,9 +165,16 @@ public class MainPresenterImpl implements MainPresenter {
     }
 
     @Override
-    public void addCountersFromList() {
+    public void addCountersFromList(int index) {
         LogUtils.i("addCountersFromList");
-        mCounters = mFavoritesInteractor.getFavSet(0).getCounters();
+        mCounters = mFavoritesInteractor.getFavSet(index).getCounters();
+        for (Counter c : mCounters) addCounterView(c);
+    }
+
+    @Override
+    public void loadCurrentSet() {
+        LogUtils.i("loadCurrentSet");
+        mCounters = CurrentSetInteractor.getInstance().getCounters();
         for (Counter c : mCounters) addCounterView(c);
     }
 
@@ -170,27 +192,6 @@ public class MainPresenterImpl implements MainPresenter {
         addCounterView(c);
     }
 
-    private void loadFavSet(FavoriteSet favItem) {
-        LogUtils.i("loadFavSet");
-
-        for (Counter c : favItem.getCounters()) {
-            Counter tmp = Counter.getClone(c);
-            tmp.setValue(tmp.getDefValue());
-            mCounters.add(tmp);
-        }
-        setCounters(mCounters);
-        addCountersFromList();
-
-        mFavoritesInteractor.removeFav(0);
-        Collections.sort(mFavoritesInteractor.getFavorites(), new Comparator<FavoriteSet>() {
-            @Override
-            public int compare(FavoriteSet i1, FavoriteSet i2) {
-                return i1.getLastLoaded() < i2.getLastLoaded() ? 1 : -1;
-            }
-        });
-        mFavoritesInteractor.addFav(0, favItem);
-    }
-
 
     public void onEvent(DiceDialogClosed event) {
         LogUtils.i("DiceDialogClosed event");
@@ -205,8 +206,8 @@ public class MainPresenterImpl implements MainPresenter {
             mView.closeFragment();
             mView.clearViews();
             mCounters.clear();
-            loadFavSet(mFavoritesInteractor.getFavSet(event.getFavoriteSetPosition()));
-            //    recentRv.setAdapter(recentAdapter);
+
+            addCountersFromList(event.getPosition());
         }
     }
 

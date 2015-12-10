@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     TextView mBtnAddCounter;
     @Bind(R.id.drawerLayout)
     DrawerLayout mDrawer;
-    @Bind(R.id.recentRv)
-    RecyclerView mRecentSets;
     @Bind(R.id.dices_bar)
     View mDicesBar;
     @Bind(R.id.diceFormula)
@@ -58,10 +56,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mCountersLayout.init(this);
         LogUtils.configTagPrefix = "*** ";
         LogUtils.i("onCreate");
-
-        //mRecentSets.setLayoutManager(new LinearLayoutManager(this));
-        ///  recentAdapter = new AdapterRecent(this, favorites); //presenter
-        //  mRecentSets.setAdapter(recentAdapter);
     }
 
     @Override
@@ -72,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
             @Override
             public void onGlobalLayout() {
                 mCountersLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                getMainPresenter().addCountersFromList();
+                getMainPresenter().loadCurrentSet();
             }
         });
 

@@ -10,12 +10,8 @@ public class Dice {
     private int bonus;
 
     private static Dice instance;
-    private Dice()
-    {
-    }
 
-    public static Dice getInstance()
-    {
+    public static Dice getInstance() {
         if (instance == null)
             instance = new Dice();
 

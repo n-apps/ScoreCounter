@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.View;
 
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -21,7 +20,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.DialogAddFavSet;
 import ua.napps.scorekeeper.DialogEditFav;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl;
@@ -63,28 +61,27 @@ public class FragmentFav extends Fragment {
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
                                                      @Override
                                                      public void onClick(View v) {
-                                                         new DialogEditFav(getContext(), adapter, null,  true);
+                                                         new DialogEditFav(getContext(), adapter, null, true);
                                                      }
                                                  }
         );
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         favoritesRecyclerView.setAdapter(adapter);
         return view;
     }
 
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @Bind(R.id.editTextDiceEdges)
-        TextView name;
+        @Bind(R.id.setName)
+        TextView mSetName;
         @Bind(R.id.editSet)
-        ImageView mEditSetImageView;
+        ImageView mEditSet;
 
         public FavoritesViewHolder(View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             ButterKnife.bind(this, itemView);
-            mEditSetImageView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
+            mEditSet.setOnClickListener(this);
         }
 
         @Override
@@ -94,11 +91,11 @@ public class FragmentFav extends Fragment {
 
             switch (id) {
                 case R.id.favItem:
-//                        EventBus.getDefault().post(new FavoriteSetLoaded(pos));
+                        EventBus.getDefault().post(new FavoriteSetLoaded(position));
 
                     break;
                 case R.id.editSet:
-                    new DialogEditFav(getContext(), adapter, FavoritesInteractorImpl.getInstance(getContext()).getFavSet(position), false);
+                    new DialogEditFav(getContext(), adapter, adapter.getItem(position), false);
                     break;
             }
         }
@@ -121,12 +118,16 @@ public class FragmentFav extends Fragment {
 
         @Override
         public void onBindViewHolder(FavoritesViewHolder holder, int position) {
-            holder.name.setText(String.format("%s: %d", mFavoriteSets.get(position).getName(), position));
+            holder.mSetName.setText(String.format("%s: %d", mFavoriteSets.get(position).getName(), position));
         }
 
         @Override
         public int getItemCount() {
             return mFavoriteSets.size();
+        }
+
+        public FavoriteSet getItem(int position) {
+            return mFavoriteSets.get(position);
         }
 
         public void add(FavoriteSet item) {

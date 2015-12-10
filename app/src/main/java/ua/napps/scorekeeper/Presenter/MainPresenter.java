@@ -28,9 +28,11 @@ public interface MainPresenter {
 
     void setCounters(ArrayList<Counter> counters);
 
-    void addCountersFromList();
+    void addCountersFromList(int position);
 
     void addCounter();
 
     void removeCounter(Counter counter);
+
+    void loadCurrentSet();
 }

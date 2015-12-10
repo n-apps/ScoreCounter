@@ -10,7 +10,7 @@ public class FavoriteSetLoaded {
         this.position = pos;
     }
 
-    public int getFavoriteSetPosition() {
+    public int getPosition() {
         return position;
     }
 

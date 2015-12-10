@@ -13,6 +13,7 @@ public final class Constants {
     public static final String SEND_REPORT_EMAIL = "roman.novodvorskiy@gmail.com";
     public static final int MAX_COUNTERS = 8;
     public static final String FAV_ARRAY = "fav_array";
+    public static final String ACTIVE_COUNTERS = "active_counters";
     public static final String PREFS_DICE_SUM = "dice_sum";
     public static final int RECENT_LIST_SIZE = 4;
     public static final int[] colsArr = {1, 1, 1, 2, 2, 2, 2, 2};

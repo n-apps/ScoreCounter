@@ -1,6 +1,5 @@
 package ua.napps.scorekeeper.Adapters;
 
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +58,7 @@ public class AdapterRecent extends RecyclerView.Adapter<AdapterRecent.RecentView
         @Bind(R.id.diceIcon)
         ImageView icon;
 
-        @Bind(R.id.editTextDiceEdges)
+        @Bind(R.id.setName)
         TextView name;
 
         @Bind(R.id.editSet)

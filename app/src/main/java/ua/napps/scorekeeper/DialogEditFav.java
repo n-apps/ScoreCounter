@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.View.FragmentFav;
@@ -85,7 +86,10 @@ public class DialogEditFav extends AlertDialog.Builder {
 
     private void applyChanges() {
         if (mIsNewSet) {
-            mFavoriteSetsAdapter.add(new FavoriteSet(mSetName.getText().toString()));
+            FavoriteSet set = new FavoriteSet(mSetName.getText().toString());
+            set.setCounters(CurrentSetInteractor.getInstance().getCounters());
+            set.setIconColor(getProgressRGBColor());
+            mFavoriteSetsAdapter.add(set);
         } else {
             mFavoriteSet.setName(mSetName.getText().toString());
             mFavoriteSet.setIconColor(getProgressRGBColor());
