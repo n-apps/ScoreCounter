@@ -18,15 +18,12 @@ import ua.napps.scorekeeper.Events.DiceDialogClosed;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
-import ua.napps.scorekeeper.Interactors.FavoritesInteractor;
-import ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.Dice;
 import ua.napps.scorekeeper.View.FragmentFav;
 import ua.napps.scorekeeper.View.MainView;
 
 import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
-import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_BONUS;
@@ -45,12 +42,10 @@ public class MainPresenterImpl implements MainPresenter {
     Context mContext;
     MainView mView;
     ArrayList<Counter> mCounters;
-    FavoritesInteractor mFavoritesInteractor;
 
     public MainPresenterImpl(MainView iMainView) {
         this.mView = iMainView;
         this.mContext = mView.getContext();
-        this.mFavoritesInteractor = FavoritesInteractorImpl.getInstance(mContext);
     }
 
     @Override
@@ -68,7 +63,6 @@ public class MainPresenterImpl implements MainPresenter {
     public void onResume() {
         loadSettings();
         mView.clearViews();
-        loadFragment(); //TODO: only for debug
     }
 
     @Override
@@ -112,14 +106,14 @@ public class MainPresenterImpl implements MainPresenter {
 
         CurrentSetInteractor.getInstance().setCounters(mCounters);
 
-        String favSetsJson = new Gson().toJson(mFavoritesInteractor.getFavorites());
+
         String activeCountersJson = new Gson().toJson(CurrentSetInteractor.getInstance().getCounters());
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(PREFS_DICE_AMOUNT, Dice.getInstance().getAmount());
         editor.putInt(PREFS_DICE_MIN_EDGE, Dice.getInstance().getMinEdge());
         editor.putInt(PREFS_DICE_MAX_EDGE, Dice.getInstance().getMaxEdge());
         editor.putInt(PREFS_DICE_BONUS, Dice.getInstance().getBonus());
-        editor.putString(FAV_ARRAY, favSetsJson);
+
         editor.putString(ACTIVE_COUNTERS, activeCountersJson);
         editor.apply();
     }
@@ -165,16 +159,10 @@ public class MainPresenterImpl implements MainPresenter {
     }
 
     @Override
-    public void addCountersFromList(int index) {
-        LogUtils.i("addCountersFromList");
-        mCounters = mFavoritesInteractor.getFavSet(index).getCounters();
-        for (Counter c : mCounters) addCounterView(c);
-    }
-
-    @Override
     public void loadCurrentSet() {
         LogUtils.i("loadCurrentSet");
         mCounters = CurrentSetInteractor.getInstance().getCounters();
+        LogUtils.i(String.format("counters: %d", mCounters.size()));
         for (Counter c : mCounters) addCounterView(c);
     }
 
@@ -206,8 +194,8 @@ public class MainPresenterImpl implements MainPresenter {
             mView.closeFragment();
             mView.clearViews();
             mCounters.clear();
-
-            addCountersFromList(event.getPosition());
+            setCounters(event.getSet().getCounters());
+            for (Counter c : mCounters) addCounterView(c);
         }
     }
 

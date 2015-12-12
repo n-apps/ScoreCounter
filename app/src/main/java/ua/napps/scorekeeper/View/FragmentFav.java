@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.View;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +16,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.apkfuns.logutils.LogUtils;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -22,8 +30,11 @@ import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.DialogEditFav;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
-import ua.napps.scorekeeper.Interactors.FavoritesInteractorImpl;
+import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Models.FavoriteSet;
+
+import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
+import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
 
 public class FragmentFav extends Fragment {
 
@@ -39,7 +50,6 @@ public class FragmentFav extends Fragment {
     @Bind(R.id.addFavSetFAB)
     FloatingActionButton mFloatingActionButton;
     FavoriteSetsAdapter adapter;
-
 
     @Nullable
     @Override
@@ -57,7 +67,7 @@ public class FragmentFav extends Fragment {
                 context.closeFragment();
             }
         });
-        adapter = new FavoriteSetsAdapter(FavoritesInteractorImpl.getInstance(getContext()).getFavorites());
+        adapter = new FavoriteSetsAdapter(getFavorites());
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
                                                      @Override
                                                      public void onClick(View v) {
@@ -68,6 +78,38 @@ public class FragmentFav extends Fragment {
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         favoritesRecyclerView.setAdapter(adapter);
         return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        LogUtils.i("onStop");
+        String favSetsJson = new Gson().toJson(adapter.getItems());
+        SharedPreferences.Editor editor = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
+        editor.putString(FAV_ARRAY, favSetsJson);
+        editor.apply();
+        LogUtils.i("save favSets");
+
+    }
+
+    public ArrayList<FavoriteSet> getFavorites() {
+        LogUtils.i("getFavorites");
+        ArrayList<FavoriteSet> favoriteSets = new ArrayList<>();
+        LogUtils.i("access SharedPreferences");
+        SharedPreferences sp = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String json = sp.getString(Constants.FAV_ARRAY, "");
+
+        try {
+            Type listType = new TypeToken<ArrayList<FavoriteSet>>() {
+            }.getType();
+            favoriteSets = new Gson().fromJson(json, listType);
+            LogUtils.i(String.format("mFavorites size: %d", favoriteSets.size()));
+            LogUtils.i(String.format("json:%s", json));
+        } catch (JsonSyntaxException ex) {
+            LogUtils.e(ex.getMessage());
+        }
+
+        return favoriteSets;
     }
 
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -91,7 +133,7 @@ public class FragmentFav extends Fragment {
 
             switch (id) {
                 case R.id.favItem:
-                        EventBus.getDefault().post(new FavoriteSetLoaded(position));
+                    EventBus.getDefault().post(new FavoriteSetLoaded(adapter.getItem(position)));
 
                     break;
                 case R.id.editSet:
@@ -130,7 +172,12 @@ public class FragmentFav extends Fragment {
             return mFavoriteSets.get(position);
         }
 
+        public ArrayList<FavoriteSet> getItems() {
+            return mFavoriteSets;
+        }
+
         public void add(FavoriteSet item) {
+            LogUtils.i(String.format("add FavSet. item.counters.size: %d", item.getCounters().size()));
             int position = mFavoriteSets.size();
             mFavoriteSets.add(position, item);
             notifyItemInserted(position);
