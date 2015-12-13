@@ -103,6 +103,7 @@ public class FragmentFav extends Fragment {
             Type listType = new TypeToken<ArrayList<FavoriteSet>>() {
             }.getType();
             favoriteSets = new Gson().fromJson(json, listType);
+            if (favoriteSets == null) favoriteSets = new ArrayList<>();
             LogUtils.i(String.format("mFavorites size: %d", favoriteSets.size()));
             LogUtils.i(String.format("json:%s", json));
         } catch (JsonSyntaxException ex) {

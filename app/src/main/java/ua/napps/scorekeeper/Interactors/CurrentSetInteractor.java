@@ -17,16 +17,18 @@ public class CurrentSetInteractor {
     public static CurrentSetInteractor getInstance() {
         if (instance == null) {
             instance = new CurrentSetInteractor();
-            LogUtils.i("new instance");
+            LogUtils.i("new CurrentSetInteractor instance");
         }
         return instance;
     }
 
     public void setCounters(ArrayList counters) {
         this.mCounters = counters;
+        LogUtils.i(String.format("setCounters: %d", counters.size()));
     }
 
     public ArrayList<Counter> getCounters() {
+        LogUtils.i(String.format("getCounters: counters size: %d", mCounters.size()));
         return mCounters;
     }
 

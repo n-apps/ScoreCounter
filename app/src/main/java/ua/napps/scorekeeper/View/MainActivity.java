@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
@@ -52,8 +53,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
         mCountersLayout.init(this);
+        if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
+
         LogUtils.configTagPrefix = "*** ";
         LogUtils.i("onCreate");
     }
@@ -119,11 +121,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void onBackPressed() {
-
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         if (mDrawer.isDrawerOpen(GravityCompat.START)) mDrawer.closeDrawers();
         else {
-
             Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
             if (favFragment != null) {
                 closeFragment();
@@ -135,14 +135,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void onPrefButtonClick(View v) {
         mDrawer.closeDrawers();
-        startActivityForResult(new Intent(MainActivity.this, SettingsActivity.class), 0);
+        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        mCountersLayout.requestLayout();
-    }
 
     public void onClickShake(View v) {
 
@@ -150,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
             @Override
             public void onAnimationStart(Animator animation) {
-
             }
 
             @Override
@@ -188,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void clearViews() {
         mCountersLayout.removeAllViews();
+        LogUtils.i("clearViews");
     }
 
     @Override
@@ -202,12 +197,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void toggleKeepScreenOn(boolean isSelected) {
+        LogUtils.i("toggleKeepScreenOn");
         if (isSelected) getWindow().addFlags(FLAG_KEEP_SCREEN_ON);
         else getWindow().clearFlags(FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     public void toggleDicesBar(boolean isShowing) {
+        LogUtils.i("toggleDicesBar");
         if (isShowing) mDicesBar.setVisibility(VISIBLE);
         else mDicesBar.setVisibility(GONE);
     }
@@ -249,6 +246,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void changeAddCounterButtonState(boolean isVisible) {
+        LogUtils.i("changeAddCounterButtonState");
         if (isVisible) mBtnAddCounter.setAlpha(1);
         else mBtnAddCounter.setAlpha(0.3f);
         mBtnAddCounter.setEnabled(isVisible);

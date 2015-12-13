@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.Presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.apkfuns.logutils.LogUtils;
 import com.google.gson.Gson;
@@ -80,6 +81,7 @@ public class MainPresenterImpl implements MainPresenter {
             counters.add(new Counter(mContext.getResources().getString(R.string.counter_title_default)));
         }
         CurrentSetInteractor.getInstance().setCounters(counters);
+        LogUtils.i("setCurrentSetFromJSON");
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
         else mView.toggleKeepScreenOn(false);
@@ -96,18 +98,14 @@ public class MainPresenterImpl implements MainPresenter {
         } else {
             mView.toggleDicesBar(false);
         }
-
     }
 
     @Override
     public void saveSettings() {
         LogUtils.i("saveSettings");
-        LogUtils.i("access to SharedPreferences");
-
         CurrentSetInteractor.getInstance().setCounters(mCounters);
-
-
-        String activeCountersJson = new Gson().toJson(CurrentSetInteractor.getInstance().getCounters());
+        String activeCountersJson = new Gson().toJson(mCounters);
+        LogUtils.i("access to SharedPreferences");
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(PREFS_DICE_AMOUNT, Dice.getInstance().getAmount());
         editor.putInt(PREFS_DICE_MIN_EDGE, Dice.getInstance().getMinEdge());
@@ -121,7 +119,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void onSwipe(Counter counter, int direction, boolean isSwipe) {
-        LogUtils.i("onSwipe");
+        LogUtils.i(String.format("onSwipe %d %s", direction, isSwipe));
         counter.step(direction, isSwipe);
     }
 
@@ -139,9 +137,8 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void removeCounter(Counter counter) {
-        LogUtils.i("removeCounter");
+        LogUtils.i(String.format("removeCounter %s", counter.getCaption()));
         mCounters.remove(counter);
-
         mView.removeCounter(counter);
         if (mCounters.size() < MAX_COUNTERS) mView.changeAddCounterButtonState(true);
     }
@@ -183,18 +180,18 @@ public class MainPresenterImpl implements MainPresenter {
 
     public void onEvent(DiceDialogClosed event) {
         LogUtils.i("DiceDialogClosed event");
-
         if (event != null) mView.setDiceFormula(Dice.getInstance().toString());
     }
 
     public void onEvent(FavoriteSetLoaded event) {
-        LogUtils.i("FavoriteSetLoaded event");
+        LogUtils.i("onFavoriteSetLoaded");
 
         if (event != null) {
             mView.closeFragment();
             mView.clearViews();
             mCounters.clear();
             setCounters(event.getSet().getCounters());
+            LogUtils.i(String.format("counters size: %d", event.getSet().getCounters().size()));
             for (Counter c : mCounters) addCounterView(c);
         }
     }
