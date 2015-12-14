@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,14 +25,15 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.DialogEditFav;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
+import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 
-import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
 
 public class FragmentFav extends Fragment {
@@ -47,8 +47,11 @@ public class FragmentFav extends Fragment {
     @Bind(R.id.favRv)
     RecyclerView favoritesRecyclerView;
 
-    @Bind(R.id.addFavSetFAB)
-    FloatingActionButton mFloatingActionButton;
+    @OnClick(R.id.addFavSetFAB)
+    public void onClick(View v) {
+        new DialogEditFav(getContext(), adapter, null, true);
+    }
+
     FavoriteSetsAdapter adapter;
 
     @Nullable
@@ -68,28 +71,10 @@ public class FragmentFav extends Fragment {
             }
         });
         adapter = new FavoriteSetsAdapter(getFavorites());
-        mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-                                                     @Override
-                                                     public void onClick(View v) {
-                                                         new DialogEditFav(getContext(), adapter, null, true);
-                                                     }
-                                                 }
-        );
+
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         favoritesRecyclerView.setAdapter(adapter);
         return view;
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        LogUtils.i("onStop");
-        String favSetsJson = new Gson().toJson(adapter.getItems());
-        SharedPreferences.Editor editor = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
-        editor.putString(FAV_ARRAY, favSetsJson);
-        editor.apply();
-        LogUtils.i("save favSets");
-
     }
 
     public ArrayList<FavoriteSet> getFavorites() {
@@ -135,7 +120,6 @@ public class FragmentFav extends Fragment {
             switch (id) {
                 case R.id.favItem:
                     EventBus.getDefault().post(new FavoriteSetLoaded(adapter.getItem(position)));
-
                     break;
                 case R.id.editSet:
                     new DialogEditFav(getContext(), adapter, adapter.getItem(position), false);
@@ -173,28 +157,25 @@ public class FragmentFav extends Fragment {
             return mFavoriteSets.get(position);
         }
 
-        public ArrayList<FavoriteSet> getItems() {
-            return mFavoriteSets;
-        }
-
         public void add(FavoriteSet item) {
             LogUtils.i(String.format("add FavSet. item.counters.size: %d", item.getCounters().size()));
             int position = mFavoriteSets.size();
             mFavoriteSets.add(position, item);
+            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
             notifyItemInserted(position);
         }
 
         public void update(FavoriteSet item) {
             int position = mFavoriteSets.indexOf(item);
+            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
             notifyItemChanged(position);
         }
 
         public void remove(FavoriteSet item) {
             int position = mFavoriteSets.indexOf(item);
             mFavoriteSets.remove(position);
+            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
             notifyItemRemoved(position);
         }
-
     }
-
 }

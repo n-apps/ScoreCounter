@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -11,13 +10,12 @@ import android.widget.EditText;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Events.DiceDialogClosed;
-import ua.napps.scorekeeper.Models.Dice;
+import ua.napps.scorekeeper.Interactors.Dice;
+import ua.napps.scorekeeper.View.MainActivity;
 
 public class DiceDialog extends AlertDialog.Builder
-        implements Dialog.OnClickListener, EditText.OnFocusChangeListener {
+        implements EditText.OnFocusChangeListener {
     private final Dice dice;
     @Bind(R.id.et1)
     EditText amount;
@@ -30,12 +28,20 @@ public class DiceDialog extends AlertDialog.Builder
 
     public DiceDialog(Context context) {
         super(context);
+
         this.dice = Dice.getInstance();
         LayoutInflater inflater = LayoutInflater.from(context);
         @SuppressLint("InflateParams") final View view = inflater.inflate(R.layout.dice_dialog, null);
         setView(view);
-        ButterKnife.bind(this,view);
-        setPositiveButton(context.getString(R.string.button_positive), this);
+        ButterKnife.bind(this, view);
+        final MainActivity mainActivity = (MainActivity) context;
+        setPositiveButton(context.getString(R.string.button_positive), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                updateDice();
+                mainActivity.setDiceFormula(Dice.getInstance().toString());
+            }
+        });
         setNegativeButton(context.getString(R.string.button_negative), null);
         amount.setOnFocusChangeListener(this);
         min.setOnFocusChangeListener(this);
@@ -48,14 +54,11 @@ public class DiceDialog extends AlertDialog.Builder
         create().show();
     }
 
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
+    private void updateDice() {
         dice.setAmount(Integer.parseInt(amount.getText().toString()));
         dice.setMinEdge(Integer.parseInt(min.getText().toString()));
         dice.setMaxEdge(Integer.parseInt(max.getText().toString()));
         dice.setBonus(Integer.parseInt(bonus.getText().toString()));
-        EventBus.getDefault().post(new DiceDialogClosed());
-        //   context.onDiceEditComplete(); // TODO: maybe place for eventbus?
     }
 
     @Override

@@ -1,4 +1,6 @@
-package ua.napps.scorekeeper.Models;
+package ua.napps.scorekeeper.Interactors;
+
+import com.apkfuns.logutils.LogUtils;
 
 import java.security.SecureRandom;
 
@@ -12,10 +14,16 @@ public class Dice {
     private static Dice instance;
 
     public static Dice getInstance() {
-        if (instance == null)
-            instance = new Dice();
-
+        if (instance == null) {
+            instance = new Dice(); // TODO: WTF
+            LogUtils.i("Dice new instance");
+        }
         return instance;
+    }
+
+    private Dice() {
+        this.amount = 1;
+        this.maxEdge = 6;
     }
 
     public int roll() {
@@ -28,6 +36,7 @@ public class Dice {
 
     @Override
     public String toString() {
+        LogUtils.i(String.format("toString: %d", amount));
         String bonusStr = (bonus > 0) ? "+" + bonus : (bonus < 0) ? "" + bonus : "";
         return amount + "d" + (1 + maxEdge - minEdge) + bonusStr;
     }

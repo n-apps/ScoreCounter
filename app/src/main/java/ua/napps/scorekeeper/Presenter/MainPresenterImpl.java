@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.Presenter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.apkfuns.logutils.LogUtils;
 import com.google.gson.Gson;
@@ -15,16 +14,17 @@ import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.DiceDialog;
 import ua.napps.scorekeeper.Events.CounterCaptionClick;
-import ua.napps.scorekeeper.Events.DiceDialogClosed;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
+import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.Models.Dice;
+import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.View.FragmentFav;
 import ua.napps.scorekeeper.View.MainView;
 
 import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
+import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_BONUS;
@@ -177,12 +177,6 @@ public class MainPresenterImpl implements MainPresenter {
         addCounterView(c);
     }
 
-
-    public void onEvent(DiceDialogClosed event) {
-        LogUtils.i("DiceDialogClosed event");
-        if (event != null) mView.setDiceFormula(Dice.getInstance().toString());
-    }
-
     public void onEvent(FavoriteSetLoaded event) {
         LogUtils.i("onFavoriteSetLoaded");
 
@@ -204,6 +198,15 @@ public class MainPresenterImpl implements MainPresenter {
             } else {
                 mView.CounterCaptionClick(event.getCounter(), true);
             }
+        }
+    }
+
+    public void onEvent(FavoritesUpdated event) {
+        if (event != null) {
+            String favSetsJson = new Gson().toJson(event.getFavorites());
+            SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
+            editor.putString(FAV_ARRAY, favSetsJson);
+            editor.apply();
         }
     }
 

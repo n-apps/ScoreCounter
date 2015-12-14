@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
@@ -25,7 +23,7 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.AwesomeLayout;
 import ua.napps.scorekeeper.DialogEditCounter;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.Models.Dice;
+import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Presenter.MainPresenterImpl;
 
 import static android.view.View.GONE;

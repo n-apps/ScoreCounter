@@ -67,7 +67,7 @@ public class DialogEditCounter extends AlertDialog.Builder {
         paintedView.setBackgroundColor(color);
     }
 
-    private void initDialogButtons(final Counter counter, final MainActivity callback, String negative, String positive, String neutral) {
+    private void initDialogButtons(final Counter counter, final MainActivity mainActivity, String negative, String positive, String neutral) {
         setPositiveButton(positive, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface paramDialogInterface, int paramInt) {
@@ -78,7 +78,7 @@ public class DialogEditCounter extends AlertDialog.Builder {
         setNeutralButton(neutral, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                callback.onDialogClickDeleteCounter(counter);
+                mainActivity.onDialogClickDeleteCounter(counter);
             }
         });
     }

@@ -21,9 +21,9 @@ public class CurrentSetInteractor {
         }
         return instance;
     }
-    
+
     private CurrentSetInteractor() {
-    mCounters = new ArrayList<>();
+        mCounters = new ArrayList<>();
     }
 
     public void setCounters(ArrayList counters) {
