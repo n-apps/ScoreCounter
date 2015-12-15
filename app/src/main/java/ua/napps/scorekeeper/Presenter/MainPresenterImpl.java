@@ -202,6 +202,7 @@ public class MainPresenterImpl implements MainPresenter {
     }
 
     public void onEvent(FavoritesUpdated event) {
+    //TODO: onEventBackgroundThread
         if (event != null) {
             String favSetsJson = new Gson().toJson(event.getFavorites());
             SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
