@@ -13,7 +13,18 @@ import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.View.MainActivity;
-
+// TODO: wrap into DialogFragment
+/*
+public class DatePickerFragment extends DialogFragment {
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.date_picker_title)
+            .setPositiveButton(android.R.string.ok, null)
+            .create();
+    }
+}
+*/
 public class DiceDialog extends AlertDialog.Builder
         implements EditText.OnFocusChangeListener {
     private final Dice dice;
