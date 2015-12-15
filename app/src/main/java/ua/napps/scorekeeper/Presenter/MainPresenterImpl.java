@@ -125,7 +125,20 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void loadFragment() {
-        mView.loadFragment(new FragmentFav());
+        mView.loadFragment(new FragmentFav()); 
+        /*
+        To hit this window, Android programmers follow a convention of adding a static method named
+newInstance() to the Fragment class. This method creates the fragment instance and bundles up and
+sets its arguments.
+
+  public static CrimeFragment newInstance(UUID crimeId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_CRIME_ID, crimeId);
+        CrimeFragment fragment = new CrimeFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+        */
         LogUtils.i("loadFragment");
     }
 
