@@ -12,14 +12,14 @@ import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.DiceDialog;
 import ua.napps.scorekeeper.Events.CounterCaptionClick;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
-import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
-import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Interactors.Dice;
+import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.View.DiceDialog;
 import ua.napps.scorekeeper.View.FragmentFav;
 import ua.napps.scorekeeper.View.MainView;
 
@@ -80,7 +80,7 @@ public class MainPresenterImpl implements MainPresenter {
             counters = new ArrayList<>();
             counters.add(new Counter(mContext.getResources().getString(R.string.counter_title_default)));
         }
-        CurrentSetInteractor.getInstance().setCounters(counters);
+        CurrentSet.getInstance().setCounters(counters);
         LogUtils.i("setCurrentSetFromJSON");
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
@@ -103,7 +103,7 @@ public class MainPresenterImpl implements MainPresenter {
     @Override
     public void saveSettings() {
         LogUtils.i("saveSettings");
-        CurrentSetInteractor.getInstance().setCounters(mCounters);
+        CurrentSet.getInstance().setCounters(mCounters);
         String activeCountersJson = new Gson().toJson(mCounters);
         LogUtils.i("access to SharedPreferences");
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
@@ -171,7 +171,7 @@ sets its arguments.
     @Override
     public void loadCurrentSet() {
         LogUtils.i("loadCurrentSet");
-        mCounters = CurrentSetInteractor.getInstance().getCounters();
+        mCounters = CurrentSet.getInstance().getCounters();
         LogUtils.i(String.format("counters: %d", mCounters.size()));
         for (Counter c : mCounters) addCounterView(c);
     }
@@ -194,7 +194,7 @@ sets its arguments.
         LogUtils.i("onFavoriteSetLoaded");
 
         if (event != null) {
-            mView.closeFragment();
+            mView.closeFragment("favorites");
             mView.clearViews();
             mCounters.clear();
             setCounters(event.getSet().getCounters());
@@ -214,8 +214,7 @@ sets its arguments.
         }
     }
 
-    public void onEvent(FavoritesUpdated event) {
-    //TODO: onEventBackgroundThread
+    public void onEventBackgroundThread(FavoritesUpdated event) {
         if (event != null) {
             String favSetsJson = new Gson().toJson(event.getFavorites());
             SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();

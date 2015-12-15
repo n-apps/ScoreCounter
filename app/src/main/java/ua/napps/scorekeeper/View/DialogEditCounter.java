@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper;
+package ua.napps.scorekeeper.View;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -14,7 +14,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
 // TODO: wrap into DialogFragment

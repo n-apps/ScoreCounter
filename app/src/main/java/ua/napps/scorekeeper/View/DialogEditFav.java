@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper;
+package ua.napps.scorekeeper.View;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -17,10 +16,8 @@ import com.apkfuns.logutils.LogUtils;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Interactors.CurrentSetInteractor;
-import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Models.FavoriteSet;
-import ua.napps.scorekeeper.View.FragmentFav;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
 // TODO: wrap into DialogFragment
@@ -102,7 +99,7 @@ public class DialogEditFav extends AlertDialog.Builder {
         if (mIsNewSet) {
             LogUtils.i("saving new set");
             FavoriteSet set = new FavoriteSet(mSetName.getText().toString());
-            set.setCounters(CurrentSetInteractor.getInstance().getCounters());
+            set.setCounters(CurrentSet.getInstance().getCounters());
             set.setIconColor(getProgressRGBColor());
             mFavoriteSetsAdapter.add(set);
             LogUtils.i(String.format("counters:%d", set.getCounters().size()));

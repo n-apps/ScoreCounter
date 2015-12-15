@@ -9,20 +9,20 @@ import ua.napps.scorekeeper.Models.Counter;
 /**
  * Created by novo on 10-Dec-15.
  */
-public class CurrentSetInteractor {
+public class CurrentSet {
 
     private ArrayList<Counter> mCounters;
-    private static CurrentSetInteractor instance;
+    private static CurrentSet instance;
 
-    public static CurrentSetInteractor getInstance() {
+    public static CurrentSet getInstance() {
         if (instance == null) {
-            instance = new CurrentSetInteractor();
-            LogUtils.i("new CurrentSetInteractor instance");
+            instance = new CurrentSet();
+            LogUtils.i("new CurrentSet instance");
         }
         return instance;
     }
 
-    private CurrentSetInteractor() {
+    private CurrentSet() {
         mCounters = new ArrayList<>();
     }
 

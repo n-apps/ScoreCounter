@@ -21,9 +21,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.AwesomeLayout;
-import ua.napps.scorekeeper.DialogEditCounter;
-import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Interactors.Dice;
+import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Presenter.MainPresenterImpl;
 
 import static android.view.View.GONE;
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         else {
             Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
             if (favFragment != null) {
-                closeFragment();
+                closeFragment("favorites");
             } else {
                 super.onBackPressed();
             }
@@ -203,8 +202,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void toggleDicesBar(boolean isShowing) {
         LogUtils.i("toggleDicesBar");
-        if (isShowing) mDicesBar.setVisibility(VISIBLE);
-        else mDicesBar.setVisibility(GONE);
+        if (isShowing) {
+            mDicesBar.setVisibility(VISIBLE);
+            Dice.getInstance();
+        } else mDicesBar.setVisibility(GONE);
     }
 
     @Override
@@ -223,12 +224,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
-                .replace(R.id.fragContainer, fragment, "favorites").commit(); // TODO: move tag in methods
+                .replace(R.id.fragContainer, fragment, "favorites").commit();
     }
 
     @Override
-    public void closeFragment() {
-        Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
+    public void closeFragment(String tag) {
+        Fragment favFragment = getSupportFragmentManager().findFragmentByTag(tag);
         if (favFragment != null) {
             getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
                     .remove(favFragment).commit();

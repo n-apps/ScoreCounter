@@ -6,24 +6,25 @@ import java.security.SecureRandom;
 
 public class Dice {
     private static final SecureRandom rnd = new SecureRandom();
-    private int amount;
-    private int minEdge;
-    private int maxEdge;
-    private int bonus;
+    int amount;
+    int minEdge;
+    int maxEdge;
+    int bonus;
 
     private static Dice instance;
 
     public static Dice getInstance() {
         if (instance == null) {
-            instance = new Dice(); // TODO: WTF
-            LogUtils.i("Dice new instance");
+            instance = new Dice();
         }
         return instance;
     }
 
     private Dice() {
-        this.amount = 1;
-        this.maxEdge = 6;
+        amount = 1;
+        minEdge = 1;
+        maxEdge = 6;
+        bonus = 10;
     }
 
     public int roll() {

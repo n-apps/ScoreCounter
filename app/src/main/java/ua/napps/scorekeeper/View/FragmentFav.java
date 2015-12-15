@@ -28,7 +28,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.DialogEditFav;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
@@ -67,7 +66,7 @@ public class FragmentFav extends Fragment {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.closeFragment();
+                context.closeFragment("favorites");
             }
         });
         adapter = new FavoriteSetsAdapter(getFavorites());

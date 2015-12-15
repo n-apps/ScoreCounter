@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper;
+package ua.napps.scorekeeper.View;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,7 +12,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Interactors.Dice;
-import ua.napps.scorekeeper.View.MainActivity;
+
+import static ua.napps.scorekeeper.Interactors.Dice.getInstance;
+
 // TODO: wrap into DialogFragment
 /*
 public class DatePickerFragment extends DialogFragment {
@@ -27,7 +29,6 @@ public class DatePickerFragment extends DialogFragment {
 */
 public class DiceDialog extends AlertDialog.Builder
         implements EditText.OnFocusChangeListener {
-    private final Dice dice;
     @Bind(R.id.et1)
     EditText amount;
     @Bind(R.id.et2)
@@ -40,17 +41,17 @@ public class DiceDialog extends AlertDialog.Builder
     public DiceDialog(Context context) {
         super(context);
 
-        this.dice = Dice.getInstance();
         LayoutInflater inflater = LayoutInflater.from(context);
         @SuppressLint("InflateParams") final View view = inflater.inflate(R.layout.dice_dialog, null);
         setView(view);
         ButterKnife.bind(this, view);
         final MainActivity mainActivity = (MainActivity) context;
+        final Dice dice = getInstance();
         setPositiveButton(context.getString(R.string.button_positive), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 updateDice();
-                mainActivity.setDiceFormula(Dice.getInstance().toString());
+                mainActivity.setDiceFormula(dice.toString());
             }
         });
         setNegativeButton(context.getString(R.string.button_negative), null);
@@ -58,18 +59,18 @@ public class DiceDialog extends AlertDialog.Builder
         min.setOnFocusChangeListener(this);
         max.setOnFocusChangeListener(this);
         bonus.setOnFocusChangeListener(this);
-        amount.append("" + dice.getAmount());
-        min.append("" + dice.getMinEdge());
-        max.append("" + dice.getMaxEdge());
-        bonus.append("" + dice.getBonus());
+        amount.setText(Integer.toString(dice.getAmount()));
+        min.setText(Integer.toString(dice.getMinEdge()));
+        max.setText(Integer.toString(dice.getMaxEdge()));
+        bonus.setText(Integer.toString(dice.getBonus()));
         create().show();
     }
 
     private void updateDice() {
-        dice.setAmount(Integer.parseInt(amount.getText().toString()));
-        dice.setMinEdge(Integer.parseInt(min.getText().toString()));
-        dice.setMaxEdge(Integer.parseInt(max.getText().toString()));
-        dice.setBonus(Integer.parseInt(bonus.getText().toString()));
+        getInstance().setAmount(Integer.parseInt(amount.getText().toString()));
+        getInstance().setMinEdge(Integer.parseInt(min.getText().toString()));
+        getInstance().setMaxEdge(Integer.parseInt(max.getText().toString()));
+        getInstance().setBonus(Integer.parseInt(bonus.getText().toString()));
     }
 
     @Override

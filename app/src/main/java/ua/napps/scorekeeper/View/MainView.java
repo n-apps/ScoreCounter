@@ -28,7 +28,7 @@ public interface MainView {
 
     void loadFragment(Fragment fragment);
 
-    void closeFragment();
+    void closeFragment(String tag);
 
     void CounterCaptionClick(Counter counter, boolean isNeutralButtonEnabled);
 
