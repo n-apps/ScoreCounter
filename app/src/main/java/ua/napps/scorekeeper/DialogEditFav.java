@@ -23,7 +23,18 @@ import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.View.FragmentFav;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
-
+// TODO: wrap into DialogFragment
+/*
+public class DatePickerFragment extends DialogFragment {
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.date_picker_title)
+            .setPositiveButton(android.R.string.ok, null)
+            .create();
+    }
+}
+*/
 public class DialogEditFav extends AlertDialog.Builder {
     private FragmentFav.FavoriteSetsAdapter mFavoriteSetsAdapter;
     private boolean mIsNewSet;
