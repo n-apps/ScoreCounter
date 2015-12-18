@@ -38,8 +38,8 @@ import static ua.napps.scorekeeper.Models.Counter.OnChangeListener;
 
 public class CounterView extends FrameLayout implements View.OnClickListener, View.OnTouchListener, OnChangeListener {
     private final float density = getResources().getDisplayMetrics().density;
-    private MainActivity callback;
-    Counter counter;
+    private MainActivity mActivity;
+    Counter mCounter;
     private long startShowingPrevValue;
     @Bind(R.id.rootCounterView) View root;
     @Bind(R.id.caption) TextView caption;
@@ -61,8 +61,8 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
 
     public void init(Counter counter, MainActivity callback, Typeface ownFontType) {
         ButterKnife.bind(this);
-        this.counter = counter;
-        this.callback = callback;
+        this.mCounter = counter;
+        this.mActivity = callback;
         root.setOnTouchListener(this);
         caption.setOnClickListener(this);
         tvValue.setTypeface(ownFontType);
@@ -91,7 +91,7 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
 
     @Override
         public void onClick(View v) {
-            EventBus.getDefault().post(new CounterCaptionClick(counter));
+            EventBus.getDefault().post(new CounterCaptionClick(mCounter));
     }
 
     @Override
@@ -110,7 +110,7 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
                     // prevent miss click when try to pull drawer
                     if (origX > 200) {
                         showPrevValue();
-                        callback.onCounterSwipe(counter, delta > 0 ? RIGHT : LEFT, moved);
+                        mActivity.onCounterSwipe(mCounter, delta > 0 ? RIGHT : LEFT, moved);
                     }
                 }
                 break;
@@ -118,7 +118,7 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
                 boolean longClick = event.getEventTime() - event.getDownTime() > LONG_PRESS_TIMEOUT;
                 if (longClick || moved) return true;
                 showPrevValue();
-                callback.onCounterSwipe(counter, event.getX() > v.getWidth() / 2 ? RIGHT : LEFT, moved);
+                mActivity.onCounterSwipe(mCounter, event.getX() > v.getWidth() / 2 ? RIGHT : LEFT, moved);
                 if (!moved) {
                     YoYo.with(Techniques.ZoomIn)
                             .duration(200)
@@ -154,12 +154,12 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
 
     @Override
     public void onChangeColor() {
-        root.setBackgroundColor(counter.getColor());
+        root.setBackgroundColor(mCounter.getColor());
         defineColorsByBackground();
     }
 
     private void defineColorsByBackground() {
-        int tint = getTintColor(counter.getColor());
+        int tint = getTintColor(mCounter.getColor());
         caption.setTextColor(tint);
         tvValue.setTextColor(tint);
         prevValue.setTextColor(tint);
@@ -169,10 +169,10 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
 
     @Override
     public void onChangeValues() {
-        caption.setText(counter.getCaption());
-        int v = counter.getValue();
+        caption.setText(mCounter.getCaption());
+        int v = mCounter.getValue();
         if (v < 0) {
-            SpannableStringBuilder sb = new SpannableStringBuilder("" + counter.getValue());
+            SpannableStringBuilder sb = new SpannableStringBuilder("" + mCounter.getValue());
             sb.setSpan(new ScaleXSpan(MINUS_SYMBOL_SCALE), 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
             tvValue.setText(sb);
         } else tvValue.setText(String.format("%d", v));

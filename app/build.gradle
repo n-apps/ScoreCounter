@@ -19,14 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    signingConfigs {
-        release {
-            storeFile file("/E:/Work/android/key.jks")
-            storePassword "1041"
-            keyAlias "napps"
-            keyPassword "10411041"
-        }
-    }
     productFlavors {
     }
 }

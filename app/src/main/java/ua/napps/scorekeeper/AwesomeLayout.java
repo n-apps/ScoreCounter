@@ -16,9 +16,9 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 public class AwesomeLayout extends FrameLayout {
-    private final LayoutTransition transition = new LayoutTransition();
-    private Typeface ownFontType;
-    private MainActivity context;
+    private final LayoutTransition mTransition = new LayoutTransition();
+    private Typeface mTypeface;
+    private MainActivity mContext;
 
     public AwesomeLayout(Context context) {
         super(context);
@@ -29,15 +29,15 @@ public class AwesomeLayout extends FrameLayout {
     }
 
     public void init(MainActivity context) {
-        this.context = context;
-        setLayoutTransition(transition);
-        ownFontType = Typeface.createFromAsset(getContext().getAssets(), "Lekton-Regular.ttf");
+        this.mContext = context;
+        setLayoutTransition(mTransition);
+        mTypeface = Typeface.createFromAsset(getContext().getAssets(), "Lekton-Regular.ttf");
     }
 
     public void createCounterView(Counter counter) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         CounterView view = (CounterView) inflater.inflate(R.layout.view_counter, this, false);
-        view.init(counter, context, ownFontType);
+        view.init(counter, mContext, mTypeface);
         addView(view, getChildCount());
         calcViewsBounds();
     }
@@ -45,7 +45,7 @@ public class AwesomeLayout extends FrameLayout {
     public void destroyCounterView(Counter counter) {
         for (int i = 0; i < getChildCount(); i++) {
             CounterView v = (CounterView) getChildAt(i);
-            if (v.counter == counter) removeView(v);
+            if (v.mCounter == counter) removeView(v);
         }
         calcViewsBounds();
     }
@@ -63,7 +63,7 @@ public class AwesomeLayout extends FrameLayout {
             rootW = rootH;
             rootH = t;
         }
-        final int w = (int) Math.ceil((double) rootW / cols); // размеры counter view
+        final int w = (int) Math.ceil((double) rootW / cols); // размеры mCounter view
         final int h = (int) Math.ceil((double) rootH / rows);
         boolean odd = false;
         if (q % 2 == 0) odd = true;
