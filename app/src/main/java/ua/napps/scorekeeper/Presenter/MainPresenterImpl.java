@@ -125,7 +125,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void loadFragment() {
-        mView.loadFragment(new FragmentFav()); 
+        mView.loadFragment(new FragmentFav()); // TODO: move to activity. wrap into newInstance()
         /*
         To hit this window, Android programmers follow a convention of adding a static method named
 newInstance() to the Fragment class. This method creates the fragment instance and bundles up and
@@ -144,7 +144,7 @@ sets its arguments.
 
     @Override
     public void showDiceDialog() {
-        new DiceDialog(mContext);
+        new DiceDialog(mContext); // TODO: move to activity
         LogUtils.i("showDiceDialog");
     }
 
