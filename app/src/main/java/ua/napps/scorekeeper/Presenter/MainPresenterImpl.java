@@ -31,6 +31,7 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MAX_EDGE;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MIN_EDGE;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_SUM;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
+import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
@@ -91,6 +92,10 @@ public class MainPresenterImpl implements MainPresenter {
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
         else mView.toggleKeepScreenOn(false);
+
+        if (sp.getBoolean(PREFS_SHOW_ALL_COUNTERS, true))
+            mView.setVisibleCounters(true);
+        else mView.setVisibleCounters(false);
 
         if (sp.getBoolean(PREFS_SHOW_DICES, false)) {
             mView.toggleDicesBar(true);
@@ -161,9 +166,7 @@ sets its arguments.
     @Override
     public void removeCounter(Counter counter) {
         LogUtils.i(String.format("removeCounter %s", counter.getCaption()));
-        getCurrentSet().removeCounter(counter);
-        mView.removeCounter(counter);
-        if (getCurrentSet().getSize() < MAX_COUNTERS) mView.changeAddCounterButtonState(true);
+
     }
 
     private void addCounterView(Counter counter) {

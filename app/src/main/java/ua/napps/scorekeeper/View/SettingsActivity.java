@@ -9,7 +9,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.apkfuns.logutils.LogUtils;
@@ -20,6 +19,7 @@ import ua.com.napps.scorekeeper.R;
 
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
+import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
@@ -30,6 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
     SwitchCompat showDicesBar;
     @Bind(R.id.stayAwake)
     SwitchCompat stayAwake;
+    @Bind(R.id.showAllCounters)
+    SwitchCompat showAllCounetrs;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
@@ -57,9 +59,11 @@ public class SettingsActivity extends AppCompatActivity {
         super.onResume();
         LogUtils.i("onResume");
         LogUtils.i("access to SharedPreferences");
+
         SharedPreferences sp = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         showDicesBar.setChecked(sp.getBoolean(PREFS_SHOW_DICES, false));
         stayAwake.setChecked(sp.getBoolean(PREFS_STAY_AWAKE, true));
+        showAllCounetrs.setChecked(sp.getBoolean(PREFS_SHOW_ALL_COUNTERS, true));
     }
 
     @Override
@@ -70,6 +74,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         editor.putBoolean(PREFS_SHOW_DICES, showDicesBar.isChecked());
         editor.putBoolean(PREFS_STAY_AWAKE, stayAwake.isChecked());
+        editor.putBoolean(PREFS_SHOW_ALL_COUNTERS, showAllCounetrs.isChecked());
         editor.apply();
     }
 

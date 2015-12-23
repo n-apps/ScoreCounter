@@ -22,8 +22,6 @@
             android:name="ua.napps.scorekeeper.View.SettingsActivity"
             android:label="Settings"/>
 
-        <activity android:name="ua.napps.scorekeeper.View.MainBetaActivity">
-        </activity>
     </application>
 
 </manifest>

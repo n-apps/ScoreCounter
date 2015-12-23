@@ -27,7 +27,7 @@ public class CurrentSet {
     }
 
     public int getSize() {
-       return mCounters.size();
+        return mCounters.size();
     }
 
     public void setCounters(ArrayList counters) {
@@ -43,6 +43,7 @@ public class CurrentSet {
     public void removeCounter(Counter item) {
         mCounters.remove(item);
     }
+
     public void addCounter(Counter item) {
         mCounters.add(item);
     }

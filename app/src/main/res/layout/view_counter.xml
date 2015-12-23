@@ -3,36 +3,42 @@
 <ua.napps.scorekeeper.CounterView
     android:id="@+id/rootCounterView"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/accentColor"
     tools:ignore="ContentDescription">
 
-    <TextView
+    <me.grantland.widget.AutofitTextView
         android:id="@+id/caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:alpha="0.54"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center_horizontal"
-        android:lines="1"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:maxLines="1"
         android:padding="8dp"
-        android:textSize="24dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:singleLine="true"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="48sp"
+        autofit:minTextSize="16sp"
+        />
 
-    <TextView
+    <me.grantland.widget.AutofitTextView
         android:id="@+id/value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:alpha="0.83"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:singleLine="true"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="128sp"
         android:clickable="false"
-        android:gravity="center"
-        android:lines="1"
-        android:text="Value"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="64sp"/>
+        android:text="1"
+        autofit:minTextSize="16sp"
+        />
+
 
     <ImageView
         android:id="@+id/minus"

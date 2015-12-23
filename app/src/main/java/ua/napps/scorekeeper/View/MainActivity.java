@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
-import ua.napps.scorekeeper.Interactors.CurrentSet;
+import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Presenter.MainPresenterImpl;
@@ -32,9 +32,10 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
+import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 public class MainActivity extends AppCompatActivity implements MainView {
-    MainPresenterImpl mPresenter;
 
     @Bind(R.id.recyclerView)
     CleverRecyclerView mCleverRecyclerView;
@@ -48,7 +49,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
+
+    MainPresenterImpl mPresenter;
     CountersAdapter mAdapter;
+    boolean isAllCountersVisible;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +77,22 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
             mCleverRecyclerView.setAdapter(mAdapter);
         } else {
-            mAdapter.setCounters(CurrentSet.getCurrentSet().getCounters());
+            mAdapter.setCounters(getCurrentSet().getCounters());
             mAdapter.notifyDataSetChanged();
         }
+        mAdapter.setOnItemClickListener(new CountersAdapter.OnItemClickListener() {
+            @Override
+            public void onCaptionClick(int position) {
+                new DialogEditCounter(MainActivity.this, mAdapter.getCounter(position), true);
+            }
 
-        mCleverRecyclerView.setVisibleChildCount(1);
+            @Override
+            public void onValueClick(int position) {
+            }
+        });
+        mCleverRecyclerView.setItemAnimator(new NoChangeAnimator());
+
+        updateUI();
         mCleverRecyclerView.setScrollAnimationDuration(300);
         mCleverRecyclerView.setFlingFriction(0.99f);
         mCleverRecyclerView.setSlidingThreshold(0.1f);
@@ -85,6 +101,17 @@ public class MainActivity extends AppCompatActivity implements MainView {
         } else {
             mCleverRecyclerView.setOrientation(RecyclerView.HORIZONTAL);
         }
+    }
+
+    private void updateUI() {
+        if (isAllCountersVisible) {
+            mCleverRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
+            mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+        } else {
+            mCleverRecyclerView.setVisibleChildCount(1);
+        }
+        mCleverRecyclerView.invalidate();
+
     }
 
     @Override
@@ -117,8 +144,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void onClickAddCounter(View v) {
         mDrawer.closeDrawers();
-        mAdapter.addCounter(new Counter("33"));
-        mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+        getCurrentSet().addCounter(new Counter("d2d"));
+        mAdapter.notifyDataSetChanged();
+        updateUI();
     }
 
     public void onFavButtonClick(View v) {
@@ -130,7 +158,9 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     public void onDialogClickDeleteCounter(Counter counter) {
-        getMainPresenter().removeCounter(counter);
+        removeCounter(counter);
+        if (getCurrentSet().getSize() < MAX_COUNTERS) changeAddCounterButtonState(true);
+
     }
 
     @Override
@@ -200,13 +230,16 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void addCounter(Counter counter) {
-        mAdapter.addCounter(counter);
-        mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+        getCurrentSet().addCounter(new Counter("dd"));
+        mAdapter.notifyDataSetChanged();
+        updateUI();
     }
 
     @Override
     public void removeCounter(Counter counter) {
-
+        getCurrentSet().removeCounter(counter);
+        mAdapter.notifyDataSetChanged();
+        updateUI();
     }
 
     @Override
@@ -223,6 +256,11 @@ public class MainActivity extends AppCompatActivity implements MainView {
             mDicesBar.setVisibility(VISIBLE);
             Dice.getInstance();
         } else mDicesBar.setVisibility(GONE);
+    }
+
+    @Override
+    public void setVisibleCounters(boolean isShowing) {
+        isAllCountersVisible = isShowing;
     }
 
     @Override
@@ -267,5 +305,4 @@ public class MainActivity extends AppCompatActivity implements MainView {
         else mBtnAddCounter.setAlpha(0.3f);
         mBtnAddCounter.setEnabled(isVisible);
     }
-
 }

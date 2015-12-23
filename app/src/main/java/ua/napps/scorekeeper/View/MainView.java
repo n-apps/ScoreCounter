@@ -22,6 +22,8 @@ public interface MainView {
 
     void toggleDicesBar(boolean isShowing);
 
+    void setVisibleCounters(boolean isShowing);
+
     void setDiceSum(String sum);
 
     void setDiceFormula(String formula);

@@ -6,6 +6,7 @@ public final class Constants {
     public static final String PREFS_NAME = "prefs";
     public static final String PREFS_SHOW_DICES = "show_dices";
     public static final String PREFS_STAY_AWAKE = "stay_awake";
+    public static final String PREFS_SHOW_ALL_COUNTERS = "visible_counters";
     public static final String PREFS_DICE_AMOUNT = "dice_amount";
     public static final String PREFS_DICE_MIN_EDGE = "dice_min_edge";
     public static final String PREFS_DICE_MAX_EDGE = "dice_max_edge";
