@@ -9,11 +9,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ua.napps.scorekeeper.AwesomeLayout
-                android:id="@+id/counterLayout"
+            <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
             <include layout="@layout/dices_bar" />
         </LinearLayout>

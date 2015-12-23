@@ -16,7 +16,6 @@ import ua.napps.scorekeeper.Events.CounterCaptionClick;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
-import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.View.DiceDialog;
@@ -34,6 +33,7 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_SUM;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
+import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 /**
  * Created by Roman on 23/11/2015.
@@ -42,7 +42,6 @@ public class MainPresenterImpl implements MainPresenter {
 
     Context mContext;
     MainView mView;
-    ArrayList<Counter> mCounters;
 
     public MainPresenterImpl(MainView iMainView) {
         this.mView = iMainView;
@@ -63,7 +62,6 @@ public class MainPresenterImpl implements MainPresenter {
     @Override
     public void onResume() {
         loadSettings();
-        mView.clearViews();
     }
 
     @Override
@@ -80,7 +78,7 @@ public class MainPresenterImpl implements MainPresenter {
             counters = new ArrayList<>();
             counters.add(new Counter(mContext.getResources().getString(R.string.counter_title_default)));
         }
-        CurrentSet.getInstance().setCounters(counters);
+        getCurrentSet().setCounters(counters);
         LogUtils.i("setCurrentSetFromJSON");
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
@@ -103,8 +101,7 @@ public class MainPresenterImpl implements MainPresenter {
     @Override
     public void saveSettings() {
         LogUtils.i("saveSettings");
-        CurrentSet.getInstance().setCounters(mCounters);
-        String activeCountersJson = new Gson().toJson(mCounters);
+        String activeCountersJson = new Gson().toJson( getCurrentSet().getCounters());
         LogUtils.i("access to SharedPreferences");
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(PREFS_DICE_AMOUNT, Dice.getInstance().getAmount());
@@ -149,45 +146,43 @@ sets its arguments.
     }
 
     @Override
+    public void setCounters(ArrayList<Counter> counters) {
+
+    }
+
+    @Override
     public void removeCounter(Counter counter) {
         LogUtils.i(String.format("removeCounter %s", counter.getCaption()));
-        mCounters.remove(counter);
+        getCurrentSet().removeCounter(counter);
         mView.removeCounter(counter);
-        if (mCounters.size() < MAX_COUNTERS) mView.changeAddCounterButtonState(true);
+        if (getCurrentSet().getSize() < MAX_COUNTERS) mView.changeAddCounterButtonState(true);
     }
 
     private void addCounterView(Counter counter) {
         LogUtils.i("addCounterView");
-        if (mCounters.size() == MAX_COUNTERS) mView.changeAddCounterButtonState(false);
+        if (getCurrentSet().getSize() == MAX_COUNTERS) mView.changeAddCounterButtonState(false);
         mView.addCounter(counter);
-    }
-
-    @Override
-    public void setCounters(ArrayList<Counter> counters) {
-        LogUtils.i("setCounters");
-        this.mCounters = counters;
     }
 
     @Override
     public void loadCurrentSet() {
         LogUtils.i("loadCurrentSet");
-        mCounters = CurrentSet.getInstance().getCounters();
-        LogUtils.i(String.format("counters: %d", mCounters.size()));
-        for (Counter c : mCounters) addCounterView(c);
+        LogUtils.i(String.format("counters: %d", getCurrentSet().getSize()));
+        for (Counter c : getCurrentSet().getCounters()) addCounterView(c);
     }
 
     @Override
     public void addCounter() {
         LogUtils.i("addCounter");
 
-        if (mCounters.size() >= MAX_COUNTERS) {
+        if (getCurrentSet().getSize() >= MAX_COUNTERS) {
             mView.changeAddCounterButtonState(false);
             return;
         }
 
         Counter c = new Counter(getCounterCaption());
-        mCounters.add(c);
-        addCounterView(c);
+        getCurrentSet().addCounter(c);
+
     }
 
     public void onEvent(FavoriteSetLoaded event) {
@@ -196,17 +191,16 @@ sets its arguments.
         if (event != null) {
             mView.closeFragment("favorites");
             mView.clearViews();
-            mCounters.clear();
-            setCounters(event.getSet().getCounters());
+
             LogUtils.i(String.format("counters size: %d", event.getSet().getCounters().size()));
-            for (Counter c : mCounters) addCounterView(c);
+            for (Counter c : event.getSet().getCounters()) addCounterView(c);
         }
     }
 
     public void onEvent(CounterCaptionClick event) {
         LogUtils.i("CounterCaptionClick event");
         if (event != null && event.getCounter() != null) {
-            if (mCounters.size() < 2) {
+            if (getCurrentSet().getSize() < 2) {
                 mView.CounterCaptionClick(event.getCounter(), false);
             } else {
                 mView.CounterCaptionClick(event.getCounter(), true);
@@ -224,7 +218,7 @@ sets its arguments.
     }
 
     private String getCounterCaption() {
-        return String.format("%s %d", mContext.getString(R.string.counter_title_default), mCounters.size() + 1);
+        return String.format("%s %d", mContext.getString(R.string.counter_title_default), getCurrentSet().getSize() + 1);
     }
 
 

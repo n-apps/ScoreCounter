@@ -3,4 +3,7 @@
 
     <item name="alpha_empty_state" format="float" type="dimen">0.27</item>
     <item name="alpha_icons" format="float" type="dimen">0.54</item>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 </resources>

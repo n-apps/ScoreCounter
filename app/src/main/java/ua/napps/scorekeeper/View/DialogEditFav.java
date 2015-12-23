@@ -99,7 +99,7 @@ public class DialogEditFav extends AlertDialog.Builder {
         if (mIsNewSet) {
             LogUtils.i("saving new set");
             FavoriteSet set = new FavoriteSet(mSetName.getText().toString());
-            set.setCounters(CurrentSet.getInstance().getCounters());
+            set.setCounters(CurrentSet.getCurrentSet().getCounters());
             set.setIconColor(getProgressRGBColor());
             mFavoriteSetsAdapter.add(set);
             LogUtils.i(String.format("counters:%d", set.getCounters().size()));

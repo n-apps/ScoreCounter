@@ -2,14 +2,15 @@ package ua.napps.scorekeeper.View;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
@@ -19,8 +20,10 @@ import com.nineoldandroids.animation.Animator;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.AwesomeLayout;
+import ua.napps.scorekeeper.Adapters.CountersAdapter;
+import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Presenter.MainPresenterImpl;
@@ -32,8 +35,9 @@ import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     MainPresenterImpl mPresenter;
-    @Bind(R.id.counterLayout)
-    AwesomeLayout mCountersLayout;
+
+    @Bind(R.id.recyclerView)
+    CleverRecyclerView mCleverRecyclerView;
     @Bind(R.id.addCounter)
     TextView mBtnAddCounter;
     @Bind(R.id.drawerLayout)
@@ -44,13 +48,14 @@ public class MainActivity extends AppCompatActivity implements MainView {
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
+    CountersAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mCountersLayout.init(this);
+
         if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
 
         LogUtils.configTagPrefix = "*** ";
@@ -61,15 +66,25 @@ public class MainActivity extends AppCompatActivity implements MainView {
     protected void onResume() {
         super.onResume();
         LogUtils.i("onResume");
-        getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                mCountersLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                getMainPresenter().loadCurrentSet();
-            }
-        });
-
         getMainPresenter().onResume();
+        if (mAdapter == null) {
+            mAdapter = new CountersAdapter(this);
+
+            mCleverRecyclerView.setAdapter(mAdapter);
+        } else {
+            mAdapter.setCounters(CurrentSet.getCurrentSet().getCounters());
+            mAdapter.notifyDataSetChanged();
+        }
+
+        mCleverRecyclerView.setVisibleChildCount(1);
+        mCleverRecyclerView.setScrollAnimationDuration(300);
+        mCleverRecyclerView.setFlingFriction(0.99f);
+        mCleverRecyclerView.setSlidingThreshold(0.1f);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mCleverRecyclerView.setOrientation(RecyclerView.VERTICAL);
+        } else {
+            mCleverRecyclerView.setOrientation(RecyclerView.HORIZONTAL);
+        }
     }
 
     @Override
@@ -77,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onStart();
         LogUtils.i("onStart");
         getMainPresenter().onStart();
+
     }
 
     @Override
@@ -101,7 +117,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     public void onClickAddCounter(View v) {
         mDrawer.closeDrawers();
-        getMainPresenter().addCounter();
+        mAdapter.addCounter(new Counter("33"));
+        mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
     }
 
     public void onFavButtonClick(View v) {
@@ -178,18 +195,18 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Override
     public void clearViews() {
-        mCountersLayout.removeAllViews();
         LogUtils.i("clearViews");
     }
 
     @Override
     public void addCounter(Counter counter) {
-        mCountersLayout.createCounterView(counter);
+        mAdapter.addCounter(counter);
+        mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
     }
 
     @Override
     public void removeCounter(Counter counter) {
-        mCountersLayout.destroyCounterView(counter);
+
     }
 
     @Override

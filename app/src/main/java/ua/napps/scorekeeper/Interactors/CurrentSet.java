@@ -14,7 +14,7 @@ public class CurrentSet {
     private ArrayList<Counter> mCounters;
     private static CurrentSet instance;
 
-    public static CurrentSet getInstance() {
+    public static CurrentSet getCurrentSet() {
         if (instance == null) {
             instance = new CurrentSet();
             LogUtils.i("new CurrentSet instance");
@@ -26,14 +26,25 @@ public class CurrentSet {
         mCounters = new ArrayList<>();
     }
 
+    public int getSize() {
+       return mCounters.size();
+    }
+
     public void setCounters(ArrayList counters) {
         this.mCounters = counters;
-        LogUtils.i(String.format("setCounters: %d", counters.size()));
+        LogUtils.i(String.format("setCounters: %d", mCounters.size()));
     }
 
     public ArrayList<Counter> getCounters() {
         LogUtils.i(String.format("getCounters: counters size: %d", mCounters.size()));
         return mCounters;
+    }
+
+    public void removeCounter(Counter item) {
+        mCounters.remove(item);
+    }
+    public void addCounter(Counter item) {
+        mCounters.add(item);
     }
 
 }
