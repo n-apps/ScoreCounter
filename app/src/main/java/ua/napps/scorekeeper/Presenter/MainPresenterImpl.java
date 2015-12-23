@@ -70,6 +70,14 @@ public class MainPresenterImpl implements MainPresenter {
     public void loadSettings() {
         LogUtils.i("loadSettings");
         LogUtils.i("access to SharedPreferences");
+        
+        /*
+                PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(PREF_LAST_RESULT_ID,
+                .apply();
+        */
+        
         SharedPreferences sp = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String activeCountersJson = sp.getString(Constants.ACTIVE_COUNTERS, "");
         Type listType = new TypeToken<ArrayList<Counter>>() {
