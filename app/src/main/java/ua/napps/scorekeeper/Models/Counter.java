@@ -1,9 +1,8 @@
 package ua.napps.scorekeeper.Models;
 
-import android.graphics.Color;
+import com.github.lzyzsd.randomcolor.RandomColor;
 
 import java.io.Serializable;
-import java.util.Random;
 
 import static ua.napps.scorekeeper.Helpers.Constants.RIGHT;
 import static ua.napps.scorekeeper.Helpers.Constants.SWIPE_STEP;
@@ -113,8 +112,9 @@ public final class Counter implements Serializable {
     }
 
     private static int getRandomColor() {
-        final Random rnd = new Random();
-        return Color.rgb(150 + rnd.nextInt(81), 150 + rnd.nextInt(81), 150 + rnd.nextInt(81));
+        RandomColor randomColor = new RandomColor();
+        int color = randomColor.randomColor();
+        return color;
     }
 
     public interface OnChangeListener {

@@ -3,62 +3,53 @@
 <ua.napps.scorekeeper.CounterView
     android:id="@+id/rootCounterView"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/accentColor"
     tools:ignore="ContentDescription">
 
-    <me.grantland.widget.AutofitTextView
-        android:id="@+id/caption"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:singleLine="true"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="48sp"
-        autofit:minTextSize="16sp"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
 
-    <me.grantland.widget.AutofitTextView
-        android:id="@+id/value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:maxLines="2"
-        android:singleLine="true"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="128sp"
-        android:clickable="false"
-        android:text="1"
-        autofit:minTextSize="16sp"
-        />
+        <ua.napps.scorekeeper.Utils.AutoResizeTextView
+            android:id="@+id/caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:text="Caption 23"
+            android:textSize="32sp"/>
 
+        <ua.napps.scorekeeper.Utils.AutoResizeTextView
+            android:id="@+id/value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="77"
+            android:textSize="164sp"/>
 
-    <ImageView
-        android:id="@+id/minus"
-        style="@style/MyPlusMinusImages"
-        android:layout_gravity="bottom|start"
-        android:src="@drawable/minus"/>
-
-    <ImageView
-        android:id="@+id/plus"
-        style="@style/MyPlusMinusImages"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/plus"/>
-
-    <TextView
-        android:id="@+id/prevValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_margin="8dp"
-        android:alpha="0.54"
-        android:fontFamily="sans-serif-light"
-        android:textSize="12sp"/>
+        <ua.napps.scorekeeper.Utils.AutoResizeTextView
+            android:id="@+id/prevValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:singleLine="true"
+            android:text="0"
+            android:textSize="24sp"/>
+    </LinearLayout>
 </ua.napps.scorekeeper.CounterView>

@@ -9,9 +9,7 @@ import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -29,7 +27,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.CAPTION_TEXT_RATIO;
 import static ua.napps.scorekeeper.Helpers.Constants.LEFT;
 import static ua.napps.scorekeeper.Helpers.Constants.LONG_PRESS_TIMEOUT;
 import static ua.napps.scorekeeper.Helpers.Constants.MINUS_SYMBOL_SCALE;
-import static ua.napps.scorekeeper.Helpers.Constants.PLUS_MINUS_RATIO;
 import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
 import static ua.napps.scorekeeper.Helpers.Constants.RIGHT;
 import static ua.napps.scorekeeper.Helpers.Constants.SWIPE_THRESHOLD;
@@ -45,8 +42,6 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
     @Bind(R.id.caption) TextView caption;
     @Bind(R.id.prevValue) TextView prevValue;
     @Bind(R.id.value) TextView tvValue;
-    @Bind(R.id.plus) ImageView plus;
-    @Bind(R.id.minus) ImageView minus;
     private float origX;
     private boolean moved;
     private int currW, currH, currX, currY;
@@ -85,7 +80,6 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
             caption.setTextSize(dpHeight * CAPTION_TEXT_RATIO);
             prevValue.setTextSize(dpHeight * CAPTION_TEXT_RATIO);
             tvValue.setTextSize(dpHeight * VALUE_TEXT_RATIO);
-            changePlusMinusSize(h);
         }
     }
 
@@ -140,17 +134,6 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
         startShowingPrevValue = now;
     }
 
-    private void changePlusMinusSize(float parentH) {
-        ViewGroup.LayoutParams params = plus.getLayoutParams();
-        int size = (int) (parentH * PLUS_MINUS_RATIO);
-        params.width = size;
-        params.height = size;
-        plus.setLayoutParams(params);
-        params = minus.getLayoutParams();
-        params.width = size;
-        params.height = size;
-        minus.setLayoutParams(params);
-    }
 
     @Override
     public void onChangeColor() {
@@ -163,8 +146,7 @@ public class CounterView extends FrameLayout implements View.OnClickListener, Vi
         caption.setTextColor(tint);
         tvValue.setTextColor(tint);
         prevValue.setTextColor(tint);
-        plus.setColorFilter(tint);
-        minus.setColorFilter(tint);
+
     }
 
     @Override
