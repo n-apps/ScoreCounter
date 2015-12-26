@@ -1,7 +1,5 @@
 package ua.napps.scorekeeper.Interactors;
 
-import com.apkfuns.logutils.LogUtils;
-
 import java.security.SecureRandom;
 
 public class Dice {
@@ -37,7 +35,6 @@ public class Dice {
 
     @Override
     public String toString() {
-        LogUtils.i(String.format("toString: %d", amount));
         String bonusStr = (bonus > 0) ? "+" + bonus : (bonus < 0) ? "" + bonus : "";
         return amount + "d" + (1 + maxEdge - minEdge) + bonusStr;
     }

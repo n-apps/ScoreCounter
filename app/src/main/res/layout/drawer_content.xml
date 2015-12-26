@@ -30,7 +30,7 @@
         android:overScrollMode="never" />
 
     <TextView
-        android:id="@+id/addCounter"
+        android:id="@+id/addCounterMenuItem"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -38,7 +38,6 @@
         android:drawableLeft="@drawable/ic_add_counter"
         android:drawablePadding="16dp"
         android:gravity="center_vertical"
-        android:onClick="onClickAddCounter"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/add_new_counter" />
@@ -46,6 +45,7 @@
     <include layout="@layout/divider" />
 
     <TextView
+        android:id="@+id/openFavoritesMenuItem"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -53,12 +53,12 @@
         android:drawableLeft="@drawable/ic_favorite_black_24dp"
         android:drawablePadding="16dp"
         android:gravity="center_vertical"
-        android:onClick="onFavButtonClick"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/favorites" />
 
     <TextView
+        android:id="@+id/openPreferencesMenuItem"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -66,7 +66,6 @@
         android:drawableLeft="@drawable/ic_settings_black_24dp"
         android:drawablePadding="16dp"
         android:gravity="center_vertical"
-        android:onClick="onPrefButtonClick"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/settings" />

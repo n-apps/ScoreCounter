@@ -4,9 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -16,13 +15,15 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.CounterView;
-import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.View.DialogEditCounter;
 import ua.napps.scorekeeper.View.MainActivity;
 
-import static ua.napps.scorekeeper.Helpers.Constants.LONG_PRESS_TIMEOUT;
+import static android.support.v7.widget.RecyclerView.ViewHolder;
+import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 /**
  * Created by novo on 22-Dec-15.
@@ -34,7 +35,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
 
     public CountersAdapter(MainActivity context) {
-        this.mCounters = CurrentSet.getCurrentSet().getCounters();
         this.mContext = context;
     }
 
@@ -60,79 +60,45 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         mCounters = items;
     }
 
-    public Counter getCounter(int position) {
-        return mCounters.get(position);
-    }
-
-    private static OnItemClickListener sItemClickListener;
-
-    public interface OnItemClickListener {
-        void onCaptionClick(int position);
-
-        void onValueClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        sItemClickListener = listener;
-    }
-
-    class MyViewHolder extends RecyclerView.ViewHolder {
-
+    class MyViewHolder extends ViewHolder {
         @Bind(R.id.caption)
         TextView mCaption;
         @Bind(R.id.value)
         TextView mValue;
         @Bind(R.id.rootCounterView)
-        CounterView mCounterView;
+        LinearLayout mCounterView;
+
+        @OnTouch(R.id.rootCounterView)
+        public boolean onTouchItem(View v, MotionEvent event) {
+            int position = getAdapterPosition();
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_UP:
+
+                    if (event.getX() > v.getWidth() / 2) {
+                        getCurrentSet().getCounter(position).increaseValue();
+                    } else {
+                        getCurrentSet().getCounter(position).decreaseValue();
+                    }
+                    notifyDataSetChanged();
+                    YoYo.with(Techniques.ZoomIn)
+                            .duration(200)
+                            .playOn(v.findViewById(R.id.value));
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    break;
+            }
+            return true;
+        }
+
+        @OnClick(R.id.caption)
+        public void onCaptionClick() {
+            new DialogEditCounter(mContext, getAdapterPosition());
+        }
 
         public MyViewHolder(final View itemView) {
             super(itemView);
+
             ButterKnife.bind(this, itemView);
-
-            mCounterView.setOnTouchListener(new OnTouchListener() {
-                                                @Override
-                                                public boolean onTouch(View v, MotionEvent event) {
-                                                    switch (event.getAction()) {
-                                                        case MotionEvent.ACTION_UP:
-                                                            boolean longClick = event.getEventTime() - event.getDownTime() > LONG_PRESS_TIMEOUT;
-                                                            if (longClick) return true;
-                                                            int newValue = getCounter(getAdapterPosition()).getValue();
-
-                                                            if (event.getX() > v.getWidth() / 2) {
-                                                                getCounter(getAdapterPosition()).setValue(newValue + 1);
-                                                            } else {
-                                                                getCounter(getAdapterPosition()).setValue(newValue - 1);
-                                                            }
-                                                            notifyItemChanged(getAdapterPosition());
-                                                            YoYo.with(Techniques.ZoomIn)
-                                                                    .duration(200)
-                                                                    .playOn(mValue);
-
-                                                            break;
-                                                        case MotionEvent.ACTION_CANCEL:
-                                                            break;
-                                                    }
-                                                    return true;
-                                                }
-                                            }
-
-            );
-
-            mCaption.setOnClickListener(new OnClickListener()
-
-                                        {
-                                            @Override
-                                            public void onClick(View v) {
-                                                // Triggers click upwards to the adapter on click
-                                                if (sItemClickListener != null)
-                                                    sItemClickListener.onCaptionClick(getLayoutPosition());
-                                            }
-                                        }
-
-            );
-
-
         }
-
     }
 }

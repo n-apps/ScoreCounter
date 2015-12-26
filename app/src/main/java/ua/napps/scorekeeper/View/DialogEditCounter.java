@@ -13,6 +13,7 @@ import android.widget.SeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Models.Counter;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
@@ -48,22 +49,23 @@ public class DialogEditCounter extends AlertDialog.Builder {
     @Bind(R.id.step)
     EditText step;
 
-    public DialogEditCounter(final MainActivity context, final Counter counter, boolean isNeutralButtonEnabled) {
+    public DialogEditCounter(final MainActivity context, int position) {
         super(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         @SuppressLint("InflateParams") final View view = inflater.inflate(R.layout.counter_dialog, null);
         setView(view);
         ButterKnife.bind(this, view);
-        initDialogButtons(counter, context, context.getString(R.string.button_negative), context.getString(R.string.button_positive), context.getString(R.string.button_neutral));
+        Counter mCounter = CurrentSet.getCurrentSet().getCounter(position);
+        initDialogButtons(mCounter, context, context.getString(R.string.button_negative), context.getString(R.string.button_positive), context.getString(R.string.button_neutral));
         redBar.setOnSeekBarChangeListener(seekListener);
         greenBar.setOnSeekBarChangeListener(seekListener);
         blueBar.setOnSeekBarChangeListener(seekListener);
-        setSeekBarProgress(counter.getColor());
-        caption.append(counter.getCaption());
-        initValues(counter);
+        setSeekBarProgress(mCounter.getColor());
+        caption.append(mCounter.getCaption());
+        initValues(mCounter);
         AlertDialog dialog = create();
         dialog.show();
-        if (isNeutralButtonEnabled) {
+        if (CurrentSet.getCurrentSet().getSize() > 1) {
             dialog.getButton(BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(context, R.color.accentColor));
         } else {
             dialog.getButton(BUTTON_NEUTRAL).setVisibility(View.GONE);

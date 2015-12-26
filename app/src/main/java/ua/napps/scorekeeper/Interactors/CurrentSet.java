@@ -1,7 +1,5 @@
 package ua.napps.scorekeeper.Interactors;
 
-import com.apkfuns.logutils.LogUtils;
-
 import java.util.ArrayList;
 
 import ua.napps.scorekeeper.Models.Counter;
@@ -17,7 +15,6 @@ public class CurrentSet {
     public static CurrentSet getCurrentSet() {
         if (instance == null) {
             instance = new CurrentSet();
-            LogUtils.i("new CurrentSet instance");
         }
         return instance;
     }
@@ -32,11 +29,12 @@ public class CurrentSet {
 
     public void setCounters(ArrayList counters) {
         this.mCounters = counters;
-        LogUtils.i(String.format("setCounters: %d", mCounters.size()));
+    }
+    public Counter getCounter(int position) {
+        return mCounters.get(position);
     }
 
     public ArrayList<Counter> getCounters() {
-        LogUtils.i(String.format("getCounters: counters size: %d", mCounters.size()));
         return mCounters;
     }
 

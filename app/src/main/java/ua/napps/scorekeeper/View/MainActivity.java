@@ -20,6 +20,7 @@ import com.nineoldandroids.animation.Animator;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
@@ -32,157 +33,46 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
-    @Bind(R.id.recyclerView)
-    CleverRecyclerView mCleverRecyclerView;
-    @Bind(R.id.addCounter)
-    TextView mBtnAddCounter;
+    @Bind(R.id.countersRecyclerView)
+    CleverRecyclerView mCountersRecyclerView;
     @Bind(R.id.drawerLayout)
     DrawerLayout mDrawer;
-    @Bind(R.id.dices_bar)
+    @Bind(R.id.diceLayout)
     View mDicesBar;
     @Bind(R.id.diceFormula)
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
 
-    MainPresenterImpl mPresenter;
-    CountersAdapter mAdapter;
-    boolean isAllCountersVisible;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-
-        if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
-
-        LogUtils.configTagPrefix = "*** ";
-        LogUtils.i("onCreate");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        LogUtils.i("onResume");
-        getMainPresenter().onResume();
-        if (mAdapter == null) {
-            mAdapter = new CountersAdapter(this);
-
-            mCleverRecyclerView.setAdapter(mAdapter);
-        } else {
-            mAdapter.setCounters(getCurrentSet().getCounters());
-            mAdapter.notifyDataSetChanged();
-        }
-        mAdapter.setOnItemClickListener(new CountersAdapter.OnItemClickListener() {
-            @Override
-            public void onCaptionClick(int position) {
-                new DialogEditCounter(MainActivity.this, mAdapter.getCounter(position), true);
-            }
-
-            @Override
-            public void onValueClick(int position) {
-            }
-        });
-        mCleverRecyclerView.setItemAnimator(new NoChangeAnimator());
-
-        updateUI();
-        mCleverRecyclerView.setScrollAnimationDuration(300);
-        mCleverRecyclerView.setFlingFriction(0.99f);
-        mCleverRecyclerView.setSlidingThreshold(0.1f);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mCleverRecyclerView.setOrientation(RecyclerView.VERTICAL);
-        } else {
-            mCleverRecyclerView.setOrientation(RecyclerView.HORIZONTAL);
-        }
-    }
-
-    private void updateUI() {
-        if (isAllCountersVisible) {
-            mCleverRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
-            mCleverRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
-        } else {
-            mCleverRecyclerView.setVisibleChildCount(1);
-        }
-        mCleverRecyclerView.invalidate();
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        LogUtils.i("onStart");
-        getMainPresenter().onStart();
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        LogUtils.i("onStop");
-        getMainPresenter().onStop();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        LogUtils.i("onPause");
-    }
-
-    public MainPresenterImpl getMainPresenter() {
-        if (mPresenter == null) {
-            mPresenter = new MainPresenterImpl(this);
-        }
-        return mPresenter;
-    }
-
+    @OnClick(R.id.addCounterMenuItem)
     public void onClickAddCounter(View v) {
         mDrawer.closeDrawers();
         getCurrentSet().addCounter(new Counter("d2d"));
         mAdapter.notifyDataSetChanged();
-        updateUI();
+        updateView();
     }
 
+    @OnClick(R.id.openFavoritesMenuItem)
     public void onFavButtonClick(View v) {
-        getMainPresenter().loadFragment();
+        mDrawer.closeDrawers();
+        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
+                .replace(R.id.fragContainer, FragmentFav.newInstance(), "favorites").commit();
     }
 
-    public void onCounterSwipe(Counter counter, int direction, boolean isSwipe) {
-        getMainPresenter().onSwipe(counter, direction, isSwipe);
-    }
-
-    public void onDialogClickDeleteCounter(Counter counter) {
-        removeCounter(counter);
-        if (getCurrentSet().getSize() < MAX_COUNTERS) changeAddCounterButtonState(true);
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) mDrawer.closeDrawers();
-        else {
-            Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
-            if (favFragment != null) {
-                closeFragment("favorites");
-            } else {
-                super.onBackPressed();
-            }
-        }
-    }
-
+    @OnClick(R.id.openPreferencesMenuItem)
     public void onPrefButtonClick(View v) {
         mDrawer.closeDrawers();
         startActivity(new Intent(MainActivity.this, SettingsActivity.class));
     }
 
-
+    @OnClick(R.id.shakeDices)
     public void onClickShake(View v) {
 
         YoYo.with(Techniques.Swing).withListener(new Animator.AnimatorListener() {
@@ -213,54 +103,122 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 .playOn(v);
     }
 
+    @OnClick(R.id.diceFormula)
     public void onClickFormula(View v) {
-        getMainPresenter().showDiceDialog();
+        new DiceDialog(this);
+    }
+
+    MainPresenterImpl mPresenter;
+    CountersAdapter mAdapter;
+    private boolean mIsAllCountersVisible;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
+
+        LogUtils.configTagPrefix = "*** ";
+
+        if (mAdapter == null) mAdapter = new CountersAdapter(this);
+
+        initRecyclerView();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getMainPresenter().onResume();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getMainPresenter().onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        getMainPresenter().onStop();
+    }
+
+    public MainPresenterImpl getMainPresenter() {
+        if (mPresenter == null) {
+            mPresenter = new MainPresenterImpl(this);
+        }
+        return mPresenter;
     }
 
     @Override
     public Context getContext() {
-        LogUtils.i("getContext");
         return this;
     }
 
-    @Override
-    public void clearViews() {
-        LogUtils.i("clearViews");
+    private void initRecyclerView() {
+        mCountersRecyclerView.setItemAnimator(new NoChangeAnimator());
+        mCountersRecyclerView.setAdapter(mAdapter);
+        mCountersRecyclerView.setScrollAnimationDuration(300);
+        mCountersRecyclerView.setFlingFriction(0.99f);
+        mCountersRecyclerView.setSlidingThreshold(0.1f);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            mCountersRecyclerView.setOrientation(RecyclerView.VERTICAL);
+        } else {
+            mCountersRecyclerView.setOrientation(RecyclerView.HORIZONTAL);
+        }
     }
 
-    @Override
-    public void addCounter(Counter counter) {
-        getCurrentSet().addCounter(new Counter("dd"));
-        mAdapter.notifyDataSetChanged();
-        updateUI();
-    }
-
-    @Override
-    public void removeCounter(Counter counter) {
+    public void onDialogClickDeleteCounter(Counter counter) {
         getCurrentSet().removeCounter(counter);
+        updateView();
+    }
+
+    @Override
+    public void onBackPressed() {
+        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        if (mDrawer.isDrawerOpen(GravityCompat.START)) mDrawer.closeDrawers();
+        else {
+            Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
+            if (favFragment != null) {
+                closeFragment("favorites");
+            } else {
+                super.onBackPressed();
+            }
+        }
+    }
+
+    @Override
+    public void updateView() {
+        mAdapter.setCounters(getCurrentSet().getCounters());
         mAdapter.notifyDataSetChanged();
-        updateUI();
+
+        if (mIsAllCountersVisible) {
+            mCountersRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
+            mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+        } else {
+            mCountersRecyclerView.setVisibleChildCount(1);
+        }
+        mCountersRecyclerView.invalidate();
     }
 
     @Override
     public void toggleKeepScreenOn(boolean isSelected) {
-        LogUtils.i("toggleKeepScreenOn");
         if (isSelected) getWindow().addFlags(FLAG_KEEP_SCREEN_ON);
         else getWindow().clearFlags(FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
     public void toggleDicesBar(boolean isShowing) {
-        LogUtils.i("toggleDicesBar");
-        if (isShowing) {
-            mDicesBar.setVisibility(VISIBLE);
-            Dice.getInstance();
-        } else mDicesBar.setVisibility(GONE);
+        if (isShowing) mDicesBar.setVisibility(VISIBLE);
+        else mDicesBar.setVisibility(GONE);
     }
 
     @Override
-    public void setVisibleCounters(boolean isShowing) {
-        isAllCountersVisible = isShowing;
+    public void showAllCountersOnScreen(boolean isShowing) {
+        mIsAllCountersVisible = isShowing;
     }
 
     @Override
@@ -274,15 +232,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void loadFragment(Fragment fragment) {
-        mDrawer.closeDrawers();
-        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
-        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
-                .replace(R.id.fragContainer, fragment, "favorites").commit();
-    }
-
-    @Override
     public void closeFragment(String tag) {
         Fragment favFragment = getSupportFragmentManager().findFragmentByTag(tag);
         if (favFragment != null) {
@@ -291,18 +240,5 @@ public class MainActivity extends AppCompatActivity implements MainView {
             getSupportFragmentManager().popBackStack();
             mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         }
-    }
-
-    @Override
-    public void CounterCaptionClick(Counter counter, boolean isNeutralButtonEnabled) {
-        new DialogEditCounter(this, counter, isNeutralButtonEnabled);
-    }
-
-    @Override
-    public void changeAddCounterButtonState(boolean isVisible) {
-        LogUtils.i("changeAddCounterButtonState");
-        if (isVisible) mBtnAddCounter.setAlpha(1);
-        else mBtnAddCounter.setAlpha(0.3f);
-        mBtnAddCounter.setEnabled(isVisible);
     }
 }

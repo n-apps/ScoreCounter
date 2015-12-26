@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
-import com.apkfuns.logutils.LogUtils;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
@@ -97,12 +95,10 @@ public class DialogEditFav extends AlertDialog.Builder {
 
     private void applyChanges() {
         if (mIsNewSet) {
-            LogUtils.i("saving new set");
             FavoriteSet set = new FavoriteSet(mSetName.getText().toString());
             set.setCounters(CurrentSet.getCurrentSet().getCounters());
             set.setIconColor(getProgressRGBColor());
             mFavoriteSetsAdapter.add(set);
-            LogUtils.i(String.format("counters:%d", set.getCounters().size()));
 
         } else {
             mFavoriteSet.setName(mSetName.getText().toString());

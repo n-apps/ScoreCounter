@@ -11,10 +11,9 @@ import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.apkfuns.logutils.LogUtils;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ua.com.napps.scorekeeper.R;
 
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -34,6 +33,15 @@ public class SettingsActivity extends AppCompatActivity {
     SwitchCompat showAllCounetrs;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+
+    @OnClick(R.id.sendReport)
+    public void onClickSendReport(View v) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("text/plain");
+        intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        startActivity(intent);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,8 +65,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        LogUtils.i("onResume");
-        LogUtils.i("access to SharedPreferences");
 
         SharedPreferences sp = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         showDicesBar.setChecked(sp.getBoolean(PREFS_SHOW_DICES, false));
@@ -69,20 +75,10 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        LogUtils.i("onPause");
-        LogUtils.i("access to SharedPreferences");
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         editor.putBoolean(PREFS_SHOW_DICES, showDicesBar.isChecked());
         editor.putBoolean(PREFS_STAY_AWAKE, stayAwake.isChecked());
         editor.putBoolean(PREFS_SHOW_ALL_COUNTERS, showAllCounetrs.isChecked());
         editor.apply();
-    }
-
-    public void onClickSendReport(View v) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setType("text/plain");
-        intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        startActivity(intent);
     }
 }

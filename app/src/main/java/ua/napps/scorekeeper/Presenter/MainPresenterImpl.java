@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.Presenter;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.apkfuns.logutils.LogUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -12,19 +11,15 @@ import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Events.CounterCaptionClick;
 import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
 import ua.napps.scorekeeper.Events.FavoritesUpdated;
 import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.View.DiceDialog;
-import ua.napps.scorekeeper.View.FragmentFav;
 import ua.napps.scorekeeper.View.MainView;
 
 import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
-import static ua.napps.scorekeeper.Helpers.Constants.MAX_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_BONUS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MAX_EDGE;
@@ -67,8 +62,6 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void loadSettings() {
-        LogUtils.i("loadSettings");
-        LogUtils.i("access to SharedPreferences");
         
         /*
                 PreferenceManager.getDefaultSharedPreferences(context)
@@ -76,26 +69,28 @@ public class MainPresenterImpl implements MainPresenter {
                 .putString(PREF_LAST_RESULT_ID,
                 .apply();
         */
-        
+
         SharedPreferences sp = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String activeCountersJson = sp.getString(Constants.ACTIVE_COUNTERS, "");
         Type listType = new TypeToken<ArrayList<Counter>>() {
         }.getType();
         ArrayList<Counter> counters = new Gson().fromJson(activeCountersJson, listType);
-        LogUtils.i(String.format("activeCountersJson: %s", activeCountersJson));
         if (counters == null) {
             counters = new ArrayList<>();
             counters.add(new Counter(mContext.getResources().getString(R.string.counter_title_default)));
         }
         getCurrentSet().setCounters(counters);
-        LogUtils.i("setCurrentSetFromJSON");
         if (sp.getBoolean(PREFS_STAY_AWAKE, true))
             mView.toggleKeepScreenOn(true);
         else mView.toggleKeepScreenOn(false);
 
-        if (sp.getBoolean(PREFS_SHOW_ALL_COUNTERS, true))
-            mView.setVisibleCounters(true);
-        else mView.setVisibleCounters(false);
+        if (sp.getBoolean(PREFS_SHOW_ALL_COUNTERS, true)) {
+            mView.showAllCountersOnScreen(true);
+            mView.updateView();
+        } else {
+            mView.showAllCountersOnScreen(false);
+            mView.updateView();
+        }
 
         if (sp.getBoolean(PREFS_SHOW_DICES, false)) {
             mView.toggleDicesBar(true);
@@ -113,9 +108,7 @@ public class MainPresenterImpl implements MainPresenter {
 
     @Override
     public void saveSettings() {
-        LogUtils.i("saveSettings");
-        String activeCountersJson = new Gson().toJson( getCurrentSet().getCounters());
-        LogUtils.i("access to SharedPreferences");
+        String activeCountersJson = new Gson().toJson(getCurrentSet().getCounters());
         SharedPreferences.Editor editor = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit();
         editor.putInt(PREFS_DICE_AMOUNT, Dice.getInstance().getAmount());
         editor.putInt(PREFS_DICE_MIN_EDGE, Dice.getInstance().getMinEdge());
@@ -126,96 +119,10 @@ public class MainPresenterImpl implements MainPresenter {
         editor.apply();
     }
 
-
-    @Override
-    public void onSwipe(Counter counter, int direction, boolean isSwipe) {
-        LogUtils.i(String.format("onSwipe %d %s", direction, isSwipe));
-        counter.step(direction, isSwipe);
-    }
-
-    @Override
-    public void loadFragment() {
-        mView.loadFragment(new FragmentFav()); // TODO: move to activity. wrap into newInstance()
-        /*
-        To hit this window, Android programmers follow a convention of adding a static method named
-newInstance() to the Fragment class. This method creates the fragment instance and bundles up and
-sets its arguments.
-
-  public static CrimeFragment newInstance(UUID crimeId) {
-        Bundle args = new Bundle();
-        args.putSerializable(ARG_CRIME_ID, crimeId);
-        CrimeFragment fragment = new CrimeFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-        */
-        LogUtils.i("loadFragment");
-    }
-
-    @Override
-    public void showDiceDialog() {
-        new DiceDialog(mContext); // TODO: move to activity
-        LogUtils.i("showDiceDialog");
-    }
-
-    @Override
-    public void setCounters(ArrayList<Counter> counters) {
-
-    }
-
-    @Override
-    public void removeCounter(Counter counter) {
-        LogUtils.i(String.format("removeCounter %s", counter.getCaption()));
-
-    }
-
-    private void addCounterView(Counter counter) {
-        LogUtils.i("addCounterView");
-        if (getCurrentSet().getSize() == MAX_COUNTERS) mView.changeAddCounterButtonState(false);
-        mView.addCounter(counter);
-    }
-
-    @Override
-    public void loadCurrentSet() {
-        LogUtils.i("loadCurrentSet");
-        LogUtils.i(String.format("counters: %d", getCurrentSet().getSize()));
-        for (Counter c : getCurrentSet().getCounters()) addCounterView(c);
-    }
-
-    @Override
-    public void addCounter() {
-        LogUtils.i("addCounter");
-
-        if (getCurrentSet().getSize() >= MAX_COUNTERS) {
-            mView.changeAddCounterButtonState(false);
-            return;
-        }
-
-        Counter c = new Counter(getCounterCaption());
-        getCurrentSet().addCounter(c);
-
-    }
-
     public void onEvent(FavoriteSetLoaded event) {
-        LogUtils.i("onFavoriteSetLoaded");
 
         if (event != null) {
             mView.closeFragment("favorites");
-            mView.clearViews();
-
-            LogUtils.i(String.format("counters size: %d", event.getSet().getCounters().size()));
-            for (Counter c : event.getSet().getCounters()) addCounterView(c);
-        }
-    }
-
-    public void onEvent(CounterCaptionClick event) {
-        LogUtils.i("CounterCaptionClick event");
-        if (event != null && event.getCounter() != null) {
-            if (getCurrentSet().getSize() < 2) {
-                mView.CounterCaptionClick(event.getCounter(), false);
-            } else {
-                mView.CounterCaptionClick(event.getCounter(), true);
-            }
         }
     }
 
@@ -231,6 +138,4 @@ sets its arguments.
     private String getCounterCaption() {
         return String.format("%s %d", mContext.getString(R.string.counter_title_default), getCurrentSet().getSize() + 1);
     }
-
-
 }

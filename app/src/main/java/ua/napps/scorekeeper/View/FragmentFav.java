@@ -53,6 +53,11 @@ public class FragmentFav extends Fragment {
 
     FavoriteSetsAdapter adapter;
 
+    public static FragmentFav newInstance() {
+        FragmentFav fragment = new FragmentFav();
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -77,9 +82,7 @@ public class FragmentFav extends Fragment {
     }
 
     public ArrayList<FavoriteSet> getFavorites() {
-        LogUtils.i("getFavorites");
         ArrayList<FavoriteSet> favoriteSets = new ArrayList<>();
-        LogUtils.i("access SharedPreferences");
         SharedPreferences sp = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         String json = sp.getString(Constants.FAV_ARRAY, "");
 
@@ -88,8 +91,6 @@ public class FragmentFav extends Fragment {
             }.getType();
             favoriteSets = new Gson().fromJson(json, listType);
             if (favoriteSets == null) favoriteSets = new ArrayList<>();
-            LogUtils.i(String.format("mFavorites size: %d", favoriteSets.size()));
-            LogUtils.i(String.format("json:%s", json));
         } catch (JsonSyntaxException ex) {
             LogUtils.e(ex.getMessage());
         }
@@ -157,7 +158,6 @@ public class FragmentFav extends Fragment {
         }
 
         public void add(FavoriteSet item) {
-            LogUtils.i(String.format("add FavSet. item.counters.size: %d", item.getCounters().size()));
             int position = mFavoriteSets.size();
             mFavoriteSets.add(position, item);
             EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));

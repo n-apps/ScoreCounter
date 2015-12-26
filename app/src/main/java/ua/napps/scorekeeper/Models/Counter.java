@@ -105,6 +105,14 @@ public final class Counter implements Serializable {
         setValue(newValue);
     }
 
+    public void increaseValue() {
+        value += step;
+    }
+
+    public void decreaseValue() {
+        value -= step;
+    }
+
     public void setChangeListener(OnChangeListener listener) {
         this.listener = listener;
         listener.onChangeColor();

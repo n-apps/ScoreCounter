@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#fff"
+              android:orientation="vertical">
 
-    <include layout="@layout/toolbar" />
+    <include layout="@layout/toolbar"/>
 
-    <include layout="@layout/shadow" />
+    <include layout="@layout/shadow"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/showDicesBar"
@@ -17,9 +17,9 @@
         android:paddingRight="16dp"
         android:text="@string/dices_switch"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary" />
+        android:textColor="@color/textColorPrimary"/>
 
-    <include layout="@layout/divider" />
+    <include layout="@layout/divider"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/showAllCounters"
@@ -29,7 +29,9 @@
         android:paddingRight="16dp"
         android:text="Show all counters"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary" />
+        android:textColor="@color/textColorPrimary"/>
+
+    <include layout="@layout/divider"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/stayAwake"
@@ -39,9 +41,9 @@
         android:paddingRight="16dp"
         android:text="@string/keep_alive_switch"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary" />
+        android:textColor="@color/textColorPrimary"/>
 
-    <include layout="@layout/divider" />
+    <include layout="@layout/divider"/>
 
     <TextView
         android:id="@+id/sendReport"
@@ -49,10 +51,9 @@
         android:layout_height="56dp"
         android:clickable="true"
         android:gravity="start|center_vertical"
-        android:onClick="onClickSendReport"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:text="@string/send_feedback"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>

@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/countersRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
