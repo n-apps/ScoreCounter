@@ -1,17 +1,14 @@
 package ua.napps.scorekeeper.Models;
 
+import android.graphics.Color;
+
 import com.github.lzyzsd.randomcolor.RandomColor;
 
-import java.io.Serializable;
-
-import static ua.napps.scorekeeper.Helpers.Constants.RIGHT;
-import static ua.napps.scorekeeper.Helpers.Constants.SWIPE_STEP;
-
-public final class Counter implements Serializable {
-    private transient OnChangeListener listener;
+public final class Counter {
     private String caption = "Counter";
     private int value = 0;
-    private int color = getRandomColor();
+    private int color;
+    private int textColor;
     private int defValue = 0;
     private int minValue = -999;
     private int maxValue = 1000;
@@ -19,29 +16,16 @@ public final class Counter implements Serializable {
 
     public Counter(String caption) {
         this.caption = caption;
-    }
-
-    public static Counter getClone(Counter counter) {
-        Counter clon = new Counter(counter.getCaption());
-        clon.caption = counter.caption;
-        clon.value = counter.value;
-        clon.color = counter.color;
-        clon.defValue = counter.defValue;
-        clon.minValue = counter.minValue;
-        clon.maxValue = counter.maxValue;
-        clon.step = counter.step;
-        return clon;
+        this.color = getRandomColor();
+        this.textColor = defineTextColor();
     }
 
     public void setCaption(String caption) {
         this.caption = caption;
-
-        if (listener != null) listener.onChangeValues();
     }
 
     public void setValue(int value) {
         this.value = value;
-        if (listener != null) listener.onChangeValues();
     }
 
     public String getCaption() {
@@ -54,7 +38,6 @@ public final class Counter implements Serializable {
 
     public void setColor(int color) {
         this.color = color;
-        if (listener != null) listener.onChangeColor();
     }
 
     public int getColor() {
@@ -97,14 +80,6 @@ public final class Counter implements Serializable {
         this.step = step;
     }
 
-    public void step(int direction, boolean isSwipe) {
-        int newValue;
-        if (isSwipe) newValue = getValue() + (direction == RIGHT ? SWIPE_STEP : -1 * SWIPE_STEP);
-        else newValue = getValue() + (direction == RIGHT ? step : -1 * step);
-        if (newValue < getMinValue() || newValue > getMaxValue()) return;
-        setValue(newValue);
-    }
-
     public void increaseValue() {
         value += step;
     }
@@ -113,21 +88,25 @@ public final class Counter implements Serializable {
         value -= step;
     }
 
-    public void setChangeListener(OnChangeListener listener) {
-        this.listener = listener;
-        listener.onChangeColor();
-        listener.onChangeValues();
-    }
-
-    private static int getRandomColor() {
+    private int getRandomColor() {
         RandomColor randomColor = new RandomColor();
         int color = randomColor.randomColor();
         return color;
     }
 
-    public interface OnChangeListener {
-        void onChangeColor();
+    public int getTextColor() {
+        return textColor;
+    }
 
-        void onChangeValues();
+    private int defineTextColor() {
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        int o = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        return o > 125 ? Color.BLACK : Color.WHITE;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
     }
 }

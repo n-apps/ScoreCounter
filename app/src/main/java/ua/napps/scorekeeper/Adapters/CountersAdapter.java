@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
@@ -46,9 +47,12 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mCaption.setText(mCounters.get(position).getCaption());
-        holder.mValue.setText(String.valueOf(mCounters.get(position).getValue()));
         holder.mCounterView.setBackgroundColor(mCounters.get(position).getColor());
+        holder.mCaption.setText(mCounters.get(position).getCaption());
+        holder.mCaption.setTextColor(mCounters.get(position).getTextColor());
+        holder.mValue.setText(String.valueOf(mCounters.get(position).getValue()));
+        holder.mValue.setTextColor(mCounters.get(position).getTextColor());
+        holder.mPrevValue.setTextColor(mCounters.get(position).getTextColor());
     }
 
     @Override
@@ -65,12 +69,20 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         TextView mCaption;
         @Bind(R.id.value)
         TextView mValue;
+        @Bind(R.id.prevValue)
+        TextView mPrevValue;
         @Bind(R.id.rootCounterView)
         LinearLayout mCounterView;
+
+        @OnLongClick(R.id.rootCounterView)
+        public boolean onLongClick(View v) {
+            return true;
+        }
 
         @OnTouch(R.id.rootCounterView)
         public boolean onTouchItem(View v, MotionEvent event) {
             int position = getAdapterPosition();
+
             switch (event.getAction()) {
                 case MotionEvent.ACTION_UP:
 
