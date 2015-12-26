@@ -6,18 +6,23 @@ import com.github.lzyzsd.randomcolor.RandomColor;
 
 public final class Counter {
     private String caption = "Counter";
-    private int value = 0;
-    private int color;
-    private int textColor;
-    private int defValue = 0;
-    private int minValue = -999;
-    private int maxValue = 1000;
-    private int step = 1;
+    private int mValue;
+    private int mBackgroundColor;
+    private int mTextColor;
+    private int mDefaultValue;
+    private int mMinValue;
+    private int mMaxValue;
+    private int mStep;
 
-    public Counter(String caption) {
-        this.caption = caption;
-        this.color = getRandomColor();
-        this.textColor = defineTextColor();
+    public Counter(String name) {
+        caption = name;
+        mBackgroundColor = getRandomColor();
+        mTextColor = defineTextColor();
+        mValue = 0;
+        mDefaultValue = 0;
+        mMinValue = -999;
+        mMaxValue = 1000;
+        mStep = 1;
     }
 
     public void setCaption(String caption) {
@@ -25,7 +30,7 @@ public final class Counter {
     }
 
     public void setValue(int value) {
-        this.value = value;
+        this.mValue = value;
     }
 
     public String getCaption() {
@@ -33,59 +38,59 @@ public final class Counter {
     }
 
     public int getValue() {
-        return value;
+        return mValue;
     }
 
     public void setColor(int color) {
-        this.color = color;
+        this.mBackgroundColor = color;
     }
 
     public int getColor() {
-        return color;
+        return mBackgroundColor;
     }
 
     public int getDefValue() {
-        return defValue;
+        return mDefaultValue;
     }
 
     public void setDefValue(int defValue) {
-        this.defValue = defValue;
+        this.mDefaultValue = defValue;
     }
 
     public int getMinValue() {
-        return minValue;
+        return mMinValue;
     }
 
     public void setMinValue(int minValue) {
-        this.minValue = minValue;
-        if (value >= minValue) return;
-        value = minValue;
+        this.mMinValue = minValue;
+        if (mValue >= minValue) return;
+        mValue = minValue;
     }
 
     public int getMaxValue() {
-        return maxValue;
+        return mMaxValue;
     }
 
     public void setMaxValue(int maxValue) {
-        this.maxValue = maxValue;
-        if (value <= maxValue) return;
-        value = maxValue;
+        this.mMaxValue = maxValue;
+        if (mValue <= maxValue) return;
+        mValue = maxValue;
     }
 
     public int getStep() {
-        return step;
+        return mStep;
     }
 
     public void setStep(int step) {
-        this.step = step;
+        this.mStep = step;
     }
 
     public void increaseValue() {
-        value += step;
+        mValue += mStep;
     }
 
     public void decreaseValue() {
-        value -= step;
+        mValue -= mStep;
     }
 
     private int getRandomColor() {
@@ -95,18 +100,19 @@ public final class Counter {
     }
 
     public int getTextColor() {
-        return textColor;
+        return mTextColor;
     }
 
     private int defineTextColor() {
-        int r = Color.red(color);
-        int g = Color.green(color);
-        int b = Color.blue(color);
+        int r = Color.red(mBackgroundColor);
+        int g = Color.green(mBackgroundColor);
+        int b = Color.blue(mBackgroundColor);
         int o = ((r * 299) + (g * 587) + (b * 114)) / 1000;
         return o > 125 ? Color.BLACK : Color.WHITE;
     }
 
     public void setTextColor(int textColor) {
-        this.textColor = textColor;
+        this.mTextColor = textColor;
     }
+
 }

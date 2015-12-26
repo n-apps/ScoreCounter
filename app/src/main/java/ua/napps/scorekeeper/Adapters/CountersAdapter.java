@@ -1,5 +1,6 @@
 package ua.napps.scorekeeper.Adapters;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -20,10 +21,11 @@ import butterknife.OnLongClick;
 import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.View.DialogEditCounter;
+import ua.napps.scorekeeper.View.EditCounterFragment;
 import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.support.v7.widget.RecyclerView.ViewHolder;
+import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 /**
@@ -73,6 +75,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         TextView mPrevValue;
         @Bind(R.id.rootCounterView)
         LinearLayout mCounterView;
+        private long startShowingPrevValue;
 
         @OnLongClick(R.id.rootCounterView)
         public boolean onLongClick(View v) {
@@ -85,12 +88,16 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_UP:
+                    long now = System.currentTimeMillis();
 
-                    if (event.getX() > v.getWidth() / 2) {
-                        getCurrentSet().getCounter(position).increaseValue();
-                    } else {
-                        getCurrentSet().getCounter(position).decreaseValue();
+                    if (now - PREV_VALUE_SHOW_DURATION > startShowingPrevValue) {
+                        mPrevValue.setText(mValue.getText());
                     }
+                    startShowingPrevValue = now;
+
+                    if (event.getX() > v.getWidth() / 2)
+                        getCurrentSet().getCounter(position).increaseValue();
+                    else getCurrentSet().getCounter(position).decreaseValue();
                     notifyDataSetChanged();
                     YoYo.with(Techniques.ZoomIn)
                             .duration(200)
@@ -104,7 +111,9 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
         @OnClick(R.id.caption)
         public void onCaptionClick() {
-            new DialogEditCounter(mContext, getAdapterPosition());
+            FragmentManager fm = mContext.getSupportFragmentManager();
+            EditCounterFragment alertDialog = EditCounterFragment.newInstance(getAdapterPosition());
+            alertDialog.show(fm, "edit_counter_dialog");
         }
 
         public MyViewHolder(final View itemView) {

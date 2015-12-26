@@ -171,8 +171,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         }
     }
 
-    public void onDialogClickDeleteCounter(Counter counter) {
-        getCurrentSet().removeCounter(counter);
+    public void onDialogClickDeleteCounter() {
         updateView();
     }
 

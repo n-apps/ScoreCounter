@@ -2,9 +2,10 @@ package ua.napps.scorekeeper.Models;
 
 import android.graphics.Color;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class FavoriteSet {
+public class FavoriteSet implements Serializable {
 
     private long lastLoaded;
     private int iconColor = Color.rgb(224, 224, 224);
