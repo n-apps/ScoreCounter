@@ -55,7 +55,7 @@ public class EditCounterFragment extends DialogFragment {
         frag.setArguments(args);
         return frag;
     }
-
+// TODO: add animation https://gist.github.com/orhanobut/8665372
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
