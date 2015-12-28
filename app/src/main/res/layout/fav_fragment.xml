@@ -19,6 +19,7 @@
             android:id="@+id/favRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+            <!--TODO: margin 16dp -->
 
         <LinearLayout
             android:id="@+id/emptyStateFav"
