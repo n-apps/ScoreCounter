@@ -99,6 +99,15 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
         menu.clear();
         super.onCreateOptionsMenu(menu, inflater);
     }
+    
+    /*
+    @Override
+public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    inflater.inflate(R.menu.your_menu_xml, menu);
+    super.onCreateOptionsMenu(menu, inflater);
+}
+call supportInvalidateOptionsMenu(); when you change between fragments to recreate the Menu.
+    */
 
     public ArrayList<FavoriteSet> getFavorites() {
         ArrayList<FavoriteSet> favoriteSets = new ArrayList<>();
