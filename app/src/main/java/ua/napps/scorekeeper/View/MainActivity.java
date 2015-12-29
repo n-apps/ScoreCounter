@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.action_add:
-                getCurrentSet().addCounter(new Counter("d2d"));
+                getCurrentSet().addCounter(new Counter("d2d")); /* TODO: remove hardcoded string.*/
                 mAdapter.notifyDataSetChanged();
                 updateView();
                 break;
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         } else {
             mCountersRecyclerView.setVisibleChildCount(1);
         }
-        mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
+        mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount()); // TODO: only if counter added
         mCountersRecyclerView.invalidate();
     }
 
