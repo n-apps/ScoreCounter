@@ -114,6 +114,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
             FragmentManager fm = mContext.getSupportFragmentManager();
             EditCounterFragment alertDialog = EditCounterFragment.newInstance(getAdapterPosition());
             alertDialog.show(fm, "edit_counter_dialog");
+            // TODO: if(!frag.isAdded()){}
         }
 
         public MyViewHolder(final View itemView) {
