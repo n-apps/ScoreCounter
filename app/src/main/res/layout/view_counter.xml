@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     android:id="@+id/rootCounterView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/accentColor"
-    android:orientation="vertical"
-    android:weightSum="10">
+    android:longClickable="true"
+    android:background="@color/accentColor">
 
     <ua.napps.scorekeeper.Utils.AutoResizeTextView
         android:id="@+id/caption"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center|center_vertical"
+
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
         android:maxLines="1"
+        android:singleLine="true"
         android:padding="@dimen/activity_vertical_margin"
         android:text="Caption 23"
         android:textSize="32sp"/>
@@ -22,23 +23,25 @@
     <ua.napps.scorekeeper.Utils.AutoResizeTextView
         android:id="@+id/value"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="8"
-        android:gravity="center|center_vertical"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:singleLine="true"
+        android:clickable="false"
+        android:gravity="center"
         android:padding="@dimen/activity_vertical_margin"
         android:text="77"
-        android:textSize="312sp"/>
+        android:textSize="256sp"/>
 
     <ua.napps.scorekeeper.Utils.AutoResizeTextView
         android:id="@+id/prevValue"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:gravity="center|center_vertical"
+        android:layout_gravity="bottom|center"
+        android:singleLine="true"
+        android:clickable="false"
+        android:gravity="center"
         android:maxLines="1"
         android:padding="@dimen/activity_vertical_margin"
         android:text="0"
         android:textSize="32sp"/>
-</LinearLayout>
+</FrameLayout>

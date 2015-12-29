@@ -6,8 +6,9 @@
 
     <ImageView
         android:id="@+id/diceIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:padding="12dp"
+        android:layout_height="48dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -15,29 +16,26 @@
 
     <TextView
         android:id="@+id/setName"
-        style="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/diceIcon"
         android:layout_toRightOf="@+id/diceIcon"
-        android:text=""/>
+        android:text="Favorite Item"/>
 
     <ImageView
         android:id="@+id/editSet"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="48dp"
+        android:padding="12dp"
+        android:layout_height="48dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:alpha="@dimen/alpha_icons"
-        android:src="@drawable/ic_edit"/>
-         
-        <!---
-        TODO: width:24dp; padding:24dp; overall width:48dp;
-        -->
+        android:src="@drawable/ic_edit_black_24dp"/>
 
     <include
         layout="@layout/divider"

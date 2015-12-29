@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
-    @Bind(R.id.toolbar)
+    @Bind(R.id.main_toolbar)
     Toolbar mToolbar;
 
     @OnClick(R.id.shakeDices)
@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_menu, menu);
+
         return true;
     }
 
@@ -215,16 +216,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mCountersRecyclerView.invalidate();
     }
 
-/*
-TODO: // This method hides the system bars and resize the content
-  private void hideSystemUI() {
-    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-            | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-            // remove the following flag for version < API 19
-            | View.SYSTEM_UI_FLAG_IMMERSIVE); 
-  } 
-*/
+
 
     @Override
     public void toggleKeepScreenOn(boolean isSelected) {

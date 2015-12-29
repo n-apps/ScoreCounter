@@ -7,19 +7,24 @@
               android:clickable="true"
               android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/fav_toolbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp"
+        android:theme="@style/MyToolbar"
+        android:title="@string/favorites"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/shadow"/>
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/favRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-            <!--TODO: margin 16dp -->
 
         <LinearLayout
             android:id="@+id/emptyStateFav"
@@ -45,7 +50,7 @@
         </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/addFavSetFAB"
+            android:id="@+id/mFAB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"

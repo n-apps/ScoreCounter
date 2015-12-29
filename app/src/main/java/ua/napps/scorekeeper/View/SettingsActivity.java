@@ -27,7 +27,7 @@ public class SettingsActivity extends AppCompatActivity {
     SwitchCompat stayAwake;
     @Bind(R.id.showAllCounters)
     SwitchCompat showAllCounetrs;
-    @Bind(R.id.toolbar)
+    @Bind(R.id.settings_toolbar)
     Toolbar toolbar;
 
     @Override
@@ -37,7 +37,6 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
 
-        toolbar.setTitle(R.string.settings_title);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);

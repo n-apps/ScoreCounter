@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 
+import com.apkfuns.logutils.LogUtils;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.OnLongClick;
 import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Utils.AutoResizeTextView;
 import ua.napps.scorekeeper.View.EditCounterFragment;
 import ua.napps.scorekeeper.View.MainActivity;
 
@@ -68,37 +68,39 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     class MyViewHolder extends ViewHolder {
         @Bind(R.id.caption)
-        TextView mCaption;
+        AutoResizeTextView mCaption;
         @Bind(R.id.value)
-        TextView mValue;
+        AutoResizeTextView mValue;
         @Bind(R.id.prevValue)
-        TextView mPrevValue;
+        AutoResizeTextView mPrevValue;
         @Bind(R.id.rootCounterView)
-        LinearLayout mCounterView;
+        FrameLayout mCounterView;
+
         private long startShowingPrevValue;
 
         @OnLongClick(R.id.rootCounterView)
         public boolean onLongClick(View v) {
+            FragmentManager fm = mContext.getSupportFragmentManager();
+            EditCounterFragment alertDialog = EditCounterFragment.newInstance(getAdapterPosition());
+            alertDialog.show(fm, "edit_counter_dialog");
             return true;
         }
 
         @OnTouch(R.id.rootCounterView)
         public boolean onTouchItem(View v, MotionEvent event) {
             int position = getAdapterPosition();
+            LogUtils.i("onTouchItem     ");
+
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_UP:
-                    long now = System.currentTimeMillis();
 
-                    if (now - PREV_VALUE_SHOW_DURATION > startShowingPrevValue) {
-                        mPrevValue.setText(mValue.getText());
-                    }
-                    startShowingPrevValue = now;
+                    if (mPrevValue.getVisibility() != View.GONE) showPrevValue();
 
                     if (event.getX() > v.getWidth() / 2)
                         getCurrentSet().getCounter(position).increaseValue();
                     else getCurrentSet().getCounter(position).decreaseValue();
-                    notifyDataSetChanged();
+                    notifyItemChanged(position);
                     YoYo.with(Techniques.ZoomIn)
                             .duration(200)
                             .playOn(v.findViewById(R.id.value));
@@ -106,20 +108,20 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
                 case MotionEvent.ACTION_CANCEL:
                     break;
             }
-            return true;
+            return false;
         }
 
-        @OnClick(R.id.caption)
-        public void onCaptionClick() {
-            FragmentManager fm = mContext.getSupportFragmentManager();
-            EditCounterFragment alertDialog = EditCounterFragment.newInstance(getAdapterPosition());
-            alertDialog.show(fm, "edit_counter_dialog");
-            // TODO: if(!frag.isAdded()){}
+        private void showPrevValue() {
+            long now = System.currentTimeMillis();
+
+            if (now - PREV_VALUE_SHOW_DURATION > startShowingPrevValue) {
+                mPrevValue.setText(mValue.getText());
+            }
+            startShowingPrevValue = now;
         }
 
         public MyViewHolder(final View itemView) {
             super(itemView);
-
             ButterKnife.bind(this, itemView);
         }
     }

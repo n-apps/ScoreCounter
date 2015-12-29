@@ -49,4 +49,5 @@ dependencies {
     compile 'com.github.luckyandyzhang:CleverRecyclerView:1.0.0'
     compile 'com.apkfuns.logutils:library:1.0.6'
     compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
+    compile 'me.grantland:autofittextview:0.2.1'
 }

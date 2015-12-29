@@ -41,16 +41,16 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
 
 public class FragmentFav extends Fragment implements EditFavSetDialogListener {
 
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+    @Bind(R.id.fav_toolbar)
+    Toolbar mToolbar;
 
     @Bind(R.id.emptyStateFav)
-    View emptyState;
+    View mEmptyState;
 
     @Bind(R.id.favRv)
-    RecyclerView favoritesRecyclerView;
+    RecyclerView mFavoritesRecyclerView;
 
-    @OnClick(R.id.addFavSetFAB)
+    @OnClick(R.id.mFAB)
     public void onClick(View v) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         EditFavSetFragment favDialog = EditFavSetFragment.newInstance(null, true);
@@ -71,12 +71,11 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
         View view = inflater.inflate(R.layout.fav_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        toolbar.setTitle(R.string.favorites_title);
         final MainActivity context = (MainActivity) getActivity();
-        context.setSupportActionBar(toolbar);
+        context.setSupportActionBar(mToolbar);
         ActionBar actionBar = context.getSupportActionBar();
         if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 context.closeFragment("favorites");
@@ -84,19 +83,20 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
         });
         setHasOptionsMenu(true);
         mFavoriteSetsAdapter = new FavoriteSetsAdapter(getFavorites());
-        favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        favoritesRecyclerView.setAdapter(mFavoriteSetsAdapter);
+        mFavoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mFavoritesRecyclerView.setAdapter(mFavoriteSetsAdapter);
         checkEmptyState();
         return view;
     }
 
     private void checkEmptyState() {
-        emptyState.setVisibility((getFavorites().size() == 0) ? View.VISIBLE : View.GONE);
+        mEmptyState.setVisibility((getFavorites().size() == 0) ? View.VISIBLE : View.GONE);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
+        inflater.inflate(R.menu.favorites_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
     

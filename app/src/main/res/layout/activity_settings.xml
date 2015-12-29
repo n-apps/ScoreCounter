@@ -5,9 +5,15 @@
               android:background="#fff"
               android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
-
-    <include layout="@layout/shadow"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/settings_toolbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="8dp"
+        android:theme="@style/MyToolbar"
+        android:title="@string/settings"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/showDicesBar"
