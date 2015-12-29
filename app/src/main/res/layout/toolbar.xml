@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v7.widget.Toolbar
     android:id="@+id/toolbar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:background="@color/primaryColor"
-    android:minHeight="56dp"
-    android:theme="@style/Toolbar.Theme"
-    app:titleTextAppearance="@style/Toolbar.TitleText"
-    app:titleTextColor="#fff" />
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:elevation="8dp"
+    android:theme="@style/MyToolbar"
+    android:title="@string/app_name"/>

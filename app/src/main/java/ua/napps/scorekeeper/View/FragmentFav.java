@@ -11,6 +11,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -80,11 +82,22 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
                 context.closeFragment("favorites");
             }
         });
-
+        setHasOptionsMenu(true);
         mFavoriteSetsAdapter = new FavoriteSetsAdapter(getFavorites());
         favoritesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         favoritesRecyclerView.setAdapter(mFavoriteSetsAdapter);
+        checkEmptyState();
         return view;
+    }
+
+    private void checkEmptyState() {
+        emptyState.setVisibility((getFavorites().size() == 0) ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public ArrayList<FavoriteSet> getFavorites() {
@@ -112,11 +125,14 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
     @Override
     public void onFavSetDeleted(FavoriteSet set) {
         mFavoriteSetsAdapter.remove(set);
+        checkEmptyState();
+
     }
 
     @Override
     public void onFavSetAdded(FavoriteSet set) {
         mFavoriteSetsAdapter.add(set);
+        checkEmptyState();
     }
 
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

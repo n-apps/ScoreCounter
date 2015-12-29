@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    android:id="@+id/drawerLayout"
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +11,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <include layout="@layout/toolbar"/>
+
         <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
             android:id="@+id/countersRecyclerView"
             android:layout_width="match_parent"
@@ -19,6 +21,7 @@
             android:layout_weight="1"/>
 
         <include layout="@layout/dices_bar"/>
+
     </LinearLayout>
 
     <FrameLayout
@@ -26,7 +29,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <include layout="@layout/drawer_content"/>
 
-
-</android.support.v4.widget.DrawerLayout>
+</android.support.design.widget.CoordinatorLayout>

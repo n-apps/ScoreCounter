@@ -3,13 +3,16 @@ package ua.napps.scorekeeper.View;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -33,44 +36,22 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 public class MainActivity extends AppCompatActivity implements MainView {
 
     @Bind(R.id.countersRecyclerView)
     CleverRecyclerView mCountersRecyclerView;
-    @Bind(R.id.drawerLayout)
-    DrawerLayout mDrawer;
+
     @Bind(R.id.diceLayout)
     View mDicesBar;
     @Bind(R.id.diceFormula)
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
-
-
-    @OnClick(R.id.addCounterMenuItem)
-    public void onClickAddCounter(View v) {
-        mDrawer.closeDrawers();
-        getCurrentSet().addCounter(new Counter("d2d"));
-        mAdapter.notifyDataSetChanged();
-        updateView();
-    }
-
-    @OnClick(R.id.openFavoritesMenuItem)
-    public void onFavButtonClick(View v) {
-        mDrawer.closeDrawers();
-        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
-        getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
-                .replace(R.id.fragContainer, FragmentFav.newInstance(), "favorites").commit();
-    }
-
-    @OnClick(R.id.openPreferencesMenuItem)
-    public void onPrefButtonClick(View v) {
-        mDrawer.closeDrawers();
-        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
-    }
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
 
     @OnClick(R.id.shakeDices)
     public void onClickShake(View v) {
@@ -118,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        setSupportActionBar(mToolbar);
 
         if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
 
@@ -146,6 +128,44 @@ public class MainActivity extends AppCompatActivity implements MainView {
         getMainPresenter().onStop();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // action with ID action_refresh was selected
+            case R.id.action_add:
+                getCurrentSet().addCounter(new Counter("d2d"));
+                mAdapter.notifyDataSetChanged();
+                updateView();
+                break;
+            // action with ID action_settings was selected
+            case R.id.action_sets:
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
+                        .replace(R.id.fragContainer, FragmentFav.newInstance(), "favorites").commit();
+                break;
+            case R.id.action_settings:
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                break;
+            case R.id.action_report:
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setType("text/plain");
+                intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+
+        return true;
+    }
+
     public MainPresenterImpl getMainPresenter() {
         if (mPresenter == null) {
             mPresenter = new MainPresenterImpl(this);
@@ -171,21 +191,13 @@ public class MainActivity extends AppCompatActivity implements MainView {
         }
     }
 
-    public void onDialogClickDeleteCounter() {
-        updateView();
-    }
-
     @Override
     public void onBackPressed() {
-        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-        if (mDrawer.isDrawerOpen(GravityCompat.START)) mDrawer.closeDrawers();
-        else {
-            Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
-            if (favFragment != null) {
-                closeFragment("favorites");
-            } else {
-                super.onBackPressed();
-            }
+        Fragment favFragment = getSupportFragmentManager().findFragmentByTag("favorites");
+        if (favFragment != null) {
+            closeFragment("favorites");
+        } else {
+            super.onBackPressed();
         }
     }
 
@@ -196,10 +208,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         if (mIsAllCountersVisible) {
             mCountersRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
-            mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
         } else {
             mCountersRecyclerView.setVisibleChildCount(1);
         }
+        mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
         mCountersRecyclerView.invalidate();
     }
 
@@ -237,7 +249,6 @@ public class MainActivity extends AppCompatActivity implements MainView {
             getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
                     .remove(favFragment).commit();
             getSupportFragmentManager().popBackStack();
-            mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         }
     }
 }

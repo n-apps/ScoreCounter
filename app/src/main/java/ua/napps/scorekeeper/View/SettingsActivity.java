@@ -1,8 +1,6 @@
 package ua.napps.scorekeeper.View;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -13,7 +11,6 @@ import android.view.View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import ua.com.napps.scorekeeper.R;
 
 import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -21,7 +18,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
-import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -33,15 +29,6 @@ public class SettingsActivity extends AppCompatActivity {
     SwitchCompat showAllCounetrs;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-
-    @OnClick(R.id.sendReport)
-    public void onClickSendReport(View v) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setType("text/plain");
-        intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        startActivity(intent);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
