@@ -106,6 +106,17 @@ public class EditCounterFragment extends DialogFragment {
         }
         return dialog;
     }
+    
+    /*
+    TODO:
+     @Override
+  public void show(FragmentManager manager, String tag) {
+    if (manager.findFragmentByTag(tag) == null) {
+      super.show(manager, tag);
+    }
+  }
+
+    */
 
     private void initValues(Counter counter) {
         caption.append(counter.getCaption());
