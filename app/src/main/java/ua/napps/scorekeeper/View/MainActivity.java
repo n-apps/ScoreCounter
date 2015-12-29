@@ -236,6 +236,7 @@ TODO: // This method hides the system bars and resize the content
     public void toggleDicesBar(boolean isShowing) {
         if (isShowing) mDicesBar.setVisibility(VISIBLE);
         else mDicesBar.setVisibility(GONE);
+        mCountersRecyclerView.invalidate();
     }
 
     @Override
