@@ -229,6 +229,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         if (isShowing) mDicesBar.setVisibility(VISIBLE);
         else mDicesBar.setVisibility(GONE);
         mCountersRecyclerView.invalidate();
+        // TODO: notifyDataSetChanged();
     }
 
     @Override
