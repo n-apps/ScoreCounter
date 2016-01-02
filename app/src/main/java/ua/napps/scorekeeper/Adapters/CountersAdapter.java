@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.apkfuns.logutils.LogUtils;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 
@@ -20,12 +20,17 @@ import butterknife.OnLongClick;
 import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.Utils.AutoResizeTextView;
 import ua.napps.scorekeeper.View.EditCounterFragment;
 import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.support.v7.widget.RecyclerView.ViewHolder;
+import static ua.napps.scorekeeper.Helpers.Constants.CAPTION_TEXT_SIZE;
+import static ua.napps.scorekeeper.Helpers.Constants.CAPTION_TEXT_SIZE_SINGLE_COUNTER;
+import static ua.napps.scorekeeper.Helpers.Constants.COUNTER_VALUE_TEXT_SIZE;
+import static ua.napps.scorekeeper.Helpers.Constants.COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER;
 import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
+import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_TEXT_SIZE;
+import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 /**
@@ -33,6 +38,8 @@ import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
  */
 public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyViewHolder> {
 
+
+    private boolean mIsAllCountersShowing;
     private ArrayList<Counter> mCounters;
     private final MainActivity mContext;
 
@@ -43,7 +50,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.view_counter, parent, false));
+        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.counter_view, parent, false));
         return holder;
     }
 
@@ -55,6 +62,16 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         holder.mValue.setText(String.valueOf(mCounters.get(position).getValue()));
         holder.mValue.setTextColor(mCounters.get(position).getTextColor());
         holder.mPrevValue.setTextColor(mCounters.get(position).getTextColor());
+
+        if (mIsAllCountersShowing) {
+            holder.mCaption.setTextSize(CAPTION_TEXT_SIZE / getItemCount());
+            holder.mValue.setTextSize(COUNTER_VALUE_TEXT_SIZE / getItemCount());
+            holder.mPrevValue.setTextSize(PREV_VALUE_TEXT_SIZE / getItemCount());
+        } else {
+            holder.mCaption.setTextSize(CAPTION_TEXT_SIZE_SINGLE_COUNTER);
+            holder.mValue.setTextSize(COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER);
+            holder.mPrevValue.setTextSize(PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER);
+        }
     }
 
     @Override
@@ -66,15 +83,19 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         mCounters = items;
     }
 
+    public void setCountersVisibility(boolean isShowing) {
+        mIsAllCountersShowing = isShowing;
+    }
+
     class MyViewHolder extends ViewHolder {
         @Bind(R.id.caption)
-        AutoResizeTextView mCaption;
+        TextView mCaption;
         @Bind(R.id.value)
-        AutoResizeTextView mValue;
+        TextView mValue;
         @Bind(R.id.prevValue)
-        AutoResizeTextView mPrevValue;
+        TextView mPrevValue;
         @Bind(R.id.rootCounterView)
-        FrameLayout mCounterView;
+        LinearLayout mCounterView;
 
         private long startShowingPrevValue;
 
@@ -89,8 +110,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         @OnTouch(R.id.rootCounterView)
         public boolean onTouchItem(View v, MotionEvent event) {
             int position = getAdapterPosition();
-            LogUtils.i("onTouchItem     ");
-
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_UP:

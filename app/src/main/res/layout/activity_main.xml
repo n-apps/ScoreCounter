@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"/>
 
-        <include layout="@layout/dices_bar"/>
+        <include layout="@layout/dice_bar"/>
 
     </LinearLayout>
 

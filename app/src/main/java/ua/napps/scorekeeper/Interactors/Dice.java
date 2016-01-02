@@ -11,7 +11,7 @@ public class Dice {
 
     private static Dice instance;
 
-    public static Dice getInstance() {
+    public static Dice getDiceInstance() {
         if (instance == null) {
             instance = new Dice();
         }

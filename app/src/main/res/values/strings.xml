@@ -9,9 +9,8 @@
     <string name="keep_alive_switch">Stay awake</string>
     <string name="send_feedback">Send feedback</string>
     <string name="counter_dialog_step">Step</string>
-    <string name="counter_dialog_min_value">Min value</string>
-    <string name="counter_dialog_max_value">Max value</string>
     <string name="counter_dialog_default_value">Default value</string>
+    <string name="counter_dialog_counter_value">Value</string>
     <string name="dice_dialog_quantity">Dice quantity</string>
     <string name="dice_dialog_min_edge">Min edge</string>
     <string name="dice_dialog_max_edge">Max edge</string>

@@ -9,8 +9,7 @@
     <string name="keep_alive_switch">Оставлять экран включенным</string>
     <string name="send_feedback">Отправить отзыв</string>
     <string name="counter_dialog_step">Шаг</string>
-    <string name="counter_dialog_min_value">Минимальное значение</string>
-    <string name="counter_dialog_max_value">Максимальное значение</string>
+    <string name="counter_dialog_counter_value">Значение</string>
     <string name="counter_dialog_default_value">Значение по умолчанию</string>
     <string name="dice_dialog_quantity">Количество кубиков</string>
     <string name="dice_dialog_min_edge">Значение минимальной грани</string>

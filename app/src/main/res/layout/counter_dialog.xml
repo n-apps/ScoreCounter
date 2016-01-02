@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,106 +11,78 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/color_header"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
+            android:layout_height="64dp"
+            android:background="@color/accentColor"
+            android:orientation="vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp">
 
             <EditText
                 android:id="@+id/caption"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
                 android:inputType="text"
                 android:maxLength="10"
                 android:maxLines="1"
-                android:minEms="10" />
-
-            <FrameLayout
-                android:id="@+id/paintedView"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="#247BA0" />
+                android:minEms="10"/>
 
         </LinearLayout>
-
-        <SeekBar
-            android:id="@+id/redSeekBar"
-            android:splitTrack="false"
-            style="@style/MySeekBar.Red" />
-
-        <SeekBar
-            android:id="@+id/greenSeekBar"
-            android:splitTrack="false"
-            style="@style/MySeekBar.Green" />
-
-        <SeekBar
-            android:id="@+id/blueSeekBar"
-            android:splitTrack="false"
-            style="@style/MySeekBar.Blue" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            >
 
-            <TextView
-                style="@style/TextViewField"
-                android:text="@string/counter_dialog_step" />
+            <SeekBar
+                android:id="@+id/redSeekBar"
+                style="@style/MySeekBar.Red"
+                android:splitTrack="false"/>
 
-            <EditText
+            <SeekBar
+                android:id="@+id/greenSeekBar"
+                style="@style/MySeekBar.Green"
+                android:splitTrack="false"/>
+
+            <SeekBar
+                android:id="@+id/blueSeekBar"
+                style="@style/MySeekBar.Blue"
+                android:splitTrack="false"/>
+
+            <com.gregacucnik.EditableSeekBar
+                android:id="@+id/currentValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:esbMax="999"
+                app:esbMin="-99"
+                app:esbSelectAllOnFocus="false"
+                app:esbTitle="@string/counter_dialog_counter_value"/>
+
+            <com.gregacucnik.EditableSeekBar
                 android:id="@+id/step"
-                style="@style/NumericField" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:esbMax="100"
+                app:esbMin="1"
+                app:esbSelectAllOnFocus="false"
+                app:esbTitle="@string/counter_dialog_step"
+                app:esbValue="1"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TextViewField"
-                android:text="@string/counter_dialog_min_value" />
-
-            <EditText
-                android:id="@+id/minValue"
-                style="@style/NumericField" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TextViewField"
-                android:text="@string/counter_dialog_max_value" />
-
-            <EditText
-                android:id="@+id/maxValue"
-                style="@style/NumericField" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/TextViewField"
-                android:text="@string/counter_dialog_default_value" />
-
-            <EditText
+            <com.gregacucnik.EditableSeekBar
                 android:id="@+id/defaultValue"
-                style="@style/NumericField" />
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:esbMax="999"
+                app:esbMin="-999"
+                app:esbSelectAllOnFocus="false"
+                app:esbTitle="@string/counter_dialog_default_value"
+                app:esbValue="0"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

@@ -49,17 +49,4 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/textColorPrimary"/>
 
-    <include layout="@layout/divider"/>
-
-    <TextView
-        android:id="@+id/sendReport"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:clickable="true"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/send_feedback"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
 </LinearLayout>

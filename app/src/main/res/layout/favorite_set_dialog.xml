@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/color_header"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/accentColor"
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+
+        <EditText
+            android:id="@+id/setName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:maxLength="15"
+            android:textSize="24sp"
+            android:maxLines="1"
+            android:minEms="10"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        >
+
+        <SeekBar
+            android:id="@+id/redSeekBar"
+            style="@style/MySeekBar.Red"
+            android:splitTrack="false"/>
+
+        <SeekBar
+            android:id="@+id/greenSeekBar"
+            style="@style/MySeekBar.Green"
+            android:splitTrack="false"/>
+
+        <SeekBar
+            android:id="@+id/blueSeekBar"
+            style="@style/MySeekBar.Blue"
+            android:splitTrack="false"/>
+
+    </LinearLayout>
+</LinearLayout>

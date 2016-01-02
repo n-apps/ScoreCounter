@@ -1,12 +1,11 @@
 package ua.napps.scorekeeper.View;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -29,17 +28,14 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import de.greenrobot.event.EventBus;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Events.FavoriteSetLoaded;
-import ua.napps.scorekeeper.Events.FavoritesUpdated;
-import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Models.FavoriteSet;
-import ua.napps.scorekeeper.View.EditFavSetFragment.EditFavSetDialogListener;
+import ua.napps.scorekeeper.Utils.PrefUtil;
+import ua.napps.scorekeeper.View.EditFavoriteSetFragment.EditFavSetDialogListener;
 
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_NAME;
+import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 
-public class FragmentFav extends Fragment implements EditFavSetDialogListener {
+public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogListener {
 
     @Bind(R.id.fav_toolbar)
     Toolbar mToolbar;
@@ -53,32 +49,32 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
     @OnClick(R.id.mFAB)
     public void onClick(View v) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        EditFavSetFragment favDialog = EditFavSetFragment.newInstance(null, true);
+        EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(null, true);
         favDialog.setTargetFragment(this, 0);
         favDialog.show(fm, "edit_fav_dialog");
     }
 
     FavoriteSetsAdapter mFavoriteSetsAdapter;
+    FavSetLoadedListener mCallback;
 
-    public static FragmentFav newInstance() {
-        FragmentFav fragment = new FragmentFav();
+    public static FavoriteSetsFragment newInstance() {
+        FavoriteSetsFragment fragment = new FavoriteSetsFragment();
         return fragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fav_fragment, container, false);
+        View view = inflater.inflate(R.layout.favorite_sets_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        final MainActivity context = (MainActivity) getActivity();
-        context.setSupportActionBar(mToolbar);
-        ActionBar actionBar = context.getSupportActionBar();
-        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setTitle(R.string.favorites_title);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.closeFragment("favorites");
+                getActivity().onBackPressed();
             }
         });
         setHasOptionsMenu(true);
@@ -89,8 +85,16 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
         return view;
     }
 
-    private void checkEmptyState() {
-        mEmptyState.setVisibility((getFavorites().size() == 0) ? View.VISIBLE : View.GONE);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            mCallback = (FavSetLoadedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement FavSetLoadedListener");
+        }
     }
 
     @Override
@@ -99,20 +103,10 @@ public class FragmentFav extends Fragment implements EditFavSetDialogListener {
         inflater.inflate(R.menu.favorites_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
-    
-    /*
-    @Override
-public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-    inflater.inflate(R.menu.your_menu_xml, menu);
-    super.onCreateOptionsMenu(menu, inflater);
-}
-call supportInvalidateOptionsMenu(); when you change between fragments to recreate the Menu.
-    */
 
     public ArrayList<FavoriteSet> getFavorites() {
         ArrayList<FavoriteSet> favoriteSets = new ArrayList<>();
-        SharedPreferences sp = getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        String json = sp.getString(Constants.FAV_ARRAY, "");
+        String json = PrefUtil.getString(getContext(), FAV_ARRAY, "");
 
         try {
             Type listType = new TypeToken<ArrayList<FavoriteSet>>() {
@@ -124,6 +118,10 @@ call supportInvalidateOptionsMenu(); when you change between fragments to recrea
         }
 
         return favoriteSets;
+    }
+
+    private void checkEmptyState() {
+        mEmptyState.setVisibility((getFavorites().size() == 0) ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -144,16 +142,23 @@ call supportInvalidateOptionsMenu(); when you change between fragments to recrea
         checkEmptyState();
     }
 
+    public interface FavSetLoadedListener {
+        void onFavSetLoaded(FavoriteSet set);
+    }
+
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @Bind(R.id.setName)
         TextView mSetName;
         @Bind(R.id.editSet)
         ImageView mEditSet;
+        @Bind(R.id.setIcon)
+        ImageView mSetIcon;
 
         public FavoritesViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
             itemView.setOnClickListener(this);
             mEditSet.setOnClickListener(this);
         }
@@ -165,12 +170,12 @@ call supportInvalidateOptionsMenu(); when you change between fragments to recrea
 
             switch (id) {
                 case R.id.favItem:
-                    EventBus.getDefault().post(new FavoriteSetLoaded(mFavoriteSetsAdapter.getItem(position)));
+                    mCallback.onFavSetLoaded(mFavoriteSetsAdapter.getItem(position));
                     break;
                 case R.id.editSet:
                     FragmentManager fm = getActivity().getSupportFragmentManager();
-                    EditFavSetFragment favDialog = EditFavSetFragment.newInstance(mFavoriteSetsAdapter.getItem(position), false);
-                    favDialog.setTargetFragment(FragmentFav.this, 0);
+                    EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(mFavoriteSetsAdapter.getItem(position), false);
+                    favDialog.setTargetFragment(FavoriteSetsFragment.this, 0);
                     favDialog.show(fm, "edit_fav_dialog");
                     break;
             }
@@ -188,13 +193,14 @@ call supportInvalidateOptionsMenu(); when you change between fragments to recrea
         @Override
         public FavoritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View v = layoutInflater.inflate(R.layout.fav_item, parent, false);
+            View v = layoutInflater.inflate(R.layout.favorite_set_item, parent, false);
             return new FavoritesViewHolder(v);
         }
 
         @Override
         public void onBindViewHolder(FavoritesViewHolder holder, int position) {
             holder.mSetName.setText(mFavoriteSets.get(position).getName());
+            holder.mSetIcon.setColorFilter(mFavoriteSets.get(position).getIconColor());
         }
 
         @Override
@@ -209,20 +215,23 @@ call supportInvalidateOptionsMenu(); when you change between fragments to recrea
         public void add(FavoriteSet item) {
             int position = mFavoriteSets.size();
             mFavoriteSets.add(position, item);
-            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
+            String favSetsJson = new Gson().toJson(mFavoriteSets);
+            PrefUtil.putString(getContext(), FAV_ARRAY, favSetsJson);
             notifyItemInserted(position);
         }
 
         public void update(FavoriteSet item) {
             int position = mFavoriteSets.indexOf(item);
-            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
+            String favSetsJson = new Gson().toJson(mFavoriteSets);
+            PrefUtil.putString(getContext(), FAV_ARRAY, favSetsJson);
             notifyItemChanged(position);
         }
 
         public void remove(FavoriteSet item) {
             int position = mFavoriteSets.indexOf(item);
             mFavoriteSets.remove(position);
-            EventBus.getDefault().post(new FavoritesUpdated(mFavoriteSets));
+            String favSetsJson = new Gson().toJson(mFavoriteSets);
+            PrefUtil.putString(getContext(), FAV_ARRAY, favSetsJson);
             notifyItemRemoved(position);
         }
     }
