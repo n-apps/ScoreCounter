@@ -112,7 +112,7 @@ public class EditCounterFragment extends DialogFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         try {
-            mCallback = (CounterUpdateListener) getTargetFragment();
+            mCallback = (CounterUpdateListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException("Calling Fragment must implement CounterUpdateListener");
         }

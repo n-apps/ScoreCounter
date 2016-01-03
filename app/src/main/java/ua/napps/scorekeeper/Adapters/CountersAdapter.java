@@ -101,9 +101,9 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
         @OnLongClick(R.id.rootCounterView)
         public boolean onLongClick(View v) {
-            FragmentManager fm = mContext.getSupportFragmentManager();
-            EditCounterFragment alertDialog = EditCounterFragment.newInstance(getAdapterPosition());
-            alertDialog.show(fm, "edit_counter_dialog");
+            FragmentManager fragmentManager = mContext.getSupportFragmentManager();
+            EditCounterFragment editCounterFragment = EditCounterFragment.newInstance(getAdapterPosition());
+            editCounterFragment.show(fragmentManager, "edit_counter_dialog");
             return true;
         }
 
