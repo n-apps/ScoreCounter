@@ -9,6 +9,7 @@ public final class Constants {
     public static final String PREFS_DICE_MIN_EDGE = "dice_min_edge";
     public static final String PREFS_DICE_MAX_EDGE = "dice_max_edge";
     public static final String PREFS_DICE_BONUS = "dice_bonus";
+    public static final String PREFS_PALETTE_TYPE = "color_palette";
     public static final String SEND_REPORT_EMAIL = "roman.novodvorskiy@gmail.com";
     public static final String FAV_ARRAY = "fav_array";
     public static final String ACTIVE_COUNTERS = "active_counters";

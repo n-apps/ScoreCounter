@@ -29,10 +29,11 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
+import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
-import ua.napps.scorekeeper.Helpers.Constants;
 import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
@@ -56,7 +57,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
-import static ua.napps.scorekeeper.View.EditDiceFragment.newInstance;
 
 public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingFragment.SettingsUpdatedListener, DiceUpdateListener, EditCounterFragment.CounterUpdateListener {
 
@@ -103,11 +103,12 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 .playOn(v);
     }
 
-    @OnClick(R.id.diceFormula)
-    public void onClickFormula(View v) {
-        FragmentManager fm = getSupportFragmentManager();
-        EditDiceFragment diceDialog = newInstance();
-        diceDialog.show(fm, "edit_counter_dialog");
+    @OnLongClick(R.id.diceFormula)
+    public boolean onLongClick(View v) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        EditDiceFragment diceDialog = EditDiceFragment.newInstance();
+        diceDialog.show(fragmentManager, "dice_dialog");
+        return true;
     }
 
     CountersAdapter mAdapter;
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
     private void LoadSettings() {
         if (getCurrentSet().getSize() == 0) {
-            String activeCountersJson = PrefUtil.getString(this, Constants.ACTIVE_COUNTERS, "");
+            String activeCountersJson = PrefUtil.getString(this, ACTIVE_COUNTERS, "");
             Type listType = new TypeToken<ArrayList<Counter>>() {
             }.getType();
             ArrayList<Counter> counters = new Gson().fromJson(activeCountersJson, listType);
@@ -176,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     protected void onStop() {
         super.onStop();
         String activeCountersJson = new Gson().toJson(getCurrentSet().getCounters());
+        PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
 
         if (mDicesBar.getVisibility() == VISIBLE) {
             PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDiceInstance().getAmount());
@@ -183,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
             PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDiceInstance().getMaxEdge());
             PrefUtil.putInt(this, PREFS_DICE_BONUS, Dice.getDiceInstance().getBonus());
         }
-        PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
     }
 
     @Override
@@ -216,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setType("text/plain");
                 intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                intent.putExtra(Intent.EXTRA_SUBJECT, String.format("%s %s", getString(R.string.app_name), BuildConfig.VERSION_NAME));
                 startActivity(intent);
                 break;
             default:
@@ -225,7 +226,6 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
         return true;
     }
-
 
     private void initRecyclerView() {
         mCountersRecyclerView.setItemAnimator(new NoChangeAnimator());
@@ -246,7 +246,6 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
         if (count == 0) {
             super.onBackPressed();
-            //additional code
         } else {
             getFragmentManager().popBackStack();
         }

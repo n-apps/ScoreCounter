@@ -12,25 +12,11 @@
     </style>
 
     <style name="MyToolbar" parent="Theme.AppCompat.NoActionBar">
-        <!-- android:textColorPrimary is the  color of the title text
-           in the Toolbar, in the Theme.AppCompat theme:  -->
         <item name="android:textColorPrimary">@color/toolbarTextColor</item>
-
-        <!-- android:textColorPrimaryInverse is the  color of the title
-             text in the Toolbar, in the Theme.AppCompat.Light theme:  -->
-        <item name="android:textColorPrimaryInverse">@color/textColorPrimary</item>
     </style>
 
     <style name="MyDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/primaryColor</item>
-    </style>
-
-    <style name="Toolbar.Theme" parent="Widget.AppCompat.ActionBar">
-        <item name="colorControlNormal">#fff</item>
-    </style>
-
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
     </style>
 
     <!--
@@ -59,35 +45,6 @@
     <style name="MySeekBar.Blue" parent="MySeekBar">
         <item name="android:progressDrawable">@drawable/seekbar_progress_blue</item>
         <item name="android:thumb">@drawable/thumb_blue</item>
-    </style>
-
-    <style name="NumericField">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">right</item>
-        <item name="android:inputType">numberSigned</item>
-        <item name="android:maxLength">4</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:minEms">3</item>
-        <item name="android:imeOptions">flagNoExtractUi</item>
-    </style>
-
-    <style name="TextViewField">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_gravity">bottom</item>
-        <item name="android:layout_marginBottom">4dp</item>
-    </style>
-
-    <!-- Plus / Minus images (Counter View)-->
-    <style name="MyPlusMinusImages">
-        <item name="android:layout_width">32dp</item>
-        <item name="android:layout_height">32dp</item>
-        <item name="android:layout_margin">16dp</item>
-        <item name="android:adjustViewBounds">true</item>
-        <item name="android:scaleType">fitXY</item>
-        <item name="android:alpha">0.31</item>
     </style>
 
 </resources>

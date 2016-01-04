@@ -15,6 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:background="@color/accentColor"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:paddingEnd="16dp"
             android:paddingStart="16dp">
@@ -53,6 +55,14 @@
                 android:id="@+id/blueSeekBar"
                 style="@style/MySeekBar.Blue"
                 android:splitTrack="false"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/flipCounterSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Flip counter"/>
 
             <com.gregacucnik.EditableSeekBar
                 android:id="@+id/currentValue"

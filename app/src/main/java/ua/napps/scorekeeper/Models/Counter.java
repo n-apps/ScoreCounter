@@ -4,24 +4,26 @@ import static ua.napps.scorekeeper.Utils.ColorUtil.getContrastColor;
 import static ua.napps.scorekeeper.Utils.ColorUtil.getRandomColor;
 
 public final class Counter {
-    private String caption = "Counter";
+    private String mCaption = "Counter";
     private int mValue;
     private int mBackgroundColor;
     private int mTextColor;
     private int mDefaultValue;
     private int mStep;
+    private int mRotationValue;
 
     public Counter(String name) {
-        caption = name;
+        mCaption = name;
         mBackgroundColor = getRandomColor();
         mTextColor = getContrastColor(mBackgroundColor);
         mValue = 0;
         mDefaultValue = 0;
         mStep = 1;
+        mRotationValue = 0;
     }
 
     public void setCaption(String caption) {
-        this.caption = caption;
+        this.mCaption = caption;
     }
 
     public void setValue(int value) {
@@ -29,7 +31,7 @@ public final class Counter {
     }
 
     public String getCaption() {
-        return caption;
+        return mCaption;
     }
 
     public int getValue() {
@@ -76,4 +78,11 @@ public final class Counter {
         this.mTextColor = textColor;
     }
 
+    public int getRotationValue() {
+        return mRotationValue;
+    }
+
+    public void setRotationValue(int rotationValue) {
+        mRotationValue = rotationValue;
+    }
 }

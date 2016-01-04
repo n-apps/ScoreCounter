@@ -10,6 +10,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -48,6 +49,8 @@ public class EditCounterFragment extends DialogFragment {
     EditableSeekBar defValue;
     @Bind(R.id.step)
     EditableSeekBar step;
+    @Bind(R.id.flipCounterSwitch)
+    SwitchCompat mRotationSwitch;
 
     private CounterUpdateListener mCallback;
 
@@ -132,6 +135,7 @@ public class EditCounterFragment extends DialogFragment {
         mCounter.setStep(step.getValue());
         mCounter.setValue(mCurrentValue.getValue());
         mCounter.setTextColor(ColorUtil.getContrastColor(getProgressRGBColor()));
+        mCounter.setRotationValue(mRotationSwitch.isChecked() ? 180 : 0);
     }
 
     private void initValues(Counter counter) {
@@ -139,6 +143,7 @@ public class EditCounterFragment extends DialogFragment {
         defValue.setValue(counter.getDefValue());
         step.setValue(counter.getStep());
         mCurrentValue.setValue(counter.getValue());
+        mRotationSwitch.setChecked(counter.getRotationValue() == 180);
     }
 
     private void setSeekBarProgress(int color) {

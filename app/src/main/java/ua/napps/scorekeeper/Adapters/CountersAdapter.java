@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,11 +39,9 @@ import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
  */
 public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyViewHolder> {
 
-
     private boolean mIsAllCountersShowing;
     private ArrayList<Counter> mCounters;
     private final MainActivity mContext;
-
 
     public CountersAdapter(MainActivity context) {
         this.mContext = context;
@@ -56,12 +55,16 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mCounterView.setBackgroundColor(mCounters.get(position).getColor());
-        holder.mCaption.setText(mCounters.get(position).getCaption());
-        holder.mCaption.setTextColor(mCounters.get(position).getTextColor());
-        holder.mValue.setText(String.valueOf(mCounters.get(position).getValue()));
-        holder.mValue.setTextColor(mCounters.get(position).getTextColor());
-        holder.mPrevValue.setTextColor(mCounters.get(position).getTextColor());
+        final Counter counter = mCounters.get(position);
+        holder.mCounterView.setBackgroundColor(counter.getColor());
+        holder.mCaption.setText(counter.getCaption());
+        holder.mCaption.setTextColor(counter.getTextColor());
+        holder.mValue.setText(String.valueOf(counter.getValue()));
+        holder.mValue.setTextColor(counter.getTextColor());
+        holder.mPrevValue.setTextColor(counter.getTextColor());
+        holder.mCounterView.setRotation(counter.getRotationValue());
+        holder.mIconMinus.setColorFilter(counter.getTextColor());
+        holder.mIconPlus.setColorFilter(counter.getTextColor());
 
         if (mIsAllCountersShowing) {
             holder.mCaption.setTextSize(CAPTION_TEXT_SIZE / getItemCount());
@@ -94,6 +97,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         TextView mValue;
         @Bind(R.id.prevValue)
         TextView mPrevValue;
+        @Bind(R.id.iconMinus)
+        ImageView mIconMinus;
+        @Bind(R.id.iconPlus)
+        ImageView mIconPlus;
         @Bind(R.id.rootCounterView)
         LinearLayout mCounterView;
 

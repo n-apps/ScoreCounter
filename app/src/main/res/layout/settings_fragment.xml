@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#fff"
-              android:orientation="vertical">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/settings_toolbar"
@@ -18,35 +19,54 @@
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/showDicesBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="72dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="@string/dices_switch"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary"/>
+        android:text="@string/dices_switch"/>
 
     <include layout="@layout/divider"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/showAllCounters"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="72dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="Show all counters"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary"/>
+        android:text="Show all counters"/>
 
     <include layout="@layout/divider"/>
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/stayAwake"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="72dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="@string/keep_alive_switch"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/textColorPrimary"/>
+        android:text="@string/keep_alive_switch"/>
+
+    <include layout="@layout/divider"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_height="72dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="Palette"
+            />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/paletteSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:entries="@array/spinnerItems"/>
+    </RelativeLayout>
+
 
 </LinearLayout>

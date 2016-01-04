@@ -11,6 +11,7 @@ public class ColorUtil {
 
     private ColorUtil() {
     }
+
     public static int getContrastColor(int background) {
         int r = Color.red(background);
         int g = Color.green(background);

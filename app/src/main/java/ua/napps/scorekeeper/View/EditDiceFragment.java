@@ -37,12 +37,11 @@ public class EditDiceFragment extends DialogFragment {
     private DiceUpdateListener mListener;
 
     public EditDiceFragment() {
-
     }
 
     public static EditDiceFragment newInstance() {
-        EditDiceFragment frag = new EditDiceFragment();
-        return frag;
+        EditDiceFragment editDiceFragment = new EditDiceFragment();
+        return editDiceFragment;
     }
 
     @Override
