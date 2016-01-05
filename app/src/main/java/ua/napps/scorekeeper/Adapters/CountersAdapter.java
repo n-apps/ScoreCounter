@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -25,13 +25,7 @@ import ua.napps.scorekeeper.View.EditCounterFragment;
 import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.support.v7.widget.RecyclerView.ViewHolder;
-import static ua.napps.scorekeeper.Helpers.Constants.CAPTION_TEXT_SIZE;
-import static ua.napps.scorekeeper.Helpers.Constants.CAPTION_TEXT_SIZE_SINGLE_COUNTER;
-import static ua.napps.scorekeeper.Helpers.Constants.COUNTER_VALUE_TEXT_SIZE;
-import static ua.napps.scorekeeper.Helpers.Constants.COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER;
 import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
-import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_TEXT_SIZE;
-import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 
 /**
@@ -57,23 +51,23 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Counter counter = mCounters.get(position);
         holder.mCounterView.setBackgroundColor(counter.getColor());
-        holder.mCaption.setText(counter.getCaption());
-        holder.mCaption.setTextColor(counter.getTextColor());
-        holder.mValue.setText(String.valueOf(counter.getValue()));
-        holder.mValue.setTextColor(counter.getTextColor());
+        holder.mCounterName.setText(counter.getCaption());
+        holder.mCounterName.setTextColor(counter.getTextColor());
+        holder.mCounterValue.setText(String.valueOf(counter.getValue()));
+        holder.mCounterValue.setTextColor(counter.getTextColor());
         holder.mPrevValue.setTextColor(counter.getTextColor());
         holder.mCounterView.setRotation(counter.getRotationValue());
         holder.mIconMinus.setColorFilter(counter.getTextColor());
         holder.mIconPlus.setColorFilter(counter.getTextColor());
 
         if (mIsAllCountersShowing) {
-            holder.mCaption.setTextSize(CAPTION_TEXT_SIZE / getItemCount());
-            holder.mValue.setTextSize(COUNTER_VALUE_TEXT_SIZE / getItemCount());
-            holder.mPrevValue.setTextSize(PREV_VALUE_TEXT_SIZE / getItemCount());
-        } else {
-            holder.mCaption.setTextSize(CAPTION_TEXT_SIZE_SINGLE_COUNTER);
-            holder.mValue.setTextSize(COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER);
-            holder.mPrevValue.setTextSize(PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER);
+            int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption) / getItemCount());
+            int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value) / getItemCount());
+            int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_previous_value) / getItemCount());
+
+            holder.mCounterName.setTextSize(tsCaption);
+            holder.mCounterValue.setTextSize(tsValue);
+            holder.mPrevValue.setTextSize(tsPrevValue);
         }
     }
 
@@ -91,10 +85,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     }
 
     class MyViewHolder extends ViewHolder {
-        @Bind(R.id.caption)
-        TextView mCaption;
+        @Bind(R.id.counter_name)
+        TextView mCounterName;
         @Bind(R.id.value)
-        TextView mValue;
+        TextView mCounterValue;
         @Bind(R.id.prevValue)
         TextView mPrevValue;
         @Bind(R.id.iconMinus)
@@ -102,7 +96,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         @Bind(R.id.iconPlus)
         ImageView mIconPlus;
         @Bind(R.id.rootCounterView)
-        LinearLayout mCounterView;
+        FrameLayout mCounterView;
 
         private long startShowingPrevValue;
 
@@ -141,7 +135,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
             long now = System.currentTimeMillis();
 
             if (now - PREV_VALUE_SHOW_DURATION > startShowingPrevValue) {
-                mPrevValue.setText(mValue.getText());
+                mPrevValue.setText(mCounterValue.getText());
             }
             startShowingPrevValue = now;
         }

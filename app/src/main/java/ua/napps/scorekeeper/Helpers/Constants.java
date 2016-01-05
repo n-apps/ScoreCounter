@@ -15,10 +15,11 @@ public final class Constants {
     public static final String ACTIVE_COUNTERS = "active_counters";
     public static final String PREFS_DICE_SUM = "dice_sum";
     public static final int PREV_VALUE_SHOW_DURATION = 1000;
-    public static final int PREV_VALUE_TEXT_SIZE = 64;
-    public static final int COUNTER_VALUE_TEXT_SIZE = 224;
-    public static final int CAPTION_TEXT_SIZE = 64;
-    public static final int PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER = 32;
-    public static final int COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER = 164;
-    public static final int CAPTION_TEXT_SIZE_SINGLE_COUNTER = 32;
+    public static final int ICONS_SIZE = 64;
+    public static final int PREV_VALUE_TEXT_SIZE = 48;
+    public static final int COUNTER_VALUE_TEXT_SIZE = 164;
+    public static final int CAPTION_TEXT_SIZE = 48;
+    public static final int PREV_VALUE_TEXT_SIZE_SINGLE_COUNTER = 48;
+    public static final int COUNTER_VALUE_TEXT_SIZE_SINGLE_COUNTER = 214;
+    public static final int CAPTION_TEXT_SIZE_SINGLE_COUNTER = 48;
 }

@@ -49,4 +49,5 @@ dependencies {
     compile 'com.apkfuns.logutils:library:1.0.6'
     compile 'com.github.lzyzsd.randomcolor:library:1.0.0'
     compile 'com.gregacucnik:editableseekbar:1.2'
+    compile 'jp.wasabeef:recyclerview-animators:2.1.0'
 }

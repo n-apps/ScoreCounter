@@ -41,7 +41,7 @@ public class EditCounterFragment extends DialogFragment {
     SeekBar greenBar;
     @Bind(R.id.blueSeekBar)
     SeekBar blueBar;
-    @Bind(R.id.caption)
+    @Bind(R.id.counter_caption)
     EditText caption;
     @Bind(R.id.currentValue)
     EditableSeekBar mCurrentValue;
@@ -65,7 +65,6 @@ public class EditCounterFragment extends DialogFragment {
         return frag;
     }
 
-    // TODO: add animation https://gist.github.com/orhanobut/8665372
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.View;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,10 +30,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
-import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.FavoriteSet;
@@ -62,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
     @Bind(R.id.countersRecyclerView)
     CleverRecyclerView mCountersRecyclerView;
-
     @Bind(R.id.diceLayout)
     View mDicesBar;
     @Bind(R.id.diceFormula)
@@ -228,16 +226,13 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     }
 
     private void initRecyclerView() {
-        mCountersRecyclerView.setItemAnimator(new NoChangeAnimator());
+        mCountersRecyclerView.setItemAnimator(new SlideInLeftAnimator());
         mCountersRecyclerView.setAdapter(mAdapter);
         mCountersRecyclerView.setScrollAnimationDuration(300);
         mCountersRecyclerView.setFlingFriction(0.99f);
         mCountersRecyclerView.setSlidingThreshold(0.1f);
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mCountersRecyclerView.setOrientation(RecyclerView.VERTICAL);
-        } else {
-            mCountersRecyclerView.setOrientation(RecyclerView.HORIZONTAL);
-        }
+        mCountersRecyclerView.setOrientation(RecyclerView.VERTICAL);
+
     }
 
     @Override
