@@ -3,8 +3,7 @@
     android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,15 +20,20 @@
             android:theme="@style/MyToolbar"
             android:title="@string/app_name"/>
 
-        <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-            android:id="@+id/countersRecyclerView"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1"/>
+            android:foreground="?android:windowContentOverlay">
 
-        <include layout="@layout/dice_bar"/>
+            <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
+                android:id="@+id/countersRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"/>
 
+            <include layout="@layout/dice_bar"/>
+        </FrameLayout>
     </LinearLayout>
 
     <FrameLayout

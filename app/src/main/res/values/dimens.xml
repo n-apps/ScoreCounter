@@ -3,10 +3,15 @@
 
     <item name="alpha_empty_state" format="float" type="dimen">0.27</item>
     <item name="alpha_icons" format="float" type="dimen">0.54</item>
-    <dimen name="text_size_caption">24sp</dimen>
-    <dimen name="text_size_value">128sp</dimen>
-    <dimen name="text_size_previous_value">24sp</dimen>
-    <dimen name="icon_size">48dp</dimen>
+    <dimen name="text_size_caption">32sp</dimen>
+    <dimen name="text_size_value">192sp</dimen>
+    <dimen name="text_size_previous_value">32sp</dimen>
+    <dimen name="icon_size">36dp</dimen>
+    <dimen name="padding_caption">8dp</dimen>
+    <dimen name="padding_previous_value">8dp</dimen>
+    <dimen name="card_corner_radius">0dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="list_horizontal_margin">0dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

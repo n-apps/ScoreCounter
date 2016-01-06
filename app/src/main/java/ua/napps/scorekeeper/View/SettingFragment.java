@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -19,7 +18,6 @@ import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Utils.PrefUtil;
 
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_PALETTE_TYPE;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
@@ -37,8 +35,6 @@ public class SettingFragment extends Fragment {
     SwitchCompat stayAwake;
     @Bind(R.id.showAllCounters)
     SwitchCompat showAllCounetrs;
-    @Bind(R.id.paletteSpinner)
-    AppCompatSpinner mPaletteSpinner;
 
     SettingsUpdatedListener mCallback;
 
@@ -91,7 +87,6 @@ public class SettingFragment extends Fragment {
         showDicesBar.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_DICES, false));
         stayAwake.setChecked(PrefUtil.getBoolean(getContext(), PREFS_STAY_AWAKE, true));
         showAllCounetrs.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, true));
-        mPaletteSpinner.setSelection(PrefUtil.getInt(getContext(), PREFS_PALETTE_TYPE, 0));
     }
 
     @Override
@@ -100,7 +95,6 @@ public class SettingFragment extends Fragment {
         PrefUtil.putBoolean(getContext(), PREFS_SHOW_DICES, showDicesBar.isChecked());
         PrefUtil.putBoolean(getContext(), PREFS_STAY_AWAKE, stayAwake.isChecked());
         PrefUtil.putBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, showAllCounetrs.isChecked());
-        PrefUtil.putInt(getContext(), PREFS_PALETTE_TYPE, mPaletteSpinner.getSelectedItemPosition());
     }
 
     @Override

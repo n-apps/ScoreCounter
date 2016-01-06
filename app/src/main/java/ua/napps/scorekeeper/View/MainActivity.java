@@ -30,10 +30,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
-import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
+import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
 import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.FavoriteSet;
@@ -226,13 +226,12 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     }
 
     private void initRecyclerView() {
-        mCountersRecyclerView.setItemAnimator(new SlideInLeftAnimator());
+        mCountersRecyclerView.setItemAnimator(new NoChangeAnimator());
         mCountersRecyclerView.setAdapter(mAdapter);
         mCountersRecyclerView.setScrollAnimationDuration(300);
         mCountersRecyclerView.setFlingFriction(0.99f);
         mCountersRecyclerView.setSlidingThreshold(0.1f);
         mCountersRecyclerView.setOrientation(RecyclerView.VERTICAL);
-
     }
 
     @Override
@@ -246,18 +245,15 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
     }
 
-
     public void updateView() {
         mAdapter.setCounters(getCurrentSet().getCounters());
         mAdapter.setCountersVisibility(mIsAllCountersVisible);
-        mAdapter.notifyDataSetChanged();
         if (mIsAllCountersVisible) {
             mCountersRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
         } else {
             mCountersRecyclerView.setVisibleChildCount(1);
         }
-        mCountersRecyclerView.invalidate();
-        mCountersRecyclerView.requestLayout();
+        mAdapter.notifyDataSetChanged();
     }
 
     public void toggleKeepScreenOn(boolean isSelected) {

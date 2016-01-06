@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/counter_name"
-        android:padding="8dp"
+        android:padding="@dimen/padding_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
@@ -23,9 +23,9 @@
         android:id="@+id/iconMinus"
         android:layout_width="48dp"
         android:layout_height="@dimen/icon_size"
+        android:layout_marginLeft="8dp"
         android:layout_gravity="center_vertical|left"
-        android:alpha="0.54"
-        android:padding="8dp"
+        android:alpha="0.37"
         android:src="@drawable/ic_remove_black_48dp"/>
 
     <TextView
@@ -46,9 +46,9 @@
         android:id="@+id/iconPlus"
         android:layout_width="@dimen/icon_size"
         android:layout_height="@dimen/icon_size"
+        android:layout_marginRight="8dp"
         android:layout_gravity="center_vertical|right"
-        android:alpha="0.54"
-        android:padding="8dp"
+        android:alpha="0.37"
         android:src="@drawable/ic_add_black_48dp"/>
 
     <TextView
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:clickable="false"
-        android:padding="8dp"
+        android:padding="@dimen/padding_previous_value"
         android:ellipsize="none"
         android:textSize="@dimen/text_size_previous_value"
         android:singleLine="true"

@@ -36,9 +36,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     private boolean mIsAllCountersShowing;
     private ArrayList<Counter> mCounters;
     private final MainActivity mContext;
+    private float mDensity;
 
     public CountersAdapter(MainActivity context) {
         this.mContext = context;
+        this.mDensity = mContext.getResources().getDisplayMetrics().density;
     }
 
     @Override
@@ -60,11 +62,18 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         holder.mIconMinus.setColorFilter(counter.getTextColor());
         holder.mIconPlus.setColorFilter(counter.getTextColor());
 
-        if (mIsAllCountersShowing) {
-            int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption) / getItemCount());
-            int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value) / getItemCount());
-            int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_previous_value) / getItemCount());
 
+        int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption)  / mDensity);
+        int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value)  / mDensity);
+        int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_previous_value)  / mDensity);
+
+        if (mIsAllCountersShowing) {
+            holder.mCounterName.setTextSize(tsCaption / getItemCount());
+            holder.mCounterValue.setTextSize(tsValue / getItemCount());
+            holder.mPrevValue.setTextSize(tsPrevValue / getItemCount());
+        }
+        else
+        {
             holder.mCounterName.setTextSize(tsCaption);
             holder.mCounterValue.setTextSize(tsValue);
             holder.mPrevValue.setTextSize(tsPrevValue);
