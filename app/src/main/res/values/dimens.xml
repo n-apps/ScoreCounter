@@ -4,8 +4,7 @@
     <item name="alpha_empty_state" format="float" type="dimen">0.27</item>
     <item name="alpha_icons" format="float" type="dimen">0.54</item>
     <dimen name="text_size_caption">32sp</dimen>
-    <dimen name="text_size_value">192sp</dimen>
-    <dimen name="text_size_previous_value">32sp</dimen>
+    <dimen name="text_size_value">164sp</dimen>
     <dimen name="icon_size">36dp</dimen>
     <dimen name="padding_caption">8dp</dimen>
     <dimen name="padding_previous_value">8dp</dimen>

@@ -59,4 +59,5 @@ dependencies {
     compile 'com.github.luckyandyzhang:CleverRecyclerView:1.0.0'
     compile 'com.apkfuns.logutils:library:1.0.6'
     compile 'com.gregacucnik:editableseekbar:1.2'
+    compile 'net.kianoni:fontloader:0.3.0'
 }

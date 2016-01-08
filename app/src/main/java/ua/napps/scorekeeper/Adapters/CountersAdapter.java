@@ -65,7 +65,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
         int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption)  / mDensity);
         int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value)  / mDensity);
-        int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_previous_value)  / mDensity);
+        int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption)  / mDensity);
 
         if (mIsAllCountersShowing) {
             holder.mCounterName.setTextSize(tsCaption / getItemCount());
