@@ -37,8 +37,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 
 public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogListener {
 
-    @Bind(R.id.fav_toolbar)
-    Toolbar mToolbar;
 
     @Bind(R.id.emptyStateFav)
     View mEmptyState;
@@ -68,12 +66,15 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
         View view = inflater.inflate(R.layout.favorite_sets_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setTitle(R.string.favorites_title);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.favorites_title);
+
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
                 getActivity().onBackPressed();
             }
         });
@@ -192,7 +193,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
 
         @Override
         public FavoritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
             View v = layoutInflater.inflate(R.layout.favorite_set_item, parent, false);
             return new FavoritesViewHolder(v);
         }

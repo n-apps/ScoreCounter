@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/diceLayout"
-    android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:layout_gravity="bottom"
-    android:background="#efefef"
-    android:orientation="horizontal"
-    android:visibility="gone"
-    tools:ignore="ContentDescription">
 
-    <TextView
-        android:id="@+id/diceSum"
-        android:layout_width="48dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="@string/dices_bar_result"
-        android:textColor="@color/accentColor"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/diceFormula"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:clickable="true"
-        android:gravity="center"
-        android:text="4d6+2"
-        android:textSize="18sp">
-
-    </TextView>
-
-    <ImageButton
-        android:id="@+id/shakeDices"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:padding="8dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_dice_shake" />
-</LinearLayout>
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"></LinearLayout>

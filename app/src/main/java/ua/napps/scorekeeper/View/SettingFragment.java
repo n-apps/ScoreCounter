@@ -27,8 +27,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
  */
 public class SettingFragment extends Fragment {
 
-    @Bind(R.id.settings_toolbar)
-    Toolbar mToolbar;
     @Bind(R.id.showDicesBar)
     SwitchCompat showDicesBar;
     @Bind(R.id.stayAwake)
@@ -49,12 +47,14 @@ public class SettingFragment extends Fragment {
         View view = inflater.inflate(R.layout.settings_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        ((AppCompatActivity)getActivity()).setSupportActionBar(mToolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mToolbar.setTitle(R.string.settings_title);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.settings_title);
+        Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
                 getActivity().onBackPressed();
             }
         });
@@ -100,7 +100,7 @@ public class SettingFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.favorites_menu, menu);
+        inflater.inflate(R.menu.settings_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

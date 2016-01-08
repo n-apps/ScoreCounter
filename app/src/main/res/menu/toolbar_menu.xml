@@ -16,6 +16,10 @@
         android:title="@string/favorites"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/action_clear_all"
+        android:title="@string/remove_all"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/action_settings"
         android:title="@string/settings"
         app:showAsAction="never"/>

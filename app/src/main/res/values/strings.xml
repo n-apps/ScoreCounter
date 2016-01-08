@@ -1,10 +1,9 @@
 <resources>
-
-    <string name="app_name">Score Keeper</string>
     <string name="drawer_top_list_header">RECENT SETS</string>
     <string name="add_new_counter">Add new counter</string>
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
+    <string name="remove_all">Remove all counters</string>
     <string name="dices_switch">Dices</string>
     <string name="keep_alive_switch">Stay awake</string>
     <string name="send_feedback">Send feedback</string>

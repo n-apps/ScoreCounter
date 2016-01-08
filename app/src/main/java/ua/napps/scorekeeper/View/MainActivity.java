@@ -30,7 +30,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
-import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
 import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
@@ -55,9 +54,12 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
 import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
+import static ua.napps.scorekeeper.View.EditCounterFragment.CounterUpdateListener;
 import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
+import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
+import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 
-public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingFragment.SettingsUpdatedListener, DiceUpdateListener, EditCounterFragment.CounterUpdateListener {
+public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener, CounterUpdateListener {
 
     @Bind(R.id.countersRecyclerView)
     CleverRecyclerView mCountersRecyclerView;
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
     TextView mDiceSum;
-    @Bind(R.id.main_toolbar)
+    @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
     @OnClick(R.id.shakeDices)
@@ -188,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
+        menu.clear();
         inflater.inflate(R.menu.toolbar_menu, menu);
 
         return true;
@@ -198,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
             case R.id.action_add:
-                getCurrentSet().addCounter(new Counter(String.format("Counter %d", getCurrentSet().getSize()))); /* TODO: remove hardcoded string.*/
+                addCounter();
                 updateView();
                 mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
                 break;
@@ -207,15 +210,20 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
                         .replace(R.id.fragContainer, FavoriteSetsFragment.newInstance(), "favorites").addToBackStack(null).commit();
                 break;
+            case R.id.action_clear_all:
+                getCurrentSet().removeAllCounters();
+                addCounter();
+                updateView();
+                break;
             case R.id.action_settings:
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
-                        .replace(R.id.fragContainer, SettingFragment.newInstance(), "settings").addToBackStack(null).commit();
+                        .replace(R.id.fragContainer, newInstance(), "settings").addToBackStack(null).commit();
                 break;
             case R.id.action_report:
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setType("text/plain");
                 intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
-                intent.putExtra(Intent.EXTRA_SUBJECT, String.format("%s %s", getString(R.string.app_name), BuildConfig.VERSION_NAME));
+                intent.putExtra(Intent.EXTRA_SUBJECT, String.format("%s %s", getString(R.string.app_name), getString(R.string.app_version_code)));
                 startActivity(intent);
                 break;
             default:
@@ -223,6 +231,10 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
 
         return true;
+    }
+
+    private void addCounter() {
+        getCurrentSet().addCounter(new Counter(String.format("Counter %d", getCurrentSet().getSize() + 1)));
     }
 
     private void initRecyclerView() {

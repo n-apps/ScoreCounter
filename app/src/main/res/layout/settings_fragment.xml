@@ -6,20 +6,11 @@
     android:background="#eee"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/settings_toolbar"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="8dp"
-        android:theme="@style/MyToolbar"
-        android:title="@string/settings"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foreground="?android:windowContentOverlay">
+        android:foreground="?android:attr/windowContentOverlay">
 
         <android.support.v7.widget.CardView
             style="@style/CardViewStyle"

@@ -1,45 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include android:id="@+id/toolbar" layout="@layout/toolbar"/>
 
     <LinearLayout
+        android:id="@+id/diceLayout"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#efefef"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        tools:ignore="ContentDescription"
+        tools:showIn="@layout/activity_main">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/main_toolbar"
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="8dp"
-            android:theme="@style/MyToolbar"
-            android:title="@string/app_name"/>
-
-        <FrameLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/diceSum"
+            android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:foreground="?android:windowContentOverlay">
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:text="@string/dices_bar_result"
+            android:textColor="@color/accentColor"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
-            <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-                android:id="@+id/countersRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/diceFormula"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="4d6+2"
+            android:textSize="18sp">
 
-            <include layout="@layout/dice_bar"/>
-        </FrameLayout>
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/shakeDices"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:background="#00000000"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_dice_shake"/>
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/fragContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_above="@id/diceLayout"
+        android:layout_below="@id/toolbar"
+        android:foreground="?android:attr/windowContentOverlay">
+
+        <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
+            android:id="@+id/countersRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <FrameLayout
+            android:id="@+id/fragContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
 
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

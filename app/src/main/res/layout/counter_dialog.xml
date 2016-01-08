@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            >
+            android:paddingTop="8dp"
+            android:paddingStart="16dp">
 
             <SeekBar
                 android:id="@+id/redSeekBar"

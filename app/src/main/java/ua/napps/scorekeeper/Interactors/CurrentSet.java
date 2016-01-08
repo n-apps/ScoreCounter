@@ -30,6 +30,7 @@ public class CurrentSet {
     public void setCounters(ArrayList counters) {
         this.mCounters = counters;
     }
+
     public Counter getCounter(int position) {
         return mCounters.get(position);
     }
@@ -44,6 +45,10 @@ public class CurrentSet {
 
     public void addCounter(Counter item) {
         mCounters.add(item);
+    }
+
+    public void removeAllCounters() {
+        mCounters.clear();
     }
 
 }

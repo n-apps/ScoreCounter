@@ -44,17 +44,17 @@
 
     <style name="MySeekBar.Red" parent="MySeekBar">
         <item name="android:progressDrawable">@drawable/seekbar_progress_red</item>
-        <item name="android:thumb">@drawable/thumb_red</item>
+        <item name="android:thumb">@drawable/seekbar_circle_red</item>
     </style>
 
     <style name="MySeekBar.Green" parent="MySeekBar">
         <item name="android:progressDrawable">@drawable/seekbar_progress_green</item>
-        <item name="android:thumb">@drawable/thumb_green</item>
+        <item name="android:thumb">@drawable/seekbar_circle_green</item>
     </style>
 
     <style name="MySeekBar.Blue" parent="MySeekBar">
         <item name="android:progressDrawable">@drawable/seekbar_progress_blue</item>
-        <item name="android:thumb">@drawable/thumb_blue</item>
+        <item name="android:thumb">@drawable/seekbar_circle_blue</item>
     </style>
 
 </resources>

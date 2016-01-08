@@ -162,7 +162,7 @@ public class EditDiceFragment extends DialogFragment {
             }
         });
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
 
         alertDialogBuilder.setView(view);
         alertDialogBuilder.setPositiveButton(getContext().getString((R.string.button_positive)), new DialogInterface.OnClickListener() {
