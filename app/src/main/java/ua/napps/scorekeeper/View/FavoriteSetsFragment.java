@@ -41,10 +41,10 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
     @Bind(R.id.emptyStateFav)
     View mEmptyState;
 
-    @Bind(R.id.favRv)
+    @Bind(R.id.FavoriteSetsRecyclerView)
     RecyclerView mFavoritesRecyclerView;
 
-    @OnClick(R.id.mFAB)
+    @OnClick(R.id.fab)
     public void onClick(View v) {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(null, true);
@@ -73,8 +73,6 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
                 getActivity().onBackPressed();
             }
         });
@@ -101,7 +99,6 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.favorites_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -172,6 +169,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
             switch (id) {
                 case R.id.favItem:
                     mCallback.onFavSetLoaded(mFavoriteSetsAdapter.getItem(position));
+                    getActivity().onBackPressed();
                     break;
                 case R.id.editSet:
                     FragmentManager fm = getActivity().getSupportFragmentManager();

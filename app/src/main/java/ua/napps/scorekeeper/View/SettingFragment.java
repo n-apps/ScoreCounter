@@ -32,7 +32,7 @@ public class SettingFragment extends Fragment {
     @Bind(R.id.stayAwake)
     SwitchCompat mStayAwake;
     @Bind(R.id.showAllCounters)
-    SwitchCompat mShowAllCounetrs;
+    SwitchCompat mShowAllCounters;
 
     SettingsUpdatedListener mCallback;
 
@@ -53,8 +53,6 @@ public class SettingFragment extends Fragment {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.app_name);
                 getActivity().onBackPressed();
             }
         });
@@ -86,7 +84,7 @@ public class SettingFragment extends Fragment {
         super.onResume();
         mShowDicesBar.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_DICES, false));
         mStayAwake.setChecked(PrefUtil.getBoolean(getContext(), PREFS_STAY_AWAKE, true));
-        mShowAllCounetrs.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, true));
+        mShowAllCounters.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, true));
     }
 
     @Override
@@ -94,13 +92,12 @@ public class SettingFragment extends Fragment {
         super.onPause();
         PrefUtil.putBoolean(getContext(), PREFS_SHOW_DICES, mShowDicesBar.isChecked());
         PrefUtil.putBoolean(getContext(), PREFS_STAY_AWAKE, mStayAwake.isChecked());
-        PrefUtil.putBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, mShowAllCounetrs.isChecked());
+        PrefUtil.putBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, mShowAllCounters.isChecked());
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.settings_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

@@ -16,9 +16,9 @@ import com.gregacucnik.EditableSeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Interactors.Dice;
+import ua.napps.scorekeeper.Models.Dice;
 
-import static ua.napps.scorekeeper.Interactors.Dice.getDiceInstance;
+import static ua.napps.scorekeeper.Models.Dice.getDice;
 
 /**
  * Created by novo on 2016-01-02.
@@ -62,7 +62,7 @@ public class EditDiceFragment extends DialogFragment {
         final View view = inflater.inflate(R.layout.dice_dialog, null);
         ButterKnife.bind(this, view);
 
-        final Dice dice = getDiceInstance();
+        final Dice dice = getDice();
         mDiceAmount.setValue(dice.getAmount());
         mDiceMinEdge.setValue(dice.getMinEdge());
         mDiceMaxEdge.setValue(dice.getMaxEdge());
@@ -187,10 +187,10 @@ public class EditDiceFragment extends DialogFragment {
     }
 
     private void updateDice() {
-        getDiceInstance().setAmount(mDiceAmount.getValue());
-        getDiceInstance().setMinEdge(mDiceMinEdge.getValue());
-        getDiceInstance().setMaxEdge(mDiceMaxEdge.getValue());
-        getDiceInstance().setBonus(mDiceTotalBonus.getValue());
+        getDice().setAmount(mDiceAmount.getValue());
+        getDice().setMinEdge(mDiceMinEdge.getValue());
+        getDice().setMaxEdge(mDiceMaxEdge.getValue());
+        getDice().setBonus(mDiceTotalBonus.getValue());
     }
 
     public interface DiceUpdateListener {

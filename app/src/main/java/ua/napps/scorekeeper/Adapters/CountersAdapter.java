@@ -2,12 +2,12 @@ package ua.napps.scorekeeper.Adapters;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnLongClick;
 import butterknife.OnTouch;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
@@ -26,7 +25,7 @@ import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.support.v7.widget.RecyclerView.ViewHolder;
 import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
-import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
+import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
 
 /**
  * Created by novo on 22-Dec-15.
@@ -52,6 +51,9 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         final Counter counter = mCounters.get(position);
+        int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption) / mDensity);
+        int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value) / mDensity);
+
         holder.mCounterView.setBackgroundColor(counter.getColor());
         holder.mCounterName.setText(counter.getCaption());
         holder.mCounterName.setTextColor(counter.getTextColor());
@@ -59,24 +61,21 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         holder.mCounterValue.setTextColor(counter.getTextColor());
         holder.mPrevValue.setTextColor(counter.getTextColor());
         holder.mCounterView.setRotation(counter.getRotationValue());
-        holder.mIconMinus.setColorFilter(counter.getTextColor());
-        holder.mIconPlus.setColorFilter(counter.getTextColor());
-
-
-        int tsCaption = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption)  / mDensity);
-        int tsValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_value)  / mDensity);
-        int tsPrevValue = (int) (mContext.getResources().getDimension(R.dimen.text_size_caption)  / mDensity);
+        holder.mMinusSymbol.setTextColor(counter.getTextColor());
+        holder.mPlusSymbol.setTextColor(counter.getTextColor());
 
         if (mIsAllCountersShowing) {
             holder.mCounterName.setTextSize(tsCaption / getItemCount());
             holder.mCounterValue.setTextSize(tsValue / getItemCount());
-            holder.mPrevValue.setTextSize(tsPrevValue / getItemCount());
-        }
-        else
-        {
+            holder.mPrevValue.setTextSize(tsCaption / getItemCount());
+            holder.mMinusSymbol.setTextSize(tsValue / getItemCount());
+            holder.mPlusSymbol.setTextSize(tsValue / getItemCount());
+        } else {
             holder.mCounterName.setTextSize(tsCaption);
             holder.mCounterValue.setTextSize(tsValue);
-            holder.mPrevValue.setTextSize(tsPrevValue);
+            holder.mPrevValue.setTextSize(tsCaption);
+            holder.mMinusSymbol.setTextSize(tsCaption);
+            holder.mPlusSymbol.setTextSize(tsCaption);
         }
     }
 
@@ -100,44 +99,51 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         TextView mCounterValue;
         @Bind(R.id.prevValue)
         TextView mPrevValue;
-        @Bind(R.id.iconMinus)
-        ImageView mIconMinus;
-        @Bind(R.id.iconPlus)
-        ImageView mIconPlus;
+        @Bind(R.id.minus)
+        TextView mMinusSymbol;
+        @Bind(R.id.plus)
+        TextView mPlusSymbol;
         @Bind(R.id.rootCounterView)
         FrameLayout mCounterView;
 
         private long startShowingPrevValue;
 
-        @OnLongClick(R.id.rootCounterView)
-        public boolean onLongClick(View v) {
-            FragmentManager fragmentManager = mContext.getSupportFragmentManager();
-            EditCounterFragment editCounterFragment = EditCounterFragment.newInstance(getAdapterPosition());
-            editCounterFragment.show(fragmentManager, "edit_counter_dialog");
-            return true;
-        }
+        final GestureDetector gestureDetector = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
+
+            public void onLongPress(MotionEvent e) {
+                FragmentManager fragmentManager = mContext.getSupportFragmentManager();
+                EditCounterFragment editCounterFragment = EditCounterFragment.newInstance(getAdapterPosition());
+                editCounterFragment.show(fragmentManager, "edit_counter_dialog");
+            }
+
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
+                updateCounter(e);
+                return super.onSingleTapUp(e);
+            }
+
+        });
 
         @OnTouch(R.id.rootCounterView)
         public boolean onTouchItem(View v, MotionEvent event) {
+            return gestureDetector.onTouchEvent(event);
+        }
+
+        private void updateCounter(MotionEvent e) {
             int position = getAdapterPosition();
+            int viewWidth = mCounterView.getWidth();
 
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_UP:
+            if (mPrevValue.getVisibility() != View.GONE) showPrevValue();
 
-                    if (mPrevValue.getVisibility() != View.GONE) showPrevValue();
-
-                    if (event.getX() > v.getWidth() / 2)
-                        getCurrentSet().getCounter(position).increaseValue();
-                    else getCurrentSet().getCounter(position).decreaseValue();
-                    notifyItemChanged(position);
-                    YoYo.with(Techniques.ZoomIn)
-                            .duration(200)
-                            .playOn(v.findViewById(R.id.value));
-                    break;
-                case MotionEvent.ACTION_CANCEL:
-                    break;
+            if (e.getX() > viewWidth / 2) {
+                getInstance().getCounter(position).increaseValue();
+            } else {
+                getInstance().getCounter(position).decreaseValue();
             }
-            return false;
+            YoYo.with(Techniques.Landing)
+                    .duration(300)
+                    .playOn(mCounterView.findViewById(R.id.value));
+            notifyItemChanged(position);
         }
 
         private void showPrevValue() {

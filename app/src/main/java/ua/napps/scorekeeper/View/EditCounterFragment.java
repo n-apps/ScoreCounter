@@ -22,12 +22,12 @@ import com.gregacucnik.EditableSeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Interactors.CurrentSet;
 import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Models.CurrentSet;
 import ua.napps.scorekeeper.Utils.ColorUtil;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
-import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
+import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
 
 /**
  * Created by novo on 2015-12-26.
@@ -73,7 +73,7 @@ public class EditCounterFragment extends DialogFragment {
         ButterKnife.bind(this, view);
 
         Integer position = getArguments().getInt("position");
-        final Counter mCounter = CurrentSet.getCurrentSet().getCounter(position);
+        final Counter mCounter = CurrentSet.getInstance().getCounter(position);
 
         redBar.setOnSeekBarChangeListener(seekListener);
         greenBar.setOnSeekBarChangeListener(seekListener);
@@ -95,14 +95,14 @@ public class EditCounterFragment extends DialogFragment {
         alertDialogBuilder.setNeutralButton(getContext().getString(R.string.button_neutral), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                getCurrentSet().removeCounter(mCounter);
+                getInstance().removeCounter(mCounter);
                 mCallback.onCounterDelete();
             }
         });
         AlertDialog dialog = alertDialogBuilder.create();
         dialog.show();
 
-        if (CurrentSet.getCurrentSet().getSize() > 1) {
+        if (CurrentSet.getInstance().getSize() > 1) {
             dialog.getButton(BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(getContext(), R.color.accentColor));
         } else {
             dialog.getButton(BUTTON_NEUTRAL).setVisibility(View.GONE);

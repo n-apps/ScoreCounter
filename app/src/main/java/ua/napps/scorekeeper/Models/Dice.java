@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Interactors;
+package ua.napps.scorekeeper.Models;
 
 import java.security.SecureRandom;
 
@@ -9,13 +9,13 @@ public class Dice {
     int maxEdge;
     int bonus;
 
-    private static Dice instance;
+    private static Dice sDice;
 
-    public static Dice getDiceInstance() {
-        if (instance == null) {
-            instance = new Dice();
+    public synchronized static Dice getDice() {
+        if (sDice == null) {
+            sDice = new Dice();
         }
-        return instance;
+        return sDice;
     }
 
     private Dice() {

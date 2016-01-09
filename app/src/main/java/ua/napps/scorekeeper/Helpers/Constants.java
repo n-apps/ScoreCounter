@@ -14,7 +14,7 @@ public final class Constants {
     public static final String FAV_ARRAY = "fav_array";
     public static final String ACTIVE_COUNTERS = "active_counters";
     public static final String PREFS_DICE_SUM = "dice_sum";
-    public static final int PREV_VALUE_SHOW_DURATION = 1000;
+    public static final int PREV_VALUE_SHOW_DURATION = 3000;
     public static final int ICONS_SIZE = 64;
     public static final int PREV_VALUE_TEXT_SIZE = 48;
     public static final int COUNTER_VALUE_TEXT_SIZE = 164;

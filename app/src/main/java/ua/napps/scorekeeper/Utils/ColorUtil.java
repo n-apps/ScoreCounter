@@ -17,7 +17,7 @@ public class ColorUtil {
         int g = Color.green(background);
         int b = Color.blue(background);
         int o = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-        return o > 125 ? Color.BLACK : Color.WHITE;
+        return o > 125 ?  Color.parseColor("#de000000") : Color.WHITE;
     }
 
     public static int getRandomColor() {

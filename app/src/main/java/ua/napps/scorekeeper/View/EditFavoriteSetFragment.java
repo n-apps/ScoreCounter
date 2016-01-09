@@ -19,7 +19,7 @@ import android.widget.SeekBar;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Interactors.CurrentSet;
+import ua.napps.scorekeeper.Models.CurrentSet;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.Utils.ColorUtil;
 import ua.napps.scorekeeper.Utils.KeyboardUtil;
@@ -123,8 +123,8 @@ public class EditFavoriteSetFragment extends DialogFragment {
 
     @Override
     public void onDismiss(DialogInterface dialog) {
-        super.onDismiss(dialog);
         KeyboardUtil.hideKeyboard(getActivity());
+        super.onDismiss(dialog);
     }
 
     private void setSeekBarProgress(int color) {
@@ -138,7 +138,7 @@ public class EditFavoriteSetFragment extends DialogFragment {
     private void applyChanges() {
         if (mIsNewSet) {
             FavoriteSet set = new FavoriteSet(mSetName.getText().toString().trim());
-            set.setCounters(CurrentSet.getCurrentSet().getCounters());
+            set.setCounters(CurrentSet.getInstance().getCounters());
             set.setIconColor(getProgressRGBColor());
             mCallback.onFavSetAdded(set);
 

@@ -9,27 +9,31 @@
 
     <net.kianoni.fontloader.TextView
         android:id="@+id/counter_name"
-        android:padding="@dimen/padding_caption"
+        style="@style/Rubik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
         android:clickable="false"
         android:ellipsize="none"
-        style="@style/Rubik"
-        android:singleLine="true"
-        android:text="Caption 23"/>
+        android:layout_marginTop="@dimen/padding_caption"
+        android:singleLine="true"/>
 
-    <ImageView
-        android:id="@+id/iconMinus"
-        android:layout_width="48dp"
-        android:layout_height="@dimen/icon_size"
-        android:layout_marginLeft="8dp"
+    <net.kianoni.fontloader.TextView
+        android:id="@+id/minus"
+        style="@style/Rubik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|left"
+        android:layout_marginLeft="16dp"
         android:alpha="0.37"
-        android:src="@drawable/ic_remove_black_48dp"/>
+        android:clickable="false"
+        android:ellipsize="none"
+        android:singleLine="true"
+        android:text="-"/>
 
     <net.kianoni.fontloader.TextView
         android:id="@+id/value"
+        style="@style/Rubik.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,28 +42,29 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:padding="0dp"
-        style="@style/Rubik.Bold"
-        android:singleLine="true"
-        android:text="77"/>
+        android:singleLine="true"/>
 
-    <ImageView
-        android:id="@+id/iconPlus"
-        android:layout_width="@dimen/icon_size"
-        android:layout_height="@dimen/icon_size"
-        android:layout_marginRight="8dp"
+    <net.kianoni.fontloader.TextView
+        android:id="@+id/plus"
+        style="@style/Rubik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="16dp"
         android:alpha="0.37"
-        android:src="@drawable/ic_add_black_48dp"/>
+        android:clickable="false"
+        android:ellipsize="none"
+        android:singleLine="true"
+        android:text="+"/>
 
     <net.kianoni.fontloader.TextView
         android:id="@+id/prevValue"
+        style="@style/Rubik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:clickable="false"
-        android:padding="@dimen/padding_previous_value"
         android:ellipsize="none"
-        android:singleLine="true"
-        style="@style/Rubik"
-        android:text="0"/>
+        android:layout_marginBottom="@dimen/padding_previous_value"
+        android:singleLine="true"/>
 </FrameLayout>

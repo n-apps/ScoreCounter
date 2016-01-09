@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.apkfuns.logutils.LogUtils;
 import com.daimajia.androidanimations.library.Techniques;
@@ -33,10 +34,12 @@ import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Adapters.CountersAdapter;
 import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
-import ua.napps.scorekeeper.Interactors.Dice;
 import ua.napps.scorekeeper.Models.Counter;
+import ua.napps.scorekeeper.Models.CurrentSet;
+import ua.napps.scorekeeper.Models.Dice;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.Utils.PrefUtil;
+import ua.napps.scorekeeper.Utils.ToastUtils;
 import ua.napps.scorekeeper.View.FavoriteSetsFragment.FavSetLoadedListener;
 
 import static android.view.View.GONE;
@@ -53,7 +56,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
-import static ua.napps.scorekeeper.Interactors.CurrentSet.getCurrentSet;
 import static ua.napps.scorekeeper.View.EditCounterFragment.CounterUpdateListener;
 import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
 import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 YoYo.with(Techniques.FadeIn)
                         .duration(400)
                         .playOn(mDiceSum);
-                setDiceSum(String.format("%d", Dice.getDiceInstance().roll()));
+                setDiceSum(String.format("%d", Dice.getDice().roll()));
             }
 
             @Override
@@ -139,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     }
 
     private void LoadSettings() {
-        if (getCurrentSet().getSize() == 0) {
+        if (CurrentSet.getInstance().getSize() == 0) {
             String activeCountersJson = PrefUtil.getString(this, ACTIVE_COUNTERS, "");
             Type listType = new TypeToken<ArrayList<Counter>>() {
             }.getType();
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 counters = new ArrayList<>();
                 counters.add(new Counter(getResources().getString(R.string.counter_title_default)));
             }
-            getCurrentSet().setCounters(counters);
+            CurrentSet.getInstance().setCounters(counters);
         }
 
         if (PrefUtil.getBoolean(this, PREFS_STAY_AWAKE, true)) {
@@ -161,13 +163,13 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
         if (PrefUtil.getBoolean(this, PREFS_SHOW_DICES, false)) {
             toggleDicesBar(true);
-            Dice.getDiceInstance().setAmount(PrefUtil.getInt(this, PREFS_DICE_AMOUNT, 1));
-            Dice.getDiceInstance().setMinEdge(PrefUtil.getInt(this, PREFS_DICE_MIN_EDGE, 1));
-            Dice.getDiceInstance().setMaxEdge(PrefUtil.getInt(this, PREFS_DICE_MAX_EDGE, 6));
-            Dice.getDiceInstance().setBonus(PrefUtil.getInt(this, PREFS_DICE_BONUS, 0));
+            Dice.getDice().setAmount(PrefUtil.getInt(this, PREFS_DICE_AMOUNT, 1));
+            Dice.getDice().setMinEdge(PrefUtil.getInt(this, PREFS_DICE_MIN_EDGE, 1));
+            Dice.getDice().setMaxEdge(PrefUtil.getInt(this, PREFS_DICE_MAX_EDGE, 6));
+            Dice.getDice().setBonus(PrefUtil.getInt(this, PREFS_DICE_BONUS, 0));
 
             setDiceSum(PrefUtil.getString(this, PREFS_DICE_SUM, "0"));
-            setDiceFormula(Dice.getDiceInstance().toString());
+            setDiceFormula(Dice.getDice().toString());
         } else {
             toggleDicesBar(false);
         }
@@ -176,14 +178,24 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     @Override
     protected void onStop() {
         super.onStop();
-        String activeCountersJson = new Gson().toJson(getCurrentSet().getCounters());
+        saveSettings();
+    }
+
+    @Override
+    protected void onDestroy() {
+        saveSettings();
+        super.onDestroy();
+    }
+
+    private void saveSettings() {
+        String activeCountersJson = new Gson().toJson(CurrentSet.getInstance().getCounters());
         PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
 
         if (mDicesBar.getVisibility() == VISIBLE) {
-            PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDiceInstance().getAmount());
-            PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDiceInstance().getMinEdge());
-            PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDiceInstance().getMaxEdge());
-            PrefUtil.putInt(this, PREFS_DICE_BONUS, Dice.getDiceInstance().getBonus());
+            PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDice().getAmount());
+            PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDice().getMinEdge());
+            PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDice().getMaxEdge());
+            PrefUtil.putInt(this, PREFS_DICE_BONUS, Dice.getDice().getBonus());
         }
     }
 
@@ -199,24 +211,22 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // action with ID action_refresh was selected
             case R.id.action_add:
                 addCounter();
                 updateView();
                 mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
                 break;
-            // action with ID action_settings was selected
             case R.id.action_sets:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
                         .replace(R.id.fragContainer, FavoriteSetsFragment.newInstance(), "favorites").addToBackStack(null).commit();
                 break;
             case R.id.action_clear_all:
-                getCurrentSet().removeAllCounters();
+                CurrentSet.getInstance().removeAllCounters();
                 addCounter();
                 updateView();
                 break;
             case R.id.action_settings:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
                         .replace(R.id.fragContainer, newInstance(), "settings").addToBackStack(null).commit();
                 break;
             case R.id.action_report:
@@ -229,12 +239,16 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
             default:
                 break;
         }
-
         return true;
     }
 
     private void addCounter() {
-        getCurrentSet().addCounter(new Counter(String.format("Counter %d", getCurrentSet().getSize() + 1)));
+        CurrentSet.getInstance().addCounter(newCounter());
+    }
+
+    @NonNull
+    private Counter newCounter() {
+        return new Counter(String.format("%s %d", getString(R.string.counter_title_default), CurrentSet.getInstance().getSize() + 1));
     }
 
     private void initRecyclerView() {
@@ -252,13 +266,15 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
         if (count == 0) {
             super.onBackPressed();
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setTitle(R.string.app_name);
         } else {
             getFragmentManager().popBackStack();
         }
     }
 
     public void updateView() {
-        mAdapter.setCounters(getCurrentSet().getCounters());
+        mAdapter.setCounters(CurrentSet.getInstance().getCounters());
         mAdapter.setCountersVisibility(mIsAllCountersVisible);
         if (mIsAllCountersVisible) {
             mCountersRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
@@ -289,20 +305,11 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         mDiceFormula.setText(formula);
     }
 
-    public void closeFragment(String tag) {
-        Fragment favFragment = getSupportFragmentManager().findFragmentByTag(tag);
-        if (favFragment != null) {
-            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_up, R.anim.slide_dowm, R.anim.slide_up, R.anim.slide_dowm)
-                    .remove(favFragment).commit();
-            getSupportFragmentManager().popBackStack();
-        }
-    }
-
     @Override
     public void onFavSetLoaded(FavoriteSet set) {
-        closeFragment("favorites");
-        getCurrentSet().setCounters(set.getCounters());
+        CurrentSet.getInstance().setCounters(set.getCounters());
         updateView();
+        ToastUtils.getInstance().showToast(this, String.format("%s loaded", set.getName()), Toast.LENGTH_SHORT);
     }
 
     @Override
@@ -313,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
     @Override
     public void onDiceUpdate() {
-        setDiceFormula(Dice.getDiceInstance().toString());
+        setDiceFormula(Dice.getDice().toString());
     }
 
     @Override

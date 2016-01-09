@@ -1,8 +1,6 @@
-package ua.napps.scorekeeper.Interactors;
+package ua.napps.scorekeeper.Models;
 
 import java.util.ArrayList;
-
-import ua.napps.scorekeeper.Models.Counter;
 
 /**
  * Created by novo on 10-Dec-15.
@@ -10,13 +8,13 @@ import ua.napps.scorekeeper.Models.Counter;
 public class CurrentSet {
 
     private ArrayList<Counter> mCounters;
-    private static CurrentSet instance;
+    private static CurrentSet sCurrentSet;
 
-    public static CurrentSet getCurrentSet() {
-        if (instance == null) {
-            instance = new CurrentSet();
+    public synchronized static CurrentSet getInstance() {
+        if (sCurrentSet == null) {
+            sCurrentSet = new CurrentSet();
         }
-        return instance;
+        return sCurrentSet;
     }
 
     private CurrentSet() {
