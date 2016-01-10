@@ -9,8 +9,6 @@
     <color name="textColorSecondary">#89000000</color>
     <color name="textColorHint">#42000000</color>
     <color name="toolbarTextColor">#eee</color>
-    <color name="colorControlHighlight">@color/fifty_percent_transparency_grey_400</color>
-    <color name="fifty_percent_transparency_grey_400">#80bdbdbd</color>
 
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>

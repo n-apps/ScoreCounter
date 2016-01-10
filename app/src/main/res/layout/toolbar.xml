@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <android.support.v7.widget.Toolbar
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_toolbar"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
@@ -12,4 +10,5 @@
     android:elevation="8dp"
     android:theme="@style/MyToolbar"
     android:title="@string/app_name"
-    tools:showIn="@layout/activity_main"/>
+    tools:showIn="@layout/activity_main"
+    tools:ignore="UnusedAttribute"/>

@@ -1,57 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eee"
-    android:clickable="true"
-    android:orientation="vertical">
+    android:foreground="?android:attr/windowContentOverlay">
 
-    <FrameLayout
+    <android.support.v7.widget.CardView
+        style="@style/CardViewStyle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foreground="?android:attr/windowContentOverlay">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
-            style="@style/CardViewStyle"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/FavoriteSetsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"/>
+    </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/FavoriteSetsRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:id="@+id/empty_state_favorite_sets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alpha="@dimen/alpha_empty_state"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:ignore="UseCompoundDrawables">
 
-        <LinearLayout
-            android:id="@+id/emptyStateFav"
+        <ImageView
+            android:layout_width="144dp"
+            android:layout_height="144dp"
+            android:src="@drawable/ic_heart"/>
+
+        <TextView
             android:layout_width="wrap_content"
+            android:textSize="32sp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:alpha="@dimen/alpha_empty_state"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:text="@string/fav_fragment_empty_state"/>
+    </LinearLayout>
 
-            <ImageView
-                android:layout_width="144dp"
-                android:layout_height="144dp"
-                android:src="@drawable/ic_heart"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/fav_fragment_empty_state"/>
-        </LinearLayout>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_add_white_24dp"
-            app:fabSize="normal"/>
-    </FrameLayout>
-</LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        app:fabSize="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_white_24dp"/>
+</FrameLayout>

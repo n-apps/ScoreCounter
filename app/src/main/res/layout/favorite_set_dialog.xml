@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -15,7 +16,7 @@
         android:paddingStart="16dp">
 
         <EditText
-            android:id="@+id/setName"
+            android:id="@+id/set_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
@@ -39,17 +40,20 @@
         <SeekBar
             android:id="@+id/redSeekBar"
             style="@style/MySeekBar.Red"
-            android:splitTrack="false"/>
+            android:splitTrack="false"
+            tools:ignore="UnusedAttribute"/>
 
         <SeekBar
             android:id="@+id/greenSeekBar"
             style="@style/MySeekBar.Green"
-            android:splitTrack="false"/>
+            android:splitTrack="false"
+            tools:ignore="UnusedAttribute"/>
 
         <SeekBar
             android:id="@+id/blueSeekBar"
             style="@style/MySeekBar.Blue"
-            android:splitTrack="false"/>
+            android:splitTrack="false"
+            tools:ignore="UnusedAttribute"/>
 
     </LinearLayout>
 </LinearLayout>

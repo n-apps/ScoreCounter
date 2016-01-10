@@ -1,5 +1,4 @@
 <resources>
-    <string name="drawer_top_list_header">RECENT SETS</string>
     <string name="add_new_counter">Add new counter</string>
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
@@ -15,12 +14,15 @@
     <string name="dice_dialog_max_edge">Max edge</string>
     <string name="dice_dialog_total_bonus">Total bonus</string>
     <string name="fav_fragment_empty_state">You have no favorite sets</string>
-    <string name="dices_bar_result">0</string>
     <string name="counter_title_default">Counter</string>
     <string name="favorites_title">FAVORITES</string>
     <string name="settings_title">SETTINGS</string>
-    <string name="button_negative">CANCEL</string>
+    <string name="button_negative">@android:string/cancel</string>
     <string name="button_positive">SAVE</string>
     <string name="button_neutral">DELETE</string>
+    <string name="sign_minus">-</string>
+    <string name="sign_plus">+</string>
+    <string name="settings_show_all_counters">Show all counters</string>
+    <string name="counter_dialog_flip">Flip counter</string>
 
 </resources>
