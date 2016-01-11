@@ -4,10 +4,10 @@ import java.security.SecureRandom;
 
 public final class Dice {
     private static final SecureRandom rnd = new SecureRandom();
-    private int amount;
-    private int minEdge;
-    private int maxEdge;
-    private int bonus;
+    private int mDiceNumber;
+    private int mMinSide;
+    private int mMaxSide;
+    private int mTotalBonus;
 
     private static Dice sDice;
 
@@ -19,55 +19,55 @@ public final class Dice {
     }
 
     private Dice() {
-        amount = 1;
-        minEdge = 1;
-        maxEdge = 6;
-        bonus = 10;
+        mDiceNumber = 1;
+        mMinSide = 1;
+        mMaxSide = 6;
+        mTotalBonus = 10;
     }
 
     public int roll() {
         int sum = 0;
-        for (int i = 0; i < amount; i++) {
-            sum += minEdge + rnd.nextInt(maxEdge - minEdge + 1);
+        for (int i = 0; i < mDiceNumber; i++) {
+            sum += mMinSide + rnd.nextInt(mMaxSide - mMinSide + 1);
         }
-        return sum + bonus;
+        return sum + mTotalBonus;
     }
 
     @Override
     public String toString() {
-        String bonusStr = (bonus > 0) ? "+" + bonus : (bonus < 0) ? "" + bonus : "";
-        return amount + "d" + (1 + maxEdge - minEdge) + bonusStr;
+        String bonusStr = (mTotalBonus > 0) ? "+" + mTotalBonus : (mTotalBonus < 0) ? "" + mTotalBonus : "";
+        return mDiceNumber + "d" + (1 + mMaxSide - mMinSide) + bonusStr;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setDiceNumber(int diceNumber) {
+        this.mDiceNumber = diceNumber;
     }
 
-    public void setMinEdge(int minEdge) {
-        this.minEdge = minEdge;
+    public void setMinSide(int minSide) {
+        this.mMinSide = minSide;
     }
 
-    public void setMaxEdge(int maxEdge) {
-        this.maxEdge = maxEdge;
+    public void setMaxSide(int maxSide) {
+        this.mMaxSide = maxSide;
     }
 
-    public void setBonus(int bonus) {
-        this.bonus = bonus;
+    public void setTotalBonus(int totalBonus) {
+        this.mTotalBonus = totalBonus;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getDiceNumber() {
+        return mDiceNumber;
     }
 
-    public int getMinEdge() {
-        return minEdge;
+    public int getMinSide() {
+        return mMinSide;
     }
 
-    public int getMaxEdge() {
-        return maxEdge;
+    public int getMaxSide() {
+        return mMaxSide;
     }
 
-    public int getBonus() {
-        return bonus;
+    public int getTotalBonus() {
+        return mTotalBonus;
     }
 }

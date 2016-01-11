@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/rootLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,14 +21,14 @@
         android:foreground="?android:attr/windowContentOverlay">
 
         <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-            android:id="@+id/countersRecyclerView"
+            android:id="@+id/counters_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fragContainer"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"/>

@@ -39,13 +39,13 @@ import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogListener {
 
-    @Bind(R.id.empty_state_favorite_sets)
+    @Bind(R.id.favorite_sets_empty_state)
     LinearLayout mEmptyState;
 
-    @Bind(R.id.FavoriteSetsRecyclerView)
+    @Bind(R.id.favorite_sets_recycler_view)
     RecyclerView mFavoritesRecyclerView;
 
-    @OnClick(R.id.fab)
+    @OnClick(R.id.favorite_sets_fab)
     public void onClick() {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(null, true);
@@ -68,7 +68,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
         ButterKnife.bind(this, view);
         assert ((AppCompatActivity) getActivity()).getSupportActionBar() != null;
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.favorites_title);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.favorite_sets_title);
 
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -148,11 +148,11 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
     @SuppressWarnings("unused")
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @Bind(R.id.set_name)
+        @Bind(R.id.favorite_set_name)
         TextView mSetName;
-        @Bind(R.id.edit_favorite_set)
+        @Bind(R.id.favorite_set_edit)
         ImageView mEditSet;
-        @Bind(R.id.setIcon)
+        @Bind(R.id.favorite_set_icon)
         ImageView mSetIcon;
 
         public FavoritesViewHolder(View itemView) {
@@ -169,11 +169,11 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
             int id = v.getId();
 
             switch (id) {
-                case R.id.favItem:
+                case R.id.favorite_set_item:
                     mCallback.onFavSetLoaded(mFavoriteSetsAdapter.getItem(position));
                     getActivity().onBackPressed();
                     break;
-                case R.id.edit_favorite_set:
+                case R.id.favorite_set_edit:
                     FragmentManager fm = getActivity().getSupportFragmentManager();
                     EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(mFavoriteSetsAdapter.getItem(position), false);
                     favDialog.setTargetFragment(FavoriteSetsFragment.this, 0);

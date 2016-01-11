@@ -64,18 +64,18 @@ import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener, CounterUpdateListener {
 
-    @Bind(R.id.countersRecyclerView)
+    @Bind(R.id.counters_recycler_view)
     CleverRecyclerView mCountersRecyclerView;
     @Bind(R.id.dices)
     LinearLayout mDicesBar;
-    @Bind(R.id.diceFormula)
+    @Bind(R.id.dice_formula)
     TextView mDiceFormula;
-    @Bind(R.id.diceSum)
+    @Bind(R.id.dice_sum)
     TextView mDiceSum;
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
 
-    @OnClick(R.id.shakeDices)
+    @OnClick(R.id.shake_dices)
     public void onClickShake(View v) {
 
         YoYo.with(Techniques.Swing).withListener(new Animator.AnimatorListener() {
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     }
 
     @SuppressWarnings("SameReturnValue")
-    @OnLongClick(R.id.diceFormula)
+    @OnLongClick(R.id.dice_formula)
     public boolean onLongClick() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         EditDiceFragment diceDialog = EditDiceFragment.newInstance();
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
             ArrayList<Counter> counters = new Gson().fromJson(activeCountersJson, listType);
             if (counters == null) {
                 counters = new ArrayList<>();
-                counters.add(new Counter(getResources().getString(R.string.counter_title_default)));
+                counters.add(new Counter(getResources().getString(R.string.counter_default_title)));
             }
             CurrentSet.getInstance().setCounters(counters);
         }
@@ -160,14 +160,14 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
             toggleKeepScreenOn(false);
         }
 
-        mIsAllCountersVisible = PrefUtil.getBoolean(this, PREFS_SHOW_ALL_COUNTERS, true);
+        mIsAllCountersVisible = PrefUtil.getBoolean(this, PREFS_SHOW_ALL_COUNTERS, false);
 
         if (PrefUtil.getBoolean(this, PREFS_SHOW_DICES, false)) {
             toggleDicesBar(true);
-            Dice.getDice().setAmount(PrefUtil.getInt(this, PREFS_DICE_AMOUNT, 1));
-            Dice.getDice().setMinEdge(PrefUtil.getInt(this, PREFS_DICE_MIN_EDGE, 1));
-            Dice.getDice().setMaxEdge(PrefUtil.getInt(this, PREFS_DICE_MAX_EDGE, 6));
-            Dice.getDice().setBonus(PrefUtil.getInt(this, PREFS_DICE_BONUS, 0));
+            Dice.getDice().setDiceNumber(PrefUtil.getInt(this, PREFS_DICE_AMOUNT, 1));
+            Dice.getDice().setMinSide(PrefUtil.getInt(this, PREFS_DICE_MIN_EDGE, 1));
+            Dice.getDice().setMaxSide(PrefUtil.getInt(this, PREFS_DICE_MAX_EDGE, 6));
+            Dice.getDice().setTotalBonus(PrefUtil.getInt(this, PREFS_DICE_BONUS, 0));
 
             setDiceSum(PrefUtil.getString(this, PREFS_DICE_SUM, "0"));
             setDiceFormula(Dice.getDice().toString());
@@ -193,10 +193,10 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
 
         if (mDicesBar.getVisibility() == VISIBLE) {
-            PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDice().getAmount());
-            PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDice().getMinEdge());
-            PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDice().getMaxEdge());
-            PrefUtil.putInt(this, PREFS_DICE_BONUS, Dice.getDice().getBonus());
+            PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDice().getDiceNumber());
+            PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDice().getMinSide());
+            PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDice().getMaxSide());
+            PrefUtil.putInt(this, PREFS_DICE_BONUS, Dice.getDice().getTotalBonus());
         }
     }
 
@@ -212,25 +212,25 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_add:
+            case R.id.menu_add_counter:
                 addCounter();
                 updateView();
                 mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
                 break;
-            case R.id.action_sets:
+            case R.id.menu_favorite_sets:
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
-                        .replace(R.id.fragContainer, FavoriteSetsFragment.newInstance(), "favorites").addToBackStack(null).commit();
+                        .replace(R.id.fragment_container, FavoriteSetsFragment.newInstance(), "favorites").addToBackStack(null).commit();
                 break;
-            case R.id.action_clear_all:
+            case R.id.menu_clear_all:
                 CurrentSet.getInstance().removeAllCounters();
                 addCounter();
                 updateView();
                 break;
-            case R.id.action_settings:
+            case R.id.menu_settings:
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
-                        .replace(R.id.fragContainer, newInstance(), "settings").addToBackStack(null).commit();
+                        .replace(R.id.fragment_container, newInstance(), "settings").addToBackStack(null).commit();
                 break;
-            case R.id.action_report:
+            case R.id.menu_send_feedback:
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setType("text/plain");
                 intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
     @NonNull
     private Counter newCounter() {
-        return new Counter(String.format("%s %d", getString(R.string.counter_title_default), CurrentSet.getInstance().getSize() + 1));
+        return new Counter(String.format("%s %d", getString(R.string.counter_default_title), CurrentSet.getInstance().getSize() + 1));
     }
 
     private void initRecyclerView() {

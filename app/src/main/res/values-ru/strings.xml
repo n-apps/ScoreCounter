@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Счетчик Очков</string>
     <string name="add_new_counter">Добавить счетчик</string>
-    <string name="favorites">Избранные наборы</string>
+    <string name="favorite_sets">Избранные наборы</string>
     <string name="settings">Настройки</string>
-    <string name="remove_all">Remove all counters</string>
-    <string name="dices_switch">Панель кубиков</string>
-    <string name="keep_alive_switch">Оставлять экран включенным</string>
+    <string name="remove_all_counters">Убрать все счетчики</string>
+    <string name="settings_dices">Панель кубиков</string>
+    <string name="settings_stay_awake">Оставлять экран включенным</string>
+    <string name="settings_show_all_counters">Отображать все счетчики</string>
     <string name="send_feedback">Отправить отзыв</string>
     <string name="counter_dialog_step">Шаг</string>
-    <string name="counter_dialog_counter_value">Значение</string>
+    <string name="counter_dialog_value">Значение</string>
     <string name="counter_dialog_default_value">Значение по умолчанию</string>
-    <string name="dice_dialog_quantity">Количество кубиков</string>
-    <string name="dice_dialog_min_edge">Значение минимальной грани</string>
-    <string name="dice_dialog_max_edge">Значение максимальной грани</string>
+    <string name="counter_dialog_turn">Развернуть счетчик</string>
+    <string name="dice_dialog_number">Количество кубиков</string>
+    <string name="dice_dialog_min_side">Значение минимальной грани</string>
+    <string name="dice_dialog_max_side">Значение максимальной грани</string>
     <string name="dice_dialog_total_bonus">Общий бонус к броску</string>
-    <string name="fav_fragment_empty_state">У вас нет наборов</string>
-    <string name="counter_title_default">Счетчик</string>
-    <string name="favorites_title">Избранное</string>
+    <string name="favorite_sets_empty_state">У вас нет избранных наборов</string>
+    <string name="counter_default_title">Счетчик</string>
+    <string name="favorite_sets_title">Избранные наборы</string>
     <string name="settings_title">Настройки</string>
-    <string name="sign_minus">-</string>
-    <string name="sign_plus">+</string>
-    <string name="button_negative">ОТМЕНА</string>
+    <string name="counter_sign_minus">-</string>
+    <string name="counter_sign_plus">+</string>
+    <string name="button_negative">@android:string/cancel</string>
     <string name="button_positive">СОХРАНИТЬ</string>
     <string name="button_neutral">УДАЛИТЬ</string>
-    <string name="settings_show_all_counters">Show all counters</string>
-    <string name="counter_dialog_flip">Flip counter</string>
 </resources>

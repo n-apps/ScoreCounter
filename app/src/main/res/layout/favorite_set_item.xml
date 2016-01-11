@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/favItem"
+    android:id="@+id/favorite_set_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="72dp"
@@ -9,7 +9,7 @@
     android:focusable="true">
 
     <ImageView
-        android:id="@+id/setIcon"
+        android:id="@+id/favorite_set_icon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_centerVertical="true"
@@ -19,16 +19,16 @@
         android:src="@drawable/ic_tiles"/>
 
     <TextView
-        android:id="@+id/set_name"
+        android:id="@+id/favorite_set_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/setIcon"
-        android:layout_toRightOf="@+id/setIcon"
+        android:layout_toEndOf="@+id/favorite_set_icon"
+        android:layout_toRightOf="@+id/favorite_set_icon"
         android:textSize="24sp"/>
 
     <ImageView
-        android:id="@+id/edit_favorite_set"
+        android:id="@+id/favorite_set_edit"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentEnd="true"
@@ -36,7 +36,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:alpha="@dimen/alpha_icons"
+        android:alpha="@dimen/alpha_secondary_icon"
         android:padding="12dp"
         android:src="@drawable/ic_edit_black_24dp"/>
 

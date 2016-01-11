@@ -21,7 +21,6 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.CurrentSet;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.Utils.ColorUtil;
-import ua.napps.scorekeeper.Utils.KeyboardUtil;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
 
@@ -35,13 +34,13 @@ public class EditFavoriteSetFragment extends DialogFragment {
     private FavoriteSet mFavoriteSet;
     @Bind(R.id.color_header)
     LinearLayout mColorHeader;
-    @Bind(R.id.redSeekBar)
+    @Bind(R.id.red_seekbar)
     SeekBar mRedBar;
-    @Bind(R.id.greenSeekBar)
+    @Bind(R.id.green_seekbar)
     SeekBar mGreenBar;
-    @Bind(R.id.blueSeekBar)
+    @Bind(R.id.blue_seekbar)
     SeekBar mBlueBar;
-    @Bind(R.id.set_name)
+    @Bind(R.id.favorite_set_name)
     EditText mSetName;
 
     private EditFavSetDialogListener mCallback;
@@ -77,7 +76,6 @@ public class EditFavoriteSetFragment extends DialogFragment {
             mSetName.append(mFavoriteSet.getName());
         } else {
             setSeekBarProgress(ColorUtil.getRandomColor());
-            KeyboardUtil.showKeyboard(getActivity(), mSetName);
         }
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
@@ -119,12 +117,6 @@ public class EditFavoriteSetFragment extends DialogFragment {
         if (manager.findFragmentByTag(tag) == null) {
             super.show(manager, tag);
         }
-    }
-
-    @Override
-    public void onDismiss(DialogInterface dialog) {
-        KeyboardUtil.hideKeyboard(getActivity());
-        super.onDismiss(dialog);
     }
 
     private void setSeekBarProgress(int color) {

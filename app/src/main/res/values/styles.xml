@@ -49,8 +49,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">2dp</item>
         <item name="android:maxHeight">2dp</item>
-        <item name="android:layout_marginTop">4dp</item>
-        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:layout_marginTop">@dimen/seekbar_margin</item>
+        <item name="android:layout_marginBottom">@dimen/seekbar_margin</item>
         <item name="android:max">255</item>
     </style>
 
@@ -67,6 +67,17 @@
     <style name="MySeekBar.Blue" parent="MySeekBar">
         <item name="android:progressDrawable">@drawable/seekbar_progress_blue</item>
         <item name="android:thumb">@drawable/seekbar_circle_blue</item>
+    </style>
+
+    <style name="dialog_edit_text_with_background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLength">20</item>
+        <item name="android:textSize">@dimen/dialog_title_text_size</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:minEms">20</item>
     </style>
 
 </resources>

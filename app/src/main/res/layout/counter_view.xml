@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:id="@+id/rootCounterView"
+    android:id="@+id/root_counter_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,26 +18,25 @@
         android:singleLine="true"/>
 
     <net.kianoni.fontloader.TextView
-        android:id="@+id/minus"
+        android:id="@+id/minus_sign"
         style="@style/Rubik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:alpha="0.37"
+        android:alpha="@dimen/alpha_hint_icon"
         android:clickable="false"
         android:ellipsize="none"
         android:singleLine="true"
-        android:text="@string/sign_minus"/>
+        android:text="@string/counter_sign_minus"/>
 
     <net.kianoni.fontloader.TextView
-        android:id="@+id/value"
+        android:id="@+id/counter_value"
         style="@style/Rubik.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@null"
         android:clickable="false"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -45,21 +44,21 @@
         android:singleLine="true"/>
 
     <net.kianoni.fontloader.TextView
-        android:id="@+id/plus"
+        android:id="@+id/plus_sign"
         style="@style/Rubik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|end"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp"
-        android:alpha="0.37"
+        android:layout_marginRight="@dimen/counter_view_icon_margin"
+        android:layout_marginEnd="@dimen/counter_view_icon_margin"
+        android:alpha="@dimen/alpha_hint_icon"
         android:clickable="false"
         android:ellipsize="none"
         android:singleLine="true"
-        android:text="@string/sign_plus"/>
+        android:text="@string/counter_sign_plus"/>
 
     <net.kianoni.fontloader.TextView
-        android:id="@+id/prevValue"
+        android:id="@+id/previous_value"
         style="@style/Rubik"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

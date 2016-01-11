@@ -10,26 +10,27 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
-        android:id="@+id/diceSum"
+        android:id="@+id/dice_sum"
         android:layout_width="48dp"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:gravity="center"
         android:textColor="@color/accentColor"
-        android:textSize="24sp"
+        android:textSize="@dimen/dice_sum"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/diceFormula"
+        android:id="@+id/dice_formula"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:textSize="20sp"/>
+        android:textColor="@color/textColorHint"
+        android:textSize="@dimen/dice_formula_text_size"/>
 
     <ImageButton
-        android:id="@+id/shakeDices"
+        android:id="@+id/shake_dices"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -37,5 +38,5 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_dice_shake"
-        android:alpha="0.83"/>
+        android:alpha="@dimen/alpha_primary_icon"/>
 </LinearLayout>

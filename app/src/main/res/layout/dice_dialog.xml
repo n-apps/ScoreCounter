@@ -12,37 +12,37 @@
     android:paddingTop="16dp">
 
     <com.gregacucnik.EditableSeekBar
-        android:id="@+id/diceAmount"
+        android:id="@+id/dice_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:esbMax="100"
         app:esbMin="1"
         app:esbSelectAllOnFocus="false"
-        app:esbTitle="@string/dice_dialog_quantity"
+        app:esbTitle="@string/dice_dialog_number"
         app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
-        android:id="@+id/diceMinEdge"
+        android:id="@+id/dice_min_edge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:esbMax="100"
         app:esbMin="-100"
         app:esbSelectAllOnFocus="false"
-        app:esbTitle="@string/dice_dialog_min_edge"
+        app:esbTitle="@string/dice_dialog_min_side"
         app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
-        android:id="@+id/diceMaxEdge"
+        android:id="@+id/dice_max_edge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:esbMax="100"
         app:esbMin="-100"
         app:esbSelectAllOnFocus="false"
-        app:esbTitle="@string/dice_dialog_max_edge"
+        app:esbTitle="@string/dice_dialog_max_side"
         app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
-        android:id="@+id/diceTotalBonus"
+        android:id="@+id/dice_total_bonus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:esbMax="100"

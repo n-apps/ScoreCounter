@@ -95,15 +95,15 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     class MyViewHolder extends ViewHolder {
         @Bind(R.id.counter_name)
         TextView mCounterName;
-        @Bind(R.id.value)
+        @Bind(R.id.counter_value)
         TextView mCounterValue;
-        @Bind(R.id.prevValue)
+        @Bind(R.id.previous_value)
         TextView mPrevValue;
-        @Bind(R.id.minus)
+        @Bind(R.id.minus_sign)
         TextView mMinusSymbol;
-        @Bind(R.id.plus)
+        @Bind(R.id.plus_sign)
         TextView mPlusSymbol;
-        @Bind(R.id.rootCounterView)
+        @Bind(R.id.root_counter_view)
         FrameLayout mCounterView;
 
         private long startShowingPrevValue;
@@ -124,7 +124,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
         });
 
-        @OnTouch(R.id.rootCounterView)
+        @OnTouch(R.id.root_counter_view)
         public boolean onTouchItem(MotionEvent event) {
             return gestureDetector.onTouchEvent(event);
         }
@@ -142,7 +142,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
             }
             YoYo.with(Techniques.Landing)
                     .duration(300)
-                    .playOn(mCounterView.findViewById(R.id.value));
+                    .playOn(mCounterView.findViewById(R.id.counter_value));
             notifyItemChanged(position);
         }
 

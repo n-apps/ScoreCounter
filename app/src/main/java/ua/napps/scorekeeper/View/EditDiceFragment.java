@@ -26,13 +26,13 @@ import static ua.napps.scorekeeper.Models.Dice.getDice;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class EditDiceFragment extends DialogFragment {
 
-    @Bind(R.id.diceAmount)
+    @Bind(R.id.dice_number)
     EditableSeekBar mDiceAmount;
-    @Bind(R.id.diceMinEdge)
+    @Bind(R.id.dice_min_edge)
     EditableSeekBar mDiceMinEdge;
-    @Bind(R.id.diceMaxEdge)
+    @Bind(R.id.dice_max_edge)
     EditableSeekBar mDiceMaxEdge;
-    @Bind(R.id.diceTotalBonus)
+    @Bind(R.id.dice_total_bonus)
     EditableSeekBar mDiceTotalBonus;
 
     private DiceUpdateListener mListener;
@@ -64,10 +64,10 @@ public class EditDiceFragment extends DialogFragment {
         ButterKnife.bind(this, view);
 
         final Dice dice = getDice();
-        mDiceAmount.setValue(dice.getAmount());
-        mDiceMinEdge.setValue(dice.getMinEdge());
-        mDiceMaxEdge.setValue(dice.getMaxEdge());
-        mDiceTotalBonus.setValue(dice.getBonus());
+        mDiceAmount.setValue(dice.getDiceNumber());
+        mDiceMinEdge.setValue(dice.getMinSide());
+        mDiceMaxEdge.setValue(dice.getMaxSide());
+        mDiceTotalBonus.setValue(dice.getTotalBonus());
         mDiceMaxEdge.setOnEditableSeekBarChangeListener(new EditableSeekBar.OnEditableSeekBarChangeListener() {
             @Override
             public void onEditableSeekBarProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -188,10 +188,10 @@ public class EditDiceFragment extends DialogFragment {
     }
 
     private void updateDice() {
-        getDice().setAmount(mDiceAmount.getValue());
-        getDice().setMinEdge(mDiceMinEdge.getValue());
-        getDice().setMaxEdge(mDiceMaxEdge.getValue());
-        getDice().setBonus(mDiceTotalBonus.getValue());
+        getDice().setDiceNumber(mDiceAmount.getValue());
+        getDice().setMinSide(mDiceMinEdge.getValue());
+        getDice().setMaxSide(mDiceMaxEdge.getValue());
+        getDice().setTotalBonus(mDiceTotalBonus.getValue());
     }
 
     public interface DiceUpdateListener {

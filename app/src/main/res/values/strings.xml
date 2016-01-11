@@ -1,28 +1,27 @@
 <resources>
     <string name="add_new_counter">Add new counter</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorite_sets">Favorite sets</string>
     <string name="settings">Settings</string>
-    <string name="remove_all">Remove all counters</string>
-    <string name="dices_switch">Dices</string>
-    <string name="keep_alive_switch">Stay awake</string>
+    <string name="remove_all_counters">Remove all counters</string>
     <string name="send_feedback">Send feedback</string>
+    <string name="settings_dices">Dices</string>
+    <string name="settings_stay_awake">Stay awake</string>
+    <string name="settings_show_all_counters">Show all counters</string>
+    <string name="counter_dialog_turn">Turn over</string>
+    <string name="counter_dialog_value">Value</string>
     <string name="counter_dialog_step">Step</string>
     <string name="counter_dialog_default_value">Default value</string>
-    <string name="counter_dialog_counter_value">Value</string>
-    <string name="dice_dialog_quantity">Dice quantity</string>
-    <string name="dice_dialog_min_edge">Min edge</string>
-    <string name="dice_dialog_max_edge">Max edge</string>
+    <string name="dice_dialog_number">Number of dices to roll</string>
+    <string name="dice_dialog_min_side">Value of min side</string>
+    <string name="dice_dialog_max_side">Value of max side</string>
     <string name="dice_dialog_total_bonus">Total bonus</string>
-    <string name="fav_fragment_empty_state">You have no favorite sets</string>
-    <string name="counter_title_default">Counter</string>
-    <string name="favorites_title">FAVORITES</string>
-    <string name="settings_title">SETTINGS</string>
+    <string name="favorite_sets_empty_state">You have no favorite sets</string>
+    <string name="counter_default_title">Counter</string>
+    <string name="counter_sign_minus">-</string>
+    <string name="counter_sign_plus">+</string>
+    <string name="favorite_sets_title">Favorite sets</string>
+    <string name="settings_title">Settings</string>
     <string name="button_negative">@android:string/cancel</string>
     <string name="button_positive">SAVE</string>
-    <string name="button_neutral">DELETE</string>
-    <string name="sign_minus">-</string>
-    <string name="sign_plus">+</string>
-    <string name="settings_show_all_counters">Show all counters</string>
-    <string name="counter_dialog_flip">Flip counter</string>
-
+    <string name="button_neutral">REMOVE</string>
 </resources>

@@ -3,26 +3,26 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_add"
+        android:id="@+id/menu_add_counter"
         android:icon="@drawable/ic_add_box_white_24dp"
         android:title="@string/add_new_counter"
         app:showAsAction="always"/>
 
     <item
-        android:id="@+id/action_sets"
+        android:id="@+id/menu_favorite_sets"
         android:icon="@drawable/ic_favorite_white_24dp"
-        android:title="@string/favorites"
+        android:title="@string/favorite_sets"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/action_clear_all"
-        android:title="@string/remove_all"
+        android:id="@+id/menu_clear_all"
+        android:title="@string/remove_all_counters"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/menu_settings"
         android:title="@string/settings"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/action_report"
+        android:id="@+id/menu_send_feedback"
         android:title="@string/send_feedback"
         app:showAsAction="never"/>
 </menu>

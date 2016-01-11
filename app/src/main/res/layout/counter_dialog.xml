@@ -15,7 +15,6 @@
             android:id="@+id/color_header"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="@color/accentColor"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:orientation="vertical"
@@ -24,13 +23,7 @@
 
             <EditText
                 android:id="@+id/counter_caption"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:inputType="text"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:minEms="10"/>
+                style="@style/dialog_edit_text_with_background"/>
 
         </LinearLayout>
 
@@ -43,42 +36,43 @@
             android:paddingStart="16dp">
 
             <SeekBar
-                android:id="@+id/redSeekBar"
+                android:id="@+id/red_seekbar"
                 style="@style/MySeekBar.Red"
                 android:splitTrack="false"
                 tools:ignore="UnusedAttribute"/>
 
             <SeekBar
-                android:id="@+id/greenSeekBar"
+                android:id="@+id/green_seekbar"
                 style="@style/MySeekBar.Green"
                 android:splitTrack="false"
                 tools:ignore="UnusedAttribute"/>
 
             <SeekBar
-                android:id="@+id/blueSeekBar"
+                android:id="@+id/blue_seekbar"
                 style="@style/MySeekBar.Blue"
                 android:splitTrack="false"
                 tools:ignore="UnusedAttribute"/>
 
             <android.support.v7.widget.SwitchCompat
-                android:id="@+id/flipCounterSwitch"
+                android:id="@+id/flip_counter"
                 android:layout_width="match_parent"
+                style="@style/Base.TextAppearance.AppCompat.Small"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:text="@string/counter_dialog_flip"/>
+                android:text="@string/counter_dialog_turn"/>
 
             <com.gregacucnik.EditableSeekBar
-                android:id="@+id/currentValue"
+                android:id="@+id/counter_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:esbMax="999"
                 app:esbMin="-99"
                 app:esbSelectAllOnFocus="false"
-                app:esbTitle="@string/counter_dialog_counter_value"/>
+                app:esbTitle="@string/counter_dialog_value"/>
 
             <com.gregacucnik.EditableSeekBar
-                android:id="@+id/step"
+                android:id="@+id/counter_step"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:esbMax="100"
@@ -88,7 +82,7 @@
                 app:esbValue="1"/>
 
             <com.gregacucnik.EditableSeekBar
-                android:id="@+id/defaultValue"
+                android:id="@+id/counter_default_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:esbMax="999"

@@ -28,11 +28,11 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class SettingFragment extends Fragment {
 
-    @Bind(R.id.showDicesBar)
+    @Bind(R.id.show_dice_layout)
     SwitchCompat mShowDicesBar;
-    @Bind(R.id.stayAwake)
+    @Bind(R.id.stay_awake)
     SwitchCompat mStayAwake;
-    @Bind(R.id.showAllCounters)
+    @Bind(R.id.show_all_counters)
     SwitchCompat mShowAllCounters;
 
     private SettingsUpdatedListener mCallback;
@@ -85,16 +85,16 @@ public class SettingFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mShowDicesBar.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_DICES, false));
+        mShowAllCounters.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, false));
         mStayAwake.setChecked(PrefUtil.getBoolean(getContext(), PREFS_STAY_AWAKE, true));
-        mShowAllCounters.setChecked(PrefUtil.getBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, true));
     }
 
     @Override
     public void onPause() {
         super.onPause();
         PrefUtil.putBoolean(getContext(), PREFS_SHOW_DICES, mShowDicesBar.isChecked());
-        PrefUtil.putBoolean(getContext(), PREFS_STAY_AWAKE, mStayAwake.isChecked());
         PrefUtil.putBoolean(getContext(), PREFS_SHOW_ALL_COUNTERS, mShowAllCounters.isChecked());
+        PrefUtil.putBoolean(getContext(), PREFS_STAY_AWAKE, mStayAwake.isChecked());
     }
 
     @Override

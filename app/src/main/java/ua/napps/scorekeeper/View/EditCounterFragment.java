@@ -35,21 +35,21 @@ import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
 public class EditCounterFragment extends DialogFragment {
     @Bind(R.id.color_header)
     LinearLayout mColorHeader;
-    @Bind(R.id.redSeekBar)
+    @Bind(R.id.red_seekbar)
     SeekBar redBar;
-    @Bind(R.id.greenSeekBar)
+    @Bind(R.id.green_seekbar)
     SeekBar greenBar;
-    @Bind(R.id.blueSeekBar)
+    @Bind(R.id.blue_seekbar)
     SeekBar blueBar;
     @Bind(R.id.counter_caption)
     EditText caption;
-    @Bind(R.id.currentValue)
+    @Bind(R.id.counter_value)
     EditableSeekBar mCurrentValue;
-    @Bind(R.id.defaultValue)
+    @Bind(R.id.counter_default_value)
     EditableSeekBar defValue;
-    @Bind(R.id.step)
+    @Bind(R.id.counter_step)
     EditableSeekBar step;
-    @Bind(R.id.flipCounterSwitch)
+    @Bind(R.id.flip_counter)
     SwitchCompat mRotationSwitch;
 
     private CounterUpdateListener mCallback;
