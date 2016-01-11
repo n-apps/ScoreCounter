@@ -13,10 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.apkfuns.logutils.LogUtils;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.gson.Gson;
@@ -61,12 +61,13 @@ import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
 import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
 import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener, CounterUpdateListener {
 
     @Bind(R.id.countersRecyclerView)
     CleverRecyclerView mCountersRecyclerView;
-    @Bind(R.id.diceLayout)
-    View mDicesBar;
+    @Bind(R.id.dices)
+    LinearLayout mDicesBar;
     @Bind(R.id.diceFormula)
     TextView mDiceFormula;
     @Bind(R.id.diceSum)
@@ -85,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                YoYo.with(Techniques.FadeIn)
+                YoYo.with(Techniques.SlideInRight)
                         .duration(400)
                         .playOn(mDiceSum);
                 setDiceSum(String.format("%d", Dice.getDice().roll()));
@@ -105,15 +106,16 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 .playOn(v);
     }
 
+    @SuppressWarnings("SameReturnValue")
     @OnLongClick(R.id.diceFormula)
-    public boolean onLongClick(View v) {
+    public boolean onLongClick() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         EditDiceFragment diceDialog = EditDiceFragment.newInstance();
         diceDialog.show(fragmentManager, "dice_dialog");
         return true;
     }
 
-    CountersAdapter mAdapter;
+    private CountersAdapter mAdapter;
     private boolean mIsAllCountersVisible;
 
     @Override
@@ -121,11 +123,10 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         setSupportActionBar(mToolbar);
 
         if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
-
-        LogUtils.configTagPrefix = "*** ";
 
         if (mAdapter == null) mAdapter = new CountersAdapter(this);
 
@@ -266,6 +267,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
 
         if (count == 0) {
             super.onBackPressed();
+            assert getSupportActionBar() != null;
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setTitle(R.string.app_name);
         } else {
@@ -273,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
     }
 
-    public void updateView() {
+    private void updateView() {
         mAdapter.setCounters(CurrentSet.getInstance().getCounters());
         mAdapter.setCountersVisibility(mIsAllCountersVisible);
         if (mIsAllCountersVisible) {
@@ -284,24 +286,24 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         mAdapter.notifyDataSetChanged();
     }
 
-    public void toggleKeepScreenOn(boolean isSelected) {
+    private void toggleKeepScreenOn(boolean isSelected) {
         if (isSelected) getWindow().addFlags(FLAG_KEEP_SCREEN_ON);
         else getWindow().clearFlags(FLAG_KEEP_SCREEN_ON);
     }
 
 
-    public void toggleDicesBar(boolean isShowing) {
+    private void toggleDicesBar(boolean isShowing) {
         if (isShowing) mDicesBar.setVisibility(VISIBLE);
         else mDicesBar.setVisibility(GONE);
         mCountersRecyclerView.invalidate();
         mAdapter.notifyDataSetChanged();
     }
 
-    public void setDiceSum(String sum) {
+    private void setDiceSum(String sum) {
         mDiceSum.setText(sum);
     }
 
-    public void setDiceFormula(String formula) {
+    private void setDiceFormula(String formula) {
         mDiceFormula.setText(formula);
     }
 

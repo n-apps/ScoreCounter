@@ -2,12 +2,12 @@ package ua.napps.scorekeeper.Models;
 
 import java.security.SecureRandom;
 
-public class Dice {
+public final class Dice {
     private static final SecureRandom rnd = new SecureRandom();
-    int amount;
-    int minEdge;
-    int maxEdge;
-    int bonus;
+    private int amount;
+    private int minEdge;
+    private int maxEdge;
+    private int bonus;
 
     private static Dice sDice;
 

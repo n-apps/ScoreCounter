@@ -35,7 +35,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
     private boolean mIsAllCountersShowing;
     private ArrayList<Counter> mCounters;
     private final MainActivity mContext;
-    private float mDensity;
+    private final float mDensity;
 
     public CountersAdapter(MainActivity context) {
         this.mContext = context;
@@ -44,8 +44,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        MyViewHolder holder = new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.counter_view, parent, false));
-        return holder;
+        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.counter_view, parent, false));
     }
 
     @Override
@@ -92,6 +91,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         mIsAllCountersShowing = isShowing;
     }
 
+    @SuppressWarnings("unused")
     class MyViewHolder extends ViewHolder {
         @Bind(R.id.counter_name)
         TextView mCounterName;
@@ -125,7 +125,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
         });
 
         @OnTouch(R.id.rootCounterView)
-        public boolean onTouchItem(View v, MotionEvent event) {
+        public boolean onTouchItem(MotionEvent event) {
             return gestureDetector.onTouchEvent(event);
         }
 

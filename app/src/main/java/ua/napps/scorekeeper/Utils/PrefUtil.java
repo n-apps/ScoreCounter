@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+@SuppressWarnings("unused")
 public final class PrefUtil {
     private PrefUtil() {
     }

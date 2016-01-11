@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -32,6 +31,7 @@ import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
 /**
  * Created by novo on 2015-12-26.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class EditCounterFragment extends DialogFragment {
     @Bind(R.id.color_header)
     LinearLayout mColorHeader;
@@ -68,8 +68,8 @@ public class EditCounterFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        final View view = inflater.inflate(R.layout.counter_dialog, null);
+        final View view = View.inflate(getContext(), R.layout.counter_dialog, null);
+
         ButterKnife.bind(this, view);
 
         Integer position = getArguments().getInt("position");

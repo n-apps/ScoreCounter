@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by novo on 10-Dec-15.
  */
-public class CurrentSet {
+public final class CurrentSet {
 
     private ArrayList<Counter> mCounters;
     private static CurrentSet sCurrentSet;
@@ -25,6 +25,7 @@ public class CurrentSet {
         return mCounters.size();
     }
 
+    @SuppressWarnings("unchecked")
     public void setCounters(ArrayList counters) {
         this.mCounters = counters;
     }

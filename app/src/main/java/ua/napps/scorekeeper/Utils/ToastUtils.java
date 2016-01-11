@@ -6,7 +6,7 @@ import android.widget.Toast;
 /**
  * Created by novo on 2016-01-09.
  */
-public class ToastUtils {
+public final class ToastUtils {
 
     private static ToastUtils toastUtils;
     private Toast toast;
@@ -17,7 +17,7 @@ public class ToastUtils {
 
     public static synchronized ToastUtils getInstance() {
         if (toastUtils == null) {
-            return new ToastUtils();
+            toastUtils = new ToastUtils();
         }
         return toastUtils;
     }

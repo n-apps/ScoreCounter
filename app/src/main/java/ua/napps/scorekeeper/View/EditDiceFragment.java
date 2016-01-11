@@ -4,10 +4,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.SeekBar;
 
@@ -23,6 +23,7 @@ import static ua.napps.scorekeeper.Models.Dice.getDice;
 /**
  * Created by novo on 2016-01-02.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class EditDiceFragment extends DialogFragment {
 
     @Bind(R.id.diceAmount)
@@ -40,8 +41,7 @@ public class EditDiceFragment extends DialogFragment {
     }
 
     public static EditDiceFragment newInstance() {
-        EditDiceFragment editDiceFragment = new EditDiceFragment();
-        return editDiceFragment;
+        return new EditDiceFragment();
     }
 
     @Override
@@ -56,10 +56,11 @@ public class EditDiceFragment extends DialogFragment {
         }
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        final View view = inflater.inflate(R.layout.dice_dialog, null);
+
+        final View view = View.inflate(getContext(), R.layout.dice_dialog, null);
         ButterKnife.bind(this, view);
 
         final Dice dice = getDice();

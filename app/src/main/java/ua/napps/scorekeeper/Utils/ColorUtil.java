@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by novo on 2016-01-02.
  */
-public class ColorUtil {
+public final class ColorUtil {
 
     private ColorUtil() {
     }
@@ -21,16 +21,10 @@ public class ColorUtil {
     }
 
     public static int getRandomColor() {
-        return generateRandomHexColor(0);
-    }
-
-    public static int generateRandomHexColor(long seed) {
         double goldenRatioConj = (1.0 + Math.sqrt(5.0)) / 2.0;
         float saturation;
         float hue;
-        if (seed == 0) {
-            seed = new Random().nextLong();
-        }
+        long seed = new Random().nextLong();
         saturation = randFloat(0.5f, 0.7f, seed);
         hue = new Random(seed).nextFloat();
         hue += goldenRatioConj;

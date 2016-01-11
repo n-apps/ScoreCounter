@@ -10,7 +10,6 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -29,6 +28,7 @@ import static android.content.DialogInterface.BUTTON_NEUTRAL;
 /**
  * Created by novo on 2015-12-26.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class EditFavoriteSetFragment extends DialogFragment {
 
     private boolean mIsNewSet;
@@ -41,7 +41,7 @@ public class EditFavoriteSetFragment extends DialogFragment {
     SeekBar mGreenBar;
     @Bind(R.id.blueSeekBar)
     SeekBar mBlueBar;
-    @Bind(R.id.setName)
+    @Bind(R.id.set_name)
     EditText mSetName;
 
     private EditFavSetDialogListener mCallback;
@@ -61,8 +61,8 @@ public class EditFavoriteSetFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        final View view = inflater.inflate(R.layout.favorite_set_dialog, null);
+
+        final View view = View.inflate(getContext(), R.layout.favorite_set_dialog, null);
         ButterKnife.bind(this, view);
 
         mIsNewSet = getArguments().getBoolean("isNewSet");

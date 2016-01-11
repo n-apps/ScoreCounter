@@ -9,15 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.apkfuns.logutils.LogUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
@@ -35,37 +36,37 @@ import ua.napps.scorekeeper.View.EditFavoriteSetFragment.EditFavSetDialogListene
 
 import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
 
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogListener {
 
-
-    @Bind(R.id.emptyStateFav)
-    View mEmptyState;
+    @Bind(R.id.empty_state_favorite_sets)
+    LinearLayout mEmptyState;
 
     @Bind(R.id.FavoriteSetsRecyclerView)
     RecyclerView mFavoritesRecyclerView;
 
     @OnClick(R.id.fab)
-    public void onClick(View v) {
+    public void onClick() {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(null, true);
         favDialog.setTargetFragment(this, 0);
         favDialog.show(fm, "edit_fav_dialog");
     }
 
-    FavoriteSetsAdapter mFavoriteSetsAdapter;
+    private FavoriteSetsAdapter mFavoriteSetsAdapter;
     FavSetLoadedListener mCallback;
 
     public static FavoriteSetsFragment newInstance() {
-        FavoriteSetsFragment fragment = new FavoriteSetsFragment();
-        return fragment;
+        return new FavoriteSetsFragment();
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.favorite_sets_fragment, container, false);
         ButterKnife.bind(this, view);
-
+        assert ((AppCompatActivity) getActivity()).getSupportActionBar() != null;
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.favorites_title);
 
@@ -102,7 +103,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    public ArrayList<FavoriteSet> getFavorites() {
+    private ArrayList<FavoriteSet> getFavorites() {
         ArrayList<FavoriteSet> favoriteSets = new ArrayList<>();
         String json = PrefUtil.getString(getContext(), FAV_ARRAY, "");
 
@@ -112,7 +113,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
             favoriteSets = new Gson().fromJson(json, listType);
             if (favoriteSets == null) favoriteSets = new ArrayList<>();
         } catch (JsonSyntaxException ex) {
-            LogUtils.e(ex.getMessage());
+            Log.e("---",ex.getMessage());
         }
 
         return favoriteSets;
@@ -144,11 +145,12 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
         void onFavSetLoaded(FavoriteSet set);
     }
 
+    @SuppressWarnings("unused")
     class FavoritesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @Bind(R.id.setName)
+        @Bind(R.id.set_name)
         TextView mSetName;
-        @Bind(R.id.editSet)
+        @Bind(R.id.edit_favorite_set)
         ImageView mEditSet;
         @Bind(R.id.setIcon)
         ImageView mSetIcon;
@@ -171,7 +173,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
                     mCallback.onFavSetLoaded(mFavoriteSetsAdapter.getItem(position));
                     getActivity().onBackPressed();
                     break;
-                case R.id.editSet:
+                case R.id.edit_favorite_set:
                     FragmentManager fm = getActivity().getSupportFragmentManager();
                     EditFavoriteSetFragment favDialog = EditFavoriteSetFragment.newInstance(mFavoriteSetsAdapter.getItem(position), false);
                     favDialog.setTargetFragment(FavoriteSetsFragment.this, 0);
@@ -183,7 +185,7 @@ public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogLi
 
     public class FavoriteSetsAdapter extends RecyclerView.Adapter<FavoritesViewHolder> {
 
-        private ArrayList<FavoriteSet> mFavoriteSets;
+        private final ArrayList<FavoriteSet> mFavoriteSets;
 
         public FavoriteSetsAdapter(ArrayList<FavoriteSet> favoriteSets) {
             mFavoriteSets = favoriteSets;

@@ -25,6 +25,7 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 /**
  * Created by novo on 2016-01-02.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class SettingFragment extends Fragment {
 
     @Bind(R.id.showDicesBar)
@@ -34,19 +35,20 @@ public class SettingFragment extends Fragment {
     @Bind(R.id.showAllCounters)
     SwitchCompat mShowAllCounters;
 
-    SettingsUpdatedListener mCallback;
+    private SettingsUpdatedListener mCallback;
 
     public static SettingFragment newInstance() {
-        SettingFragment fragment = new SettingFragment();
-        return fragment;
+        return new SettingFragment();
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.settings_fragment, container, false);
         ButterKnife.bind(this, view);
 
+        assert ((AppCompatActivity) getActivity()).getSupportActionBar() != null;
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.settings_title);
         Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);

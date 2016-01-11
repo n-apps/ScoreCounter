@@ -7,21 +7,12 @@ import java.util.ArrayList;
 
 public class FavoriteSet implements Serializable {
 
-    private long lastLoaded;
     private int iconColor = Color.rgb(224, 224, 224);
     private String name;
     private ArrayList<Counter> counters = new ArrayList<>();
 
     public FavoriteSet(String name) {
         this.setName(name);
-    }
-
-    public long getLastLoaded() {
-        return lastLoaded;
-    }
-
-    public void setLastLoaded(long lastLoaded) {
-        this.lastLoaded = lastLoaded;
     }
 
     public int getIconColor() {
