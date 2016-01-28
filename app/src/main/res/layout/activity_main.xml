@@ -1,36 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black">
 
-    <include
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+  <data>
+
+    <variable
+        name="viewModel"
+        type="ua.napps.scorekeeper.viewmodel.MainViewModel"
+        />
+  </data>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@color/black"
+      >
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/MyToolbar"
+        android:title="@string/app_name"
+        tools:showIn="@layout/activity_main"
+        />
 
-    <include
-        android:id="@+id/dices"
-        layout="@layout/dice_layout"/>
+    <LinearLayout
+        android:id="@+id/dices_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/toolbarTextColor"
+        android:orientation="horizontal"
+        tools:showIn="@layout/activity_main"
+        >
 
+      <TextView
+          android:id="@+id/dice_sum"
+          android:layout_width="48dp"
+          android:layout_height="match_parent"
+          android:layout_marginLeft="@dimen/activity_horizontal_margin"
+          android:layout_marginStart="@dimen/activity_horizontal_margin"
+          android:gravity="center"
+          android:textColor="@color/accentColor"
+          android:textSize="@dimen/dice_sum"
+          android:textStyle="bold"
+          />
+
+      <TextView
+          android:id="@+id/dice_formula"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:textColor="@color/textColorHint"
+          android:textSize="@dimen/dice_formula_text_size"
+          />
+
+      <ImageButton
+          android:id="@+id/shake_dices"
+          android:layout_width="wrap_content"
+          android:layout_height="match_parent"
+          android:layout_marginEnd="@dimen/activity_horizontal_margin"
+          android:layout_marginRight="@dimen/activity_horizontal_margin"
+          android:alpha="@dimen/alpha_primary_icon"
+          android:scaleType="fitCenter"
+          android:src="@drawable/ic_dice_shake"
+          style="@style/Widget.AppCompat.Button.Borderless"
+          />
+    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/dices"
+        android:layout_above="@id/dices_layout"
         android:layout_below="@id/toolbar"
-        android:foreground="?android:attr/windowContentOverlay">
+        android:foreground="?android:attr/windowContentOverlay"
+        >
 
-        <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-            android:id="@+id/counters_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+      <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
+          android:id="@+id/counters_recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          />
 
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fragment_container"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"/>
+        />
 
-</RelativeLayout>
+  </RelativeLayout>
+</layout>

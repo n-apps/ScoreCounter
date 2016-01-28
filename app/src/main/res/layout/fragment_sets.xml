@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+  <data>
+    <variable
+        name="viewModel"
+        type="ua.napps.scorekeeper.viewmodel.FavoritesViewModel"
+        />
+  </data>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/MyToolbar"
+        android:title="@string/favorite_sets_title"
+        tools:showIn="@layout/activity_main"
+        />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="?android:attr/windowContentOverlay"
+        >
+
+      <android.support.v7.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          style="@style/CardViewStyle"
+          >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/favorite_sets_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alpha="@dimen/alpha_hint_icon"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables"
+            >
+
+          <ImageView
+              android:layout_width="144dp"
+              android:layout_height="144dp"
+              android:src="@drawable/ic_heart"
+              />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/favorite_sets_empty_state"
+              style="@style/Base.TextAppearance.AppCompat.Headline"
+              />
+        </LinearLayout>
+      </android.support.v7.widget.CardView>
+
+      <android.support.design.widget.FloatingActionButton
+          android:id="@+id/favorite_sets_fab"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="bottom|end"
+          android:layout_margin="16dp"
+          android:src="@drawable/ic_add_white_24dp"
+          app:fabSize="normal"
+          />
+    </FrameLayout>
+  </LinearLayout>
+</layout>
