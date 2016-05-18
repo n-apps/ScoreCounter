@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
-  <data>
-    <variable
-        name="viewModel"
-        type="ua.napps.scorekeeper.viewmodel.EditDiceViewModel"/>
-  </data>
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:focusable="true"
-      android:focusableInTouchMode="true"
-      android:orientation="vertical"
-      android:paddingEnd="16dp"
-      android:paddingStart="16dp"
-      android:paddingTop="16dp"
-      >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp">
 
     <com.gregacucnik.EditableSeekBar
         android:id="@+id/dice_number"
@@ -27,8 +19,7 @@
         app:esbMin="1"
         app:esbSelectAllOnFocus="false"
         app:esbTitle="@string/dice_dialog_number"
-        app:esbValue="1"
-        />
+        app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
         android:id="@+id/dice_min_edge"
@@ -38,8 +29,7 @@
         app:esbMin="-100"
         app:esbSelectAllOnFocus="false"
         app:esbTitle="@string/dice_dialog_min_side"
-        app:esbValue="1"
-        />
+        app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
         android:id="@+id/dice_max_edge"
@@ -49,8 +39,7 @@
         app:esbMin="-100"
         app:esbSelectAllOnFocus="false"
         app:esbTitle="@string/dice_dialog_max_side"
-        app:esbValue="1"
-        />
+        app:esbValue="1"/>
 
     <com.gregacucnik.EditableSeekBar
         android:id="@+id/dice_total_bonus"
@@ -60,8 +49,6 @@
         app:esbMin="-100"
         app:esbSelectAllOnFocus="false"
         app:esbTitle="@string/dice_dialog_total_bonus"
-        app:esbValue="1"
-        />
+        app:esbValue="1"/>
 
-  </LinearLayout>
-</layout>
+</LinearLayout>

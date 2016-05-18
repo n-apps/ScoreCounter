@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 def versionMajor = 2
-def versionMinor = 1
-def versionPatch = 0
+def versionMinor = 0
+def versionPatch = 1
 def appName = "Score Keeper"
-def versionNameSuffix = " (debug)"
+def appNameDebug = "Score Keeper (debug)"
 
 android {
     compileSdkVersion 23
@@ -19,10 +19,6 @@ android {
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
     }
 
-  dataBinding {
-    enabled = true
-  }
-
     signingConfigs {
         release {
             storeFile new File(RELEASE_STORE_FILE)
@@ -32,28 +28,20 @@ android {
         }
     }
 
-  productFlavors {
-    dev {
-      applicationIdSuffix ".debug"
-      resValue "string", "app_name","${appName}${versionNameSuffix}"
-      resValue "string", "app_version_code", "${defaultConfig.versionName}${versionNameSuffix}"
-      minSdkVersion 21
-      targetSdkVersion 23
-    }
-    prod {
-      resValue "string", "app_name", "${appName}"
-      resValue "string", "app_version_code", "${defaultConfig.versionName}"
-
-    }
-  }
-
     buildTypes {
-
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix ".debug"
+            resValue "string", "app_name","${appNameDebug}"
+            resValue "string", "app_version_code", "${defaultConfig.versionName}${versionNameSuffix}"
+        }
         release {
-          debuggable false
-          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-          //noinspection GroovyAssignabilityCheck
-          signingConfig signingConfigs.release
+            resValue "string", "app_name", "${appName}"
+            resValue "string", "app_version_code", "${defaultConfig.versionName}"
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //noinspection GroovyAssignabilityCheck
+            signingConfig signingConfigs.release
         }
     }
 }
