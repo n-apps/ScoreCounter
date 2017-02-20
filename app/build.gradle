@@ -7,12 +7,12 @@ def appName = "Score Keeper"
 def appNameDebug = "Score Keeper (debug)"
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 25
         versionCode versionMajor * 10000
         + versionMinor * 100
         + versionPatch
@@ -21,10 +21,10 @@ android {
 
     signingConfigs {
         release {
-            storeFile new File(RELEASE_STORE_FILE)
-            storePassword RELEASE_STORE_PASSWORD
-            keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_KEY_PASSWORD
+            storeFile new File(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
         }
     }
 
