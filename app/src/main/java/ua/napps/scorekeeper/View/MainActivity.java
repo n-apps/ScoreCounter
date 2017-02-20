@@ -7,39 +7,30 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.nineoldandroids.animation.Animator;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.OnLongClick;
-import io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView;
+import com.google.android.flexbox.FlexboxLayout;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Adapters.CountersAdapter;
-import ua.napps.scorekeeper.Helpers.NoChangeAnimator;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.Models.CurrentSet;
 import ua.napps.scorekeeper.Models.Dice;
 import ua.napps.scorekeeper.Models.FavoriteSet;
 import ua.napps.scorekeeper.Utils.PrefUtil;
 import ua.napps.scorekeeper.Utils.ToastUtils;
+import ua.napps.scorekeeper.Utils.Util;
 import ua.napps.scorekeeper.View.FavoriteSetsFragment.FavSetLoadedListener;
 
 import static android.view.View.GONE;
@@ -52,7 +43,6 @@ import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_BONUS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MAX_EDGE;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MIN_EDGE;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_SUM;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_ALL_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
 import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
@@ -61,53 +51,21 @@ import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
 import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
 import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
-public class MainActivity extends AppCompatActivity implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener, CounterUpdateListener {
+@SuppressWarnings({ "WeakerAccess", "unused" }) public class MainActivity extends AppCompatActivity
+        implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
+        CounterUpdateListener {
 
-    @Bind(R.id.counters_recycler_view)
-    CleverRecyclerView mCountersRecyclerView;
-    @Bind(R.id.dices)
-    LinearLayout mDicesBar;
-    @Bind(R.id.dice_formula)
-    TextView mDiceFormula;
-    @Bind(R.id.dice_sum)
-    TextView mDiceSum;
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+    private static final int DEFAULT_WIDTH = 120;
 
-    @OnClick(R.id.shake_dices)
-    public void onClickShake(View v) {
+    private static final int DEFAULT_HEIGHT = 80;
 
-        YoYo.with(Techniques.Swing).withListener(new Animator.AnimatorListener() {
+    @Bind(R.id.flexbox_container) FlexboxLayout flexboxLayout;
+    @Bind(R.id.dices) LinearLayout dicesBar;
+    @Bind(R.id.dice_formula) TextView mDiceFormula;
+    @Bind(R.id.dice_sum) TextView mDiceSum;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
 
-            @Override
-            public void onAnimationStart(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                YoYo.with(Techniques.SlideInRight)
-                        .duration(400)
-                        .playOn(mDiceSum);
-                setDiceSum(String.format("%d", Dice.getDice().roll()));
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        })
-                .duration(400)
-                .playOn(v);
-    }
-
-    @SuppressWarnings("SameReturnValue")
-    @OnLongClick(R.id.dice_formula)
+    @SuppressWarnings("SameReturnValue") @OnLongClick(R.id.dice_formula)
     public boolean onLongClick() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         EditDiceFragment diceDialog = EditDiceFragment.newInstance();
@@ -115,33 +73,24 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         return true;
     }
 
-    private CountersAdapter mAdapter;
-    private boolean mIsAllCountersVisible;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
+        flexboxLayout.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
 
         if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
-
-        if (mAdapter == null) mAdapter = new CountersAdapter(this);
-
-        initRecyclerView();
     }
 
-    @Override
-    protected void onResume() {
+    @Override protected void onResume() {
         super.onResume();
 
-        LoadSettings();
-        updateView();
+        loadSettings();
     }
 
-    private void LoadSettings() {
+    private void loadSettings() {
         if (CurrentSet.getInstance().getSize() == 0) {
             String activeCountersJson = PrefUtil.getString(this, ACTIVE_COUNTERS, "");
             Type listType = new TypeToken<ArrayList<Counter>>() {
@@ -152,6 +101,9 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
                 counters.add(new Counter(getResources().getString(R.string.counter_default_title)));
             }
             CurrentSet.getInstance().setCounters(counters);
+            for (Counter counter : counters) {
+                addCounterToFlexbox(counter);
+            }
         }
 
         if (PrefUtil.getBoolean(this, PREFS_STAY_AWAKE, true)) {
@@ -159,8 +111,6 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         } else {
             toggleKeepScreenOn(false);
         }
-
-        mIsAllCountersVisible = PrefUtil.getBoolean(this, PREFS_SHOW_ALL_COUNTERS, false);
 
         if (PrefUtil.getBoolean(this, PREFS_SHOW_DICES, false)) {
             toggleDicesBar(true);
@@ -176,14 +126,42 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
     }
 
-    @Override
-    protected void onStop() {
+    private void addCounterToFlexbox(Counter counter) {
+        int viewIndex = flexboxLayout.getChildCount();
+        // index starts from 0. New View's index is N if N views ([0, 1, 2, ... N-1])
+        // exist.
+        TextView textView = createBaseFlexItemTextView(viewIndex);
+        textView.setText(counter.getCaption());
+        textView.setLayoutParams(createDefaultLayoutParams());
+        flexboxLayout.addView(textView);
+    }
+
+    private FlexboxLayout.LayoutParams createDefaultLayoutParams() {
+        FlexboxLayout.LayoutParams lp =
+                new FlexboxLayout.LayoutParams(Util.dpToPixel(this, DEFAULT_WIDTH),
+                        Util.dpToPixel(this, DEFAULT_HEIGHT));
+        lp.order = 1;
+        lp.flexGrow = 0.0f;
+        lp.flexShrink = 1.0f;
+        int flexBasisPercent = -1;
+        lp.flexBasisPercent = flexBasisPercent == -1 ? -1 : (float) (flexBasisPercent / 100.0);
+        return lp;
+    }
+
+    private TextView createBaseFlexItemTextView(int index) {
+        TextView textView = new TextView(this);
+        textView.setBackgroundResource(R.drawable.flex_item_background);
+        textView.setText(String.valueOf(index + 1));
+        textView.setGravity(Gravity.CENTER);
+        return textView;
+    }
+
+    @Override protected void onStop() {
         super.onStop();
         saveSettings();
     }
 
-    @Override
-    protected void onDestroy() {
+    @Override protected void onDestroy() {
         saveSettings();
         super.onDestroy();
     }
@@ -192,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         String activeCountersJson = new Gson().toJson(CurrentSet.getInstance().getCounters());
         PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
 
-        if (mDicesBar.getVisibility() == VISIBLE) {
+        if (dicesBar.getVisibility() == VISIBLE) {
             PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDice().getDiceNumber());
             PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDice().getMinSide());
             PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDice().getMaxSide());
@@ -200,8 +178,7 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         menu.clear();
         inflater.inflate(R.menu.toolbar_menu, menu);
@@ -209,32 +186,39 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_counter:
                 addCounter();
-                updateView();
-                mCountersRecyclerView.smoothScrollToPosition(mAdapter.getItemCount());
                 break;
             case R.id.menu_favorite_sets:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
-                        .replace(R.id.fragment_container, FavoriteSetsFragment.newInstance(), "favorites").addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_left, R.anim.slide_right,
+                                R.anim.slide_left, R.anim.slide_right)
+                        .replace(R.id.fragment_container, FavoriteSetsFragment.newInstance(),
+                                "favorites")
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.menu_clear_all:
                 CurrentSet.getInstance().removeAllCounters();
                 addCounter();
-                updateView();
                 break;
             case R.id.menu_settings:
-                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_left, R.anim.slide_right, R.anim.slide_left, R.anim.slide_right)
-                        .replace(R.id.fragment_container, newInstance(), "settings").addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_left, R.anim.slide_right,
+                                R.anim.slide_left, R.anim.slide_right)
+                        .replace(R.id.fragment_container, newInstance(), "settings")
+                        .addToBackStack(null)
+                        .commit();
                 break;
             case R.id.menu_send_feedback:
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                 intent.setType("text/plain");
                 intent.setData(Uri.parse("mailto:" + SEND_REPORT_EMAIL));
-                intent.putExtra(Intent.EXTRA_SUBJECT, String.format("%s %s", getString(R.string.app_name), getString(R.string.app_version_code)));
+                intent.putExtra(Intent.EXTRA_SUBJECT,
+                        String.format("%s %s", getString(R.string.app_name),
+                                getString(R.string.app_version_code)));
                 startActivity(intent);
                 break;
             default:
@@ -244,25 +228,17 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
     }
 
     private void addCounter() {
-        CurrentSet.getInstance().addCounter(newCounter());
+        final Counter counter = newCounter();
+        CurrentSet.getInstance().addCounter(counter);
+        addCounterToFlexbox(counter);
     }
 
-    @NonNull
-    private Counter newCounter() {
-        return new Counter(String.format("%s %d", getString(R.string.counter_default_title), CurrentSet.getInstance().getSize() + 1));
+    @NonNull private Counter newCounter() {
+        return new Counter(String.format("%s %d", getString(R.string.counter_default_title),
+                CurrentSet.getInstance().getSize() + 1));
     }
 
-    private void initRecyclerView() {
-        mCountersRecyclerView.setItemAnimator(new NoChangeAnimator());
-        mCountersRecyclerView.setAdapter(mAdapter);
-        mCountersRecyclerView.setScrollAnimationDuration(300);
-        mCountersRecyclerView.setFlingFriction(0.99f);
-        mCountersRecyclerView.setSlidingThreshold(0.1f);
-        mCountersRecyclerView.setOrientation(RecyclerView.VERTICAL);
-    }
-
-    @Override
-    public void onBackPressed() {
+    @Override public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
 
         if (count == 0) {
@@ -275,28 +251,20 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         }
     }
 
-    private void updateView() {
-        mAdapter.setCounters(CurrentSet.getInstance().getCounters());
-        mAdapter.setCountersVisibility(mIsAllCountersVisible);
-        if (mIsAllCountersVisible) {
-            mCountersRecyclerView.setVisibleChildCount(mAdapter.getItemCount());
-        } else {
-            mCountersRecyclerView.setVisibleChildCount(1);
-        }
-        mAdapter.notifyDataSetChanged();
-    }
-
     private void toggleKeepScreenOn(boolean isSelected) {
-        if (isSelected) getWindow().addFlags(FLAG_KEEP_SCREEN_ON);
-        else getWindow().clearFlags(FLAG_KEEP_SCREEN_ON);
+        if (isSelected) {
+            getWindow().addFlags(FLAG_KEEP_SCREEN_ON);
+        } else {
+            getWindow().clearFlags(FLAG_KEEP_SCREEN_ON);
+        }
     }
-
 
     private void toggleDicesBar(boolean isShowing) {
-        if (isShowing) mDicesBar.setVisibility(VISIBLE);
-        else mDicesBar.setVisibility(GONE);
-        mCountersRecyclerView.invalidate();
-        mAdapter.notifyDataSetChanged();
+        if (isShowing) {
+            dicesBar.setVisibility(VISIBLE);
+        } else {
+            dicesBar.setVisibility(GONE);
+        }
     }
 
     private void setDiceSum(String sum) {
@@ -307,31 +275,25 @@ public class MainActivity extends AppCompatActivity implements FavSetLoadedListe
         mDiceFormula.setText(formula);
     }
 
-    @Override
-    public void onFavSetLoaded(FavoriteSet set) {
+    @Override public void onFavSetLoaded(FavoriteSet set) {
         CurrentSet.getInstance().setCounters(set.getCounters());
-        updateView();
-        ToastUtils.getInstance().showToast(this, String.format("%s loaded", set.getName()), Toast.LENGTH_SHORT);
+        ToastUtils.getInstance()
+                .showToast(this, String.format("%s loaded", set.getName()), Toast.LENGTH_SHORT);
     }
 
-    @Override
-    public void onSettingsUpdated() {
-        LoadSettings();
-        updateView();
+    @Override public void onSettingsUpdated() {
+        loadSettings();
     }
 
-    @Override
-    public void onDiceUpdate() {
+    @Override public void onDiceUpdate() {
         setDiceFormula(Dice.getDice().toString());
     }
 
-    @Override
-    public void onCounterUpdate() {
-        updateView();
+    @Override public void onCounterUpdate() {
+
     }
 
-    @Override
-    public void onCounterDelete() {
-        updateView();
+    @Override public void onCounterDelete() {
+
     }
 }

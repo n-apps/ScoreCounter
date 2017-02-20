@@ -20,8 +20,8 @@
         android:layout_below="@id/toolbar"
         android:foreground="?android:attr/windowContentOverlay">
 
-        <io.github.luckyandyzhang.cleverrecyclerview.CleverRecyclerView
-            android:id="@+id/counters_recycler_view"
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexbox_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 

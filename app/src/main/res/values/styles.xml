@@ -32,17 +32,6 @@
     <!--
         Edit Dialog Field Styles - SeekBar, TextView, EditText
     -->
-    <style name="Rubik">
-        <item name="fontFilePattern">fonts/Rubik-Light.ttf</item>
-        <item name="fontFamily">BloggerSans</item>
-        <item name="fontVariant">Light</item>
-        <item name="android:textSize">@dimen/text_size_caption</item>
-    </style>
-    <style name="Rubik.Bold" parent="Rubik">
-        <item name="fontVariant">Medium</item>
-        <item name="fontFilePattern">fonts/Rubik-Medium.ttf</item>
-        <item name="android:textSize">@dimen/text_size_value</item>
-    </style>
 
     <style name="MySeekBar">
         <item name="android:layout_width">match_parent</item>

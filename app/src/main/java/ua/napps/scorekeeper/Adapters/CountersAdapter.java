@@ -9,15 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
-
-import java.util.ArrayList;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnTouch;
+import java.util.ArrayList;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.Models.Counter;
 import ua.napps.scorekeeper.View.EditCounterFragment;
@@ -140,9 +135,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
             } else {
                 getInstance().getCounter(position).decreaseValue();
             }
-            YoYo.with(Techniques.Landing)
-                    .duration(300)
-                    .playOn(mCounterView.findViewById(R.id.counter_value));
+
             notifyItemChanged(position);
         }
 
