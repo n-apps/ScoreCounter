@@ -7,56 +7,56 @@ def appName = "Score Keeper"
 def appNameDebug = "Score Keeper (debug)"
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
-    defaultConfig {
-        applicationId 'ua.napps.scorekeeper'
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode versionMajor * 10000
-        + versionMinor * 100
-        + versionPatch
-        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
-    }
+  compileSdkVersion 25
+  buildToolsVersion '25.0.2'
+  defaultConfig {
+    applicationId 'ua.napps.scorekeeper'
+    minSdkVersion 21
+    targetSdkVersion 25
+    versionCode versionMajor * 10000
+    +versionMinor * 100
+    +versionPatch
+    versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+  }
 
-    signingConfigs {
-        release {
-            storeFile new File(STORE_FILE)
-            storePassword STORE_PASSWORD
-            keyAlias KEY_ALIAS
-            keyPassword KEY_PASSWORD
-        }
+  signingConfigs {
+    release {
+      storeFile new File(STORE_FILE)
+      storePassword STORE_PASSWORD
+      keyAlias KEY_ALIAS
+      keyPassword KEY_PASSWORD
     }
+  }
 
-    buildTypes {
-        debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix ".debug"
-            resValue "string", "app_name","${appNameDebug}"
-            resValue "string", "app_version_code", "${defaultConfig.versionName}${versionNameSuffix}"
-        }
-        release {
-            resValue "string", "app_name", "${appName}"
-            resValue "string", "app_version_code", "${defaultConfig.versionName}"
-            debuggable false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //noinspection GroovyAssignabilityCheck
-            signingConfig signingConfigs.release
-        }
+  buildTypes {
+    debug {
+      applicationIdSuffix ".debug"
+      versionNameSuffix ".debug"
+      resValue "string", "app_name", "${appNameDebug}"
+      resValue "string", "app_version_code", "${defaultConfig.versionName}${versionNameSuffix}"
     }
+    release {
+      resValue "string", "app_name", "${appName}"
+      resValue "string", "app_version_code", "${defaultConfig.versionName}"
+      debuggable false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      //noinspection GroovyAssignabilityCheck
+      signingConfig signingConfigs.release
+    }
+  }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.daimajia.easing:library:1.0.1@aar'
-    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
-    compile 'com.github.luckyandyzhang:CleverRecyclerView:1.0.0'
-    compile 'com.gregacucnik:editableseekbar:1.2'
-    compile 'net.kianoni:fontloader:0.3.0'
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  compile 'com.android.support:appcompat-v7:25.1.1'
+  compile 'com.android.support:design:25.1.1'
+  compile 'com.android.support:cardview-v7:25.1.1'
+  compile 'com.jakewharton:butterknife:7.0.1'
+  compile 'com.google.code.gson:gson:2.7'
+  compile 'com.nineoldandroids:library:2.4.0'
+  compile 'com.daimajia.easing:library:1.0.1@aar'
+  compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+  compile 'com.github.luckyandyzhang:CleverRecyclerView:1.0.0'
+  compile 'com.gregacucnik:editableseekbar:1.2'
+  compile 'net.kianoni:fontloader:0.3.0'
 }
