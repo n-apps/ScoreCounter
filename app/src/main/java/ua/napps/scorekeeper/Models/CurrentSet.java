@@ -1,13 +1,11 @@
 package ua.napps.scorekeeper.Models;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-/**
- * Created by novo on 10-Dec-15.
- */
 public final class CurrentSet {
 
-    private ArrayList<Counter> mCounters;
+    private ArrayList<Counter> counters;
     private static CurrentSet sCurrentSet;
 
     public synchronized static CurrentSet getInstance() {
@@ -18,36 +16,48 @@ public final class CurrentSet {
     }
 
     private CurrentSet() {
-        mCounters = new ArrayList<>();
+        counters = new ArrayList<>();
     }
 
     public int getSize() {
-        return mCounters.size();
+        return counters.size();
     }
 
     @SuppressWarnings("unchecked")
     public void setCounters(ArrayList counters) {
-        this.mCounters = counters;
+        this.counters = counters;
     }
 
     public Counter getCounter(int position) {
-        return mCounters.get(position);
+        return counters.get(position);
     }
 
     public ArrayList<Counter> getCounters() {
-        return mCounters;
+        return counters;
     }
 
     public void removeCounter(Counter item) {
-        mCounters.remove(item);
+        counters.remove(item);
     }
 
     public void addCounter(Counter item) {
-        mCounters.add(item);
+        counters.add(item);
     }
 
     public void removeAllCounters() {
-        mCounters.clear();
+        counters.clear();
     }
 
+    public void removeCounter(Object o) {
+        if (o == null) return;
+
+        Iterator<Counter> iterator;
+        iterator = counters.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().equals(o)) {
+                iterator.remove();
+                return;
+            }
+        }
+    }
 }

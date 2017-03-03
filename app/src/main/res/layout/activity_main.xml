@@ -5,32 +5,38 @@
     android:layout_height="match_parent"
     >
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+  <include
+      layout="@layout/toolbar"
+      android:id="@+id/toolbar"
+      />
 
-    <include
-        android:id="@+id/dices"
-        layout="@layout/dice_layout"/>
+  <include
+      layout="@layout/dice_layout"
+      android:id="@+id/dices"
+      />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/dices"
-        android:layout_below="@id/toolbar"
-        android:foreground="?android:attr/windowContentOverlay">
+  <android.support.v4.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fillViewport="true"
+      android:layout_above="@id/dices"
+      android:layout_below="@id/toolbar"
+      android:foreground="?android:attr/windowContentOverlay"
+      >
 
-        <com.google.android.flexbox.FlexboxLayout
-            android:id="@+id/flexbox_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/flexbox_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"/>
+        />
+
+  </android.support.v4.widget.NestedScrollView>
+
+  <FrameLayout
+      android:id="@+id/fragment_container"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@id/toolbar"
+      />
 
 </RelativeLayout>

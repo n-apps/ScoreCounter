@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.View;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +11,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +35,6 @@ import ua.napps.scorekeeper.View.FavoriteSetsFragment.FavSetLoadedListener;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
 import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
 import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
@@ -51,9 +50,9 @@ import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
 import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
 import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 
-@SuppressWarnings({ "WeakerAccess", "unused" }) public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
         implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
-        CounterUpdateListener {
+        CounterUpdateListener, View.OnClickListener {
 
     private static final int DEFAULT_WIDTH = 120;
 
@@ -81,7 +80,7 @@ import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
         setSupportActionBar(mToolbar);
         flexboxLayout.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
 
-        if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
+        //if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
     }
 
     @Override protected void onResume() {
@@ -132,19 +131,19 @@ import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
         // exist.
         TextView textView = createBaseFlexItemTextView(viewIndex);
         textView.setText(counter.getCaption());
+        textView.setTag(counter);
+        textView.setOnClickListener(this);
         textView.setLayoutParams(createDefaultLayoutParams());
         flexboxLayout.addView(textView);
     }
+
 
     private FlexboxLayout.LayoutParams createDefaultLayoutParams() {
         FlexboxLayout.LayoutParams lp =
                 new FlexboxLayout.LayoutParams(Util.dpToPixel(this, DEFAULT_WIDTH),
                         Util.dpToPixel(this, DEFAULT_HEIGHT));
-        lp.order = 1;
-        lp.flexGrow = 0.0f;
-        lp.flexShrink = 1.0f;
-        int flexBasisPercent = -1;
-        lp.flexBasisPercent = flexBasisPercent == -1 ? -1 : (float) (flexBasisPercent / 100.0);
+        lp.order = -1;
+        lp.flexGrow = 2;
         return lp;
     }
 
@@ -202,6 +201,7 @@ import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
                 break;
             case R.id.menu_clear_all:
                 CurrentSet.getInstance().removeAllCounters();
+                flexboxLayout.removeAllViews();
                 addCounter();
                 break;
             case R.id.menu_settings:
@@ -295,5 +295,10 @@ import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
 
     @Override public void onCounterDelete() {
 
+    }
+
+    @Override public void onClick(View v) {
+        CurrentSet.getInstance().removeCounter(v.getTag());
+        flexboxLayout.removeView(v);
     }
 }
