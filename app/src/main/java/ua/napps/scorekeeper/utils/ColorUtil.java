@@ -1,7 +1,6 @@
-package ua.napps.scorekeeper.Utils;
+package ua.napps.scorekeeper.utils;
 
 import android.graphics.Color;
-
 import java.util.Random;
 
 /**

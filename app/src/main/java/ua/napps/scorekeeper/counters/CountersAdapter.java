@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Adapters;
+package ua.napps.scorekeeper.counters;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +14,10 @@ import butterknife.ButterKnife;
 import butterknife.OnTouch;
 import java.util.ArrayList;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.View.EditCounterFragment;
-import ua.napps.scorekeeper.View.MainActivity;
 
 import static android.support.v7.widget.RecyclerView.ViewHolder;
-import static ua.napps.scorekeeper.Helpers.Constants.PREV_VALUE_SHOW_DURATION;
-import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
+import static ua.napps.scorekeeper.data.CurrentSet.getInstance;
+import static ua.napps.scorekeeper.utils.Constants.PREV_VALUE_SHOW_DURATION;
 
 /**
  * Created by novo on 22-Dec-15.
@@ -29,17 +26,18 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.MyView
 
     private boolean mIsAllCountersShowing;
     private ArrayList<Counter> mCounters;
-    private final MainActivity mContext;
+    private final CountersActivity mContext;
     private final float mDensity;
 
-    public CountersAdapter(MainActivity context) {
+    public CountersAdapter(CountersActivity context) {
         this.mContext = context;
         this.mDensity = mContext.getResources().getDisplayMetrics().density;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(mContext).inflate(R.layout.counter_view, parent, false));
+        return new MyViewHolder(
+                LayoutInflater.from(mContext).inflate(R.layout.item_counter, parent, false));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Models;
+package ua.napps.scorekeeper.dices;
 
 import java.security.SecureRandom;
 

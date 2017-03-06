@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.View;
+package ua.napps.scorekeeper.counters;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -15,18 +15,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-
-import com.gregacucnik.EditableSeekBar;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.gregacucnik.EditableSeekBar;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.Models.CurrentSet;
-import ua.napps.scorekeeper.Utils.ColorUtil;
+import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.utils.ColorUtil;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
-import static ua.napps.scorekeeper.Models.CurrentSet.getInstance;
+import static ua.napps.scorekeeper.data.CurrentSet.getInstance;
 
 /**
  * Created by novo on 2015-12-26.

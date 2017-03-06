@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Utils;
+package ua.napps.scorekeeper.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;

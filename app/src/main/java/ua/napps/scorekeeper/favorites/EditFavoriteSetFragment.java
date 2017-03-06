@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.View;
+package ua.napps.scorekeeper.favorites;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,13 +14,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.CurrentSet;
-import ua.napps.scorekeeper.Models.FavoriteSet;
-import ua.napps.scorekeeper.Utils.ColorUtil;
+import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.utils.ColorUtil;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
 

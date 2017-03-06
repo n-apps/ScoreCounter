@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Utils;
+package ua.napps.scorekeeper.utils;
 
 import android.content.Context;
 import android.widget.Toast;

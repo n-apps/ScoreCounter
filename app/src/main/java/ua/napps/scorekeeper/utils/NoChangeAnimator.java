@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Helpers;
+package ua.napps.scorekeeper.utils;
 
 import android.support.v7.widget.DefaultItemAnimator;
 

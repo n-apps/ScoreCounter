@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.View;
+package ua.napps.scorekeeper.dices;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,15 +10,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.SeekBar;
-
-import com.gregacucnik.EditableSeekBar;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import com.gregacucnik.EditableSeekBar;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.Dice;
 
-import static ua.napps.scorekeeper.Models.Dice.getDice;
+import static ua.napps.scorekeeper.dices.Dice.getDice;
 
 /**
  * Created by novo on 2016-01-02.

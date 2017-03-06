@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Utils;
+package ua.napps.scorekeeper.utils;
 
 /**
  * Created by Roman on 23/11/2015.

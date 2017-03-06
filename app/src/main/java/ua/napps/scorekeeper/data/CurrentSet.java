@@ -1,11 +1,11 @@
-package ua.napps.scorekeeper.Models;
+package ua.napps.scorekeeper.data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.databinding.ObservableArrayList;
+import ua.napps.scorekeeper.counters.Counter;
 
 public final class CurrentSet {
 
-    private ArrayList<Counter> counters;
+    private ObservableArrayList<Counter> counters;
     private static CurrentSet sCurrentSet;
 
     public synchronized static CurrentSet getInstance() {
@@ -16,15 +16,14 @@ public final class CurrentSet {
     }
 
     private CurrentSet() {
-        counters = new ArrayList<>();
+        counters = new ObservableArrayList<>();
     }
 
     public int getSize() {
         return counters.size();
     }
 
-    @SuppressWarnings("unchecked")
-    public void setCounters(ArrayList counters) {
+    @SuppressWarnings("unchecked") public void setCounters(ObservableArrayList counters) {
         this.counters = counters;
     }
 
@@ -32,7 +31,7 @@ public final class CurrentSet {
         return counters.get(position);
     }
 
-    public ArrayList<Counter> getCounters() {
+    public ObservableArrayList<Counter> getCounters() {
         return counters;
     }
 
@@ -51,13 +50,6 @@ public final class CurrentSet {
     public void removeCounter(Object o) {
         if (o == null) return;
 
-        Iterator<Counter> iterator;
-        iterator = counters.iterator();
-        while (iterator.hasNext()) {
-            if (iterator.next().equals(o)) {
-                iterator.remove();
-                return;
-            }
-        }
+        counters.remove((Counter) o);
     }
 }

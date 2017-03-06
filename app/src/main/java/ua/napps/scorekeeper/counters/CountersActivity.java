@@ -1,84 +1,67 @@
-package ua.napps.scorekeeper.View;
+package ua.napps.scorekeeper.counters;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.databinding.ObservableArrayList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnLongClick;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.Counter;
-import ua.napps.scorekeeper.Models.CurrentSet;
-import ua.napps.scorekeeper.Models.Dice;
-import ua.napps.scorekeeper.Models.FavoriteSet;
-import ua.napps.scorekeeper.Utils.PrefUtil;
-import ua.napps.scorekeeper.Utils.ToastUtils;
-import ua.napps.scorekeeper.Utils.Util;
-import ua.napps.scorekeeper.View.FavoriteSetsFragment.FavSetLoadedListener;
+import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
+import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.dices.Dice;
+import ua.napps.scorekeeper.favorites.FavoriteSet;
+import ua.napps.scorekeeper.favorites.FavoriteSetsFragment;
+import ua.napps.scorekeeper.favorites.FavoriteSetsFragment.FavSetLoadedListener;
+import ua.napps.scorekeeper.settings.PrefUtil;
+import ua.napps.scorekeeper.utils.ToastUtils;
+import ua.napps.scorekeeper.utils.Util;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 import static android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
-import static ua.napps.scorekeeper.Helpers.Constants.ACTIVE_COUNTERS;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_AMOUNT;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_BONUS;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MAX_EDGE;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_MIN_EDGE;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_DICE_SUM;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_SHOW_DICES;
-import static ua.napps.scorekeeper.Helpers.Constants.PREFS_STAY_AWAKE;
-import static ua.napps.scorekeeper.Helpers.Constants.SEND_REPORT_EMAIL;
-import static ua.napps.scorekeeper.View.EditCounterFragment.CounterUpdateListener;
-import static ua.napps.scorekeeper.View.EditDiceFragment.DiceUpdateListener;
-import static ua.napps.scorekeeper.View.SettingFragment.SettingsUpdatedListener;
-import static ua.napps.scorekeeper.View.SettingFragment.newInstance;
+import static ua.napps.scorekeeper.dices.EditDiceFragment.DiceUpdateListener;
+import static ua.napps.scorekeeper.settings.SettingsFragment.SettingsUpdatedListener;
+import static ua.napps.scorekeeper.settings.SettingsFragment.newInstance;
+import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_DICE_AMOUNT;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_DICE_BONUS;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_DICE_MAX_EDGE;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_DICE_MIN_EDGE;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_DICE_SUM;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_SHOW_DICES;
+import static ua.napps.scorekeeper.utils.Constants.PREFS_STAY_AWAKE;
+import static ua.napps.scorekeeper.utils.Constants.SEND_REPORT_EMAIL;
 
-public class MainActivity extends AppCompatActivity
+public class CountersActivity extends AppCompatActivity
         implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
-        CounterUpdateListener, View.OnClickListener {
+        EditCounterFragment.CounterUpdateListener, View.OnClickListener {
 
     private static final int DEFAULT_WIDTH = 120;
-
     private static final int DEFAULT_HEIGHT = 80;
 
-    @Bind(R.id.flexbox_container) FlexboxLayout flexboxLayout;
-    @Bind(R.id.dices) LinearLayout dicesBar;
-    @Bind(R.id.dice_formula) TextView mDiceFormula;
-    @Bind(R.id.dice_sum) TextView mDiceSum;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-
-    @SuppressWarnings("SameReturnValue") @OnLongClick(R.id.dice_formula)
-    public boolean onLongClick() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        EditDiceFragment diceDialog = EditDiceFragment.newInstance();
-        diceDialog.show(fragmentManager, "dice_dialog");
-        return true;
-    }
+    private ActivityCountersBinding binding;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_counters);
 
-        setSupportActionBar(mToolbar);
-        flexboxLayout.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
+        setSupportActionBar(binding.toolbar);
+
+        binding.flexboxContainer.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
 
         //if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
     }
@@ -99,10 +82,12 @@ public class MainActivity extends AppCompatActivity
                 counters = new ArrayList<>();
                 counters.add(new Counter(getResources().getString(R.string.counter_default_title)));
             }
-            CurrentSet.getInstance().setCounters(counters);
-            for (Counter counter : counters) {
-                addCounterToFlexbox(counter);
-            }
+            ObservableArrayList<Counter> list = new ObservableArrayList<>();
+            list.addAll(counters);
+            CurrentSet.getInstance().setCounters(list);
+            binding.setCounters(CurrentSet.getInstance().getCounters());
+            binding.setClickListener(this);
+            binding.executePendingBindings();
         }
 
         if (PrefUtil.getBoolean(this, PREFS_STAY_AWAKE, true)) {
@@ -125,18 +110,17 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void addCounterToFlexbox(Counter counter) {
-        int viewIndex = flexboxLayout.getChildCount();
-        // index starts from 0. New View's index is N if N views ([0, 1, 2, ... N-1])
-        // exist.
-        TextView textView = createBaseFlexItemTextView(viewIndex);
-        textView.setText(counter.getCaption());
-        textView.setTag(counter);
-        textView.setOnClickListener(this);
-        textView.setLayoutParams(createDefaultLayoutParams());
-        flexboxLayout.addView(textView);
-    }
-
+    //private void addCounterToFlexbox(Counter counter) {
+    //    int viewIndex = flexboxLayout.getChildCount();
+    //    // index starts from 0. New View's index is N if N views ([0, 1, 2, ... N-1])
+    //    // exist.
+    //    TextView textView = createBaseFlexItemTextView(viewIndex);
+    //    textView.setText(counter.getCaption());
+    //    textView.setTag(counter);
+    //    textView.setOnClickListener(this);
+    //    textView.setLayoutParams(createDefaultLayoutParams());
+    //    flexboxLayout.addView(textView);
+    //}
 
     private FlexboxLayout.LayoutParams createDefaultLayoutParams() {
         FlexboxLayout.LayoutParams lp =
@@ -162,6 +146,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override protected void onDestroy() {
         saveSettings();
+        binding.unbind();
         super.onDestroy();
     }
 
@@ -169,7 +154,7 @@ public class MainActivity extends AppCompatActivity
         String activeCountersJson = new Gson().toJson(CurrentSet.getInstance().getCounters());
         PrefUtil.putString(this, ACTIVE_COUNTERS, activeCountersJson);
 
-        if (dicesBar.getVisibility() == VISIBLE) {
+        if (binding.dices.getVisibility() == VISIBLE) {
             PrefUtil.putInt(this, PREFS_DICE_AMOUNT, Dice.getDice().getDiceNumber());
             PrefUtil.putInt(this, PREFS_DICE_MIN_EDGE, Dice.getDice().getMinSide());
             PrefUtil.putInt(this, PREFS_DICE_MAX_EDGE, Dice.getDice().getMaxSide());
@@ -201,7 +186,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.menu_clear_all:
                 CurrentSet.getInstance().removeAllCounters();
-                flexboxLayout.removeAllViews();
                 addCounter();
                 break;
             case R.id.menu_settings:
@@ -230,7 +214,6 @@ public class MainActivity extends AppCompatActivity
     private void addCounter() {
         final Counter counter = newCounter();
         CurrentSet.getInstance().addCounter(counter);
-        addCounterToFlexbox(counter);
     }
 
     @NonNull private Counter newCounter() {
@@ -261,22 +244,24 @@ public class MainActivity extends AppCompatActivity
 
     private void toggleDicesBar(boolean isShowing) {
         if (isShowing) {
-            dicesBar.setVisibility(VISIBLE);
+            binding.dices.setVisibility(VISIBLE);
         } else {
-            dicesBar.setVisibility(GONE);
+            binding.dices.setVisibility(GONE);
         }
     }
 
     private void setDiceSum(String sum) {
-        mDiceSum.setText(sum);
+        binding.diceSum.setText(sum);
     }
 
     private void setDiceFormula(String formula) {
-        mDiceFormula.setText(formula);
+        binding.diceFormula.setText(formula);
     }
 
     @Override public void onFavSetLoaded(FavoriteSet set) {
-        CurrentSet.getInstance().setCounters(set.getCounters());
+        ObservableArrayList<Counter> list = new ObservableArrayList<>();
+        list.addAll(set.getCounters());
+        CurrentSet.getInstance().setCounters(list);
         ToastUtils.getInstance()
                 .showToast(this, String.format("%s loaded", set.getName()), Toast.LENGTH_SHORT);
     }
@@ -294,11 +279,9 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override public void onCounterDelete() {
-
     }
 
     @Override public void onClick(View v) {
         CurrentSet.getInstance().removeCounter(v.getTag());
-        flexboxLayout.removeView(v);
     }
 }

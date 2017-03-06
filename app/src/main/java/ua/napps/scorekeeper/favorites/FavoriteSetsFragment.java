@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.View;
+package ua.napps.scorekeeper.favorites;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,23 +18,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.Models.FavoriteSet;
-import ua.napps.scorekeeper.Utils.PrefUtil;
-import ua.napps.scorekeeper.View.EditFavoriteSetFragment.EditFavSetDialogListener;
+import ua.napps.scorekeeper.favorites.EditFavoriteSetFragment.EditFavSetDialogListener;
+import ua.napps.scorekeeper.settings.PrefUtil;
 
-import static ua.napps.scorekeeper.Helpers.Constants.FAV_ARRAY;
+import static ua.napps.scorekeeper.utils.Constants.FAV_ARRAY;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class FavoriteSetsFragment extends Fragment implements EditFavSetDialogListener {

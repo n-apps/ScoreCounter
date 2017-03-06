@@ -1,7 +1,7 @@
-package ua.napps.scorekeeper.Models;
+package ua.napps.scorekeeper.counters;
 
-import static ua.napps.scorekeeper.Utils.ColorUtil.getContrastColor;
-import static ua.napps.scorekeeper.Utils.ColorUtil.getRandomColor;
+import static ua.napps.scorekeeper.utils.ColorUtil.getContrastColor;
+import static ua.napps.scorekeeper.utils.ColorUtil.getRandomColor;
 
 public final class Counter {
     private String mCaption = "Counter";

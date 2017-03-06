@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.Helpers;
+package ua.napps.scorekeeper.utils;
 
 public final class Constants {
     public static final String PREFS_SHOW_DICES = "show_dices";

@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:id="@+id/root_counter_view"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:longClickable="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+  <data>
+    <variable
+        name="data"
+        type="ua.napps.scorekeeper.counters.Counter"
+        />
+  </data>
+  <FrameLayout
+      android:id="@+id/root_counter_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/flex_item_background"
+      android:longClickable="true"
+      >
 
     <TextView
         android:id="@+id/counter_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="@dimen/padding_caption"
         android:clickable="false"
         android:ellipsize="none"
-        android:layout_marginTop="@dimen/padding_caption"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:text="@{data.caption}"
+        />
 
     <TextView
         android:id="@+id/minus_sign"
@@ -27,7 +38,8 @@
         android:clickable="false"
         android:ellipsize="none"
         android:singleLine="true"
-        android:text="@string/counter_sign_minus"/>
+        android:text="@string/counter_sign_minus"
+        />
 
     <TextView
         android:id="@+id/counter_value"
@@ -38,28 +50,33 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:padding="0dp"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:text="@{String.valueOf(data.value)}"
+        />
 
     <TextView
         android:id="@+id/plus_sign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|end"
-        android:layout_marginRight="@dimen/counter_view_icon_margin"
         android:layout_marginEnd="@dimen/counter_view_icon_margin"
+        android:layout_marginRight="@dimen/counter_view_icon_margin"
         android:alpha="@dimen/alpha_hint_icon"
         android:clickable="false"
         android:ellipsize="none"
         android:singleLine="true"
-        android:text="@string/counter_sign_plus"/>
+        android:text="@string/counter_sign_plus"
+        />
 
     <TextView
         android:id="@+id/previous_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/padding_previous_value"
         android:clickable="false"
         android:ellipsize="none"
-        android:layout_marginBottom="@dimen/padding_previous_value"
-        android:singleLine="true"/>
-</FrameLayout>
+        android:singleLine="true"
+        />
+  </FrameLayout>
+</layout>
