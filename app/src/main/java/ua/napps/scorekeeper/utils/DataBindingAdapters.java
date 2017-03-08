@@ -44,13 +44,10 @@ public class DataBindingAdapters {
      * The layout, &commat;layout/item for example, must have a single variable named
      * {@code data}.
      */
-    @BindingAdapter({ "entries", "layout", "clickListener" }) public static <T> void setEntries(
-            ViewGroup viewGroup, List<T> oldEntries, int oldLayoutId,
-            View.OnClickListener oldOnClickListener, List<T> newEntries, int newLayoutId,
-            View.OnClickListener newOnClickListener) {
-        if (oldEntries == newEntries
-                && oldLayoutId == newLayoutId
-                && oldOnClickListener == newOnClickListener) {
+    @BindingAdapter({ "entries", "layout" }) public static <T> void setEntries(
+            ViewGroup viewGroup, List<T> oldEntries, int oldLayoutId, List<T> newEntries,
+            int newLayoutId) {
+        if (oldEntries == newEntries && oldLayoutId == newLayoutId) {
             return; // nothing has changed
         }
 
@@ -64,7 +61,7 @@ public class DataBindingAdapters {
         } else {
             if (newEntries instanceof ObservableList) {
                 if (listener == null) {
-                    listener = new EntryChangeListener(viewGroup, newLayoutId, newOnClickListener);
+                    listener = new EntryChangeListener(viewGroup, newLayoutId);
                     ListenerUtil.trackListener(viewGroup, listener, R.id.entryListener);
                 } else {
                     listener.setLayoutId(newLayoutId);
@@ -73,7 +70,7 @@ public class DataBindingAdapters {
                     ((ObservableList) newEntries).addOnListChangedCallback(listener);
                 }
             }
-            resetViews(viewGroup, newLayoutId, newEntries, newOnClickListener);
+            resetViews(viewGroup, newLayoutId, newEntries);
         }
     }
 
@@ -102,14 +99,11 @@ public class DataBindingAdapters {
      * Clears all Views in {@code parent} and fills it with a View for
      * each item in {@code entries}, bound to the item. If layoutId
      * is 0, no Views will be added.
-     *
-     * @param parent The ViewGroup to contain the list of items.
+     *  @param parent The ViewGroup to contain the list of items.
      * @param layoutId The layout ID to inflate for the child Views.
      * @param entries The list of items to bind to the inflated Views. Each
-     * item will be bound to a different child View.
      */
-    private static void resetViews(ViewGroup parent, int layoutId, List entries,
-            View.OnClickListener clickListener) {
+    private static void resetViews(ViewGroup parent, int layoutId, List entries) {
         parent.removeAllViews();
         if (layoutId == 0) {
             return;
@@ -119,12 +113,7 @@ public class DataBindingAdapters {
         for (int i = 0; i < entries.size(); i++) {
             Object entry = entries.get(i);
             ViewDataBinding binding = bindLayout(inflater, parent, layoutId, entry);
-            final View root = binding.getRoot();
-            if (clickListener != null) {
-                root.setOnClickListener(clickListener);
-                root.setTag(entry);
-            }
-            parent.addView(root);
+            parent.addView(binding.getRoot());
         }
     }
 
@@ -146,12 +135,10 @@ public class DataBindingAdapters {
     private static class EntryChangeListener extends ObservableList.OnListChangedCallback {
         private final ViewGroup mTarget;
         private int mLayoutId;
-        private View.OnClickListener clickListener;
 
-        public EntryChangeListener(ViewGroup target, int layoutId, View.OnClickListener listener) {
+        public EntryChangeListener(ViewGroup target, int layoutId) {
             mTarget = target;
             mLayoutId = layoutId;
-            clickListener = listener;
         }
 
         public void setLayoutId(int layoutId) {
@@ -159,7 +146,7 @@ public class DataBindingAdapters {
         }
 
         @Override public void onChanged(ObservableList observableList) {
-            resetViews(mTarget, mLayoutId, observableList, clickListener);
+            resetViews(mTarget, mLayoutId, observableList);
         }
 
         @Override
@@ -176,12 +163,7 @@ public class DataBindingAdapters {
                 ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, data);
                 binding.setVariable(BR.data, data);
                 mTarget.removeViewAt(i);
-                final View root = binding.getRoot();
-                if (clickListener != null) {
-                    root.setOnClickListener(clickListener);
-                    root.setTag(data);
-                }
-                mTarget.addView(root, i);
+                mTarget.addView(binding.getRoot(), i);
             }
         }
 
@@ -197,12 +179,7 @@ public class DataBindingAdapters {
             for (int i = end - 1; i >= start; i--) {
                 Object entry = observableList.get(i);
                 ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, entry);
-                final View root = binding.getRoot();
-                if (clickListener != null) {
-                    root.setOnClickListener(clickListener);
-                    root.setTag(entry);
-                }
-                mTarget.addView(root, start);
+                mTarget.addView(binding.getRoot(), start);
             }
         }
 

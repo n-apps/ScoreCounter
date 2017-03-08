@@ -5,13 +5,11 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.flexbox.FlexboxLayout;
@@ -48,7 +46,7 @@ import static ua.napps.scorekeeper.utils.Constants.SEND_REPORT_EMAIL;
 
 public class CountersActivity extends AppCompatActivity
         implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
-        EditCounterFragment.CounterUpdateListener, View.OnClickListener {
+        EditCounterFragment.CounterUpdateListener {
 
     private static final int DEFAULT_WIDTH = 120;
     private static final int DEFAULT_HEIGHT = 80;
@@ -79,14 +77,11 @@ public class CountersActivity extends AppCompatActivity
             }.getType();
             ArrayList<Counter> counters = new Gson().fromJson(activeCountersJson, listType);
             if (counters == null) {
-                counters = new ArrayList<>();
-                counters.add(new Counter(getResources().getString(R.string.counter_default_title)));
+                addCounter();
+            } else {
+                CurrentSet.getInstance().setCounters(counters);
             }
-            ObservableArrayList<Counter> list = new ObservableArrayList<>();
-            list.addAll(counters);
-            CurrentSet.getInstance().setCounters(list);
             binding.setCounters(CurrentSet.getInstance().getCounters());
-            binding.setClickListener(this);
             binding.executePendingBindings();
         }
 
@@ -212,13 +207,9 @@ public class CountersActivity extends AppCompatActivity
     }
 
     private void addCounter() {
-        final Counter counter = newCounter();
-        CurrentSet.getInstance().addCounter(counter);
-    }
-
-    @NonNull private Counter newCounter() {
-        return new Counter(String.format("%s %d", getString(R.string.counter_default_title),
-                CurrentSet.getInstance().getSize() + 1));
+        final String caption =
+                getString(R.string.counter_default_title, CurrentSet.getInstance().getSize() + 1);
+        CurrentSet.getInstance().addCounter(caption);
     }
 
     @Override public void onBackPressed() {
@@ -279,9 +270,5 @@ public class CountersActivity extends AppCompatActivity
     }
 
     @Override public void onCounterDelete() {
-    }
-
-    @Override public void onClick(View v) {
-        CurrentSet.getInstance().removeCounter(v.getTag());
     }
 }

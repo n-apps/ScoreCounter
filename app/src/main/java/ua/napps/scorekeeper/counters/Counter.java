@@ -1,9 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
+import java.util.UUID;
+
 import static ua.napps.scorekeeper.utils.ColorUtil.getContrastColor;
 import static ua.napps.scorekeeper.utils.ColorUtil.getRandomColor;
 
 public final class Counter {
+    private String id;
     private String mCaption = "Counter";
     private int mValue;
     private int mBackgroundColor;
@@ -13,6 +16,7 @@ public final class Counter {
     private int mRotationValue;
 
     public Counter(String name) {
+        id = UUID.randomUUID().toString();
         mCaption = name;
         mBackgroundColor = getRandomColor();
         mTextColor = getContrastColor(mBackgroundColor);
@@ -84,5 +88,9 @@ public final class Counter {
 
     public void setRotationValue(int rotationValue) {
         mRotationValue = rotationValue;
+    }
+
+    public String getId() {
+        return id;
     }
 }

@@ -7,10 +7,11 @@
         type="ua.napps.scorekeeper.counters.Counter"
         />
   </data>
-  <FrameLayout
+  <ua.napps.scorekeeper.counters.CounterView
       android:id="@+id/root_counter_view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:setCounter="@{data}"
       android:background="@drawable/flex_item_background"
       android:longClickable="true"
       >
@@ -78,5 +79,5 @@
         android:ellipsize="none"
         android:singleLine="true"
         />
-  </FrameLayout>
+  </ua.napps.scorekeeper.counters.CounterView>
 </layout>

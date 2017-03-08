@@ -1,6 +1,8 @@
 package ua.napps.scorekeeper.data;
 
 import android.databinding.ObservableArrayList;
+import android.support.annotation.NonNull;
+import java.util.ArrayList;
 import ua.napps.scorekeeper.counters.Counter;
 
 public final class CurrentSet {
@@ -23,8 +25,12 @@ public final class CurrentSet {
         return counters.size();
     }
 
-    @SuppressWarnings("unchecked") public void setCounters(ObservableArrayList counters) {
+    public void setCounters(@NonNull ObservableArrayList<Counter> counters) {
         this.counters = counters;
+    }
+
+    public void setCounters(@NonNull ArrayList<Counter> counters) {
+        this.counters.addAll(counters);
     }
 
     public Counter getCounter(int position) {
@@ -39,17 +45,31 @@ public final class CurrentSet {
         counters.remove(item);
     }
 
-    public void addCounter(Counter item) {
-        counters.add(item);
+    public void addCounter(String caption) {
+        counters.add(new Counter(caption));
     }
 
     public void removeAllCounters() {
         counters.clear();
     }
 
-    public void removeCounter(Object o) {
-        if (o == null) return;
+    public void increaseValue(String id) {
+        for (int i = 0; i < counters.size(); i++) {
+            Counter counter = counters.get(i);
+            if (counter.getId().equals(id)) {
+                counter.increaseValue();
+                counters.set(i, counter);
+            }
+        }
+    }
 
-        counters.remove((Counter) o);
+    public void decreaseValue(String id) {
+        for (int i = 0; i < counters.size(); i++) {
+            Counter counter = counters.get(i);
+            if (counter.getId().equals(id)) {
+                counter.decreaseValue();
+                counters.set(i, counter);
+            }
+        }
     }
 }
