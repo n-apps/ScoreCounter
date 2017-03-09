@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import java.util.List;
 import ua.com.napps.scorekeeper.BR;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.counters.CounterActionCallback;
 
 public class DataBindingAdapters {
 
@@ -44,9 +45,10 @@ public class DataBindingAdapters {
      * The layout, &commat;layout/item for example, must have a single variable named
      * {@code data}.
      */
-    @BindingAdapter({ "entries", "layout" }) public static <T> void setEntries(
-            ViewGroup viewGroup, List<T> oldEntries, int oldLayoutId, List<T> newEntries,
-            int newLayoutId) {
+    @BindingAdapter({ "entries", "layout", "itemCallback" }) public static <T> void setEntries(
+            ViewGroup viewGroup, List<T> oldEntries, int oldLayoutId,
+            CounterActionCallback oldCallback, List<T> newEntries, int newLayoutId,
+            CounterActionCallback newCallback) {
         if (oldEntries == newEntries && oldLayoutId == newLayoutId) {
             return; // nothing has changed
         }
@@ -61,7 +63,7 @@ public class DataBindingAdapters {
         } else {
             if (newEntries instanceof ObservableList) {
                 if (listener == null) {
-                    listener = new EntryChangeListener(viewGroup, newLayoutId);
+                    listener = new EntryChangeListener(viewGroup, newLayoutId, newCallback);
                     ListenerUtil.trackListener(viewGroup, listener, R.id.entryListener);
                 } else {
                     listener.setLayoutId(newLayoutId);
@@ -70,7 +72,7 @@ public class DataBindingAdapters {
                     ((ObservableList) newEntries).addOnListChangedCallback(listener);
                 }
             }
-            resetViews(viewGroup, newLayoutId, newEntries);
+            resetViews(viewGroup, newLayoutId, newEntries, newCallback);
         }
     }
 
@@ -82,15 +84,20 @@ public class DataBindingAdapters {
      * @param parent The ViewGroup containing the list of Views
      * @param layoutId The layout ID to use for the list item
      * @param entry The data to bind to the inflated View
+     * @param actionCallback
      * @return A ViewDataBinding, bound to a newly-inflated View with {@code entry}
      * set as the {@code data} variable.
      */
     private static ViewDataBinding bindLayout(LayoutInflater inflater, ViewGroup parent,
-            int layoutId, Object entry) {
+            int layoutId, Object entry, CounterActionCallback actionCallback) {
         ViewDataBinding binding = DataBindingUtil.inflate(inflater, layoutId, parent, false);
         if (!binding.setVariable(BR.data, entry)) {
             String layoutName = parent.getResources().getResourceEntryName(layoutId);
             Log.w(TAG, "There is no variable 'data' in layout " + layoutName);
+        }
+        if (!binding.setVariable(BR.callback, actionCallback)) {
+            String layoutName = parent.getResources().getResourceEntryName(layoutId);
+            Log.w(TAG, "There is no variable 'callback' in layout " + layoutName);
         }
         return binding;
     }
@@ -99,11 +106,13 @@ public class DataBindingAdapters {
      * Clears all Views in {@code parent} and fills it with a View for
      * each item in {@code entries}, bound to the item. If layoutId
      * is 0, no Views will be added.
-     *  @param parent The ViewGroup to contain the list of items.
+     * @param parent The ViewGroup to contain the list of items.
      * @param layoutId The layout ID to inflate for the child Views.
      * @param entries The list of items to bind to the inflated Views. Each
+     * @param actionCallback
      */
-    private static void resetViews(ViewGroup parent, int layoutId, List entries) {
+    private static void resetViews(ViewGroup parent, int layoutId, List entries,
+            CounterActionCallback actionCallback) {
         parent.removeAllViews();
         if (layoutId == 0) {
             return;
@@ -112,7 +121,7 @@ public class DataBindingAdapters {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         for (int i = 0; i < entries.size(); i++) {
             Object entry = entries.get(i);
-            ViewDataBinding binding = bindLayout(inflater, parent, layoutId, entry);
+            ViewDataBinding binding = bindLayout(inflater, parent, layoutId, entry, actionCallback);
             final View view = binding.getRoot();
             view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
             parent.addView(view);
@@ -137,10 +146,13 @@ public class DataBindingAdapters {
     private static class EntryChangeListener extends ObservableList.OnListChangedCallback {
         private final ViewGroup mTarget;
         private int mLayoutId;
+        private CounterActionCallback actionCallback;
 
-        public EntryChangeListener(ViewGroup target, int layoutId) {
+        public EntryChangeListener(ViewGroup target, int layoutId,
+                CounterActionCallback newCallback) {
             mTarget = target;
             mLayoutId = layoutId;
+            actionCallback = newCallback;
         }
 
         public void setLayoutId(int layoutId) {
@@ -148,7 +160,7 @@ public class DataBindingAdapters {
         }
 
         @Override public void onChanged(ObservableList observableList) {
-            resetViews(mTarget, mLayoutId, observableList);
+            resetViews(mTarget, mLayoutId, observableList, actionCallback);
         }
 
         @Override
@@ -162,8 +174,10 @@ public class DataBindingAdapters {
             final int end = start + count;
             for (int i = start; i < end; i++) {
                 Object data = observableList.get(i);
-                ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, data);
-                binding.setVariable(BR.data, data);
+                ViewDataBinding binding =
+                        bindLayout(inflater, mTarget, mLayoutId, data, actionCallback);
+                //binding.setVariable(BR.data, data);
+                //binding.setVariable(BR.callback, actionCallback);
                 mTarget.removeViewAt(i);
                 final View view = binding.getRoot();
                 view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
@@ -182,7 +196,8 @@ public class DataBindingAdapters {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             for (int i = end - 1; i >= start; i--) {
                 Object entry = observableList.get(i);
-                ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, entry);
+                ViewDataBinding binding =
+                        bindLayout(inflater, mTarget, mLayoutId, entry, actionCallback);
                 final View view = binding.getRoot();
                 view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
                 mTarget.addView(view, start);

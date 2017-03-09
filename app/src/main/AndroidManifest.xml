@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="ua.com.napps.scorekeeper"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ua.com.napps.scorekeeper">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+  <application
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme"
+      android:windowSoftInputMode="adjustNothing|stateAlwaysHidden">
+    <activity
         android:label="@string/app_name"
-        android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name="ua.napps.scorekeeper.counters.CountersActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        android:name="ua.napps.scorekeeper.counters.CountersActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-
-    </application>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="ua.napps.scorekeeper.counters.EditCounterActivity">
+    </activity>
+  </application>
 
 </manifest>

@@ -43,7 +43,7 @@ import static ua.napps.scorekeeper.utils.Constants.SEND_REPORT_EMAIL;
 
 public class CountersActivity extends AppCompatActivity
         implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
-        EditCounterFragment.CounterUpdateListener {
+        CounterActionCallback {
 
     private ActivityCountersBinding binding;
 
@@ -55,13 +55,9 @@ public class CountersActivity extends AppCompatActivity
 
         binding.flexboxContainer.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
 
-        //if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
-    }
-
-    @Override protected void onResume() {
-        super.onResume();
-
         loadSettings();
+
+        //if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
     }
 
     private void loadSettings() {
@@ -75,9 +71,10 @@ public class CountersActivity extends AppCompatActivity
             } else {
                 CurrentSet.getInstance().setCounters(counters);
             }
-            binding.setCounters(CurrentSet.getInstance().getCounters());
-            binding.executePendingBindings();
         }
+        binding.setCounters(CurrentSet.getInstance().getCounters());
+        binding.setCallback(this);
+        binding.executePendingBindings();
 
         if (PrefUtil.getBoolean(this, PREFS_STAY_AWAKE, true)) {
             toggleKeepScreenOn(true);
@@ -230,10 +227,13 @@ public class CountersActivity extends AppCompatActivity
         setDiceFormula(Dice.getDice().toString());
     }
 
-    @Override public void onCounterUpdate() {
-
+    @Override public void onNameClick(Counter counter) {
+        Intent intent = EditCounterActivity.getIntent(this, counter);
+        startActivity(intent);
     }
 
-    @Override public void onCounterDelete() {
+    @Override public void onLongClick(Counter counter) {
+        Intent intent = EditCounterActivity.getIntent(this, counter);
+        startActivity(intent);
     }
 }

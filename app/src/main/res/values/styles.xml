@@ -58,15 +58,4 @@
         <item name="android:thumb">@drawable/seekbar_circle_blue</item>
     </style>
 
-    <style name="dialog_edit_text_with_background">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:inputType">text</item>
-        <item name="android:maxLength">20</item>
-        <item name="android:textSize">@dimen/dialog_title_text_size</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:minEms">20</item>
-    </style>
-
 </resources>

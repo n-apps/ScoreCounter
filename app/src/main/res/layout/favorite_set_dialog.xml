@@ -16,7 +16,16 @@
 
         <EditText
             android:id="@+id/favorite_set_name"
-            style="@style/dialog_edit_text_with_background"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Counter name"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:minEms="20"
+            android:padding="16dp"
+            android:textSize="@dimen/dialog_title_text_size"
+            />
 
     </LinearLayout>
 

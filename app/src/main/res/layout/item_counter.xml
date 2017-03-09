@@ -4,6 +4,10 @@
     >
   <data>
     <variable
+        name="callback"
+        type="ua.napps.scorekeeper.counters.CounterActionCallback"
+        />
+    <variable
         name="data"
         type="ua.napps.scorekeeper.counters.Counter"
         />
@@ -12,7 +16,9 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:background="@drawable/flex_item_background"
+      android:foreground="?attr/selectableItemBackgroundBorderless"
       android:longClickable="true"
+      bind:callback="@{callback}"
       bind:counter="@{data}"
       >
     <LinearLayout
@@ -21,16 +27,18 @@
         android:orientation="vertical"
         >
       <TextView
+          android:id="@+id/counter_name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:background="#2E000000"
           android:clickable="false"
           android:ellipsize="none"
           android:gravity="center"
-          android:textAllCaps="true"
+          android:onClick="@{() -> callback.onNameClick(data)}"
           android:padding="8dp"
-          android:background="#2E000000"
           android:singleLine="true"
           android:text='@{data.name, default="Counter"}'
+          android:textAllCaps="true"
           android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
           />
       <LinearLayout
@@ -44,9 +52,10 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
             android:alpha="0.38"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_add_box"
+            android:src="@drawable/ic_indeterminate_check_box"
             />
 
         <TextView
@@ -57,7 +66,6 @@
             android:clickable="false"
             android:gravity="center"
             android:includeFontPadding="false"
-            android:padding="0dp"
             android:singleLine="true"
             android:text='@{String.valueOf(data.value), default="0"}'
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -67,6 +75,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
+            android:layout_margin="16dp"
             android:alpha="0.38"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_add_box"

@@ -9,12 +9,12 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-import ua.napps.scorekeeper.data.CurrentSet;
 
 public class CounterView extends FrameLayout implements GestureDetector.OnGestureListener {
 
     private GestureDetector gestureDetector;
     private Counter counter;
+    private CounterActionCallback callback;
 
     public CounterView(@NonNull Context context) {
         super(context);
@@ -50,6 +50,10 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
         this.counter = counter;
     }
 
+    public void setCallback(CounterActionCallback actionCallback) {
+        callback = actionCallback;
+    }
+
     @Override public boolean onTouchEvent(MotionEvent event) {
         gestureDetector.onTouchEvent(event);
         return super.onTouchEvent(event);
@@ -80,7 +84,9 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
     }
 
     @Override public void onLongPress(MotionEvent e) {
-        CurrentSet.getInstance().removeCounter(counter);
+        if (callback != null) {
+            callback.onLongClick(counter);
+        }
     }
 
     @Override

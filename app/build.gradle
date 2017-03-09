@@ -4,7 +4,7 @@ def versionMajor = 2
 def versionMinor = 0
 def versionPatch = 1
 def appName = "Score Keeper"
-def appNameDebug = "Score Keeper (debug)"
+def appNameDebug = "Score Keeper (dev)"
 
 android {
   compileSdkVersion 25

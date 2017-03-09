@@ -5,6 +5,10 @@
     >
   <data>
     <variable
+        name="callback"
+        type="ua.napps.scorekeeper.counters.CounterActionCallback"
+        />
+    <variable
         name="counters"
         type="android.databinding.ObservableList&lt;ua.napps.scorekeeper.counters.Counter&gt;"
         />
@@ -84,6 +88,7 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           bind:entries="@{counters}"
+          bind:itemCallback="@{callback}"
           bind:layout="@{@layout/item_counter}"
           />
 

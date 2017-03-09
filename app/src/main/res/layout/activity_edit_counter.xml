@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+  <data>
+    <variable
+        name="counter"
+        type="ua.napps.scorekeeper.counters.Counter"
+        />
+  </data>
+  <LinearLayout
+      android:id="@+id/color_header"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+
+    <EditText
+        android:id="@+id/counter_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Counter name"
+        android:inputType="text"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:minEms="20"
+        android:padding="16dp"
+        android:text='@{counter.name, default="Counter"}'
+        android:textSize="@dimen/dialog_title_text_size"
+        />
+  </LinearLayout>
+</layout>
