@@ -113,7 +113,9 @@ public class DataBindingAdapters {
         for (int i = 0; i < entries.size(); i++) {
             Object entry = entries.get(i);
             ViewDataBinding binding = bindLayout(inflater, parent, layoutId, entry);
-            parent.addView(binding.getRoot());
+            final View view = binding.getRoot();
+            view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
+            parent.addView(view);
         }
     }
 
@@ -163,7 +165,9 @@ public class DataBindingAdapters {
                 ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, data);
                 binding.setVariable(BR.data, data);
                 mTarget.removeViewAt(i);
-                mTarget.addView(binding.getRoot(), i);
+                final View view = binding.getRoot();
+                view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
+                mTarget.addView(view, i);
             }
         }
 
@@ -179,7 +183,9 @@ public class DataBindingAdapters {
             for (int i = end - 1; i >= start; i--) {
                 Object entry = observableList.get(i);
                 ViewDataBinding binding = bindLayout(inflater, mTarget, mLayoutId, entry);
-                mTarget.addView(binding.getRoot(), start);
+                final View view = binding.getRoot();
+                view.setMinimumHeight(Constants.COUNTER_MIN_HEIGHT);
+                mTarget.addView(view, start);
             }
         }
 

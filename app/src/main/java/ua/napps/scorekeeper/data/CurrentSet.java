@@ -52,24 +52,4 @@ public final class CurrentSet {
     public void removeAllCounters() {
         counters.clear();
     }
-
-    public void increaseValue(String id) {
-        for (int i = 0; i < counters.size(); i++) {
-            Counter counter = counters.get(i);
-            if (counter.getId().equals(id)) {
-                counter.increaseValue();
-                counters.set(i, counter);
-            }
-        }
-    }
-
-    public void decreaseValue(String id) {
-        for (int i = 0; i < counters.size(); i++) {
-            Counter counter = counters.get(i);
-            if (counter.getId().equals(id)) {
-                counter.decreaseValue();
-                counters.set(i, counter);
-            }
-        }
-    }
 }

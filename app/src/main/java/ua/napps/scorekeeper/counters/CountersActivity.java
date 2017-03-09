@@ -6,11 +6,9 @@ import android.databinding.ObservableArrayList;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.gson.Gson;
@@ -26,7 +24,6 @@ import ua.napps.scorekeeper.favorites.FavoriteSetsFragment;
 import ua.napps.scorekeeper.favorites.FavoriteSetsFragment.FavSetLoadedListener;
 import ua.napps.scorekeeper.settings.PrefUtil;
 import ua.napps.scorekeeper.utils.ToastUtils;
-import ua.napps.scorekeeper.utils.Util;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -47,9 +44,6 @@ import static ua.napps.scorekeeper.utils.Constants.SEND_REPORT_EMAIL;
 public class CountersActivity extends AppCompatActivity
         implements FavSetLoadedListener, SettingsUpdatedListener, DiceUpdateListener,
         EditCounterFragment.CounterUpdateListener {
-
-    private static final int DEFAULT_WIDTH = 120;
-    private static final int DEFAULT_HEIGHT = 80;
 
     private ActivityCountersBinding binding;
 
@@ -103,35 +97,6 @@ public class CountersActivity extends AppCompatActivity
         } else {
             toggleDicesBar(false);
         }
-    }
-
-    //private void addCounterToFlexbox(Counter counter) {
-    //    int viewIndex = flexboxLayout.getChildCount();
-    //    // index starts from 0. New View's index is N if N views ([0, 1, 2, ... N-1])
-    //    // exist.
-    //    TextView textView = createBaseFlexItemTextView(viewIndex);
-    //    textView.setText(counter.getCaption());
-    //    textView.setTag(counter);
-    //    textView.setOnClickListener(this);
-    //    textView.setLayoutParams(createDefaultLayoutParams());
-    //    flexboxLayout.addView(textView);
-    //}
-
-    private FlexboxLayout.LayoutParams createDefaultLayoutParams() {
-        FlexboxLayout.LayoutParams lp =
-                new FlexboxLayout.LayoutParams(Util.dpToPixel(this, DEFAULT_WIDTH),
-                        Util.dpToPixel(this, DEFAULT_HEIGHT));
-        lp.order = -1;
-        lp.flexGrow = 2;
-        return lp;
-    }
-
-    private TextView createBaseFlexItemTextView(int index) {
-        TextView textView = new TextView(this);
-        textView.setBackgroundResource(R.drawable.flex_item_background);
-        textView.setText(String.valueOf(index + 1));
-        textView.setGravity(Gravity.CENTER);
-        return textView;
     }
 
     @Override protected void onStop() {

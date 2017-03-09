@@ -75,7 +75,7 @@ public class EditCounterFragment extends DialogFragment {
         redBar.setOnSeekBarChangeListener(seekListener);
         greenBar.setOnSeekBarChangeListener(seekListener);
         blueBar.setOnSeekBarChangeListener(seekListener);
-        setSeekBarProgress(mCounter.getColor());
+        setSeekBarProgress(mCounter.getBackgroundColor());
 
         initValues(mCounter);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
@@ -124,22 +124,22 @@ public class EditCounterFragment extends DialogFragment {
         }
     }
 
-    private void updateCounter(Counter mCounter) {
-        mCounter.setColor(getProgressRGBColor());
-        mCounter.setCaption(caption.getText().toString().trim());
-        mCounter.setDefValue(defValue.getValue());
-        mCounter.setStep(step.getValue());
-        mCounter.setValue(mCurrentValue.getValue());
-        mCounter.setTextColor(ColorUtil.getContrastColor(getProgressRGBColor()));
-        mCounter.setRotationValue(mRotationSwitch.isChecked() ? 180 : 0);
+    private void updateCounter(Counter counter) {
+        counter.setBackgroundColor(getProgressRGBColor());
+        counter.setName(caption.getText().toString().trim());
+        counter.setDefaultValue(defValue.getValue());
+        counter.setStep(step.getValue());
+        counter.setValue(mCurrentValue.getValue());
+        counter.setTextColor(ColorUtil.getContrastColor(getProgressRGBColor()));
+        counter.setRotation(mRotationSwitch.isChecked() ? 180 : 0);
     }
 
     private void initValues(Counter counter) {
-        caption.append(counter.getCaption());
-        defValue.setValue(counter.getDefValue());
+        caption.append(counter.getName());
+        defValue.setValue(counter.getDefaultValue());
         step.setValue(counter.getStep());
         mCurrentValue.setValue(counter.getValue());
-        mRotationSwitch.setChecked(counter.getRotationValue() == 180);
+        mRotationSwitch.setChecked(counter.getRotation() == 180);
     }
 
     private void setSeekBarProgress(int color) {

@@ -1,96 +1,93 @@
 package ua.napps.scorekeeper.counters;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 import java.util.UUID;
+import ua.com.napps.scorekeeper.BR;
 
 import static ua.napps.scorekeeper.utils.ColorUtil.getContrastColor;
 import static ua.napps.scorekeeper.utils.ColorUtil.getRandomColor;
 
-public final class Counter {
+public final class Counter extends BaseObservable {
     private String id;
-    private String mCaption = "Counter";
-    private int mValue;
-    private int mBackgroundColor;
-    private int mTextColor;
-    private int mDefaultValue;
-    private int mStep;
-    private int mRotationValue;
+    @Bindable private String name;
+    @Bindable private int value;
+    private int backgroundColor;
+    private int textColor;
+    private int defaultValue;
+    private int step;
+    private int rotation;
 
     public Counter(String name) {
         id = UUID.randomUUID().toString();
-        mCaption = name;
-        mBackgroundColor = getRandomColor();
-        mTextColor = getContrastColor(mBackgroundColor);
-        mValue = 0;
-        mDefaultValue = 0;
-        mStep = 1;
-        mRotationValue = 0;
-    }
-
-    public void setCaption(String caption) {
-        this.mCaption = caption;
-    }
-
-    public void setValue(int value) {
-        this.mValue = value;
-    }
-
-    public String getCaption() {
-        return mCaption;
-    }
-
-    public int getValue() {
-        return mValue;
-    }
-
-    public void setColor(int color) {
-        this.mBackgroundColor = color;
-    }
-
-    public int getColor() {
-        return mBackgroundColor;
-    }
-
-    public int getDefValue() {
-        return mDefaultValue;
-    }
-
-    public void setDefValue(int defValue) {
-        this.mDefaultValue = defValue;
-    }
-
-    public int getStep() {
-        return mStep;
-    }
-
-    public void setStep(int step) {
-        this.mStep = step;
-    }
-
-    public void increaseValue() {
-        mValue += mStep;
-    }
-
-    public void decreaseValue() {
-        mValue -= mStep;
-    }
-
-    public int getTextColor() {
-        return mTextColor;
-    }
-
-    public void setTextColor(int textColor) {
-        this.mTextColor = textColor;
-    }
-
-    public int getRotationValue() {
-        return mRotationValue;
-    }
-
-    public void setRotationValue(int rotationValue) {
-        mRotationValue = rotationValue;
+        this.name = name;
+        backgroundColor = getRandomColor();
+        textColor = getContrastColor(backgroundColor);
+        value = 0;
+        defaultValue = 0;
+        step = 1;
+        rotation = 0;
     }
 
     public String getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+        notifyPropertyChanged(BR.name);
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+        notifyPropertyChanged(BR.value);
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+    }
+
+    public int getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
+    }
+
+    public int getRotation() {
+        return rotation;
+    }
+
+    public void setRotation(int rotation) {
+        this.rotation = rotation;
     }
 }

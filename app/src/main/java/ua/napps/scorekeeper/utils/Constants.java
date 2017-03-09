@@ -12,5 +12,5 @@ public final class Constants {
     public static final String FAV_ARRAY = "fav_array";
     public static final String ACTIVE_COUNTERS = "active_counters";
     public static final String PREFS_DICE_SUM = "dice_sum";
-    public static final int PREV_VALUE_SHOW_DURATION = 3000;
+    static final int COUNTER_MIN_HEIGHT = 300;
 }
