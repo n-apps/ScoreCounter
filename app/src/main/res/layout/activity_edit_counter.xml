@@ -6,25 +6,37 @@
         type="ua.napps.scorekeeper.counters.Counter"
         />
   </data>
-  <LinearLayout
-      android:id="@+id/color_header"
+  <android.support.design.widget.CoordinatorLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="vertical"
       >
-
-    <EditText
-        android:id="@+id/counter_name"
+    <LinearLayout
+        android:id="@+id/color_header"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+      <EditText
+          android:id="@+id/counter_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Counter name"
+          android:inputType="text"
+          android:maxLength="20"
+          android:maxLines="1"
+          android:minEms="20"
+          android:padding="16dp"
+          android:text='@{counter.name}'
+          android:textSize="@dimen/dialog_title_text_size"
+          />
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Counter name"
-        android:inputType="text"
-        android:maxLength="20"
-        android:maxLines="1"
-        android:minEms="20"
-        android:padding="16dp"
-        android:text='@{counter.name, default="Counter"}'
-        android:textSize="@dimen/dialog_title_text_size"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
         />
-  </LinearLayout>
+  </android.support.design.widget.CoordinatorLayout>
 </layout>

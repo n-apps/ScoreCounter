@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.data;
 
 import android.databinding.ObservableArrayList;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import ua.napps.scorekeeper.counters.Counter;
 
@@ -51,5 +52,14 @@ public final class CurrentSet {
 
     public void removeAllCounters() {
         counters.clear();
+    }
+
+    @Nullable public Counter getCounter(@NonNull String id) {
+        for (Counter counter : counters) {
+            if (counter.getId().equals(id)) {
+                return counter;
+            }
+        }
+        return null;
     }
 }

@@ -85,7 +85,7 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
 
     @Override public void onLongPress(MotionEvent e) {
         if (callback != null) {
-            callback.onLongClick(counter);
+            callback.onLongClick(counter.getId());
         }
     }
 

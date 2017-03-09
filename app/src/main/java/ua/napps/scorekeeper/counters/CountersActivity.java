@@ -227,13 +227,13 @@ public class CountersActivity extends AppCompatActivity
         setDiceFormula(Dice.getDice().toString());
     }
 
-    @Override public void onNameClick(Counter counter) {
-        Intent intent = EditCounterActivity.getIntent(this, counter);
+    @Override public void onNameClick(String id) {
+        Intent intent = EditCounterActivity.getIntent(this, id);
         startActivity(intent);
     }
 
-    @Override public void onLongClick(Counter counter) {
-        Intent intent = EditCounterActivity.getIntent(this, counter);
+    @Override public void onLongClick(String id) {
+        Intent intent = EditCounterActivity.getIntent(this, id);
         startActivity(intent);
     }
 }

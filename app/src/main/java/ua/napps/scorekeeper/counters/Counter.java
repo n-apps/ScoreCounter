@@ -93,6 +93,10 @@ public final class Counter extends BaseObservable implements Parcelable {
         this.rotation = rotation;
     }
 
+    @Override public String toString() {
+        return "Counter with name: " + name;
+    }
+
     @Override public int describeContents() {
         return 0;
     }

@@ -1,7 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
 public interface CounterActionCallback {
-    void onNameClick(Counter counter);
+    void onNameClick(String id);
 
-    void onLongClick(Counter counter);
+    void onLongClick(String id);
 }
