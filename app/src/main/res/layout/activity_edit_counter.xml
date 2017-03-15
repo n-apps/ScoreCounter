@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
   <data>
     <variable
         name="counter"
@@ -10,33 +12,121 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       >
-    <LinearLayout
-        android:id="@+id/color_header"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@{counter.backgroundColor}"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
-
-      <EditText
-          android:id="@+id/counter_name"
+      <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+          />
+      <android.support.design.widget.TextInputLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:hint="Counter name"
-          android:inputType="text"
-          android:maxLength="20"
-          android:maxLines="1"
-          android:minEms="20"
+          >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/counter_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="Counter name"
+            android:inputType="textCapWords"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:minEms="20"
+            android:text="@{counter.name}"
+            android:textSize="@dimen/dialog_title_text_size"
+            />
+      </android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.AppBarLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
           android:padding="16dp"
-          android:text='@{counter.name}'
-          android:textSize="@dimen/dialog_title_text_size"
-          />
-    </LinearLayout>
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="16dp"
-        />
+          >
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+          <android.support.design.widget.TextInputEditText
+              android:id="@+id/counter_value"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/counter_dialog_value"
+              android:inputType="number|numberSigned"
+              android:maxLines="1"
+              android:padding="16dp"
+              android:text='@{String.valueOf(counter.value), default="1"}'
+              />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+          <android.support.design.widget.TextInputEditText
+              android:id="@+id/counter_default_value"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/counter_dialog_default_value"
+              android:inputType="number|numberSigned"
+              android:maxLines="1"
+              android:padding="16dp"
+              android:text='@{String.valueOf(counter.defaultValue), default="1"}'
+              />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+          <android.support.design.widget.TextInputEditText
+              android:id="@+id/counter_step"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/counter_dialog_step"
+              android:inputType="number|numberSigned"
+              android:maxLines="1"
+              android:padding="16dp"
+              android:text='@{String.valueOf(counter.step), default="1"}'
+              />
+        </android.support.design.widget.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="?android:listPreferredItemHeightSmall"
+            android:onClick="onColorPickerClick"
+            android:orientation="horizontal"
+            >
+          <TextView
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:text="Color"
+              android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+              />
+          <com.afollestad.materialdialogs.color.CircleView
+              android:id="@+id/color_preview"
+              android:layout_width="24dp"
+              android:layout_height="24dp"
+              android:setBackgroundColor="@{counter.backgroundColor}"
+              />
+        </LinearLayout>
+      </LinearLayout>
+    </FrameLayout>
   </android.support.design.widget.CoordinatorLayout>
 </layout>

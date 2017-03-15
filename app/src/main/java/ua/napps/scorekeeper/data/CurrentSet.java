@@ -62,4 +62,14 @@ public final class CurrentSet {
         }
         return null;
     }
+
+    public void replaceCounter(Counter counter) {
+        for (int i = 0; i < counters.size(); i++) {
+            Counter c = counters.get(i);
+            if (c.getId().equals(counter.getId())) {
+                counters.set(i, counter);
+                return;
+            }
+        }
+    }
 }
