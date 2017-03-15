@@ -24,4 +24,7 @@
   <string name="button_negative">@android:string/cancel</string>
   <string name="button_positive">SAVE</string>
   <string name="button_neutral">REMOVE</string>
+  <string name="save">Save</string>
+  <string name="color_palette">Color palette</string>
+  <string name="colors">Colors</string>
 </resources>

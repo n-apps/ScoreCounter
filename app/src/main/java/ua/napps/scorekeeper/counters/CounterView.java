@@ -69,10 +69,10 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
 
     @Override public boolean onSingleTapUp(MotionEvent e) {
         if (e.getX() > getWidth() / 2) {
-            final int newValue = counter.getValue() + 1;
+            final int newValue = counter.getValue() + counter.getStep();
             counter.setValue(newValue);
         } else {
-            final int newValue = counter.getValue() - 1;
+            final int newValue = counter.getValue() - counter.getStep();
             counter.setValue(newValue);
         }
         return false;

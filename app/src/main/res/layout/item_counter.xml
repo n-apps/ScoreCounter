@@ -3,6 +3,7 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     >
   <data>
+    <import type="android.support.v4.content.ContextCompat"/>
     <variable
         name="callback"
         type="ua.napps.scorekeeper.counters.CounterActionCallback"
@@ -15,7 +16,7 @@
   <ua.napps.scorekeeper.counters.CounterView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@drawable/flex_item_background"
+      android:background="@{data.backgroundColor}"
       android:foreground="?attr/selectableItemBackgroundBorderless"
       android:longClickable="true"
       bind:callback="@{callback}"

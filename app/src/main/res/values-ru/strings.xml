@@ -25,4 +25,5 @@
     <string name="button_negative">@android:string/cancel</string>
     <string name="button_positive">СОХРАНИТЬ</string>
     <string name="button_neutral">УДАЛИТЬ</string>
+    <string name="save">Save</string>
 </resources>
