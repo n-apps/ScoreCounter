@@ -29,33 +29,4 @@
         <item name="android:layout_marginLeft">@dimen/list_horizontal_margin</item>
     </style>
 
-    <!--
-        Edit Dialog Field Styles - SeekBar, TextView, EditText
-    -->
-
-    <style name="MySeekBar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">2dp</item>
-        <item name="android:maxHeight">2dp</item>
-        <item name="android:layout_marginTop">@dimen/seekbar_margin</item>
-        <item name="android:layout_marginBottom">@dimen/seekbar_margin</item>
-        <item name="android:max">255</item>
-    </style>
-
-    <style name="MySeekBar.Red" parent="MySeekBar">
-        <item name="android:progressDrawable">@drawable/seekbar_progress_red</item>
-        <item name="android:thumb">@drawable/seekbar_circle_red</item>
-    </style>
-
-    <style name="MySeekBar.Green" parent="MySeekBar">
-        <item name="android:progressDrawable">@drawable/seekbar_progress_green</item>
-        <item name="android:thumb">@drawable/seekbar_circle_green</item>
-    </style>
-
-    <style name="MySeekBar.Blue" parent="MySeekBar">
-        <item name="android:progressDrawable">@drawable/seekbar_progress_blue</item>
-        <item name="android:thumb">@drawable/seekbar_circle_blue</item>
-    </style>
-
 </resources>

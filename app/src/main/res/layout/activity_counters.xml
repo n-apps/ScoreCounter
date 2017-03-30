@@ -2,6 +2,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
   <data>
     <variable
@@ -14,73 +15,29 @@
         />
   </data>
 
-  <RelativeLayout
+  <android.support.design.widget.CoordinatorLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:background="?attr/colorPrimary"
       >
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/MyToolbar"
-        android:title="@string/app_name"
-        />
-
-    <LinearLayout
-        android:id="@+id/dices"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@color/toolbarTextColor"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         >
-
-      <TextView
-          android:id="@+id/dice_sum"
-          android:layout_width="48dp"
-          android:layout_height="match_parent"
-          android:layout_marginLeft="@dimen/activity_horizontal_margin"
-          android:layout_marginStart="@dimen/activity_horizontal_margin"
-          android:gravity="center"
-          android:textColor="@color/accentColor"
-          android:textSize="@dimen/dice_sum"
-          android:textStyle="bold"
+      <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:layout_alignParentTop="true"
+          android:theme="@style/MyToolbar"
+          android:title="@string/app_name"
           />
-
-      <TextView
-          android:id="@+id/dice_formula"
-          android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
-          android:gravity="center"
-          android:textColor="@color/textColorHint"
-          android:textSize="@dimen/dice_formula_text_size"
-          />
-
-      <ImageButton
-          android:id="@+id/shake_dices"
-          android:layout_width="wrap_content"
-          android:layout_height="match_parent"
-          android:layout_marginEnd="@dimen/activity_horizontal_margin"
-          android:layout_marginRight="@dimen/activity_horizontal_margin"
-          android:alpha="@dimen/alpha_primary_icon"
-          android:scaleType="fitCenter"
-          android:src="@drawable/ic_dice_shake"
-          style="@style/Widget.AppCompat.Button.Borderless"
-          />
-    </LinearLayout>
-
+    </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/dices"
-        android:layout_below="@id/toolbar"
-        android:background="@color/primaryColor"
         android:fillViewport="true"
-        android:foreground="?android:attr/windowContentOverlay"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
 
       <com.google.android.flexbox.FlexboxLayout
@@ -93,13 +50,5 @@
           />
 
     </android.support.v4.widget.NestedScrollView>
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        />
-
-  </RelativeLayout>
+  </android.support.design.widget.CoordinatorLayout>
 </layout>
