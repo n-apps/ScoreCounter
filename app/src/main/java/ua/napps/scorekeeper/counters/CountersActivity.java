@@ -72,7 +72,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     @Override public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         menu.clear();
-        inflater.inflate(R.menu.toolbar_menu, menu);
+        inflater.inflate(R.menu.counters_menu, menu);
 
         return true;
     }
@@ -85,6 +85,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             case R.id.menu_clear_all:
                 CurrentSet.getInstance().removeAllCounters();
                 addCounter();
+                break;
+            case R.id.menu_reset_all:
+                CurrentSet.getInstance().resetAllCounters();
                 break;
             default:
                 break;

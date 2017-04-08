@@ -7,7 +7,10 @@
         android:icon="@drawable/ic_add_box_white"
         android:title="@string/add_new_counter"
         app:showAsAction="ifRoom"/>
-
+    <item
+        android:id="@+id/menu_reset_all"
+        android:title="@string/reset_all_counters"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/menu_clear_all"
         android:title="@string/remove_all_counters"
