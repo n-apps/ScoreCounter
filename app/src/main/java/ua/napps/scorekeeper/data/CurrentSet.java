@@ -72,4 +72,8 @@ public final class CurrentSet {
             }
         }
     }
+
+    public void resetAllCounters() {
+        for (Counter counter : counters) counter.setValue(counter.getDefaultValue());
+    }
 }
