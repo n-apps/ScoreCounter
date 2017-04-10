@@ -1,6 +1,8 @@
 package ua.napps.scorekeeper.counters;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,8 +34,8 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
         init();
     }
 
-    public CounterView(@NonNull Context context, @Nullable AttributeSet attrs,
-            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public CounterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
