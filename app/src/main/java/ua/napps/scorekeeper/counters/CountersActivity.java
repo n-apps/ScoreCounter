@@ -1,13 +1,13 @@
 package ua.napps.scorekeeper.counters;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import com.google.android.flexbox.FlexboxLayout;
+import com.google.android.flexbox.FlexDirection;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -29,11 +29,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
         setSupportActionBar(binding.toolbar);
 
-        binding.flexboxContainer.setFlexDirection(FlexboxLayout.FLEX_DIRECTION_COLUMN);
+        //final boolean isTablet = getResources().getBoolean(R.bool.isTablet);
+
+        binding.flexboxContainer.setFlexDirection(
+                getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE
+                        ? FlexDirection.ROW : FlexDirection.COLUMN);
 
         loadSettings();
-
-        //if (Build.VERSION.SDK_INT > 18) getWindow().addFlags(FLAG_FULLSCREEN);
     }
 
     private void loadSettings() {
@@ -70,10 +72,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     @Override public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        menu.clear();
-        inflater.inflate(R.menu.counters_menu, menu);
-
+        getMenuInflater().inflate(R.menu.counters_menu, menu);
         return true;
     }
 
@@ -99,19 +98,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         final String caption =
                 getString(R.string.counter_default_title, CurrentSet.getInstance().getSize() + 1);
         CurrentSet.getInstance().addCounter(caption);
-    }
-
-    @Override public void onBackPressed() {
-        int count = getFragmentManager().getBackStackEntryCount();
-
-        if (count == 0) {
-            super.onBackPressed();
-            assert getSupportActionBar() != null;
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setTitle(R.string.app_name);
-        } else {
-            getFragmentManager().popBackStack();
-        }
     }
 
     @Override public void onNameClick(String id) {

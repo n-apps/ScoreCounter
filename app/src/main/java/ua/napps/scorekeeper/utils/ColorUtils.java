@@ -3,12 +3,9 @@ package ua.napps.scorekeeper.utils;
 import android.graphics.Color;
 import java.util.Random;
 
-/**
- * Created by novo on 2016-01-02.
- */
-public final class ColorUtil {
+public final class ColorUtils {
 
-    private ColorUtil() {
+    private ColorUtils() {
     }
 
     public static int getContrastColor(int background) {

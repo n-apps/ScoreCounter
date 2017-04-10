@@ -14,6 +14,7 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityEditCounterBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.utils.ColorUtils;
 
 public class EditCounterActivity extends AppCompatActivity
         implements ColorChooserDialog.ColorCallback {
@@ -98,6 +99,7 @@ public class EditCounterActivity extends AppCompatActivity
 
     @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
         counter.setBackgroundColor(color);
+        counter.setTextColor(ColorUtils.getContrastColor(color));
     }
 
     @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {

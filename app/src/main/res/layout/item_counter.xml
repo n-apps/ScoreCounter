@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
   <data>
-    <import type="android.support.v4.content.ContextCompat"/>
     <variable
         name="callback"
         type="ua.napps.scorekeeper.counters.CounterActionCallback"
@@ -17,6 +16,8 @@
   <ua.napps.scorekeeper.counters.CounterView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
+      android:minHeight="128dp"
+      android:minWidth="256dp"
       android:background="@{data.backgroundColor}"
       android:foreground="?attr/selectableItemBackgroundBorderless"
       android:longClickable="true"
@@ -32,6 +33,7 @@
           android:id="@+id/counter_name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
+          android:textColor="@{data.textColor}"
           android:background="#2E000000"
           android:clickable="false"
           android:ellipsize="none"
@@ -68,6 +70,7 @@
             android:clickable="false"
             android:gravity="center"
             android:includeFontPadding="false"
+            android:textColor="@{data.textColor}"
             android:singleLine="true"
             android:text='@{String.valueOf(data.value), default="0"}'
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"

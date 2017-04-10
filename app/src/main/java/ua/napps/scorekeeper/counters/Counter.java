@@ -7,8 +7,8 @@ import android.os.Parcelable;
 import java.util.UUID;
 import ua.com.napps.scorekeeper.BR;
 
-import static ua.napps.scorekeeper.utils.ColorUtil.getContrastColor;
-import static ua.napps.scorekeeper.utils.ColorUtil.getRandomColor;
+import static ua.napps.scorekeeper.utils.ColorUtils.getContrastColor;
+import static ua.napps.scorekeeper.utils.ColorUtils.getRandomColor;
 
 public final class Counter extends BaseObservable implements Parcelable {
     private String id;
