@@ -46,6 +46,13 @@ public final class CurrentSet {
         counters.remove(item);
     }
 
+    public void removeCounter(String id) {
+        final Counter counter = getCounter(id);
+        if (counter != null) {
+            removeCounter(counter);
+        }
+    }
+
     public void addCounter(String caption) {
         counters.add(new Counter(caption));
     }
