@@ -1,4 +1,5 @@
 <resources>
+  <string name="app_name">Score Keeper</string>
   <string name="add_new_counter">Add new counter</string>
   <string name="favorite_sets">Favorite sets</string>
   <string name="settings">Settings</string>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     >
   <data>
+    <variable
+        name="items"
+        type="android.databinding.ObservableArrayList&lt;ua.napps.scorekeeper.counters.Counter&gt;"
+        />
     <variable
         name="callback"
         type="ua.napps.scorekeeper.counters.CounterActionCallback"
         />
-    <variable
-        name="counters"
-        type="android.databinding.ObservableList&lt;ua.napps.scorekeeper.counters.Counter&gt;"
-        />
   </data>
-
   <android.support.design.widget.CoordinatorLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -31,24 +31,17 @@
           android:layout_alignParentTop="true"
           android:theme="@style/MyToolbar"
           android:title="@string/app_name"
+          app:title="@string/app_name"
           />
     </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-
-      <com.google.android.flexbox.FlexboxLayout
-          android:id="@+id/flexbox_container"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          bind:entries="@{counters}"
-          bind:itemCallback="@{callback}"
-          bind:layout="@{@layout/item_counter}"
-          />
-
-    </android.support.v4.widget.NestedScrollView>
+        bind:callback="@{callback}"
+        bind:items="@{items}"
+        tools:listitem="@layout/item_counter"
+        />
   </android.support.design.widget.CoordinatorLayout>
 </layout>
