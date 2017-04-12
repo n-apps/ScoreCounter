@@ -4,13 +4,8 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.google.android.flexbox.AlignItems;
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -25,7 +20,6 @@ import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
     private ActivityCountersBinding binding;
-    private CountersFlexAdapter mAdapter;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +28,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         setSupportActionBar(binding.toolbar);
 
         loadSettings();
-        initRecycler();
+        binding.setItems(CurrentSet.getInstance().getCounters());
+        binding.setCallback(this);
+        binding.executePendingBindings();
     }
 
     private void loadSettings() {
@@ -51,22 +47,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         }
     }
 
-    private void initRecycler() {
-        if (mAdapter == null) {
-            mAdapter = new CountersFlexAdapter(CurrentSet.getInstance().getCounters(), this);
-            mAdapter.setHasStableIds(true);
-        }
-        FlexboxLayoutManager layoutManager = new FlexboxLayoutManager();
-        layoutManager.setFlexWrap(FlexWrap.NOWRAP);
-        layoutManager.setFlexDirection(FlexDirection.COLUMN);
-        layoutManager.setAlignItems(AlignItems.STRETCH);
-        binding.recyclerView.setLayoutManager(layoutManager);
-        binding.recyclerView.setAdapter(mAdapter);
-        binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
-        binding.setItems(CurrentSet.getInstance().getCounters());
-        binding.setCallback(this);
-        binding.executePendingBindings();
-    }
 
     @Override protected void onStop() {
         super.onStop();
