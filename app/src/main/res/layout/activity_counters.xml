@@ -43,8 +43,13 @@
       <ua.napps.scorekeeper.counters.FlexboxWithAdapter
           android:layout_width="match_parent"
           android:layout_height="match_parent"
+          app:alignContent="flex_start"
+          app:alignItems="stretch"
+          app:flexWrap="nowrap"
+          app:flexDirection="column"
           bind:callback="@{callback}"
-          bind:items="@{items}"
+          bind:entries="@{items}"
+          bind:layout="@{@layout/item_counter}"
           tools:listitem="@layout/item_counter"
           />
     </android.support.v4.widget.NestedScrollView>

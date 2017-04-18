@@ -47,7 +47,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         }
     }
 
-
     @Override protected void onStop() {
         super.onStop();
         saveSettings();
