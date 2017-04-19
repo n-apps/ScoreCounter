@@ -34,24 +34,22 @@
           app:title="@string/app_name"
           />
     </android.support.design.widget.AppBarLayout>
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/recycler_view"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
       <ua.napps.scorekeeper.counters.FlexboxWithAdapter
+          android:id="@+id/flexbox"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          app:alignContent="flex_start"
-          app:alignItems="stretch"
+          android:layout_height="wrap_content"
+          app:alignContent="stretch"
           app:flexWrap="nowrap"
           app:flexDirection="column"
           bind:callback="@{callback}"
           bind:entries="@{items}"
-          bind:layout="@{@layout/item_counter}"
           tools:listitem="@layout/item_counter"
           />
-    </android.support.v4.widget.NestedScrollView>
+    </ScrollView>
   </android.support.design.widget.CoordinatorLayout>
 </layout>
