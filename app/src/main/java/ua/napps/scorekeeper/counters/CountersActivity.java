@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.android.flexbox.AlignItems;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -30,6 +33,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         loadSettings();
         binding.setItems(CurrentSet.getInstance().getCounters());
         binding.setCallback(this);
+        binding.flexbox.setFlexDirection(FlexDirection.COLUMN);
+        binding.flexbox.setFlexWrap(FlexWrap.NOWRAP);
+        binding.flexbox.setAlignItems(AlignItems.STRETCH);
         binding.executePendingBindings();
     }
 
