@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
+    >
+  <data>
+    <variable
+        name="callback"
+        type="ua.napps.scorekeeper.counters.CounterActionCallback"
+        />
+    <variable
+        name="data"
+        type="ua.napps.scorekeeper.counters.Counter"
+        />
+  </data>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@{data.backgroundColor}"
+      android:gravity="center_vertical"
+      android:minHeight="48dp"
+      android:orientation="horizontal"
+      >
+    <TextView
+        android:id="@+id/counter_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:clickable="false"
+        android:ellipsize="none"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:onClick="@{() -> callback.onNameClick(data.id)}"
+        android:singleLine="true"
+        android:text='@{data.name, default="Counter"}'
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@{data.textColor}"
+        />
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:alpha="0.38"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="@{() -> callback.onDecreaseClick(data.id)}"
+        android:padding="16dp"
+        android:scaleType="center"
+        bind:colorTint="@{data.textColor}"
+        app:srcCompat="@drawable/ic_indeterminate_check_box"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:minEms="3"
+        android:minHeight="48dp"
+        android:singleLine="true"
+        android:text='@{String.valueOf(data.value), default="10"}'
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@{data.textColor}"
+        />
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:alpha="0.38"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="@{() -> callback.onIncreaseClick(data.id)}"
+        android:padding="16dp"
+        android:scaleType="center"
+        bind:colorTint="@{data.textColor}"
+        app:srcCompat="@drawable/ic_add_box"
+        />
+  </LinearLayout>
+</layout>

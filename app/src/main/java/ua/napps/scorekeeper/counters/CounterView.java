@@ -35,7 +35,8 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public CounterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+    public CounterView(@NonNull Context context, @Nullable AttributeSet attrs,
+            @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init();
     }
@@ -71,11 +72,9 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
 
     @Override public boolean onSingleTapUp(MotionEvent e) {
         if (e.getX() > getWidth() / 2) {
-            final int newValue = counter.getValue() + counter.getStep();
-            counter.setValue(newValue);
+            callback.onIncreaseClick(counter.getId());
         } else {
-            final int newValue = counter.getValue() - counter.getStep();
-            counter.setValue(newValue);
+            callback.onDecreaseClick(counter.getId());
         }
         return false;
     }
@@ -86,9 +85,6 @@ public class CounterView extends FrameLayout implements GestureDetector.OnGestur
     }
 
     @Override public void onLongPress(MotionEvent e) {
-        if (callback != null) {
-            callback.onLongClick(counter.getId());
-        }
     }
 
     @Override
