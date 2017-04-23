@@ -35,8 +35,10 @@
           />
     </android.support.design.widget.AppBarLayout>
     <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
@@ -45,8 +47,8 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           app:alignContent="stretch"
-          app:flexWrap="nowrap"
           app:flexDirection="column"
+          app:flexWrap="nowrap"
           bind:callback="@{callback}"
           bind:entries="@{items}"
           tools:listitem="@layout/item_counter"

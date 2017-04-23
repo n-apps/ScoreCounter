@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.google.android.flexbox.AlignSelf;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
@@ -85,8 +86,8 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 FlexboxLayoutManager.LayoutParams flexboxLp =
                         (FlexboxLayoutManager.LayoutParams) lp;
                 flexboxLp.setFlexGrow(1.0f);
-                flexboxLp.setFlexShrink(1.0f);
-                flexboxLp.setFlexBasisPercent(-1);
+                flexboxLp.setAlignSelf(AlignSelf.STRETCH);
+                flexboxLp.setFlexBasisPercent(100);
             }
             addView(root);
         }
@@ -142,16 +143,15 @@ public class FlexboxWithAdapter extends FlexboxLayout {
             for (int i = end - 1; i >= start; i--) {
                 Object entry = observableList.get(i);
                 ViewDataBinding binding = bindLayout(inflater, entry, callback);
-                final View root = binding.getRoot();
-                //ViewGroup.LayoutParams lp = root.getLayoutParams();
-                //if (lp instanceof FlexboxLayout.LayoutParams) {
-                //    FlexboxLayout.LayoutParams flexboxLp = (FlexboxLayout.LayoutParams) lp;
-                //    flexboxLp.setFlexGrow(1.0f);
-                //    flexboxLp.setFlexShrink(1.0f);
-                //    flexboxLp.setFlexBasisPercent(-1);
-                //    root.setLayoutParams(flexboxLp);
-                //}
-                mTarget.addView(root, start);
+                final View view = binding.getRoot();
+                mTarget.addView(view, start);
+                //view.postDelayed(() -> {
+                //    final Rect r = new Rect();
+                //    view.getGlobalVisibleRect(r);
+                //    if (r.bottom - r.top < view.getHeight()) {
+                //        scrollBy(0, view.getHeight());
+                //    }
+                //}, 300);
             }
         }
 
