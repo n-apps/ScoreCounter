@@ -26,4 +26,6 @@
     <string name="button_positive">СОХРАНИТЬ</string>
     <string name="button_neutral">УДАЛИТЬ</string>
     <string name="save">Save</string>
+  <string name="color_palette">Палитра</string>
+  <string name="colors">Цвета</string>
 </resources>

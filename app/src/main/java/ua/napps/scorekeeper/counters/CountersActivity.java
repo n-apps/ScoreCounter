@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -97,6 +100,19 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         startActivity(intent);
     }
 
+    @Override public boolean onLongClick(View v, Counter counter) {
+        assert counter != null;
+        new MaterialDialog.Builder(this).content("Counter value")
+                .inputType(InputType.TYPE_CLASS_NUMBER)
+                .input("Hint", String.valueOf(counter.getValue()),
+                        (dialog, input) -> counter.setValue(
+                                Integer.parseInt(String.valueOf(input))))
+                .widgetColor(counter.getBackgroundColor())
+                .positiveText("Set")
+                .show();
+        return true;
+    }
+
     @Override public void onIncreaseClick(String id) {
         final Counter counter = CurrentSet.getInstance().getCounter(id);
         assert counter != null;
@@ -109,5 +125,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         assert counter != null;
         final int newValue = counter.getValue() - counter.getStep();
         counter.setValue(newValue);
+    }
+
+    @Override public void onCounterAdded(View v) {
+        binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()),
+                300L);
     }
 }

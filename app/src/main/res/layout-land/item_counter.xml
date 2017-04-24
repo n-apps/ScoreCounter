@@ -19,6 +19,7 @@
       android:background="@{data.backgroundColor}"
       android:gravity="center_vertical"
       android:minHeight="48dp"
+      android:onLongClick="@{(v)->callback.onLongClick(v,data)}"
       android:orientation="horizontal"
       >
     <TextView
@@ -31,6 +32,7 @@
         android:gravity="center"
         android:minHeight="48dp"
         android:onClick="@{() -> callback.onNameClick(data.id)}"
+        android:onLongClick="@{(v)->callback.onLongClick(v,data)}"
         android:singleLine="true"
         android:text='@{data.name, default="Counter"}'
         android:textAllCaps="true"
@@ -46,8 +48,8 @@
         android:onClick="@{() -> callback.onDecreaseClick(data.id)}"
         android:padding="16dp"
         android:scaleType="center"
-        bind:colorTint="@{data.textColor}"
         app:srcCompat="@drawable/ic_indeterminate_check_box"
+        bind:colorTint="@{data.textColor}"
         />
 
     <TextView
@@ -74,8 +76,8 @@
         android:onClick="@{() -> callback.onIncreaseClick(data.id)}"
         android:padding="16dp"
         android:scaleType="center"
-        bind:colorTint="@{data.textColor}"
         app:srcCompat="@drawable/ic_add_box"
+        bind:colorTint="@{data.textColor}"
         />
   </LinearLayout>
 </layout>
