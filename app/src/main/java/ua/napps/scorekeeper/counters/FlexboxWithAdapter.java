@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.flexbox.AlignSelf;
 import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
@@ -86,8 +85,6 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 FlexboxLayoutManager.LayoutParams flexboxLp =
                         (FlexboxLayoutManager.LayoutParams) lp;
                 flexboxLp.setFlexGrow(1.0f);
-                flexboxLp.setAlignSelf(AlignSelf.STRETCH);
-                flexboxLp.setFlexBasisPercent(100);
             }
             addView(root);
         }
@@ -130,7 +127,9 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 ViewDataBinding binding = bindLayout(inflater, data, callback);
                 binding.setVariable(ua.com.napps.scorekeeper.BR.data, observableList.get(i));
                 mTarget.removeViewAt(i);
-                mTarget.addView(binding.getRoot(), i);
+                final View view = binding.getRoot();
+                mTarget.addView(view, i);
+                callback.onCounterAdded(view);
             }
         }
 
@@ -145,13 +144,7 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 ViewDataBinding binding = bindLayout(inflater, entry, callback);
                 final View view = binding.getRoot();
                 mTarget.addView(view, start);
-                //view.postDelayed(() -> {
-                //    final Rect r = new Rect();
-                //    view.getGlobalVisibleRect(r);
-                //    if (r.bottom - r.top < view.getHeight()) {
-                //        scrollBy(0, view.getHeight());
-                //    }
-                //}, 300);
+                callback.onCounterAdded(view);
             }
         }
 
@@ -163,6 +156,7 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 mTarget.removeViewAt(from);
                 int destination = (from > to) ? to + i : to;
                 mTarget.addView(view, destination);
+                callback.onCounterAdded(view);
             }
         }
 
