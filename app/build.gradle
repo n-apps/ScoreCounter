@@ -62,4 +62,5 @@ dependencies {
   compile 'com.google.code.gson:gson:2.8.0'
   compile 'com.afollestad.material-dialogs:core:0.9.4.4'
   compile 'com.afollestad.material-dialogs:commons:0.9.4.4'
+  compile 'com.android.support.constraint:constraint-layout:1.0.2'
 }

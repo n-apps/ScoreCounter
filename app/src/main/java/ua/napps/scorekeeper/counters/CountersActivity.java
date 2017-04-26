@@ -128,6 +128,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     @Override public void onCounterAdded(View v) {
+
         binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()),
                 300L);
     }

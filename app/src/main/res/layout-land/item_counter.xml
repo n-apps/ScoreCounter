@@ -61,6 +61,7 @@
         android:includeFontPadding="false"
         android:minEms="3"
         android:minHeight="48dp"
+        app:font="@{`SquadaOne-Regular`}"
         android:singleLine="true"
         android:text='@{String.valueOf(data.value), default="10"}'
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"

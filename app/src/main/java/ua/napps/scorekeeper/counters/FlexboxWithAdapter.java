@@ -127,9 +127,7 @@ public class FlexboxWithAdapter extends FlexboxLayout {
                 ViewDataBinding binding = bindLayout(inflater, data, callback);
                 binding.setVariable(ua.com.napps.scorekeeper.BR.data, observableList.get(i));
                 mTarget.removeViewAt(i);
-                final View view = binding.getRoot();
-                mTarget.addView(view, i);
-                callback.onCounterAdded(view);
+                mTarget.addView(binding.getRoot(), i);
             }
         }
 
