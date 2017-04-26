@@ -60,10 +60,10 @@ public class EditCounterActivity extends AppCompatActivity
             case R.id.menu_save_counter: {
                 if (fieldsIsValid()) {
                     counter.setName(binding.counterName.getText().toString());
-                    counter.setValue(Integer.parseInt(binding.counterValue.getText().toString()));
-                    counter.setStep(Integer.parseInt(binding.counterStep.getText().toString()));
+                    counter.setValue(Integer.parseInt(binding.etValue.getText().toString()));
+                    counter.setStep(Integer.parseInt(binding.etStep.getText().toString()));
                     counter.setDefaultValue(
-                            Integer.parseInt(binding.counterDefaultValue.getText().toString()));
+                            Integer.parseInt(binding.etDefault.getText().toString()));
 
                     CurrentSet.getInstance().replaceCounter(counter);
                     Toast.makeText(EditCounterActivity.this, "Counter updated", Toast.LENGTH_SHORT)
@@ -98,6 +98,7 @@ public class EditCounterActivity extends AppCompatActivity
     }
 
     @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
+        binding.colorPreview.setBackgroundColor(color);
         counter.setBackgroundColor(color);
         counter.setTextColor(ColorUtils.getContrastColor(color));
     }

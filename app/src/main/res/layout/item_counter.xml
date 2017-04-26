@@ -42,7 +42,7 @@
           android:singleLine="true"
           android:text='@{data.name, default="Counter"}'
           android:textAllCaps="true"
-          android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
           android:textColor="@{data.textColor}"
           />
       <LinearLayout
@@ -70,9 +70,11 @@
             android:layout_weight="1"
             android:clickable="false"
             android:gravity="center"
+            android:textSize="60sp"
             android:minHeight="48dp"
             android:includeFontPadding="false"
             android:singleLine="true"
+            app:font="@{`SquadaOne-Regular`}"
             android:text='@{String.valueOf(data.value), default="0"}'
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@{data.textColor}"
