@@ -13,16 +13,13 @@
         type="ua.napps.scorekeeper.counters.Counter"
         />
   </data>
-  <ua.napps.scorekeeper.counters.CounterView
+  <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:background="@{data.backgroundColor}"
       android:foreground="?attr/selectableItemBackgroundBorderless"
-      android:longClickable="true"
       android:minHeight="128dp"
       android:minWidth="256dp"
-      bind:callback="@{callback}"
-      bind:counter="@{data}"
       >
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,13 +27,14 @@
         android:orientation="vertical"
         >
       <TextView
-          android:id="@+id/counter_name"
+          android:id="@+id/et_counter_name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:background="#2E000000"
           android:clickable="false"
           android:ellipsize="none"
           android:gravity="center"
+          android:onLongClick="@{(v)->callback.onNameLongClick(v,data)}"
           android:onClick="@{() -> callback.onNameClick(data.id)}"
           android:padding="8dp"
           android:singleLine="true"
@@ -45,51 +43,74 @@
           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
           android:textColor="@{data.textColor}"
           />
-      <LinearLayout
+      <FrameLayout
           android:layout_width="match_parent"
-          android:layout_height="0dp"
-          android:layout_weight="1"
-          android:orientation="horizontal"
-          android:padding="16dp"
+          android:layout_height="match_parent"
           >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+          <FrameLayout
+              android:id="@+id/minus_button"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:foreground="?attr/selectableItemBackgroundBorderless"
+              bind:repeatableCallback="@{() -> callback.onDecreaseClick(data.id)}"
+              >
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_margin="16dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_indeterminate_check_box"
+                bind:colorTint="@{data.textColor}"
+                />
+          </FrameLayout>
+          <FrameLayout
+              android:id="@+id/plus_button"
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:foreground="?attr/selectableItemBackgroundBorderless"
+              bind:repeatableCallback="@{() -> callback.onIncreaseClick(data.id)}"
+              >
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_margin="16dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_add_box"
+                bind:colorTint="@{data.textColor}"
+                />
+          </FrameLayout>
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:alpha="0.38"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_indeterminate_check_box"
-            bind:colorTint="@{data.textColor}"
-            />
+        </LinearLayout>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:clickable="false"
             android:gravity="center"
-            android:textSize="60sp"
-            android:minHeight="48dp"
             android:includeFontPadding="false"
+            android:minHeight="48dp"
+            android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
             android:singleLine="true"
-            app:font="@{`SquadaOne-Regular`}"
             android:text='@{String.valueOf(data.value), default="0"}'
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@{data.textColor}"
+            android:textSize="60sp"
+            bind:customFont="@{true}"
             />
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_vertical"
-            android:alpha="0.38"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_add_box"
-            bind:colorTint="@{data.textColor}"
-            />
-      </LinearLayout>
+      </FrameLayout>
     </LinearLayout>
-  </ua.napps.scorekeeper.counters.CounterView>
+  </FrameLayout>
 </layout>

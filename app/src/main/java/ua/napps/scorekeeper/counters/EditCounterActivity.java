@@ -59,11 +59,11 @@ public class EditCounterActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.menu_save_counter: {
                 if (fieldsIsValid()) {
-                    counter.setName(binding.counterName.getText().toString());
-                    counter.setValue(Integer.parseInt(binding.etValue.getText().toString()));
-                    counter.setStep(Integer.parseInt(binding.etStep.getText().toString()));
+                    counter.setName(binding.etCounterName.getText().toString());
+                    counter.setValue(Integer.parseInt(binding.etCounterValue.getText().toString()));
+                    counter.setStep(Integer.parseInt(binding.etCounterStep.getText().toString()));
                     counter.setDefaultValue(
-                            Integer.parseInt(binding.etDefault.getText().toString()));
+                            Integer.parseInt(binding.etCounterDefaultValue.getText().toString()));
 
                     CurrentSet.getInstance().replaceCounter(counter);
                     Toast.makeText(EditCounterActivity.this, "Counter updated", Toast.LENGTH_SHORT)
@@ -94,7 +94,7 @@ public class EditCounterActivity extends AppCompatActivity
     }
 
     private boolean fieldsIsValid() {
-        return binding.counterName.getText().length() > 0;
+        return binding.etCounterName.getText().length() > 0;
     }
 
     @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
