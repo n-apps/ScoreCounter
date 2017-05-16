@@ -100,7 +100,21 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         startActivity(intent);
     }
 
-    @Override public boolean onLongClick(View v, Counter counter) {
+    @Override public boolean onNameLongClick(View v, Counter counter) {
+        assert counter != null;
+        new MaterialDialog.Builder(this).content("Counter name")
+                .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+                        | InputType.TYPE_CLASS_TEXT
+                        | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
+                .input("Hint", counter.getName(),
+                        (dialog, input) -> counter.setName(input.toString()))
+                .widgetColor(counter.getBackgroundColor())
+                .positiveText("Set")
+                .show();
+        return true;
+    }
+
+    @Override public boolean onValueLongClick(View v, Counter counter) {
         assert counter != null;
         new MaterialDialog.Builder(this).content("Counter value")
                 .inputType(InputType.TYPE_CLASS_NUMBER)
@@ -128,7 +142,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     @Override public void onCounterAdded(View v) {
-
         binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()),
                 300L);
     }

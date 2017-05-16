@@ -5,7 +5,9 @@ import android.view.View;
 public interface CounterActionCallback {
     void onNameClick(String id);
 
-    boolean onLongClick(View v, Counter counter);
+    boolean onNameLongClick(View v, Counter counter);
+
+    boolean onValueLongClick(View v, Counter counter);
 
     void onIncreaseClick(String id);
 
