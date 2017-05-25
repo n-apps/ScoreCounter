@@ -17,7 +17,7 @@
     <string name="dice_dialog_max_side">Значение максимальной грани</string>
     <string name="dice_dialog_total_bonus">Общий бонус к броску</string>
     <string name="favorite_sets_empty_state">У вас нет избранных наборов</string>
-    <string name="counter_default_title">Счетчик №%d</string>
+    <string name="counter_default_title">Нажмите для настройки счетчика…</string>
     <string name="favorite_sets_title">Избранные наборы</string>
     <string name="settings_title">Настройки</string>
     <string name="counter_sign_minus">-</string>

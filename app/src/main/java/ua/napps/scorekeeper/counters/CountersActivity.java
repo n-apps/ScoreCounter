@@ -90,8 +90,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     private void addCounter() {
-        final String caption =
-                getString(R.string.counter_default_title, CurrentSet.getInstance().getSize() + 1);
+        final String caption = getString(R.string.counter_default_title);
         CurrentSet.getInstance().addCounter(caption);
     }
 

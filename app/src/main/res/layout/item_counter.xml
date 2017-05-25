@@ -34,8 +34,8 @@
           android:clickable="false"
           android:ellipsize="none"
           android:gravity="center"
-          android:onLongClick="@{(v)->callback.onNameLongClick(v,data)}"
           android:onClick="@{() -> callback.onNameClick(data.id)}"
+          android:onLongClick="@{(v)->callback.onNameLongClick(v,data)}"
           android:padding="8dp"
           android:singleLine="true"
           android:text='@{data.name, default="Counter"}'
@@ -47,6 +47,25 @@
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:gravity="center"
+            android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
+            android:lines="1"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            app:autoSizeMaxTextSize="120sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            android:text='@{String.valueOf(data.value), default="0"}'
+            android:textColor="@{data.textColor}"
+            app:autoSizeTextType="uniform"
+            android:fontFamily="@font/squada_one_regular"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -68,6 +87,7 @@
                 android:layout_gravity="left|center_vertical"
                 android:layout_margin="16dp"
                 android:scaleType="center"
+                android:alpha="0.38"
                 app:srcCompat="@drawable/ic_indeterminate_check_box"
                 bind:colorTint="@{data.textColor}"
                 />
@@ -86,30 +106,12 @@
                 android:layout_gravity="right|center_vertical"
                 android:layout_margin="16dp"
                 android:scaleType="center"
+                android:alpha="0.38"
                 app:srcCompat="@drawable/ic_add_box"
                 bind:colorTint="@{data.textColor}"
                 />
           </FrameLayout>
-
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:clickable="false"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:minHeight="48dp"
-            android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
-            android:singleLine="true"
-            android:text='@{String.valueOf(data.value), default="0"}'
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@{data.textColor}"
-            android:textSize="60sp"
-            bind:customFont="@{true}"
-            />
-
       </FrameLayout>
     </LinearLayout>
   </FrameLayout>
