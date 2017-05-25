@@ -17,7 +17,7 @@
   <string name="dice_dialog_max_side">Value of max side</string>
   <string name="dice_dialog_total_bonus">Total bonus</string>
   <string name="favorite_sets_empty_state">You have no favorite sets</string>
-  <string name="counter_default_title">Counter #%d</string>
+  <string name="counter_default_title">Tap to change counter settings…</string>
   <string name="counter_sign_minus">-</string>
   <string name="counter_sign_plus">+</string>
   <string name="favorite_sets_title">Favorite sets</string>
