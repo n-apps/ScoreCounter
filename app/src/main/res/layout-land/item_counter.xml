@@ -45,7 +45,7 @@
         app:autoSizeStepGranularity="2sp"
         app:autoSizeTextType="uniform"
         />
-    <ua.napps.scorekeeper.views.ForegroundImageView
+    <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center_vertical"
@@ -78,7 +78,7 @@
         app:autoSizeTextType="uniform"
         />
 
-    <ua.napps.scorekeeper.views.ForegroundImageView
+    <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center_vertical"

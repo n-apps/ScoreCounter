@@ -10,10 +10,4 @@
     <color name="textColorHint">#42000000</color>
     <color name="toolbarTextColor">#eee</color>
 
-    <color name="red">#F44336</color>
-    <color name="green">#4CAF50</color>
-    <color name="blue">#2196F3</color>
-    <color name="gray">#c0c0c0</color>
-    <color name="black">#000000</color>
-
 </resources>
