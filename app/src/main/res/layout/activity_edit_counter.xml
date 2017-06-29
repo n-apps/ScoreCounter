@@ -40,7 +40,6 @@
             android:maxLines="1"
             android:minEms="20"
             android:text="@{counter.name}"
-            android:textSize="@dimen/dialog_title_text_size"
             />
       </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>

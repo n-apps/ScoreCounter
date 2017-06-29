@@ -19,14 +19,4 @@
         <item name="colorAccent">@color/primaryColor</item>
     </style>
 
-    <style name="CardViewStyle" parent="android:Widget.TextView">
-        <item name="android:foreground">?android:attr/selectableItemBackground</item>
-        <item name="cardCornerRadius">@dimen/card_corner_radius</item>
-        <item name="cardElevation">@dimen/card_elevation</item>
-        <item name="cardPreventCornerOverlap">false</item>
-        <item name="cardUseCompatPadding">false</item>
-        <item name="android:layout_marginRight">@dimen/list_horizontal_margin</item>
-        <item name="android:layout_marginLeft">@dimen/list_horizontal_margin</item>
-    </style>
-
 </resources>
