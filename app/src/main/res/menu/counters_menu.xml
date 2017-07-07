@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/menu_add_counter"
-        android:icon="@drawable/ic_add_box_white"
-        android:title="@string/menu_add_new_counter"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_reset_all"
-        android:title="@string/menu_reset_all_counters"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_clear_all"
-        android:title="@string/menu_remove_all_counters"
-        app:showAsAction="never"/>
+  <item
+      android:id="@+id/menu_add_counter"
+      android:icon="@drawable/ic_add_box_white"
+      android:title="@string/menu_add_new_counter"
+      app:showAsAction="always"/>
+  <item
+      android:id="@+id/menu_save_to_favorites"
+      android:title="@string/menu_save_to_favorites"
+      app:showAsAction="ifRoom"/>
+  <item
+      android:id="@+id/menu_reset_all"
+      android:title="@string/menu_reset_all_counters"
+      app:showAsAction="never"/>
+  <item
+      android:id="@+id/menu_clear_all"
+      android:title="@string/menu_remove_all_counters"
+      app:showAsAction="never"/>
+
 </menu>

@@ -15,6 +15,8 @@ import io.paperdb.Paper;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.favorites.FavoriteSet;
+import ua.napps.scorekeeper.utils.Constants;
 
 import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
 
@@ -62,6 +64,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
       case R.id.menu_add_counter:
         addCounter();
         break;
+      case R.id.menu_save_to_favorites:
+        saveCurrentSetToFavorites();
+        break;
       case R.id.menu_clear_all:
         CurrentSet.getInstance().removeAllCounters();
         addCounter();
@@ -73,6 +78,22 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         break;
     }
     return true;
+  }
+
+  private void saveCurrentSetToFavorites() {
+    new MaterialDialog.Builder(this).content("Counter name")
+        .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+            | InputType.TYPE_CLASS_TEXT
+            | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
+        .input("Set name", null, false, (materialDialog, charSequence) -> {
+        })
+        .onPositive((materialDialog, dialogAction) -> {
+          final String setName = materialDialog.getInputEditText().getText().toString();
+          FavoriteSet set = new FavoriteSet(setName, CurrentSet.getInstance().getCounters());
+          Paper.book(Constants.FAVORITES_COUNTER_SETS).write(setName, set);
+        })
+        .positiveText("Save to favorites")
+        .show();
   }
 
   private void addCounter() {
