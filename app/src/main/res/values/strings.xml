@@ -10,4 +10,6 @@
   <string name="menu_remove_all_counters">Remove all counters</string>
   <string name="menu_reset_all_counters">Reset all</string>
   <string name="menu_save_counter">Save</string>
+  <string name="menu_save_to_favorites">Save to favorites</string>
+  <string name="title_activity_favorites">Favorites</string>
 </resources>

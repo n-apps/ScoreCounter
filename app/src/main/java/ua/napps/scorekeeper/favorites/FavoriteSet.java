@@ -1,42 +1,43 @@
 package ua.napps.scorekeeper.favorites;
 
-import android.graphics.Color;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import android.databinding.ObservableArrayList;
 import ua.napps.scorekeeper.counters.Counter;
 
-public class FavoriteSet implements Serializable {
+public class FavoriteSet {
 
-  private int iconColor = Color.rgb(224, 224, 224);
-  private String name;
-  private List<Counter> counters = new ArrayList<>();
+  private final String name;
+  private final ObservableArrayList<Counter> counters;
 
-  public FavoriteSet(String name) {
-    this.setName(name);
-  }
-
-  public int getIconColor() {
-    return iconColor;
-  }
-
-  public void setIconColor(int iconColor) {
-    this.iconColor = iconColor;
+  public FavoriteSet(String name, ObservableArrayList<Counter> counters) {
+    this.name = name;
+    this.counters = counters;
   }
 
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public List<Counter> getCounters() {
+  public ObservableArrayList<Counter> getCounters() {
     return counters;
   }
 
-  public void setCounters(List<Counter> counters) {
-    this.counters = counters;
+  @Override public String toString() {
+    return "FavoriteSet{" + "name='" + name + '\'' + ", counters=" + counters + '}';
+  }
+
+  @Override public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    FavoriteSet that = (FavoriteSet) o;
+
+    if (!name.equals(that.name)) return false;
+    return counters.equals(that.counters);
+  }
+
+  @Override public int hashCode() {
+    int result = name.hashCode();
+    result = 31 * result + counters.hashCode();
+    return result;
   }
 }
