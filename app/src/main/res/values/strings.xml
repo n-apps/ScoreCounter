@@ -1,13 +1,13 @@
 <resources>
-  <string name="add_new_counter">Add new counter</string>
   <string name="app_name">Score Keeper</string>
   <string name="color_palette">Color palette</string>
   <string name="colors">Colors</string>
-  <string name="counter_default_title">Tap to change counter settings…</string>
+  <string name="counter_default_title">#%d</string>
   <string name="counter_dialog_default_value">Default value</string>
   <string name="counter_dialog_step">Step</string>
   <string name="counter_dialog_value">Value</string>
-  <string name="remove_all_counters">Remove all counters</string>
-  <string name="reset_all_counters">Reset all</string>
-  <string name="save">Save</string>
+  <string name="menu_add_new_counter">Add new counter</string>
+  <string name="menu_remove_all_counters">Remove all counters</string>
+  <string name="menu_reset_all_counters">Reset all</string>
+  <string name="menu_save_counter">Save</string>
 </resources>

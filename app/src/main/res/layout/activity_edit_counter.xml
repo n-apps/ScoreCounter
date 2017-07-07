@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
   <data>
+    <import type="android.graphics.Color"/>
     <variable
         name="counter"
         type="ua.napps.scorekeeper.counters.Counter"
@@ -148,7 +149,7 @@
               android:layout_width="24dp"
               android:layout_height="24dp"
               android:layout_gravity="center"
-              android:setBackgroundColor="@{counter.backgroundColor}"
+              android:setBackgroundColor="@{Color.parseColor(counter.color)}"
 
               />
         </FrameLayout>

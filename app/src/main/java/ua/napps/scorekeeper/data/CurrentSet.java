@@ -8,79 +8,79 @@ import ua.napps.scorekeeper.counters.Counter;
 
 public final class CurrentSet {
 
-    private ObservableArrayList<Counter> counters;
-    private static CurrentSet sCurrentSet;
+  private ObservableArrayList<Counter> counters;
+  private static CurrentSet sCurrentSet;
 
-    public synchronized static CurrentSet getInstance() {
-        if (sCurrentSet == null) {
-            sCurrentSet = new CurrentSet();
-        }
-        return sCurrentSet;
+  public synchronized static CurrentSet getInstance() {
+    if (sCurrentSet == null) {
+      sCurrentSet = new CurrentSet();
     }
+    return sCurrentSet;
+  }
 
-    private CurrentSet() {
-        counters = new ObservableArrayList<>();
-    }
+  private CurrentSet() {
+    counters = new ObservableArrayList<>();
+  }
 
-    public int getSize() {
-        return counters.size();
-    }
+  public int getSize() {
+    return counters.size();
+  }
 
-    public void setCounters(@NonNull ObservableArrayList<Counter> counters) {
-        this.counters = counters;
-    }
+  public void setCounters(@NonNull ObservableArrayList<Counter> counters) {
+    this.counters = counters;
+  }
 
-    public void setCounters(@NonNull ArrayList<Counter> counters) {
-        this.counters.addAll(counters);
-    }
+  public void setCounters(@NonNull ArrayList<Counter> counters) {
+    this.counters.addAll(counters);
+  }
 
-    public Counter getCounter(int position) {
-        return counters.get(position);
-    }
+  public Counter getCounter(int position) {
+    return counters.get(position);
+  }
 
-    public ObservableArrayList<Counter> getCounters() {
-        return counters;
-    }
+  public ObservableArrayList<Counter> getCounters() {
+    return counters;
+  }
 
-    public void removeCounter(Counter item) {
-        counters.remove(item);
-    }
+  public void removeCounter(Counter item) {
+    counters.remove(item);
+  }
 
-    public void removeCounter(String id) {
-        final Counter counter = getCounter(id);
-        if (counter != null) {
-            removeCounter(counter);
-        }
+  public void removeCounter(String id) {
+    final Counter counter = getCounter(id);
+    if (counter != null) {
+      removeCounter(counter);
     }
+  }
 
-    public void addCounter(String caption) {
-        counters.add(new Counter(caption));
-    }
+  public void addCounter(String caption) {
+    counters.add(new Counter(caption));
+  }
 
-    public void removeAllCounters() {
-        counters.clear();
-    }
+  public void removeAllCounters() {
+    counters.clear();
+  }
 
-    @Nullable public Counter getCounter(@NonNull String id) {
-        for (Counter counter : counters) {
-            if (counter.getId().equals(id)) {
-                return counter;
-            }
-        }
-        return null;
+  @Nullable public Counter getCounter(@NonNull String id) {
+    for (Counter counter : counters) {
+      if (counter.getId().equals(id)) {
+        return counter;
+      }
     }
+    return null;
+  }
 
-    public void replaceCounter(Counter counter) {
-        for (int i = 0; i < counters.size(); i++) {
-            Counter c = counters.get(i);
-            if (c.getId().equals(counter.getId())) {
-                counters.set(i, counter);
-                return;
-            }
-        }
+  public void replaceCounter(Counter counter) {
+    for (int i = 0; i < counters.size(); i++) {
+      Counter c = counters.get(i);
+      if (c.getId().equals(counter.getId())) {
+        counters.set(i, counter);
+        return;
+      }
     }
+  }
 
-    public void resetAllCounters() {
-        for (Counter counter : counters) counter.setValue(counter.getDefaultValue());
-    }
+  public void resetAllCounters() {
+    for (Counter counter : counters) counter.setValue(counter.getDefaultValue());
+  }
 }

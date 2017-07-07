@@ -8,28 +8,27 @@ import android.widget.Toast;
  */
 public final class ToastUtils {
 
-    private static ToastUtils toastUtils;
-    private Toast toast;
+  private static ToastUtils toastUtils;
+  private Toast toast;
 
-    private ToastUtils() {
+  private ToastUtils() {
 
+  }
+
+  public static synchronized ToastUtils getInstance() {
+    if (toastUtils == null) {
+      toastUtils = new ToastUtils();
     }
+    return toastUtils;
+  }
 
-    public static synchronized ToastUtils getInstance() {
-        if (toastUtils == null) {
-            toastUtils = new ToastUtils();
-        }
-        return toastUtils;
+  public void showToast(Context context, String msg, int duration) {
+    if (toast == null) {
+      toast = Toast.makeText(context, msg, duration);
+    } else {
+      toast.setText(msg);
+      toast.setDuration(duration);
     }
-
-    public void showToast(Context context, String msg, int duration) {
-        if (toast == null) {
-            toast = Toast.makeText(context, msg, duration);
-        } else {
-            toast.setText(msg);
-            toast.setDuration(duration);
-        }
-        toast.show();
-    }
-
+    toast.show();
+  }
 }
