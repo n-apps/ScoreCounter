@@ -14,96 +14,91 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityEditCounterBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
-import ua.napps.scorekeeper.utils.ColorUtils;
+import ua.napps.scorekeeper.utils.RandomColor;
 
 public class EditCounterActivity extends AppCompatActivity
-        implements ColorChooserDialog.ColorCallback {
+    implements ColorChooserDialog.ColorCallback {
 
-    protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
-    private ActivityEditCounterBinding binding;
-    private Counter counter;
+  protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
+  private ActivityEditCounterBinding binding;
+  private Counter counter;
 
-    public static Intent getIntent(Context context, String id) {
-        Intent intent = new Intent(context, EditCounterActivity.class);
-        intent.putExtra(ARGUMENT_COUNTER_ID, id);
-        return intent;
-    }
+  public static Intent getIntent(Context context, String id) {
+    Intent intent = new Intent(context, EditCounterActivity.class);
+    intent.putExtra(ARGUMENT_COUNTER_ID, id);
+    return intent;
+  }
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_counter);
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_counter);
 
-        setSupportActionBar(binding.toolbar);
+    setSupportActionBar(binding.toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    getSupportActionBar().setTitle("");
 
-        final String id = getIntent().getStringExtra(ARGUMENT_COUNTER_ID);
+    final String id = getIntent().getStringExtra(ARGUMENT_COUNTER_ID);
 
-        if (id == null) throw new NullPointerException("Counter id is null!");
+    if (id == null) throw new NullPointerException("Counter id is null!");
 
-        counter = CurrentSet.getInstance().getCounter(id);
+    counter = CurrentSet.getInstance().getCounter(id);
 
-        if (counter == null) throw new NullPointerException("Counter with id " + id + " is null!");
+    if (counter == null) throw new NullPointerException("Counter with id " + id + " is null!");
 
-        binding.setCounter(counter);
-        binding.executePendingBindings();
-    }
+    binding.setCounter(counter);
+    binding.executePendingBindings();
+  }
 
-    @Override public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_counter_save, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.menu_counter_save, menu);
+    return super.onCreateOptionsMenu(menu);
+  }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_save_counter: {
-                if (fieldsIsValid()) {
-                    counter.setName(binding.etCounterName.getText().toString());
-                    counter.setValue(Integer.parseInt(binding.etCounterValue.getText().toString()));
-                    counter.setStep(Integer.parseInt(binding.etCounterStep.getText().toString()));
-                    counter.setDefaultValue(
-                            Integer.parseInt(binding.etCounterDefaultValue.getText().toString()));
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.menu_save_counter: {
+        if (fieldsIsValid()) {
+          counter.setName(binding.etCounterName.getText().toString());
+          counter.setValue(Integer.parseInt(binding.etCounterValue.getText().toString()));
+          counter.setStep(Integer.parseInt(binding.etCounterStep.getText().toString()));
+          counter.setDefaultValue(
+              Integer.parseInt(binding.etCounterDefaultValue.getText().toString()));
 
-                    CurrentSet.getInstance().replaceCounter(counter);
-                    Toast.makeText(EditCounterActivity.this, "Counter updated", Toast.LENGTH_SHORT)
-                            .show();
-                    finish();
-                } else {
-                    Toast.makeText(EditCounterActivity.this, "Wrong fields", Toast.LENGTH_SHORT)
-                            .show();
-                }
-                return true;
-            }
+          CurrentSet.getInstance().replaceCounter(counter);
+          Toast.makeText(EditCounterActivity.this, "Counter updated", Toast.LENGTH_SHORT).show();
+          finish();
+        } else {
+          Toast.makeText(EditCounterActivity.this, "Wrong fields", Toast.LENGTH_SHORT).show();
         }
-        return false;
+        return true;
+      }
     }
+    return false;
+  }
 
-    public void onColorPickerClick(View v) {
-        new ColorChooserDialog.Builder(this, R.string.color_palette).titleSub(
-                R.string.colors)  // title of dialog when viewing shades of a color
-                .accentMode(
-                        false)  // when true, will display accent palette instead of primary palette
-                .doneButton(R.string.md_done_label)  // changes label of the done button
-                .cancelButton(R.string.md_cancel_label)  // changes label of the cancel button
-                .backButton(R.string.md_back_label)  // changes label of the back button
-                //.preselect(primaryPreselect)  // optionally preselects a color
-                .dynamicButtonColor(
-                        true)  // defaults to true, false will disable changing action buttons' color to currently selected color
-                .show();
-    }
+  public void onColorPickerClick(View v) {
+    new ColorChooserDialog.Builder(this, R.string.color_palette).titleSub(R.string.colors)
+        .accentMode(false)
+        .doneButton(R.string.md_done_label)
+        .cancelButton(R.string.md_cancel_label)
+        .backButton(R.string.md_back_label)
+        .dynamicButtonColor(false)
+        .show();
+  }
 
-    private boolean fieldsIsValid() {
-        return binding.etCounterName.getText().length() > 0;
-    }
+  private boolean fieldsIsValid() {
+    return binding.etCounterName.getText().length() > 0;
+  }
 
-    @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
-        binding.colorPreview.setBackgroundColor(color);
-        counter.setBackgroundColor(color);
-        counter.setTextColor(ColorUtils.getContrastColor(color));
-    }
+  @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
+    binding.colorPreview.setBackgroundColor(color);
+    final String hex = RandomColor.intColorToString(color);
+    counter.setColor(hex);
+    counter.setTextColor(RandomColor.getContrastColor(hex));
+  }
 
-    @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
+  @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
 
-    }
+  }
 }

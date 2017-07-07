@@ -5,14 +5,14 @@
     <item
         android:id="@+id/menu_add_counter"
         android:icon="@drawable/ic_add_box_white"
-        android:title="@string/add_new_counter"
+        android:title="@string/menu_add_new_counter"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_reset_all"
-        android:title="@string/reset_all_counters"
+        android:title="@string/menu_reset_all_counters"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_clear_all"
-        android:title="@string/remove_all_counters"
+        android:title="@string/menu_remove_all_counters"
         app:showAsAction="never"/>
 </menu>

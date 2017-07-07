@@ -106,28 +106,34 @@
     <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="support-annotations-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="recyclerview-v7-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="support-compat-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="gson-2.8.0" level="project" />
-    <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
+    <orderEntry type="library" exported="" name="kryo-4.0.0" level="project" />
+    <orderEntry type="library" exported="" name="kryo-serializers-0.40" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-26.0.0-beta2" level="project" />
     <orderEntry type="library" exported="" name="constraint-layout-1.0.2" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="cardview-v7-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="animated-vector-drawable-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="core-0.9.4.4" level="project" />
+    <orderEntry type="library" exported="" name="reflectasm-1.11.3" level="project" />
+    <orderEntry type="library" exported="" name="baseLibrary-3.0.0-alpha5" level="project" />
+    <orderEntry type="library" exported="" name="asm-5.0.4" level="project" />
     <orderEntry type="library" exported="" name="adapters-1.3.1" level="project" />
-    <orderEntry type="library" exported="" name="support-core-utils-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="core-0.9.4.4" level="project" />
     <orderEntry type="library" exported="" name="flexbox-0.3.0-alpha4" level="project" />
-    <orderEntry type="library" exported="" name="baseLibrary-3.0.0-alpha4" level="project" />
     <orderEntry type="library" exported="" name="transition-26.0.0-beta2" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-26.0.0-beta2" level="project" />
     <orderEntry type="library" exported="" name="library-1.3.1" level="project" />
     <orderEntry type="library" exported="" name="library-1.4.0" level="project" />
+    <orderEntry type="library" exported="" name="objenesis-2.3" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-26.0.0-beta2" level="project" />
-    <orderEntry type="library" exported="" name="commons-0.9.4.4" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="support-compat-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="constraint-layout-solver-1.0.2" level="project" />
+    <orderEntry type="library" exported="" name="minlog-1.3.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="cardview-v7-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="animated-vector-drawable-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="support-core-utils-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="paperdb-2.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-26.0.0-beta2" level="project" />
+    <orderEntry type="library" exported="" name="commons-0.9.4.4" level="project" />
     <orderEntry type="library" exported="" name="design-26.0.0-beta2" level="project" />
   </component>
 </module>

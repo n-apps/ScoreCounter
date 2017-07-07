@@ -4,6 +4,7 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     >
   <data>
+    <import type="android.graphics.Color"/>
     <variable
         name="callback"
         type="ua.napps.scorekeeper.counters.CounterActionCallback"
@@ -16,7 +17,7 @@
   <FrameLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@{data.backgroundColor}"
+      android:background="@{Color.parseColor(data.color)}"
       android:foreground="?attr/selectableItemBackgroundBorderless"
       android:minHeight="128dp"
       android:minWidth="256dp"
@@ -26,23 +27,39 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-      <TextView
-          android:id="@+id/et_counter_name"
+      <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:background="#2E000000"
-          android:clickable="false"
-          android:ellipsize="none"
-          android:gravity="center"
           android:onClick="@{() -> callback.onNameClick(data.id)}"
           android:onLongClick="@{(v)->callback.onNameLongClick(v,data)}"
+          android:orientation="horizontal"
           android:padding="8dp"
-          android:singleLine="true"
-          android:text='@{data.name, default="Counter"}'
-          android:textAllCaps="true"
-          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-          android:textColor="@{data.textColor}"
-          />
+          >
+        <TextView
+            android:id="@+id/et_counter_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text='@{data.name, default="Counter"}'
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@{Color.parseColor(data.textColor)}"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:alpha="0.38"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_edit"
+            bind:colorTint="@{Color.parseColor(data.textColor)}"
+            />
+      </LinearLayout>
       <FrameLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -52,19 +69,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:clickable="false"
-            android:gravity="center"
-            android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
-            android:lines="1"
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
+            android:clickable="false"
+            android:fontFamily="@font/squada_one_regular"
+            android:gravity="center"
+            android:lines="1"
+            android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
+            android:text='@{String.valueOf(data.value), default="0"}'
+            android:textColor="@{Color.parseColor(data.textColor)}"
             app:autoSizeMaxTextSize="120sp"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeStepGranularity="2sp"
-            android:text='@{String.valueOf(data.value), default="0"}'
-            android:textColor="@{data.textColor}"
             app:autoSizeTextType="uniform"
-            android:fontFamily="@font/squada_one_regular"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,10 +103,10 @@
                 android:layout_height="48dp"
                 android:layout_gravity="left|center_vertical"
                 android:layout_margin="16dp"
-                android:scaleType="center"
                 android:alpha="0.38"
+                android:scaleType="center"
                 app:srcCompat="@drawable/ic_indeterminate_check_box"
-                bind:colorTint="@{data.textColor}"
+                bind:colorTint="@{Color.parseColor(data.textColor)}"
                 />
           </FrameLayout>
           <FrameLayout
@@ -105,10 +122,10 @@
                 android:layout_height="48dp"
                 android:layout_gravity="right|center_vertical"
                 android:layout_margin="16dp"
-                android:scaleType="center"
                 android:alpha="0.38"
+                android:scaleType="center"
                 app:srcCompat="@drawable/ic_add_box"
-                bind:colorTint="@{data.textColor}"
+                bind:colorTint="@{Color.parseColor(data.textColor)}"
                 />
           </FrameLayout>
         </LinearLayout>

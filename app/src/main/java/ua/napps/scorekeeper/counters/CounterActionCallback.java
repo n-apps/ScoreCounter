@@ -3,15 +3,15 @@ package ua.napps.scorekeeper.counters;
 import android.view.View;
 
 public interface CounterActionCallback {
-    void onNameClick(String id);
+  void onNameClick(String id);
 
-    boolean onNameLongClick(View v, Counter counter);
+  boolean onNameLongClick(View v, Counter counter);
 
-    boolean onValueLongClick(View v, Counter counter);
+  boolean onValueLongClick(View v, Counter counter);
 
-    void onIncreaseClick(String id);
+  void onIncreaseClick(String id);
 
-    void onDecreaseClick(String id);
+  void onDecreaseClick(String id);
 
-    void onCounterAdded(View v);
+  void onCounterAdded(View v);
 }
