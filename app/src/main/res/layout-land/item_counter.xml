@@ -34,7 +34,6 @@
         android:padding="16dp"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_edit"
-        bind:colorTint="@{Color.parseColor(data.textColor)}"
         />
     <TextView
         android:id="@+id/tv_counter_name"
@@ -68,7 +67,6 @@
         android:padding="16dp"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_indeterminate_check_box"
-        bind:colorTint="@{Color.parseColor(data.textColor)}"
         bind:repeatableCallback="@{() -> callback.onDecreaseClick(data.id)}"
         />
 
@@ -101,7 +99,6 @@
         android:padding="16dp"
         android:scaleType="center"
         app:srcCompat="@drawable/ic_add_box"
-        bind:colorTint="@{Color.parseColor(data.textColor)}"
         bind:repeatableCallback="@{() -> callback.onIncreaseClick(data.id)}"
         />
   </LinearLayout>
