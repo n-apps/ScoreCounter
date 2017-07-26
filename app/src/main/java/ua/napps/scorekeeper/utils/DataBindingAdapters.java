@@ -1,9 +1,12 @@
 package ua.napps.scorekeeper.utils;
 
 import android.databinding.BindingAdapter;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.view.View;
-import android.widget.ImageView;
 
 public class DataBindingAdapters {
 
@@ -15,9 +18,10 @@ public class DataBindingAdapters {
   private DataBindingAdapters() {
   }
 
-  @BindingAdapter("colorTint") public static void setColorTint(ImageView view, int color) {
-    DrawableCompat.wrap(view.getDrawable());
-    DrawableCompat.setTint(view.getDrawable(), color);
+  @BindingAdapter({ "app:srcCompat", "bind:colorTint" })
+  public static void setColorTint(View view, @DrawableRes int drawableId, String color) {
+    Drawable drawable = AppCompatResources.getDrawable(view.getContext(), drawableId);
+    DrawableCompat.setTint(drawable, Color.parseColor(color));
   }
 
   @BindingAdapter({ "bind:repeatableCallback" })

@@ -22,11 +22,6 @@
         android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
         android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity">
     </activity>
-    <activity
-        android:name="ua.napps.scorekeeper.favorites.FavoritesActivity"
-        android:label="@string/title_activity_favorites"
-        android:theme="@style/AppTheme">
-    </activity>
   </application>
 
 </manifest>

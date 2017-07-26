@@ -8,10 +8,6 @@
       android:title="@string/menu_add_new_counter"
       app:showAsAction="always"/>
   <item
-      android:id="@+id/menu_save_to_favorites"
-      android:title="@string/menu_save_to_favorites"
-      app:showAsAction="ifRoom"/>
-  <item
       android:id="@+id/menu_reset_all"
       android:title="@string/menu_reset_all_counters"
       app:showAsAction="never"/>
