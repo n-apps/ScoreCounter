@@ -1,0 +1,3 @@
+<resources>
+  <dimen name="counter_min_height">48dp</dimen>
+</resources>

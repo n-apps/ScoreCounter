@@ -32,25 +32,13 @@
           app:title="@string/app_name"
           />
     </android.support.design.widget.AppBarLayout>
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        android:fillViewport="true"
+        bind:items="@{items}"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-      <ua.napps.scorekeeper.counters.FlexboxWithAdapter
-          android:id="@+id/flexbox"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          app:alignContent="stretch"
-          app:flexDirection="column"
-          app:flexWrap="nowrap"
-          bind:callback="@{callback}"
-          bind:entries="@{items}"
           tools:listitem="@layout/item_counter"
           />
-    </ScrollView>
   </android.support.design.widget.CoordinatorLayout>
 </layout>
