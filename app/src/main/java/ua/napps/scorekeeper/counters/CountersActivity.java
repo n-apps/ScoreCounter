@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.flexbox.AlignItems;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import io.paperdb.Paper;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
@@ -30,8 +32,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     loadSettings();
     binding.setItems(CurrentSet.getInstance().getCounters());
-    binding.setCallback(this);
-    binding.executePendingBindings();
+    int minHeight = getResources().getDimensionPixelSize(R.dimen.counter_min_height);
+    CountersAdapter adapter = new CountersAdapter(this, minHeight);
+    FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(this);
+    layoutManager.setAlignItems(AlignItems.STRETCH);
+    binding.recyclerView.setLayoutManager(layoutManager);
+    binding.recyclerView.setAdapter(adapter);
   }
 
   private void loadSettings() {
@@ -126,7 +132,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   }
 
   @Override public void onCounterAdded(View v) {
-    binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()), 300L);
+    //binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()), 300L);
   }
 
   @Override protected void onDestroy() {
