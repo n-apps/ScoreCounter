@@ -13,5 +13,5 @@ public interface CounterActionCallback {
 
   void onDecreaseClick(String id);
 
-  void onCounterAdded(View v);
+  void onCounterAdded();
 }

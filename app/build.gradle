@@ -68,4 +68,5 @@ dependencies {
   compile('com.afollestad.material-dialogs:commons:0.9.4.4',
       { exclude group: 'com.android.support' })
   compile 'com.android.support.constraint:constraint-layout:1.0.2'
+  compile 'com.jakewharton.timber:timber:4.5.1'
 }
