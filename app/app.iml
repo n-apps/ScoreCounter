@@ -89,7 +89,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/prebuild" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/processing-tools" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
@@ -130,6 +129,7 @@
     <orderEntry type="library" name="support-fragment-26.0.1" level="project" />
     <orderEntry type="library" name="animated-vector-drawable-26.0.1" level="project" />
     <orderEntry type="library" name="appcompat-v7-26.0.1" level="project" />
+    <orderEntry type="library" name="timber-4.5.1" level="project" />
     <orderEntry type="library" name="design-26.0.1" level="project" />
     <orderEntry type="library" name="paperdb-2.1" level="project" />
     <orderEntry type="library" name="commons-0.9.4.4" level="project" />

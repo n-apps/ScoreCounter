@@ -11,8 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.android.flexbox.AlignItems;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import io.paperdb.Paper;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
@@ -31,21 +29,18 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     setSupportActionBar(binding.toolbar);
 
     loadSettings();
+    binding.setCallback(this);
     binding.setItems(CurrentSet.getInstance().getCounters());
-    int minHeight = getResources().getDimensionPixelSize(R.dimen.counter_min_height);
-    CountersAdapter adapter = new CountersAdapter(this, minHeight);
-    FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(this);
-    layoutManager.setAlignItems(AlignItems.STRETCH);
-    binding.recyclerView.setLayoutManager(layoutManager);
-    binding.recyclerView.setAdapter(adapter);
   }
 
   private void loadSettings() {
-    ObservableArrayList<Counter> counters = Paper.book().read(ACTIVE_COUNTERS);
-    if (counters != null && !counters.isEmpty()) {
-      CurrentSet.getInstance().setCounters(counters);
-    } else {
-      addCounter();
+    if (CurrentSet.getInstance().getCounters() == null) {
+      ObservableArrayList<Counter> counters = Paper.book().read(ACTIVE_COUNTERS);
+      if (counters != null && !counters.isEmpty()) {
+        CurrentSet.getInstance().setCounters(counters);
+      } else {
+        addCounter();
+      }
     }
   }
 
@@ -82,13 +77,14 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   }
 
   private void addCounter() {
-    final String caption =
-        getString(R.string.counter_default_title, CurrentSet.getInstance().getSize() + 1);
+    final int size = CurrentSet.getInstance().getSize();
+    final String caption = getString(R.string.counter_default_title, size + 1);
     CurrentSet.getInstance().addCounter(caption);
   }
 
   @Override public void onNameClick(String id) {
     Intent intent = EditCounterActivity.getIntent(this, id);
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
   }
 
@@ -131,8 +127,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     counter.setValue(newValue);
   }
 
-  @Override public void onCounterAdded(View v) {
-    //binding.scrollView.postDelayed(() -> binding.scrollView.smoothScrollTo(0, v.getBottom()), 300L);
+  @Override public void onCounterAdded() {
+    //binding.recyclerView.postDelayed(() -> binding.recyclerView.smoothScrollToPosition(CurrentSet.getInstance().getSize()-1), 300L);
   }
 
   @Override protected void onDestroy() {

@@ -2,24 +2,51 @@ package ua.napps.scorekeeper.counters;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
+import android.databinding.ObservableList;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import java.util.List;
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ItemCounterBinding;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHolder> {
 
   private final CounterActionCallback callback;
-  private List<Counter> counters;
+  private final ObservableArrayList<Counter> counters;
   private int height;
-  private final int minHeight;
 
-  public CountersAdapter(CounterActionCallback callback, int minHeight) {
+  public CountersAdapter(CounterActionCallback callback, ObservableArrayList<Counter> counters) {
     this.callback = callback;
-    this.minHeight = minHeight;
+    this.counters = counters;
+    this.counters.addOnListChangedCallback(
+        new ObservableList.OnListChangedCallback<ObservableList<Counter>>() {
+          @Override public void onChanged(ObservableList<Counter> counters) {
+            notifyDataSetChanged();
+          }
+
+          @Override
+          public void onItemRangeChanged(ObservableList<Counter> counters, int i, int i1) {
+
+          }
+
+          @Override
+          public void onItemRangeInserted(ObservableList<Counter> counters, int i, int i1) {
+            notifyItemInserted(i);
+            callback.onCounterAdded();
+          }
+
+          @Override
+          public void onItemRangeMoved(ObservableList<Counter> counters, int i, int i1, int i2) {
+
+          }
+
+          @Override
+          public void onItemRangeRemoved(ObservableList<Counter> counters, int i, int i1) {
+
+          }
+        });
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,7 +64,17 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
     if (lp instanceof FlexboxLayoutManager.LayoutParams) {
       FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
       flexboxLp.setFlexGrow(1.0f);
-      flexboxLp.setMinHeight(height / getItemCount());
+      final int itemCount = getItemCount();
+
+      if (itemCount > 4) {
+        flexboxLp.setHeight(height == 0 ? 384 : height);
+      } else {
+        if (itemCount == 4) {
+          height = holder.binding.getRoot().getHeight();
+        }
+        flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+      }
+      Timber.d("height " + height);
     }
   }
 
@@ -45,11 +82,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
     return counters.size();
   }
 
-  public void changeItems(ObservableArrayList<Counter> list, int height) {
-    this.counters = list;
-    this.height = height;
-    notifyDataSetChanged();
-  }
+  //public void changeItems(ObservableArrayList<Counter> counters) {
+  //  this.counters = counters;
+  //  notifyDataSetChanged();
+  //}
 
   static class ViewHolder extends RecyclerView.ViewHolder {
 
