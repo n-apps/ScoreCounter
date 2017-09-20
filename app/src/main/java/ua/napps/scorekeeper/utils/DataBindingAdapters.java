@@ -2,8 +2,10 @@ package ua.napps.scorekeeper.utils;
 
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableArrayList;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -64,5 +66,45 @@ public class DataBindingAdapters {
       }
       recyclerView.smoothScrollToPosition(size - 1);
     }
+  }
+
+  @BindingAdapter("visibleGone") public static void showHide(View view, boolean show) {
+    view.setVisibility(show ? View.VISIBLE : View.GONE);
+  }
+
+  @BindingAdapter({ "android:drawableLeft" })
+  public static void setDrawableLeft(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableStart" })
+  public static void setDrawableStart(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableRight" })
+  public static void setDrawableRight(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableEnd" })
+  public static void setDrawableEnd(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null, null,
+        ContextCompat.getDrawable(view.getContext(), resourceId), null);
+  }
+
+  @BindingAdapter({ "android:drawableTop" })
+  public static void setDrawableTop(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null,
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null);
+  }
+
+  @BindingAdapter({ "android:drawableBottom" })
+  public static void setDrawableBottom(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null, null, null,
+        ContextCompat.getDrawable(view.getContext(), resourceId));
   }
 }

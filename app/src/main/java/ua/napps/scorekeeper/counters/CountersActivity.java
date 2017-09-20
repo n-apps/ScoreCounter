@@ -40,8 +40,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
       ObservableArrayList<Counter> counters = Paper.book().read(ACTIVE_COUNTERS);
       if (counters != null && !counters.isEmpty()) {
         CurrentSet.getInstance().setCounters(counters);
-      } else {
-        addCounter();
       }
     }
   }
@@ -67,12 +65,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         break;
       case R.id.menu_clear_all:
         CurrentSet.getInstance().removeAllCounters();
-        addCounter();
         break;
       case R.id.menu_reset_all:
         CurrentSet.getInstance().resetAllCounters();
-        break;
-      default:
         break;
     }
     return true;
@@ -143,7 +138,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     counter.setValue(newValue);
   }
 
-  @Override public void onCounterAdded() {
+  @Override public void onAddCounterClick() {
+    addCounter();
   }
 
   @Override protected void onDestroy() {

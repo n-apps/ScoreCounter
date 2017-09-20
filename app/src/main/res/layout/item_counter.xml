@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     >
   <data>
     <import type="android.graphics.Color"/>
@@ -59,6 +60,7 @@
             android:layout_gravity="left|center_vertical"
             android:alpha="0.38"
             android:scaleType="center"
+            tools:src="@drawable/ic_edit"
             android:src="@{ColorUtil.isDarkBackground(data.color) ? @drawable/ic_edit_white :@drawable/ic_edit}"
             />
       </LinearLayout>

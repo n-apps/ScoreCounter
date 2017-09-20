@@ -34,7 +34,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
           @Override
           public void onItemRangeInserted(ObservableList<Counter> counters, int i, int i1) {
             notifyItemInserted(i);
-            callback.onCounterAdded();
           }
 
           @Override
@@ -44,7 +43,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
 
           @Override
           public void onItemRangeRemoved(ObservableList<Counter> counters, int i, int i1) {
-
+            notifyDataSetChanged();
           }
         });
   }

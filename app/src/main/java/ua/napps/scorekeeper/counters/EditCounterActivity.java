@@ -46,6 +46,10 @@ public class EditCounterActivity extends AppCompatActivity
 
     if (counter == null) throw new NullPointerException("Counter with id " + id + " is null!");
 
+    binding.btnDelete.setOnClickListener(v -> {
+      supportFinishAfterTransition();
+      CurrentSet.getInstance().removeCounter(id);
+    });
     binding.setCounter(counter);
     binding.executePendingBindings();
   }
