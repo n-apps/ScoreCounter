@@ -7,22 +7,29 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import java.util.UUID;
 import ua.com.napps.scorekeeper.BR;
-import ua.napps.scorekeeper.utils.RandomColor;
+import ua.napps.scorekeeper.utils.ColorUtil;
 
 public final class Counter extends BaseObservable implements Parcelable {
   private String id;
   @Bindable private String name;
   @Bindable private int value;
-  private String color;
-  private String textColor;
+  @Bindable private String color;
   private int defaultValue;
   private int step;
 
   public Counter(@NonNull String name) {
     id = UUID.randomUUID().toString();
     this.name = name;
-    color = RandomColor.getRandomColor();
-    textColor = RandomColor.getContrastColor(color);
+    color = ColorUtil.getRandomColor();
+    value = 0;
+    defaultValue = 0;
+    step = 1;
+  }
+
+  public Counter(@NonNull String name, String color) {
+    id = UUID.randomUUID().toString();
+    this.name = name;
+    this.color = color;
     value = 0;
     defaultValue = 0;
     step = 1;
@@ -60,14 +67,7 @@ public final class Counter extends BaseObservable implements Parcelable {
 
   public void setColor(String color) {
     this.color = color;
-  }
-
-  public String getTextColor() {
-    return textColor;
-  }
-
-  public void setTextColor(String textColor) {
-    this.textColor = textColor;
+    notifyPropertyChanged(BR.color);
   }
 
   public int getDefaultValue() {
@@ -101,8 +101,7 @@ public final class Counter extends BaseObservable implements Parcelable {
     if (step != counter.step) return false;
     if (!id.equals(counter.id)) return false;
     if (!name.equals(counter.name)) return false;
-    if (!color.equals(counter.color)) return false;
-    return textColor.equals(counter.textColor);
+    return (!color.equals(counter.color));
   }
 
   @Override public int hashCode() {
@@ -110,7 +109,6 @@ public final class Counter extends BaseObservable implements Parcelable {
     result = 31 * result + name.hashCode();
     result = 31 * result + value;
     result = 31 * result + color.hashCode();
-    result = 31 * result + textColor.hashCode();
     result = 31 * result + defaultValue;
     result = 31 * result + step;
     return result;
@@ -125,7 +123,6 @@ public final class Counter extends BaseObservable implements Parcelable {
     dest.writeString(this.name);
     dest.writeInt(this.value);
     dest.writeString(this.color);
-    dest.writeString(this.textColor);
     dest.writeInt(this.defaultValue);
     dest.writeInt(this.step);
   }
@@ -135,7 +132,6 @@ public final class Counter extends BaseObservable implements Parcelable {
     this.name = in.readString();
     this.value = in.readInt();
     this.color = in.readString();
-    this.textColor = in.readString();
     this.defaultValue = in.readInt();
     this.step = in.readInt();
   }
