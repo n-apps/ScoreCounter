@@ -3,18 +3,18 @@ package ua.napps.scorekeeper.utils;
 import android.graphics.Color;
 import java.util.Random;
 
-public final class RandomColor {
+public final class ColorUtil {
 
-  public RandomColor() {
+  public ColorUtil() {
   }
 
-  public static String getContrastColor(String background) {
+  public static boolean isDarkBackground(String background) {
     final int argbColor = Color.parseColor(background);
     int r = Color.red(argbColor);
     int g = Color.green(argbColor);
     int b = Color.blue(argbColor);
     int o = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-    return o > 125 ? "#de000000" : "#ffffffff";
+    return o < 125;
   }
 
   public static String getRandomColor() {

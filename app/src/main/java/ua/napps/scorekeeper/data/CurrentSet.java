@@ -4,16 +4,19 @@ import android.databinding.ObservableArrayList;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import ua.napps.scorekeeper.counters.Counter;
 
 public final class CurrentSet {
 
   private ObservableArrayList<Counter> counters;
+  private static HashSet<String> alreadyUsedColors;
   private static CurrentSet sCurrentSet;
 
   public synchronized static CurrentSet getInstance() {
     if (sCurrentSet == null) {
       sCurrentSet = new CurrentSet();
+      alreadyUsedColors = new HashSet<>();
     }
     return sCurrentSet;
   }
@@ -44,6 +47,7 @@ public final class CurrentSet {
 
   public void removeCounter(Counter item) {
     counters.remove(item);
+    alreadyUsedColors.remove(item.getColor());
   }
 
   public void removeCounter(String id) {
@@ -53,12 +57,16 @@ public final class CurrentSet {
     }
   }
 
-  public void addCounter(String caption) {
-    counters.add(new Counter(caption));
+  public void addCounter(String caption, String color) {
+    assert caption != null;
+    assert color != null;
+    counters.add(new Counter(caption, color));
+    alreadyUsedColors.add(color);
   }
 
   public void removeAllCounters() {
     counters.clear();
+    alreadyUsedColors.clear();
   }
 
   @Nullable public Counter getCounter(@NonNull String id) {
@@ -75,6 +83,8 @@ public final class CurrentSet {
       Counter c = counters.get(i);
       if (c.getId().equals(counter.getId())) {
         counters.set(i, counter);
+        alreadyUsedColors.remove(c.getColor());
+        alreadyUsedColors.add(counter.getColor());
         return;
       }
     }
@@ -82,5 +92,9 @@ public final class CurrentSet {
 
   public void resetAllCounters() {
     for (Counter counter : counters) counter.setValue(counter.getDefaultValue());
+  }
+
+  public HashSet<String> getAlreadyUsedColors() {
+    return alreadyUsedColors;
   }
 }

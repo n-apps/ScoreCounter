@@ -9,9 +9,9 @@
         type="ua.napps.scorekeeper.counters.Counter"
         />
   </data>
-  <android.support.design.widget.CoordinatorLayout
+  <android.support.constraint.ConstraintLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="wrap_content"
       >
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -39,121 +39,112 @@
             android:inputType="textCapWords"
             android:maxLength="20"
             android:maxLines="1"
+            android:fontFamily="@font/open_sans_semibold"
             android:minEms="20"
             android:text="@{counter.name}"
             />
       </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/counter_dialog_value"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_counter_value"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        />
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/et_counter_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:gravity="right"
+        android:inputType="number|numberSigned"
+        android:maxLines="1"
+        android:minEms="3"
+        android:text='@{String.valueOf(counter.value), default="1"}'
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_value"
+        app:layout_constraintLeft_toRightOf="@id/tv_value"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_default"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/counter_dialog_default_value"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="@id/tv_value"
+        app:layout_constraintTop_toBottomOf="@id/tv_value"
+        />
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/et_counter_default_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:inputType="number|numberSigned"
+        android:maxLines="1"
+        android:minEms="3"
+        android:text='@{String.valueOf(counter.defaultValue), default="1"}'
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_default"
+        app:layout_constraintLeft_toLeftOf="@id/et_counter_value"
+        />
+    <TextView
+        android:id="@+id/tv_step"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/counter_dialog_step"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintLeft_toLeftOf="@id/tv_default"
+        app:layout_constraintTop_toBottomOf="@id/tv_default"
+        />
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/et_counter_step"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:inputType="number|numberSigned"
+        android:maxLines="1"
+        android:minEms="3"
+        android:text='@{String.valueOf(counter.step), default="1"}'
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_step"
+        app:layout_constraintLeft_toLeftOf="@id/et_counter_default_value"
+        />
+
+    <TextView
+        android:id="@+id/tv_color"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Color"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="@+id/color"
+        app:layout_constraintLeft_toLeftOf="@id/tv_step"
+        app:layout_constraintTop_toTopOf="@+id/color"
+        />
+    <FrameLayout
+        android:id="@+id/color"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onColorPickerClick"
+        app:layout_constraintLeft_toLeftOf="@id/et_counter_step"
+        app:layout_constraintRight_toRightOf="@id/et_counter_step"
+        app:layout_constraintTop_toBottomOf="@id/et_counter_step"
         >
-      <android.support.constraint.ConstraintLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:paddingBottom="24dp"
-          >
-
-        <TextView
-            android:id="@+id/tv_value"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/counter_dialog_value"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@+id/et_counter_value"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_counter_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:inputType="number|numberSigned"
-            android:maxLines="1"
-            android:minEms="3"
-            android:text='@{String.valueOf(counter.value), default="1"}'
-            app:layout_constraintBaseline_toBaselineOf="@+id/tv_value"
-            app:layout_constraintLeft_toRightOf="@id/tv_value"
-            app:layout_constraintRight_toRightOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/tv_default"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/counter_dialog_default_value"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintLeft_toLeftOf="@id/tv_value"
-            app:layout_constraintTop_toBottomOf="@id/tv_value"
-            />
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_counter_default_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number|numberSigned"
-            android:maxLines="1"
-            android:minEms="3"
-            android:text='@{String.valueOf(counter.defaultValue), default="1"}'
-            app:layout_constraintBaseline_toBaselineOf="@id/tv_default"
-            app:layout_constraintLeft_toLeftOf="@id/et_counter_value"
-            />
-        <TextView
-            android:id="@+id/tv_step"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/counter_dialog_step"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintLeft_toLeftOf="@id/tv_default"
-            app:layout_constraintTop_toBottomOf="@id/tv_default"
-            />
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/et_counter_step"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number|numberSigned"
-            android:maxLines="1"
-            android:minEms="3"
-            android:text='@{String.valueOf(counter.step), default="1"}'
-            app:layout_constraintBaseline_toBaselineOf="@id/tv_step"
-            app:layout_constraintLeft_toLeftOf="@id/et_counter_default_value"
-            />
-
-        <TextView
-            android:id="@+id/tv_color"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Color"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintLeft_toLeftOf="@id/tv_step"
-            app:layout_constraintTop_toTopOf="@+id/color"
-            app:layout_constraintBottom_toBottomOf="@+id/color"
-            />
-        <FrameLayout
-            android:id="@+id/color"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:onClick="onColorPickerClick"
-            app:layout_constraintLeft_toLeftOf="@id/et_counter_step"
-            app:layout_constraintRight_toRightOf="@id/et_counter_step"
-            app:layout_constraintTop_toBottomOf="@id/et_counter_step"
-            >
-          <com.afollestad.materialdialogs.color.CircleView
-              android:id="@+id/color_preview"
-              android:layout_width="24dp"
-              android:layout_height="24dp"
-              android:layout_gravity="center"
-              android:setBackgroundColor="@{Color.parseColor(counter.color)}"
-
-              />
-        </FrameLayout>
-      </android.support.constraint.ConstraintLayout>
-    </ScrollView>
-  </android.support.design.widget.CoordinatorLayout>
+      <com.afollestad.materialdialogs.color.CircleView
+          android:id="@+id/color_preview"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:layout_gravity="center"
+          android:setBackgroundColor="@{Color.parseColor(counter.color)}"
+          />
+    </FrameLayout>
+  </android.support.constraint.ConstraintLayout>
 </layout>

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import com.afollestad.materialdialogs.MaterialDialog;
 import io.paperdb.Paper;
+import java.util.Random;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
@@ -21,20 +22,21 @@ import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
   private ActivityCountersBinding binding;
+  private String[] colors;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = DataBindingUtil.setContentView(this, R.layout.activity_counters);
 
     setSupportActionBar(binding.toolbar);
-
+    colors = getResources().getStringArray(R.array.color_collection);
     loadSettings();
     binding.setCallback(this);
     binding.setItems(CurrentSet.getInstance().getCounters());
   }
 
   private void loadSettings() {
-    if (CurrentSet.getInstance().getCounters() == null) {
+    if (CurrentSet.getInstance().getSize() == 0) {
       ObservableArrayList<Counter> counters = Paper.book().read(ACTIVE_COUNTERS);
       if (counters != null && !counters.isEmpty()) {
         CurrentSet.getInstance().setCounters(counters);
@@ -79,7 +81,21 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   private void addCounter() {
     final int size = CurrentSet.getInstance().getSize();
     final String caption = getString(R.string.counter_default_title, size + 1);
-    CurrentSet.getInstance().addCounter(caption);
+    CurrentSet.getInstance().addCounter(caption, getRandomColor());
+  }
+
+  public String getRandomColor() {
+    //SecureRandom randomNum = new SecureRandom();
+    final int presetSize = colors.length;
+    final String hex = colors[new Random().nextInt(presetSize)];
+    if (!CurrentSet.getInstance().getAlreadyUsedColors().contains(hex)) {
+      return hex;
+    } else {
+      if (presetSize <= CurrentSet.getInstance().getSize()) {
+        CurrentSet.getInstance().getAlreadyUsedColors().clear();
+      }
+      return getRandomColor();
+    }
   }
 
   @Override public void onNameClick(String id) {
@@ -128,7 +144,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   }
 
   @Override public void onCounterAdded() {
-    //binding.recyclerView.postDelayed(() -> binding.recyclerView.smoothScrollToPosition(CurrentSet.getInstance().getSize()-1), 300L);
   }
 
   @Override protected void onDestroy() {

@@ -5,6 +5,8 @@
     >
   <data>
     <import type="android.graphics.Color"/>
+
+    <import type="ua.napps.scorekeeper.utils.ColorUtil"/>
     <variable
         name="callback"
         type="ua.napps.scorekeeper.counters.CounterActionCallback"
@@ -43,12 +45,13 @@
             android:layout_weight="1"
             android:clickable="false"
             android:ellipsize="end"
+            android:fontFamily="@font/open_sans_semibold"
             android:gravity="center"
             android:maxLines="1"
             android:text='@{data.name, default="Counter"}'
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@{Color.parseColor(data.textColor)}"
+            android:textColor="@{ColorUtil.isDarkBackground(data.color) ? @color/white_87 : @color/textColorSecondary}"
             />
         <ImageView
             android:layout_width="wrap_content"
@@ -56,7 +59,7 @@
             android:layout_gravity="left|center_vertical"
             android:alpha="0.38"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_edit"
+            android:src="@{ColorUtil.isDarkBackground(data.color) ? @drawable/ic_edit_white :@drawable/ic_edit}"
             />
       </LinearLayout>
       <FrameLayout
@@ -71,12 +74,12 @@
             android:layout_marginLeft="80dp"
             android:layout_marginRight="80dp"
             android:clickable="false"
-            android:fontFamily="@font/squada_one_regular"
+            android:fontFamily="@font/squada_one"
             android:gravity="center"
             android:lines="1"
             android:onLongClick="@{(v)->callback.onValueLongClick(v,data)}"
             android:text='@{String.valueOf(data.value), default="0"}'
-            android:textColor="@{Color.parseColor(data.textColor)}"
+            android:textColor="@{ColorUtil.isDarkBackground(data.color) ? @color/white_87 : @color/textColorSecondary}"
             app:autoSizeMaxTextSize="120sp"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeStepGranularity="2sp"
@@ -104,7 +107,7 @@
                 android:layout_margin="16dp"
                 android:alpha="0.38"
                 android:scaleType="center"
-                app:srcCompat="@drawable/ic_indeterminate_check_box"
+                android:src="@{ColorUtil.isDarkBackground(data.color) ? @drawable/ic_indeterminate_check_box_white : @drawable/ic_indeterminate_check_box}"
                 />
           </FrameLayout>
           <FrameLayout
@@ -122,7 +125,7 @@
                 android:layout_margin="16dp"
                 android:alpha="0.38"
                 android:scaleType="center"
-                app:srcCompat="@drawable/ic_add_box"
+                android:src="@{ColorUtil.isDarkBackground(data.color) ? @drawable/ic_add_box_white : @drawable/ic_add_box}"
                 />
           </FrameLayout>
         </LinearLayout>
