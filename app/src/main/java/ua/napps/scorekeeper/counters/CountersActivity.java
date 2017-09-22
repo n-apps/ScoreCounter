@@ -157,6 +157,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     addCounter();
   }
 
+  @Override public void scrollToPosition(int position) {
+    binding.recyclerView.smoothScrollToPosition(position);
+  }
+
   @Override protected void onDestroy() {
     saveSettings();
     binding.unbind();
