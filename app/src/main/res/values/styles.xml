@@ -11,8 +11,12 @@
     <item name="alertDialogTheme">@style/MyDialog</item>
   </style>
 
-  <style name="MyToolbar" parent="Theme.AppCompat.NoActionBar">
-    <item name="android:textColorPrimary">@color/toolbarTextColor</item>
+  <style name="ToolBarStyle" parent="ToolBarStyle.Base"/>
+
+  <style name="ToolBarStyle.Base" parent="">
+    <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+    <item name="theme">@style/AppTheme.AppBarOverlay</item>
+    <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
   </style>
 
   <style name="MyDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
@@ -22,5 +26,9 @@
   <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+  <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:fontFamily">@font/open_sans_semibold</item>
+  </style>
 
 </resources>

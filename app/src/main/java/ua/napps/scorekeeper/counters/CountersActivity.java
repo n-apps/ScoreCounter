@@ -10,12 +10,15 @@ import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import com.afollestad.materialdialogs.MaterialDialog;
 import io.paperdb.Paper;
 import java.util.Random;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
+import ua.napps.scorekeeper.settings.SettingsActivity;
+import ua.napps.scorekeeper.utils.Constants;
 
 import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
 
@@ -41,6 +44,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
       if (counters != null && !counters.isEmpty()) {
         CurrentSet.getInstance().setCounters(counters);
       }
+    }
+    final boolean isKeepScreenOn =
+        Paper.book(Constants.SETTINGS).read(Constants.SETTINGS_STAY_AWAKE, true);
+    if (isKeepScreenOn) {
+      getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    } else {
+      getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
   }
 
@@ -68,6 +78,11 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         break;
       case R.id.menu_reset_all:
         CurrentSet.getInstance().resetAllCounters();
+        break;
+      case R.id.menu_settings:
+        Intent intent = new Intent(this, SettingsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         break;
     }
     return true;
