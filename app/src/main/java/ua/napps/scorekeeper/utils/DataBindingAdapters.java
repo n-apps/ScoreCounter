@@ -64,7 +64,6 @@ public class DataBindingAdapters {
             new FlexboxLayoutManager(recyclerView.getContext(), FlexDirection.ROW, FlexWrap.WRAP);
         recyclerView.setLayoutManager(layoutManager);
       }
-      recyclerView.smoothScrollToPosition(size - 1);
     }
   }
 

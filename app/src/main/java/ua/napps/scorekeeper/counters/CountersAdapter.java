@@ -34,6 +34,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
           @Override
           public void onItemRangeInserted(ObservableList<Counter> counters, int i, int i1) {
             notifyItemInserted(i);
+            callback.scrollToPosition(i);
           }
 
           @Override

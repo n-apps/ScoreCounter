@@ -92,6 +92,7 @@
             android:layout_height="match_parent"
             android:baselineAligned="false"
             android:gravity="center_vertical"
+            android:clipChildren="false"
             android:orientation="horizontal"
             >
           <FrameLayout
