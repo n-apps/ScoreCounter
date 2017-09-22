@@ -27,7 +27,8 @@
           android:id="@+id/toolbar"
           android:layout_width="match_parent"
           android:layout_height="?attr/actionBarSize"
-          android:theme="@style/MyToolbar"
+          style="@style/ToolBarStyle"
+          android:fontFamily="@font/open_sans_semibold"
           app:title="@string/app_name"
           />
     </android.support.design.widget.AppBarLayout>

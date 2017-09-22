@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ua.napps.scorekeeper.settings.SettingsActivity"
+    >
+  <data>
+    <variable
+        name="stayAwake"
+        type="android.databinding.ObservableBoolean"
+        />
+  </data>
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+      <android.support.v7.widget.Toolbar
+          android:id="@+id/toolbar"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          style="@style/ToolBarStyle"
+          app:title="@string/settings"
+          />
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/sw_stay_awake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="@={stayAwake}"
+
+        android:paddingBottom="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingLeft="@dimen/material_layout_keylines_content_left_margin_from_screen_edge"
+        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingTop="@dimen/material_layout_keylines_screen_edge_margin"
+        android:text="@string/settings_stay_awake"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        />
+  </android.support.constraint.ConstraintLayout>
+</layout>
