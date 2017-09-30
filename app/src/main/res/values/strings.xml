@@ -15,4 +15,6 @@
   <string name="settings">Settings</string>
   <string name="settings_stay_awake">Stay awake</string>
   <string name="menu_settings">Settings</string>
+  <string name="action_select">Select</string>
+  <string name="dialog_select_color_title">Select counter color</string>
 </resources>

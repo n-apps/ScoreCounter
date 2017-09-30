@@ -3,7 +3,6 @@
 buildscript {
   repositories {
     jcenter()
-
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:3.0.0-beta6'
@@ -20,7 +19,7 @@ plugins {
 allprojects {
   repositories {
     jcenter()
-   google()
+    google()
   }
 }
 
@@ -37,5 +36,5 @@ ext {
   buildToolsVersion = '26.0.1'
 
   // App dependencies
-  supportLibraryVersion = '26.0.2'
+  supportLibraryVersion = '26.0.1'
 }

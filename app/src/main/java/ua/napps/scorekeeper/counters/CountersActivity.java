@@ -59,6 +59,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     saveSettings();
   }
 
+  @Override protected void onStart() {
+    super.onStart();
+    loadSettings();
+    invalidateOptionsMenu();
+  }
+
   private void saveSettings() {
     Paper.book().write(ACTIVE_COUNTERS, CurrentSet.getInstance().getCounters());
   }
@@ -68,13 +74,27 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     return true;
   }
 
+  @Override public boolean onPrepareOptionsMenu(Menu menu) {
+    MenuItem removeItem = menu.findItem(R.id.menu_remove_all);
+    final boolean hasCounters = CurrentSet.getInstance().getSize() > 0;
+    if (removeItem != null) {
+      removeItem.setEnabled(hasCounters);
+    }
+    MenuItem clearAllItem = menu.findItem(R.id.menu_reset_all);
+    if (clearAllItem != null) {
+      clearAllItem.setEnabled(hasCounters);
+    }
+    return super.onPrepareOptionsMenu(menu);
+  }
+
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menu_add_counter:
         addCounter();
         break;
-      case R.id.menu_clear_all:
+      case R.id.menu_remove_all:
         CurrentSet.getInstance().removeAllCounters();
+        invalidateOptionsMenu();
         break;
       case R.id.menu_reset_all:
         CurrentSet.getInstance().resetAllCounters();
@@ -110,8 +130,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
   @Override public void onNameClick(String id) {
     Intent intent = EditCounterActivity.getIntent(this, id);
-    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    startActivity(intent);
+    startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
   }
 
   @Override public boolean onNameLongClick(View v, Counter counter) {
@@ -159,6 +178,15 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
   @Override public void scrollToPosition(int position) {
     binding.recyclerView.smoothScrollToPosition(position);
+  }
+
+  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == EditCounterActivity.REQUEST_CODE) {
+      if (resultCode == EditCounterActivity.RESULT_DELETE) {
+        invalidateOptionsMenu();
+      }
+    }
+    super.onActivityResult(requestCode, resultCode, data);
   }
 
   @Override protected void onDestroy() {

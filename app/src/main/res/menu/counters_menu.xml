@@ -12,7 +12,7 @@
       android:title="@string/menu_reset_all_counters"
       app:showAsAction="never"/>
   <item
-      android:id="@+id/menu_clear_all"
+      android:id="@+id/menu_remove_all"
       android:title="@string/menu_remove_all_counters"
       app:showAsAction="never"/>
   <item
