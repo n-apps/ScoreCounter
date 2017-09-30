@@ -32,12 +32,6 @@ android {
     }
   }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-
-
   buildTypes {
     debug {
       // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
@@ -62,6 +56,8 @@ dependencies {
   compile "com.android.support:design:$rootProject.supportLibraryVersion"
   compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
   compile "com.android.support:support-vector-drawable:$rootProject.supportLibraryVersion"
+  compile "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+  compile "android.arch.persistence.room:runtime:$rootProject.archRoomVersion"
   compile 'com.google.android:flexbox:0.3.0'
   compile 'com.dmitrymalkovich.android:material-design-dimens:1.4'
   compile 'io.paperdb:paperdb:2.1'
@@ -69,4 +65,7 @@ dependencies {
   compile 'com.afollestad.material-dialogs:commons:0.9.4.7'
   compile 'com.android.support.constraint:constraint-layout:1.0.2'
   compile 'com.jakewharton.timber:timber:4.5.1'
+
+  annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+  annotationProcessor "android.arch.persistence.room:compiler:$rootProject.archRoomVersion"
 }
