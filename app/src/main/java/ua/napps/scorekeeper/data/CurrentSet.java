@@ -45,12 +45,12 @@ public final class CurrentSet {
     return counters;
   }
 
-  public void removeCounter(Counter item) {
+  public synchronized void removeCounter(Counter item) {
     counters.remove(item);
     alreadyUsedColors.remove(item.getColor());
   }
 
-  public void removeCounter(String id) {
+  public synchronized void removeCounter(String id) {
     final Counter counter = getCounter(id);
     if (counter != null) {
       removeCounter(counter);
@@ -64,7 +64,7 @@ public final class CurrentSet {
     alreadyUsedColors.add(color);
   }
 
-  public void removeAllCounters() {
+  public synchronized void removeAllCounters() {
     counters.clear();
     alreadyUsedColors.clear();
   }

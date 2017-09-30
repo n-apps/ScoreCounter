@@ -19,7 +19,12 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 public class EditCounterActivity extends AppCompatActivity
     implements ColorChooserDialog.ColorCallback {
 
+  public static final int REQUEST_CODE = 1;
+  public static final int RESULT_DELETE = 1003;
+  public static final int RESULT_EDITED = 1004;
+
   protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
+
   private ActivityEditCounterBinding binding;
   private Counter counter;
 
@@ -47,11 +52,13 @@ public class EditCounterActivity extends AppCompatActivity
     if (counter == null) throw new NullPointerException("Counter with id " + id + " is null!");
 
     binding.btnDelete.setOnClickListener(v -> {
-      supportFinishAfterTransition();
       CurrentSet.getInstance().removeCounter(id);
+      setResult(RESULT_DELETE);
+      finish();
     });
     binding.setCounter(counter);
     binding.executePendingBindings();
+    binding.etCounterName.setSelection(counter.getName().length());
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,7 +69,7 @@ public class EditCounterActivity extends AppCompatActivity
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case android.R.id.home:
-        supportFinishAfterTransition();
+        finish();
         break;
       case R.id.menu_save_counter: {
         if (fieldsIsValid()) {
@@ -73,7 +80,7 @@ public class EditCounterActivity extends AppCompatActivity
               Integer.parseInt(binding.etCounterDefaultValue.getText().toString()));
 
           CurrentSet.getInstance().replaceCounter(counter);
-          Toast.makeText(EditCounterActivity.this, "Counter updated", Toast.LENGTH_SHORT).show();
+          setResult(RESULT_EDITED);
           finish();
         } else {
           Toast.makeText(EditCounterActivity.this, "Wrong fields", Toast.LENGTH_SHORT).show();
@@ -85,13 +92,10 @@ public class EditCounterActivity extends AppCompatActivity
   }
 
   public void onColorPickerClick(View v) {
-    new ColorChooserDialog.Builder(this, R.string.color_palette).titleSub(R.string.colors)
-        .accentMode(false)
-        .doneButton(R.string.md_done_label)
+    new ColorChooserDialog.Builder(this, R.string.dialog_select_color_title).doneButton(
+        R.string.action_select)
         .cancelButton(R.string.md_cancel_label)
-        .backButton(R.string.md_back_label)
-        .dynamicButtonColor(false)
-        .show();
+        .dynamicButtonColor(false).allowUserColorInputAlpha(false).show(this);
   }
 
   private boolean fieldsIsValid() {
@@ -105,6 +109,5 @@ public class EditCounterActivity extends AppCompatActivity
   }
 
   @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
-
   }
 }

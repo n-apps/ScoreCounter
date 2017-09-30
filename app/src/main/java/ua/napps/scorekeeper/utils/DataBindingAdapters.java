@@ -5,6 +5,7 @@ import android.databinding.ObservableArrayList;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
@@ -103,6 +104,42 @@ public class DataBindingAdapters {
 
   @BindingAdapter({ "android:drawableBottom" })
   public static void setDrawableBottom(TextView view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null, null, null,
+        ContextCompat.getDrawable(view.getContext(), resourceId));
+  }
+
+  @BindingAdapter({ "android:drawableLeft" })
+  public static void setDrawableLeft(Button view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableStart" })
+  public static void setDrawableStart(Button view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableRight" })
+  public static void setDrawableRight(Button view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null, null);
+  }
+
+  @BindingAdapter({ "android:drawableEnd" })
+  public static void setDrawableEnd(Button view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null, null,
+        ContextCompat.getDrawable(view.getContext(), resourceId), null);
+  }
+
+  @BindingAdapter({ "android:drawableTop" })
+  public static void setDrawableTop(Button view, int resourceId) {
+    view.setCompoundDrawablesWithIntrinsicBounds(null,
+        ContextCompat.getDrawable(view.getContext(), resourceId), null, null);
+  }
+
+  @BindingAdapter({ "android:drawableBottom" })
+  public static void setDrawableBottom(Button view, int resourceId) {
     view.setCompoundDrawablesWithIntrinsicBounds(null, null, null,
         ContextCompat.getDrawable(view.getContext(), resourceId));
   }
