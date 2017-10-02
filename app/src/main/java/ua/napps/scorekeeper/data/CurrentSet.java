@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.data;
 
 import android.databinding.ObservableArrayList;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import ua.napps.scorekeeper.counters.Counter;
@@ -50,17 +49,10 @@ public final class CurrentSet {
     alreadyUsedColors.remove(item.getColor());
   }
 
-  public synchronized void removeCounter(String id) {
-    final Counter counter = getCounter(id);
-    if (counter != null) {
-      removeCounter(counter);
-    }
-  }
-
   public void addCounter(String caption, String color) {
     assert caption != null;
     assert color != null;
-    counters.add(new Counter(caption, color));
+    counters.add(new Counter(caption));
     alreadyUsedColors.add(color);
   }
 
@@ -69,25 +61,8 @@ public final class CurrentSet {
     alreadyUsedColors.clear();
   }
 
-  @Nullable public Counter getCounter(@NonNull String id) {
-    for (Counter counter : counters) {
-      if (counter.getId().equals(id)) {
-        return counter;
-      }
-    }
-    return null;
-  }
-
   public void replaceCounter(Counter counter) {
-    for (int i = 0; i < counters.size(); i++) {
-      Counter c = counters.get(i);
-      if (c.getId().equals(counter.getId())) {
-        counters.set(i, counter);
-        alreadyUsedColors.remove(c.getColor());
-        alreadyUsedColors.add(counter.getColor());
-        return;
-      }
-    }
+
   }
 
   public void resetAllCounters() {

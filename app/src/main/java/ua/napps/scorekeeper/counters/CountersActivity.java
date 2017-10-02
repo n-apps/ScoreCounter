@@ -1,10 +1,14 @@
 package ua.napps.scorekeeper.counters;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableArrayList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.Menu;
@@ -12,7 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import io.paperdb.Paper;
+import java.util.List;
 import java.util.Random;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
@@ -26,6 +34,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
   private ActivityCountersBinding binding;
   private String[] colors;
+  private CountersAdapter mProductAdapter;
+  private CountersViewModel viewModel;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -33,9 +43,46 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     setSupportActionBar(binding.toolbar);
     colors = getResources().getStringArray(R.array.color_collection);
-    loadSettings();
-    binding.setCallback(this);
-    binding.setItems(CurrentSet.getInstance().getCounters());
+
+    mProductAdapter = new CountersAdapter(this);
+
+    viewModel = ViewModelProviders.of(this).get(CountersViewModel.class);
+
+    FlexboxLayoutManager layoutManager =
+        new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
+    binding.recyclerView.setLayoutManager(layoutManager);
+
+    subscribeUi();
+  }
+
+  private void subscribeUi() {
+    // Update the list when the data changes
+    viewModel.getProducts().observe(this, new Observer<List<Counter>>() {
+      @Override public void onChanged(@Nullable List<Counter> myProducts) {
+        if (myProducts != null) {
+          //mBinding.setIsLoading(false);
+          mProductAdapter.setProductList(myProducts);
+          if (myProducts.size() <= 4) {
+            if (((FlexboxLayoutManager) binding.recyclerView.getLayoutManager()).getFlexWrap()
+                != FlexWrap.NOWRAP) {
+              FlexboxLayoutManager layoutManager =
+                  new FlexboxLayoutManager(CountersActivity.this, FlexDirection.COLUMN,
+                      FlexWrap.NOWRAP);
+              binding.recyclerView.setLayoutManager(layoutManager);
+            }
+          } else {
+            if (((FlexboxLayoutManager) binding.recyclerView.getLayoutManager()).getFlexWrap()
+                != FlexWrap.WRAP) {
+              FlexboxLayoutManager layoutManager =
+                  new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
+              binding.recyclerView.setLayoutManager(layoutManager);
+            }
+          }
+        } else {
+          //mBinding.setIsLoading(true);
+        }
+      }
+    });
   }
 
   private void loadSettings() {
@@ -109,9 +156,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   }
 
   private void addCounter() {
-    final int size = CurrentSet.getInstance().getSize();
-    final String caption = getString(R.string.counter_default_title, size + 1);
-    CurrentSet.getInstance().addCounter(caption, getRandomColor());
+    viewModel.addCounter();
   }
 
   public String getRandomColor() {
@@ -128,48 +173,48 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
   }
 
-  @Override public void onNameClick(String id) {
-    Intent intent = EditCounterActivity.getIntent(this, id);
-    startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+  @Override public void onNameClick(int id) {
+
   }
 
-  @Override public boolean onNameLongClick(View v, Counter counter) {
+  @Override public boolean onNameLongClick(View v, final Counter counter) {
     assert counter != null;
     new MaterialDialog.Builder(this).content("Counter name")
         .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
             | InputType.TYPE_CLASS_TEXT
             | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
-        .input("Hint", counter.getName(), (dialog, input) -> counter.setName(input.toString()))
+        .input("Hint", counter.getName(), new MaterialDialog.InputCallback() {
+          @Override public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+            counter.setName(input.toString());
+          }
+        })
         .widgetColor(Color.parseColor(counter.getColor()))
         .positiveText("Set")
         .show();
     return true;
   }
 
-  @Override public boolean onValueLongClick(View v, Counter counter) {
+  @Override public boolean onValueLongClick(View v, final Counter counter) {
     assert counter != null;
     new MaterialDialog.Builder(this).content("Counter value")
         .inputType(InputType.TYPE_CLASS_NUMBER)
-        .input("Hint", String.valueOf(counter.getValue()),
-            (dialog, input) -> counter.setValue(Integer.parseInt(String.valueOf(input))))
+        .input("Hint", String.valueOf(counter.getValue()), new MaterialDialog.InputCallback() {
+          @Override public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+            counter.setValue(Integer.parseInt(String.valueOf(input)));
+          }
+        })
         .widgetColor(Color.parseColor(counter.getColor()))
         .positiveText("Set")
         .show();
     return true;
   }
 
-  @Override public void onIncreaseClick(String id) {
-    final Counter counter = CurrentSet.getInstance().getCounter(id);
-    assert counter != null;
-    final int newValue = counter.getValue() + counter.getStep();
-    counter.setValue(newValue);
+  @Override public void onIncreaseClick(int id) {
+
   }
 
-  @Override public void onDecreaseClick(String id) {
-    final Counter counter = CurrentSet.getInstance().getCounter(id);
-    assert counter != null;
-    final int newValue = counter.getValue() - counter.getStep();
-    counter.setValue(newValue);
+  @Override public void onDecreaseClick(int id) {
+
   }
 
   @Override public void onAddCounterClick() {

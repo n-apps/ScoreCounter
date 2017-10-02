@@ -1,95 +1,95 @@
 package ua.napps.scorekeeper.counters;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
-import android.databinding.ObservableList;
+import android.support.annotation.Nullable;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.google.android.flexbox.FlexboxLayoutManager;
-import timber.log.Timber;
+import java.util.List;
+import java.util.Objects;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ItemCounterBinding;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHolder> {
 
-  private final CounterActionCallback callback;
-  private final ObservableArrayList<Counter> counters;
+  List<? extends Counter> mProductList;
   private int height;
 
-  public CountersAdapter(CounterActionCallback callback, ObservableArrayList<Counter> counters) {
-    this.callback = callback;
-    this.counters = counters;
-    this.counters.addOnListChangedCallback(
-        new ObservableList.OnListChangedCallback<ObservableList<Counter>>() {
-          @Override public void onChanged(ObservableList<Counter> counters) {
-            notifyDataSetChanged();
-          }
+  @Nullable private final CounterActionCallback mProductClickCallback;
 
-          @Override
-          public void onItemRangeChanged(ObservableList<Counter> counters, int i, int i1) {
+  public CountersAdapter(@Nullable CounterActionCallback callback) {
+    mProductClickCallback = callback;
+  }
 
-          }
+  public void setProductList(final List<? extends Counter> productList) {
+    if (mProductList == null) {
+      mProductList = productList;
+      notifyItemRangeInserted(0, productList.size());
+    } else {
+      DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+        @Override public int getOldListSize() {
+          return mProductList.size();
+        }
 
-          @Override
-          public void onItemRangeInserted(ObservableList<Counter> counters, int i, int i1) {
-            notifyItemInserted(i);
-            callback.scrollToPosition(i);
-          }
+        @Override public int getNewListSize() {
+          return productList.size();
+        }
 
-          @Override
-          public void onItemRangeMoved(ObservableList<Counter> counters, int i, int i1, int i2) {
+        @Override public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+          return Objects.equals(mProductList.get(oldItemPosition).getId(),
+              productList.get(newItemPosition).getId());
+        }
 
-          }
-
-          @Override
-          public void onItemRangeRemoved(ObservableList<Counter> counters, int i, int i1) {
-            notifyDataSetChanged();
-          }
-        });
+        @Override public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+          Counter newProduct = productList.get(newItemPosition);
+          Counter oldProduct = mProductList.get(oldItemPosition);
+          return Objects.equals(newProduct.getId(), oldProduct.getId()) && Objects.equals(
+              newProduct.getColor(), oldProduct.getColor()) && Objects.equals(newProduct.getName(),
+              oldProduct.getName()) && newProduct.getValue() == oldProduct.getValue();
+        }
+      });
+      mProductList = productList;
+      result.dispatchUpdatesTo(this);
+    }
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
     ItemCounterBinding binding =
-        DataBindingUtil.inflate(layoutInflater, R.layout.item_counter, parent, false);
+        DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_counter,
+            parent, false);
     return new ViewHolder(binding);
   }
 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
-    holder.binding.setCallback(callback);
-    holder.binding.setData(counters.get(position));
+    holder.binding.setCallback(mProductClickCallback);
+    holder.binding.setData(mProductList.get(position));
     holder.binding.executePendingBindings();
-    ViewGroup.LayoutParams lp = holder.binding.getRoot().getLayoutParams();
-    if (lp instanceof FlexboxLayoutManager.LayoutParams) {
-      FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
-      flexboxLp.setFlexGrow(1.0f);
-      final int itemCount = getItemCount();
 
-      if (itemCount > 4) {
-        flexboxLp.setHeight(height == 0 ? 384 : height);
-      } else {
-        if (itemCount == 4) {
-          height = holder.binding.getRoot().getHeight();
-        }
-        flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-      }
-      Timber.d("height " + height);
-    }
+    //ViewGroup.LayoutParams lp = holder.binding.getRoot().getLayoutParams();
+    //if (lp instanceof FlexboxLayoutManager.LayoutParams) {
+    //  FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
+    //  flexboxLp.setFlexGrow(1.0f);
+    //  final int itemCount = getItemCount();
+    //
+    //  if (itemCount > 4) {
+    //    flexboxLp.setHeight(height == 0 ? 384 : height);
+    //  } else {
+    //    if (itemCount == 4) {
+    //      height = holder.binding.getRoot().getHeight();
+    //    }
+    //    flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+    //  }
+    //}
   }
 
   @Override public int getItemCount() {
-    return counters.size();
+    return mProductList == null ? 0 : mProductList.size();
   }
-
-  //public void changeItems(ObservableArrayList<Counter> counters) {
-  //  this.counters = counters;
-  //  notifyDataSetChanged();
-  //}
 
   static class ViewHolder extends RecyclerView.ViewHolder {
 
-    ItemCounterBinding binding;
+    final ItemCounterBinding binding;
 
     ViewHolder(ItemCounterBinding binding) {
       super(binding.getRoot());

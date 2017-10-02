@@ -36,8 +36,7 @@ public class DataBindingAdapters {
     CountersAdapter rvAdapter = (CountersAdapter) recyclerView.getAdapter();
 
     if (rvAdapter == null) {
-      CountersAdapter adapter =
-          new CountersAdapter(callback, CurrentSet.getInstance().getCounters());
+      CountersAdapter adapter = new CountersAdapter(callback);
       if (CurrentSet.getInstance().getSize() > 5) {
         FlexboxLayoutManager layoutManager =
             new FlexboxLayoutManager(recyclerView.getContext(), FlexDirection.COLUMN,
