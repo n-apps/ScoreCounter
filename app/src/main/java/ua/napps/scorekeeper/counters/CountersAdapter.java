@@ -6,6 +6,7 @@ import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
 import java.util.Objects;
 import ua.com.napps.scorekeeper.R;
@@ -66,21 +67,21 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersAdapter.ViewHo
     holder.binding.setData(mProductList.get(position));
     holder.binding.executePendingBindings();
 
-    //ViewGroup.LayoutParams lp = holder.binding.getRoot().getLayoutParams();
-    //if (lp instanceof FlexboxLayoutManager.LayoutParams) {
-    //  FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
-    //  flexboxLp.setFlexGrow(1.0f);
-    //  final int itemCount = getItemCount();
-    //
-    //  if (itemCount > 4) {
-    //    flexboxLp.setHeight(height == 0 ? 384 : height);
-    //  } else {
-    //    if (itemCount == 4) {
-    //      height = holder.binding.getRoot().getHeight();
-    //    }
-    //    flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-    //  }
-    //}
+    ViewGroup.LayoutParams lp = holder.binding.getRoot().getLayoutParams();
+    if (lp instanceof FlexboxLayoutManager.LayoutParams) {
+      FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
+      flexboxLp.setFlexGrow(1.0f);
+      final int itemCount = getItemCount();
+
+      if (itemCount > 4) {
+        flexboxLp.setHeight(height == 0 ? 384 : height);
+      } else {
+        if (itemCount == 4) {
+          height = holder.binding.getRoot().getHeight();
+        }
+        flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+      }
+    }
   }
 
   @Override public int getItemCount() {
