@@ -51,6 +51,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     FlexboxLayoutManager layoutManager =
         new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
     binding.recyclerView.setLayoutManager(layoutManager);
+    binding.recyclerView.setAdapter(mProductAdapter);
 
     subscribeUi();
   }
