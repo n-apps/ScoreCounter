@@ -27,6 +27,7 @@ import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
 import ua.napps.scorekeeper.data.CurrentSet;
 import ua.napps.scorekeeper.settings.SettingsActivity;
 import ua.napps.scorekeeper.utils.Constants;
+import ua.napps.scorekeeper.utils.NoChangeAnimator;
 
 import static ua.napps.scorekeeper.utils.Constants.ACTIVE_COUNTERS;
 
@@ -52,6 +53,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
     binding.recyclerView.setLayoutManager(layoutManager);
     binding.recyclerView.setAdapter(mProductAdapter);
+    binding.recyclerView.setItemAnimator(new NoChangeAnimator());
 
     subscribeUi();
   }
@@ -174,8 +176,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
   }
 
-  @Override public void onNameClick(int id) {
-
+  @Override public void onNameClick(Counter counter) {
+    final Intent intent = EditCounterActivity.getIntent(this, counter.getId());
+    startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
   }
 
   @Override public boolean onNameLongClick(View v, final Counter counter) {
@@ -210,12 +213,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     return true;
   }
 
-  @Override public void onIncreaseClick(int id) {
-
+  @Override public void onIncreaseClick(Counter counter) {
+    viewModel.increaseCounter(counter);
   }
 
-  @Override public void onDecreaseClick(int id) {
-
+  @Override public void onDecreaseClick(Counter counter) {
+    viewModel.decreaseCounter(counter);
   }
 
   @Override public void onAddCounterClick() {

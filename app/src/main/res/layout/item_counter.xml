@@ -34,7 +34,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:background="#2E000000"
-          android:onClick="@{() -> callback.onNameClick(data.id)}"
+          android:onClick="@{() -> callback.onNameClick(data)}"
           android:onLongClick="@{(v)->callback.onNameLongClick(v,data)}"
           android:orientation="horizontal"
           android:padding="8dp"
@@ -101,7 +101,7 @@
               android:layout_height="match_parent"
               android:layout_weight="1"
               android:foreground="?attr/selectableItemBackgroundBorderless"
-              bind:repeatableCallback="@{() -> callback.onDecreaseClick(data.id)}"
+              bind:repeatableCallback="@{() -> callback.onDecreaseClick(data)}"
               >
             <ImageView
                 android:layout_width="48dp"
@@ -119,7 +119,7 @@
               android:layout_height="match_parent"
               android:layout_weight="1"
               android:foreground="?attr/selectableItemBackgroundBorderless"
-              bind:repeatableCallback="@{() -> callback.onIncreaseClick(data.id)}"
+              bind:repeatableCallback="@{() -> callback.onIncreaseClick(data)}"
               >
             <ImageView
                 android:layout_width="48dp"

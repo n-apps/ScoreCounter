@@ -1,10 +1,13 @@
 package ua.napps.scorekeeper.counters;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +16,6 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityEditCounterBinding;
-import ua.napps.scorekeeper.data.CurrentSet;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class EditCounterActivity extends AppCompatActivity
@@ -26,9 +28,9 @@ public class EditCounterActivity extends AppCompatActivity
   protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
 
   private ActivityEditCounterBinding binding;
-  private Counter counter;
+  private EditCounterViewModel viewModel;
 
-  public static Intent getIntent(Context context, String id) {
+  public static Intent getIntent(Context context, final int id) {
     Intent intent = new Intent(context, EditCounterActivity.class);
     intent.putExtra(ARGUMENT_COUNTER_ID, id);
     return intent;
@@ -43,12 +45,14 @@ public class EditCounterActivity extends AppCompatActivity
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setTitle("");
 
-    final String id = getIntent().getStringExtra(ARGUMENT_COUNTER_ID);
+    final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
-    if (id == null) throw new NullPointerException("Counter id is null!");
+    EditCounterViewModel.Factory factory = new EditCounterViewModel.Factory(getApplication(), id);
 
+    viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
 
-    if (counter == null) throw new NullPointerException("Counter with id " + id + " is null!");
+    subscribeToModel(viewModel);
+    binding.setViewModel(viewModel);
 
     binding.btnDelete.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
@@ -56,9 +60,19 @@ public class EditCounterActivity extends AppCompatActivity
         EditCounterActivity.this.finish();
       }
     });
-    binding.setCounter(counter);
-    binding.executePendingBindings();
-    binding.etCounterName.setSelection(counter.getName().length());
+  }
+
+  private void subscribeToModel(EditCounterViewModel model) {
+    // Observe product data
+    model.getCounter().observe(this, new Observer<Counter>() {
+      @Override public void onChanged(@Nullable Counter c) {
+        if (c != null) {
+          viewModel.counterName.set(c.getName());
+          viewModel.counterValue.set(c.getValue());
+          setResult(RESULT_EDITED);
+        }
+      }
+    });
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -73,13 +87,6 @@ public class EditCounterActivity extends AppCompatActivity
         break;
       case R.id.menu_save_counter: {
         if (fieldsIsValid()) {
-          counter.setName(binding.etCounterName.getText().toString());
-          counter.setValue(Integer.parseInt(binding.etCounterValue.getText().toString()));
-          counter.setStep(Integer.parseInt(binding.etCounterStep.getText().toString()));
-          counter.setDefaultValue(
-              Integer.parseInt(binding.etCounterDefaultValue.getText().toString()));
-
-          CurrentSet.getInstance().replaceCounter(counter);
           setResult(RESULT_EDITED);
           finish();
         } else {
@@ -95,7 +102,9 @@ public class EditCounterActivity extends AppCompatActivity
     new ColorChooserDialog.Builder(this, R.string.dialog_select_color_title).doneButton(
         R.string.action_select)
         .cancelButton(R.string.md_cancel_label)
-        .dynamicButtonColor(false).allowUserColorInputAlpha(false).show(this);
+        .dynamicButtonColor(false)
+        .allowUserColorInputAlpha(false)
+        .show(this);
   }
 
   private boolean fieldsIsValid() {
@@ -105,7 +114,6 @@ public class EditCounterActivity extends AppCompatActivity
   @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
     binding.colorPreview.setBackgroundColor(color);
     final String hex = ColorUtil.intColorToString(color);
-    counter.setColor(hex);
   }
 
   @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
