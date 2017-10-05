@@ -5,8 +5,8 @@
   <data>
     <import type="android.graphics.Color"/>
     <variable
-        name="counter"
-        type="ua.napps.scorekeeper.counters.Counter"
+        name="viewModel"
+        type="ua.napps.scorekeeper.counters.EditCounterViewModel"
         />
   </data>
   <android.support.constraint.ConstraintLayout
@@ -41,7 +41,7 @@
             android:maxLength="20"
             android:maxLines="1"
             android:minEms="20"
-            android:text="@{counter.name}"
+            android:text="@={viewModel.counterName}"
             />
       </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>
@@ -66,7 +66,7 @@
         android:inputType="number|numberSigned"
         android:maxLines="1"
         android:minEms="3"
-        android:text='@{String.valueOf(counter.value), default="1"}'
+        android:text="@={viewModel.counterValue}"
         app:layout_constraintBaseline_toBaselineOf="@+id/tv_value"
         app:layout_constraintLeft_toRightOf="@id/tv_value"
         app:layout_constraintRight_toRightOf="parent"
@@ -90,7 +90,6 @@
         android:inputType="number|numberSigned"
         android:maxLines="1"
         android:minEms="3"
-        android:text='@{String.valueOf(counter.defaultValue), default="1"}'
         app:layout_constraintBaseline_toBaselineOf="@id/tv_default"
         app:layout_constraintLeft_toLeftOf="@id/et_counter_value"
         />
@@ -112,7 +111,6 @@
         android:inputType="number|numberSigned"
         android:maxLines="1"
         android:minEms="3"
-        android:text='@{String.valueOf(counter.step), default="1"}'
         app:layout_constraintBaseline_toBaselineOf="@id/tv_step"
         app:layout_constraintLeft_toLeftOf="@id/et_counter_default_value"
         />
@@ -143,7 +141,6 @@
           android:layout_width="24dp"
           android:layout_height="24dp"
           android:layout_gravity="center"
-          android:setBackgroundColor="@{Color.parseColor(counter.color)}"
           />
     </FrameLayout>
 

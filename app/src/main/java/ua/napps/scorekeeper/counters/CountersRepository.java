@@ -6,9 +6,17 @@ import java.util.List;
 
 public interface CountersRepository {
 
-  Completable addCounter(Counter counter);
-
   LiveData<List<Counter>> getCounters();
 
-  Completable deleteCounter(Counter counter);
+  LiveData<Counter> loadCounter(int counterId);
+
+  Completable createCounter(String name);
+
+  Completable modifyCount(int counterId, int difference);
+
+  Completable setCount(int counterId, int value);
+
+  Completable modifyName(int counterId, String name);
+
+  Completable delete(int counterId);
 }
