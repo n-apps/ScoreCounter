@@ -36,7 +36,8 @@ public class EditCounterViewModel extends AndroidViewModel {
   public EditCounterViewModel(Application application, final int counterId) {
     super(application);
     this.counterId = counterId;
-    countersRepository = new CounterRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
+    countersRepository =
+        new CountersRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
     counterLiveData = countersRepository.loadCounter(counterId);
     counterName.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
       @Override public void onPropertyChanged(Observable observable, int i) {
@@ -137,6 +138,26 @@ public class EditCounterViewModel extends AndroidViewModel {
         });
   }
 
+  public void updateColor(String hex) {
+    countersRepository.modifyColor(counterId, hex)
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .delay(1, TimeUnit.SECONDS)
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully deleted counter");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
+  }
+
   public LiveData<Counter> getCounterLiveData() {
     return counterLiveData;
   }
@@ -175,26 +196,6 @@ public class EditCounterViewModel extends AndroidViewModel {
     countersRepository.delete(counter.get())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
-        .subscribe(new CompletableObserver() {
-          @Override public void onSubscribe(Disposable d) {
-
-          }
-
-          @Override public void onComplete() {
-            Timber.d("onComplete - successfully deleted counter");
-          }
-
-          @Override public void onError(Throwable e) {
-            Timber.d("onError - add:", e);
-          }
-        });
-  }
-
-  public void updateColor(String hex) {
-    countersRepository.modifyColor(counterId, hex)
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribeOn(Schedulers.io())
-        .delay(1, TimeUnit.SECONDS)
         .subscribe(new CompletableObserver() {
           @Override public void onSubscribe(Disposable d) {
 

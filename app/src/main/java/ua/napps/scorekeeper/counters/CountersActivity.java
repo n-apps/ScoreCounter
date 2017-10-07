@@ -82,7 +82,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                   new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
               binding.recyclerView.setLayoutManager(layoutManager);
             }
-            if (oldListSize != size) {
+            if (oldListSize < size) {
               binding.recyclerView.smoothScrollToPosition(size);
               oldListSize = size;
             }

@@ -4,11 +4,11 @@ import android.arch.lifecycle.LiveData;
 import io.reactivex.Completable;
 import java.util.List;
 
-class CounterRepositoryImpl implements CountersRepository {
+class CountersRepositoryImpl implements CountersRepository {
 
   CountersDatabase countersDatabase;
 
-  public CounterRepositoryImpl(CountersDatabase db) {
+  public CountersRepositoryImpl(CountersDatabase db) {
     countersDatabase = db;
   }
 
