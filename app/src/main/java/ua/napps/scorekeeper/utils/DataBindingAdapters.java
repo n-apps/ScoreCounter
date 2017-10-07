@@ -1,7 +1,9 @@
 package ua.napps.scorekeeper.utils;
 
 import android.databinding.BindingAdapter;
+import android.databinding.InverseBindingAdapter;
 import android.databinding.ObservableArrayList;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -141,5 +143,21 @@ public class DataBindingAdapters {
   public static void setDrawableBottom(Button view, int resourceId) {
     view.setCompoundDrawablesWithIntrinsicBounds(null, null, null,
         ContextCompat.getDrawable(view.getContext(), resourceId));
+  }
+
+  @BindingAdapter({ "android:text" })
+  public static void setTextFromInt(TextInputEditText editText, int value) {
+    if (getTextAsInt(editText) != value) {
+      editText.setText(String.valueOf(value));
+    }
+  }
+
+  @InverseBindingAdapter(attribute = "android:text")
+  public static int getTextAsInt(TextInputEditText editText) {
+    try {
+      return Integer.parseInt(editText.getText().toString());
+    } catch (Exception e) {
+      return 0;
+    }
   }
 }

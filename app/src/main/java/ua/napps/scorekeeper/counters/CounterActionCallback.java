@@ -14,6 +14,4 @@ public interface CounterActionCallback {
   void onDecreaseClick(Counter counter);
 
   void onAddCounterClick();
-
-  void scrollToPosition(int position);
 }
