@@ -14,6 +14,7 @@ import java.util.List;
   //@Insert(onConflict = OnConflictStrategy.REPLACE) void insertAll(List<Counter> counters);
   //
   @Insert(onConflict = OnConflictStrategy.REPLACE) void insertCounter(Counter counter);
+
   //
   @Delete void deleteCounter(Counter counter);
 

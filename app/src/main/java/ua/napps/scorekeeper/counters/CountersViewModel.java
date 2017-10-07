@@ -20,7 +20,7 @@ public class CountersViewModel extends AndroidViewModel {
   public CountersViewModel(Application application) {
     super(application);
     countersRepository =
-        new CounterRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
+        new CountersRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
     counters = countersRepository.getCounters();
   }
 
