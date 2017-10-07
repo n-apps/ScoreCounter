@@ -43,8 +43,20 @@ class CounterRepositoryImpl implements CountersRepository {
     return Completable.fromAction(() -> countersDatabase.counterDao().modifyName(counterId, name));
   }
 
-  @Override public Completable delete(int counterId) {
-    //return Completable.fromAction(() -> countersDatabase.counterDao().deleteCounter(counterId));
-    return Completable.complete();
+  @Override public Completable modifyDefaultValue(int counterId, int defaultValue) {
+    return Completable.fromAction(
+        () -> countersDatabase.counterDao().modifyDefaultValue(counterId, defaultValue));
+  }
+
+  @Override public Completable modifyStep(int counterId, int step) {
+    return Completable.fromAction(() -> countersDatabase.counterDao().modifyStep(counterId, step));
+  }
+
+  @Override public Completable modifyColor(int counterId, String hex) {
+    return Completable.fromAction(() -> countersDatabase.counterDao().modifyColor(counterId, hex));
+  }
+
+  @Override public Completable delete(Counter counter) {
+    return Completable.fromAction(() -> countersDatabase.counterDao().deleteCounter(counter));
   }
 }

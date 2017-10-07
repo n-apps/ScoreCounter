@@ -6,13 +6,11 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
-import android.databinding.BindingAdapter;
-import android.databinding.InverseBindingAdapter;
 import android.databinding.Observable;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -24,23 +22,26 @@ import timber.log.Timber;
 
 public class EditCounterViewModel extends AndroidViewModel {
 
-  public ObservableField<String> counterName = new ObservableField<>();
-  public ObservableInt counterValue = new ObservableInt();
+  public final ObservableField<Counter> counter = new ObservableField<>();
+  public final ObservableField<String> counterName = new ObservableField<>();
+  public final ObservableInt counterValue = new ObservableInt();
+  public final ObservableInt counterColor = new ObservableInt();
+  public final ObservableInt counterStep = new ObservableInt();
+  public final ObservableInt counterDefaultValue = new ObservableInt();
 
-  private LiveData<Counter> counter = new MutableLiveData<>();
+  private LiveData<Counter> counterLiveData = new MutableLiveData<>();
   private final CountersRepository countersRepository;
   private final int counterId;
 
   public EditCounterViewModel(Application application, final int counterId) {
     super(application);
     this.counterId = counterId;
-    countersRepository =
-        new CounterRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
-    counter = countersRepository.loadCounter(counterId);
+    countersRepository = new CounterRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
+    counterLiveData = countersRepository.loadCounter(counterId);
     counterName.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
       @Override public void onPropertyChanged(Observable observable, int i) {
         final String n = counterName.get();
-        if (Objects.equals(counter.getValue().getName(), n)) {
+        if (Objects.equals(counterLiveData.getValue().getName(), n)) {
           return;
         }
         updateName(n);
@@ -49,12 +50,71 @@ public class EditCounterViewModel extends AndroidViewModel {
     counterValue.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
       @Override public void onPropertyChanged(Observable observable, int i) {
         final int v = counterValue.get();
-        if (Objects.equals(counter.getValue().getValue(), v)) {
+        if (Objects.equals(counterLiveData.getValue().getValue(), v)) {
           return;
         }
         updateValue(v);
       }
     });
+    counterDefaultValue.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+      @Override public void onPropertyChanged(Observable observable, int i) {
+        final int v = counterDefaultValue.get();
+        if (Objects.equals(counterLiveData.getValue().getDefaultValue(), v)) {
+          return;
+        }
+        updateDefaultValue(v);
+      }
+    });
+
+    counterStep.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+      @Override public void onPropertyChanged(Observable observable, int i) {
+        final int v = counterStep.get();
+        if (Objects.equals(counterLiveData.getValue().getStep(), v)) {
+          return;
+        }
+        updateStep(v);
+      }
+    });
+  }
+
+  private void updateDefaultValue(int defaultValue) {
+    countersRepository.modifyDefaultValue(counterId, defaultValue)
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .delay(1, TimeUnit.SECONDS)
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully added event");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
+  }
+
+  private void updateStep(int step) {
+    countersRepository.modifyStep(counterId, step)
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .delay(1, TimeUnit.SECONDS)
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully added event");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
   }
 
   private void updateValue(int value) {
@@ -77,14 +137,20 @@ public class EditCounterViewModel extends AndroidViewModel {
         });
   }
 
-  /**
-   * Expose the LiveData Products query so the UI can observe it.
-   */
-  public LiveData<Counter> getCounter() {
-    return counter;
+  public LiveData<Counter> getCounterLiveData() {
+    return counterLiveData;
   }
 
-  public void updateName(String newName) {
+  public void setCounter(Counter c) {
+    this.counter.set(c);
+    counterName.set(c.getName());
+    counterValue.set(c.getValue());
+    counterStep.set(c.getStep());
+    counterDefaultValue.set(c.getDefaultValue());
+    counterColor.set(Color.parseColor(c.getColor()));
+  }
+
+  private void updateName(String newName) {
     if (TextUtils.isEmpty(newName)) return; // TODO: 05-Oct-17 show snackbar
     countersRepository.modifyName(counterId, newName)
         .observeOn(AndroidSchedulers.mainThread())
@@ -105,8 +171,8 @@ public class EditCounterViewModel extends AndroidViewModel {
         });
   }
 
-  public void increaseCounter(Counter counter) {
-    countersRepository.modifyCount(counter.getId(), counter.getStep())
+  public void deleteCounter() {
+    countersRepository.delete(counter.get())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {
@@ -115,7 +181,27 @@ public class EditCounterViewModel extends AndroidViewModel {
           }
 
           @Override public void onComplete() {
-            Timber.d("onComplete - successfully added event");
+            Timber.d("onComplete - successfully deleted counter");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
+  }
+
+  public void updateColor(String hex) {
+    countersRepository.modifyColor(counterId, hex)
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .delay(1, TimeUnit.SECONDS)
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully deleted counter");
           }
 
           @Override public void onError(Throwable e) {
@@ -144,22 +230,6 @@ public class EditCounterViewModel extends AndroidViewModel {
     @Override public <T extends ViewModel> T create(Class<T> modelClass) {
       //noinspection unchecked
       return (T) new EditCounterViewModel(mApplication, mCounterId);
-    }
-  }
-
-  @BindingAdapter({ "android:text" })
-  public static void setTextFromInt(TextInputEditText editText, int value) {
-    if (getTextAsInt(editText) != value) {
-      editText.setText(String.valueOf(value));
-    }
-  }
-
-  @InverseBindingAdapter(attribute = "android:text")
-  public static int getTextAsInt(TextInputEditText editText) {
-    try {
-      return Integer.parseInt(editText.getText().toString());
-    } catch (Exception e) {
-      return 0;
     }
   }
 }

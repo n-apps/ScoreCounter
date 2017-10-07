@@ -1,18 +1,13 @@
 package ua.napps.scorekeeper.counters;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityEditCounterBinding;
@@ -53,49 +48,19 @@ public class EditCounterActivity extends AppCompatActivity
 
     subscribeToModel(viewModel);
     binding.setViewModel(viewModel);
-
-    binding.btnDelete.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
-        EditCounterActivity.this.setResult(RESULT_DELETE);
-        EditCounterActivity.this.finish();
-      }
-    });
   }
 
   private void subscribeToModel(EditCounterViewModel model) {
     // Observe product data
-    model.getCounter().observe(this, new Observer<Counter>() {
-      @Override public void onChanged(@Nullable Counter c) {
-        if (c != null) {
-          viewModel.counterName.set(c.getName());
-          viewModel.counterValue.set(c.getValue());
-          setResult(RESULT_EDITED);
-        }
+    model.getCounterLiveData().observe(this, c -> {
+      if (c != null) {
+        viewModel.setCounter(c);
+        setResult(RESULT_EDITED);
+      } else {
+        setResult(RESULT_DELETE);
+        finish();
       }
     });
-  }
-
-  @Override public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_counter_save, menu);
-    return super.onCreateOptionsMenu(menu);
-  }
-
-  @Override public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        break;
-      case R.id.menu_save_counter: {
-        if (fieldsIsValid()) {
-          setResult(RESULT_EDITED);
-          finish();
-        } else {
-          Toast.makeText(EditCounterActivity.this, "Wrong fields", Toast.LENGTH_SHORT).show();
-        }
-        return true;
-      }
-    }
-    return false;
   }
 
   public void onColorPickerClick(View v) {
@@ -107,13 +72,10 @@ public class EditCounterActivity extends AppCompatActivity
         .show(this);
   }
 
-  private boolean fieldsIsValid() {
-    return binding.etCounterName.getText().length() > 0;
-  }
-
   @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
     binding.colorPreview.setBackgroundColor(color);
     final String hex = ColorUtil.intColorToString(color);
+    viewModel.updateColor(hex);
   }
 
   @Override public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {

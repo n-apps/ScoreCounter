@@ -24,6 +24,7 @@
     <activity
         android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
         android:screenOrientation="portrait"
+        android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity"
         android:windowSoftInputMode="adjustNothing|stateAlwaysHidden">
     </activity>
 

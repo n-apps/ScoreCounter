@@ -37,6 +37,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   private String[] colors;
   private CountersAdapter mProductAdapter;
   private CountersViewModel viewModel;
+  private int oldListSize;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -61,11 +62,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   private void subscribeUi() {
     // Update the list when the data changes
     viewModel.getProducts().observe(this, new Observer<List<Counter>>() {
-      @Override public void onChanged(@Nullable List<Counter> myProducts) {
-        if (myProducts != null) {
+      @Override public void onChanged(@Nullable List<Counter> counters) {
+        if (counters != null) {
           //mBinding.setIsLoading(false);
-          mProductAdapter.setProductList(myProducts);
-          if (myProducts.size() <= 4) {
+          mProductAdapter.setProductList(counters);
+          final int size = counters.size();
+          if (size <= 4) {
             if (((FlexboxLayoutManager) binding.recyclerView.getLayoutManager()).getFlexWrap()
                 != FlexWrap.NOWRAP) {
               FlexboxLayoutManager layoutManager =
@@ -79,6 +81,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
               FlexboxLayoutManager layoutManager =
                   new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
               binding.recyclerView.setLayoutManager(layoutManager);
+            }
+            if (oldListSize != size) {
+              binding.recyclerView.smoothScrollToPosition(size);
+              oldListSize = size;
             }
           }
         } else {
@@ -223,10 +229,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
   @Override public void onAddCounterClick() {
     addCounter();
-  }
-
-  @Override public void scrollToPosition(int position) {
-    binding.recyclerView.smoothScrollToPosition(position);
   }
 
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {

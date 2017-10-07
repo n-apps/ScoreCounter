@@ -18,5 +18,11 @@ public interface CountersRepository {
 
   Completable modifyName(int counterId, String name);
 
-  Completable delete(int counterId);
+  Completable modifyDefaultValue(int counterId, int defaultValue);
+
+  Completable modifyStep(int counterId, int step);
+
+  Completable modifyColor(int counterId, String hex);
+
+  Completable delete(Counter counter);
 }
