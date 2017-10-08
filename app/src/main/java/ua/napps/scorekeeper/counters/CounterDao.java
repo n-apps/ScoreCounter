@@ -39,5 +39,9 @@ import java.util.List;
   @Query("UPDATE counters " + "SET value = :value WHERE id = :counterId") void setValue(
       int counterId, int value);
 
+  @Query("UPDATE counters " + "SET value = defaultValue") void resetValues();
+
   @Query("select * from counters where id = :counterId") Counter loadCounterSync(int counterId);
+
+  @Query("DELETE FROM counters") void deleteAll();
 }

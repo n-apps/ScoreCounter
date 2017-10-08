@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.counters;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
-import ua.napps.scorekeeper.utils.ColorUtil;
 
 @Entity(tableName = "counters") public class Counter implements CounterNew {
   @PrimaryKey(autoGenerate = true) private int id;
@@ -61,9 +60,9 @@ import ua.napps.scorekeeper.utils.ColorUtil;
     this.step = step;
   }
 
-  public Counter(@NonNull String name) {
+  public Counter(@NonNull String name, String color) {
     this.name = name;
-    color = ColorUtil.getRandomColor();
+    this.color = color;
     value = 0;
     defaultValue = 0;
     step = 1;
