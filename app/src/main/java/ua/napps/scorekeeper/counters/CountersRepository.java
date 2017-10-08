@@ -10,7 +10,7 @@ public interface CountersRepository {
 
   LiveData<Counter> loadCounter(int counterId);
 
-  Completable createCounter(String name);
+  Completable createCounter(String name, String color);
 
   Completable modifyCount(int counterId, int difference);
 
@@ -24,5 +24,9 @@ public interface CountersRepository {
 
   Completable modifyColor(int counterId, String hex);
 
+  Completable resetAll();
+
   Completable delete(Counter counter);
+
+  Completable deleteAll();
 }

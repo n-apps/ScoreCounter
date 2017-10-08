@@ -9,12 +9,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
+import java.util.Random;
 import timber.log.Timber;
+import ua.com.napps.scorekeeper.R;
 
 public class CountersViewModel extends AndroidViewModel {
 
   private LiveData<List<Counter>> counters = new MutableLiveData<>();
-
   private final CountersRepository countersRepository;
 
   public CountersViewModel(Application application) {
@@ -25,7 +26,9 @@ public class CountersViewModel extends AndroidViewModel {
   }
 
   public void addCounter() {
-    countersRepository.createCounter("Counter")
+    countersRepository.createCounter(
+        getApplication().getString(R.string.counter_default_title, counters.getValue().size() + 1),
+        getRandomColor())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {
@@ -43,14 +46,11 @@ public class CountersViewModel extends AndroidViewModel {
         });
   }
 
-  /**
-   * Expose the LiveData Products query so the UI can observe it.
-   */
-  public LiveData<List<Counter>> getProducts() {
+  LiveData<List<Counter>> getProducts() {
     return counters;
   }
 
-  public void increaseCounter(Counter counter) {
+  void increaseCounter(Counter counter) {
     countersRepository.modifyCount(counter.getId(), counter.getStep())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
@@ -69,8 +69,54 @@ public class CountersViewModel extends AndroidViewModel {
         });
   }
 
-  public void decreaseCounter(Counter counter) {
+  void decreaseCounter(Counter counter) {
     countersRepository.modifyCount(counter.getId(), -counter.getStep())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully added event");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
+  }
+
+  private String getRandomColor() {
+    String[] colors = getApplication().getApplicationContext()
+        .getResources()
+        .getStringArray(R.array.color_collection);
+    final int presetSize = colors.length;
+    return colors[new Random().nextInt(presetSize - 1)];
+  }
+
+  void removeAll() {
+    countersRepository.deleteAll()
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribeOn(Schedulers.io())
+        .subscribe(new CompletableObserver() {
+          @Override public void onSubscribe(Disposable d) {
+
+          }
+
+          @Override public void onComplete() {
+            Timber.d("onComplete - successfully added event");
+          }
+
+          @Override public void onError(Throwable e) {
+            Timber.d("onError - add:", e);
+          }
+        });
+  }
+
+  void resetAll() {
+    countersRepository.resetAll()
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {

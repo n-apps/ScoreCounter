@@ -2,18 +2,14 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     >
   <data>
     <variable
-        name="items"
-        type="android.databinding.ObservableArrayList&lt;ua.napps.scorekeeper.counters.Counter&gt;"
+        name="viewModel"
+        type="ua.napps.scorekeeper.counters.CountersViewModel"
         />
-    <variable
-        name="callback"
-        type="ua.napps.scorekeeper.counters.CounterActionCallback"
-        />
+
   </data>
   <android.support.design.widget.CoordinatorLayout
       android:layout_width="match_parent"
@@ -42,13 +38,12 @@
         tools:listitem="@layout/item_counter"
         />
     <FrameLayout
+        android:id="@+id/empty_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
         android:background="?attr/colorPrimary"
-        android:onClick="@{()->callback.onAddCounterClick()}"
+        android:onClick="@{()->viewModel.addCounter()}"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        bind:visibleGone="@{items.isEmpty()}"
         >
       <TextView
           android:layout_width="wrap_content"

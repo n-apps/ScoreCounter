@@ -22,10 +22,10 @@ class CountersRepositoryImpl implements CountersRepository {
     return countersDatabase.counterDao().loadCounter(counterId);
   }
 
-  @Override public Completable createCounter(String name) {
+  @Override public Completable createCounter(String name, String color) {
 
     return Completable.fromAction(() -> {
-      final Counter counter = new Counter(name);
+      final Counter counter = new Counter(name, color);
       countersDatabase.counterDao().insertCounter(counter);
     });
   }
@@ -56,7 +56,15 @@ class CountersRepositoryImpl implements CountersRepository {
     return Completable.fromAction(() -> countersDatabase.counterDao().modifyColor(counterId, hex));
   }
 
+  @Override public Completable resetAll() {
+    return Completable.fromAction(() -> countersDatabase.counterDao().resetValues());
+  }
+
   @Override public Completable delete(Counter counter) {
     return Completable.fromAction(() -> countersDatabase.counterDao().deleteCounter(counter));
+  }
+
+  @Override public Completable deleteAll() {
+    return Completable.fromAction(() -> countersDatabase.counterDao().deleteAll());
   }
 }
