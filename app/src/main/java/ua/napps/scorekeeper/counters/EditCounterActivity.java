@@ -42,17 +42,20 @@ public class EditCounterActivity extends AppCompatActivity
 
     final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
-    EditCounterViewModel.Factory factory = new EditCounterViewModel.Factory(getApplication(), id);
+    viewModel = getViewModel(id);
 
-    viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
-
-    subscribeToModel(viewModel);
+    subscribeToModel();
     binding.setViewModel(viewModel);
   }
 
-  private void subscribeToModel(EditCounterViewModel model) {
-    // Observe product data
-    model.getCounterLiveData().observe(this, c -> {
+  private EditCounterViewModel getViewModel(int id) {
+    CountersDao countersDao = DatabaseHolder.database().countersDao();
+    EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao);
+    return ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
+  }
+
+  private void subscribeToModel() {
+    viewModel.getCounterLiveData().observe(this, c -> {
       if (c != null) {
         viewModel.setCounter(c);
         setResult(RESULT_EDITED);

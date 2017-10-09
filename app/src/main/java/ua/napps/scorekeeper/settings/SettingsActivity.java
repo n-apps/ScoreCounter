@@ -21,7 +21,7 @@ public class SettingsActivity extends AppCompatActivity {
     setSupportActionBar(binding.toolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-    boolean isStayAwake = Paper.book(Constants.SETTINGS).read(Constants.SETTINGS_STAY_AWAKE, true);
+    boolean isStayAwake = true;
     final ObservableBoolean stayAwake = new ObservableBoolean(isStayAwake);
     binding.setStayAwake(stayAwake);
     stayAwake.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {

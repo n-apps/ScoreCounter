@@ -1,16 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
-import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.Observable;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -20,7 +16,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import timber.log.Timber;
 
-public class EditCounterViewModel extends AndroidViewModel {
+public class EditCounterViewModel extends ViewModel {
 
   public final ObservableField<Counter> counter = new ObservableField<>();
   public final ObservableField<String> counterName = new ObservableField<>();
@@ -31,14 +27,12 @@ public class EditCounterViewModel extends AndroidViewModel {
 
   private LiveData<Counter> counterLiveData = new MutableLiveData<>();
   private final CountersRepository countersRepository;
-  private final int counterId;
+  private final int id;
 
-  public EditCounterViewModel(Application application, final int counterId) {
-    super(application);
-    this.counterId = counterId;
-    countersRepository =
-        new CountersRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
-    counterLiveData = countersRepository.loadCounter(counterId);
+  public EditCounterViewModel(CountersRepository repository, final int counterId) {
+    id = counterId;
+    countersRepository = repository;
+    counterLiveData = repository.loadCounter(counterId);
     counterName.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
       @Override public void onPropertyChanged(Observable observable, int i) {
         final String n = counterName.get();
@@ -79,7 +73,7 @@ public class EditCounterViewModel extends AndroidViewModel {
   }
 
   private void updateDefaultValue(int defaultValue) {
-    countersRepository.modifyDefaultValue(counterId, defaultValue)
+    countersRepository.modifyDefaultValue(id, defaultValue)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .delay(1, TimeUnit.SECONDS)
@@ -99,7 +93,7 @@ public class EditCounterViewModel extends AndroidViewModel {
   }
 
   private void updateStep(int step) {
-    countersRepository.modifyStep(counterId, step)
+    countersRepository.modifyStep(id, step)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .delay(1, TimeUnit.SECONDS)
@@ -119,7 +113,7 @@ public class EditCounterViewModel extends AndroidViewModel {
   }
 
   private void updateValue(int value) {
-    countersRepository.setCount(counterId, value)
+    countersRepository.setCount(id, value)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .delay(1, TimeUnit.SECONDS)
@@ -139,7 +133,7 @@ public class EditCounterViewModel extends AndroidViewModel {
   }
 
   public void updateColor(String hex) {
-    countersRepository.modifyColor(counterId, hex)
+    countersRepository.modifyColor(id, hex)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .delay(1, TimeUnit.SECONDS)
@@ -173,7 +167,7 @@ public class EditCounterViewModel extends AndroidViewModel {
 
   private void updateName(String newName) {
     if (TextUtils.isEmpty(newName)) return; // TODO: 05-Oct-17 show snackbar
-    countersRepository.modifyName(counterId, newName)
+    countersRepository.modifyName(id, newName)
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .delay(1, TimeUnit.SECONDS)
@@ -209,28 +203,5 @@ public class EditCounterViewModel extends AndroidViewModel {
             Timber.d("onError - add:", e);
           }
         });
-  }
-
-  /**
-   * A creator is used to inject the product ID into the ViewModel
-   * <p>
-   * This creator is to showcase how to inject dependencies into ViewModels. It's not
-   * actually necessary in this case, as the product ID can be passed in a public method.
-   */
-  public static class Factory extends ViewModelProvider.NewInstanceFactory {
-
-    @NonNull private final Application mApplication;
-
-    private final int mCounterId;
-
-    public Factory(@NonNull Application application, int productId) {
-      mApplication = application;
-      mCounterId = productId;
-    }
-
-    @Override public <T extends ViewModel> T create(Class<T> modelClass) {
-      //noinspection unchecked
-      return (T) new EditCounterViewModel(mApplication, mCounterId);
-    }
   }
 }

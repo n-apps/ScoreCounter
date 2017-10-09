@@ -2,9 +2,9 @@ package ua.napps.scorekeeper.app;
 
 import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
-import io.paperdb.Paper;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
+import ua.napps.scorekeeper.counters.DatabaseHolder;
 
 public class ScoreKeeperApp extends Application {
 
@@ -14,6 +14,6 @@ public class ScoreKeeperApp extends Application {
     if (BuildConfig.DEBUG) {
       Timber.plant(new Timber.DebugTree());
     }
-    Paper.init(this);
+    DatabaseHolder.init(this);
   }
 }
