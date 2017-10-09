@@ -126,7 +126,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
       case R.id.menu_add_counter:
-        addCounter();
+        viewModel.addCounter();
         break;
       case R.id.menu_remove_all:
         viewModel.removeAll();
@@ -140,10 +140,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         break;
     }
     return true;
-  }
-
-  private void addCounter() {
-    viewModel.addCounter();
   }
 
   @Override public void onNameClick(Counter counter) {
