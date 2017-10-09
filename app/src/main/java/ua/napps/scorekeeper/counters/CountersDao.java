@@ -8,7 +8,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import java.util.List;
 
-@Dao public interface CounterDao {
+@Dao public interface CountersDao {
   @Query("SELECT * FROM counters") LiveData<List<Counter>> loadAllCounters();
 
   //@Insert(onConflict = OnConflictStrategy.REPLACE) void insertAll(List<Counter> counters);

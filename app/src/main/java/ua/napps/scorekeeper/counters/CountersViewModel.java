@@ -16,17 +16,16 @@ import ua.com.napps.scorekeeper.R;
 public class CountersViewModel extends AndroidViewModel {
 
   private LiveData<List<Counter>> counters = new MutableLiveData<>();
-  private final CountersRepository countersRepository;
+  private final CountersRepository repository;
 
-  public CountersViewModel(Application application) {
+  public CountersViewModel(Application application, CountersRepository countersRepository) {
     super(application);
-    countersRepository =
-        new CountersRepositoryImpl(CountersDatabase.getDatabaseInstance(application));
+    repository = countersRepository;
     counters = countersRepository.getCounters();
   }
 
   public void addCounter() {
-    countersRepository.createCounter(
+    repository.createCounter(
         getApplication().getString(R.string.counter_default_title, counters.getValue().size() + 1),
         getRandomColor())
         .observeOn(AndroidSchedulers.mainThread())
@@ -51,7 +50,7 @@ public class CountersViewModel extends AndroidViewModel {
   }
 
   void increaseCounter(Counter counter) {
-    countersRepository.modifyCount(counter.getId(), counter.getStep())
+    repository.modifyCount(counter.getId(), counter.getStep())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {
@@ -70,7 +69,7 @@ public class CountersViewModel extends AndroidViewModel {
   }
 
   void decreaseCounter(Counter counter) {
-    countersRepository.modifyCount(counter.getId(), -counter.getStep())
+    repository.modifyCount(counter.getId(), -counter.getStep())
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {
@@ -97,7 +96,7 @@ public class CountersViewModel extends AndroidViewModel {
   }
 
   void removeAll() {
-    countersRepository.deleteAll()
+    repository.deleteAll()
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {
@@ -116,7 +115,7 @@ public class CountersViewModel extends AndroidViewModel {
   }
 
   void resetAll() {
-    countersRepository.resetAll()
+    repository.resetAll()
         .observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(new CompletableObserver() {

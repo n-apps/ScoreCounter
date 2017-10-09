@@ -19,6 +19,7 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import io.paperdb.Paper;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
+import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.settings.SettingsActivity;
 import ua.napps.scorekeeper.utils.Constants;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
@@ -38,7 +39,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     mProductAdapter = new CountersAdapter(this);
 
-    viewModel = ViewModelProviders.of(this).get(CountersViewModel.class);
+    viewModel = getViewModel();
 
     FlexboxLayoutManager layoutManager =
         new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
@@ -47,6 +48,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     binding.recyclerView.setItemAnimator(new NoChangeAnimator());
 
     subscribeUi();
+  }
+
+  private CountersViewModel getViewModel() {
+    CountersDao countersDao = DatabaseHolder.database().countersDao();
+    CountersViewModelFactory factory =
+        new CountersViewModelFactory((ScoreKeeperApp) getApplication(), countersDao);
+    return ViewModelProviders.of(this, factory).get(CountersViewModel.class);
   }
 
   private void subscribeUi() {
