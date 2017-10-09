@@ -16,13 +16,14 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import io.paperdb.Paper;
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.com.napps.scorekeeper.databinding.ActivityCountersBinding;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.settings.SettingsActivity;
 import ua.napps.scorekeeper.utils.Constants;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
+import ua.napps.scorekeeper.utils.TinyDB;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
@@ -48,6 +49,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     binding.recyclerView.setItemAnimator(new NoChangeAnimator());
 
     subscribeUi();
+    applySettings();
   }
 
   private CountersViewModel getViewModel() {
@@ -90,14 +92,16 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     });
   }
 
-  private void loadSettings() {
-    final boolean isKeepScreenOn =
-        Paper.book(Constants.SETTINGS).read(Constants.SETTINGS_STAY_AWAKE, true);
-    if (isKeepScreenOn) {
+  private void applySettings() {
+    final TinyDB settingsDB = new TinyDB(getApplicationContext());
+    boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE);
+
+    if (isStayAwake) {
       getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     } else {
       getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
+    Timber.d("applySettings");
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,8 +135,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         break;
       case R.id.menu_settings:
         Intent intent = new Intent(this, SettingsActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        startActivityForResult(intent, SettingsActivity.REQUEST_CODE);
         break;
     }
     return true;
@@ -153,11 +156,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
             | InputType.TYPE_CLASS_TEXT
             | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
-        .input("Hint", counter.getName(), new MaterialDialog.InputCallback() {
-          @Override public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
-            counter.setName(input.toString());
-          }
-        })
+        .input("Hint", counter.getName(), (dialog, input) -> counter.setName(input.toString()))
         .widgetColor(Color.parseColor(counter.getColor()))
         .positiveText("Set")
         .show();
@@ -187,21 +186,16 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     viewModel.decreaseCounter(counter);
   }
 
-  @Override public void onAddCounterClick() {
-    addCounter();
-  }
-
   @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == EditCounterActivity.REQUEST_CODE) {
       if (resultCode == EditCounterActivity.RESULT_DELETE) {
         invalidateOptionsMenu();
       }
+    } else if (requestCode == SettingsActivity.REQUEST_CODE) {
+      if (resultCode == SettingsActivity.RESULT_EDITED) {
+        applySettings();
+      }
     }
     super.onActivityResult(requestCode, resultCode, data);
-  }
-
-  @Override protected void onDestroy() {
-    binding.unbind();
-    super.onDestroy();
   }
 }

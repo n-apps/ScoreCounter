@@ -34,6 +34,7 @@
 
     <activity
         android:name="ua.napps.scorekeeper.settings.SettingsActivity"
+        android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity"
         android:screenOrientation="portrait"/>
   </application>
 
