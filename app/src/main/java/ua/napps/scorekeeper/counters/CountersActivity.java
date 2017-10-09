@@ -47,6 +47,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     binding.recyclerView.setLayoutManager(layoutManager);
     binding.recyclerView.setAdapter(mProductAdapter);
     binding.recyclerView.setItemAnimator(new NoChangeAnimator());
+    binding.setViewModel(viewModel);
 
     subscribeUi();
     applySettings();
