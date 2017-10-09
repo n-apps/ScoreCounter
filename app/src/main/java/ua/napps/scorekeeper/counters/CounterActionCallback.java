@@ -12,6 +12,4 @@ public interface CounterActionCallback {
   void onIncreaseClick(Counter counter);
 
   void onDecreaseClick(Counter counter);
-
-  void onAddCounterClick();
 }
