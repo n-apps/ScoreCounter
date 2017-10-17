@@ -3,14 +3,13 @@ package ua.napps.scorekeeper.counters;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
-import ua.com.napps.scorekeeper.databinding.ActivityEditCounterBinding;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class EditCounterActivity extends AppCompatActivity
@@ -22,7 +21,6 @@ public class EditCounterActivity extends AppCompatActivity
 
   protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
 
-  private ActivityEditCounterBinding binding;
   private EditCounterViewModel viewModel;
 
   public static Intent getIntent(Context context, final int id) {
@@ -33,9 +31,10 @@ public class EditCounterActivity extends AppCompatActivity
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_counter);
+      setContentView(R.layout.activity_edit_counter);
 
-    setSupportActionBar(binding.toolbar);
+      Toolbar toolbar = findViewById(R.id.toolbar);
+      setSupportActionBar(toolbar);
 
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setTitle("");
@@ -45,7 +44,6 @@ public class EditCounterActivity extends AppCompatActivity
     viewModel = getViewModel(id);
 
     subscribeToModel();
-    binding.setViewModel(viewModel);
   }
 
   private EditCounterViewModel getViewModel(int id) {
@@ -76,7 +74,7 @@ public class EditCounterActivity extends AppCompatActivity
   }
 
   @Override public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
-    binding.colorPreview.setBackgroundColor(color);
+//    binding.colorPreview.setBackgroundColor(color);
     final String hex = ColorUtil.intColorToString(color);
     viewModel.updateColor(hex);
   }

@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    >
-  <data>
-    <variable
-        name="viewModel"
-        type="ua.napps.scorekeeper.counters.CountersViewModel"
-        />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-  </data>
-  <android.support.design.widget.CoordinatorLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      >
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-      <android.support.v7.widget.Toolbar
-          android:id="@+id/toolbar"
-          android:layout_width="match_parent"
-          android:layout_height="?attr/actionBarSize"
-          style="@style/ToolBarStyle"
-          android:fontFamily="@font/open_sans_semibold"
-          app:title="@string/app_name"
-          />
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:fontFamily="@font/open_sans_semibold"
+            app:title="@string/app_name" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -35,30 +25,32 @@
         android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_counter"
-        />
-    <FrameLayout
+        tools:listitem="@layout/item_counter" />
+
+    <LinearLayout
         android:id="@+id/empty_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
-        android:onClick="@{()->viewModel.addCounter()}"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:drawablePadding="16dp"
-          android:drawableTop="@{@drawable/ic_empty_state_add_grey}"
-          android:gravity="center_horizontal"
-          android:lineSpacingExtra="8dp"
-          android:padding="24dp"
-          android:text="Tap anywhere to add first counter or use + button in the top-right corner"
-          android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
-          />
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_empty_state_add_grey" />
 
-  </android.support.design.widget.CoordinatorLayout>
-</layout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="8dp"
+            android:padding="24dp"
+            android:text="Tap anywhere to add first counter or use + button in the top-right corner"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
