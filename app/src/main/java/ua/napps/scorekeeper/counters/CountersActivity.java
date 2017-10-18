@@ -16,18 +16,20 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
-import ua.napps.scorekeeper.settings.SettingsActivity;
+import ua.napps.scorekeeper.settings.BottomSheetFragment;
 import ua.napps.scorekeeper.utils.Constants;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
 import ua.napps.scorekeeper.utils.TinyDB;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
-    private int oldListSize;
+    private CountersAdapter countersAdapter;
 
     private View emptyState;
 
-    private CountersAdapter countersAdapter;
+    private BottomSheetFragment bottomSheetFragment;
+
+    private int oldListSize;
 
     private RecyclerView recyclerView;
 
@@ -59,10 +61,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         if (requestCode == EditCounterActivity.REQUEST_CODE) {
             if (resultCode == EditCounterActivity.RESULT_DELETE) {
                 invalidateOptionsMenu();
-            }
-        } else if (requestCode == SettingsActivity.REQUEST_CODE) {
-            if (resultCode == SettingsActivity.RESULT_EDITED) {
-                applySettings();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -103,8 +101,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 viewModel.resetAll();
                 break;
             case R.id.menu_settings:
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivityForResult(intent, SettingsActivity.REQUEST_CODE);
+                showBottomSheetFragment();
                 break;
         }
         return true;
@@ -141,6 +138,11 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         CountersViewModelFactory factory =
                 new CountersViewModelFactory((ScoreKeeperApp) getApplication(), countersDao);
         return ViewModelProviders.of(this, factory).get(CountersViewModel.class);
+    }
+
+    private void showBottomSheetFragment() {
+        bottomSheetFragment = new BottomSheetFragment();
+        bottomSheetFragment.show(getSupportFragmentManager(), "BottomSheetFragment");
     }
 
     private void subscribeUi() {

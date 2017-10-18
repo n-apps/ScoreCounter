@@ -3,7 +3,7 @@ package ua.napps.scorekeeper.counters;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.text.TextUtils;
+import android.support.annotation.NonNull;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -27,37 +27,18 @@ public class EditCounterViewModel extends ViewModel {
         counterLiveData = repository.loadCounter(counterId);
     }
 
-    public void deleteCounter() {
-        countersRepository.delete(counter)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        Timber.d("onComplete - successfully deleted counter");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
-                    }
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-                });
-    }
-
     public LiveData<Counter> getCounterLiveData() {
         return counterLiveData;
     }
 
-    public void setCounter(Counter c) {
-
+    public void setCounter(@NonNull Counter c) {
+        counter = c;
     }
 
     public void updateColor(String hex) {
+        if (hex.equals(counter.getColor())) {
+            return;
+        }
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -80,7 +61,10 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    private void updateDefaultValue(int defaultValue) {
+    public void updateDefaultValue(int defaultValue) {
+        if (defaultValue == counter.getDefaultValue()) {
+            return;
+        }
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -103,9 +87,9 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    private void updateName(String newName) {
-        if (TextUtils.isEmpty(newName)) {
-            return; // TODO: 05-Oct-17 show snackbar
+    public void updateName(@NonNull String newName) {
+        if (newName.equals(counter.getName())) {
+            return;
         }
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -129,7 +113,10 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    private void updateStep(int step) {
+    public void updateStep(int step) {
+        if (step == counter.getStep()) {
+            return;
+        }
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -152,7 +139,10 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    private void updateValue(int value) {
+    public void updateValue(int value) {
+        if (value == counter.getValue()) {
+            return;
+        }
         countersRepository.setCount(id, value)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -161,6 +151,28 @@ public class EditCounterViewModel extends ViewModel {
                     @Override
                     public void onComplete() {
                         Timber.d("onComplete - successfully added event");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.d("onError - add:", e);
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
+    public void deleteCounter() {
+        countersRepository.delete(counter)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        Timber.d("onComplete - successfully deleted counter");
                     }
 
                     @Override
