@@ -52,5 +52,4 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse" />
 
     </LinearLayout>
-
 </android.support.design.widget.CoordinatorLayout>

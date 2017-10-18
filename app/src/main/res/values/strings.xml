@@ -2,7 +2,7 @@
   <string name="app_name">Score Keeper</string>
   <string name="color_palette">Color palette</string>
   <string name="colors">Colors</string>
-  <string name="counter_default_title">#%d</string>
+    <string name="counter_default_title">%d</string>
   <string name="counter_dialog_default_value">Default value</string>
   <string name="counter_dialog_step">Step</string>
   <string name="counter_dialog_value">Value</string>
@@ -16,5 +16,6 @@
   <string name="settings_stay_awake">Stay awake</string>
   <string name="menu_settings">Settings</string>
   <string name="action_select">Select</string>
+    <string name="action_cancel">Cancel</string>
   <string name="dialog_select_color_title">Select counter color</string>
 </resources>

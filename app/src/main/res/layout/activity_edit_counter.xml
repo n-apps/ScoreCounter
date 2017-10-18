@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -30,124 +32,144 @@
                 android:layout_margin="16dp"
                 android:fontFamily="@font/open_sans_semibold"
                 android:hint="Counter name"
-                android:inputType="textCapWords"
+                android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
                 android:maxLines="1"
                 android:minEms="20" />
         </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/tv_value"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/counter_value"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/counter_dialog_value"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_counter_value"
-        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/material_component_lists_single_line_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
 
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/et_counter_value"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/counter_dialog_value"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_counter_value"
+            app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+        <TextView
+            android:id="@+id/tv_counter_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/accentColor"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_value"
+            app:layout_constraintLeft_toRightOf="@id/tv_value"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/counter_default_value"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:gravity="right"
-        android:inputType="number|numberSigned"
-        android:maxLines="1"
-        android:minEms="3"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tv_value"
-        app:layout_constraintLeft_toRightOf="@id/tv_value"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/material_component_lists_single_line_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
 
-    <TextView
-        android:id="@+id/tv_default"
-        android:layout_width="0dp"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/counter_dialog_default_value"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/tv_counter_default_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/accentColor"
+            tools:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/counter_step"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/counter_dialog_default_value"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintLeft_toLeftOf="@id/tv_value"
-        app:layout_constraintTop_toBottomOf="@id/tv_value" />
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/material_component_lists_single_line_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
 
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/et_counter_default_value"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/counter_dialog_step"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/tv_counter_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/accentColor"
+            tools:text="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/counter_color"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:gravity="right"
-        android:inputType="number|numberSigned"
-        android:maxLines="1"
-        android:minEms="3"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_default"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/material_component_lists_single_line_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
+        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
 
-    <TextView
-        android:id="@+id/tv_step"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/counter_dialog_step"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintLeft_toLeftOf="@id/tv_default"
-        app:layout_constraintTop_toBottomOf="@id/tv_default" />
-
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/et_counter_step"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:gravity="right"
-        android:inputType="number|numberSigned"
-        android:maxLines="1"
-        android:minEms="3"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_step"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_color"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Color"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@+id/color"
-        app:layout_constraintLeft_toLeftOf="@id/tv_step"
-        app:layout_constraintTop_toTopOf="@+id/color" />
-
-    <FrameLayout
-        android:id="@+id/color"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:onClick="onColorPickerClick"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_counter_step">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Color"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <com.afollestad.materialdialogs.color.CircleView
             android:id="@+id/color_preview"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center" />
-    </FrameLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0px"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <android.support.v7.widget.CardView
+        android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/accentColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_color"
-        app:layout_constraintVertical_bias="0.85">
+        android:layout_gravity="center_horizontal"
+        app:cardBackgroundColor="@color/accentColor">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:padding="8dp">
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:paddingLeft="16dp">
 
             <ImageView
                 android:layout_width="24dp"
@@ -164,6 +186,11 @@
                 android:text="Delete counter"
                 android:textAllCaps="true"
                 android:textColor="@color/white" />
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
-</android.support.constraint.ConstraintLayout>
+
+    <Space
+        android:layout_width="0px"
+        android:layout_height="32dp" />
+</LinearLayout>
