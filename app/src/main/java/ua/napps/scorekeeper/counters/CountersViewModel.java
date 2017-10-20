@@ -45,7 +45,7 @@ public class CountersViewModel extends AndroidViewModel {
         });
   }
 
-  LiveData<List<Counter>> getProducts() {
+    LiveData<List<Counter>> getCounters() {
     return counters;
   }
 

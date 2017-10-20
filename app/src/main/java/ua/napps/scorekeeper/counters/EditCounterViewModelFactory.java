@@ -9,9 +9,9 @@ public class EditCounterViewModelFactory extends ViewModelProvider.NewInstanceFa
   private final int counterId;
   private final CountersRepository repository;
 
-  EditCounterViewModelFactory(int productId, CountersDao countersDao) {
+  EditCounterViewModelFactory(int counterId, CountersDao countersDao) {
     repository = new CountersRepository(countersDao);
-    counterId = productId;
+    this.counterId = counterId;
   }
 
   @NonNull @Override public <T extends ViewModel> T create(Class<T> modelClass) {

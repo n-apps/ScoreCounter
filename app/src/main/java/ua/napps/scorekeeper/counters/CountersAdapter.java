@@ -156,38 +156,38 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         return new CountersViewHolder(v, callback);
     }
 
-    public void setProductList(final List<? extends Counter> productList) {
-        if (counters == null) {
-            counters = productList;
-            notifyItemRangeInserted(0, productList.size());
+    public void setCountersList(final List<? extends Counter> counters) {
+        if (this.counters == null) {
+            this.counters = counters;
+            notifyItemRangeInserted(0, counters.size());
         } else {
             DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
                 @Override
                 public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                    Counter newProduct = productList.get(newItemPosition);
-                    Counter oldProduct = counters.get(oldItemPosition);
-                    return Objects.equals(newProduct.getId(), oldProduct.getId()) && Objects.equals(
-                            newProduct.getColor(), oldProduct.getColor()) && Objects.equals(newProduct.getName(),
-                            oldProduct.getName()) && newProduct.getValue() == oldProduct.getValue();
+                    Counter newCounter = counters.get(newItemPosition);
+                    Counter oldCounter = CountersAdapter.this.counters.get(oldItemPosition);
+                    return Objects.equals(newCounter.getId(), oldCounter.getId()) && Objects.equals(
+                            newCounter.getColor(), oldCounter.getColor()) && Objects.equals(newCounter.getName(),
+                            oldCounter.getName()) && newCounter.getValue() == oldCounter.getValue();
                 }
 
                 @Override
                 public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                    return Objects.equals(counters.get(oldItemPosition).getId(),
-                            productList.get(newItemPosition).getId());
+                    return Objects.equals(CountersAdapter.this.counters.get(oldItemPosition).getId(),
+                            counters.get(newItemPosition).getId());
                 }
 
                 @Override
                 public int getNewListSize() {
-                    return productList.size();
+                    return counters.size();
                 }
 
                 @Override
                 public int getOldListSize() {
-                    return counters.size();
+                    return CountersAdapter.this.counters.size();
                 }
             });
-            counters = productList;
+            this.counters = counters;
             result.dispatchUpdatesTo(this);
         }
     }

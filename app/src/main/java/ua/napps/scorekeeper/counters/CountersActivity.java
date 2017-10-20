@@ -147,11 +147,11 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     private void subscribeUi() {
         // Update the list when the data changes
-        viewModel.getProducts().observe(this, counters -> {
+        viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
                 final int size = counters.size();
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
-                countersAdapter.setProductList(counters);
+                countersAdapter.setCountersList(counters);
                 if (size <= 4) {
                     if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
                             != FlexWrap.NOWRAP) {
