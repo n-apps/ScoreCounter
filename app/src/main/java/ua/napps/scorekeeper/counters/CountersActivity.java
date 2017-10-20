@@ -15,11 +15,12 @@ import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.settings.BottomSheetFragment;
-import ua.napps.scorekeeper.utils.Constants;
+import ua.napps.scorekeeper.storage.DatabaseHolder;
+import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
-import ua.napps.scorekeeper.utils.TinyDB;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
