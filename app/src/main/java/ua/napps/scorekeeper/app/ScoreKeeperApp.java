@@ -4,7 +4,7 @@ import android.app.Application;
 import android.support.v7.app.AppCompatDelegate;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
-import ua.napps.scorekeeper.counters.DatabaseHolder;
+import ua.napps.scorekeeper.storage.DatabaseHolder;
 
 public class ScoreKeeperApp extends Application {
 

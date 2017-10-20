@@ -19,6 +19,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {

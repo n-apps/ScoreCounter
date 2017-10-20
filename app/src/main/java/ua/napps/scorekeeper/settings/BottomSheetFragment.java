@@ -8,8 +8,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.Constants;
-import ua.napps.scorekeeper.utils.TinyDB;
+import ua.napps.scorekeeper.app.Constants;
+import ua.napps.scorekeeper.storage.TinyDB;
 
 
 public class BottomSheetFragment extends BottomSheetDialogFragment {

@@ -19,6 +19,7 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
 import java.util.Objects;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
@@ -139,10 +140,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             flexboxLp.setFlexGrow(1.0f);
             final int itemCount = getItemCount();
 
-            if (itemCount > 4) {
-                flexboxLp.setHeight(height == 0 ? 384 : height);
+            if (itemCount > Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
+                flexboxLp.setHeight(height == 0 ? Constants.DEFAULT_COUNTER_HEIGHT : height);
             } else {
-                if (itemCount == 4) {
+                if (itemCount == Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
                     height = holder.itemView.getHeight();
                 }
                 flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);

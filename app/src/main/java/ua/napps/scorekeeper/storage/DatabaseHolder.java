@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.counters;
+package ua.napps.scorekeeper.storage;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
@@ -6,6 +6,8 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
+import ua.napps.scorekeeper.counters.Counter;
+import ua.napps.scorekeeper.counters.CountersDao;
 
 @Database(entities = { Counter.class }, version = 1) public abstract class DatabaseHolder
     extends RoomDatabase {
