@@ -26,7 +26,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         dialog.setContentView(contentView);
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
         final TinyDB settingsDB = new TinyDB(getContext());
-        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE);
+        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE, true);
 
         stayAwake.setChecked(isStayAwake);
         stayAwake.setOnCheckedChangeListener((buttonView, isChecked) -> {

@@ -32,12 +32,10 @@ android {
             // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            applicationIdSuffix ".dev"
-            versionNameSuffix ".dev"
+            signingConfig signingConfigs.release
         }
         release {
-            minifyEnabled true
-            useProguard true
+            useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //noinspection GroovyAssignabilityCheck
             signingConfig signingConfigs.release

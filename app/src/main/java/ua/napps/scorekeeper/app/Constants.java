@@ -2,7 +2,8 @@ package ua.napps.scorekeeper.app;
 
 public final class Constants {
   public static final String SETTINGS = "settings";
-  public static final String SETTINGS_STAY_AWAKE = "settings_stay_awake";
+
+    public static final String SETTINGS_STAY_AWAKE = "stay_awake";
 
   public static final int MAX_COUNTERS_TO_FIT_ON_SCREEN = 5;
 

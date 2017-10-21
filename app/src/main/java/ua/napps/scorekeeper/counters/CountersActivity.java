@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
-import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
@@ -124,14 +123,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     private void applySettings() {
         final TinyDB settingsDB = new TinyDB(getApplicationContext());
-        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE);
+        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE, true);
 
         if (isStayAwake) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-        Timber.d("applySettings");
     }
 
     private CountersViewModel getViewModel() {
