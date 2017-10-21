@@ -27,8 +27,12 @@ class CountersRepository {
 
     return Completable.fromAction(() -> {
       final Counter counter = new Counter(name, color);
-      countersDao.insertCounter(counter);
+      countersDao.insert(counter);
     });
+  }
+
+  public Completable insertAll(List<Counter> counters) {
+    return Completable.fromAction(() -> countersDao.insertAll(counters));
   }
 
   public Completable modifyCount(int counterId, int difference) {
