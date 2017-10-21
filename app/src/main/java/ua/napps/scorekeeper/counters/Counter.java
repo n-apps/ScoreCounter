@@ -4,7 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
-@Entity(tableName = "counters") public class Counter implements CounterNew {
+@Entity(tableName = "counters")
+public class Counter {
   @PrimaryKey(autoGenerate = true) private int id;
   private String name;
   private int value;
