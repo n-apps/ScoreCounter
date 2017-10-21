@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import io.reactivex.Completable;
 import java.util.List;
 
-class CountersRepository {
+public class CountersRepository {
 
   @NonNull private final CountersDao countersDao;
 

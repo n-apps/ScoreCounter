@@ -5,11 +5,16 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.support.v7.app.AppCompatDelegate;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import io.reactivex.CompletableObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.counters.Counter;
+import ua.napps.scorekeeper.counters.CountersRepository;
 import ua.napps.scorekeeper.counters.OldCounter;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
@@ -27,14 +32,12 @@ public class ScoreKeeperApp extends Application {
         DatabaseHolder.init(this);
 
         final int versionCode = getVersionCode();
-        if (versionCode < 30000) {
-            Timber.d("Migration detected. versionCode: " + versionCode);
+        if (versionCode == 30000) {
             String activeCountersJson = new TinyDB(getApplicationContext()).getString("active_counters");
             Type listType = new TypeToken<ArrayList<OldCounter>>() {
             }.getType();
             ArrayList<OldCounter> oldCounters = new Gson().fromJson(activeCountersJson, listType);
             if (oldCounters != null) {
-                Timber.d("Migration detected. oldCounters size: " + oldCounters.size());
                 ArrayList<Counter> newCounters = new ArrayList<>(oldCounters.size());
                 for (final OldCounter oldCounter : oldCounters) {
                     final Counter c = new Counter(oldCounter.getCaption(),
@@ -45,12 +48,28 @@ public class ScoreKeeperApp extends Application {
                     newCounters.add(c);
                 }
                 if (!newCounters.isEmpty()) {
-                    Timber.d("Migration detected. insert " + oldCounters.size() + " counters");
-                    DatabaseHolder.database().countersDao().insertAll(newCounters);
+                    final CountersRepository repository = new CountersRepository(
+                            DatabaseHolder.database().countersDao());
+                    repository.insertAll(newCounters)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new CompletableObserver() {
+                                @Override
+                                public void onComplete() {
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                }
+
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+                            });
                 }
             }
         }
-
     }
 
     private int getVersionCode() {
