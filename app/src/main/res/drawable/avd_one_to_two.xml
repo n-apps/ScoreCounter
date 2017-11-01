@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:drawable="@drawable/dice_one"
+    tools:ignore="NewApi">
+    <target android:name="one">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:duration="300"
+                android:interpolator="@android:anim/overshoot_interpolator"
+                android:propertyName="pathData"
+                android:valueFrom="M 256 210.744 L 256 210.744 C 280.994 210.744 301.256 231.006 301.256 256 C 301.256 280.994 280.994 301.256 256 301.256 C 239.832 301.256 224.891 292.63 216.807 278.628 C 208.723 264.626 208.723 247.374 216.807 233.372 C 224.891 219.37 239.832 210.744 256 210.744 M 256 378.72 L 256 378.72 C 256 378.72 256 378.72 256 378.72 C 256 378.72 256 378.72 256 378.72 C 256 378.72 256 378.72 256 378.72 C 256 378.72 256 378.72 256 378.72"
+                android:valueTo="M 256 88 L 256 88 C 268.497 88 279.811 93.066 288.001 101.255 C 296.19 109.445 301.256 120.759 301.256 133.256 C 301.256 158.25 280.994 178.512 256 178.512 C 231.006 178.512 210.744 158.25 210.744 133.256 C 210.744 108.262 231.006 88 256 88 M 256 333.464 L 256 333.464 C 280.994 333.464 301.256 353.726 301.256 378.72 C 301.256 403.714 280.994 423.976 256 423.976 C 231.006 423.976 210.744 403.714 210.744 378.72 C 210.744 353.726 231.006 333.464 256 333.464"
+                android:valueType="pathType" />
+        </aapt:attr>
+    </target>
+</animated-vector>

@@ -1,21 +1,25 @@
 <resources>
-  <string name="app_name">Score Keeper</string>
-  <string name="color_palette">Color palette</string>
-  <string name="colors">Colors</string>
+    <string name="app_name">Score Keeper</string>
+    <string name="color_palette">Color palette</string>
+    <string name="colors">Colors</string>
     <string name="counter_default_title">%d</string>
-  <string name="counter_dialog_default_value">Default value</string>
-  <string name="counter_dialog_step">Step</string>
-  <string name="counter_dialog_value">Value</string>
-  <string name="menu_add_new_counter">Add new counter</string>
-  <string name="menu_remove_all_counters">Remove all counters</string>
-  <string name="menu_reset_all_counters">Reset all</string>
-  <string name="menu_save_counter">Save</string>
-  <string name="menu_save_to_favorites">Save to favorites</string>
-  <string name="title_activity_favorites">Favorites</string>
-  <string name="settings">Settings</string>
-  <string name="settings_stay_awake">Stay awake</string>
-  <string name="menu_settings">Settings</string>
-  <string name="action_select">Select</string>
+    <string name="counter_dialog_default_value">Default value</string>
+    <string name="counter_dialog_step">Step</string>
+    <string name="counter_dialog_value">Value</string>
+    <string name="menu_add_new_counter">Add new counter</string>
+    <string name="menu_remove_all_counters">Remove all counters</string>
+    <string name="menu_reset_all_counters">Reset all</string>
+    <string name="menu_save_counter">Save</string>
+    <string name="menu_save_to_favorites">Save to favorites</string>
+    <string name="title_activity_favorites">Favorites</string>
+    <string name="settings">Settings</string>
+    <string name="settings_stay_awake">Stay awake</string>
+    <string name="menu_settings">Settings</string>
+    <string name="action_select">Select</string>
     <string name="action_cancel">Cancel</string>
-  <string name="dialog_select_color_title">Select counter color</string>
+    <string name="dialog_select_color_title">Select counter color</string>
+    <string name="menu_dice">Dice</string>
+    <string name="dice_bg">M 55.552 508 C 27.12 508 4 484.872 4 456.448 L 4 55.552 C 4 27.128 27.128 4 55.552 4 L 456.44 4 C 484.872 4 507.992 27.128 507.992 55.552 L 507.992 456.44 C 507.992 484.872 484.864 507.992 456.44 507.992 L 55.552 507.992 L 55.552 508 Z</string>
+    <string name="dice_frame">M 456.448 8 C 482.664 8 504 29.336 504 55.552 L 504 456.44 C 504 482.664 482.664 504 456.448 504 L 55.552 504 C 29.336 504 8 482.664 8 456.448 L 8 55.552 C 8 29.336 29.336 8 55.552 8 L 456.448 8 M 456.448 0 L 55.552 0 C 24.872 0 0 24.872 0 55.552 L 0 456.44 C 0 487.128 24.872 512 55.552 512 L 456.44 512 C 487.128 512 512 487.128 512 456.448 L 512 55.552 C 512 24.872 487.128 0 456.448 0 Z</string>
+
 </resources>
