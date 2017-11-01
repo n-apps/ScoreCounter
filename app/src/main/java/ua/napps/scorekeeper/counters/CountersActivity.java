@@ -16,6 +16,7 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
+import ua.napps.scorekeeper.dice.DiceActivity;
 import ua.napps.scorekeeper.settings.BottomSheetFragment;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
@@ -23,11 +24,11 @@ import ua.napps.scorekeeper.utils.NoChangeAnimator;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
 
+    private BottomSheetFragment bottomSheetFragment;
+
     private CountersAdapter countersAdapter;
 
     private View emptyState;
-
-    private BottomSheetFragment bottomSheetFragment;
 
     private int oldListSize;
 
@@ -102,6 +103,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 break;
             case R.id.menu_settings:
                 showBottomSheetFragment();
+                break;
+            case R.id.menu_dice:
+                Intent intent = new Intent(this, DiceActivity.class);
+                startActivity(intent);
                 break;
         }
         return true;
