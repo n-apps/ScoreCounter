@@ -27,7 +27,11 @@ class DiceLiveData extends LiveData<Integer> {
 
     void rollDice() {
         previousValue = getValue();
-        setValue(((int) (Math.random() * 6)) + 1);
+        setValue(generateDieResult());
+    }
+
+    public int generateDieResult() {
+        return ((int) (Math.random() * 6)) + 1;
     }
 
 }
