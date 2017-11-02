@@ -6,5 +6,5 @@ public final class Constants {
 
     public static final int MAX_COUNTERS_TO_FIT_ON_SCREEN = 5;
 
-    public static final int DEFAULT_COUNTER_HEIGHT = 384;
+    public static final int DEFAULT_COUNTER_HEIGHT = 350;
 }

@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.util.DiffUtil;
@@ -131,8 +132,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         holder.counterValue.setTextColor(textColor);
         holder.counterEdit.setTextColor(textColor);
 
-        DrawableCompat.setTint(holder.increaseImageView.getDrawable(), textColor);
-        DrawableCompat.setTint(holder.decreaseImageView.getDrawable(), textColor);
+        Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
+        Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
+        DrawableCompat.setTint(wrapDrawable1, textColor);
+        DrawableCompat.setTint(wrapDrawable2, textColor);
 
         ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
         if (lp instanceof FlexboxLayoutManager.LayoutParams) {
@@ -140,13 +143,13 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             flexboxLp.setFlexGrow(1.0f);
             final int itemCount = getItemCount();
 
-            if (itemCount > Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                flexboxLp.setHeight(height == 0 ? Constants.DEFAULT_COUNTER_HEIGHT : height);
-            } else {
+            if (itemCount <= Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
                 if (itemCount == Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
                     height = holder.itemView.getHeight();
                 }
                 flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+            } else {
+                flexboxLp.setHeight(height == 0 ? Constants.DEFAULT_COUNTER_HEIGHT : height);
             }
         }
     }
