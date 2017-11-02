@@ -29,7 +29,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="ua.napps.scorekeeper.dice.DiceActivity"></activity>
+        <activity android:name="ua.napps.scorekeeper.dice.DiceActivity" />
     </application>
 
 </manifest>
