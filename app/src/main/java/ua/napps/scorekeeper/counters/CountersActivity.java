@@ -156,7 +156,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 final int size = counters.size();
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
                 countersAdapter.setCountersList(counters);
-                if (size <= 4) {
+                if (size <= Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
                     if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
                             != FlexWrap.NOWRAP) {
                         FlexboxLayoutManager layoutManager =
