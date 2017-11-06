@@ -20,8 +20,8 @@ import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
 import java.util.Objects;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
+import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
@@ -36,11 +36,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         FrameLayout counterClickableArea;
 
+        TextView counterEdit;
+
         LinearLayout counterHeader;
 
         TextView counterName;
-
-        TextView counterEdit;
 
         TextView counterValue;
 
@@ -108,6 +108,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     private int height;
 
+    private boolean tryToFitAllCounters;
+
     public CountersAdapter(CounterActionCallback callback) {
         this.callback = callback;
     }
@@ -115,6 +117,14 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     @Override
     public int getItemCount() {
         return counters == null ? 0 : counters.size();
+    }
+
+    public boolean isTryToFitAllCounters() {
+        return tryToFitAllCounters;
+    }
+
+    public void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
+        this.tryToFitAllCounters = tryToFitAllCounters;
     }
 
     @Override
@@ -142,14 +152,13 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
             flexboxLp.setFlexGrow(1.0f);
             final int itemCount = getItemCount();
-
-            if (itemCount <= Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                if (itemCount == Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                    height = holder.itemView.getHeight();
-                }
+            if (itemCount <= SettingsUtil.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
                 flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-            } else {
-                flexboxLp.setHeight(height == 0 ? Constants.DEFAULT_COUNTER_HEIGHT : height);
+            } else if (!tryToFitAllCounters) {
+                if (height == 0) {
+                    height = holder.itemView.getMinimumHeight();
+                }
+                flexboxLp.setHeight(height);
             }
         }
     }

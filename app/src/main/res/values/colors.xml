@@ -13,6 +13,7 @@
   <color name="white">#fff</color>
   <color name="white_87">#deffffff</color>
   <color name="black">#000</color>
+    <color name="black_12">#1F000000</color>
   <color name="light_status_bar">#eee</color>
 
 </resources>
