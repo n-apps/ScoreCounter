@@ -30,7 +30,7 @@
             android:alpha=".87"
             android:clickable="false"
             android:ellipsize="end"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/source_sans_pro"
             android:maxLines="1"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:alpha=".87"
-            android:fontFamily="@font/open_sans_semibold"
+            android:fontFamily="@font/source_sans_pro"
             android:text="EDIT" />
     </LinearLayout>
 

@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -14,25 +15,30 @@ import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.dice.DiceActivity;
-import ua.napps.scorekeeper.settings.BottomSheetFragment;
+import ua.napps.scorekeeper.settings.SettingsFragment;
+import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
 
-public class CountersActivity extends AppCompatActivity implements CounterActionCallback {
+public class CountersActivity extends AppCompatActivity
+        implements CounterActionCallback, SharedPreferences.OnSharedPreferenceChangeListener {
 
-    private BottomSheetFragment bottomSheetFragment;
+    private SettingsFragment bottomSheetFragment;
 
     private CountersAdapter countersAdapter;
 
     private View emptyState;
 
+    private boolean isTryToFitAllCounters;
+
     private int oldListSize;
 
     private RecyclerView recyclerView;
+
+    private TinyDB settingsDB;
 
     private CountersViewModel viewModel;
 
@@ -45,7 +51,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.recycler_view);
         emptyState = findViewById(R.id.empty_state);
+        settingsDB = new TinyDB(getApplicationContext());
+        settingsDB.registerOnSharedPreferenceChangeListener(this);
+        applyKeepScreenOn();
+        isTryToFitAllCounters = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
         countersAdapter = new CountersAdapter(this);
+        countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
         FlexboxLayoutManager layoutManager =
                 new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
@@ -53,8 +64,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         recyclerView.setAdapter(countersAdapter);
         recyclerView.setItemAnimator(new NoChangeAnimator());
 
-        subscribeUi();
-        applySettings();
+        subscribeToModel();
     }
 
     @Override
@@ -65,6 +75,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
+        settingsDB = null;
     }
 
     @Override
@@ -126,10 +143,25 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         return super.onPrepareOptionsMenu(menu);
     }
 
-    private void applySettings() {
-        final TinyDB settingsDB = new TinyDB(getApplicationContext());
-        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_STAY_AWAKE, true);
+    @Override
+    public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
+        switch (key) {
+            case SettingsUtil.SETTINGS_STAY_AWAKE:
+                applyKeepScreenOn();
+                break;
+            case SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
+                final boolean newValue = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
+                countersAdapter.setTryToFitAllCounters(newValue);
+                countersAdapter = new CountersAdapter(this);
+                countersAdapter.setTryToFitAllCounters(newValue);
+                recyclerView.setAdapter(countersAdapter);
+                subscribeToModel();
+                break;
+        }
+    }
 
+    private void applyKeepScreenOn() {
+        final boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, true);
         if (isStayAwake) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
@@ -145,34 +177,38 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     private void showBottomSheetFragment() {
-        bottomSheetFragment = new BottomSheetFragment();
-        bottomSheetFragment.show(getSupportFragmentManager(), "BottomSheetFragment");
+        bottomSheetFragment = new SettingsFragment();
+        bottomSheetFragment.show(getSupportFragmentManager(), "SettingsFragment");
     }
 
-    private void subscribeUi() {
+    private void subscribeToModel() {
         // Update the list when the data changes
         viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
                 final int size = counters.size();
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
+                assert countersAdapter != null;
                 countersAdapter.setCountersList(counters);
-                if (size <= Constants.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                    if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
-                            != FlexWrap.NOWRAP) {
-                        FlexboxLayoutManager layoutManager =
-                                new FlexboxLayoutManager(CountersActivity.this, FlexDirection.COLUMN,
-                                        FlexWrap.NOWRAP);
-                        recyclerView.setLayoutManager(layoutManager);
-                    }
-                } else {
-                    if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
-                            != FlexWrap.WRAP) {
-                        FlexboxLayoutManager layoutManager =
-                                new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
-                        recyclerView.setLayoutManager(layoutManager);
-                    }
-                    if (oldListSize < size) {
-                        recyclerView.smoothScrollToPosition(size);
+
+                if (!countersAdapter.isTryToFitAllCounters()) {
+                    if (size <= SettingsUtil.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
+                        if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
+                                != FlexWrap.NOWRAP) {
+                            FlexboxLayoutManager layoutManager =
+                                    new FlexboxLayoutManager(CountersActivity.this, FlexDirection.COLUMN,
+                                            FlexWrap.NOWRAP);
+                            recyclerView.setLayoutManager(layoutManager);
+                        }
+                    } else {
+                        if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
+                                != FlexWrap.WRAP) {
+                            FlexboxLayoutManager layoutManager =
+                                    new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
+                            recyclerView.setLayoutManager(layoutManager);
+                        }
+                        if (oldListSize < size) {
+                            recyclerView.smoothScrollToPosition(size);
+                        }
                     }
                 }
                 oldListSize = size;

@@ -23,7 +23,8 @@
   <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>
 
   <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-    <item name="android:fontFamily">@font/open_sans_semibold</item>
+      <item name="android:fontFamily">@font/source_sans_pro</item>
+      <item name="android:textStyle">bold</item>
   </style>
 
 </resources>
