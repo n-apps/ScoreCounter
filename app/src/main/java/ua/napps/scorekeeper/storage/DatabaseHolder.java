@@ -9,19 +9,22 @@ import android.support.annotation.NonNull;
 import ua.napps.scorekeeper.counters.Counter;
 import ua.napps.scorekeeper.counters.CountersDao;
 
-@Database(entities = { Counter.class }, version = 1) public abstract class DatabaseHolder
-    extends RoomDatabase {
+@Database(entities = {Counter.class}, version = 1)
+public abstract class DatabaseHolder
+        extends RoomDatabase {
 
-  public abstract CountersDao countersDao();
+    private static DatabaseHolder database;
 
-  private static DatabaseHolder database;
+    @NonNull
+    public static DatabaseHolder database() {
+        return database;
+    }
 
-  @MainThread public static void init(@NonNull Context context) {
-    database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class,
-        "counters-database").build();
-  }
+    @MainThread
+    public static void init(@NonNull Context context) {
+        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class,
+                "counters-database").build();
+    }
 
-  @NonNull public static DatabaseHolder database() {
-    return database;
-  }
+    public abstract CountersDao countersDao();
 }

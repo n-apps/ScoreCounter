@@ -18,10 +18,10 @@ public interface CountersDao {
     void deleteCounter(Counter counter);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(List<Counter> counters);
+    void insert(Counter counter);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Counter counter);
+    void insertAll(List<Counter> counters);
 
     @Query("SELECT * FROM counters")
     LiveData<List<Counter>> loadAllCounters();
@@ -29,9 +29,6 @@ public interface CountersDao {
     @Query("select * from counters where id = :counterId")
     LiveData<Counter> loadCounter(
             int counterId);
-
-    @Query("select * from counters where id = :counterId")
-    Counter loadCounterSync(int counterId);
 
     @Query("UPDATE counters " + "SET color = :hex WHERE id = :counterId")
     void modifyColor(

@@ -5,18 +5,21 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
-public class CountersViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+class CountersViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
-  private ScoreKeeperApp app;
-  private final CountersRepository repository;
+    private final ScoreKeeperApp app;
 
-  CountersViewModelFactory(ScoreKeeperApp scoreKeeperApp, CountersDao countersDao) {
-    app = scoreKeeperApp;
-    repository = new CountersRepository(countersDao);
-  }
+    private final CountersRepository repository;
 
-  @NonNull @Override public <T extends ViewModel> T create(Class<T> modelClass) {
-    //noinspection unchecked
-    return (T) new CountersViewModel(app, repository);
-  }
+    CountersViewModelFactory(ScoreKeeperApp scoreKeeperApp, CountersDao countersDao) {
+        app = scoreKeeperApp;
+        repository = new CountersRepository(countersDao);
+    }
+
+    @NonNull
+    @Override
+    public <T extends ViewModel> T create(Class<T> modelClass) {
+        //noinspection unchecked
+        return (T) new CountersViewModel(app, repository);
+    }
 }

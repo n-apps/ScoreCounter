@@ -1,9 +1,10 @@
 package ua.napps.scorekeeper.counters;
 
-public interface CounterActionCallback {
-  void onNameClick(Counter counter);
+interface CounterActionCallback {
 
-  void onIncreaseClick(Counter counter);
+    void onDecreaseClick(Counter counter);
 
-  void onDecreaseClick(Counter counter);
+    void onIncreaseClick(Counter counter);
+
+    void onNameClick(Counter counter);
 }

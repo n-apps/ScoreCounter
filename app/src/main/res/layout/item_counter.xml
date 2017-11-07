@@ -34,7 +34,7 @@
             android:maxLines="1"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            tools:text="#1" />
+            tools:text="@tools:sample/first_names" />
 
         <TextView
             android:id="@+id/tv_counter_edit"
@@ -42,8 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:alpha=".87"
+            android:textAllCaps="true"
             android:fontFamily="@font/source_sans_pro"
-            android:text="EDIT" />
+            android:text="@string/common_edit" />
     </LinearLayout>
 
     <FrameLayout
@@ -60,7 +61,7 @@
             android:layout_marginRight="80dp"
             android:alpha=".87"
             android:clickable="false"
-            android:fontFamily="@font/squada_one"
+            android:fontFamily="@font/source_sans_pro"
             android:gravity="center"
             android:lines="1"
             app:autoSizeMaxTextSize="120sp"
@@ -68,15 +69,17 @@
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
             tools:text="1"
-            tools:textSize="120sp" />
+            tools:textSize="120sp"
+            tools:ignore="MissingPrefix" />
 
         <ImageView
             android:id="@+id/iv_decrease"
             android:layout_width="@dimen/material_layout_touch_target"
             android:layout_height="@dimen/material_layout_touch_target"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:alpha="0.38"
             android:scaleType="center"
+            android:contentDescription="@string/common_increase"
             app:srcCompat="@drawable/ic_keyboard_arrow_left" />
 
 
@@ -84,7 +87,8 @@
             android:id="@+id/iv_increase"
             android:layout_width="@dimen/material_layout_touch_target"
             android:layout_height="@dimen/material_layout_touch_target"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="end|center_vertical"
+            android:contentDescription="@string/common_decrease"
             android:alpha="0.38"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_right" />

@@ -30,8 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:fontFamily="@font/open_sans_semibold"
-                android:hint="Counter name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:fontFamily="@font/source_sans_pro"
+                android:hint="@string/counter_details_name"
                 android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
                 android:maxLines="1"
@@ -53,7 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/counter_dialog_value"
+            android:text="@string/counter_details_value"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/tv_counter_value"
@@ -86,7 +87,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/counter_dialog_default_value"
+            android:text="@string/counter_details_default_value"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -113,7 +114,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/counter_dialog_step"
+            android:text="@string/counter_details_step"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -140,7 +141,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Color"
+            android:text="@string/counter_details_color"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <com.afollestad.materialdialogs.color.CircleView
@@ -174,6 +175,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:contentDescription="@string/counter_details_delete"
                 app:srcCompat="@drawable/ic_delete_forever_white" />
 
             <Space
@@ -183,7 +185,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete counter"
+                android:text="@string/counter_details_delete"
                 android:textAllCaps="true"
                 android:textColor="@color/white" />
 

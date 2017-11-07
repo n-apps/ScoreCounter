@@ -1,30 +1,30 @@
 <resources>
 
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-    <item name="colorPrimary">@color/primaryColor</item>
-    <item name="colorPrimaryDark">@color/primaryColor</item>
-    <item name="colorAccent">@color/accentColor</item>
-    <item name="android:textColorPrimary">@color/textColorPrimary</item>
-    <item name="android:textColorSecondary">@color/textColorSecondary</item>
-    <item name="android:textColorHint">@color/textColorHint</item>
-  </style>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
 
-  <style name="ToolBarStyle" parent="ToolBarStyle.Base"/>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
 
-  <style name="ToolBarStyle.Base" parent="">
-    <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
-    <item name="theme">@style/AppTheme.AppBarOverlay</item>
-    <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
-  </style>
+    <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
+    </style>
 
-  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
-  <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-      <item name="android:fontFamily">@font/source_sans_pro</item>
-      <item name="android:textStyle">bold</item>
-  </style>
+    <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

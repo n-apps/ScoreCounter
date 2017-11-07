@@ -32,21 +32,21 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         Counter counter;
 
-        CounterActionCallback counterActionCallback;
+        private final CounterActionCallback counterActionCallback;
 
-        FrameLayout counterClickableArea;
+        final FrameLayout counterClickableArea;
 
-        TextView counterEdit;
+        final TextView counterEdit;
 
-        LinearLayout counterHeader;
+        final LinearLayout counterHeader;
 
-        TextView counterName;
+        final TextView counterName;
 
-        TextView counterValue;
+        final TextView counterValue;
 
-        ImageView decreaseImageView;
+        final ImageView decreaseImageView;
 
-        ImageView increaseImageView;
+        final ImageView increaseImageView;
 
         CountersViewHolder(View v, CounterActionCallback callback) {
             super(v);
@@ -104,13 +104,13 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     List<? extends Counter> counters;
 
-    private CounterActionCallback callback;
+    private final CounterActionCallback callback;
 
     private int height;
 
     private boolean tryToFitAllCounters;
 
-    public CountersAdapter(CounterActionCallback callback) {
+    CountersAdapter(CounterActionCallback callback) {
         this.callback = callback;
     }
 
@@ -119,11 +119,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         return counters == null ? 0 : counters.size();
     }
 
-    public boolean isTryToFitAllCounters() {
+    boolean isTryToFitAllCounters() {
         return tryToFitAllCounters;
     }
 
-    public void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
+    void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
         this.tryToFitAllCounters = tryToFitAllCounters;
     }
 
@@ -169,7 +169,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         return new CountersViewHolder(v, callback);
     }
 
-    public void setCountersList(final List<? extends Counter> counters) {
+    void setCountersList(final List<? extends Counter> counters) {
         if (this.counters == null) {
             this.counters = counters;
             notifyItemRangeInserted(0, counters.size());
