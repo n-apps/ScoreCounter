@@ -32,8 +32,6 @@ public class CountersActivity extends AppCompatActivity
 
     private View emptyState;
 
-    private boolean isTryToFitAllCounters;
-
     private int oldListSize;
 
     private RecyclerView recyclerView;
@@ -51,10 +49,12 @@ public class CountersActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.recycler_view);
         emptyState = findViewById(R.id.empty_state);
+        emptyState.setOnClickListener(view -> viewModel.addCounter());
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         applyKeepScreenOn();
-        isTryToFitAllCounters = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
+        final boolean isTryToFitAllCounters = settingsDB
+                .getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
         countersAdapter = new CountersAdapter(this);
         countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
