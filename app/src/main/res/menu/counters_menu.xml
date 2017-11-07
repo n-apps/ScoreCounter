@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-  <item
-      android:id="@+id/menu_add_counter"
-      android:icon="@drawable/ic_add_box_white"
-      android:title="@string/menu_add_new_counter"
-      app:showAsAction="always"/>
-  <item
-      android:id="@+id/menu_reset_all"
-      android:title="@string/menu_reset_all_counters"
-      app:showAsAction="never"/>
-  <item
-      android:id="@+id/menu_remove_all"
-      android:title="@string/menu_remove_all_counters"
-      app:showAsAction="never"/>
-  <item
-      android:id="@+id/menu_settings"
-      android:title="@string/menu_settings"
-      app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_add_counter"
+        android:icon="@drawable/ic_add_white"
+        android:title="@string/menu_add_new_counter"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_dice"
+        android:icon="@drawable/ic_dice_white"
         android:title="@string/menu_dice"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_reset_all"
+        android:title="@string/menu_reset_all_counters"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_remove_all"
+        android:title="@string/menu_remove_all_counters"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        app:showAsAction="never" />
+
 </menu>
