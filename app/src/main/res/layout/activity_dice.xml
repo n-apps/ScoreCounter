@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context="ua.napps.scorekeeper.dice.DiceActivity">
 
@@ -25,12 +24,12 @@
         android:gravity="center_horizontal"
         android:lineSpacingExtra="8dp"
         android:padding="24dp"
-        android:text="Tap on me to roll"
+        android:text="@string/dice_empty_state"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
 
     <TextView
-        android:id="@+id/debug_info"
+        android:id="@+id/tv_previous_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
@@ -43,6 +42,6 @@
         android:layout_width="@dimen/material_layout_touch_target"
         android:layout_height="@dimen/material_layout_touch_target"
         android:background="?attr/selectableItemBackground"
-        android:contentDescription="Back"
+        android:contentDescription="@string/common_back"
         app:srcCompat="@drawable/ic_arrow_back" />
 </FrameLayout>

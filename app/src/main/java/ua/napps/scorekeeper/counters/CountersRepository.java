@@ -7,67 +7,66 @@ import java.util.List;
 
 public class CountersRepository {
 
-  @NonNull private final CountersDao countersDao;
+    @NonNull
+    private final CountersDao countersDao;
 
-  public CountersRepository(@NonNull CountersDao countersDao) {
-    this.countersDao = countersDao;
-  }
+    public CountersRepository(@NonNull CountersDao countersDao) {
+        this.countersDao = countersDao;
+    }
 
-  public LiveData<List<Counter>> getCounters() {
-    //Here is where we would do more complex logic, like getting events from a cache
-    //then inserting into the database etc. In this example we just go straight to the dao.
-    return countersDao.loadAllCounters();
-  }
+    public Completable createCounter(String name, String color) {
 
-  public LiveData<Counter> loadCounter(int counterId) {
-    return countersDao.loadCounter(counterId);
-  }
+        return Completable.fromAction(() -> {
+            final Counter counter = new Counter(name, color);
+            countersDao.insert(counter);
+        });
+    }
 
-  public Completable createCounter(String name, String color) {
+    public Completable delete(Counter counter) {
+        return Completable.fromAction(() -> countersDao.deleteCounter(counter));
+    }
 
-    return Completable.fromAction(() -> {
-      final Counter counter = new Counter(name, color);
-      countersDao.insert(counter);
-    });
-  }
+    public Completable deleteAll() {
+        return Completable.fromAction(countersDao::deleteAll);
+    }
 
-  public Completable insertAll(List<Counter> counters) {
-    return Completable.fromAction(() -> countersDao.insertAll(counters));
-  }
+    public LiveData<List<Counter>> getCounters() {
+        return countersDao.loadAllCounters();
+    }
 
-  public Completable modifyCount(int counterId, int difference) {
-    return Completable.fromAction(() -> countersDao.modifyValue(counterId, difference));
-  }
+    public Completable insertAll(List<Counter> counters) {
+        return Completable.fromAction(() -> countersDao.insertAll(counters));
+    }
 
-  public Completable setCount(int counterId, int value) {
-    return Completable.fromAction(() -> countersDao.setValue(counterId, value));
-  }
+    public LiveData<Counter> loadCounter(int counterId) {
+        return countersDao.loadCounter(counterId);
+    }
 
-  public Completable modifyName(int counterId, String name) {
-    return Completable.fromAction(() -> countersDao.modifyName(counterId, name));
-  }
+    public Completable modifyColor(int counterId, String hex) {
+        return Completable.fromAction(() -> countersDao.modifyColor(counterId, hex));
+    }
 
-  public Completable modifyDefaultValue(int counterId, int defaultValue) {
-    return Completable.fromAction(() -> countersDao.modifyDefaultValue(counterId, defaultValue));
-  }
+    public Completable modifyCount(int counterId, int difference) {
+        return Completable.fromAction(() -> countersDao.modifyValue(counterId, difference));
+    }
 
-  public Completable modifyStep(int counterId, int step) {
-    return Completable.fromAction(() -> countersDao.modifyStep(counterId, step));
-  }
+    public Completable modifyDefaultValue(int counterId, int defaultValue) {
+        return Completable.fromAction(() -> countersDao.modifyDefaultValue(counterId, defaultValue));
+    }
 
-  public Completable modifyColor(int counterId, String hex) {
-    return Completable.fromAction(() -> countersDao.modifyColor(counterId, hex));
-  }
+    public Completable modifyName(int counterId, String name) {
+        return Completable.fromAction(() -> countersDao.modifyName(counterId, name));
+    }
 
-  public Completable resetAll() {
-    return Completable.fromAction(countersDao::resetValues);
-  }
+    public Completable modifyStep(int counterId, int step) {
+        return Completable.fromAction(() -> countersDao.modifyStep(counterId, step));
+    }
 
-  public Completable delete(Counter counter) {
-    return Completable.fromAction(() -> countersDao.deleteCounter(counter));
-  }
+    public Completable resetAll() {
+        return Completable.fromAction(countersDao::resetValues);
+    }
 
-  public Completable deleteAll() {
-    return Completable.fromAction(countersDao::deleteAll);
-  }
+    public Completable setCount(int counterId, int value) {
+        return Completable.fromAction(() -> countersDao.setValue(counterId, value));
+    }
 }

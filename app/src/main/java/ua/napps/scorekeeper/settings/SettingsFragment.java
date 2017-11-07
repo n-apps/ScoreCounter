@@ -30,13 +30,11 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         boolean isTryToFitAllCounters = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
 
         stayAwake.setChecked(isStayAwake);
-        stayAwake.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            settingsDB.putBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, isChecked);
-        });
+        stayAwake.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> settingsDB.putBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, isChecked));
         tryToFitAllCounters.setChecked(isTryToFitAllCounters);
-        tryToFitAllCounters.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            settingsDB.putBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, isChecked);
-        });
+        tryToFitAllCounters.setOnCheckedChangeListener((buttonView, isChecked) -> settingsDB
+                .putBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, isChecked));
         CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams)
                 ((View) contentView.getParent()).getLayoutParams();
         final CoordinatorLayout.Behavior behavior = params.getBehavior();

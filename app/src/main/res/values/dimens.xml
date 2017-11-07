@@ -1,6 +1,2 @@
 <resources>
-
-
-  <dimen name="fab_margin">16dp</dimen>
-  <dimen name="counter_min_height">128dp</dimen>
 </resources>

@@ -27,8 +27,11 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        repository.createCounter(
-                getApplication().getString(R.string.counter_default_title, counters.getValue().size() + 1),
+        final List<Counter> counters = this.counters.getValue();
+        if (counters == null) {
+            return;
+        }
+        repository.createCounter(String.valueOf(counters.size() + 1),
                 getRandomColor())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

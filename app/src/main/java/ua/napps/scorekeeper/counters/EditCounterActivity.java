@@ -28,8 +28,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     public static final int RESULT_DELETE = 1003;
 
-    public static final int RESULT_EDITED = 1004;
-
     protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
 
     private CircleView colorPreview;
@@ -106,10 +104,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                         (dialog, input) -> viewModel.updateStep(Integer.parseInt(input.toString()))).show());
 
         counterColorContainer.setOnClickListener(
-                v -> new ColorChooserDialog.Builder(EditCounterActivity.this, R.string.dialog_select_color_title)
+                v -> new ColorChooserDialog.Builder(EditCounterActivity.this,
+                        R.string.counter_details_color_picker_title)
                         .doneButton(
-                                R.string.action_select)
-                        .cancelButton(R.string.action_cancel)
+                                R.string.common_select)
+                        .cancelButton(R.string.common_cancel)
                         .dynamicButtonColor(false)
                         .allowUserColorInputAlpha(false)
                         .show(EditCounterActivity.this));
@@ -171,7 +170,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                         }
                     });
                 }
-                setResult(RESULT_EDITED);
             } else {
                 setResult(RESULT_DELETE);
                 finish();

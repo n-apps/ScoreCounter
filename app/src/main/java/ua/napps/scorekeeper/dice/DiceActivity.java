@@ -19,13 +19,13 @@ import ua.com.napps.scorekeeper.R;
 
 public class DiceActivity extends AppCompatActivity {
 
-    TextView debugInfo;
+    private TextView previousResult;
 
-    ImageView dice;
+    private ImageView dice;
 
-    SpringForce springForce;
+    private SpringForce springForce;
 
-    TextView tapOnMe;
+    private TextView tapOnMe;
 
     private SpringAnimation springAnimation;
 
@@ -43,7 +43,7 @@ public class DiceActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         dice = findViewById(R.id.dice);
-        debugInfo = findViewById(R.id.debug_info);
+        previousResult = findViewById(R.id.tv_previous_result);
         tapOnMe = findViewById(R.id.tv_tap_on_me);
 
         springForce = new SpringForce()
@@ -59,6 +59,11 @@ public class DiceActivity extends AppCompatActivity {
         subscribeToModel();
     }
 
+    private SpringAnimation getSpringAnimation() {
+        return new SpringAnimation(dice, DynamicAnimation.ROTATION).setSpring(springForce)
+                .setStartValue(100f).setStartVelocity(100);
+    }
+
     private void rollDice(int diceResult, int previousResult) {
         int prevValue;
         if (previousResult == 0) {
@@ -66,7 +71,8 @@ public class DiceActivity extends AppCompatActivity {
             prevValue = ((int) (Math.random() * 6)) + 1;
         } else {
             prevValue = previousResult;
-            debugInfo.setText(String.format("Previous result: %d", previousResult));
+            this.previousResult
+                    .setText(String.format(getString(R.string.dice_previous_result_label), previousResult));
             ((Animatable) dice.getDrawable()).stop();
             if (springAnimation != null) {
                 springAnimation.cancel();
@@ -240,11 +246,6 @@ public class DiceActivity extends AppCompatActivity {
 
         }
 
-    }
-
-    private SpringAnimation getSpringAnimation() {
-        return new SpringAnimation(dice, DynamicAnimation.ROTATION).setSpring(springForce)
-                .setStartValue(100f).setStartVelocity(100);
     }
 
     private void subscribeToModel() {

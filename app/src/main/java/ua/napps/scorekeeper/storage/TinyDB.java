@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class TinyDB {
 
-    private SharedPreferences preferences;
+    private final SharedPreferences preferences;
 
     public TinyDB(Context appContext) {
         preferences = PreferenceManager.getDefaultSharedPreferences(appContext);

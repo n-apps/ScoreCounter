@@ -21,21 +21,43 @@ public class EditCounterViewModel extends ViewModel {
 
     private final int id;
 
-    public EditCounterViewModel(CountersRepository repository, final int counterId) {
+    EditCounterViewModel(CountersRepository repository, final int counterId) {
         id = counterId;
         countersRepository = repository;
         counterLiveData = repository.loadCounter(counterId);
-    }
-
-    public LiveData<Counter> getCounterLiveData() {
-        return counterLiveData;
     }
 
     public void setCounter(@NonNull Counter c) {
         counter = c;
     }
 
-    public void updateColor(String hex) {
+    void deleteCounter() {
+        countersRepository.delete(counter)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        Timber.d("onComplete - successfully deleted counter");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.d("onError - add:", e);
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
+    LiveData<Counter> getCounterLiveData() {
+        return counterLiveData;
+    }
+
+    void updateColor(String hex) {
         if (hex.equals(counter.getColor())) {
             return;
         }
@@ -61,7 +83,7 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    public void updateDefaultValue(int defaultValue) {
+    void updateDefaultValue(int defaultValue) {
         if (defaultValue == counter.getDefaultValue()) {
             return;
         }
@@ -87,7 +109,7 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    public void updateName(@NonNull String newName) {
+    void updateName(@NonNull String newName) {
         if (newName.equals(counter.getName())) {
             return;
         }
@@ -113,7 +135,7 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    public void updateStep(int step) {
+    void updateStep(int step) {
         if (step == counter.getStep()) {
             return;
         }
@@ -139,7 +161,7 @@ public class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    public void updateValue(int value) {
+    void updateValue(int value) {
         if (value == counter.getValue()) {
             return;
         }
@@ -151,28 +173,6 @@ public class EditCounterViewModel extends ViewModel {
                     @Override
                     public void onComplete() {
                         Timber.d("onComplete - successfully added event");
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
-                    }
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-                });
-    }
-
-    public void deleteCounter() {
-        countersRepository.delete(counter)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        Timber.d("onComplete - successfully deleted counter");
                     }
 
                     @Override
