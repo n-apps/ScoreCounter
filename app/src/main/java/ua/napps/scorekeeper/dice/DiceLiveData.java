@@ -10,10 +10,6 @@ class DiceLiveData extends LiveData<Integer> {
         setValue(0);
     }
 
-    int getPreviousValue() {
-        return previousValue;
-    }
-
     @Override
     protected void onActive() {
 
@@ -24,11 +20,13 @@ class DiceLiveData extends LiveData<Integer> {
 
     }
 
+    int getPreviousValue() {
+        return previousValue;
+    }
+
     void rollDice() {
-        if (getValue() != null) {
-            previousValue = getValue();
-            setValue(generateDieResult());
-        }
+        previousValue = getValue();
+        setValue(generateDieResult());
     }
 
     private int generateDieResult() {

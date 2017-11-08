@@ -29,25 +29,22 @@
                 android:id="@+id/et_counter_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:layout_margin="@dimen/material_layout_keylines_screen_edge_margin"
                 android:hint="@string/counter_details_name"
                 android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
                 android:maxLines="1"
-                android:minEms="20" />
+                android:minEms="20"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
         </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/counter_value"
+        style="@style/SingleLineStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/material_component_lists_single_line_height"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
@@ -74,13 +71,10 @@
 
     <LinearLayout
         android:id="@+id/counter_default_value"
+        style="@style/SingleLineStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/material_component_lists_single_line_height"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
@@ -101,13 +95,10 @@
 
     <LinearLayout
         android:id="@+id/counter_step"
+        style="@style/SingleLineStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/material_component_lists_single_line_height"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
@@ -128,13 +119,10 @@
 
     <LinearLayout
         android:id="@+id/counter_color"
+        style="@style/SingleLineStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/material_component_lists_single_line_height"
-        android:orientation="horizontal"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin">
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
@@ -166,14 +154,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingRight="16dp"
             android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:paddingLeft="16dp">
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp">
 
             <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="@dimen/material_layout_icon"
+                android:layout_height="@dimen/material_layout_icon"
                 android:contentDescription="@string/counter_details_delete"
                 app:srcCompat="@drawable/ic_delete_forever_white" />
 
