@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/josefin_slab_bold</item>
         <item>@font/source_sans_pro</item>
-        <item>@font/squada_one</item>
+        <item>@font/tenor_sans</item>
+        <item>@font/work_sans_light</item>
     </array>
 </resources>

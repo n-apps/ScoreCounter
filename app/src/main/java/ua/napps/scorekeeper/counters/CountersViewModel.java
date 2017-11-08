@@ -27,11 +27,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        final List<Counter> counters = this.counters.getValue();
-        if (counters == null) {
-            return;
-        }
-        repository.createCounter(String.valueOf(counters.size() + 1),
+        repository.createCounter(String.valueOf(counters.getValue().size() + 1),
                 getRandomColor())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -148,10 +144,10 @@ class CountersViewModel extends AndroidViewModel {
     private String getRandomColor() {
         String[] colors = getApplication().getResources().getStringArray(R.array.color_collection);
         final int presetSize = colors.length;
-        final String color = colors[new Random().nextInt(presetSize - 1)];
-        final List<Counter> value = getCounters().getValue();
-        if (value != null && value.size() <= presetSize) {
-            for (final Counter c : value) {
+        final String color = colors[new Random().nextInt(presetSize)];
+        final List<Counter> counters = getCounters().getValue();
+        if (counters.size() < presetSize) {
+            for (final Counter c : counters) {
                 if (color.equals(c.getColor())) {
                     return getRandomColor();
                 }
