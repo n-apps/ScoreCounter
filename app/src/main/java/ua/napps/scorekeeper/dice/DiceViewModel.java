@@ -2,7 +2,7 @@ package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.ViewModel;
 
-class DiceViewModel extends ViewModel {
+public class DiceViewModel extends ViewModel {
 
     private final DiceLiveData diceResult = new DiceLiveData();
 
@@ -11,7 +11,7 @@ class DiceViewModel extends ViewModel {
         return diceResult;
     }
 
-    void rollDice() {
+    public void rollDice() {
         diceResult.rollDice();
     }
 }

@@ -31,7 +31,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:fontFamily="@font/source_sans_pro"
                 android:hint="@string/counter_details_name"
                 android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
