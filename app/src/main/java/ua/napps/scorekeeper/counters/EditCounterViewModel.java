@@ -43,7 +43,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -73,7 +73,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -99,7 +99,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -125,7 +125,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -151,7 +151,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -177,7 +177,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override

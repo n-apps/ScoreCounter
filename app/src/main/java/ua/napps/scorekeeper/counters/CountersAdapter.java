@@ -32,8 +32,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         Counter counter;
 
-        private final CounterActionCallback counterActionCallback;
-
         final FrameLayout counterClickableArea;
 
         final TextView counterEdit;
@@ -48,9 +46,12 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         final ImageView increaseImageView;
 
+        private final CounterActionCallback counterActionCallback;
+
         CountersViewHolder(View v, CounterActionCallback callback) {
             super(v);
             counterActionCallback = callback;
+
             counterValue = v.findViewById(R.id.tv_counter_value);
             counterName = v.findViewById(R.id.tv_counter_name);
             counterEdit = v.findViewById(R.id.tv_counter_edit);
@@ -58,7 +59,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counterHeader = v.findViewById(R.id.counter_header);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
-            counterHeader.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
+            counterHeader.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter.getId()));
+
             counterClickableArea.setOnTouchListener(new OnTouchListener() {
                 float touchedX, touchedY;
 
@@ -119,14 +121,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         return counters == null ? 0 : counters.size();
     }
 
-    boolean isTryToFitAllCounters() {
-        return tryToFitAllCounters;
-    }
-
-    void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
-        this.tryToFitAllCounters = tryToFitAllCounters;
-    }
-
     @Override
     public void onBindViewHolder(CountersViewHolder holder, int position) {
         final Counter counter = counters.get(position);
@@ -167,6 +161,14 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     public CountersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
         return new CountersViewHolder(v, callback);
+    }
+
+    boolean isTryToFitAllCounters() {
+        return tryToFitAllCounters;
+    }
+
+    void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
+        this.tryToFitAllCounters = tryToFitAllCounters;
     }
 
     void setCountersList(final List<? extends Counter> counters) {

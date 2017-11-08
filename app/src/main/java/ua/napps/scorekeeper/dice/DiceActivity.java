@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
 public class DiceActivity extends AppCompatActivity {
 
@@ -51,7 +52,10 @@ public class DiceActivity extends AppCompatActivity {
                 .setStiffness(SpringForce.STIFFNESS_LOW)
                 .setFinalPosition(1);
 
-        dice.setOnClickListener(v -> viewModel.rollDice());
+        dice.setOnClickListener(v -> {
+            viewModel.rollDice();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", null);
+        });
         backArrow.setOnClickListener(v -> finish());
 
         viewModel = ViewModelProviders.of(this).get(DiceViewModel.class);

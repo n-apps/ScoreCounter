@@ -26,12 +26,12 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
         SwitchCompat tryToFitAllCounters = contentView.findViewById(R.id.sw_try_to_fit_all_counters);
         final TinyDB settingsDB = new TinyDB(getContext());
-        boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, true);
+        boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, true);
         boolean isTryToFitAllCounters = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
 
         stayAwake.setChecked(isStayAwake);
         stayAwake.setOnCheckedChangeListener(
-                (buttonView, isChecked) -> settingsDB.putBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, isChecked));
+                (buttonView, isChecked) -> settingsDB.putBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, isChecked));
         tryToFitAllCounters.setChecked(isTryToFitAllCounters);
         tryToFitAllCounters.setOnCheckedChangeListener((buttonView, isChecked) -> settingsDB
                 .putBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, isChecked));

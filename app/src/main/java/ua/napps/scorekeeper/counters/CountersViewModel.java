@@ -39,7 +39,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -87,7 +87,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
@@ -131,7 +131,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Timber.d(e, "onError - add:");
                     }
 
                     @Override
