@@ -9,7 +9,6 @@
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/source_sans_pro</item>
-
         <item name="android:windowBackground">@color/white</item>
     </style>
 
@@ -25,6 +24,22 @@
 
     <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SingleLineStyle">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/material_component_lists_single_line_height</item>
+        <item name="android:paddingLeft">@dimen/material_layout_keylines_screen_edge_margin</item>
+        <item name="android:paddingRight">@dimen/material_layout_keylines_screen_edge_margin</item>
+    </style>
+
+    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:minHeight">@dimen/material_component_lists_two_line_height</item>
+        <item name="android:paddingLeft">@dimen/material_layout_keylines_screen_edge_margin</item>
+        <item name="android:paddingRight">@dimen/material_layout_keylines_screen_edge_margin</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
     </style>
 
 </resources>

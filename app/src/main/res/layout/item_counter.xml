@@ -14,11 +14,11 @@
         android:id="@+id/counter_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2E000000"
+        android:background="@color/black_12"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
+        android:paddingLeft="@dimen/material_layout_keylines_horizontal_mobile_margin"
+        android:paddingRight="@dimen/material_layout_keylines_horizontal_mobile_margin"
         android:paddingTop="8dp">
 
         <TextView
@@ -27,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:alpha=".87"
             android:clickable="false"
             android:ellipsize="end"
             android:maxLines="1"
@@ -40,9 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:alpha=".87"
             android:text="@string/common_edit"
-            android:textAllCaps="true" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
     </LinearLayout>
 
     <FrameLayout
@@ -76,18 +74,17 @@
             android:layout_height="@dimen/material_layout_touch_target"
             android:layout_gravity="start|center_vertical"
             android:alpha="0.38"
-            android:scaleType="center"
             android:contentDescription="@string/common_increase"
+            android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_left" />
-
 
         <ImageView
             android:id="@+id/iv_increase"
             android:layout_width="@dimen/material_layout_touch_target"
             android:layout_height="@dimen/material_layout_touch_target"
             android:layout_gravity="end|center_vertical"
-            android:contentDescription="@string/common_decrease"
             android:alpha="0.38"
+            android:contentDescription="@string/common_decrease"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_right" />
     </FrameLayout>

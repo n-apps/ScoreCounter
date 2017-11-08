@@ -9,14 +9,10 @@
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/sw_stay_awake"
+        style="@style/SwitchStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:minHeight="@dimen/material_component_lists_two_line_height"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin"
-        android:text="@string/settings_stay_awake"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+        android:text="@string/settings_stay_awake" />
 
     <View
         android:layout_width="match_parent"
@@ -25,13 +21,9 @@
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/sw_try_to_fit_all_counters"
+        style="@style/SwitchStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:minHeight="@dimen/material_component_lists_two_line_height"
-        android:paddingLeft="@dimen/material_layout_keylines_screen_edge_margin"
-        android:paddingRight="@dimen/material_layout_keylines_screen_edge_margin"
-        android:text="@string/settings_try_to_fit_all_counters"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+        android:text="@string/settings_try_to_fit_all_counters" />
 
 </LinearLayout>

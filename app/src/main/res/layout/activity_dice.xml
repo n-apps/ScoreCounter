@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:padding="8dp"
+        tools:text="@string/dice_previous_result_label"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 

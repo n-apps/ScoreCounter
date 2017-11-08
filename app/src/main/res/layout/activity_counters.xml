@@ -32,7 +32,7 @@
         android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
         android:gravity="center"
-        tools:visibility="gone"
+        tools:visibility="invisible"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
