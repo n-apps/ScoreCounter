@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
@@ -42,7 +44,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private TextView counterValue;
 
-    private boolean firstLoad;
+    private boolean isNameModified;
 
     private EditCounterViewModel viewModel;
 
@@ -78,51 +80,120 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         LinearLayout counterStepContainer = findViewById(R.id.counter_step);
         LinearLayout counterColorContainer = findViewById(R.id.counter_color);
 
-        counterValueContainer.setOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content("Counter value")
-                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
-                .positiveText("Set new value")
-                .negativeText("Cancel")
-                .input("Set value", counter != null ? String.valueOf(counter.getValue()) : "", false,
-                        (dialog, input) -> viewModel.updateValue(Integer.parseInt(input.toString()))).show());
+        counterName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(final Editable s) {
+                final String newName = s.toString();
+                if (counter != null && !counter.getName().equals(newName)) {
+                    viewModel.updateName(newName);
+                    isNameModified = true;
+                }
+            }
 
-        counterDefaultValueContainer.setOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content("Counter default value (it will be set after resetting)")
-                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
-                .positiveText("Set new default value")
-                .negativeText("Cancel")
-                .input("Set value", counter != null ? String.valueOf(counter.getDefaultValue()) : "", false,
-                        (dialog, input) -> viewModel.updateDefaultValue(Integer.parseInt(input.toString()))).show());
+            @Override
+            public void beforeTextChanged(final CharSequence s, final int start, final int count,
+                    final int after) {
 
-        counterStepContainer.setOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content("Counter step")
-                .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-                        | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
-                .positiveText("Set new step")
-                .negativeText("Cancel")
-                .input("Set value", counter != null ? String.valueOf(counter.getStep()) : "", false,
-                        (dialog, input) -> viewModel.updateStep(Integer.parseInt(input.toString()))).show());
+            }
+
+            @Override
+            public void onTextChanged(final CharSequence s, final int start, final int before,
+                    final int count) {
+
+            }
+        });
+
+        counterValueContainer.setOnClickListener(v -> {
+            new MaterialDialog.Builder(EditCounterActivity.this)
+                    .content("Counter value")
+                    .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                    .positiveText("Set new value")
+                    .negativeText("Cancel")
+                    .input("Set value", counter != null ? String.valueOf(counter.getValue()) : "", false,
+                            (dialog, input) -> {
+                                final String newValue = input.toString();
+                                viewModel.updateValue(Integer.parseInt(newValue));
+                                Bundle params = new Bundle(1);
+                                params.putString("value", newValue);
+                                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                        .logEvent("edit_counter_value_modified", params);
+                            }).show();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_value_click", null);
+        });
+
+        counterDefaultValueContainer.setOnClickListener(v -> {
+            new MaterialDialog.Builder(EditCounterActivity.this)
+                    .content("Counter default value (it will be set after resetting)")
+                    .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                    .positiveText("Set new default value")
+                    .negativeText("Cancel")
+                    .input("Set value", counter != null ? String.valueOf(counter.getDefaultValue()) : "", false,
+                            (dialog, input) -> {
+                                final String newDefaultValue = input.toString();
+                                viewModel.updateDefaultValue(Integer.parseInt(newDefaultValue));
+                                Bundle params = new Bundle(1);
+                                params.putString("value", newDefaultValue);
+                                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                        .logEvent("edit_counter_default_modified", params);
+                            }).show();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_default_click", null);
+        });
+
+        counterStepContainer.setOnClickListener(v -> {
+            new MaterialDialog.Builder(EditCounterActivity.this)
+                    .content("Counter step")
+                    .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+                            | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
+                    .positiveText("Set new step")
+                    .negativeText("Cancel")
+                    .input("Set value", counter != null ? String.valueOf(counter.getStep()) : "", false,
+                            (dialog, input) -> {
+                                final String newStepValue = input.toString();
+                                viewModel.updateStep(Integer.parseInt(newStepValue));
+                                Bundle params = new Bundle(1);
+                                params.putString("value", newStepValue);
+                                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                        .logEvent("edit_counter_step_modified", params);
+                            }).show();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_step_click", null);
+        });
 
         counterColorContainer.setOnClickListener(
-                v -> new ColorChooserDialog.Builder(EditCounterActivity.this,
-                        R.string.counter_details_color_picker_title)
-                        .doneButton(
-                                R.string.common_select)
-                        .cancelButton(R.string.common_cancel)
-                        .dynamicButtonColor(false)
-                        .allowUserColorInputAlpha(false)
-                        .show(EditCounterActivity.this));
+                (View v) -> {
+                    new ColorChooserDialog.Builder(EditCounterActivity.this,
+                            R.string.counter_details_color_picker_title)
+                            .doneButton(
+                                    R.string.common_select)
+                            .cancelButton(R.string.common_cancel)
+                            .dynamicButtonColor(false)
+                            .allowUserColorInputAlpha(false)
+                            .show(EditCounterActivity.this);
+                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                            .logEvent("edit_counter_color_click", null);
+                });
 
         CardView btnDelete = findViewById(R.id.btn_delete);
         btnDelete.setOnClickListener(v -> {
             setResult(RESULT_DELETE);
             viewModel.deleteCounter();
-            finish();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_delete_click", null);
         });
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (isNameModified && counter != null) {
+            Bundle params = new Bundle(1);
+            params.putString("value", String.valueOf(counter.getName().length()));
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                    .logEvent("edit_counter_name_length", params);
+        }
+    }
+
+    @Override
     public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_dismissed", null);
     }
 
     @Override
@@ -130,6 +201,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         colorPreview.setBackgroundColor(color);
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
+        Bundle params = new Bundle(1);
+        params.putString("color", hex);
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_selected", params);
     }
 
     private EditCounterViewModel getViewModel(int id) {
@@ -149,28 +223,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 counterName.setText(c.getName());
                 counterName.setSelection(c.getName().length());
                 colorPreview.setBackgroundColor(Color.parseColor(c.getColor()));
-                if (!firstLoad) {
-                    firstLoad = true;
-                    counterName.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void afterTextChanged(final Editable s) {
-                            viewModel.updateName(s.toString());
-                        }
-
-                        @Override
-                        public void beforeTextChanged(final CharSequence s, final int start, final int count,
-                                final int after) {
-
-                        }
-
-                        @Override
-                        public void onTextChanged(final CharSequence s, final int start, final int before,
-                                final int count) {
-
-                        }
-                    });
-                }
             } else {
+                counter = null;
                 setResult(RESULT_DELETE);
                 finish();
             }

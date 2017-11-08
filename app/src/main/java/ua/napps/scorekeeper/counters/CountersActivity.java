@@ -44,12 +44,14 @@ public class CountersActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counters);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.recycler_view);
         emptyState = findViewById(R.id.empty_state);
-        emptyState.setOnClickListener(view -> viewModel.addCounter());
+        emptyState.setOnClickListener(view -> {
+            viewModel.addCounter();
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("empty_state_add_counter", null);
+        });
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         applyKeepScreenOn();
@@ -101,9 +103,10 @@ public class CountersActivity extends AppCompatActivity
     }
 
     @Override
-    public void onNameClick(Counter counter) {
-        final Intent intent = EditCounterActivity.getIntent(this, counter.getId());
+    public void onNameClick(int counterId) {
+        final Intent intent = EditCounterActivity.getIntent(this, counterId);
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", null);
     }
 
     @Override
@@ -111,19 +114,24 @@ public class CountersActivity extends AppCompatActivity
         switch (item.getItemId()) {
             case R.id.menu_add_counter:
                 viewModel.addCounter();
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_add_counter", null);
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_remove_all", null);
                 break;
             case R.id.menu_reset_all:
                 viewModel.resetAll();
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_reset_all", null);
                 break;
             case R.id.menu_settings:
                 showBottomSheetFragment();
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_settings", null);
                 break;
             case R.id.menu_dice:
                 Intent intent = new Intent(this, DiceActivity.class);
                 startActivity(intent);
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_dice", null);
                 break;
         }
         return true;
@@ -146,22 +154,29 @@ public class CountersActivity extends AppCompatActivity
     @Override
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         switch (key) {
-            case SettingsUtil.SETTINGS_STAY_AWAKE:
+            case SettingsUtil.SETTINGS_KEEP_SCREEN_ON:
                 applyKeepScreenOn();
+                Bundle bundle1 = new Bundle(1);
+                bundle1.putString("settings_type", SettingsUtil.SETTINGS_KEEP_SCREEN_ON);
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("change_settings", bundle1);
                 break;
             case SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
+
                 final boolean newValue = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
                 countersAdapter.setTryToFitAllCounters(newValue);
                 countersAdapter = new CountersAdapter(this);
                 countersAdapter.setTryToFitAllCounters(newValue);
                 recyclerView.setAdapter(countersAdapter);
                 subscribeToModel();
+                Bundle bundle2 = new Bundle(1);
+                bundle2.putString("settings_type", SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS);
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("change_settings", bundle2);
                 break;
         }
     }
 
     private void applyKeepScreenOn() {
-        final boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_STAY_AWAKE, true);
+        final boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, true);
         if (isStayAwake) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {

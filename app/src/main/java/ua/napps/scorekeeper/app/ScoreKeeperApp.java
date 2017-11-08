@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.app;
 import android.app.Application;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.support.v7.app.AppCompatDelegate;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.reactivex.CompletableObserver;
@@ -22,6 +23,8 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class ScoreKeeperApp extends Application {
 
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,6 +34,30 @@ public class ScoreKeeperApp extends Application {
         }
         DatabaseHolder.init(this);
 
+        getFirebaseAnalytics();
+
+        migrationFromVersion2();
+    }
+
+    synchronized public FirebaseAnalytics getFirebaseAnalytics() {
+        if (firebaseAnalytics == null) {
+            firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        }
+        return firebaseAnalytics;
+    }
+
+    private int getVersionCode() {
+        int result = 0;
+        try {
+            result = getApplicationContext().getPackageManager().getPackageInfo(
+                    getApplicationContext().getPackageName(), 0).versionCode;
+        } catch (NameNotFoundException e) {
+            // squelch
+        }
+        return result;
+    }
+
+    private void migrationFromVersion2() {
         final int versionCode = getVersionCode();
         if (versionCode == 30000) {
             String activeCountersJson = new TinyDB(getApplicationContext()).getString("active_counters");
@@ -70,16 +97,5 @@ public class ScoreKeeperApp extends Application {
                 }
             }
         }
-    }
-
-    private int getVersionCode() {
-        int result = 0;
-        try {
-            result = getApplicationContext().getPackageManager().getPackageInfo(
-                    getApplicationContext().getPackageName(), 0).versionCode;
-        } catch (NameNotFoundException e) {
-            // squelch
-        }
-        return result;
     }
 }

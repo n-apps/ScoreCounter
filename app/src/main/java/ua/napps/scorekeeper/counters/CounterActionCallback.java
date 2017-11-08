@@ -6,5 +6,6 @@ interface CounterActionCallback {
 
     void onIncreaseClick(Counter counter);
 
-    void onNameClick(Counter counter);
+    void onNameClick(int counterId);
+
 }
