@@ -20,15 +20,13 @@ import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
 public class DiceActivity extends AppCompatActivity {
 
-    private TextView previousResult;
-
     private ImageView dice;
 
-    private SpringForce springForce;
-
-    private TextView tapOnMe;
+    private TextView previousResultTextView;
 
     private SpringAnimation springAnimation;
+
+    private SpringForce springForce;
 
     private DiceViewModel viewModel;
 
@@ -44,8 +42,7 @@ public class DiceActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         dice = findViewById(R.id.dice);
-        previousResult = findViewById(R.id.tv_previous_result);
-        tapOnMe = findViewById(R.id.tv_tap_on_me);
+        previousResultTextView = findViewById(R.id.tv_previous_result);
 
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
@@ -71,11 +68,12 @@ public class DiceActivity extends AppCompatActivity {
     private void rollDice(int diceResult, int previousResult) {
         int prevValue;
         if (previousResult == 0) {
-            tapOnMe.setVisibility(View.GONE);
+            previousResultTextView.setVisibility(View.GONE);
             prevValue = ((int) (Math.random() * 6)) + 1;
         } else {
             prevValue = previousResult;
-            this.previousResult
+            previousResultTextView.setVisibility(View.VISIBLE);
+            previousResultTextView
                     .setText(String.format(getString(R.string.dice_previous_result_label), previousResult));
             ((Animatable) dice.getDrawable()).stop();
             if (springAnimation != null) {
@@ -88,7 +86,6 @@ public class DiceActivity extends AppCompatActivity {
         switch (diceResult) {
             case 1: {
                 switch (prevValue) {
-
                     case 2: {
                         diceResId = R.drawable.avd_two_to_one;
                         break;
@@ -109,6 +106,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_six_to_one;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_one;
+                        break;
                 }
                 break;
             }
@@ -134,6 +134,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_six_to_two;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_two;
+                        break;
                 }
                 break;
             }
@@ -159,6 +162,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_six_to_three;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_three;
+                        break;
                 }
                 break;
             }
@@ -184,6 +190,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_six_to_four;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_four;
+                        break;
 
                 }
                 break;
@@ -210,6 +219,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_six_to_five;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_five;
+                        break;
                 }
                 break;
             }
@@ -235,6 +247,9 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_five_to_six;
                         break;
                     }
+                    default:
+                        diceResId = R.drawable.avd_zero_to_six;
+                        break;
                 }
 
             }
@@ -247,9 +262,7 @@ public class DiceActivity extends AppCompatActivity {
                     .create(this, diceResId);
             dice.setImageDrawable(animatedVectorDrawableCompat);
             ((Animatable) dice.getDrawable()).start();
-
         }
-
     }
 
     private void subscribeToModel() {

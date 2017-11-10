@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Счетчик Очков</string>
+    <string name="common_back">Назад</string>
+    <string name="common_cancel">Отменить</string>
+    <string name="common_decrease">Уменьшить</string>
+    <string name="common_edit">Отредактировать</string>
+    <string name="common_increase">Увеличить</string>
+    <string name="common_select">Выбрать</string>
+    <string name="counter_details_color">Цвет</string>
+    <string name="counter_details_color_picker_title">Выберите цвет счетчика</string>
+    <string name="counter_details_default_value">Число по умолчанию</string>
+    <string name="counter_details_delete">Удалить счетчик</string>
+    <string name="counter_details_name">Название счетчика</string>
+    <string name="counter_details_step">Шаг</string>
+    <string name="counter_details_value">Текущее значение</string>
+    <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или используйте + в правом верхнем углу</string>
+    <string name="dialog_counter_default_title">Значение по умолчанию</string>
+    <string name="dialog_counter_step_title">Шаг</string>
+    <string name="dialog_current_value_title">Текущее значение</string>
+    <string name="dice_empty_state">Нажмите в любом месте, чтобы бросить кубик</string>
+    <string name="dice_previous_result_label">Предыдущий бросок: %d</string>
+    <string name="hint_type_any_number">Введите любое число</string>
+    <string name="menu_add_new_counter">Добавить счетчик</string>
+    <string name="menu_dice">Кубик</string>
+    <string name="menu_remove_all_counters">Удалить все счетчики</string>
+    <string name="menu_reset_all_counters">Сбросить все</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="settings_stay_awake">Оставлять экран включенным</string>
+    <string name="settings_try_to_fit_all_counters">Все счетчики на одном экране</string>
+    <string name="common_set">Установить</string>
+    <string name="common_custom">Свой</string>
+    <string name="dialog_color_picker_presets_button">Наборы</string>
+</resources>

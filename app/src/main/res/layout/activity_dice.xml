@@ -17,24 +17,13 @@
         app:srcCompat="@drawable/avd_dice_empty" />
 
     <TextView
-        android:id="@+id/tv_tap_on_me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center_horizontal"
-        android:lineSpacingExtra="8dp"
-        android:padding="24dp"
-        android:text="@string/dice_empty_state"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
-
-
-    <TextView
         android:id="@+id/tv_previous_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:padding="8dp"
-        tools:text="@string/dice_previous_result_label"
+        android:padding="@dimen/material_layout_keylines_screen_edge_margin"
+        android:gravity="center_horizontal"
+        android:text="@string/dice_empty_state"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
