@@ -6,15 +6,15 @@
     android:viewportHeight="512">
     <path
         android:pathData="@string/dice_bg"
-        android:fillColor="#ffffff"
+        android:fillColor="#E8CAA4"
         android:strokeWidth="1" />
     <path
         android:pathData="@string/dice_frame"
-        android:fillColor="#cccccc"
+        android:fillColor="?attr/colorPrimary"
         android:strokeWidth="1" />
     <path
         android:name="two"
         android:pathData="M 256 88 C 231.006 88 210.744 108.262 210.744 133.256 C 210.744 158.25 231.006 178.512 256 178.512 C 280.994 178.512 301.256 158.25 301.256 133.256 C 301.256 108.262 280.994 88 256 88 Z M 256 333.464 C 231.006 333.464 210.744 353.726 210.744 378.72 C 210.744 403.714 231.006 423.976 256 423.976 C 280.994 423.976 301.256 403.714 301.256 378.72 C 301.256 353.726 280.994 333.464 256 333.464 Z"
-        android:fillColor="#333333"
+        android:fillColor="?attr/colorPrimary"
         android:strokeWidth="1" />
 </vector>

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import com.crashlytics.android.Crashlytics;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -39,7 +40,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -61,7 +62,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -87,7 +88,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -109,7 +110,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d("onError - add:", e);
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -131,7 +132,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override

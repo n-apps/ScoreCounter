@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
+import com.crashlytics.android.Crashlytics;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -43,7 +44,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -73,7 +74,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -99,7 +100,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -125,7 +126,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -151,7 +152,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override
@@ -177,7 +178,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Timber.d(e, "onError - add:");
+                        Crashlytics.logException(e);
                     }
 
                     @Override

@@ -20,7 +20,6 @@
     <string name="dialog_current_value_title">Current value</string>
     <string name="dice_empty_state">Tap anywhere to roll</string>
     <string name="dice_previous_result_label">Previous result: %d</string>
-    <string name="hint_type_any_number">Type any number</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_dice">Dice</string>
     <string name="menu_remove_all_counters">Remove all counters</string>

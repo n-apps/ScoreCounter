@@ -225,6 +225,13 @@ public class CountersActivity extends AppCompatActivity
                             recyclerView.smoothScrollToPosition(size);
                         }
                     }
+                } else {
+                    if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
+                            != FlexWrap.NOWRAP) {
+                        FlexboxLayoutManager layoutManager =
+                                new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
+                        recyclerView.setLayoutManager(layoutManager);
+                    }
                 }
                 oldListSize = size;
             } else {
