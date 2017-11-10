@@ -2,7 +2,9 @@ package ua.napps.scorekeeper.app;
 
 import android.app.Application;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
+import com.crashlytics.android.Crashlytics;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -83,15 +85,18 @@ public class ScoreKeeperApp extends Application {
                             .subscribe(new CompletableObserver() {
                                 @Override
                                 public void onComplete() {
+                                    Bundle params = new Bundle(1);
+                                    params.putString("counters_size", String.valueOf(newCounters.size()));
+                                    firebaseAnalytics.logEvent("migration_complete", params);
                                 }
 
                                 @Override
                                 public void onError(Throwable e) {
+                                    Crashlytics.logException(e);
                                 }
 
                                 @Override
                                 public void onSubscribe(Disposable d) {
-
                                 }
                             });
                 }

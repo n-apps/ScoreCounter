@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
+apply plugin: 'io.fabric'
+
 
 ext.versionMajor = 3
 ext.versionMinor = 0
@@ -16,6 +18,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
+        resConfigs "en", "ru", "uk", "fr"
     }
 
     signingConfigs {
@@ -29,13 +32,13 @@ android {
 
     buildTypes {
         debug {
-            // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
             useProguard false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         release {
-            useProguard false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //noinspection GroovyAssignabilityCheck
             signingConfig signingConfigs.release
@@ -67,6 +70,9 @@ dependencies {
     compile "com.afollestad.material-dialogs:core:$materialDialogsVersion"
     compile "com.afollestad.material-dialogs:commons:$materialDialogsVersion"
     compile 'com.google.firebase:firebase-core:11.6.0'
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true
+    }
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.1.6'
     compile 'com.google.android:flexbox:0.3.1'

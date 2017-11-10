@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.crashlytics.android.Crashlytics;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
@@ -262,6 +263,10 @@ public class DiceActivity extends AppCompatActivity {
                     .create(this, diceResId);
             dice.setImageDrawable(animatedVectorDrawableCompat);
             ((Animatable) dice.getDrawable()).start();
+        } else {
+            Crashlytics.setInt("diceResult", diceResult);
+            Crashlytics.setInt("dicePrevValue", prevValue);
+            Crashlytics.logException(new IllegalStateException("DiceResId = 0. No animation"));
         }
     }
 
