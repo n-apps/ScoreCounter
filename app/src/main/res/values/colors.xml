@@ -13,5 +13,6 @@
     <color name="black">#000</color>
     <color name="black_12">#1F000000</color>
     <color name="light_status_bar">#eee</color>
+    <color name="dice_bg">#E8CAA4</color>
 
 </resources>

@@ -29,4 +29,5 @@
     <string name="settings_try_to_fit_all_counters">Show all counters on screen</string>
     <string name="common_custom">Your</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
+    <string name="common_add">Add</string>
 </resources>
