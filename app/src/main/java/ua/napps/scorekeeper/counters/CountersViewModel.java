@@ -4,7 +4,6 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import com.crashlytics.android.Crashlytics;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -20,11 +19,14 @@ class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
 
-
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
+    }
+
+    public LiveData<Counter> getCounterLiveData(int counterID) {
+        return repository.loadCounter(counterID);
     }
 
     void addCounter() {
@@ -40,7 +42,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "create counter");
                     }
 
                     @Override
@@ -62,7 +64,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
@@ -77,18 +79,22 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void increaseCounter(Counter counter) {
-        repository.modifyCount(counter.getId(), counter.getStep())
+        increaseCounter(counter, counter.getStep());
+    }
+
+    void increaseCounter(Counter counter, int amount) {
+
+        repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
@@ -110,7 +116,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "remove all");
                     }
 
                     @Override
@@ -132,7 +138,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "resetAll");
                     }
 
                     @Override

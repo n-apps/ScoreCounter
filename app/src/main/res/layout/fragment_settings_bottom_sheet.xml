@@ -14,10 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_stay_awake" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/black_12" />
+    <include layout="@layout/divider" />
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/sw_try_to_fit_all_counters"

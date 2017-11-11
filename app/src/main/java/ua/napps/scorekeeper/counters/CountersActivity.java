@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,10 +9,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
@@ -23,14 +28,16 @@ import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.NoChangeAnimator;
 
-public class CountersActivity extends AppCompatActivity
-        implements CounterActionCallback, SharedPreferences.OnSharedPreferenceChangeListener {
+public class CountersActivity extends AppCompatActivity implements CounterActionCallback,
+        SharedPreferences.OnSharedPreferenceChangeListener {
 
     private SettingsFragment bottomSheetFragment;
 
     private CountersAdapter countersAdapter;
 
     private View emptyState;
+
+    private MaterialDialog longClickDialog;
 
     private int oldListSize;
 
@@ -100,6 +107,30 @@ public class CountersActivity extends AppCompatActivity
     @Override
     public void onIncreaseClick(Counter counter) {
         viewModel.increaseCounter(counter);
+    }
+
+    @Override
+    public void onLongClick(Counter counter, boolean isIncrease) {
+        final MaterialDialog.Builder builder = new Builder(this);
+        final Observer<Counter> counterObserver = c -> {
+            if (longClickDialog != null && c != null) {
+                longClickDialog.getTitleView().setText(String.valueOf(c.getValue()));
+            }
+        };
+        final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
+        liveData.observe(this, counterObserver);
+        if (isIncrease) {
+            View contentView = LayoutInflater.from(this).inflate(R.layout.dialog_counter_step, null, false);
+            contentView.findViewById(R.id.btn_one).setOnClickListener(v -> viewModel.increaseCounter(counter, 5));
+            contentView.findViewById(R.id.btn_two).setOnClickListener(v -> viewModel.increaseCounter(counter, 10));
+            contentView.findViewById(R.id.btn_three).setOnClickListener(v -> viewModel.increaseCounter(counter, 15));
+            contentView.findViewById(R.id.btn_four).setOnClickListener(v -> viewModel.increaseCounter(counter, 30));
+            builder.customView(contentView, false);
+            builder.title("Title");
+            builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
+            longClickDialog = builder.build();
+            longClickDialog.show();
+        }
     }
 
     @Override
@@ -174,6 +205,7 @@ public class CountersActivity extends AppCompatActivity
                 break;
         }
     }
+
 
     private void applyKeepScreenOn() {
         final boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, true);
