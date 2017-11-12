@@ -4,7 +4,9 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import com.crashlytics.android.Crashlytics;
+import android.os.Bundle;
+import android.support.annotation.IntRange;
+import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
 class CountersViewModel extends AndroidViewModel {
 
@@ -20,11 +23,14 @@ class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
 
-
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
+    }
+
+    public LiveData<Counter> getCounterLiveData(int counterID) {
+        return repository.loadCounter(counterID);
     }
 
     void addCounter() {
@@ -35,12 +41,11 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "create counter");
                     }
 
                     @Override
@@ -50,19 +55,29 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
+
     void decreaseCounter(Counter counter) {
-        repository.modifyCount(counter.getId(), -counter.getStep())
+        decreaseCounter(counter, -counter.getStep());
+    }
+
+    void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
+        if (amount != -counter.getStep()) {
+            Bundle params = new Bundle(1);
+            params.putString(Param.VALUE, String.valueOf(amount));
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("decrease_counter", params);
+        }
+        repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
@@ -77,18 +92,26 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void increaseCounter(Counter counter) {
-        repository.modifyCount(counter.getId(), counter.getStep())
+        increaseCounter(counter, counter.getStep());
+    }
+
+    void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
+        if (amount != counter.getStep()) {
+            Bundle params = new Bundle(1);
+            params.putString(Param.VALUE, String.valueOf(amount));
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("increase_counter", params);
+        }
+        repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
@@ -105,12 +128,12 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "remove all");
                     }
 
                     @Override
@@ -127,12 +150,12 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e, "resetAll");
                     }
 
                     @Override

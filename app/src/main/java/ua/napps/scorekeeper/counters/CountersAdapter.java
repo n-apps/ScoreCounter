@@ -1,8 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.util.DiffUtil;
@@ -19,6 +23,8 @@ import android.widget.TextView;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.settings.SettingsUtil;
@@ -26,9 +32,37 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
-    public static class CountersViewHolder extends RecyclerView.ViewHolder {
+    public static class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
 
-        final float SINGLE_TAP_COORD_DELTA = 3.5f;
+        private class LongClickTimerTask extends TimerTask {
+
+            private boolean exec;
+
+            public LongClickTimerTask() {
+                exec = true;
+            }
+
+            @Override
+            public boolean cancel() {
+                return super.cancel();
+            }
+
+            @Override
+            public void run() {
+                if (exec) {
+                    handler.sendEmptyMessage(MSG_PERFORM_LONGCLICK);
+                }
+            }
+
+            public void setExecutable(boolean exec) {
+                this.exec = exec;
+            }
+
+        }
+
+        private static final int MSG_PERFORM_LONGCLICK = 1;
+
+        final float SINGLE_TAP_COORD_DELTA = 30.5f;
 
         Counter counter;
 
@@ -46,12 +80,21 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         final ImageView increaseImageView;
 
+        private final int TIME_LONG_CLICK = 300;
+
         private final CounterActionCallback counterActionCallback;
 
+        private Handler handler;
+
+        private MotionEvent motionEvent;
+
+        private LongClickTimerTask timerTask;
+
+        @SuppressLint("ClickableViewAccessibility")
         CountersViewHolder(View v, CounterActionCallback callback) {
             super(v);
             counterActionCallback = callback;
-
+            handler = new Handler(this);
             counterValue = v.findViewById(R.id.tv_counter_value);
             counterName = v.findViewById(R.id.tv_counter_name);
             counterEdit = v.findViewById(R.id.tv_counter_edit);
@@ -66,34 +109,59 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
                 @Override
                 public boolean onTouch(final View v, final MotionEvent event) {
-                    switch (event.getAction()) {
+                    switch (event.getActionMasked()) {
                         case MotionEvent.ACTION_DOWN:
-
                             touchedX = event.getRawX();
                             touchedY = event.getRawY();
-                            return true;
-
-                        case MotionEvent.ACTION_MOVE:
-                            return true;
+                            motionEvent = event;
+                            if (timerTask != null) {
+                                timerTask.cancel();
+                            }
+                            // start counting long click time
+                            timerTask = new LongClickTimerTask();
+                            Timer timer = new Timer();
+                            timer.schedule(timerTask, TIME_LONG_CLICK);
+                            break;
 
                         case MotionEvent.ACTION_UP:
-                            if (isSingleTap(event, touchedX, touchedY)) {
-                                updateCounter(event);
+                            long time = event.getEventTime() - event.getDownTime();
+                            if (time < TIME_LONG_CLICK) {
                                 v.performClick();
+                                updateCounter(event);
                             }
-                            return true;
+                            cancelLongClickTask();
+                            break;
+                        case MotionEvent.ACTION_POINTER_DOWN:
+                        case MotionEvent.ACTION_CANCEL:
+                        case MotionEvent.ACTION_POINTER_UP:
+                            cancelLongClickTask();
+                            break;
                     }
                     return false;
                 }
             });
         }
 
-        private boolean isSingleTap(MotionEvent event, float touchedX, float touchedY) {
-            float deltaX = Math.abs(touchedX - event.getRawX());
-            float deltaY = Math.abs(touchedY - event.getRawY());
-            return deltaX <= SINGLE_TAP_COORD_DELTA && deltaY <= SINGLE_TAP_COORD_DELTA;
+        @Override
+        public boolean handleMessage(final Message msg) {
+            if (msg.what == MSG_PERFORM_LONGCLICK) {
+                if (motionEvent != null) {
+                    final boolean isIncrease = motionEvent.getX() > counterClickableArea.getWidth() / 2;
+                    counterActionCallback.onLongClick(counter, isIncrease);
+                }
+            }
+            return false;
         }
 
+        private void cancelLongClickTask() {
+            if (timerTask != null) {
+                timerTask.setExecutable(false);
+                timerTask.cancel();
+            }
+            if (motionEvent != null) {
+                motionEvent = null;
+            }
+        }
 
         private void updateCounter(final MotionEvent e) {
             if (e.getX() > counterClickableArea.getWidth() / 2) {
