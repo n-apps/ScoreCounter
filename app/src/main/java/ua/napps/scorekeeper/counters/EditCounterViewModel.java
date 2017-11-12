@@ -94,7 +94,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
@@ -120,7 +120,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
@@ -146,7 +146,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
@@ -172,7 +172,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override

@@ -15,9 +15,12 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.google.firebase.analytics.FirebaseAnalytics.Param;
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
@@ -112,9 +115,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                             (dialog, input) -> {
                                 if (input.length() > 0) {
                                     final String newValue = input.toString();
-                                    viewModel.updateValue(Integer.parseInt(newValue));
+                                    try {
+                                        viewModel.updateValue(Integer.parseInt(newValue));
+                                    } catch (NumberFormatException e) {
+                                        Toast.makeText(this, "Wrong value", Toast.LENGTH_SHORT).show();
+                                        Timber.e(e, "value: %s", newValue);
+                                    }
                                     Bundle params = new Bundle(1);
-                                    params.putString("value", newValue);
+                                    params.putString(Param.VALUE, newValue);
                                     ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                             .logEvent("edit_counter_value_modified", params);
                                 }
@@ -132,9 +140,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                             (dialog, input) -> {
                                 if (input.length() > 0) {
                                     final String newDefaultValue = input.toString();
-                                    viewModel.updateDefaultValue(Integer.parseInt(newDefaultValue));
+                                    try {
+                                        viewModel.updateDefaultValue(Integer.parseInt(newDefaultValue));
+                                    } catch (NumberFormatException e) {
+                                        Timber.e(e, "value: %s", newDefaultValue);
+                                    }
                                     Bundle params = new Bundle(1);
-                                    params.putString("value", newDefaultValue);
+                                    params.putString(Param.VALUE, newDefaultValue);
                                     ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                             .logEvent("edit_counter_default_modified", params);
                                 }
@@ -145,17 +157,20 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterStepContainer.setOnClickListener(v -> {
             new Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_step_title)
-                    .inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-                            | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE)
+                    .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .negativeText(R.string.common_cancel)
                     .input(String.valueOf(counter.getStep()), null, true,
                             (dialog, input) -> {
                                 if (input.length() > 0) {
                                     final String newStepValue = input.toString();
-                                    viewModel.updateStep(Integer.parseInt(newStepValue));
+                                    try {
+                                        viewModel.updateStep(Integer.parseInt(newStepValue));
+                                    } catch (NumberFormatException e) {
+                                        Timber.e(e, "value: %s", newStepValue);
+                                    }
                                     Bundle params = new Bundle(1);
-                                    params.putString("value", newStepValue);
+                                    params.putString(Param.VALUE, newStepValue);
                                     ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                             .logEvent("edit_counter_step_modified", params);
                                 }
@@ -191,7 +206,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         super.onDestroy();
         if (isNameModified && counter != null) {
             Bundle params = new Bundle(1);
-            params.putString("value", String.valueOf(counter.getName().length()));
+            params.putString(Param.VALUE, String.valueOf(counter.getName().length()));
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                     .logEvent("edit_counter_name_length", params);
         }
@@ -199,7 +214,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @Override
     public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_dismissed", null);
     }
 
     @Override
@@ -208,7 +222,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
         Bundle params = new Bundle(1);
-        params.putString("color", hex);
+        params.putString(Param.VALUE, hex);
         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_selected", params);
     }
 

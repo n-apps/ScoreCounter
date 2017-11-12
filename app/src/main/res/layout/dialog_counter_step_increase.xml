@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/material_component_dialogs_padding_below_touch_target_to_dialog_edge"
+    android:paddingLeft="@dimen/material_component_dialogs_padding_around_content_area"
+    android:paddingRight="@dimen/material_component_dialogs_padding_around_content_area"
+    android:paddingTop="@dimen/material_component_dialogs_padding_below_touch_target_to_dialog_edge"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/material_layout_keylines_screen_edge_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_one"
+            android:layout_width="@dimen/material_layout_touch_target"
+            android:layout_height="@dimen/material_layout_touch_target"
+            android:background="@drawable/bg_selector_dice"
+            android:gravity="center"
+            android:text="+5"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/material_typography_button" />
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_two"
+            android:layout_width="@dimen/material_layout_touch_target"
+            android:layout_height="@dimen/material_layout_touch_target"
+            android:background="@drawable/bg_selector_dice"
+            android:gravity="center"
+            android:text="+10"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/material_typography_button" />
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_three"
+            android:layout_width="@dimen/material_layout_touch_target"
+            android:layout_height="@dimen/material_layout_touch_target"
+            android:background="@drawable/bg_selector_dice"
+            android:gravity="center"
+            android:text="+15"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/material_typography_button" />
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_four"
+            android:layout_width="@dimen/material_layout_touch_target"
+            android:layout_height="@dimen/material_layout_touch_target"
+            android:background="@drawable/bg_selector_dice"
+            android:gravity="center"
+            android:text="+30"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/material_typography_button" />
+    </LinearLayout>
+
+    <include layout="@layout/divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_layout_keylines_screen_edge_margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_add_custom_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_type_any_number"
+            android:inputType="number|numberSigned"
+            android:maxLength="3"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/btn_add_custom_value"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_increase" />
+    </LinearLayout>
+</LinearLayout>
