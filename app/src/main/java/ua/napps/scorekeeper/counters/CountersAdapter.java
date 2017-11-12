@@ -109,7 +109,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
                 @Override
                 public boolean onTouch(final View v, final MotionEvent event) {
-                    switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                    switch (event.getActionMasked()) {
                         case MotionEvent.ACTION_DOWN:
                             touchedX = event.getRawX();
                             touchedY = event.getRawY();
@@ -121,16 +121,16 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                             timerTask = new LongClickTimerTask();
                             Timer timer = new Timer();
                             timer.schedule(timerTask, TIME_LONG_CLICK);
-                            return true;
+                            break;
 
                         case MotionEvent.ACTION_UP:
                             long time = event.getEventTime() - event.getDownTime();
                             if (time < TIME_LONG_CLICK) {
-                                updateCounter(event);
                                 v.performClick();
+                                updateCounter(event);
                             }
                             cancelLongClickTask();
-                            return true;
+                            break;
                         case MotionEvent.ACTION_POINTER_DOWN:
                         case MotionEvent.ACTION_CANCEL:
                         case MotionEvent.ACTION_POINTER_UP:
@@ -162,13 +162,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                 motionEvent = null;
             }
         }
-
-        private boolean isSingleTap(MotionEvent event, float touchedX, float touchedY) {
-            float deltaX = Math.abs(touchedX - event.getRawX());
-            float deltaY = Math.abs(touchedY - event.getRawY());
-            return deltaX <= SINGLE_TAP_COORD_DELTA && deltaY <= SINGLE_TAP_COORD_DELTA;
-        }
-
 
         private void updateCounter(final MotionEvent e) {
             if (e.getX() > counterClickableArea.getWidth() / 2) {
