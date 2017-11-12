@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_12"
+        android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
         android:paddingLeft="@dimen/material_layout_keylines_horizontal_mobile_margin"
@@ -46,7 +47,10 @@
     <FrameLayout
         android:id="@+id/counter_interaction_area"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/tv_counter_value"
@@ -74,6 +78,7 @@
             android:layout_height="@dimen/material_layout_touch_target"
             android:layout_gravity="start|center_vertical"
             android:alpha="0.38"
+            android:clickable="false"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_left" />
@@ -84,6 +89,7 @@
             android:layout_height="@dimen/material_layout_touch_target"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.38"
+            android:clickable="false"
             android:contentDescription="@string/common_decrease"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_right" />

@@ -4,7 +4,6 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
-import com.crashlytics.android.Crashlytics;
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -44,7 +43,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
@@ -74,7 +73,7 @@ public class EditCounterViewModel extends ViewModel {
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
@@ -95,12 +94,12 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
@@ -121,12 +120,12 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
@@ -147,12 +146,12 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
@@ -173,12 +172,12 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully added event");
+
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Crashlytics.logException(e);
+                        Timber.e(e);
                     }
 
                     @Override
