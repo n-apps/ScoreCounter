@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
@@ -59,7 +60,9 @@ public class DiceActivity extends AppCompatActivity {
 
         dice.setOnClickListener(v -> {
             viewModel.rollDice();
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", null);
+            Bundle params = new Bundle(1);
+            params.putString(Param.CHARACTER, "click");
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
         });
         backArrow.setOnClickListener(v -> finish());
 
@@ -266,9 +269,7 @@ public class DiceActivity extends AppCompatActivity {
                         diceResId = R.drawable.avd_zero_to_six;
                         break;
                 }
-
             }
-
         }
         springAnimation = getSpringAnimation();
         springAnimation.start();
@@ -305,6 +306,9 @@ public class DiceActivity extends AppCompatActivity {
             accel = accel * 0.9f + delta; // perform low-cut filter
             if (accel > 5.0) {
                 viewModel.rollDice();
+                Bundle params = new Bundle(1);
+                params.putString(Param.CHARACTER, "sensor");
+                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
             }
         });
 
