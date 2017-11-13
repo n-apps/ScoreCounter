@@ -116,15 +116,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 if (input.length() > 0) {
                                     final String newValue = input.toString();
                                     try {
-                                        viewModel.updateValue(Integer.parseInt(newValue));
+                                        final int value = Integer.parseInt(newValue);
+                                        viewModel.updateValue(value);
+                                        Bundle params = new Bundle(1);
+                                        params.putLong(Param.SCORE, value);
+                                        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                                .logEvent("edit_counter_value_modified", params);
                                     } catch (NumberFormatException e) {
                                         Toast.makeText(this, "Wrong value", Toast.LENGTH_SHORT).show();
                                         Timber.e(e, "value: %s", newValue);
                                     }
-                                    Bundle params = new Bundle(1);
-                                    params.putString(Param.VALUE, newValue);
-                                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
-                                            .logEvent("edit_counter_value_modified", params);
+
                                 }
                             }).show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_value_click", null);
@@ -141,14 +143,16 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 if (input.length() > 0) {
                                     final String newDefaultValue = input.toString();
                                     try {
-                                        viewModel.updateDefaultValue(Integer.parseInt(newDefaultValue));
+                                        final int value = Integer.parseInt(newDefaultValue);
+                                        viewModel.updateDefaultValue(value);
+                                        Bundle params = new Bundle(1);
+                                        params.putLong(Param.SCORE, value);
+                                        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                                .logEvent("edit_counter_default_modified", params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newDefaultValue);
                                     }
-                                    Bundle params = new Bundle(1);
-                                    params.putString(Param.VALUE, newDefaultValue);
-                                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
-                                            .logEvent("edit_counter_default_modified", params);
+
                                 }
                             }).show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_default_click", null);
@@ -165,14 +169,16 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 if (input.length() > 0) {
                                     final String newStepValue = input.toString();
                                     try {
-                                        viewModel.updateStep(Integer.parseInt(newStepValue));
+                                        final int value = Integer.parseInt(newStepValue);
+                                        viewModel.updateStep(value);
+                                        Bundle params = new Bundle(1);
+                                        params.putLong(Param.SCORE, value);
+                                        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                                                .logEvent("edit_counter_step_modified", params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newStepValue);
                                     }
-                                    Bundle params = new Bundle(1);
-                                    params.putString(Param.VALUE, newStepValue);
-                                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
-                                            .logEvent("edit_counter_step_modified", params);
+
                                 }
                             }).show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_step_click", null);
@@ -206,7 +212,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         super.onDestroy();
         if (isNameModified && counter != null) {
             Bundle params = new Bundle(1);
-            params.putString(Param.VALUE, String.valueOf(counter.getName().length()));
+            params.putString(Param.CHARACTER, String.valueOf(counter.getName().length()));
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                     .logEvent("edit_counter_name_length", params);
         }
@@ -222,7 +228,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
         Bundle params = new Bundle(1);
-        params.putString(Param.VALUE, hex);
+        params.putString(Param.CHARACTER, hex);
         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_selected", params);
     }
 
