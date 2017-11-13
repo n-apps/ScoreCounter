@@ -9,7 +9,6 @@ import android.os.Handler.Callback;
 import android.os.Message;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -22,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 import ua.com.napps.scorekeeper.R;
@@ -172,7 +170,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         }
     }
 
-    List<? extends Counter> counters;
+    List<Counter> counters;
 
     private final CounterActionCallback callback;
 
@@ -239,39 +237,14 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         this.tryToFitAllCounters = tryToFitAllCounters;
     }
 
-    void setCountersList(final List<? extends Counter> counters) {
-        if (this.counters == null) {
-            this.counters = counters;
-            notifyItemRangeInserted(0, counters.size());
+    void setCountersList(final List<Counter> update) {
+        if (counters == null) {
+            counters = update;
+            notifyItemRangeInserted(0, update.size());
         } else {
-            DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
-                @Override
-                public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
-                    Counter newCounter = counters.get(newItemPosition);
-                    Counter oldCounter = CountersAdapter.this.counters.get(oldItemPosition);
-                    return Objects.equals(newCounter.getId(), oldCounter.getId()) && Objects.equals(
-                            newCounter.getColor(), oldCounter.getColor()) && Objects.equals(newCounter.getName(),
-                            oldCounter.getName()) && newCounter.getValue() == oldCounter.getValue();
-                }
-
-                @Override
-                public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                    return Objects.equals(CountersAdapter.this.counters.get(oldItemPosition).getId(),
-                            counters.get(newItemPosition).getId());
-                }
-
-                @Override
-                public int getNewListSize() {
-                    return counters.size();
-                }
-
-                @Override
-                public int getOldListSize() {
-                    return CountersAdapter.this.counters.size();
-                }
-            });
-            this.counters = counters;
-            result.dispatchUpdatesTo(this);
+            notifyDataSetChanged();
+            counters.clear();
+            counters.addAll(update);
         }
     }
 }

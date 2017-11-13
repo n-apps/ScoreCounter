@@ -77,7 +77,6 @@ dependencies {
     compile 'com.google.android:flexbox:0.3.1'
     compile 'com.dmitrymalkovich.android:material-design-dimens:1.4'
     compile 'com.jakewharton.timber:timber:4.6.0'
-    compile 'com.google.code.gson:gson:2.8.2'
 
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$archRoomVersion"
