@@ -30,7 +30,6 @@ import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
-import ua.napps.scorekeeper.utils.NoChangeAnimator;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback,
         SharedPreferences.OnSharedPreferenceChangeListener {
@@ -75,7 +74,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(countersAdapter);
-        recyclerView.setItemAnimator(new NoChangeAnimator());
+        recyclerView.setItemAnimator(null);
 
         subscribeToModel();
         Bundle params = new Bundle(1);
