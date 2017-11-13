@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.graphics.drawable.Animatable;
+import android.hardware.SensorManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
@@ -20,6 +21,12 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 
 public class DiceActivity extends AppCompatActivity {
+
+    private float accel;
+
+    private float accelCurrent;
+
+    private float accelLast;
 
     private ImageView dice;
 
@@ -59,11 +66,18 @@ public class DiceActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(DiceViewModel.class);
 
         subscribeToModel();
+        initSensorData();
     }
 
     private SpringAnimation getSpringAnimation() {
         return new SpringAnimation(dice, DynamicAnimation.ROTATION).setSpring(springForce)
                 .setStartValue(100f).setStartVelocity(100);
+    }
+
+    private void initSensorData() {
+        accel = 0.00f;
+        accelCurrent = SensorManager.GRAVITY_EARTH;
+        accelLast = SensorManager.GRAVITY_EARTH;
     }
 
     private void rollDice(int diceResult, int previousResult) {
@@ -269,7 +283,6 @@ public class DiceActivity extends AppCompatActivity {
     }
 
     private void subscribeToModel() {
-
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(this, roll -> {
             if (roll != null && roll > 0) {
@@ -277,5 +290,23 @@ public class DiceActivity extends AppCompatActivity {
                 rollDice(roll, previousValue);
             }
         });
+
+        viewModel.getSensorLiveData(this).observe(this, se -> {
+            if (se == null) {
+                return;
+            }
+
+            float x = se.values[0];
+            float y = se.values[1];
+            float z = se.values[2];
+            accelLast = accelCurrent;
+            accelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
+            float delta = accelCurrent - accelLast;
+            accel = accel * 0.9f + delta; // perform low-cut filter
+            if (accel > 5.0) {
+                viewModel.rollDice();
+            }
+        });
+
     }
 }
