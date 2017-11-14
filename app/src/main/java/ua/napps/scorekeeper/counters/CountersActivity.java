@@ -78,9 +78,9 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
         subscribeToModel();
         Bundle params = new Bundle(1);
-        params.putString(Param.ITEM_NAME, SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS);
-        params.putString(Param.ITEM_VARIANT, String.valueOf(isTryToFitAllCounters));
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings", params);
+        params.putString(Param.ITEM_VARIANT, isTryToFitAllCounters ? "on" : "off");
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                .logEvent("settings_try_to_fit_all_counters", params);
     }
 
     @Override
@@ -265,9 +265,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         }
         if (trackAnalytics) {
             Bundle params = new Bundle(1);
-            params.putString(Param.ITEM_NAME, SettingsUtil.SETTINGS_KEEP_SCREEN_ON);
-            params.putString(Param.ITEM_VARIANT, String.valueOf(isStayAwake));
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings", params);
+            params.putString(Param.ITEM_VARIANT, isStayAwake ? "on" : "off");
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_keep_screen_on", params);
         }
     }
 
@@ -325,9 +324,5 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 emptyState.setVisibility(View.VISIBLE);
             }
         });
-    }
-
-    {
-
     }
 }

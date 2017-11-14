@@ -15,7 +15,6 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
@@ -123,10 +122,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                                 .logEvent("edit_counter_value_modified", params);
                                     } catch (NumberFormatException e) {
-                                        Toast.makeText(this, "Wrong value", Toast.LENGTH_SHORT).show();
                                         Timber.e(e, "value: %s", newValue);
                                     }
-
                                 }
                             }).show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_value_click", null);
@@ -212,7 +209,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         super.onDestroy();
         if (isNameModified && counter != null) {
             Bundle params = new Bundle(1);
-            params.putString(Param.CHARACTER, String.valueOf(counter.getName().length()));
+            params.putLong(Param.SCORE, counter.getName().length());
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                     .logEvent("edit_counter_name_length", params);
         }
