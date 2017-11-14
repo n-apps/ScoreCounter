@@ -21,7 +21,7 @@
     <string name="dialog_counter_default_title">Valeur par défaut</string>
     <string name="dialog_counter_step_title">Étape</string>
     <string name="dialog_current_value_title">Valeur actuelle</string>
-    <string name="dice_empty_state">Appuyez n\'importe où pour lancer les dés</string>
+    <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent: %d</string>
     <string name="hint_type_any_number">Tapez n\'importe quel nombre</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>

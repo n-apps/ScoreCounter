@@ -20,7 +20,7 @@
     <string name="dialog_counter_default_title">Default value</string>
     <string name="dialog_counter_step_title">Step</string>
     <string name="dialog_current_value_title">Current value</string>
-    <string name="dice_empty_state">Tap anywhere to roll</string>
+    <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous result: %d</string>
     <string name="hint_type_any_number">Type any number</string>
     <string name="menu_add_new_counter">Add counter</string>
