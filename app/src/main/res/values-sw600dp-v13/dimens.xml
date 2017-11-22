@@ -1,0 +1,23 @@
+<resources>
+    <dimen name="back_button_padding">16dp</dimen>
+    <dimen name="back_button_size">96dp</dimen>
+    <dimen name="button_icon_size">48dp</dimen>
+    <dimen name="button_min_height">56dp</dimen>
+    <dimen name="counter_max_text_size">192sp</dimen>
+    <dimen name="counter_min_text_size">24sp</dimen>
+    <dimen name="dice_padding">128dp</dimen>
+    <dimen name="empty_state_add_icon_size">148dp</dimen>
+    <dimen name="font_body">21sp</dimen>
+    <dimen name="font_button">21sp</dimen>
+    <dimen name="font_display">36sp</dimen>
+    <dimen name="font_mini_dice">48sp</dimen>
+    <dimen name="font_subheading">24sp</dimen>
+    <dimen name="font_title">28sp</dimen>
+    <dimen name="keyline_1">80dp</dimen>
+    <dimen name="list_single_line_min_height">96dp</dimen>
+    <dimen name="list_two_lines_min_height">72dp</dimen>
+    <dimen name="mini_dice_size">96dp</dimen>
+    <dimen name="padding_normal">24dp</dimen>
+    <dimen name="spacing_micro">8dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+</resources>

@@ -6,32 +6,32 @@
     android:layout_height="match_parent"
     tools:context="ua.napps.scorekeeper.dice.DiceActivity">
 
+    <TextView
+        android:id="@+id/tv_previous_result"
+        style="@style/EmptyStateMessage"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dice_empty_state" />
+
     <ImageView
         android:id="@+id/dice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:contentDescription="@string/menu_dice"
-        android:padding="@dimen/material_layout_keylines_content_left_margin_from_screen_edge"
+        android:padding="@dimen/dice_padding"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/avd_dice_empty" />
 
-    <TextView
-        android:id="@+id/tv_previous_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:padding="@dimen/material_layout_keylines_screen_edge_margin"
-        android:gravity="center_horizontal"
-        android:text="@string/dice_empty_state"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-
     <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="@dimen/material_layout_touch_target"
-        android:layout_height="@dimen/material_layout_touch_target"
+        android:layout_width="@dimen/back_button_size"
+        android:layout_height="@dimen/back_button_size"
+        android:alpha="0.84"
         android:background="?attr/selectableItemBackground"
         android:contentDescription="@string/common_back"
+        android:padding="@dimen/back_button_padding"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_arrow_back" />
 </FrameLayout>

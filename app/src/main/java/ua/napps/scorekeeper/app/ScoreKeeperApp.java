@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.app;
 
 import android.app.Application;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,6 +25,7 @@ public class ScoreKeeperApp extends Application {
         } else {
             Timber.plant(new CrashlyticsTree());
             getFirebaseAnalytics().setAnalyticsCollectionEnabled(true);
+            getFirebaseAnalytics().setMinimumSessionDuration(3000); //minimum session is 1 minute
         }
         DatabaseHolder.init(this);
     }
@@ -39,7 +41,7 @@ public class ScoreKeeperApp extends Application {
     private static class CrashlyticsTree extends Timber.Tree {
 
         @Override
-        protected void log(int priority, String tag, String message, Throwable t) {
+        protected void log(int priority, String tag, @NonNull String message, Throwable t) {
             if (priority == Log.VERBOSE || priority == Log.DEBUG) {
                 return;
             }

@@ -3,18 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:divider="@color/black"
     android:orientation="vertical"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
-
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/sw_stay_awake"
-        style="@style/SwitchStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_stay_awake" />
-
-    <include layout="@layout/divider" />
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/sw_try_to_fit_all_counters"
@@ -23,4 +13,12 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_try_to_fit_all_counters" />
 
+    <include layout="@layout/divider" />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/sw_stay_awake"
+        style="@style/SwitchStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_stay_awake" />
 </LinearLayout>

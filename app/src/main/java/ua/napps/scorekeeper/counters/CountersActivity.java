@@ -3,24 +3,28 @@ package ua.napps.scorekeeper.counters;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
@@ -40,6 +44,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     private View emptyState;
 
+    private boolean isFirstLoad = true;
+
     private MaterialDialog longClickDialog;
 
     private int oldListSize;
@@ -57,6 +63,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setItemAnimator(null);
+        SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
         emptyState = findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> {
             viewModel.addCounter();
@@ -65,19 +75,15 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         applyKeepScreenOn(true);
+
         final boolean isTryToFitAllCounters = settingsDB
                 .getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
         countersAdapter = new CountersAdapter(this);
         countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
-        FlexboxLayoutManager layoutManager =
-                new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(countersAdapter);
-        recyclerView.setItemAnimator(null);
 
         subscribeToModel();
-        Bundle params = new Bundle(1);
+        Bundle params = new Bundle();
         params.putString(Param.ITEM_VARIANT, isTryToFitAllCounters ? "on" : "off");
         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                 .logEvent("settings_try_to_fit_all_counters", params);
@@ -109,6 +115,15 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     @Override
     public void onDecreaseClick(Counter counter) {
         viewModel.decreaseCounter(counter);
+    }
+
+    @Override
+    public void onEditClick(int counterId) {
+        final Intent intent = EditCounterActivity.getIntent(this, counterId, false);
+        startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+        Bundle params = new Bundle();
+        params.putString(Param.ITEM_VARIANT, "edit");
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", params);
     }
 
     @Override
@@ -163,8 +178,30 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             }
             longClickDialog.dismiss();
         });
+        final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
+        editText.setOnEditorActionListener((textView, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                    == EditorInfo.IME_ACTION_DONE)) {
+                final String value = editText.getText().toString();
+                if (TextUtils.isEmpty(value)) {
+                    longClickDialog.dismiss();
+                }
+                try {
+                    if (isIncrease) {
+                        viewModel.increaseCounter(counter, Integer.parseInt(value));
+                    } else {
+                        viewModel.decreaseCounter(counter, -Integer.parseInt(value));
+                    }
+                } catch (NumberFormatException e) {
+                    Timber.e(e, "value: %s", value);
+                } finally {
+                    longClickDialog.dismiss();
+                }
+            }
+            return false;
+        });
+
         contentView.findViewById(R.id.btn_add_custom_value).setOnClickListener(view -> {
-            final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
             final String value = editText.getText().toString();
             if (TextUtils.isEmpty(value)) {
                 longClickDialog.dismiss();
@@ -187,15 +224,18 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.show();
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
     @Override
     public void onNameClick(int counterId) {
-        final Intent intent = EditCounterActivity.getIntent(this, counterId);
+        final Intent intent = EditCounterActivity.getIntent(this, counterId, true);
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", null);
+        Bundle params = new Bundle();
+        params.putString(Param.ITEM_VARIANT, "name");
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", params);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -248,10 +288,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             case SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
                 final boolean newValue = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
                 countersAdapter.setTryToFitAllCounters(newValue);
-                countersAdapter = new CountersAdapter(this);
-                countersAdapter.setTryToFitAllCounters(newValue);
-                recyclerView.setAdapter(countersAdapter);
-                subscribeToModel();
+                countersAdapter.notifyDataSetChanged();
                 break;
         }
     }
@@ -264,7 +301,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         if (trackAnalytics) {
-            Bundle params = new Bundle(1);
+            Bundle params = new Bundle();
             params.putString(Param.ITEM_VARIANT, isStayAwake ? "on" : "off");
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_keep_screen_on", params);
         }
@@ -283,43 +320,28 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     private void subscribeToModel() {
-        // Update the list when the data changes
         viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
                 final int size = counters.size();
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
-                assert countersAdapter != null;
                 countersAdapter.setCountersList(counters);
-
-                if (!countersAdapter.isTryToFitAllCounters()) {
-                    if (size <= SettingsUtil.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                        if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
-                                != FlexWrap.NOWRAP) {
-                            FlexboxLayoutManager layoutManager =
-                                    new FlexboxLayoutManager(CountersActivity.this, FlexDirection.COLUMN,
-                                            FlexWrap.NOWRAP);
-                            recyclerView.setLayoutManager(layoutManager);
-                        }
-                    } else {
-                        if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
-                                != FlexWrap.WRAP) {
-                            FlexboxLayoutManager layoutManager =
-                                    new FlexboxLayoutManager(CountersActivity.this, FlexDirection.ROW, FlexWrap.WRAP);
-                            recyclerView.setLayoutManager(layoutManager);
-                        }
-                        if (oldListSize < size) {
-                            recyclerView.smoothScrollToPosition(size);
-                        }
-                    }
-                } else {
-                    if (((FlexboxLayoutManager) recyclerView.getLayoutManager()).getFlexWrap()
-                            != FlexWrap.NOWRAP) {
-                        FlexboxLayoutManager layoutManager =
-                                new FlexboxLayoutManager(this, FlexDirection.COLUMN, FlexWrap.NOWRAP);
-                        recyclerView.setLayoutManager(layoutManager);
-                    }
+                if (size > oldListSize && oldListSize > 0) {
+                    recyclerView.smoothScrollToPosition(size);
                 }
                 oldListSize = size;
+                if (isFirstLoad) {
+                    recyclerView.post(() -> {
+                                countersAdapter.setContainerHeight(recyclerView.getHeight());
+                                countersAdapter.setContainerWidth(recyclerView.getWidth());
+                                recyclerView.setAdapter(countersAdapter);
+                            }
+                    );
+                    Bundle params = new Bundle();
+                    params.putString(Param.CHARACTER, String.valueOf(size));
+                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
+                            .logEvent("starting_number_of_counters", params);
+                    isFirstLoad = false;
+                }
             } else {
                 emptyState.setVisibility(View.VISIBLE);
             }

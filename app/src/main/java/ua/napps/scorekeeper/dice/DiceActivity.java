@@ -60,7 +60,7 @@ public class DiceActivity extends AppCompatActivity {
 
         dice.setOnClickListener(v -> {
             viewModel.rollDice();
-            Bundle params = new Bundle(1);
+            Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "click");
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
         });
@@ -306,7 +306,7 @@ public class DiceActivity extends AppCompatActivity {
             accel = accel * 0.9f + delta; // perform low-cut filter
             if (accel > 5.0) {
                 viewModel.rollDice();
-                Bundle params = new Bundle(1);
+                Bundle params = new Bundle();
                 params.putString(Param.CHARACTER, "sensor");
                 ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
             }
