@@ -186,8 +186,9 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     public void setContainerHeight(int height) {
         containerHeight = height;
-        if (getItemHeight() == 0) {
-            setItemHeight(height / getItemCount());
+        final int itemCount = getItemCount();
+        if (getItemHeight() == 0 && itemCount > 0) {
+            setItemHeight(height / itemCount);
         }
 
         notifyDataSetChanged();
@@ -242,19 +243,18 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             }
         });
 
+        final int itemHeightDiv = getItemCount() > 0 ? getContainerHeight() / getItemCount() : getContainerHeight();
         if (!isTryToFitAllCounters()) {
             if (isCounterTooLow()) {// set height as 0.2 of recyclerview height
                 RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
                         getContainerHeight() / 5);
                 holder.itemView.setLayoutParams(layoutParams);
             } else { // fit available space
-                RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
-                        getContainerHeight() / getItemCount());
+                RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, itemHeightDiv);
                 holder.itemView.setLayoutParams(layoutParams);
             }
         } else { // fit available space (also applied for 1st counter)
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
-                    getContainerHeight() / getItemCount());
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, itemHeightDiv);
             holder.itemView.setLayoutParams(layoutParams);
         }
     }
