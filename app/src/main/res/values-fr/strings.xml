@@ -23,7 +23,7 @@
     <string name="dialog_current_value_title">Valeur actuelle</string>
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent: %d</string>
-    <string name="hint_type_any_number">Tapez n\'importe quel nombre</string>
+    <string name="hint_type_any_number">Entrez un nombre</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_dice">Dés</string>
     <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>

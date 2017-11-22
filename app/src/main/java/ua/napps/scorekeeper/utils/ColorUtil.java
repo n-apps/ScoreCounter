@@ -17,6 +17,6 @@ public final class ColorUtil {
         return o < 125;
     }
 
-    public ColorUtil() {
+    private ColorUtil() {
     }
 }

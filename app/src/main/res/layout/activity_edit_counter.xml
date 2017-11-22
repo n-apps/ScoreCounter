@@ -10,7 +10,6 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -22,6 +21,7 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
+            android:theme="@style/LightEditText"
             android:layout_height="wrap_content"
             app:hintAnimationEnabled="false">
 
@@ -29,13 +29,14 @@
                 android:id="@+id/et_counter_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/material_layout_keylines_screen_edge_margin"
+                android:layout_margin="@dimen/spacing_normal"
                 android:hint="@string/counter_details_name"
+                android:theme="@style/LightEditText"
                 android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
                 android:maxLines="1"
                 android:minEms="20"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                android:textSize="@dimen/font_display" />
         </android.support.design.widget.TextInputLayout>
     </android.support.design.widget.AppBarLayout>
 
@@ -51,15 +52,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_value"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textSize="@dimen/font_title" />
 
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/accentColor"
+            android:textSize="@dimen/font_title"
             tools:text="20" />
     </LinearLayout>
 
@@ -75,15 +76,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_default_value"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textSize="@dimen/font_title" />
 
         <TextView
             android:id="@+id/tv_counter_default_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/accentColor"
+            android:textSize="@dimen/font_title"
             tools:text="0" />
     </LinearLayout>
 
@@ -99,15 +100,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_step"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textSize="@dimen/font_title" />
 
         <TextView
             android:id="@+id/tv_counter_step"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textColor="@color/accentColor"
+            android:textSize="@dimen/font_title"
             tools:text="0" />
     </LinearLayout>
 
@@ -123,12 +124,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_color"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textSize="@dimen/font_title" />
 
         <com.afollestad.materialdialogs.color.CircleView
             android:id="@+id/color_preview"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size"
             android:layout_gravity="center" />
     </LinearLayout>
 
@@ -148,14 +149,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingBottom="8dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp">
+            android:minHeight="@dimen/button_min_height"
+            android:paddingBottom="@dimen/spacing_micro"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
+            android:paddingTop="@dimen/spacing_micro">
 
             <ImageView
-                android:layout_width="@dimen/material_layout_icon"
-                android:layout_height="@dimen/material_layout_icon"
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
                 android:contentDescription="@string/counter_details_delete"
                 app:srcCompat="@drawable/ic_delete_forever_white" />
 
@@ -165,15 +167,17 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:includeFontPadding="false"
                 android:layout_height="wrap_content"
                 android:text="@string/counter_details_delete"
                 android:textAllCaps="true"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_button" />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <Space
         android:layout_width="0px"
-        android:layout_height="32dp" />
+        android:layout_height="@dimen/spacing_large" />
 </LinearLayout>

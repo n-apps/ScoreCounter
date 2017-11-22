@@ -15,8 +15,8 @@
         <activity
             android:name="ua.napps.scorekeeper.counters.CountersActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,8 +26,7 @@
         <activity
             android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
             android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
+            android:windowSoftInputMode="adjustNothing" />
 
         <meta-data
             android:name="preloaded_fonts"

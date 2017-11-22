@@ -4,23 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackgroundBorderless"
-    android:minHeight="128dp"
-    android:minWidth="256dp"
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/counter_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_12"
         android:foreground="?attr/selectableItemBackground"
-        android:orientation="horizontal"
-        android:paddingBottom="8dp"
-        android:paddingLeft="@dimen/material_layout_keylines_horizontal_mobile_margin"
-        android:paddingRight="@dimen/material_layout_keylines_horizontal_mobile_margin"
-        android:paddingTop="8dp">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_counter_name"
@@ -31,8 +25,11 @@
             android:clickable="false"
             android:ellipsize="end"
             android:maxLines="1"
+            android:paddingBottom="@dimen/spacing_normal"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingTop="@dimen/spacing_normal"
             android:textAllCaps="true"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="@dimen/font_subheading"
             tools:text="@tools:sample/first_names" />
 
         <TextView
@@ -40,58 +37,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:paddingBottom="@dimen/spacing_normal"
+            android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
+            android:paddingTop="@dimen/spacing_normal"
             android:text="@string/common_edit"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_button" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/counter_interaction_area"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless">
 
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginLeft="80dp"
-            android:layout_marginRight="80dp"
             android:alpha=".87"
             android:clickable="false"
             android:fontFamily="@font/work_sans_light"
             android:gravity="center"
             android:lines="1"
-            app:autoSizeMaxTextSize="120sp"
-            app:autoSizeMinTextSize="12sp"
+            app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
+            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
             tools:ignore="MissingPrefix"
-            tools:text="1"
-            tools:textSize="120sp" />
+            tools:text="0"
+            tools:textSize="192sp" />
 
         <ImageView
             android:id="@+id/iv_decrease"
-            android:layout_width="@dimen/material_layout_touch_target"
-            android:layout_height="@dimen/material_layout_touch_target"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size"
             android:layout_gravity="start|center_vertical"
+            android:layout_marginLeft="@dimen/spacing_normal"
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_increase"
-            android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_left" />
 
         <ImageView
             android:id="@+id/iv_increase"
-            android:layout_width="@dimen/material_layout_touch_target"
-            android:layout_height="@dimen/material_layout_touch_target"
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size"
             android:layout_gravity="end|center_vertical"
+            android:layout_marginRight="@dimen/spacing_normal"
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_decrease"
-            android:scaleType="center"
             app:srcCompat="@drawable/ic_keyboard_arrow_right" />
     </FrameLayout>
 </LinearLayout>

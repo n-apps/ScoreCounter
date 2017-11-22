@@ -29,17 +29,51 @@
     <style name="SingleLineStyle">
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:minHeight">@dimen/material_component_lists_single_line_height</item>
-        <item name="android:paddingLeft">@dimen/material_layout_keylines_screen_edge_margin</item>
-        <item name="android:paddingRight">@dimen/material_layout_keylines_screen_edge_margin</item>
+        <item name="android:minHeight">@dimen/list_single_line_min_height</item>
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingRight">@dimen/padding_normal</item>
     </style>
 
     <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="android:foreground">?attr/selectableItemBackground</item>
-        <item name="android:minHeight">@dimen/material_component_lists_two_line_height</item>
-        <item name="android:paddingLeft">@dimen/material_layout_keylines_screen_edge_margin</item>
-        <item name="android:paddingRight">@dimen/material_layout_keylines_screen_edge_margin</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
+        <item name="android:paddingLeft">@dimen/padding_normal</item>
+        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
+    <style name="EmptyStateMessage">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+        <item name="android:paddingBottom">@dimen/padding_normal</item>
+        <item name="android:paddingLeft">@dimen/keyline_1</item>
+        <item name="android:paddingRight">@dimen/keyline_1</item>
+        <item name="android:paddingTop">@dimen/padding_normal</item>
+        <item name="android:textSize">@dimen/font_body</item>
+    </style>
+
+    <style name="EmptyStateMessage.Inverted">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:alpha">0.38</item>
+    </style>
+
+    <style name="MiniDiceStyle">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:padding">@dimen/spacing_micro</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:fontFamily">@font/work_sans_semibold</item>
+        <item name="autoSizeMaxTextSize">@dimen/font_button</item>
+        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <!--Input field style-->
+    <style name="LightEditText" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+    </style>
 </resources>

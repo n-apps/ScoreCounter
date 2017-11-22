@@ -15,17 +15,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
-import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
@@ -60,29 +58,25 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         private static final int MSG_PERFORM_LONGCLICK = 1;
 
-        final float SINGLE_TAP_COORD_DELTA = 30.5f;
-
-        Counter counter;
-
-        final FrameLayout counterClickableArea;
-
-        final TextView counterEdit;
-
-        final LinearLayout counterHeader;
-
-        final TextView counterName;
-
-        final TextView counterValue;
-
-        final ImageView decreaseImageView;
-
-        final ImageView increaseImageView;
-
         private final int TIME_LONG_CLICK = 300;
+
+        private Counter counter;
 
         private final CounterActionCallback counterActionCallback;
 
-        private Handler handler;
+        private final FrameLayout counterClickableArea;
+
+        private final TextView counterEdit;
+
+        private final TextView counterName;
+
+        private final TextView counterValue;
+
+        private final ImageView decreaseImageView;
+
+        private final Handler handler;
+
+        private final ImageView increaseImageView;
 
         private MotionEvent motionEvent;
 
@@ -97,10 +91,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counterName = v.findViewById(R.id.tv_counter_name);
             counterEdit = v.findViewById(R.id.tv_counter_edit);
             counterClickableArea = v.findViewById(R.id.counter_interaction_area);
-            counterHeader = v.findViewById(R.id.counter_header);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
-            counterHeader.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter.getId()));
+            counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter.getId()));
+            counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(counter.getId()));
 
             counterClickableArea.setOnTouchListener(new OnTouchListener() {
                 float touchedX, touchedY;
@@ -170,11 +164,15 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         }
     }
 
-    List<Counter> counters;
-
     private final CounterActionCallback callback;
 
-    private int height;
+    private int containerHeight;
+
+    private int containerWidth;
+
+    private List<Counter> counters;
+
+    private int itemHeight;
 
     private boolean tryToFitAllCounters;
 
@@ -182,9 +180,38 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         this.callback = callback;
     }
 
+    public int getContainerHeight() {
+        return containerHeight;
+    }
+
+    public void setContainerHeight(int height) {
+        containerHeight = height;
+        if (getItemHeight() == 0) {
+            setItemHeight(height / getItemCount());
+        }
+
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return counters == null ? 0 : counters.size();
+    }
+
+    public int getItemHeight() {
+        return itemHeight;
+    }
+
+    public void setItemHeight(int itemHeight) {
+        this.itemHeight = itemHeight;
+    }
+
+    public boolean isTryToFitAllCounters() {
+        return tryToFitAllCounters;
+    }
+
+    public void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
+        this.tryToFitAllCounters = tryToFitAllCounters;
     }
 
     @Override
@@ -207,19 +234,28 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         DrawableCompat.setTint(wrapDrawable1, textColor);
         DrawableCompat.setTint(wrapDrawable2, textColor);
 
-        ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
-        if (lp instanceof FlexboxLayoutManager.LayoutParams) {
-            FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
-            flexboxLp.setFlexGrow(1.0f);
-            final int itemCount = getItemCount();
-            if (itemCount <= SettingsUtil.MAX_COUNTERS_TO_FIT_ON_SCREEN) {
-                flexboxLp.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-            } else if (!tryToFitAllCounters) {
-                if (height == 0) {
-                    height = holder.itemView.getMinimumHeight();
-                }
-                flexboxLp.setHeight(height);
+        holder.itemView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                holder.itemView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                setItemHeight(holder.itemView.getMeasuredHeight());
             }
+        });
+
+        if (!isTryToFitAllCounters()) {
+            if (isCounterTooLow()) {// set height as 0.2 of recyclerview height
+                RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
+                        getContainerHeight() / 5);
+                holder.itemView.setLayoutParams(layoutParams);
+            } else { // fit available space
+                RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
+                        getContainerHeight() / getItemCount());
+                holder.itemView.setLayoutParams(layoutParams);
+            }
+        } else { // fit available space (also applied for 1st counter)
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
+                    getContainerHeight() / getItemCount());
+            holder.itemView.setLayoutParams(layoutParams);
         }
     }
 
@@ -229,22 +265,27 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         return new CountersViewHolder(v, callback);
     }
 
-    boolean isTryToFitAllCounters() {
-        return tryToFitAllCounters;
+    public void setContainerWidth(int widthPixels) {
+        containerWidth = widthPixels;
     }
 
-    void setTryToFitAllCounters(final boolean tryToFitAllCounters) {
-        this.tryToFitAllCounters = tryToFitAllCounters;
-    }
-
-    void setCountersList(final List<Counter> update) {
+    public void setCountersList(final List<Counter> update) {
         if (counters == null) {
             counters = update;
             notifyItemRangeInserted(0, update.size());
         } else {
+            if (update.isEmpty()) {
+                setItemHeight(0);
+            }
+
             notifyDataSetChanged();
             counters.clear();
             counters.addAll(update);
         }
     }
+
+    private boolean isCounterTooLow() {
+        return getItemCount() > 1 && getItemHeight() <= getContainerHeight() / 5;
+    }
+
 }

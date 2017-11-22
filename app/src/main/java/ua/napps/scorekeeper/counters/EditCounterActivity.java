@@ -12,9 +12,15 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
@@ -33,6 +39,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
 
+    private static final String ARGUMENT_SHOW_KEYBOARD = "ARGUMENT_SHOW_KEYBOARD";
+
     private CircleView colorPreview;
 
     private Counter counter;
@@ -49,9 +57,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private EditCounterViewModel viewModel;
 
-    public static Intent getIntent(Context context, final int id) {
+    public static Intent getIntent(Context context, int id, boolean showKeyboard) {
         Intent intent = new Intent(context, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, id);
+        intent.putExtra(ARGUMENT_SHOW_KEYBOARD, showKeyboard);
         return intent;
     }
 
@@ -105,7 +114,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         });
 
         counterValueContainer.setOnClickListener(v -> {
-            new Builder(EditCounterActivity.this)
+            final MaterialDialog md = new Builder(EditCounterActivity.this)
                     .content(R.string.dialog_current_value_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -117,20 +126,30 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newValue);
                                         viewModel.updateValue(value);
-                                        Bundle params = new Bundle(1);
-                                        params.putLong(Param.SCORE, value);
+                                        Bundle params = new Bundle();
+                                        params.putString(Param.CHARACTER, newValue);
                                         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                                 .logEvent("edit_counter_value_modified", params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newValue);
                                     }
                                 }
-                            }).show();
+                            })
+                    .build();
+            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                        == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+            md.show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_value_click", null);
         });
 
         counterDefaultValueContainer.setOnClickListener(v -> {
-            new Builder(EditCounterActivity.this)
+            final MaterialDialog md = new Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_default_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -142,8 +161,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newDefaultValue);
                                         viewModel.updateDefaultValue(value);
-                                        Bundle params = new Bundle(1);
-                                        params.putLong(Param.SCORE, value);
+                                        Bundle params = new Bundle();
+                                        params.putString(Param.CHARACTER, newDefaultValue);
                                         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                                 .logEvent("edit_counter_default_modified", params);
                                     } catch (NumberFormatException e) {
@@ -151,12 +170,22 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     }
 
                                 }
-                            }).show();
+                            })
+                    .build();
+            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                        == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+            md.show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_default_click", null);
         });
 
         counterStepContainer.setOnClickListener(v -> {
-            new Builder(EditCounterActivity.this)
+            final MaterialDialog md = new Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_step_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -168,8 +197,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newStepValue);
                                         viewModel.updateStep(value);
-                                        Bundle params = new Bundle(1);
-                                        params.putLong(Param.SCORE, value);
+                                        Bundle params = new Bundle();
+                                        params.putString(Param.CHARACTER, String.valueOf(newStepValue));
                                         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                                                 .logEvent("edit_counter_step_modified", params);
                                     } catch (NumberFormatException e) {
@@ -177,7 +206,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     }
 
                                 }
-                            }).show();
+                            })
+                    .build();
+            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                        == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+            md.show();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_step_click", null);
         });
 
@@ -202,14 +241,21 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             viewModel.deleteCounter();
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_delete_click", null);
         });
+
+        if (getIntent().getBooleanExtra(ARGUMENT_SHOW_KEYBOARD, false)) {
+            counterName.requestFocus();
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         if (isNameModified && counter != null) {
-            Bundle params = new Bundle(1);
-            params.putLong(Param.SCORE, counter.getName().length());
+            Bundle params = new Bundle();
+            params.putString(Param.CHARACTER, String.valueOf(counter.getName().length()));
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                     .logEvent("edit_counter_name_length", params);
         }
@@ -224,7 +270,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         colorPreview.setBackgroundColor(color);
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
-        Bundle params = new Bundle(1);
+        Bundle params = new Bundle();
         params.putString(Param.CHARACTER, hex);
         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("edit_counter_color_selected", params);
     }
@@ -243,9 +289,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 counterValue.setText(String.valueOf(c.getValue()));
                 counterStep.setText(String.valueOf(c.getStep()));
                 counterDefaultValue.setText(String.valueOf(c.getDefaultValue()));
-                counterName.setText(c.getName());
-                counterName.setSelection(c.getName().length());
                 colorPreview.setBackgroundColor(Color.parseColor(c.getColor()));
+                if (!c.getName().equals(counterName.getText().toString())) {
+                    counterName.setText(c.getName());
+                    counterName.setSelection(c.getName().length());
+                }
             } else {
                 counter = null;
                 setResult(RESULT_DELETE);

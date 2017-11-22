@@ -22,7 +22,7 @@
     <string name="dialog_current_value_title">Current value</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous result: %d</string>
-    <string name="hint_type_any_number">Type any number</string>
+    <string name="hint_type_any_number">Enter any number</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_dice">Dice</string>
     <string name="menu_remove_all_counters">Remove all counters</string>
@@ -30,5 +30,5 @@
     <string name="menu_settings">Settings</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_try_to_fit_all_counters">Show all counters on screen</string>
-    <string name="dialog_change_counter_value_title">Counter value: %d</string>
+    <string name="dialog_change_counter_value_title">Current value: %d</string>
 </resources>

@@ -24,7 +24,9 @@
         android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_counter" />
+        tools:background="@color/white"
+        tools:listitem="@layout/item_counter"
+        tools:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/empty_state"
@@ -32,25 +34,22 @@
         android:layout_height="match_parent"
         android:background="?attr/colorPrimary"
         android:gravity="center"
-        tools:visibility="invisible"
         android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/empty_state_add_icon_size"
+            android:layout_height="@dimen/empty_state_add_icon_size"
+            android:alpha="0.38"
             android:contentDescription="@string/counters_empty_message"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_empty_state_add_grey" />
+            app:srcCompat="@drawable/ic_empty_state_add_white" />
 
         <TextView
+            style="@style/EmptyStateMessage.Inverted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_horizontal"
-            android:lineSpacingExtra="8dp"
-            android:padding="24dp"
-            android:text="@string/counters_empty_message"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse" />
+            android:text="@string/counters_empty_message" />
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
