@@ -84,7 +84,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
         subscribeToModel();
         Bundle params = new Bundle();
-        params.putString(Param.ITEM_VARIANT, isTryToFitAllCounters ? "on" : "off");
+        params.putLong(Param.SCORE, isTryToFitAllCounters ? 1 : 0);
         ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                 .logEvent("settings_try_to_fit_all_counters", params);
     }
@@ -257,8 +257,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_settings", null);
                 break;
             case R.id.menu_dice:
-                Intent intent = new Intent(this, DiceActivity.class);
-                startActivity(intent);
+                startActivity(DiceActivity.getIntent(this));
                 ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_dice", null);
                 break;
         }
@@ -302,7 +301,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         }
         if (trackAnalytics) {
             Bundle params = new Bundle();
-            params.putString(Param.ITEM_VARIANT, isStayAwake ? "on" : "off");
+            params.putLong(Param.SCORE, isStayAwake ? 1 : 0);
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_keep_screen_on", params);
         }
     }
@@ -337,7 +336,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                             }
                     );
                     Bundle params = new Bundle();
-                    params.putString(Param.CHARACTER, String.valueOf(size));
+                    params.putLong(Param.SCORE, size);
                     ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
                             .logEvent("starting_number_of_counters", params);
                     isFirstLoad = false;

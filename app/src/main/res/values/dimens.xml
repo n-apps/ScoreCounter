@@ -1,5 +1,5 @@
 <resources>
-    <dimen name="back_button_padding">8dp</dimen>
+    <dimen name="back_button_padding">12dp</dimen>
     <dimen name="back_button_size">48dp</dimen>
     <dimen name="button_icon_size">24dp</dimen>
     <dimen name="button_min_height">36dp</dimen>
