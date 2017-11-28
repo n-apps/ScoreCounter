@@ -1,9 +1,12 @@
 package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.hardware.SensorManager;
-import android.os.Build;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
 import android.support.animation.SpringAnimation;
@@ -13,15 +16,20 @@ import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
+import ua.napps.scorekeeper.settings.SettingsUtil;
+import ua.napps.scorekeeper.storage.TinyDB;
 
 public class DiceActivity extends AppCompatActivity {
+
+    private static final String ARGUMENT_ACTUAL_DICE_VALUE = "ARGUMENT_ACTUAL_DICE_VALUE";
+
+    private static final String ARGUMENT_PREVIOUS_DICE_VALUE = "ARGUMENT_PREVIOUS_DICE_VALUE";
 
     private float accel;
 
@@ -29,7 +37,13 @@ public class DiceActivity extends AppCompatActivity {
 
     private float accelLast;
 
+    private int currentDiceResult;
+
     private ImageView dice;
+
+    private boolean isThemeLight;
+
+    private int prevDiceValue;
 
     private TextView previousResultTextView;
 
@@ -39,17 +53,24 @@ public class DiceActivity extends AppCompatActivity {
 
     private DiceViewModel viewModel;
 
+    public static Intent getIntent(Context context) {
+        return new Intent(context, DiceActivity.class);
+    }
+
+    public static Intent getIntentForRestoreState(Context context, int diceValue, int prevDiceValue) {
+        Intent intent = new Intent(context, DiceActivity.class);
+        intent.putExtra(ARGUMENT_ACTUAL_DICE_VALUE, diceValue);
+        intent.putExtra(ARGUMENT_PREVIOUS_DICE_VALUE, prevDiceValue);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final TinyDB settingsDB = new TinyDB(getApplication());
+        isThemeLight = settingsDB.getBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT);
+        setTheme(isThemeLight ? R.style.AppTheme : R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice);
-
-        ImageButton backArrow = findViewById(R.id.btn_back);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.light_status_bar));
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
         dice = findViewById(R.id.dice);
         previousResultTextView = findViewById(R.id.tv_previous_result);
 
@@ -64,12 +85,46 @@ public class DiceActivity extends AppCompatActivity {
             params.putString(Param.CHARACTER, "click");
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
         });
-        backArrow.setOnClickListener(v -> finish());
+        findViewById(R.id.btn_back).setOnClickListener(v -> finish());
+        findViewById(R.id.btn_switch_theme).setOnClickListener(v -> {
+            settingsDB.putBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, !isThemeLight);
+            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("switch_dice_theme", null);
+            finish();
+            startActivity(getIntentForRestoreState(DiceActivity.this, currentDiceResult, prevDiceValue));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        });
+
+        currentDiceResult = getIntent().getIntExtra(ARGUMENT_ACTUAL_DICE_VALUE, 0);
+        prevDiceValue = getIntent().getIntExtra(ARGUMENT_PREVIOUS_DICE_VALUE, 0);
 
         viewModel = ViewModelProviders.of(this).get(DiceViewModel.class);
 
         subscribeToModel();
         initSensorData();
+        colorStatusBar();
+
+        if (currentDiceResult > 0) {
+            rollDice(currentDiceResult, prevDiceValue);
+        }
+
+        Bundle params = new Bundle();
+        params.putLong(Param.SCORE, isThemeLight ? 1 : 0);
+        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_dice_light_theme", params);
+    }
+
+    private void colorStatusBar() {
+        if (isThemeLight) {
+            if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.light_status_bar));
+                if (VERSION.SDK_INT >= VERSION_CODES.M) {
+                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                }
+            }
+        } else {
+            if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.dark_status_bar));
+            }
+        }
     }
 
     private SpringAnimation getSpringAnimation() {
@@ -98,6 +153,9 @@ public class DiceActivity extends AppCompatActivity {
                 springAnimation.cancel();
             }
         }
+
+        currentDiceResult = diceResult;
+        prevDiceValue = prevValue;
 
         @DrawableRes int diceResId = 0;
 

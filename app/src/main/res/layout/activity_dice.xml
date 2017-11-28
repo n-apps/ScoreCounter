@@ -34,4 +34,16 @@
         android:padding="@dimen/back_button_padding"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_arrow_back" />
+
+    <ImageButton
+        android:id="@+id/btn_switch_theme"
+        android:layout_width="@dimen/back_button_size"
+        android:layout_height="@dimen/back_button_size"
+        android:alpha="0.84"
+        android:background="?attr/selectableItemBackground"
+        android:layout_gravity="right"
+        android:contentDescription="@string/common_back"
+        android:padding="@dimen/back_button_padding"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_brightness_low" />
 </FrameLayout>

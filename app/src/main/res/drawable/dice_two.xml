@@ -6,7 +6,7 @@
     android:viewportHeight="512">
     <path
         android:pathData="@string/dice_bg"
-        android:fillColor="@color/dice_bg"
+        android:fillColor="?attr/diceBackground"
         android:strokeWidth="1" />
     <path
         android:pathData="@string/dice_frame"

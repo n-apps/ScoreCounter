@@ -63,7 +63,7 @@ class CountersViewModel extends AndroidViewModel {
     void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
         if (amount != -counter.getStep()) {
             Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, String.valueOf(amount));
+            params.putLong(Param.SCORE, amount);
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("decrease_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
@@ -98,7 +98,7 @@ class CountersViewModel extends AndroidViewModel {
     void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
         if (amount != counter.getStep()) {
             Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, String.valueOf(amount));
+            params.putLong(Param.SCORE, amount);
             ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("increase_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
