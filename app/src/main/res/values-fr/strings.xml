@@ -32,4 +32,5 @@
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_try_to_fit_all_counters">Afficher tous les compteurs à l\'écran</string>
     <string name="dialog_change_counter_value_title">Valeur actuelle: %d</string>
+    <string name="change_theme">Changer de thème</string>
 </resources>

@@ -6,37 +6,11 @@ import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 import android.util.Log;
 import com.crashlytics.android.Crashlytics;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 
 public class ScoreKeeperApp extends Application {
-
-    private FirebaseAnalytics firebaseAnalytics;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
-            getFirebaseAnalytics().setAnalyticsCollectionEnabled(false);
-        } else {
-            Timber.plant(new CrashlyticsTree());
-            getFirebaseAnalytics().setAnalyticsCollectionEnabled(true);
-            getFirebaseAnalytics().setMinimumSessionDuration(3000); //minimum session is 1 minute
-        }
-        DatabaseHolder.init(this);
-    }
-
-    synchronized public FirebaseAnalytics getFirebaseAnalytics() {
-        if (firebaseAnalytics == null) {
-            firebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        }
-        return firebaseAnalytics;
-    }
-
 
     private static class CrashlyticsTree extends Timber.Tree {
 
@@ -52,5 +26,13 @@ public class ScoreKeeperApp extends Application {
                 Crashlytics.logException(t);
             }
         }
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new CrashlyticsTree());
+        DatabaseHolder.init(this);
     }
 }
