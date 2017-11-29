@@ -21,9 +21,9 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.TinyDB;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class DiceActivity extends AppCompatActivity {
 
@@ -83,16 +83,22 @@ public class DiceActivity extends AppCompatActivity {
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "click");
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"roll_dice", params);
         });
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         findViewById(R.id.btn_switch_theme).setOnClickListener(v -> {
             settingsDB.putBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, !isThemeLight);
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("switch_dice_theme", null);
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"switch_dice_theme");
             finish();
             startActivity(getIntentForRestoreState(DiceActivity.this, currentDiceResult, prevDiceValue));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
+
+        if (!getIntent().hasExtra(ARGUMENT_ACTUAL_DICE_VALUE)){
+            Bundle params = new Bundle();
+            params.putLong(Param.SCORE, isThemeLight ? 1 : 0);
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_dice_theme_light", params);
+        }
 
         currentDiceResult = getIntent().getIntExtra(ARGUMENT_ACTUAL_DICE_VALUE, 0);
         prevDiceValue = getIntent().getIntExtra(ARGUMENT_PREVIOUS_DICE_VALUE, 0);
@@ -106,10 +112,6 @@ public class DiceActivity extends AppCompatActivity {
         if (currentDiceResult > 0) {
             rollDice(currentDiceResult, prevDiceValue);
         }
-
-        Bundle params = new Bundle();
-        params.putLong(Param.SCORE, isThemeLight ? 1 : 0);
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_dice_light_theme", params);
     }
 
     private void colorStatusBar() {
@@ -366,7 +368,7 @@ public class DiceActivity extends AppCompatActivity {
                 viewModel.rollDice();
                 Bundle params = new Bundle();
                 params.putString(Param.CHARACTER, "sensor");
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("roll_dice", params);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"roll_dice", params);
             }
         });
 

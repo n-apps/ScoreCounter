@@ -34,10 +34,6 @@ public class CountersRepository {
         return countersDao.loadAllCounters();
     }
 
-    public Completable insertAll(List<Counter> counters) {
-        return Completable.fromAction(() -> countersDao.insertAll(counters));
-    }
-
     public LiveData<Counter> loadCounter(int counterId) {
         return countersDao.loadCounter(counterId);
     }

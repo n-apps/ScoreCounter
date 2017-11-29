@@ -31,4 +31,5 @@
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_try_to_fit_all_counters">Show all counters on screen</string>
     <string name="dialog_change_counter_value_title">Current value: %d</string>
+    <string name="change_theme">Change theme</string>
 </resources>

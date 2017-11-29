@@ -34,6 +34,7 @@ import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class CountersActivity extends AppCompatActivity implements CounterActionCallback,
         SharedPreferences.OnSharedPreferenceChangeListener {
@@ -69,8 +70,13 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         snapHelper.attachToRecyclerView(recyclerView);
         emptyState = findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> {
-            viewModel.addCounter();
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("empty_state_add_counter", null);
+            if (viewModel.getCounters().getValue() != null) {
+                viewModel.addCounter();
+            } else {
+                Timber.e("Counters live data value is null");
+                subscribeToModel();
+            }
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "empty_state_add_counter");
         });
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
@@ -85,8 +91,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         subscribeToModel();
         Bundle params = new Bundle();
         params.putLong(Param.SCORE, isTryToFitAllCounters ? 1 : 0);
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
-                .logEvent("settings_try_to_fit_all_counters", params);
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_try_to_fit_all_counters", params);
     }
 
     @Override
@@ -123,7 +128,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
         Bundle params = new Bundle();
         params.putString(Param.ITEM_VARIANT, "edit");
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);
     }
 
     @Override
@@ -133,7 +138,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     @Override
     public void onLongClick(Counter counter, boolean isIncrease) {
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_long_click", null);
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_long_click");
         final MaterialDialog.Builder builder = new Builder(this);
         final Observer<Counter> counterObserver = c -> {
             if (longClickDialog != null && c != null) {
@@ -234,31 +239,35 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
         Bundle params = new Bundle();
         params.putString(Param.ITEM_VARIANT, "name");
-        ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_counter:
-                viewModel.addCounter();
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_add_counter", null);
+                if (viewModel.getCounters().getValue() != null) {
+                    viewModel.addCounter();
+                } else {
+                    subscribeToModel();
+                }
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_add_counter");
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_remove_all", null);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_remove_all");
                 break;
             case R.id.menu_reset_all:
                 viewModel.resetAll();
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_reset_all", null);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_reset_all");
                 break;
             case R.id.menu_settings:
                 showBottomSheetFragment();
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_settings", null);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_settings");
                 break;
             case R.id.menu_dice:
                 startActivity(DiceActivity.getIntent(this));
-                ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("menu_dice", null);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_dice");
                 break;
         }
         return true;
@@ -302,7 +311,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         if (trackAnalytics) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, isStayAwake ? 1 : 0);
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("settings_keep_screen_on", params);
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_keep_screen_on", params);
         }
     }
 
@@ -322,6 +331,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
                 final int size = counters.size();
+                viewModel.setListSize(size);
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
                 countersAdapter.setCountersList(counters);
                 if (size > oldListSize && oldListSize > 0) {
@@ -337,8 +347,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                     );
                     Bundle params = new Bundle();
                     params.putLong(Param.SCORE, size);
-                    ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics()
-                            .logEvent("starting_number_of_counters", params);
+                    AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "starting_number_of_counters", params);
                     isFirstLoad = false;
                 }
             } else {
