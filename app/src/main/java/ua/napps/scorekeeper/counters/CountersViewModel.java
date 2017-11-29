@@ -15,11 +15,13 @@ import java.util.List;
 import java.util.Random;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.ScoreKeeperApp;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 class CountersViewModel extends AndroidViewModel {
 
     private LiveData<List<Counter>> counters = new MutableLiveData<>();
+
+    private int listSize;
 
     private final CountersRepository repository;
 
@@ -33,8 +35,12 @@ class CountersViewModel extends AndroidViewModel {
         return repository.loadCounter(counterID);
     }
 
+    public void setListSize(final int listSize) {
+        this.listSize = listSize;
+    }
+
     void addCounter() {
-        repository.createCounter(String.valueOf(counters.getValue().size() + 1),
+        repository.createCounter(String.valueOf(listSize + 1),
                 getRandomColor())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -55,7 +61,6 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-
     void decreaseCounter(Counter counter) {
         decreaseCounter(counter, -counter.getStep());
     }
@@ -63,8 +68,8 @@ class CountersViewModel extends AndroidViewModel {
     void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
         if (amount != -counter.getStep()) {
             Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, String.valueOf(amount));
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("decrease_counter", params);
+            params.putLong(Param.SCORE, amount);
+            AndroidFirebaseAnalytics.logEvent(getApplication(), "decrease_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -98,8 +103,8 @@ class CountersViewModel extends AndroidViewModel {
     void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
         if (amount != counter.getStep()) {
             Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, String.valueOf(amount));
-            ((ScoreKeeperApp) getApplication()).getFirebaseAnalytics().logEvent("increase_counter", params);
+            params.putLong(Param.SCORE, amount);
+            AndroidFirebaseAnalytics.logEvent(getApplication(), "increase_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -169,12 +174,16 @@ class CountersViewModel extends AndroidViewModel {
         String[] colors = getApplication().getResources().getStringArray(R.array.color_collection);
         final int presetSize = colors.length;
         final String color = colors[new Random().nextInt(presetSize)];
-        final List<Counter> counters = getCounters().getValue();
-        if (counters.size() < presetSize) {
-            for (final Counter c : counters) {
-                if (color.equals(c.getColor())) {
-                    return getRandomColor();
+        if (listSize < presetSize) {
+            if (getCounters().getValue() != null) {
+                for (final Counter c : getCounters().getValue()) {
+                    if (color.equals(c.getColor())) {
+                        return getRandomColor();
+                    }
                 }
+            } else {
+                Timber.e("Counters live data value is null");
+                return color;
             }
         }
         return color;

@@ -10,6 +10,17 @@
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/source_sans_pro</item>
         <item name="android:windowBackground">@color/white</item>
+        <item name="diceBackground">@color/dice_bg_light</item>
+        <item name="myIconTint">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/dark_theme_bg</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
+        <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">@color/textColorHintInverse</item>
+        <item name="diceBackground">@color/dice_bg_dark</item>
+        <item name="myIconTint">@color/textColorPrimaryInverse</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
@@ -42,12 +53,12 @@
         <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
-    <style name="EmptyStateMessage">
+    <style name="EmptyStateMessage" parent="TextAppearance.AppCompat.Medium">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:paddingBottom">@dimen/padding_normal</item>
-        <item name="android:paddingLeft">@dimen/keyline_1</item>
-        <item name="android:paddingRight">@dimen/keyline_1</item>
+        <item name="android:paddingLeft">@dimen/padding_large</item>
+        <item name="android:paddingRight">@dimen/padding_large</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_body</item>
     </style>

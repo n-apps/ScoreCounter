@@ -9,9 +9,9 @@
     <TextView
         android:id="@+id/tv_previous_result"
         style="@style/EmptyStateMessage"
-        android:layout_gravity="bottom|center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
         android:text="@string/dice_empty_state" />
 
     <ImageView
@@ -34,4 +34,16 @@
         android:padding="@dimen/back_button_padding"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_arrow_back" />
+
+    <ImageButton
+        android:id="@+id/btn_switch_theme"
+        android:layout_width="@dimen/back_button_size"
+        android:layout_height="@dimen/back_button_size"
+        android:layout_gravity="right"
+        android:alpha="0.84"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/change_theme"
+        android:padding="@dimen/back_button_padding"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_change_theme" />
 </FrameLayout>
