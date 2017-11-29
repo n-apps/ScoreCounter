@@ -70,12 +70,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         snapHelper.attachToRecyclerView(recyclerView);
         emptyState = findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> {
-            if (viewModel.getCounters().getValue() != null) {
-                viewModel.addCounter();
-            } else {
-                Timber.e("Counters live data value is null");
-                subscribeToModel();
-            }
+            viewModel.addCounter();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "empty_state_add_counter");
         });
         settingsDB = new TinyDB(getApplicationContext());
@@ -127,7 +122,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         final Intent intent = EditCounterActivity.getIntent(this, counterId, false);
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
         Bundle params = new Bundle();
-        params.putString(Param.ITEM_VARIANT, "edit");
+        params.putString(Param.CHARACTER, "edit");
         AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);
     }
 
@@ -238,7 +233,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         final Intent intent = EditCounterActivity.getIntent(this, counterId, true);
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
         Bundle params = new Bundle();
-        params.putString(Param.ITEM_VARIANT, "name");
+        params.putString(Param.CHARACTER, "name");
         AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);
     }
 
