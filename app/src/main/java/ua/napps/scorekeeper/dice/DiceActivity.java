@@ -67,7 +67,7 @@ public class DiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final TinyDB settingsDB = new TinyDB(getApplication());
-        isThemeLight = settingsDB.getBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT);
+        isThemeLight = settingsDB.getBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, true);
         setTheme(isThemeLight ? R.style.AppTheme : R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice);
@@ -83,18 +83,18 @@ public class DiceActivity extends AppCompatActivity {
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "click");
-            AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"roll_dice", params);
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "roll_dice", params);
         });
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         findViewById(R.id.btn_switch_theme).setOnClickListener(v -> {
             settingsDB.putBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, !isThemeLight);
-            AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"switch_dice_theme");
+            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "switch_dice_theme");
             finish();
             startActivity(getIntentForRestoreState(DiceActivity.this, currentDiceResult, prevDiceValue));
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         });
 
-        if (!getIntent().hasExtra(ARGUMENT_ACTUAL_DICE_VALUE)){
+        if (!getIntent().hasExtra(ARGUMENT_ACTUAL_DICE_VALUE)) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, isThemeLight ? 1 : 0);
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_dice_theme_light", params);
@@ -368,7 +368,7 @@ public class DiceActivity extends AppCompatActivity {
                 viewModel.rollDice();
                 Bundle params = new Bundle();
                 params.putString(Param.CHARACTER, "sensor");
-                AndroidFirebaseAnalytics.logEvent(getApplicationContext(),"roll_dice", params);
+                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "roll_dice", params);
             }
         });
 
