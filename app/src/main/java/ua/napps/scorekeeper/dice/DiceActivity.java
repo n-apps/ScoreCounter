@@ -5,15 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.hardware.SensorManager;
-import android.os.Build.VERSION;
-import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
 import android.support.annotation.DrawableRes;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,6 +21,7 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class DiceActivity extends AppCompatActivity {
 
@@ -107,25 +105,10 @@ public class DiceActivity extends AppCompatActivity {
 
         subscribeToModel();
         initSensorData();
-        colorStatusBar();
+        ViewUtil.setLightStatusBars(this, true, true);
 
         if (currentDiceResult > 0) {
             rollDice(currentDiceResult, prevDiceValue);
-        }
-    }
-
-    private void colorStatusBar() {
-        if (isThemeLight) {
-            if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
-                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.light_status_bar));
-                if (VERSION.SDK_INT >= VERSION_CODES.M) {
-                    getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-                }
-            }
-        } else {
-            if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
-                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.dark_status_bar));
-            }
         }
     }
 
