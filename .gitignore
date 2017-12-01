@@ -62,3 +62,5 @@ gen-external-apklibs
 
 # End of https://www.gitignore.io/api/android
 /app/app.iml
+/ScoreKeeperApp.iml
+/.idea/gradle.xml
