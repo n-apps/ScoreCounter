@@ -40,7 +40,7 @@ class CountersViewModel extends AndroidViewModel {
 
     void addCounter() {
         repository.createCounter(String.valueOf(listSize + 1),
-                getRandomColor())
+                getNextColor())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -169,8 +169,8 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    private String getRandomColor() {
-        String[] colors = getApplication().getResources().getStringArray(R.array.winter_palette);
+    private String getNextColor() {
+        String[] colors = getApplication().getResources().getStringArray(R.array.default_palette);
         final int presetSize = colors.length;
         if (listSize < presetSize) {
             return colors[listSize];

@@ -4,7 +4,7 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 3
 ext.versionMinor = 0
-ext.versionPatch = 6
+ext.versionPatch = 7
 
 android {
     compileSdkVersion 27
@@ -51,7 +51,7 @@ android {
 
 ext {
     // App dependencies
-    supportLibraryVersion = '27.0.1'
+    supportLibraryVersion = '27.0.2'
     archLifecycleVersion = "1.0.0"
     archRoomVersion = "1.0.0"
     materialDialogsVersion = "0.9.6.0"
