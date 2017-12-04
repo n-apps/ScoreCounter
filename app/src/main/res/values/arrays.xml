@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string-array name="color_collection">
-        <item>#EBF2DD</item>
-        <item>#F2F7BD</item>
-        <item>#F3CD7F</item>
-        <item>#F3A255</item>
-        <item>#7F634F</item>
-
-        <item>#1D0F44</item>
-        <item>#A86493</item>
-        <item>#6B6B6B</item>
-        <item>#6B9A9B</item>
-        <item>#6AC9CA</item>
-
-        <item>#0E376F</item>
-        <item>#3A6BA5</item>
-        <item>#F9D401</item>
-        <item>#9E4F3B</item>
-        <item>#CCB7FF</item>
+    <string-array name="winter_palette">
+        <item>#ECD078</item>
+        <item>#D95B43</item>
+        <item>#C02942</item>
+        <item>#542437</item>
+        <item>#53777A</item>
     </string-array>
 </resources>

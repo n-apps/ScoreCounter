@@ -12,7 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
-import java.util.Random;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -171,21 +170,13 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private String getRandomColor() {
-        String[] colors = getApplication().getResources().getStringArray(R.array.color_collection);
+        String[] colors = getApplication().getResources().getStringArray(R.array.winter_palette);
         final int presetSize = colors.length;
-        final String color = colors[new Random().nextInt(presetSize)];
         if (listSize < presetSize) {
-            if (getCounters().getValue() != null) {
-                for (final Counter c : getCounters().getValue()) {
-                    if (color.equals(c.getColor())) {
-                        return getRandomColor();
-                    }
-                }
-            } else {
-                Timber.e("Counters live data value is null");
-                return color;
-            }
+            return colors[listSize];
+        } else {
+            return colors[listSize % presetSize];
         }
-        return color;
+
     }
 }

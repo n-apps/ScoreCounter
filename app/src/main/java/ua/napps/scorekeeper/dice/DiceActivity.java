@@ -105,7 +105,7 @@ public class DiceActivity extends AppCompatActivity {
 
         subscribeToModel();
         initSensorData();
-        ViewUtil.setLightStatusBars(this, true, true);
+        ViewUtil.setLightStatusBars(this, isThemeLight, isThemeLight);
 
         if (currentDiceResult > 0) {
             rollDice(currentDiceResult, prevDiceValue);
