@@ -28,15 +28,16 @@
     <string name="dialog_counter_default_title">Valeur par défaut</string>
     <string name="dialog_counter_step_title">Étape</string>
     <string name="dialog_current_value_title">Valeur actuelle</string>
+    <string name="dialog_feedback_title">Envoyez vos commentaires</string>
 
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent: %d</string>
 
-    <string name="erd_message">Si vous appréciez cette application, veuillez prendre un moment pour la noter. Cela ne prendra qu\'une minute. Merci de votre participation!</string>
-    <string name="erd_no_thanks">Non, Merci</string>
-    <string name="erd_rate_now">Maintenant</string>
-    <string name="erd_remind_me_later">Plus tard</string>
-    <string name="erd_title">Noter cette application</string>
+    <string name="erd_message">Il vous aimez Compteur Gardien, autant le dire et lui donner une note. Ça ne vous prendra pas plus d’une minute. Merci!</string>
+    <string name="erd_no_thanks">Non merci</string>
+    <string name="erd_rate_now">Donner une note</string>
+    <string name="erd_remind_me_later">Me le rappeler plus tard</string>
+    <string name="erd_title">Donner une note à Compteur Gardien</string>
 
     <string name="hint_type_any_number">Entrez un nombre</string>
 
@@ -46,6 +47,7 @@
     <string name="menu_reset_all_counters">Effacer tout</string>
     <string name="menu_settings">Paramètres</string>
 
+    <string name="settings_send_feedback">Contactez le développeur</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_try_to_fit_all_counters">Afficher tous les compteurs à l\'écran</string>
 </resources>
