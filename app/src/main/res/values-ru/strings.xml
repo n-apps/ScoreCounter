@@ -28,14 +28,15 @@
     <string name="dialog_counter_default_title">Значение по умолчанию</string>
     <string name="dialog_counter_step_title">Шаг</string>
     <string name="dialog_current_value_title">Текущее значение</string>
+    <string name="dialog_feedback_title">Отправить отзыв через</string>
 
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок: %d</string>
 
-    <string name="erd_message">Если вам понравилось это приложение, пожалуйста, найдите время, чтобы оценить его. Это не займет больше минуты. Спасибо за вашу поддержку!</string>
+    <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Благодарим за поддержку!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
-    <string name="erd_rate_now">Поставить оценку</string>
-    <string name="erd_remind_me_later">Напомнить похже</string>
+    <string name="erd_rate_now">Оценить</string>
+    <string name="erd_remind_me_later">Напомнить позже</string>
     <string name="erd_title">Оцените приложение</string>
 
     <string name="hint_type_any_number">Введите число</string>
@@ -46,6 +47,7 @@
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="menu_settings">Настройки</string>
 
+    <string name="settings_send_feedback">Написать разработчику</string>
     <string name="settings_stay_awake">Оставлять экран включенным</string>
     <string name="settings_try_to_fit_all_counters">Все счетчики на одном экране</string>
 </resources>
