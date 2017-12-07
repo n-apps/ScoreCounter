@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
     <string name="app_name">Compteur Gardien</string>
+
+    <string name="change_theme">Changer de thème</string>
+
     <string name="common_back">Retournez</string>
     <string name="common_cancel">Annuler</string>
     <string name="common_custom">Votre</string>
@@ -9,6 +12,7 @@
     <string name="common_increase">Augmenter</string>
     <string name="common_select">Choisir</string>
     <string name="common_set">Définir</string>
+
     <string name="counter_details_color">Couleur</string>
     <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
     <string name="counter_details_default_value">Valeur par défaut</string>
@@ -16,21 +20,34 @@
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Étape</string>
     <string name="counter_details_value">Valeur actuelle</string>
+
     <string name="counters_empty_message">Appuyer n\'importe où pour ajouter le premier compteur ou utilisez le bouton + dans le coin supérieur droit</string>
+
+    <string name="dialog_change_counter_value_title">Valeur actuelle: %d</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
     <string name="dialog_counter_default_title">Valeur par défaut</string>
     <string name="dialog_counter_step_title">Étape</string>
     <string name="dialog_current_value_title">Valeur actuelle</string>
+    <string name="dialog_feedback_title">Envoyez vos commentaires</string>
+
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent: %d</string>
+
+    <string name="erd_message">Il vous aimez Compteur Gardien, autant le dire et lui donner une note. Ça ne vous prendra pas plus d’une minute. Merci!</string>
+    <string name="erd_no_thanks">Non merci</string>
+    <string name="erd_rate_now">Donner une note</string>
+    <string name="erd_remind_me_later">Me le rappeler plus tard</string>
+    <string name="erd_title">Donner une note à Compteur Gardien</string>
+
     <string name="hint_type_any_number">Entrez un nombre</string>
+
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_dice">Dés</string>
     <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>
     <string name="menu_reset_all_counters">Effacer tout</string>
     <string name="menu_settings">Paramètres</string>
+
+    <string name="settings_send_feedback">Contactez le développeur</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_try_to_fit_all_counters">Afficher tous les compteurs à l\'écran</string>
-    <string name="dialog_change_counter_value_title">Valeur actuelle: %d</string>
-    <string name="change_theme">Changer de thème</string>
 </resources>

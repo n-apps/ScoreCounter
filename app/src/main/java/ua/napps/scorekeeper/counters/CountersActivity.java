@@ -25,6 +25,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
+import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
@@ -42,6 +43,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     private SettingsFragment bottomSheetFragment;
 
     private CountersAdapter countersAdapter;
+
+    private EasyRatingDialog easyRatingDialog;
 
     private View emptyState;
 
@@ -82,11 +85,17 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         countersAdapter = new CountersAdapter(this);
         countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
-
+        easyRatingDialog = new EasyRatingDialog(this);
         subscribeToModel();
         Bundle params = new Bundle();
         params.putLong(Param.SCORE, isTryToFitAllCounters ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_try_to_fit_all_counters", params);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        easyRatingDialog.onStart();
     }
 
     @Override
@@ -97,6 +106,12 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        easyRatingDialog.showIfNeeded();
     }
 
     @Override

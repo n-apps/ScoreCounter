@@ -21,4 +21,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/settings_stay_awake" />
+
+    <include layout="@layout/divider" />
+
+    <TextView
+        android:id="@+id/tv_send_feedback"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_send_feedback" />
 </LinearLayout>
