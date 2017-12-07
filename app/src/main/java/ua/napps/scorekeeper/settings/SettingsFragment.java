@@ -2,16 +2,22 @@ package ua.napps.scorekeeper.settings;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
+import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.storage.TinyDB;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 
 public class SettingsFragment extends BottomSheetDialogFragment {
+
+    private static final String FEEDBACK_EMAIL_ADDRESS = "scorekeeper.feedback@gmail.com";
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -25,10 +31,10 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         dialog.setContentView(contentView);
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
         SwitchCompat tryToFitAllCounters = contentView.findViewById(R.id.sw_try_to_fit_all_counters);
+        contentView.findViewById(R.id.tv_send_feedback).setOnClickListener(v -> startEmailClient());
         final TinyDB settingsDB = new TinyDB(getContext());
         boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, true);
         boolean isTryToFitAllCounters = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
-
         stayAwake.setChecked(isStayAwake);
         stayAwake.setOnCheckedChangeListener(
                 (buttonView, isChecked) -> settingsDB.putBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, isChecked));
@@ -41,5 +47,16 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         if (behavior != null && behavior instanceof BottomSheetBehavior) {
             ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
         }
+    }
+
+    private void startEmailClient() {
+        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO,
+                Uri.fromParts("mailto", FEEDBACK_EMAIL_ADDRESS, null));
+        intent.putExtra(Intent.EXTRA_EMAIL, FEEDBACK_EMAIL_ADDRESS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        startActivity(Intent.createChooser(intent, getString(R.string.dialog_feedback_title)));
+        AndroidFirebaseAnalytics.logEvent(getContext(), "settings_send_feedback");
     }
 }
