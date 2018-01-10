@@ -1,0 +1,15 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="256dp"
+    android:height="256dp"
+    android:viewportHeight="512.0"
+    android:viewportWidth="512.0">
+    <path
+        android:fillColor="?attr/diceBackground"
+        android:pathData="@string/dice_bg" />
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="@string/dice_frame" />
+    <path
+        android:fillColor="?attr/colorPrimary"
+        android:pathData="M194.1,342.2C221.2,321.1 241.9,304 256.4,290.9C270.8,277.9 281.6,265.6 288.9,254.1C296.4,242.5 300.1,230.8 300.1,218.9C300.1,205.3 295.9,194.4 287.5,186.4C279.2,178.3 267.9,174.3 253.5,174.3C238.7,174.3 226.8,179 217.8,188.4C208.7,197.6 203.6,210.2 202.5,226.1L189.8,218.9C191.6,201.3 198,187.2 209.1,176.9C220.4,166.3 235.3,161 253.8,161C272.6,161 287.5,166.3 298.4,176.9C309.5,187.2 315.1,201.3 315.1,218.9C315.1,231.6 311.5,244 304.4,256.1C297.3,268 286.7,280.6 272.5,293.8C258.5,307.1 239.4,322.7 215.2,340.8L215.2,341L234.2,340.8L321.1,340.8L321.1,354L194.1,354L194.1,342.2Z" />
+</vector>

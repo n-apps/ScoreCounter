@@ -68,7 +68,7 @@ dependencies {
     compile "android.arch.persistence.room:runtime:$archRoomVersion"
     compile "com.afollestad.material-dialogs:core:$materialDialogsVersion"
     compile "com.afollestad.material-dialogs:commons:$materialDialogsVersion"
-    compile 'com.google.firebase:firebase-core:11.6.2'
+    compile 'com.google.firebase:firebase-core:11.8.0'
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
         transitive = true
     }
