@@ -1,49 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ua.napps.scorekeeper.dice.DiceActivity">
+    android:fitsSystemWindows="true"
+    tools:context="ua.napps.scorekeeper.dice.DiceActivity"
+    tools:openDrawer="end">
 
-    <TextView
-        android:id="@+id/tv_previous_result"
-        style="@style/EmptyStateMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:text="@string/dice_empty_state" />
-
-    <ImageView
-        android:id="@+id/dice"
+    <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_previous_result"
+            style="@style/EmptyStateMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="@string/dice_empty_state" />
+
+        <ImageView
+            android:id="@+id/dice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@string/menu_dice"
+            android:padding="@dimen/dice_padding"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/avd_dice_empty" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="@dimen/back_button_size"
+            android:layout_height="@dimen/back_button_size"
+            android:alpha="0.84"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/common_back"
+            android:padding="@dimen/back_button_padding"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_arrow_back" />
+
+        <ImageButton
+            android:id="@+id/btn_switch_theme"
+            android:layout_width="@dimen/back_button_size"
+            android:layout_height="@dimen/back_button_size"
+            android:layout_gravity="right"
+            android:alpha="0.84"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/change_theme"
+            android:padding="@dimen/back_button_padding"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_settings" />
+    </FrameLayout>
+
+    <!--Drawer content-->
+
+    <LinearLayout
+        android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:contentDescription="@string/menu_dice"
-        android:padding="@dimen/dice_padding"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/avd_dice_empty" />
+        android:layout_gravity="end"
+        android:background="?android:windowBackground"
+        android:clickable="true"
+        android:importantForAccessibility="no"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="@dimen/back_button_size"
-        android:layout_height="@dimen/back_button_size"
-        android:alpha="0.84"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/common_back"
-        android:padding="@dimen/back_button_padding"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_arrow_back" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:text="Dice type"
+            android:textColor="@color/accentColor" />
 
-    <ImageButton
-        android:id="@+id/btn_switch_theme"
-        android:layout_width="@dimen/back_button_size"
-        android:layout_height="@dimen/back_button_size"
-        android:layout_gravity="right"
-        android:alpha="0.84"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/change_theme"
-        android:padding="@dimen/back_button_padding"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_change_theme" />
-</FrameLayout>
+        <LinearLayout
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                app:srcCompat="@drawable/dice_six" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:text="d6 (classic dice)"
+                android:textSize="@dimen/font_title" />
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                app:srcCompat="@drawable/dice_digital_6" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/spacing_normal"
+                android:text="d8 (Eight sides)"
+                android:textSize="@dimen/font_title" />
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                app:srcCompat="@drawable/dice_digital_6" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/spacing_normal"
+                android:text="d20 (Twelve sides)"
+                android:textSize="@dimen/font_title" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:text="Appearance"
+            android:textColor="@color/accentColor" />
+
+        <LinearLayout
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                app:srcCompat="@drawable/ic_change_theme" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/spacing_normal"
+                android:text="Dark theme"
+                android:textSize="@dimen/font_title" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <include layout="@layout/divider" />
+
+        <LinearLayout
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                app:srcCompat="@drawable/ic_compare_arrows" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/spacing_normal"
+                android:text="Shake to roll"
+                android:textSize="@dimen/font_title" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.DrawerLayout>
