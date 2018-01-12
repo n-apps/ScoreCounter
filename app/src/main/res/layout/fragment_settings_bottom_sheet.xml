@@ -10,6 +10,7 @@
         android:id="@+id/sw_try_to_fit_all_counters"
         style="@style/SwitchStyle"
         android:layout_width="match_parent"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_height="wrap_content"
         android:text="@string/settings_try_to_fit_all_counters" />
 
@@ -18,6 +19,7 @@
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/sw_stay_awake"
         style="@style/SwitchStyle"
+        android:foreground="?attr/selectableItemBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/settings_stay_awake" />
@@ -29,5 +31,7 @@
         style="@style/TwoLinesStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_send_feedback" />
+        android:text="@string/settings_send_feedback"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_subheading" />
 </LinearLayout>

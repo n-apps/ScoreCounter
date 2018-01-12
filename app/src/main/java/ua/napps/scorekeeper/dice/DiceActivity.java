@@ -14,8 +14,11 @@ import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
@@ -78,9 +81,41 @@ public class DiceActivity extends AppCompatActivity {
         dice = findViewById(R.id.dice);
         previousResultTextView = findViewById(R.id.tv_previous_result);
         drawer = findViewById(R.id.drawer_layout);
-        drawer.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+        FrameLayout sixDiceButton = findViewById(R.id.six_sides);
+        LinearLayout drawerContent = findViewById(R.id.drawer_content);
+        drawerContent.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+
+        sixDiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.VISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
+            }
+        });
+        FrameLayout eightDiceButton = findViewById(R.id.eight_sides);
+        eightDiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.VISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
+            }
+        });
+        FrameLayout twelveDiceButton = findViewById(R.id.twelve_sides);
+        twelveDiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.VISIBLE);
+            }
+        });
 
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
