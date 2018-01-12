@@ -58,143 +58,181 @@
     <!--Drawer content-->
 
     <LinearLayout
+        android:id="@+id/drawer_content"
         android:layout_width="@dimen/drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:background="?android:windowBackground"
-        android:clickable="true"
-        android:importantForAccessibility="no"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
             android:text="Dice type"
             android:textColor="@color/accentColor" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/six_sides"
             style="@style/TwoLinesStyle"
+            android:foreground="?attr/selectableItemBackground"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/dice_six" />
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/spacing_normal"
-                android:layout_weight="1"
-                android:text="d6 (classic dice)"
-                android:textSize="@dimen/font_title" />
-        </LinearLayout>
+                android:layout_marginLeft="@dimen/padding_large"
+                android:layout_gravity="center_vertical"
+                android:padding="@dimen/padding_normal"
+                android:layout_marginRight="@dimen/padding_large"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/font_subheading"
+                android:includeFontPadding="false"
+                android:text="Six sides" />
+
+            <ImageView
+                android:id="@+id/six_sides_checkmark"
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical|end"
+                app:srcCompat="@drawable/ic_check" />
+        </FrameLayout>
 
         <include layout="@layout/divider" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/eight_sides"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/dice_digital_6" />
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/padding_large"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/padding_large"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/spacing_normal"
-                android:text="d8 (Eight sides)"
-                android:textSize="@dimen/font_title" />
-        </LinearLayout>
+                android:padding="@dimen/padding_normal"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/font_subheading"
+                android:includeFontPadding="false"
+                android:text="Eight sides" />
+
+            <ImageView
+                android:id="@+id/eight_sides_checkmark"
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:visibility="invisible"
+                android:layout_gravity="center_vertical|end"
+                app:srcCompat="@drawable/ic_check" />
+        </FrameLayout>
 
         <include layout="@layout/divider" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/twelve_sides"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/dice_digital_6" />
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/spacing_normal"
-                android:text="d20 (Twelve sides)"
-                android:textSize="@dimen/font_title" />
-        </LinearLayout>
+                android:layout_marginLeft="@dimen/padding_large"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/padding_large"
+                android:padding="@dimen/padding_normal"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/font_subheading"
+                android:includeFontPadding="false"
+                android:text="Twelve sides" />
+
+            <ImageView
+                android:id="@+id/twelve_sides_checkmark"
+                android:layout_width="@dimen/button_icon_size"
+                android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical|end"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_check" />
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
             android:text="Appearance"
             android:textColor="@color/accentColor" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/dark_theme"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingRight="0dp">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_change_theme" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/spacing_normal"
-                android:text="Dark theme"
-                android:textSize="@dimen/font_title" />
-
             <android.support.v7.widget.SwitchCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                style="@style/SwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_large"
+                android:includeFontPadding="false"
+                android:text="Dark theme" />
 
-        </LinearLayout>
+        </FrameLayout>
 
         <include layout="@layout/divider" />
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/shake_to_roll"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingRight="0dp">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_compare_arrows" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/spacing_normal"
-                android:text="Shake to roll"
-                android:textSize="@dimen/font_title" />
-
             <android.support.v7.widget.SwitchCompat
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                style="@style/SwitchStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_large"
+                android:includeFontPadding="false"
+                android:text="Shake to roll" />
 
-        </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
 </android.support.v4.widget.DrawerLayout>
