@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
-            android:text="Dice type"
+            android:text="@string/dice_drawer_variant"
             android:textColor="@color/accentColor" />
 
         <FrameLayout
@@ -94,7 +94,7 @@
                 android:layout_marginRight="@dimen/padding_large"
                 android:includeFontPadding="false"
                 android:padding="@dimen/padding_normal"
-                android:text="Six sides"
+                android:text="@string/dice_six_sides_title"
                 android:textColor="?myIconTint"
                 android:textSize="@dimen/font_subheading" />
 
@@ -119,7 +119,7 @@
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_digital_6" />
+                app:srcCompat="@drawable/dice_digital_8" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -129,7 +129,7 @@
                 android:layout_marginRight="@dimen/padding_large"
                 android:includeFontPadding="false"
                 android:padding="@dimen/padding_normal"
-                android:text="Eight sides"
+                android:text="@string/dice_eight_sides_title"
                 android:textColor="?myIconTint"
                 android:textSize="@dimen/font_subheading" />
 
@@ -165,7 +165,7 @@
                 android:layout_marginRight="@dimen/padding_large"
                 android:includeFontPadding="false"
                 android:padding="@dimen/padding_normal"
-                android:text="Twelve sides"
+                android:text="@string/dice_twelve_sides_title"
                 android:textColor="?myIconTint"
                 android:textSize="@dimen/font_subheading" />
 
@@ -184,7 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
-            android:text="Appearance"
+            android:text="@string/dice_drawer_appearance"
             android:textColor="@color/accentColor" />
 
         <FrameLayout
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
                 android:paddingLeft="56dp"
-                android:text="Dark theme" />
+                android:text="@string/dice_drawer_dark_theme" />
 
         </FrameLayout>
 
@@ -239,7 +239,7 @@
                 android:textColor="?myIconTint"
                 android:includeFontPadding="false"
                 android:paddingLeft="56dp"
-                android:text="Shake to roll" />
+                android:text="@string/dice_drawer_shake_to_roll" />
 
         </FrameLayout>
     </LinearLayout>
