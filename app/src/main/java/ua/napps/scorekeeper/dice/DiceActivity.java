@@ -3,18 +3,17 @@ package ua.napps.scorekeeper.dice;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Animatable;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
 import android.support.annotation.DrawableRes;
-import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
+import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -23,14 +22,13 @@ import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
-import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.settings.SettingsUtil;
+import ua.napps.scorekeeper.settings.Constants;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
-public class DiceActivity extends AppCompatActivity {
+public class DiceActivity extends AppCompatActivity implements DrawerLayout.DrawerListener {
 
     private static final String ARGUMENT_ACTUAL_DICE_VALUE = "ARGUMENT_ACTUAL_DICE_VALUE";
 
@@ -60,6 +58,12 @@ public class DiceActivity extends AppCompatActivity {
 
     private DrawerLayout drawer;
 
+    private TinyDB settingsDB;
+
+    private boolean shakeToRollEnabled;
+
+    private int currentDiceVariant;
+
     public static Intent getIntent(Context context) {
         return new Intent(context, DiceActivity.class);
     }
@@ -73,8 +77,8 @@ public class DiceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final TinyDB settingsDB = new TinyDB(getApplication());
-        isThemeLight = settingsDB.getBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, true);
+        settingsDB = new TinyDB(getApplication());
+        isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
         setTheme(isThemeLight ? R.style.AppTheme : R.style.AppTheme_Dark);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice);
@@ -82,45 +86,31 @@ public class DiceActivity extends AppCompatActivity {
         previousResultTextView = findViewById(R.id.tv_previous_result);
         drawer = findViewById(R.id.drawer_layout);
         FrameLayout sixDiceButton = findViewById(R.id.six_sides);
-        LinearLayout drawerContent = findViewById(R.id.drawer_content);
-        drawerContent.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return true;
-            }
-        });
-
-        sixDiceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.six_sides_checkmark).setVisibility(View.VISIBLE);
-                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
-                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
-            }
-        });
         FrameLayout eightDiceButton = findViewById(R.id.eight_sides);
-        eightDiceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
-                findViewById(R.id.eight_sides_checkmark).setVisibility(View.VISIBLE);
-                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
-            }
-        });
         FrameLayout twelveDiceButton = findViewById(R.id.twelve_sides);
-        twelveDiceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
-                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
-                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.VISIBLE);
-            }
-        });
+        LinearLayout drawerContent = findViewById(R.id.drawer_content);
+        SwitchCompat switchShakeToRoll = findViewById(R.id.sw_shake_roll);
+        SwitchCompat switchDarkTheme = findViewById(R.id.sw_dark_theme);
+        switchDarkTheme.setChecked(!isThemeLight);
+        switchDarkTheme.setOnCheckedChangeListener((buttonView, isChecked) -> isThemeLight = !isChecked);
+        switchShakeToRoll.setOnCheckedChangeListener((buttonView, isChecked) -> shakeToRollEnabled = isChecked);
+        drawerContent.setOnTouchListener((v, event) -> true);
 
-        springForce = new SpringForce()
-                .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
-                .setStiffness(SpringForce.STIFFNESS_LOW)
-                .setFinalPosition(1);
+        sixDiceButton.setOnClickListener(v -> {
+            currentDiceVariant = 6;
+            updateSelectedDiceVariant();
+            settingsDB.putInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        });
+        eightDiceButton.setOnClickListener(v -> {
+            currentDiceVariant = 8;
+            updateSelectedDiceVariant();
+            settingsDB.putInt(Constants.SETTINGS_DICE_VARIANT, 8);
+        });
+        twelveDiceButton.setOnClickListener(v -> {
+            currentDiceVariant = 20;
+            updateSelectedDiceVariant();
+            settingsDB.putInt(Constants.SETTINGS_DICE_VARIANT, 20);
+        });
 
         dice.setOnClickListener(v -> {
             viewModel.rollDice();
@@ -129,32 +119,80 @@ public class DiceActivity extends AppCompatActivity {
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "roll_dice", params);
         });
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
-        findViewById(R.id.btn_switch_theme).setOnClickListener(v -> {
-            drawer.openDrawer(GravityCompat.END);
-//            settingsDB.putBoolean(SettingsUtil.SETTINGS_DICE_THEME_LIGHT, !isThemeLight);
-//            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "switch_dice_theme");
-//            finish();
-//            startActivity(getIntentForRestoreState(DiceActivity.this, currentDiceResult, prevDiceValue));
-//            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        });
+        findViewById(R.id.btn_open_drawer).setOnClickListener(v -> drawer.openDrawer(GravityCompat.END));
 
+        shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
+        switchShakeToRoll.setChecked(shakeToRollEnabled);
+        currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        drawer.addDrawerListener(this);
+
+        trackSelectedDiceVariant();
+        trackSelectedTheme();
+        trackShakeToRoll();
+
+        springForce = new SpringForce()
+                .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
+                .setStiffness(SpringForce.STIFFNESS_LOW)
+                .setFinalPosition(1);
+
+        currentDiceResult = getIntent().getIntExtra(ARGUMENT_ACTUAL_DICE_VALUE, 0);
+        prevDiceValue = getIntent().getIntExtra(ARGUMENT_PREVIOUS_DICE_VALUE, 0);
+
+        subscribeToModel();
+        if (shakeToRollEnabled) {
+            initSensorData();
+        }
+        updateSelectedDiceVariant();
+
+        ViewUtil.setLightStatusBars(this, isThemeLight, isThemeLight);
+
+        if (currentDiceResult > 0) {
+            rollDice(currentDiceResult, prevDiceValue);
+        }
+    }
+
+    private void trackSelectedDiceVariant() {
+        Bundle params = new Bundle();
+        params.putString(Param.CHARACTER, String.valueOf(currentDiceVariant));
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "dice_variant", params);
+    }
+
+    private void trackSelectedTheme() {
         if (!getIntent().hasExtra(ARGUMENT_ACTUAL_DICE_VALUE)) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, isThemeLight ? 1 : 0);
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_dice_theme_light", params);
         }
+    }
 
-        currentDiceResult = getIntent().getIntExtra(ARGUMENT_ACTUAL_DICE_VALUE, 0);
-        prevDiceValue = getIntent().getIntExtra(ARGUMENT_PREVIOUS_DICE_VALUE, 0);
+    private void trackShakeToRoll() {
+        Bundle params = new Bundle();
+        params.putLong(Param.SCORE, shakeToRollEnabled ? 1 : 0);
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_dice_shake_to_roll", params);
+    }
 
-        viewModel = ViewModelProviders.of(this).get(DiceViewModel.class);
+    private void updateSelectedDiceVariant() {
+        switch (currentDiceVariant) {
+            case 8:
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.VISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
+                viewModel.getDiceLiveData().setDiceVariant(8);
+                break;
+            case 20:
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.VISIBLE);
+                viewModel.getDiceLiveData().setDiceVariant(20);
+                break;
+            case 6:
+            default:
+                findViewById(R.id.six_sides_checkmark).setVisibility(View.VISIBLE);
+                findViewById(R.id.eight_sides_checkmark).setVisibility(View.INVISIBLE);
+                findViewById(R.id.twelve_sides_checkmark).setVisibility(View.INVISIBLE);
+                viewModel.getDiceLiveData().setDiceVariant(6);
+                break;
 
-        subscribeToModel();
-        initSensorData();
-        ViewUtil.setLightStatusBars(this, isThemeLight, isThemeLight);
-
-        if (currentDiceResult > 0) {
-            rollDice(currentDiceResult, prevDiceValue);
         }
     }
 
@@ -173,13 +211,12 @@ public class DiceActivity extends AppCompatActivity {
         int prevValue;
         if (previousResult == 0) {
             previousResultTextView.setVisibility(View.GONE);
-            prevValue = ((int) (Math.random() * 6)) + 1;
+            prevValue = ((int) (Math.random() * currentDiceVariant)) + 1;
         } else {
             prevValue = previousResult;
             previousResultTextView.setVisibility(View.VISIBLE);
             previousResultTextView
                     .setText(String.format(getString(R.string.dice_previous_result_label), previousResult));
-            ((Animatable) dice.getDrawable()).stop();
             if (springAnimation != null) {
                 springAnimation.cancel();
             }
@@ -192,187 +229,96 @@ public class DiceActivity extends AppCompatActivity {
 
         switch (diceResult) {
             case 1: {
-                switch (prevValue) {
-                    case 2: {
-                        diceResId = R.drawable.avd_two_to_one;
-                        break;
-                    }
-                    case 3: {
-                        diceResId = R.drawable.avd_three_to_one;
-                        break;
-                    }
-                    case 4: {
-                        diceResId = R.drawable.avd_four_to_one;
-                        break;
-                    }
-                    case 5: {
-                        diceResId = R.drawable.avd_five_to_one;
-                        break;
-                    }
-                    case 6: {
-                        diceResId = R.drawable.avd_six_to_one;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_one;
-                        break;
-                }
+                diceResId = R.drawable.dice_digital_1;
                 break;
             }
             case 2: {
-                switch (prevValue) {
-                    case 1: {
-                        diceResId = R.drawable.avd_one_to_two;
-                        break;
-                    }
-                    case 3: {
-                        diceResId = R.drawable.avd_three_to_two;
-                        break;
-                    }
-                    case 4: {
-                        diceResId = R.drawable.avd_four_to_two;
-                        break;
-                    }
-                    case 5: {
-                        diceResId = R.drawable.avd_five_to_two;
-                        break;
-                    }
-                    case 6: {
-                        diceResId = R.drawable.avd_six_to_two;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_two;
-                        break;
-                }
+                diceResId = R.drawable.dice_digital_2;
                 break;
             }
             case 3: {
-                switch (prevValue) {
-                    case 1: {
-                        diceResId = R.drawable.avd_one_to_three;
-                        break;
-                    }
-                    case 2: {
-                        diceResId = R.drawable.avd_two_to_three;
-                        break;
-                    }
-                    case 4: {
-                        diceResId = R.drawable.avd_four_to_three;
-                        break;
-                    }
-                    case 5: {
-                        diceResId = R.drawable.avd_five_to_three;
-                        break;
-                    }
-                    case 6: {
-                        diceResId = R.drawable.avd_six_to_three;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_three;
-                        break;
-                }
+                diceResId = R.drawable.dice_digital_3;
                 break;
             }
             case 4: {
-                switch (prevValue) {
-                    case 1: {
-                        diceResId = R.drawable.avd_one_to_four;
-                        break;
-                    }
-                    case 2: {
-                        diceResId = R.drawable.avd_two_to_four;
-                        break;
-                    }
-                    case 3: {
-                        diceResId = R.drawable.avd_three_to_four;
-                        break;
-                    }
-                    case 5: {
-                        diceResId = R.drawable.avd_five_to_four;
-                        break;
-                    }
-                    case 6: {
-                        diceResId = R.drawable.avd_six_to_four;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_four;
-                        break;
-
-                }
+                diceResId = R.drawable.dice_digital_4;
                 break;
             }
             case 5: {
-                switch (prevValue) {
-                    case 1: {
-                        diceResId = R.drawable.avd_one_to_five;
-                        break;
-                    }
-                    case 2: {
-                        diceResId = R.drawable.avd_two_to_five;
-                        break;
-                    }
-                    case 3: {
-                        diceResId = R.drawable.avd_three_to_five;
-                        break;
-                    }
-                    case 4: {
-                        diceResId = R.drawable.avd_four_to_five;
-                        break;
-                    }
-                    case 6: {
-                        diceResId = R.drawable.avd_six_to_five;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_five;
-                        break;
-                }
+                diceResId = R.drawable.dice_digital_5;
                 break;
             }
             case 6: {
-                switch (prevValue) {
-                    case 1: {
-                        diceResId = R.drawable.avd_one_to_six;
-                        break;
-                    }
-                    case 2: {
-                        diceResId = R.drawable.avd_two_to_six;
-                        break;
-                    }
-                    case 3: {
-                        diceResId = R.drawable.avd_three_to_six;
-                        break;
-                    }
-                    case 4: {
-                        diceResId = R.drawable.avd_four_to_six;
-                        break;
-                    }
-                    case 5: {
-                        diceResId = R.drawable.avd_five_to_six;
-                        break;
-                    }
-                    default:
-                        diceResId = R.drawable.avd_zero_to_six;
-                        break;
-                }
+                diceResId = R.drawable.dice_digital_6;
+                break;
+            }
+            case 7: {
+                diceResId = R.drawable.dice_digital_7;
+                break;
+            }
+            case 8: {
+                diceResId = R.drawable.dice_digital_8;
+                break;
+            }
+            case 9: {
+                diceResId = R.drawable.dice_digital_9;
+                break;
+            }
+            case 10: {
+                diceResId = R.drawable.dice_digital_10;
+                break;
+            }
+            case 11: {
+                diceResId = R.drawable.dice_digital_11;
+                break;
+            }
+            case 12: {
+                diceResId = R.drawable.dice_digital_12;
+                break;
+            }
+            case 13: {
+                diceResId = R.drawable.dice_digital_13;
+                break;
+            }
+            case 14: {
+                diceResId = R.drawable.dice_digital_14;
+                break;
+            }
+            case 15: {
+                diceResId = R.drawable.dice_digital_15;
+                break;
+            }
+            case 16: {
+                diceResId = R.drawable.dice_digital_16;
+                break;
+            }
+            case 17: {
+                diceResId = R.drawable.dice_digital_17;
+                break;
+            }
+            case 18: {
+                diceResId = R.drawable.dice_digital_18;
+                break;
+            }
+            case 19: {
+                diceResId = R.drawable.dice_digital_19;
+                break;
+            }
+            case 20: {
+                diceResId = R.drawable.dice_digital_20;
+                break;
             }
         }
+
+        dice.setImageResource(diceResId);
+
         springAnimation = getSpringAnimation();
         springAnimation.start();
-        if (diceResId != 0) {
-            AnimatedVectorDrawableCompat animatedVectorDrawableCompat = AnimatedVectorDrawableCompat
-                    .create(this, diceResId);
-            dice.setImageDrawable(animatedVectorDrawableCompat);
-            ((Animatable) dice.getDrawable()).start();
-        } else {
-            Timber.e("dice result: %d prevValue: %d", diceResult, prevValue);
-        }
     }
 
     private void subscribeToModel() {
+        DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant);
+        viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(this, roll -> {
             if (roll != null && roll > 0) {
@@ -380,7 +326,12 @@ public class DiceActivity extends AppCompatActivity {
                 rollDice(roll, previousValue);
             }
         });
+        if (shakeToRollEnabled) {
+            useSensorLiveData();
+        }
+    }
 
+    private void useSensorLiveData() {
         viewModel.getSensorLiveData(this).observe(this, se -> {
             if (se == null) {
                 return;
@@ -400,7 +351,6 @@ public class DiceActivity extends AppCompatActivity {
                 AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "roll_dice", params);
             }
         });
-
     }
 
     @Override
@@ -410,5 +360,39 @@ public class DiceActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+    }
+
+    @Override
+    public void onDrawerOpened(@NonNull View drawerView) {
+        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "open_dice_drawer");
+    }
+
+    @Override
+    public void onDrawerClosed(@NonNull View drawerView) {
+        settingsDB.putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, shakeToRollEnabled);
+        if (!shakeToRollEnabled) {
+            viewModel.disableSensor();
+        } else {
+            initSensorData();
+            useSensorLiveData();
+        }
+        if (settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true) != isThemeLight) {
+            settingsDB.putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, isThemeLight);
+            finish();
+            startActivity(getIntentForRestoreState(DiceActivity.this, currentDiceResult, prevDiceValue));
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } else {
+            settingsDB.putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, isThemeLight);
+        }
+    }
+
+    @Override
+    public void onDrawerStateChanged(int newState) {
+
     }
 }

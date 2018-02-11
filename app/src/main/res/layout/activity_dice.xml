@@ -29,7 +29,7 @@
             android:contentDescription="@string/menu_dice"
             android:padding="@dimen/dice_padding"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/avd_dice_empty" />
+            app:srcCompat="@drawable/dice_empty" />
 
         <ImageButton
             android:id="@+id/btn_back"
@@ -40,10 +40,10 @@
             android:contentDescription="@string/common_back"
             android:padding="@dimen/back_button_padding"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_arrow_back" />
+            app:srcCompat="@drawable/ic_arrow" />
 
         <ImageButton
-            android:id="@+id/btn_switch_theme"
+            android:id="@+id/btn_open_drawer"
             android:layout_width="@dimen/back_button_size"
             android:layout_height="@dimen/back_button_size"
             android:layout_gravity="right"
@@ -76,33 +76,34 @@
         <FrameLayout
             android:id="@+id/six_sides"
             style="@style/TwoLinesStyle"
-            android:foreground="?attr/selectableItemBackground"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_six" />
+                app:srcCompat="@drawable/dice_digital_6" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_large"
                 android:layout_gravity="center_vertical"
-                android:padding="@dimen/padding_normal"
+                android:layout_marginLeft="@dimen/padding_large"
                 android:layout_marginRight="@dimen/padding_large"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_subheading"
                 android:includeFontPadding="false"
-                android:text="Six sides" />
+                android:padding="@dimen/padding_normal"
+                android:text="Six sides"
+                android:textColor="?myIconTint"
+                android:textSize="@dimen/font_subheading" />
 
             <ImageView
                 android:id="@+id/six_sides_checkmark"
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical|end"
+                android:tint="?myIconTint"
                 app:srcCompat="@drawable/ic_check" />
         </FrameLayout>
 
@@ -122,22 +123,23 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_marginLeft="@dimen/padding_large"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/padding_large"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_normal"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_subheading"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_large"
+                android:layout_marginRight="@dimen/padding_large"
                 android:includeFontPadding="false"
-                android:text="Eight sides" />
+                android:padding="@dimen/padding_normal"
+                android:text="Eight sides"
+                android:textColor="?myIconTint"
+                android:textSize="@dimen/font_subheading" />
 
             <ImageView
                 android:id="@+id/eight_sides_checkmark"
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
-                android:visibility="invisible"
                 android:layout_gravity="center_vertical|end"
+                android:tint="?myIconTint"
+                android:visibility="invisible"
                 app:srcCompat="@drawable/ic_check" />
         </FrameLayout>
 
@@ -153,25 +155,26 @@
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_digital_6" />
+                app:srcCompat="@drawable/dice_digital_20" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_large"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_large"
                 android:layout_marginRight="@dimen/padding_large"
-                android:padding="@dimen/padding_normal"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/font_subheading"
                 android:includeFontPadding="false"
-                android:text="Twelve sides" />
+                android:padding="@dimen/padding_normal"
+                android:text="Twelve sides"
+                android:textColor="?myIconTint"
+                android:textSize="@dimen/font_subheading" />
 
             <ImageView
                 android:id="@+id/twelve_sides_checkmark"
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical|end"
+                android:tint="?myIconTint"
                 android:visibility="invisible"
                 app:srcCompat="@drawable/ic_check" />
         </FrameLayout>
@@ -185,25 +188,28 @@
             android:textColor="@color/accentColor" />
 
         <FrameLayout
-            android:id="@+id/dark_theme"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="0dp"
             android:paddingRight="0dp">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_normal"
                 app:srcCompat="@drawable/ic_change_theme" />
 
             <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_dark_theme"
                 style="@style/SwitchStyle"
                 android:layout_width="match_parent"
+                android:textColor="?myIconTint"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_large"
                 android:includeFontPadding="false"
+                android:paddingLeft="56dp"
                 android:text="Dark theme" />
 
         </FrameLayout>
@@ -211,25 +217,28 @@
         <include layout="@layout/divider" />
 
         <FrameLayout
-            android:id="@+id/shake_to_roll"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="0dp"
             android:paddingRight="0dp">
 
             <ImageView
                 android:layout_width="@dimen/button_icon_size"
                 android:layout_height="@dimen/button_icon_size"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding_normal"
                 app:srcCompat="@drawable/ic_compare_arrows" />
 
             <android.support.v7.widget.SwitchCompat
+                android:id="@+id/sw_shake_roll"
                 style="@style/SwitchStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_large"
+                android:textColor="?myIconTint"
                 android:includeFontPadding="false"
+                android:paddingLeft="56dp"
                 android:text="Shake to roll" />
 
         </FrameLayout>

@@ -4,11 +4,11 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 3
 ext.versionMinor = 0
-ext.versionPatch = 8
+ext.versionPatch = 9
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
@@ -52,7 +52,7 @@ android {
 ext {
     // App dependencies
     supportLibraryVersion = '27.0.2'
-    archLifecycleVersion = "1.0.0"
+    archLifecycleVersion = "1.1.0"
     archRoomVersion = "1.0.0"
     materialDialogsVersion = "0.9.6.0"
 }
@@ -69,14 +69,14 @@ dependencies {
     compile "com.afollestad.material-dialogs:core:$materialDialogsVersion"
     compile "com.afollestad.material-dialogs:commons:$materialDialogsVersion"
     compile 'com.google.firebase:firebase-core:11.8.0'
-    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.9.0@aar') {
         transitive = true
     }
     compile('com.github.fernandodev.easyratingdialog:easyratingdialog:1.1.2') {
         exclude module: 'material-dialogs'
     }
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.7'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.9'
     compile 'com.jakewharton.timber:timber:4.6.0'
 
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"

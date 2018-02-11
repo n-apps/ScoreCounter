@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 class DiceLiveData extends LiveData<Integer> {
 
     private int previousValue;
+    private int diceVariant;
 
     DiceLiveData() {
         setValue(0);
@@ -30,7 +31,10 @@ class DiceLiveData extends LiveData<Integer> {
     }
 
     private int generateDieResult() {
-        return ((int) (Math.random() * 6)) + 1;
+        return ((int) (Math.random() * diceVariant)) + 1;
     }
 
+    public void setDiceVariant(int diceVariant) {
+        this.diceVariant = diceVariant;
+    }
 }

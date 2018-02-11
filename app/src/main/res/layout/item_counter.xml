@@ -24,6 +24,7 @@
             android:layout_weight="1"
             android:clickable="false"
             android:ellipsize="end"
+            android:background="?attr/selectableItemBackground"
             android:maxLines="1"
             android:paddingBottom="@dimen/spacing_normal"
             android:paddingLeft="@dimen/padding_normal"
@@ -35,7 +36,8 @@
         <TextView
             android:id="@+id/tv_counter_edit"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
             android:layout_gravity="center_vertical"
             android:paddingBottom="@dimen/spacing_normal"
             android:paddingLeft="@dimen/padding_normal"
@@ -53,6 +55,12 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/black_5" />
 
         <TextView
             android:id="@+id/tv_counter_value"

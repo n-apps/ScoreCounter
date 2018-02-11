@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -23,16 +24,19 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
+
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.dice.DiceActivity;
+import ua.napps.scorekeeper.settings.Constants;
 import ua.napps.scorekeeper.settings.SettingsFragment;
-import ua.napps.scorekeeper.settings.SettingsUtil;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -81,7 +85,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         applyKeepScreenOn(true);
 
         final boolean isTryToFitAllCounters = settingsDB
-                .getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
+                .getBoolean(Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
         countersAdapter = new CountersAdapter(this);
         countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
@@ -134,7 +138,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     @Override
     public void onEditClick(int counterId) {
-        final Intent intent = EditCounterActivity.getIntent(this, counterId, false);
+        final Intent intent = EditCounterActivity.getIntent(this, counterId);
         startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
         Bundle params = new Bundle();
         params.putString(Param.CHARACTER, "edit");
@@ -244,9 +248,28 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     @Override
-    public void onNameClick(int counterId) {
-        final Intent intent = EditCounterActivity.getIntent(this, counterId, true);
-        startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+    public void onNameClick(Counter counter) {
+        final MaterialDialog md = new Builder(CountersActivity.this)
+                .content(R.string.counter_details_name)
+                .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
+                .positiveText(R.string.common_set)
+                .negativeText(R.string.common_cancel)
+                .input(counter.getName(), null, true,
+                        (dialog, input) -> {
+                            if (input.length() > 0) {
+                                viewModel.modifyName(counter, input.toString());
+                            }
+                        })
+                .build();
+        md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
+            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                    == EditorInfo.IME_ACTION_DONE)) {
+                View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                positiveButton.callOnClick();
+            }
+            return false;
+        });
+        md.show();
         Bundle params = new Bundle();
         params.putString(Param.CHARACTER, "name");
         AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);
@@ -300,11 +323,11 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     @Override
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         switch (key) {
-            case SettingsUtil.SETTINGS_KEEP_SCREEN_ON:
+            case Constants.SETTINGS_KEEP_SCREEN_ON:
                 applyKeepScreenOn(false);
                 break;
-            case SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
-                final boolean newValue = settingsDB.getBoolean(SettingsUtil.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
+            case Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
+                final boolean newValue = settingsDB.getBoolean(Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
                 countersAdapter.setTryToFitAllCounters(newValue);
                 countersAdapter.notifyDataSetChanged();
                 break;
@@ -312,7 +335,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
     }
 
     private void applyKeepScreenOn(boolean trackAnalytics) {
-        final boolean isStayAwake = settingsDB.getBoolean(SettingsUtil.SETTINGS_KEEP_SCREEN_ON, true);
+        final boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
         if (isStayAwake) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
