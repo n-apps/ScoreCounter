@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -112,6 +113,16 @@ public class TinyDB {
      */
     public int getInt(String key) {
         return preferences.getInt(key, 0);
+    }
+
+    /**
+     * Get int value from SharedPreferences at 'key'. If key not found, return 'defaultValue'
+     *
+     * @param key SharedPreferences key
+     * @return int value at 'key' or 'defaultValue' if key not found
+     */
+    public int getInt(String key, int defaultValue) {
+        return preferences.getInt(key, defaultValue);
     }
 
     /**

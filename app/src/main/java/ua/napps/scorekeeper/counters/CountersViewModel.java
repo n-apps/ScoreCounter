@@ -6,23 +6,25 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
+
+import java.util.List;
+
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import java.util.List;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 class CountersViewModel extends AndroidViewModel {
 
-    private LiveData<List<Counter>> counters = new MutableLiveData<>();
-
-    private int listSize;
-
     private final CountersRepository repository;
+    private LiveData<List<Counter>> counters = new MutableLiveData<>();
+    private int listSize;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -124,6 +126,33 @@ class CountersViewModel extends AndroidViewModel {
                     }
                 });
     }
+
+    void modifyName(Counter counter, @NonNull String name) {
+        if (!name.equals(counter.getName())) {
+            Bundle params = new Bundle();
+            params.putLong(Param.SCORE, counter.getName().length());
+            AndroidFirebaseAnalytics.logEvent(getApplication(), "edit_counter_name_length", params);
+        }
+        repository.modifyName(counter.getId(), name)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "modifyName counter");
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
 
     void removeAll() {
         repository.deleteAll()

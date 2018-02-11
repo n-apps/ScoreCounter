@@ -19,9 +19,11 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.utils.ColorUtil;
@@ -93,7 +95,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counterClickableArea = v.findViewById(R.id.counter_interaction_area);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
-            counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter.getId()));
+            counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(counter.getId()));
 
             counterClickableArea.setOnTouchListener(new OnTouchListener() {

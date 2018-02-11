@@ -36,4 +36,9 @@ public class LiveSensor extends LiveData<SensorEvent> implements SensorEventList
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+    public void disableSensor() {
+        sensorManager.unregisterListener(this);
+    }
+
 }

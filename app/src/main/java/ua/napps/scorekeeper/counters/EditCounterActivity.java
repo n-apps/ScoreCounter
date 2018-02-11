@@ -15,16 +15,17 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
+
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
@@ -38,8 +39,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     public static final int RESULT_DELETE = 1003;
 
     protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
-
-    private static final String ARGUMENT_SHOW_KEYBOARD = "ARGUMENT_SHOW_KEYBOARD";
 
     private CircleView colorPreview;
 
@@ -57,10 +56,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private EditCounterViewModel viewModel;
 
-    public static Intent getIntent(Context context, int id, boolean showKeyboard) {
+    public static Intent getIntent(Context context, int id) {
         Intent intent = new Intent(context, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, id);
-        intent.putExtra(ARGUMENT_SHOW_KEYBOARD, showKeyboard);
         return intent;
     }
 
@@ -243,13 +241,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             viewModel.deleteCounter();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_delete_click");
         });
-
-        if (getIntent().getBooleanExtra(ARGUMENT_SHOW_KEYBOARD, false)) {
-            counterName.requestFocus();
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(
-                    Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-        }
     }
 
     @Override

@@ -13,6 +13,10 @@ public class DiceViewModel extends ViewModel {
 
     private LiveSensor sensorLiveData;
 
+    public DiceViewModel(int diceVariant) {
+        diceResult.setDiceVariant(diceVariant);
+    }
+
     public LiveData<SensorEvent> getSensorLiveData(Context context) {
         if (sensorLiveData == null) {
 
@@ -24,6 +28,11 @@ public class DiceViewModel extends ViewModel {
 
     public void rollDice() {
         diceResult.rollDice();
+    }
+
+    public void disableSensor() {
+        sensorLiveData.disableSensor();
+        sensorLiveData = null;
     }
 
     DiceLiveData getDiceLiveData() {

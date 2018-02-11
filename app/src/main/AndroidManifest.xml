@@ -26,12 +26,11 @@
         <activity
             android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
             android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity"
-            android:windowSoftInputMode="adjustResize|stateUnchanged" />
+            android:windowSoftInputMode="adjustNothing" />
 
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="false" />
         <activity android:name="ua.napps.scorekeeper.dice.DiceActivity" />
     </application>
 
