@@ -28,7 +28,7 @@
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent: %d</string>
     <string name="dice_six_sides_title">Six côtés</string>
-    <string name="dice_twelve_sides_title">Douze côtés</string>
+    <string name="dice_twelve_sides_title">Vingt côtés</string>
     <string name="erd_message">Il vous aimez Compteur Gardien, autant le dire et lui donner une note. Ça ne vous prendra pas plus d’une minute. Merci!</string>
     <string name="erd_no_thanks">Non merci</string>
     <string name="erd_rate_now">Donner une note</string>
@@ -40,7 +40,7 @@
     <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>
     <string name="menu_reset_all_counters">Effacer tout</string>
     <string name="menu_settings">Paramètres</string>
-    <string name="settings_send_feedback">Contactez le développeur</string>
+    <string name="settings_send_feedback">Demander une fonctionnalité</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_try_to_fit_all_counters">Afficher tous les compteurs à l\'écran</string>
     <string name="dice_drawer_appearance">Apparence</string>

@@ -31,7 +31,9 @@ public class DiceViewModel extends ViewModel {
     }
 
     public void disableSensor() {
-        sensorLiveData.disableSensor();
+        if (sensorLiveData != null) {
+            sensorLiveData.disableSensor();
+        }
         sensorLiveData = null;
     }
 

@@ -141,6 +141,7 @@ public class DiceActivity extends AppCompatActivity implements DrawerLayout.Draw
         subscribeToModel();
         if (shakeToRollEnabled) {
             initSensorData();
+            useSensorLiveData();
         }
         updateSelectedDiceVariant();
 
@@ -326,9 +327,7 @@ public class DiceActivity extends AppCompatActivity implements DrawerLayout.Draw
                 rollDice(roll, previousValue);
             }
         });
-        if (shakeToRollEnabled) {
-            useSensorLiveData();
-        }
+
     }
 
     private void useSensorLiveData() {

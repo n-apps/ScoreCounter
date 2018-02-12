@@ -28,7 +28,7 @@
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок: %d</string>
     <string name="dice_six_sides_title">Шесть сторон</string>
-    <string name="dice_twelve_sides_title">Двенадцать сторон</string>
+    <string name="dice_twelve_sides_title">Двадцать сторон</string>
     <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Благодарим за поддержку!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить</string>
@@ -40,7 +40,7 @@
     <string name="menu_remove_all_counters">Удалить все счетчики</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="menu_settings">Настройки</string>
-    <string name="settings_send_feedback">Написать разработчику</string>
+    <string name="settings_send_feedback">Мне не хватает…</string>
     <string name="settings_stay_awake">Оставлять экран включенным</string>
     <string name="settings_try_to_fit_all_counters">Все счетчики на одном экране</string>
     <string name="dice_drawer_appearance">Внешний вид</string>
