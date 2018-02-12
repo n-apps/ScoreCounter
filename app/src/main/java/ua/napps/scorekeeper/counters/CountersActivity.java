@@ -84,16 +84,10 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         applyKeepScreenOn(true);
 
-        final boolean isTryToFitAllCounters = settingsDB
-                .getBoolean(Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
         countersAdapter = new CountersAdapter(this);
-        countersAdapter.setTryToFitAllCounters(isTryToFitAllCounters);
         viewModel = getViewModel();
         easyRatingDialog = new EasyRatingDialog(this);
         subscribeToModel();
-        Bundle params = new Bundle();
-        params.putLong(Param.SCORE, isTryToFitAllCounters ? 1 : 0);
-        AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_try_to_fit_all_counters", params);
     }
 
     @Override
@@ -325,11 +319,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         switch (key) {
             case Constants.SETTINGS_KEEP_SCREEN_ON:
                 applyKeepScreenOn(false);
-                break;
-            case Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS:
-                final boolean newValue = settingsDB.getBoolean(Constants.SETTINGS_TRY_TO_FIT_ALL_COUNTERS, false);
-                countersAdapter.setTryToFitAllCounters(newValue);
-                countersAdapter.notifyDataSetChanged();
                 break;
         }
     }

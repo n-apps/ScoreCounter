@@ -40,7 +40,7 @@
     <string name="menu_remove_all_counters">Remove all counters</string>
     <string name="menu_reset_all_counters">Reset all</string>
     <string name="menu_settings">Settings</string>
-    <string name="settings_send_feedback">Contact with the developer</string>
+    <string name="settings_send_feedback">Request a feature</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_try_to_fit_all_counters">Show all counters on screen</string>
     <string name="dice_drawer_appearance">Appearance</string>
