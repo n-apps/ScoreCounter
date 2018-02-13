@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_mail_outline_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_plus_one_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_dice" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_plus_one_white" />
                             <entry key="sourceFile" value="D:\dice(1).svg" />
                           </map>
                         </option>
