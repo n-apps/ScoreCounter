@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
@@ -15,6 +14,7 @@ import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -32,7 +32,7 @@ import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
-public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {
+public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
 
     public static final int REQUEST_CODE = 1;
 
@@ -49,6 +49,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private EditText counterName;
 
     private TextView counterStep;
+
+    private TextView labelChangesSaved;
 
     private TextView counterValue;
 
@@ -83,6 +85,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterDefaultValue = findViewById(R.id.tv_counter_default_value);
         counterValue = findViewById(R.id.tv_counter_value);
         colorPreview = findViewById(R.id.color_preview);
+        labelChangesSaved = findViewById(R.id.tv_label_saved);
         LinearLayout counterValueContainer = findViewById(R.id.counter_value);
         LinearLayout counterDefaultValueContainer = findViewById(R.id.counter_default_value);
         LinearLayout counterStepContainer = findViewById(R.id.counter_step);
@@ -100,13 +103,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
             @Override
             public void beforeTextChanged(final CharSequence s, final int start, final int count,
-                    final int after) {
+                                          final int after) {
 
             }
 
             @Override
             public void onTextChanged(final CharSequence s, final int start, final int before,
-                    final int count) {
+                                      final int count) {
 
             }
         });
@@ -116,6 +119,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .content(R.string.dialog_current_value_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
+                    .negativeColorRes(R.color.primaryColor)
                     .negativeText(R.string.common_cancel)
                     .input(String.valueOf(counter.getValue()), null, true,
                             (dialog, input) -> {
@@ -153,6 +157,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .negativeText(R.string.common_cancel)
+                    .negativeColorRes(R.color.primaryColor)
                     .input(String.valueOf(counter.getDefaultValue()), null, true,
                             (dialog, input) -> {
                                 if (input.length() > 0) {
@@ -190,6 +195,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .negativeText(R.string.common_cancel)
+                    .negativeColorRes(R.color.primaryColor)
                     .input(String.valueOf(counter.getStep()), null, true,
                             (dialog, input) -> {
                                 if (input.length() > 0) {
@@ -235,13 +241,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_color_click");
         });
 
-        CardView btnDelete = findViewById(R.id.btn_delete);
+        Button btnDelete = findViewById(R.id.btn_delete);
         btnDelete.setOnClickListener(v -> {
             setResult(RESULT_DELETE);
             viewModel.deleteCounter();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_delete_click");
         });
     }
+
 
     @Override
     protected void onDestroy() {
@@ -269,7 +276,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private EditCounterViewModel getViewModel(int id) {
         CountersDao countersDao = DatabaseHolder.database().countersDao();
-        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao);
+        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao, this);
         return ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
     }
 
@@ -292,5 +299,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 finish();
             }
         });
+    }
+
+    @Override
+    public void showSavedState() {
+        labelChangesSaved.setVisibility(View.VISIBLE);
     }
 }

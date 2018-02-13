@@ -28,8 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_mail_outline" />
-                            <entry key="sourceFile" value="C:\Users\Roman" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_dice" />
+                            <entry key="sourceFile" value="D:\dice(1).svg" />
                           </map>
                         </option>
                       </PersistentState>

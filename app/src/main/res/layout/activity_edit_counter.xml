@@ -13,16 +13,35 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <TextView
+                android:id="@+id/tv_label_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/padding_normal"
+                android:text="@string/label_all_changes_saved"
+                android:textColor="@color/textColorHintInverse"
+                android:textStyle="italic"
+                android:visibility="invisible"
+                tools:visibility="visible" />
+        </FrameLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:theme="@style/LightEditText"
             android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:theme="@style/LightEditText"
             app:hintAnimationEnabled="false">
 
             <android.support.design.widget.TextInputEditText
@@ -31,18 +50,19 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_normal"
                 android:hint="@string/counter_details_name"
-                android:theme="@style/LightEditText"
                 android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect|textPersonName"
                 android:maxLength="20"
                 android:maxLines="1"
                 android:minEms="20"
-                android:textSize="@dimen/font_display" />
+                android:textSize="@dimen/font_display"
+                android:theme="@style/LightEditText" />
         </android.support.design.widget.TextInputLayout>
+
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/counter_value"
-        style="@style/SingleLineStyle"
+        style="@style/TwoLinesStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -52,7 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_value"
-            android:textSize="@dimen/font_title" />
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display" />
 
         <TextView
             android:id="@+id/tv_counter_value"
@@ -60,57 +81,11 @@
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textColor="@color/accentColor"
-            android:textSize="@dimen/font_title"
+            android:textSize="@dimen/font_display"
             tools:text="20" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/counter_default_value"
-        style="@style/SingleLineStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/counter_details_default_value"
-            android:textSize="@dimen/font_title" />
-
-        <TextView
-            android:id="@+id/tv_counter_default_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textColor="@color/accentColor"
-            android:textSize="@dimen/font_title"
-            tools:text="0" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/counter_step"
-        style="@style/SingleLineStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/counter_details_step"
-            android:textSize="@dimen/font_title" />
-
-        <TextView
-            android:id="@+id/tv_counter_step"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textColor="@color/accentColor"
-            android:textSize="@dimen/font_title"
-            tools:text="0" />
-    </LinearLayout>
+    <include layout="@layout/divider" />
 
     <LinearLayout
         android:id="@+id/counter_color"
@@ -124,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/counter_details_color"
-            android:textSize="@dimen/font_title" />
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display" />
 
         <com.afollestad.materialdialogs.color.CircleView
             android:id="@+id/color_preview"
@@ -133,49 +109,76 @@
             android:layout_gravity="center" />
     </LinearLayout>
 
+    <include layout="@layout/divider" />
+
+    <LinearLayout
+        android:id="@+id/counter_default_value"
+        style="@style/SingleLineStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/counter_details_default_value"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display" />
+
+        <TextView
+            android:id="@+id/tv_counter_default_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/accentColor"
+            android:textSize="@dimen/font_display"
+            tools:text="0" />
+    </LinearLayout>
+
+    <include layout="@layout/divider" />
+
+    <LinearLayout
+        android:id="@+id/counter_step"
+        style="@style/SingleLineStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/counter_details_step"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display" />
+
+        <TextView
+            android:id="@+id/tv_counter_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="@color/accentColor"
+            android:textSize="@dimen/font_display"
+            tools:text="0" />
+    </LinearLayout>
+
+    <include layout="@layout/divider" />
+
     <Space
         android:layout_width="0px"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <android.support.v7.widget.CardView
+    <Button
         android:id="@+id/btn_delete"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        app:cardBackgroundColor="@color/accentColor">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:minHeight="@dimen/button_min_height"
-            android:paddingBottom="@dimen/spacing_micro"
-            android:paddingLeft="@dimen/padding_normal"
-            android:paddingRight="@dimen/padding_normal"
-            android:paddingTop="@dimen/spacing_micro">
-
-            <ImageView
-                android:layout_width="@dimen/button_icon_size"
-                android:layout_height="@dimen/button_icon_size"
-                android:contentDescription="@string/counter_details_delete"
-                app:srcCompat="@drawable/ic_delete_forever_white" />
-
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="0px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:includeFontPadding="false"
-                android:layout_height="wrap_content"
-                android:text="@string/counter_details_delete"
-                android:textAllCaps="true"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_button" />
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        android:paddingLeft="@dimen/padding_large"
+        android:paddingRight="@dimen/padding_large"
+        android:text="@string/counter_details_delete" />
 
     <Space
         android:layout_width="0px"

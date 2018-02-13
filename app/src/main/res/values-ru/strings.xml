@@ -47,4 +47,5 @@
     <string name="dice_drawer_dark_theme">Темная тема</string>
     <string name="dice_drawer_shake_to_roll">Встряхнуть для броска</string>
     <string name="dice_drawer_variant">Вариант кубика</string>
+    <string name="label_all_changes_saved">Все изменения сохранены</string>
 </resources>

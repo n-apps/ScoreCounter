@@ -4,7 +4,7 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 3
 ext.versionMinor = 0
-ext.versionPatch = 10
+ext.versionPatch = 11
 
 android {
     compileSdkVersion 27

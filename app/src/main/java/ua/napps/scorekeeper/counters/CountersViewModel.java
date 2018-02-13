@@ -199,7 +199,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private String getNextColor() {
-        String[] colors = getApplication().getResources().getStringArray(R.array.default_palette);
+        String[] colors = getApplication().getResources().getStringArray(R.array.spire);
         final int presetSize = colors.length;
         if (listSize < presetSize) {
             return colors[listSize];

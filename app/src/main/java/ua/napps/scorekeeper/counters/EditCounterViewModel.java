@@ -4,24 +4,25 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
+
+import java.util.concurrent.TimeUnit;
+
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import java.util.concurrent.TimeUnit;
 import timber.log.Timber;
 
 public class EditCounterViewModel extends ViewModel {
 
+    private final CountersRepository countersRepository;
+    private final EditCounterViewModelCallback callback;
+    private final int id;
     private Counter counter;
-
     private LiveData<Counter> counterLiveData = new MutableLiveData<>();
 
-    private final CountersRepository countersRepository;
-
-    private final int id;
-
-    EditCounterViewModel(CountersRepository repository, final int counterId) {
+    EditCounterViewModel(CountersRepository repository, final int counterId, EditCounterViewModelCallback callback) {
+        this.callback = callback;
         id = counterId;
         countersRepository = repository;
         counterLiveData = repository.loadCounter(counterId);
@@ -68,7 +69,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully deleted counter");
+                        callback.showSavedState();
                     }
 
                     @Override
@@ -94,7 +95,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        callback.showSavedState();
                     }
 
                     @Override
@@ -120,7 +121,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        callback.showSavedState();
                     }
 
                     @Override
@@ -146,7 +147,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        callback.showSavedState();
                     }
 
                     @Override
@@ -172,7 +173,7 @@ public class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        callback.showSavedState();
                     }
 
                     @Override
@@ -185,5 +186,9 @@ public class EditCounterViewModel extends ViewModel {
 
                     }
                 });
+    }
+
+    public interface EditCounterViewModelCallback {
+        void showSavedState();
     }
 }

@@ -47,4 +47,5 @@
     <string name="dice_drawer_dark_theme">Dark theme</string>
     <string name="dice_drawer_shake_to_roll">Shake to roll</string>
     <string name="dice_drawer_variant">Dice variant</string>
+    <string name="label_all_changes_saved">All changes saved</string>
 </resources>

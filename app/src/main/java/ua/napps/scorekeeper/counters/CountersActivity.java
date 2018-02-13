@@ -13,8 +13,10 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,6 +25,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -31,7 +34,6 @@ import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
-import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.dice.DiceActivity;
@@ -159,6 +161,8 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         View contentView = LayoutInflater.from(this)
                 .inflate(isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease,
                         null, false);
+        Button buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
+
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 5);
@@ -192,6 +196,22 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             longClickDialog.dismiss();
         });
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                buttonAddValue.setEnabled(s.length() > 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         editText.setOnEditorActionListener((textView, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
                     == EditorInfo.IME_ACTION_DONE)) {
@@ -206,7 +226,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                         viewModel.decreaseCounter(counter, -Integer.parseInt(value));
                     }
                 } catch (NumberFormatException e) {
-                    Timber.e(e, "value: %s", value);
+//                    Timber.e(e, "value: %s", value);
                 } finally {
                     longClickDialog.dismiss();
                 }
@@ -214,7 +234,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             return false;
         });
 
-        contentView.findViewById(R.id.btn_add_custom_value).setOnClickListener(view -> {
+        buttonAddValue.setOnClickListener(view -> {
             final String value = editText.getText().toString();
             if (TextUtils.isEmpty(value)) {
                 longClickDialog.dismiss();
@@ -227,7 +247,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                     viewModel.decreaseCounter(counter, -Integer.parseInt(value));
                 }
             } catch (NumberFormatException e) {
-                Timber.e(e, "value: %s", value);
+//                Timber.e(e, "value: %s", value);
             } finally {
                 longClickDialog.dismiss();
             }

@@ -10,15 +10,18 @@ class EditCounterViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final CountersRepository repository;
 
-    EditCounterViewModelFactory(int counterId, CountersDao countersDao) {
+    private final EditCounterViewModel.EditCounterViewModelCallback callback;
+
+    EditCounterViewModelFactory(int counterId, CountersDao countersDao, EditCounterViewModel.EditCounterViewModelCallback callback) {
         repository = new CountersRepository(countersDao);
         this.counterId = counterId;
+        this.callback = callback;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
         //noinspection unchecked
-        return (T) new EditCounterViewModel(repository, counterId);
+        return (T) new EditCounterViewModel(repository, counterId, callback);
     }
 }
