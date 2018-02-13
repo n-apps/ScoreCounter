@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,14 +17,30 @@
 
     <include layout="@layout/divider" />
 
-    <TextView
-        android:id="@+id/tv_send_feedback"
+    <LinearLayout
+        android:id="@+id/send_feedback"
         style="@style/TwoLinesStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@drawable/ic_mail_outline"
-        android:text="@string/settings_send_feedback"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_subheading" />
+        tools:ignore="UseCompoundDrawables">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/settings_send_feedback"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_subheading" />
+
+        <ImageView
+            android:layout_width="@dimen/button_icon_size"
+            android:layout_height="@dimen/button_icon_size"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_normal"
+            app:srcCompat="@drawable/ic_mail_outline" />
+
+        <Space
+            android:layout_width="@dimen/spacing_micro"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </LinearLayout>

@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/padding_normal"
     android:paddingLeft="@dimen/padding_large"
     android:paddingRight="@dimen/padding_large"
+    android:paddingTop="@dimen/spacing_normal"
     tools:ignore="HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_normal"
+        android:paddingBottom="@dimen/padding_normal"
         android:orientation="horizontal">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
@@ -36,8 +36,8 @@
             android:id="@+id/btn_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_normal"
             android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice"
             android:clickable="true">
@@ -54,8 +54,8 @@
             android:id="@+id/btn_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_normal"
             android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginRight="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice"
             android:clickable="true">
@@ -99,23 +99,21 @@
             android:id="@+id/et_add_custom_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_normal"
             android:layout_weight="1"
             android:hint="@string/hint_type_any_number"
             android:inputType="number|numberSigned"
             android:maxLength="3"
             android:maxLines="1" />
 
-        <TextView
+        <Button
             android:id="@+id/btn_add_custom_value"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="?attr/selectableItemBackground"
+            android:enabled="false"
             android:gravity="center_vertical"
-            android:maxLines="1"
             android:paddingLeft="@dimen/padding_normal"
-            android:text="@string/common_increase"
-            android:textAllCaps="true"
-            android:textColor="@color/accentColor"
-            android:textSize="@dimen/font_button" />
+            android:text="@string/common_increase" />
     </LinearLayout>
 </LinearLayout>

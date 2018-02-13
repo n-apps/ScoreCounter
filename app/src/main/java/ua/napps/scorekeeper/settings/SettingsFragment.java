@@ -31,7 +31,10 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         View contentView = View.inflate(getContext(), R.layout.fragment_settings_bottom_sheet, null);
         dialog.setContentView(contentView);
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
-        contentView.findViewById(R.id.tv_send_feedback).setOnClickListener(v -> startEmailClient());
+        contentView.findViewById(R.id.send_feedback).setOnClickListener(v -> {
+            startEmailClient();
+            this.dismiss();
+        });
         final TinyDB settingsDB = new TinyDB(getContext());
         boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
         stayAwake.setChecked(isStayAwake);
