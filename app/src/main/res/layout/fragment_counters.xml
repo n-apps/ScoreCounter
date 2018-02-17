@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    tools:context="ua.napps.scorekeeper.counters.CountersFragment"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -32,7 +33,6 @@
         android:id="@+id/empty_state"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -43,10 +43,10 @@
             android:layout_height="@dimen/empty_state_add_icon_size"
             android:alpha="0.38"
             android:contentDescription="@string/counters_empty_message"
-            app:srcCompat="@drawable/ic_empty_state_add_white" />
+            app:srcCompat="@drawable/ic_empty_state_add" />
 
         <TextView
-            style="@style/EmptyStateMessage.Inverted"
+            style="@style/EmptyStateMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/counters_empty_message" />

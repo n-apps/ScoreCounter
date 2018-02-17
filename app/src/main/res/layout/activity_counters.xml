@@ -43,7 +43,7 @@
             android:layout_height="@dimen/empty_state_add_icon_size"
             android:alpha="0.38"
             android:contentDescription="@string/counters_empty_message"
-            app:srcCompat="@drawable/ic_empty_state_add_white" />
+            app:srcCompat="@drawable/ic_empty_state_add" />
 
         <TextView
             style="@style/EmptyStateMessage.Inverted"
