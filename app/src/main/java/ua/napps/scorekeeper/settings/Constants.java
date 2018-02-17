@@ -10,4 +10,5 @@ public class Constants {
 
     public static final String SETTINGS_SHAKE_TO_ROLL = "settings_shake_to_roll";
 
+    public static final String LAST_SELECTED_BOTTOM_TAB = "last_selected_bottom_tab";
 }

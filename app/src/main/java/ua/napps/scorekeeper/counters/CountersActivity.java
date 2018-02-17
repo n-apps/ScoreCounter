@@ -309,7 +309,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
                 AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_reset_all");
                 break;
             case R.id.menu_settings:
-                showBottomSheetFragment();
                 AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_settings");
                 break;
             case R.id.menu_dice:
@@ -362,11 +361,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
         CountersViewModelFactory factory =
                 new CountersViewModelFactory((ScoreKeeperApp) getApplication(), countersDao);
         return ViewModelProviders.of(this, factory).get(CountersViewModel.class);
-    }
-
-    private void showBottomSheetFragment() {
-        bottomSheetFragment = new SettingsFragment();
-        bottomSheetFragment.show(getSupportFragmentManager(), "SettingsFragment");
     }
 
     private void subscribeToModel() {

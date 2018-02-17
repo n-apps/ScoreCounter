@@ -1,14 +1,15 @@
 package ua.napps.scorekeeper.settings;
 
-import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialogFragment;
-import android.support.design.widget.CoordinatorLayout;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.SwitchCompat;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
@@ -16,7 +17,7 @@ import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 
-public class SettingsFragment extends BottomSheetDialogFragment {
+public class SettingsFragment extends Fragment {
 
     private static final String FEEDBACK_EMAIL_ADDRESS = "scorekeeper.feedback@gmail.com";
 
@@ -24,28 +25,24 @@ public class SettingsFragment extends BottomSheetDialogFragment {
         // Required empty public constructor
     }
 
-    @SuppressLint("RestrictedApi")
+    public static SettingsFragment newInstance() {
+        return new SettingsFragment();
+    }
+
+    @Nullable
     @Override
-    public void setupDialog(Dialog dialog, int style) {
-        super.setupDialog(dialog, style);
-        View contentView = View.inflate(getContext(), R.layout.fragment_settings_bottom_sheet, null);
-        dialog.setContentView(contentView);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View contentView = inflater.inflate(R.layout.fragment_settings, null);
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
         contentView.findViewById(R.id.send_feedback).setOnClickListener(v -> {
             startEmailClient();
-            this.dismiss();
         });
         final TinyDB settingsDB = new TinyDB(getContext());
         boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
         stayAwake.setChecked(isStayAwake);
         stayAwake.setOnCheckedChangeListener(
                 (buttonView, isChecked) -> settingsDB.putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked));
-        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams)
-                ((View) contentView.getParent()).getLayoutParams();
-        final CoordinatorLayout.Behavior behavior = params.getBehavior();
-        if (behavior != null && behavior instanceof BottomSheetBehavior) {
-            ((BottomSheetBehavior) behavior).setState(BottomSheetBehavior.STATE_HIDDEN);
-        }
+        return contentView;
     }
 
     private void startEmailClient() {
