@@ -3,9 +3,7 @@
     android:height="256dp"
     android:viewportHeight="512.0"
     android:viewportWidth="512.0">
-    <path
-        android:fillColor="?attr/diceBackground"
-        android:pathData="@string/dice_bg" />
+
     <path
         android:fillColor="?attr/colorPrimary"
         android:pathData="@string/dice_frame" />
