@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.counters;
 
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,6 +10,7 @@ import android.view.WindowManager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.ashokvarma.bottomnavigation.TextBadgeItem;
 import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -33,21 +33,24 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private Fragment currentFragment;
     private FragmentManager manager;
     private int lastSelectedPosition;
+    private BottomNavigationBar bottomNavigationBar;
+    private TextBadgeItem diceNumberBadgeItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
+        bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         lastSelectedPosition = settingsDB.getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
         int primary = ContextCompat.getColor(this, R.color.primaryColor);
+        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColor(primary);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters").setActiveColor(primary))
-                .addItem(new BottomNavigationItem(R.drawable.ic_dice_white, "Dice"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_dice_white, "Dice").setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings").setActiveColor(primary))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
@@ -92,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public void updateDiceNavMenuBadge(int number) {
+        diceNumberBadgeItem.setText("" + number);
     }
 
     @Override

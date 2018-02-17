@@ -121,8 +121,8 @@ public class DiceActivity extends AppCompatActivity implements DrawerLayout.Draw
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         findViewById(R.id.btn_open_drawer).setOnClickListener(v -> drawer.openDrawer(GravityCompat.END));
 
-        shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         switchShakeToRoll.setChecked(shakeToRollEnabled);
+        shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
         drawer.addDrawerListener(this);
 
