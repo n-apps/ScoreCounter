@@ -134,8 +134,7 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
 
     @Override
     public void onEditClick(int counterId) {
-        final Intent intent = EditCounterActivity.getIntent(this, counterId);
-        startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+        EditCounterActivity.start(this, counterId);
         Bundle params = new Bundle();
         params.putString(Param.CHARACTER, "edit");
         AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "counter_header_click", params);

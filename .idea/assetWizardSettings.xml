@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_plus_one_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_sentiment_dissatisfied_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,12 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_plus_one_white" />
-                            <entry key="sourceFile" value="D:\dice(1).svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="height" value="512" />
+                            <entry key="outputName" value="ic_dice_x" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="D:\dice-20.svg" />
+                            <entry key="width" value="512" />
                           </map>
                         </option>
                       </PersistentState>

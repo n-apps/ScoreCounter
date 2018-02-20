@@ -4,7 +4,6 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -180,8 +179,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public void onEditClick(int counterId) {
-        final Intent intent = EditCounterActivity.getIntent(getActivity(), counterId);
-        startActivityForResult(intent, EditCounterActivity.REQUEST_CODE);
+        EditCounterActivity.start(getActivity(), counterId);
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "edit");
         AndroidFirebaseAnalytics.logEvent(getActivity(), "counter_header_click", params);

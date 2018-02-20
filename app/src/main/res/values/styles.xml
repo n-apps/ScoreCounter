@@ -77,14 +77,14 @@
     </style>
 
     <style name="MiniDiceStyle">
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
         <item name="android:textColor">?attr/colorPrimary</item>
         <item name="android:fontFamily">@font/work_sans_semibold</item>
-        <item name="autoSizeMaxTextSize">@dimen/font_button</item>
+        <item name="autoSizeMaxTextSize">24sp</item>
         <item name="autoSizeMinTextSize">12sp</item>
         <item name="autoSizeStepGranularity">2sp</item>
         <item name="autoSizeTextType">uniform</item>
