@@ -1,183 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
 
     <TextView
+        android:id="@+id/tv_general"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spacing_normal"
+        android:layout_marginStart="@dimen/spacing_normal"
         android:padding="@dimen/spacing_normal"
         android:text="General"
-        android:textColor="@color/accentColor" />
+        android:textColor="@color/accentColor"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-    <FrameLayout
-        style="@style/TwoLinesStyle"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/iv_change_theme"
+        android:layout_width="@dimen/button_icon_size"
+        android:layout_height="@dimen/button_icon_size"
+        android:layout_marginLeft="@dimen/padding_normal"
+        app:layout_constraintBottom_toBottomOf="@id/sw_stay_awake"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/sw_stay_awake"
+        app:layout_constraintTop_toBottomOf="@id/tv_general"
+        app:srcCompat="@drawable/ic_change_theme" />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/sw_stay_awake"
+        style="@style/SwitchStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp">
-
-        <ImageView
-            android:layout_width="@dimen/button_icon_size"
-            android:layout_height="@dimen/button_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/padding_normal"
-            app:srcCompat="@drawable/ic_change_theme" />
-
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/sw_stay_awake"
-            style="@style/SwitchStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            android:paddingLeft="56dp"
-            android:text="@string/settings_stay_awake" />
-    </FrameLayout>
-
-    <include layout="@layout/divider" />
-
-    <!--Drawer content-->
-
-    <LinearLayout
-        android:id="@+id/drawer_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="?android:windowBackground"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_normal"
-            android:padding="@dimen/spacing_normal"
-            android:text="Dice"
-            android:textColor="@color/accentColor" />
-
-        <LinearLayout
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="@dimen/button_icon_size"
-                android:layout_height="@dimen/button_icon_size"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_digital_6" />
-
-            <ImageView
-                android:layout_width="@dimen/button_icon_size"
-                android:layout_height="@dimen/button_icon_size"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_digital_8" />
-
-
-            <ImageView
-                android:layout_width="@dimen/button_icon_size"
-                android:layout_height="@dimen/button_icon_size"
-                android:layout_gravity="center_vertical"
-                app:srcCompat="@drawable/dice_digital_20" />
-        </LinearLayout>
-
-        <FrameLayout
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp">
-
-            <ImageView
-                android:layout_width="@dimen/button_icon_size"
-                android:layout_height="@dimen/button_icon_size"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/padding_normal"
-                app:srcCompat="@drawable/ic_compare_arrows" />
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/sw_shake_roll"
-                style="@style/SwitchStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:paddingLeft="56dp"
-                android:text="@string/dice_drawer_shake_to_roll"
-                android:textColor="?myIconTint" />
-
-        </FrameLayout>
-    </LinearLayout>
+        android:paddingLeft="@dimen/padding_large"
+        android:text="@string/settings_stay_awake"
+        app:layout_constraintLeft_toRightOf="@id/iv_change_theme"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_general" />
 
     <TextView
+        android:id="@+id/tv_dice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/spacing_normal"
+        android:padding="@dimen/spacing_normal"
+        android:text="Dice"
+        android:textColor="@color/accentColor"
+        app:layout_constraintLeft_toLeftOf="@id/tv_general"
+        app:layout_constraintTop_toBottomOf="@id/sw_stay_awake" />
+
+    <ImageView
+        android:id="@+id/iv_shake_to_roll"
+        android:layout_width="@dimen/button_icon_size"
+        android:layout_height="@dimen/button_icon_size"
+        app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
+        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
+        app:srcCompat="@drawable/ic_compare_arrows" />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/sw_shake_roll"
+        style="@style/SwitchStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_large"
+        android:text="@string/dice_drawer_shake_to_roll"
+        android:textColor="?myIconTint"
+        app:layout_constraintLeft_toRightOf="@id/iv_shake_to_roll"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/black_12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
+
+    <TextView
+        android:id="@+id/iv_dice_6"
+        style="@style/MiniDiceStyle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:background="@drawable/bg_selector_dice"
+        android:text="6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_dice_8"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+
+    <TextView
+        android:id="@+id/iv_dice_8"
+        style="@style/MiniDiceStyle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_dice"
+        android:text="8"
+        app:layout_constraintLeft_toRightOf="@id/iv_dice_6"
+        app:layout_constraintRight_toLeftOf="@id/iv_dice_20"
+        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+
+
+    <TextView
+        android:id="@+id/iv_dice_20"
+        style="@style/MiniDiceStyle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_dice"
+        android:text="20"
+        app:layout_constraintLeft_toRightOf="@id/iv_dice_8"
+        app:layout_constraintRight_toRightOf="@id/iv_dice_x"
+        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+
+    <TextView
+        android:id="@+id/iv_dice_x"
+        style="@style/MiniDiceStyle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_dice"
+        android:text="X"
+        app:layout_constraintLeft_toRightOf="@id/iv_dice_20"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+
+    <TextView
+        android:id="@+id/tv_contact_developer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
         android:padding="@dimen/spacing_normal"
         android:text="Contact developer"
-        android:textColor="@color/accentColor" />
+        android:textColor="@color/accentColor"
+        app:layout_constraintLeft_toLeftOf="@id/tv_general"
+        app:layout_constraintTop_toBottomOf="@id/iv_dice_6" />
 
-    <FrameLayout
-        android:id="@+id/send_feedback"
+
+    <ImageView
+        android:id="@+id/iv_request_feature"
+        android:layout_width="@dimen/button_icon_size"
+        android:layout_height="@dimen/button_icon_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
+        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintRight_toLeftOf="@id/tv_request_feature"
+        app:layout_constraintTop_toTopOf="@id/tv_request_feature"
+        app:srcCompat="@drawable/ic_lightbulb_outline" />
+
+    <TextView
+        android:id="@+id/tv_request_feature"
         style="@style/TwoLinesStyle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp">
+        android:paddingLeft="@dimen/padding_large"
+        android:text="@string/settings_send_feedback"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_subheading"
+        app:layout_constraintLeft_toRightOf="@id/iv_request_feature"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
 
-        <ImageView
-            android:layout_width="@dimen/button_icon_size"
-            android:layout_height="@dimen/button_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/padding_normal"
-            app:srcCompat="@drawable/ic_lightbulb_outline" />
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/black_12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:foreground="?attr/selectableItemBackground"
-            android:includeFontPadding="false"
-            android:paddingLeft="56dp"
-            android:text="@string/settings_send_feedback"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="@dimen/font_subheading" />
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/iv_have_a_problem"
+        android:layout_width="@dimen/button_icon_size"
+        android:layout_height="@dimen/button_icon_size"
+        app:layout_constraintBottom_toBottomOf="@id/tv_have_a_problem"
+        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintTop_toTopOf="@id/tv_have_a_problem"
+        app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
 
-    <include layout="@layout/divider" />
-
-    <FrameLayout
-        android:id="@+id/request_feature"
+    <TextView
+        android:id="@+id/tv_have_a_problem"
         style="@style/TwoLinesStyle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="0dp"
-        android:paddingRight="0dp">
-
-        <ImageView
-            android:layout_width="@dimen/button_icon_size"
-            android:layout_height="@dimen/button_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/padding_normal"
-            app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:foreground="?attr/selectableItemBackground"
-            android:includeFontPadding="false"
-            android:paddingLeft="56dp"
-            android:text="I have a problem"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="@dimen/font_subheading" />
-    </FrameLayout>
-</LinearLayout>
+        android:includeFontPadding="false"
+        android:paddingLeft="@dimen/padding_large"
+        android:text="I have a problem"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_subheading"
+        app:layout_constraintLeft_toRightOf="@id/iv_have_a_problem"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1" />
+</android.support.constraint.ConstraintLayout>

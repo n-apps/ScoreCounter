@@ -58,15 +58,20 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private EditCounterViewModel viewModel;
 
-    public static Intent getIntent(Context context, int id) {
+    public static void start(Context context, int counterId) {
         Intent intent = new Intent(context, EditCounterActivity.class);
-        intent.putExtra(ARGUMENT_COUNTER_ID, id);
-        return intent;
+        intent.putExtra(ARGUMENT_COUNTER_ID, counterId);
+        context.startActivity(intent);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (!getIntent().getExtras().containsKey(ARGUMENT_COUNTER_ID)) {
+            throw new UnsupportedOperationException("Activity should be started using the static start method");
+        }
         setContentView(R.layout.activity_edit_counter);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

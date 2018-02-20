@@ -114,6 +114,7 @@
             android:enabled="false"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/padding_normal"
+            android:paddingRight="@dimen/padding_normal"
             android:text="@string/common_increase" />
     </LinearLayout>
 </LinearLayout>
