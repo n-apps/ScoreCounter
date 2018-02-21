@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.LiveData;
+import android.support.annotation.IntRange;
 
 class DiceLiveData extends LiveData<Integer> {
 
@@ -34,7 +35,7 @@ class DiceLiveData extends LiveData<Integer> {
         return ((int) (Math.random() * diceVariant)) + 1;
     }
 
-    public void setDiceVariant(int diceVariant) {
+    public void setDiceVariant(@IntRange(from = 0, to = 100) int diceVariant) {
         this.diceVariant = diceVariant;
     }
 }

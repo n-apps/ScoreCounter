@@ -8,7 +8,7 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
-        <item name="android:fontFamily">@font/source_sans_pro_regular</item>
+        <item name="android:fontFamily">@fonts/source_sans_pro_regular</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="diceBackground">@color/dice_bg_light</item>
         <item name="myIconTint">@color/textColorPrimary</item>
@@ -83,7 +83,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
         <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:fontFamily">@font/work_sans_semibold</item>
+        <item name="android:fontFamily">@fonts/work_sans_semibold</item>
         <item name="autoSizeMaxTextSize">24sp</item>
         <item name="autoSizeMinTextSize">12sp</item>
         <item name="autoSizeStepGranularity">2sp</item>

@@ -35,9 +35,9 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
 import ua.napps.scorekeeper.dice.DiceActivity;
-import ua.napps.scorekeeper.settings.Constants;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;

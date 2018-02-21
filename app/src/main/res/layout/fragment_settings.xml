@@ -80,64 +80,82 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
 
-    <TextView
-        android:id="@+id/iv_dice_6"
-        style="@style/MiniDiceStyle"
+    <ToggleButton
+        android:id="@+id/tb_dice_6"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/spacing_large"
-        android:background="@drawable/bg_selector_dice"
-        android:text="6"
+        android:background="@drawable/bg_selector_dice_toggle"
+        android:includeFontPadding="false"
+        android:textOff="6"
+        android:textOn="6"
+        android:textSize="@dimen/font_display"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/iv_dice_8"
-        app:layout_constraintTop_toBottomOf="@id/divider2" />
+        app:layout_constraintRight_toLeftOf="@id/tb_dice_8"
+        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
 
-
-    <TextView
-        android:id="@+id/iv_dice_8"
-        style="@style/MiniDiceStyle"
+    <ToggleButton
+        android:id="@+id/tb_dice_8"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice"
-        android:text="8"
-        app:layout_constraintLeft_toRightOf="@id/iv_dice_6"
-        app:layout_constraintRight_toLeftOf="@id/iv_dice_20"
-        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+        android:background="@drawable/bg_selector_dice_toggle"
+        android:includeFontPadding="false"
+        android:textOff="8"
+        android:textOn="8"
+        android:textSize="@dimen/font_display"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintLeft_toRightOf="@id/tb_dice_6"
+        app:layout_constraintRight_toLeftOf="@id/tb_dice_20"
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
 
-
-    <TextView
-        android:id="@+id/iv_dice_20"
-        style="@style/MiniDiceStyle"
+    <ToggleButton
+        android:id="@+id/tb_dice_20"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice"
-        android:text="20"
-        app:layout_constraintLeft_toRightOf="@id/iv_dice_8"
-        app:layout_constraintRight_toRightOf="@id/iv_dice_x"
-        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+        android:background="@drawable/bg_selector_dice_toggle"
+        android:includeFontPadding="false"
+        android:textOff="20"
+        android:textOn="20"
+        android:textSize="@dimen/font_display"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintLeft_toRightOf="@id/tb_dice_8"
+        app:layout_constraintRight_toLeftOf="@id/tb_dice_x"
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
 
-    <TextView
-        android:id="@+id/iv_dice_x"
-        style="@style/MiniDiceStyle"
+    <ToggleButton
+        android:id="@+id/tb_dice_x"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice"
-        android:text="X"
-        app:layout_constraintLeft_toRightOf="@id/iv_dice_20"
+        android:background="@drawable/bg_selector_dice_toggle"
+        android:includeFontPadding="false"
+        android:textOff="X"
+        android:textOn="X"
+        android:textSize="@dimen/font_display"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintLeft_toRightOf="@id/tb_dice_20"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/iv_dice_6" />
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:background="@color/black_12"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
 
     <TextView
         android:id="@+id/tv_contact_developer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:padding="@dimen/spacing_normal"
         android:text="Contact developer"
         android:textColor="@color/accentColor"
         app:layout_constraintLeft_toLeftOf="@id/tv_general"
-        app:layout_constraintTop_toBottomOf="@id/iv_dice_6" />
-
+        app:layout_constraintTop_toBottomOf="@id/divider3" />
 
     <ImageView
         android:id="@+id/iv_request_feature"
