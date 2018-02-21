@@ -3,11 +3,10 @@
     android:height="256dp"
     android:viewportHeight="512.0"
     android:viewportWidth="512.0">
-
     <path
         android:fillColor="?attr/colorPrimary"
         android:pathData="@string/dice_frame" />
     <path
         android:fillColor="?attr/colorPrimary"
-        android:pathData="M280.6,163.9L280.6,354L266.2,354L266.2,210C266.2,204.4 266.4,195.7 266.8,183.8C260.4,191.1 252.8,197.5 244,203.1C235.2,208.5 226.1,212.4 216.7,214.9L212.9,201.9C222.1,199.6 232.3,194.7 243.4,187.2C254.8,179.8 262.8,172 267.6,163.9L280.6,163.9Z" />
+        android:pathData="M280.6 163.9V354h-14.4V210c0-5.6 0.2-14.3 0.6-26.2-6.4 7.3-14 13.7-22.8 19.3-8.8 5.4-17.9 9.3-27.3 11.8l-3.8-13c9.2-2.3 19.4-7.2 30.5-14.7 11.4-7.4 19.4-15.2 24.2-23.3h13z" />
 </vector>

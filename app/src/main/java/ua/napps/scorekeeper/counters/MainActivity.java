@@ -15,8 +15,8 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.dice.DicesFragment;
-import ua.napps.scorekeeper.settings.Constants;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;

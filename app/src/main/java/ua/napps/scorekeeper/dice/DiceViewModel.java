@@ -6,6 +6,7 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
+import android.support.annotation.IntRange;
 
 public class DiceViewModel extends ViewModel {
 
@@ -13,7 +14,7 @@ public class DiceViewModel extends ViewModel {
 
     private LiveSensor sensorLiveData;
 
-    public DiceViewModel(int diceVariant) {
+    public DiceViewModel(@IntRange(from = 0, to = 100) int diceVariant) {
         diceResult.setDiceVariant(diceVariant);
     }
 

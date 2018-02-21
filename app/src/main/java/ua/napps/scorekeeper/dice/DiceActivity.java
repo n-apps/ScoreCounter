@@ -23,7 +23,7 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.settings.Constants;
+import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ViewUtil;
