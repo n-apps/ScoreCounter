@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private int lastSelectedPosition;
     private BottomNavigationBar bottomNavigationBar;
     private TextBadgeItem diceNumberBadgeItem;
+    private int lastDiceResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +50,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         int primary = ContextCompat.getColor(this, R.color.primaryColor);
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColor(primary);
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters").setActiveColor(primary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice_white, "Dice").setBadgeItem(diceNumberBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings").setActiveColor(primary))
+                .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings"))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
                 .setFirstSelectedPosition(lastSelectedPosition)
+                .setActiveColor(R.color.primaryColor)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
 
@@ -80,7 +82,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switchFragment(TAGS[position]);
         lastSelectedPosition = position;
         settingsDB.putInt(Constants.LAST_SELECTED_BOTTOM_TAB, lastSelectedPosition);
-
+        if (lastDiceResult > 0) {
+            diceNumberBadgeItem.setText("" + lastDiceResult);
+        } else {
+            diceNumberBadgeItem.hide(false);
+        }
     }
 
     @Override
@@ -96,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void updateDiceNavMenuBadge(int number) {
-        diceNumberBadgeItem.setText("" + number);
+        lastDiceResult = number;
     }
 
     @Override

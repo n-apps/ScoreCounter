@@ -69,7 +69,7 @@
             android:layout_gravity="center"
             android:alpha=".87"
             android:clickable="false"
-            android:fontFamily="@fonts/work_sans_light"
+            android:fontFamily="@font/work_sans_light"
             android:gravity="center"
             android:lines="1"
             app:autoSizeMaxTextSize="@dimen/counter_max_text_size"

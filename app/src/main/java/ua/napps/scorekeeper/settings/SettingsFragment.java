@@ -164,8 +164,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .positiveText(R.string.common_set)
                         .negativeColorRes(R.color.primaryColor)
                         .negativeText(R.string.common_cancel)
-//                        .typeface("work_sans_light.ttf", "source_sans_pro_regular.ttf")
                         .alwaysCallInputCallback()
+//                        .cancelListener(dialog -> if (!diceCustom.isChecked()) diceCustom.setChecked(false))
                         .input("From 1 to 100", null, false,
                                 (dialog, input) -> {
                                     if (input.length() > 0) {
@@ -193,5 +193,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 md.show();
                 break;
         }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        settingsDB = null;
     }
 }

@@ -31,6 +31,10 @@ public class DiceViewModel extends ViewModel {
         diceResult.rollDice();
     }
 
+    public void updateDiceVariant(int diceVariant) {
+        diceResult.setDiceVariant(diceVariant);
+    }
+
     public void disableSensor() {
         if (sensorLiveData != null) {
             sensorLiveData.disableSensor();

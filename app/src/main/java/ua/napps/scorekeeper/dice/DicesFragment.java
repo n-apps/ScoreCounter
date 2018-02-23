@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
@@ -25,7 +26,7 @@ import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 
-public class DicesFragment extends Fragment {
+public class DicesFragment extends Fragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private float accel;
     private float accelCurrent;
@@ -79,6 +80,7 @@ public class DicesFragment extends Fragment {
         settingsDB = new TinyDB(getContext());
         shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        settingsDB.registerOnSharedPreferenceChangeListener(this);
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_LOW)
@@ -105,6 +107,8 @@ public class DicesFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         diceFragmentInteractionListener = null;
+        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
+        settingsDB = null;
     }
 
 
@@ -178,6 +182,16 @@ public class DicesFragment extends Fragment {
                 AndroidFirebaseAnalytics.logEvent(getActivity(), "roll_dice", params);
             }
         });
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
+        switch (key) {
+            case Constants.SETTINGS_DICE_VARIANT:
+                currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+                viewModel.updateDiceVariant(currentDiceVariant);
+                break;
+        }
     }
 
     public interface OnDiceFragmentInteractionListener {
