@@ -34,7 +34,8 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:visibility="visible">
+        tools:visibility="visible"
+        tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:layout_width="@dimen/empty_state_add_icon_size"

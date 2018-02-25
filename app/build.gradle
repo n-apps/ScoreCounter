@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
 apply plugin: 'io.fabric'
 
-ext.versionMajor = 3
-ext.versionMinor = 1
+ext.versionMajor = 4
+ext.versionMinor = 0
 ext.versionPatch = 0
 
 android {
@@ -46,6 +46,10 @@ android {
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
+    }
+
+    lintOptions {
+        abortOnError true
     }
 }
 

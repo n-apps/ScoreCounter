@@ -45,7 +45,11 @@
     <string name="settings_try_to_fit_all_counters">Show all counters on screen</string>
     <string name="dice_drawer_appearance">Appearance</string>
     <string name="dice_drawer_dark_theme">Dark theme</string>
-    <string name="dice_drawer_shake_to_roll">Shake to roll</string>
+    <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="dice_drawer_variant">Dice variant</string>
     <string name="label_all_changes_saved">All changes saved</string>
+    <string name="settings_section_general">General</string>
+    <string name="settings_section_dice">Dice</string>
+    <string name="settings_section_contact_developer">Contact developer</string>
+    <string name="settings_have_a_problem">I have a problem</string>
 </resources>

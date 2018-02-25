@@ -27,7 +27,10 @@ class DiceLiveData extends LiveData<Integer> {
     }
 
     void rollDice() {
-        previousValue = getValue();
+        Integer value = getValue();
+        if (value != null) {
+            previousValue = value;
+        }
         setValue(generateDieResult());
     }
 

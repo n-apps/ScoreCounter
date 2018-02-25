@@ -5,8 +5,10 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -61,13 +63,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
-        MainActivity activity = (MainActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(null);
@@ -292,7 +293,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         longClickDialog = builder.build();
         longClickDialog.show();
         InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        if (inputMethodManager != null) {
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        }
     }
 
     @Override
@@ -309,14 +312,17 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                             }
                         })
                 .build();
-        md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
-            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                    == EditorInfo.IME_ACTION_DONE)) {
-                View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                positiveButton.callOnClick();
-            }
-            return false;
-        });
+        EditText editText = md.getInputEditText();
+        if (editText != null) {
+            editText.setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                        == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+        }
         md.show();
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "name");

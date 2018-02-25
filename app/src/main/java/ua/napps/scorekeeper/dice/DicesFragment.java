@@ -10,6 +10,7 @@ import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,18 +32,16 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     private float accel;
     private float accelCurrent;
     private float accelLast;
-    private int currentDiceResult;
     private ImageView dice;
-    private int prevDiceValue;
     private TextView previousResultTextView;
     private SpringAnimation springAnimation;
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private TinyDB settingsDB;
-    private boolean shakeToRollEnabled;
     private int currentDiceVariant;
 
     private OnDiceFragmentInteractionListener diceFragmentInteractionListener;
+    private boolean shakeToRoll;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -53,13 +52,7 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_dices, container, false);
         previousResultTextView = contentView.findViewById(R.id.tv_previous_result);
         dice = contentView.findViewById(R.id.dice);
@@ -75,17 +68,16 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        ViewUtil.setLightStatusBars(getActivity(), isThemeLight, isThemeLight);
         settingsDB = new TinyDB(getContext());
-        shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        shakeToRoll = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_LOW)
                 .setFinalPosition(1);
         subscribeUI();
-        if (shakeToRollEnabled) {
+        if (shakeToRoll) {
             initSensorData();
             useSensorLiveData();
         }
@@ -122,12 +114,9 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     }
 
     private void rollDice(@IntRange(from = 0, to = 100) int rollResult, int previousResult) {
-        int prevValue;
         if (previousResult == 0) {
             previousResultTextView.setVisibility(View.GONE);
-            prevValue = ((int) (Math.random() * currentDiceVariant)) + 1;
         } else {
-            prevValue = previousResult;
             previousResultTextView.setVisibility(View.VISIBLE);
             previousResultTextView
                     .setText(String.format(getString(R.string.dice_previous_result_label), previousResult));
@@ -135,9 +124,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
                 springAnimation.cancel();
             }
         }
-
-        currentDiceResult = rollResult;
-        prevDiceValue = prevValue;
 
         @DrawableRes int diceResId = getResources().getIdentifier("dice_digital_" + rollResult, "drawable", getActivity().getPackageName());
 
@@ -157,7 +143,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
                 rollDice(roll, previousValue);
             }
         });
-
     }
 
     private void useSensorLiveData() {
@@ -189,11 +174,18 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
                 currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
                 viewModel.updateDiceVariant(currentDiceVariant);
                 break;
+            case Constants.SETTINGS_SHAKE_TO_ROLL:
+                shakeToRoll = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
+                if (!shakeToRoll) {
+                    viewModel.disableSensor();
+                } else {
+                    viewModel.enableLiveSensor(getActivity());
+                }
+                break;
         }
     }
 
     public interface OnDiceFragmentInteractionListener {
-        // TODO: Update argument type and name
         void updateDiceNavMenuBadge(int number);
     }
 }

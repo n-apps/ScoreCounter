@@ -45,7 +45,11 @@
     <string name="settings_try_to_fit_all_counters">Всі лічильники на одному екрані</string>
     <string name="dice_drawer_appearance">Зовнішній вигляд</string>
     <string name="dice_drawer_dark_theme">Темна тема</string>
-    <string name="dice_drawer_shake_to_roll">Потрусити для кидку</string>
+    <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="dice_drawer_variant">Тип кубика</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
+    <string name="settings_section_general">General</string>
+    <string name="settings_section_dice">Dice</string>
+    <string name="settings_section_contact_developer">Contact developer</string>
+    <string name="settings_have_a_problem">I have a problem</string>
 </resources>

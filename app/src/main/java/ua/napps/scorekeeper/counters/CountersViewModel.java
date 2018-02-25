@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.counters;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.os.Bundle;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -23,7 +22,7 @@ import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
-    private LiveData<List<Counter>> counters = new MutableLiveData<>();
+    private final LiveData<List<Counter>> counters;
     private int listSize;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {

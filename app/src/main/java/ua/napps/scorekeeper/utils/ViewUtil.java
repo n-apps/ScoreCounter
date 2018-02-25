@@ -8,17 +8,18 @@ import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 import ua.com.napps.scorekeeper.R;
 
 public class ViewUtil {
 
-    public static void setLightStatusBars(@NonNull Activity activity, boolean isLightStatusBar,
-            boolean isLightNavBar) {
+    public static void setLightStatusBar(@NonNull Activity activity, boolean isLightStatusBar) {
 
         Window window = activity.getWindow();
 
@@ -43,13 +44,8 @@ public class ViewUtil {
             }
         }
         if (VERSION.SDK_INT >= VERSION_CODES.O) {
-            if (isLightNavBar) {
-                window.setNavigationBarColor(lightColor);
-                newSystemUiFlags |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-            } else {
-                window.setNavigationBarColor(darkColor);
-                newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-            }
+            window.setNavigationBarColor(darkColor);
+            newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         }
         if (newSystemUiFlags != oldSystemUiFlags) {
             window.getDecorView().setSystemUiVisibility(newSystemUiFlags);

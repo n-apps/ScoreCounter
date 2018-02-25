@@ -38,7 +38,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         this.callback = callback;
     }
 
-    public int getContainerHeight() {
+    private int getContainerHeight() {
         return containerHeight;
     }
 
@@ -182,7 +182,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         private void cancelLongClickTask() {
             if (timerTask != null) {
-                timerTask.setExecutable(false);
+                timerTask.setNonExecutable();
                 timerTask.cancel();
             }
             if (motionEvent != null) {
@@ -202,13 +202,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
             private boolean exec;
 
-            public LongClickTimerTask() {
+            LongClickTimerTask() {
                 exec = true;
-            }
-
-            @Override
-            public boolean cancel() {
-                return super.cancel();
             }
 
             @Override
@@ -218,8 +213,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                 }
             }
 
-            public void setExecutable(boolean exec) {
-                this.exec = exec;
+            void setNonExecutable() {
+                this.exec = false;
             }
 
         }

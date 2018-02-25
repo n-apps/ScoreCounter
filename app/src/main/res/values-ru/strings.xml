@@ -45,7 +45,11 @@
     <string name="settings_try_to_fit_all_counters">Все счетчики на одном экране</string>
     <string name="dice_drawer_appearance">Внешний вид</string>
     <string name="dice_drawer_dark_theme">Темная тема</string>
-    <string name="dice_drawer_shake_to_roll">Встряхнуть для броска</string>
+    <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="dice_drawer_variant">Вариант кубика</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
+    <string name="settings_section_general">General</string>
+    <string name="settings_section_dice">Dice</string>
+    <string name="settings_section_contact_developer">Contact developer</string>
+    <string name="settings_have_a_problem">I have a problem</string>
 </resources>

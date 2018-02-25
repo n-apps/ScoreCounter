@@ -2,15 +2,17 @@ package ua.napps.scorekeeper.counters;
 
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
-import io.reactivex.Completable;
+
 import java.util.List;
 
-public class CountersRepository {
+import io.reactivex.Completable;
+
+class CountersRepository {
 
     @NonNull
     private final CountersDao countersDao;
 
-    public CountersRepository(@NonNull CountersDao countersDao) {
+    CountersRepository(@NonNull CountersDao countersDao) {
         this.countersDao = countersDao;
     }
 

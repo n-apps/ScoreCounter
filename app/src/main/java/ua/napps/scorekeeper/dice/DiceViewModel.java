@@ -3,28 +3,32 @@ package ua.napps.scorekeeper.dice;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
-import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.support.annotation.IntRange;
 
-public class DiceViewModel extends ViewModel {
+class DiceViewModel extends ViewModel {
 
     private final DiceLiveData diceResult = new DiceLiveData();
 
     private LiveSensor sensorLiveData;
 
-    public DiceViewModel(@IntRange(from = 0, to = 100) int diceVariant) {
+    DiceViewModel(@IntRange(from = 0, to = 100) int diceVariant) {
         diceResult.setDiceVariant(diceVariant);
     }
 
     public LiveData<SensorEvent> getSensorLiveData(Context context) {
-        if (sensorLiveData == null) {
-
-            sensorLiveData = new LiveSensor((SensorManager) context.getSystemService(Context.SENSOR_SERVICE),
-                    Sensor.TYPE_ACCELEROMETER);
-        }
+        enableLiveSensor(context);
         return sensorLiveData;
+    }
+
+    public void enableLiveSensor(Context context) {
+        if (sensorLiveData == null) {
+            SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+            if (sensorManager != null) {
+                sensorLiveData = new LiveSensor(sensorManager);
+            }
+        }
     }
 
     public void rollDice() {
@@ -43,7 +47,6 @@ public class DiceViewModel extends ViewModel {
     }
 
     DiceLiveData getDiceLiveData() {
-
         return diceResult;
     }
 }
