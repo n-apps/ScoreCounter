@@ -95,9 +95,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onTabReselected(int position) {
-        // TODO: 17-Feb-18 scroll counters recyclerview to top
+        if (position == 0) {
+            if (currentFragment instanceof CountersFragment) {
+                ((CountersFragment) currentFragment).scrollToTop();
+            }
+        }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (lastSelectedPosition == 2) {
+            switchFragment(TAG_COUNTERS_FRAGMENT);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
     @Override
     public void updateDiceNavMenuBadge(int number) {

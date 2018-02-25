@@ -61,8 +61,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
@@ -322,5 +321,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "name");
         AndroidFirebaseAnalytics.logEvent(getActivity(), "counter_header_click", params);
+    }
+
+    public void scrollToTop() {
+        if (recyclerView != null) {
+            recyclerView.smoothScrollToPosition(0);
+        }
     }
 }
