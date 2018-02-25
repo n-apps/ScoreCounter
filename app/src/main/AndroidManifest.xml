@@ -26,18 +26,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ua.napps.scorekeeper.counters.CountersActivity"
-            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden" />
-        <activity
             android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
-            android:parentActivityName="ua.napps.scorekeeper.counters.CountersActivity"
+            android:parentActivityName="ua.napps.scorekeeper.counters.MainActivity"
             android:windowSoftInputMode="adjustNothing" />
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="false" />
-
-        <activity android:name="ua.napps.scorekeeper.dice.DiceActivity" />
 
     </application>
 

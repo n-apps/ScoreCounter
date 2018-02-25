@@ -136,9 +136,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.sw_shake_roll:
                 settingsDB.putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, isChecked);
                 break;
-            case R.id.sw_dark_theme:
-                settingsDB.putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, !isChecked);
-                break;
         }
     }
 

@@ -58,8 +58,7 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View contentView = inflater.inflate(R.layout.fragment_dices, container, false);
         previousResultTextView = contentView.findViewById(R.id.tv_previous_result);
@@ -98,8 +97,7 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
         if (context instanceof OnDiceFragmentInteractionListener) {
             diceFragmentInteractionListener = (OnDiceFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnDiceFragmentInteractionListener");
+            throw new RuntimeException(context.toString() + " must implement OnDiceFragmentInteractionListener");
         }
     }
 
