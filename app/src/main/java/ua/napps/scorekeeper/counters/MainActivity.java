@@ -19,6 +19,7 @@ import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
 
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private Fragment currentFragment;
     private FragmentManager manager;
     private int lastSelectedPosition;
-    private BottomNavigationBar bottomNavigationBar;
     private TextBadgeItem diceNumberBadgeItem;
     private int lastDiceResult;
 
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
+        BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         settingsDB = new TinyDB(getApplicationContext());
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
+        ViewUtil.setLightStatusBar(this, position > 0);
     }
 
     @Override
@@ -136,9 +137,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     } else {
                         manager.beginTransaction().add(R.id.container, fragment, tag).commit();
                     }
-
                     currentFragment = fragment;
-
                     break;
                 case TAG_DICES_FRAGMENT:
                     fragment = DicesFragment.newInstance();

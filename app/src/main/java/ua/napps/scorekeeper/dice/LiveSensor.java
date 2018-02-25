@@ -6,15 +6,15 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-public class LiveSensor extends LiveData<SensorEvent> implements SensorEventListener {
+class LiveSensor extends LiveData<SensorEvent> implements SensorEventListener {
 
-    public final SensorManager sensorManager;
+    private final SensorManager sensorManager;
 
     private final Sensor sensor;
 
-    public LiveSensor(SensorManager sensorManager, int type) {
+    LiveSensor(SensorManager sensorManager) {
         this.sensorManager = sensorManager;
-        this.sensor = sensorManager.getDefaultSensor(type);
+        this.sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
     }
 
     @Override

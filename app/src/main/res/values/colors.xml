@@ -19,7 +19,7 @@
     <color name="black_12">#1F000000</color>
     <color name="black_5">#0D000000</color>
     <color name="light_status_bar">@color/white</color>
-    <color name="dark_status_bar">#222</color>
+    <color name="dark_status_bar">@color/primaryColor</color>
     <color name="dice_bg_light">#F8EFE4</color>
     <color name="dice_bg_dark">#000</color>
 

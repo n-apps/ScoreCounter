@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ToggleButton;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -162,9 +163,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .negativeColorRes(R.color.primaryColor)
                         .negativeText(R.string.common_cancel)
                         .alwaysCallInputCallback()
-                        .cancelListener(dialog -> {
-                            refreshDices(false);
-                        })
+                        .cancelListener(dialog -> refreshDices(false))
                         .input("From 1 to 100", null, false,
                                 (dialog, input) -> {
                                     if (input.length() > 0) {
@@ -177,18 +176,24 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                                     }
                                 })
                         .onPositive((dialog, which) -> {
-                            currentDiceVariant = Integer.parseInt(dialog.getInputEditText().getText().toString());
-                            refreshDices(true);
+                            EditText editText = dialog.getInputEditText();
+                            if (editText != null) {
+                                currentDiceVariant = Integer.parseInt(editText.getText().toString());
+                                refreshDices(true);
+                            }
                         })
                         .build();
-                md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
-                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                            == EditorInfo.IME_ACTION_DONE)) {
-                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                        positiveButton.callOnClick();
-                    }
-                    return false;
-                });
+                EditText editText = md.getInputEditText();
+                if (editText != null) {
+                    editText.setOnEditorActionListener((textView, actionId, event) -> {
+                        if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                                == EditorInfo.IME_ACTION_DONE)) {
+                            View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                            positiveButton.callOnClick();
+                        }
+                        return false;
+                    });
+                }
                 md.show();
                 break;
         }

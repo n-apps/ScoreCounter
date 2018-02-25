@@ -3,17 +3,20 @@ package ua.napps.scorekeeper.utils;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+
 import com.google.firebase.analytics.FirebaseAnalytics;
+
 import ua.com.napps.scorekeeper.BuildConfig;
 
 public class AndroidFirebaseAnalytics {
 
     private static FirebaseAnalytics firebaseAnalytics;
 
-    public static FirebaseAnalytics getInstance(Context context) {
+    private static FirebaseAnalytics getInstance(Context context) {
         if (firebaseAnalytics == null) {
             firebaseAnalytics = FirebaseAnalytics.getInstance(context);
-            firebaseAnalytics.setMinimumSessionDuration(3000); //minimum session is 1 minute
+            firebaseAnalytics.setMinimumSessionDuration(3000); //minimum session time is 1 minute
+            firebaseAnalytics.setUserProperty("app_version", "beta");
             firebaseAnalytics.setAnalyticsCollectionEnabled(!BuildConfig.DEBUG);
         }
         return firebaseAnalytics;

@@ -13,15 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_normal"
         android:padding="@dimen/spacing_normal"
-        android:text="General"
+        android:text="@string/settings_section_general"
         android:textColor="@color/accentColor"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_change_theme"
+        android:id="@+id/iv_keep_screen_on"
         android:layout_width="@dimen/button_icon_size"
         android:layout_height="@dimen/button_icon_size"
         android:layout_marginLeft="@dimen/padding_normal"
+        android:contentDescription="@string/settings_stay_awake"
         app:layout_constraintBottom_toBottomOf="@id/sw_stay_awake"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/sw_stay_awake"
@@ -36,7 +37,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:paddingLeft="@dimen/padding_large"
         android:text="@string/settings_stay_awake"
-        app:layout_constraintLeft_toRightOf="@id/iv_change_theme"
+        app:layout_constraintLeft_toRightOf="@id/iv_keep_screen_on"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_general" />
 
@@ -45,17 +46,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/spacing_normal"
-        android:text="Dice"
+        android:text="@string/settings_section_dice"
         android:textColor="@color/accentColor"
         app:layout_constraintLeft_toLeftOf="@id/tv_general"
         app:layout_constraintTop_toBottomOf="@id/sw_stay_awake" />
 
     <ImageView
         android:id="@+id/iv_shake_to_roll"
+        android:contentDescription="@string/settings_shake_to_roll"
         android:layout_width="@dimen/button_icon_size"
         android:layout_height="@dimen/button_icon_size"
         app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
-        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
         app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
         app:srcCompat="@drawable/ic_compare_arrows" />
 
@@ -65,7 +67,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/padding_large"
-        android:text="@string/dice_drawer_shake_to_roll"
+        android:text="@string/settings_shake_to_roll"
         android:textColor="?myIconTint"
         app:layout_constraintLeft_toRightOf="@id/iv_shake_to_roll"
         app:layout_constraintRight_toRightOf="parent"
@@ -92,7 +94,8 @@
         android:textSize="@dimen/font_display"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/tb_dice_8"
-        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
+        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll"
+        tools:ignore="HardcodedText" />
 
     <ToggleButton
         android:id="@+id/tb_dice_8"
@@ -106,7 +109,8 @@
         app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
         app:layout_constraintLeft_toRightOf="@id/tb_dice_6"
         app:layout_constraintRight_toLeftOf="@id/tb_dice_20"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
 
     <ToggleButton
         android:id="@+id/tb_dice_20"
@@ -120,7 +124,8 @@
         app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
         app:layout_constraintLeft_toRightOf="@id/tb_dice_8"
         app:layout_constraintRight_toLeftOf="@id/tb_dice_x"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
 
     <ToggleButton
         android:id="@+id/tb_dice_x"
@@ -134,7 +139,8 @@
         app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
         app:layout_constraintLeft_toRightOf="@id/tb_dice_20"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6" />
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
 
     <View
         android:id="@+id/divider3"
@@ -152,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_normal"
         android:padding="@dimen/spacing_normal"
-        android:text="Contact developer"
+        android:text="@string/settings_section_contact_developer"
         android:textColor="@color/accentColor"
         app:layout_constraintLeft_toLeftOf="@id/tv_general"
         app:layout_constraintTop_toBottomOf="@id/divider3" />
@@ -162,8 +168,9 @@
         android:layout_width="@dimen/button_icon_size"
         android:layout_height="@dimen/button_icon_size"
         app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
-        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
         app:layout_constraintRight_toLeftOf="@id/tv_request_feature"
+        android:contentDescription="@string/settings_send_feedback"
         app:layout_constraintTop_toTopOf="@id/tv_request_feature"
         app:srcCompat="@drawable/ic_lightbulb_outline" />
 
@@ -194,7 +201,8 @@
         android:layout_width="@dimen/button_icon_size"
         android:layout_height="@dimen/button_icon_size"
         app:layout_constraintBottom_toBottomOf="@id/tv_have_a_problem"
-        app:layout_constraintLeft_toLeftOf="@id/iv_change_theme"
+        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
+        android:contentDescription="@string/settings_have_a_problem"
         app:layout_constraintTop_toTopOf="@id/tv_have_a_problem"
         app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
 
@@ -205,7 +213,7 @@
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
         android:paddingLeft="@dimen/padding_large"
-        android:text="I have a problem"
+        android:text="@string/settings_have_a_problem"
         android:textColor="@color/textColorPrimary"
         android:textSize="@dimen/font_subheading"
         app:layout_constraintLeft_toRightOf="@id/iv_have_a_problem"

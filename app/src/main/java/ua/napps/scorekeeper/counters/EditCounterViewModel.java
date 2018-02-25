@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.counters;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 
@@ -13,13 +12,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class EditCounterViewModel extends ViewModel {
+class EditCounterViewModel extends ViewModel {
 
     private final CountersRepository countersRepository;
     private final EditCounterViewModelCallback callback;
+    private final LiveData<Counter> counterLiveData;
     private final int id;
     private Counter counter;
-    private LiveData<Counter> counterLiveData = new MutableLiveData<>();
 
     EditCounterViewModel(CountersRepository repository, final int counterId, EditCounterViewModelCallback callback) {
         this.callback = callback;

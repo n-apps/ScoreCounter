@@ -32,13 +32,11 @@ import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
-public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
-
-    public static final int REQUEST_CODE = 1;
+class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
 
     public static final int RESULT_DELETE = 1003;
 
-    protected static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
+    private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
 
     private CircleView colorPreview;
 
@@ -69,7 +67,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!getIntent().getExtras().containsKey(ARGUMENT_COUNTER_ID)) {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null && !extras.containsKey(ARGUMENT_COUNTER_ID)) {
             throw new UnsupportedOperationException("Activity should be started using the static start method");
         }
         setContentView(R.layout.activity_edit_counter);
@@ -144,14 +143,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 }
                             })
                     .build();
-            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                        == EditorInfo.IME_ACTION_DONE)) {
-                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                    positiveButton.callOnClick();
-                }
-                return false;
-            });
+            EditText inputEditText = md.getInputEditText();
+            if (inputEditText != null) {
+                inputEditText.setOnEditorActionListener((textView, actionId, event) -> {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                            == EditorInfo.IME_ACTION_DONE)) {
+                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                        positiveButton.callOnClick();
+                    }
+                    return false;
+                });
+            }
             md.show();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_value_click");
         });
@@ -182,14 +184,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 }
                             })
                     .build();
-            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                        == EditorInfo.IME_ACTION_DONE)) {
-                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                    positiveButton.callOnClick();
-                }
-                return false;
-            });
+            EditText editText = md.getInputEditText();
+            if (editText != null) {
+                editText.setOnEditorActionListener((textView, actionId, event) -> {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                            == EditorInfo.IME_ACTION_DONE)) {
+                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                        positiveButton.callOnClick();
+                    }
+                    return false;
+                });
+            }
             md.show();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_default_click");
         });
@@ -220,14 +225,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 }
                             })
                     .build();
-            md.getInputEditText().setOnEditorActionListener((textView, actionId, event) -> {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                        == EditorInfo.IME_ACTION_DONE)) {
-                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                    positiveButton.callOnClick();
-                }
-                return false;
-            });
+            EditText editText = md.getInputEditText();
+            if (editText != null) {
+                editText.setOnEditorActionListener((textView, actionId, event) -> {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                            == EditorInfo.IME_ACTION_DONE)) {
+                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                        positiveButton.callOnClick();
+                    }
+                    return false;
+                });
+            }
             md.show();
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "edit_counter_step_click");
         });

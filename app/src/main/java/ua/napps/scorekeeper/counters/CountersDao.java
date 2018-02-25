@@ -6,6 +6,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+
 import java.util.List;
 
 @Dao
@@ -22,12 +23,6 @@ public interface CountersDao {
 
     @Query("SELECT * FROM counters")
     LiveData<List<Counter>> loadAllCounters();
-
-    @Query("SELECT * FROM counters")
-    List<Counter> loadAllCountersSync();
-
-    @Query("SELECT COUNT(*) FROM counters")
-    int getCountersCount();
 
     @Query("select * from counters where id = :counterId")
     LiveData<Counter> loadCounter(int counterId);

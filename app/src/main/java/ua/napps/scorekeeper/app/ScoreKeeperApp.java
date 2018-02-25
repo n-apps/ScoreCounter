@@ -27,7 +27,7 @@ public class ScoreKeeperApp extends Application {
 
     private static class CrashlyticsTree extends Timber.Tree {
 
-        public CrashlyticsTree(Context context) {
+        CrashlyticsTree(Context context) {
             Fabric.with(context, new Crashlytics());
         }
 
