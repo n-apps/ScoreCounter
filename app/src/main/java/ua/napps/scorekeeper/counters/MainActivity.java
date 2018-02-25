@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
@@ -47,16 +46,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         lastSelectedPosition = settingsDB.getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
-        int primary = ContextCompat.getColor(this, R.color.primaryColor);
-        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColor(primary);
+        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_dice_white, "Dice").setBadgeItem(diceNumberBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.ic_dice, "Dice").setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings"))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
+                .setBarBackgroundColor(R.color.primaryColor)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
+                .setActiveColor(R.color.white)
                 .setFirstSelectedPosition(lastSelectedPosition)
-                .setActiveColor(R.color.primaryColor)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
 

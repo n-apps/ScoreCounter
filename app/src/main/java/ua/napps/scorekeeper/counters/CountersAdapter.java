@@ -15,7 +15,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,7 +33,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     private int containerHeight;
     private int containerWidth;
     private List<Counter> counters;
-    private int itemHeight;
 
     CountersAdapter(CounterActionCallback callback) {
         this.callback = callback;
@@ -46,25 +44,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     public void setContainerHeight(int height) {
         containerHeight = height;
-        final int itemCount = getItemCount();
-        if (getItemHeight() == 0 && itemCount > 0) {
-            setItemHeight(height / itemCount);
-        }
-
-        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
         return counters == null ? 0 : counters.size();
-    }
-
-    public int getItemHeight() {
-        return itemHeight;
-    }
-
-    public void setItemHeight(int itemHeight) {
-        this.itemHeight = itemHeight;
     }
 
     @Override
@@ -76,8 +60,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         holder.itemView.setBackgroundColor(Color.parseColor(counter.getColor()));
         final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
         final Context context = holder.itemView.getContext();
-        final int textColor = ContextCompat
-                .getColor(context, darkBackground ? R.color.white : R.color.black);
+        final int textColor = ContextCompat.getColor(context, darkBackground ? R.color.white : R.color.black);
         holder.counterName.setTextColor(textColor);
         holder.counterValue.setTextColor(textColor);
         holder.counterEdit.setTextColor(textColor);
@@ -87,21 +70,12 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         DrawableCompat.setTint(wrapDrawable1, textColor);
         DrawableCompat.setTint(wrapDrawable2, textColor);
 
-        holder.itemView.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                holder.itemView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                setItemHeight(holder.itemView.getMeasuredHeight());
-            }
-        });
-
-        final int itemHeightDiv = getItemCount() > 0 ? getContainerHeight() / getItemCount() : getContainerHeight();
-        if (isCounterTooLow()) {// set height as 0.2 of recyclerview height
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth,
-                    getContainerHeight() / 5);
+        int itemCount = getItemCount();
+        if (itemCount > 5) {// set height as 0.2 of recyclerview height
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, getContainerHeight() / 5);
             holder.itemView.setLayoutParams(layoutParams);
         } else { // fit available space
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, itemHeightDiv);
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, getContainerHeight() / itemCount);
             holder.itemView.setLayoutParams(layoutParams);
         }
     }
@@ -121,18 +95,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counters = update;
             notifyItemRangeInserted(0, update.size());
         } else {
-            if (update.isEmpty()) {
-                setItemHeight(0);
-            }
-
             notifyDataSetChanged();
             counters.clear();
             counters.addAll(update);
         }
-    }
-
-    private boolean isCounterTooLow() {
-        return getItemCount() > 1 && getItemHeight() <= getContainerHeight() / 5;
     }
 
     public static class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {

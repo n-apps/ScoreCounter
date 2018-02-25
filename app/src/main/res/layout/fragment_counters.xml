@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/colorPrimary"
     tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 
     <android.support.design.widget.AppBarLayout
@@ -23,9 +23,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:background="@color/white"
         tools:listitem="@layout/item_counter"
         tools:visibility="gone" />
 
@@ -43,10 +41,10 @@
             android:layout_height="@dimen/empty_state_add_icon_size"
             android:alpha="0.38"
             android:contentDescription="@string/counters_empty_message"
-            app:srcCompat="@drawable/ic_empty_state_add" />
+            app:srcCompat="@drawable/ic_empty_state_add_white" />
 
         <TextView
-            style="@style/EmptyStateMessage"
+            style="@style/EmptyStateMessage.Inverted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/counters_empty_message" />
