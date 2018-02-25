@@ -165,7 +165,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .negativeColorRes(R.color.primaryColor)
                         .negativeText(R.string.common_cancel)
                         .alwaysCallInputCallback()
-//                        .cancelListener(dialog -> if (!diceCustom.isChecked()) diceCustom.setChecked(false))
+                        .cancelListener(dialog -> {
+                            refreshDices(false);
+                        })
                         .input("From 1 to 100", null, false,
                                 (dialog, input) -> {
                                     if (input.length() > 0) {

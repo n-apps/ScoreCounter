@@ -37,7 +37,6 @@ import com.google.firebase.analytics.FirebaseAnalytics.Param;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.app.ScoreKeeperApp;
-import ua.napps.scorekeeper.dice.DiceActivity;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
@@ -306,13 +305,6 @@ public class CountersActivity extends AppCompatActivity implements CounterAction
             case R.id.menu_reset_all:
                 viewModel.resetAll();
                 AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_reset_all");
-                break;
-            case R.id.menu_settings:
-                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_settings");
-                break;
-            case R.id.menu_dice:
-                startActivity(DiceActivity.getIntent(this));
-                AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "menu_dice");
                 break;
         }
         return true;

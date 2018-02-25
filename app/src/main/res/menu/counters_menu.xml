@@ -7,11 +7,6 @@
         android:title="@string/menu_add_new_counter"
         app:showAsAction="always" />
     <item
-        android:id="@+id/menu_dice"
-        android:icon="@drawable/ic_dice_white"
-        android:title="@string/menu_dice"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/menu_reset_all"
         android:title="@string/menu_reset_all_counters"
         app:showAsAction="never" />
@@ -19,9 +14,4 @@
         android:id="@+id/menu_remove_all"
         android:title="@string/menu_remove_all_counters"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_settings"
-        android:title="@string/menu_settings"
-        app:showAsAction="never" />
-
 </menu>

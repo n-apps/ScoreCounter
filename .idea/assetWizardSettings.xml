@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/social/ic_sentiment_dissatisfied_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_edit_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,12 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="height" value="512" />
-                            <entry key="outputName" value="dice_digital_100" />
+                            <entry key="outputName" value="ic_edit" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="S:\Android\ScoreKeeperApp\assets\dice-100.svg" />
-                            <entry key="width" value="512" />
                           </map>
                         </option>
                       </PersistentState>
