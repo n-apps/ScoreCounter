@@ -39,7 +39,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     private DiceViewModel viewModel;
     private TinyDB settingsDB;
     private int currentDiceVariant;
-
     private OnDiceFragmentInteractionListener diceFragmentInteractionListener;
     private boolean shakeToRoll;
 

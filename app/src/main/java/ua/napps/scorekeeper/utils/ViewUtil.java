@@ -43,10 +43,10 @@ public class ViewUtil {
                 }
             }
         }
-        if (VERSION.SDK_INT >= VERSION_CODES.O) {
-            window.setNavigationBarColor(darkColor);
-            newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-        }
+//        if (VERSION.SDK_INT >= VERSION_CODES.O) {
+//            window.setNavigationBarColor(darkColor);
+//            newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+//        }
         if (newSystemUiFlags != oldSystemUiFlags) {
             window.getDecorView().setSystemUiVisibility(newSystemUiFlags);
         }
