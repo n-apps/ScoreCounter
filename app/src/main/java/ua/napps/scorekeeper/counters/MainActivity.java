@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
@@ -39,11 +40,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        settingsDB = new TinyDB(getApplicationContext());
+        boolean isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
+        if (!isThemeLight) {
+            setTheme(R.style.AppTheme_Dark);
+        }
         setContentView(R.layout.activity_main);
         BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
-        settingsDB = new TinyDB(getApplicationContext());
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         lastSelectedPosition = settingsDB.getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedPosition]);
+        ViewUtil.setLightStatusBar(this, lastSelectedPosition > 0);
         applyKeepScreenOn(true);
     }
 
@@ -123,7 +129,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             case Constants.SETTINGS_KEEP_SCREEN_ON:
                 applyKeepScreenOn(false);
                 break;
+            case Constants.SETTINGS_DICE_THEME_LIGHT:
+//                manager.beginTransaction().remove(currentFragment).commitNowAllowingStateLoss();
+//                setTheme(R.style.AppTheme_Dark);
+//                recreate();
+                break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
+        settingsDB = null;
     }
 
     private void switchFragment(String tag) {
@@ -133,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 case TAG_COUNTERS_FRAGMENT:
                     fragment = CountersFragment.newInstance();
                     if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).add(R.id.container, fragment, tag).commit();
+                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
                     } else {
                         manager.beginTransaction().add(R.id.container, fragment, tag).commit();
                     }
@@ -142,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 case TAG_DICES_FRAGMENT:
                     fragment = DicesFragment.newInstance();
                     if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).add(R.id.container, fragment, tag).commit();
+                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
                     } else {
                         manager.beginTransaction().add(R.id.container, fragment, tag).commit();
                     }
@@ -151,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 case TAG_SETTINGS_FRAGMENT:
                     fragment = SettingsFragment.newInstance();
                     if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).add(R.id.container, fragment, tag).commit();
+                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
                     } else {
                         manager.beginTransaction().add(R.id.container, fragment, tag).commit();
                     }
@@ -159,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     break;
             }
         } else if (fragment.isHidden()) {
-            manager.beginTransaction().hide(currentFragment).show(fragment).commit();
+            manager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).hide(currentFragment).show(fragment).commit();
             currentFragment = fragment;
         }
     }

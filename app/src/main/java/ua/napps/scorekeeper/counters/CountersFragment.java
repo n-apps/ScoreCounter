@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
@@ -70,8 +69,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setItemAnimator(null);
+        recyclerView.setHasFixedSize(true);
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
         emptyState = contentView.findViewById(R.id.empty_state);

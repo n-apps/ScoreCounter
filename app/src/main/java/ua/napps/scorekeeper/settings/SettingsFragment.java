@@ -49,31 +49,29 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
         SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
+        SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         SwitchCompat shakeToRoll = contentView.findViewById(R.id.sw_shake_roll);
         diceSix = contentView.findViewById(R.id.tb_dice_6);
         diceEight = contentView.findViewById(R.id.tb_dice_8);
         diceTwenty = contentView.findViewById(R.id.tb_dice_20);
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
-        contentView.findViewById(R.id.tv_request_feature).setOnClickListener(v -> startEmailClient());
-        contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(v -> startEmailClient());
+        contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
 
         settingsDB = new TinyDB(getContext());
-        boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
-        boolean shakeToRollEnabled = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
+        stayAwake.setChecked(settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true));
+        darkTheme.setChecked(!settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true));
+        shakeToRoll.setChecked(settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true));
         currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
-
-        refreshDices(false);
-
-        stayAwake.setChecked(isStayAwake);
-        shakeToRoll.setChecked(shakeToRollEnabled);
-
         stayAwake.setOnCheckedChangeListener(this);
         shakeToRoll.setOnCheckedChangeListener(this);
+        darkTheme.setOnCheckedChangeListener(this);
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
         diceTwenty.setOnClickListener(this);
         diceCustom.setOnClickListener(this);
 
+        refreshDices(false);
         return contentView;
     }
 
@@ -123,8 +121,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     private void startEmailClient() {
         final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO,
-                Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
         intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
         intent.putExtra(Intent.EXTRA_SUBJECT, title);
         startActivity(Intent.createChooser(intent, getString(R.string.dialog_feedback_title)));
@@ -137,12 +134,22 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.sw_shake_roll:
                 settingsDB.putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, isChecked);
                 break;
+            case R.id.sw_stay_awake:
+                settingsDB.putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked);
+                break;
+            case R.id.sw_dark_theme:
+                settingsDB.putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, !isChecked);
+                break;
         }
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.tv_request_feature:
+            case R.id.tv_have_a_problem:
+                startEmailClient();
+                break;
             case R.id.tb_dice_6:
                 currentDiceVariant = 6;
                 refreshDices(true);
