@@ -5,7 +5,7 @@ import android.support.annotation.IntRange;
 
 class DiceLiveData extends LiveData<Integer> {
 
-    private int previousValue;
+    private int previousResult;
     private int diceVariant;
 
     DiceLiveData() {
@@ -22,14 +22,14 @@ class DiceLiveData extends LiveData<Integer> {
 
     }
 
-    int getPreviousValue() {
-        return previousValue;
+    int getPreviousResult() {
+        return previousResult;
     }
 
     void rollDice() {
         Integer value = getValue();
         if (value != null) {
-            previousValue = value;
+            previousResult = value;
         }
         setValue(generateDieResult());
     }
@@ -40,5 +40,9 @@ class DiceLiveData extends LiveData<Integer> {
 
     public void setDiceVariant(@IntRange(from = 0, to = 100) int diceVariant) {
         this.diceVariant = diceVariant;
+    }
+
+    public void setPreviousResult(int previousResult) {
+        this.previousResult = previousResult;
     }
 }

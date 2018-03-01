@@ -1,0 +1,32 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+        <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
+        <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
+        <item name="android:textColorHint">@color/textColorHintInverse</item>
+        <item name="android:fontFamily">@font/source_sans_pro_regular</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:navigationBarColor">@color/primaryColor</item>
+        <item name="android:colorControlHighlight">@color/dice_bg_light</item>
+        <item name="diceBackground">@color/dice_bg_light</item>
+        <item name="myIconTint">?attr/colorControlNormal</item>
+    </style>
+
+    <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
+
+    <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

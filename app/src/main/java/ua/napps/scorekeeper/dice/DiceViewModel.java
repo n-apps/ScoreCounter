@@ -13,8 +13,9 @@ class DiceViewModel extends ViewModel {
 
     private LiveSensor sensorLiveData;
 
-    DiceViewModel(@IntRange(from = 0, to = 100) int diceVariant) {
+    DiceViewModel(@IntRange(from = 0, to = 100) int diceVariant, int previousResult) {
         diceResult.setDiceVariant(diceVariant);
+        diceResult.setPreviousResult(previousResult);
     }
 
     public LiveData<SensorEvent> getSensorLiveData(Context context) {

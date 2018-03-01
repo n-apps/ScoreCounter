@@ -8,15 +8,17 @@ import android.support.annotation.NonNull;
 class DiceViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final int diceVariant;
+    private final int previousResult;
 
-    DiceViewModelFactory(@IntRange(from = 0, to = 100) int diceVariant) {
+    DiceViewModelFactory(@IntRange(from = 0, to = 100) int diceVariant, int previousResult) {
         this.diceVariant = diceVariant;
+        this.previousResult = previousResult;
     }
 
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         //noinspection unchecked
-        return (T) new DiceViewModel(diceVariant);
+        return (T) new DiceViewModel(diceVariant, previousResult);
     }
 }

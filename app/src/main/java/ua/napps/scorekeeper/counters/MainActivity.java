@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.WindowManager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -42,9 +43,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         settingsDB = new TinyDB(getApplicationContext());
         boolean isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
-        if (!isThemeLight) {
-            setTheme(R.style.AppTheme_Dark);
-        }
+        AppCompatDelegate.setDefaultNightMode(isThemeLight ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
         BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         easyRatingDialog = new EasyRatingDialog(this);
@@ -81,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         easyRatingDialog.onStart();
     }
 
-
     @Override
     public void onTabSelected(int position) {
         switchFragment(TAGS[position]);
@@ -110,16 +108,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @Override
-    public void onBackPressed() {
-        if (lastSelectedPosition == 2) {
-            switchFragment(TAG_COUNTERS_FRAGMENT);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public void updateDiceNavMenuBadge(int number) {
+    public void updateLastDiceResult(int number) {
         lastDiceResult = number;
     }
 
@@ -130,56 +119,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 applyKeepScreenOn(false);
                 break;
             case Constants.SETTINGS_DICE_THEME_LIGHT:
-//                manager.beginTransaction().remove(currentFragment).commitNowAllowingStateLoss();
-//                setTheme(R.style.AppTheme_Dark);
-//                recreate();
+                if (sharedPreferences.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true)) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                }
+                recreate();
                 break;
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
-        settingsDB = null;
-    }
-
     private void switchFragment(String tag) {
-        Fragment fragment = manager.findFragmentByTag(tag);
-        if (fragment == null) {
-            switch (tag) {
-                case TAG_COUNTERS_FRAGMENT:
-                    fragment = CountersFragment.newInstance();
-                    if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
-                    } else {
-                        manager.beginTransaction().add(R.id.container, fragment, tag).commit();
-                    }
-                    currentFragment = fragment;
-                    break;
-                case TAG_DICES_FRAGMENT:
-                    fragment = DicesFragment.newInstance();
-                    if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
-                    } else {
-                        manager.beginTransaction().add(R.id.container, fragment, tag).commit();
-                    }
-                    currentFragment = fragment;
-                    break;
-                case TAG_SETTINGS_FRAGMENT:
-                    fragment = SettingsFragment.newInstance();
-                    if (currentFragment != null) {
-                        manager.beginTransaction().hide(currentFragment).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).add(R.id.container, fragment, tag).commit();
-                    } else {
-                        manager.beginTransaction().add(R.id.container, fragment, tag).commit();
-                    }
-                    currentFragment = fragment;
-                    break;
-            }
-        } else if (fragment.isHidden()) {
-            manager.beginTransaction().setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).hide(currentFragment).show(fragment).commit();
-            currentFragment = fragment;
+        switch (tag) {
+            case TAG_COUNTERS_FRAGMENT:
+                currentFragment = CountersFragment.newInstance();
+                break;
+            case TAG_DICES_FRAGMENT:
+                currentFragment = DicesFragment.newInstance(lastDiceResult);
+                break;
+            case TAG_SETTINGS_FRAGMENT:
+                currentFragment = SettingsFragment.newInstance();
+                break;
         }
+        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
     }
 
     private void applyKeepScreenOn(boolean trackAnalytics) {
@@ -194,6 +156,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             params.putLong(FirebaseAnalytics.Param.SCORE, isStayAwake ? 1 : 0);
             AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_keep_screen_on", params);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (lastSelectedPosition == 2) {
+            switchFragment(TAG_COUNTERS_FRAGMENT);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
+        settingsDB = null;
     }
 }
 
