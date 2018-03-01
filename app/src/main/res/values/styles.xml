@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
 
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryColor</item>
@@ -13,7 +13,7 @@
         <item name="android:navigationBarColor">@color/primaryColor</item>
         <item name="android:colorControlHighlight">@color/dice_bg_light</item>
         <item name="diceBackground">@color/dice_bg_light</item>
-        <item name="myIconTint">@color/textColorPrimary</item>
+        <item name="myIconTint">?attr/colorControlNormal</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
@@ -61,6 +61,7 @@
         <item name="android:paddingLeft">@dimen/padding_normal</item>
         <item name="android:paddingRight">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="EmptyStateMessage" parent="TextAppearance.AppCompat.Medium">

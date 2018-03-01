@@ -22,6 +22,6 @@
     <color name="dark_status_bar">@color/primaryColor</color>
     <color name="dice_bg_light">#F8EFE4</color>
     <color name="dice_bg_dark">#000</color>
-    <color name="windowBackground">#ffffff</color>
+    <color name="windowBackground">#000</color>
 
 </resources>

@@ -26,9 +26,9 @@ import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
-
 public class DicesFragment extends Fragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
+    private static final String ARG_LAST_DICE_RESULT = "ARG_LAST_DICE_RESULT";
     private float accel;
     private float accelCurrent;
     private float accelLast;
@@ -41,13 +41,26 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     private int currentDiceVariant;
     private OnDiceFragmentInteractionListener diceFragmentInteractionListener;
     private boolean shakeToRoll;
+    private int previousResult;
 
     public DicesFragment() {
         // Required empty public constructor
     }
 
-    public static DicesFragment newInstance() {
-        return new DicesFragment();
+    public static DicesFragment newInstance(int lastDiceResult) {
+        DicesFragment fragment = new DicesFragment();
+        Bundle args = new Bundle(1);
+        args.putInt(ARG_LAST_DICE_RESULT, lastDiceResult);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            previousResult = getArguments().getInt(ARG_LAST_DICE_RESULT);
+        }
     }
 
     @Override
@@ -112,7 +125,7 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
         accelLast = SensorManager.GRAVITY_EARTH;
     }
 
-    private void rollDice(@IntRange(from = 0, to = 100) int rollResult, int previousResult) {
+    private void rollDice(@IntRange(from = 0, to = 100) int rollResult) {
         if (previousResult == 0) {
             previousResultTextView.setVisibility(View.GONE);
         } else {
@@ -123,23 +136,30 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
                 springAnimation.cancel();
             }
         }
+        previousResult = rollResult;
 
-        @DrawableRes int diceResId = getResources().getIdentifier("dice_digital_" + rollResult, "drawable", getActivity().getPackageName());
-
-        dice.setImageResource(diceResId);
-        diceFragmentInteractionListener.updateDiceNavMenuBadge(rollResult);
+        changeDiceDrawable(rollResult);
         springAnimation = getSpringAnimation();
         springAnimation.start();
     }
 
+    private void changeDiceDrawable(@IntRange(from = 0, to = 100) int rollResult) {
+        @DrawableRes int diceResId = getResources().getIdentifier("dice_digital_" + rollResult, "drawable", getActivity().getPackageName());
+
+        dice.setImageResource(diceResId);
+        diceFragmentInteractionListener.updateLastDiceResult(rollResult);
+    }
+
     private void subscribeUI() {
-        DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant);
+        DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant, previousResult);
         viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(this, roll -> {
             if (roll != null && roll > 0) {
-                final int previousValue = diceLiveData.getPreviousValue();
-                rollDice(roll, previousValue);
+                rollDice(roll);
+            } else if (previousResult > 0) {
+                changeDiceDrawable(previousResult); // restored after fragment recreation
+                previousResultTextView.setVisibility(View.GONE);
             }
         });
     }
@@ -185,6 +205,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     }
 
     public interface OnDiceFragmentInteractionListener {
-        void updateDiceNavMenuBadge(int number);
+        void updateLastDiceResult(int number);
     }
 }
