@@ -9,13 +9,13 @@
         <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
         <item name="android:textColorHint">@color/textColorHintInverse</item>
         <item name="android:fontFamily">@font/source_sans_pro_regular</item>
-        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackground">@color/black</item>
         <item name="android:navigationBarColor">@color/primaryColor</item>
         <item name="android:colorControlHighlight">@color/dice_bg_light</item>
         <item name="android:colorEdgeEffect">@color/dark_theme_bg</item>
-        <item name="myDiceBackground">@color/dice_bg_light</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/textColorHintInverse</item>
+        <item name="myEmptyStateBackground">@color/black</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
@@ -26,13 +26,16 @@
     </style>
 
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-
-    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
 
     <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppBarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:background">@color/black</item>
+        <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 </resources>
