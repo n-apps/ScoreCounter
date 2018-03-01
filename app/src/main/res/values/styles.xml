@@ -12,8 +12,10 @@
         <item name="android:windowBackground">@color/white</item>
         <item name="android:navigationBarColor">@color/primaryColor</item>
         <item name="android:colorControlHighlight">@color/dice_bg_light</item>
-        <item name="diceBackground">@color/dice_bg_light</item>
+        <item name="android:colorEdgeEffect">@color/dice_bg_light</item>
+        <item name="myDiceBackground">@color/dice_bg_light</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
+        <item name="myDividerColor">@color/black_12</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
@@ -22,7 +24,7 @@
         <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
         <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
         <item name="android:textColorHint">@color/textColorHintInverse</item>
-        <item name="diceBackground">@color/dice_bg_dark</item>
+        <item name="myDiceBackground">@color/dice_bg_dark</item>
         <item name="myIconTint">@color/white</item>
     </style>
 

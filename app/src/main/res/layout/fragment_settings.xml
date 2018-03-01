@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,242 +7,244 @@
     android:background="@color/windowBackground"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
 
-    <TextView
-        android:id="@+id/tv_general"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:padding="@dimen/spacing_normal"
-        android:text="@string/settings_section_general"
-        android:textColor="@color/accentColor"
-        app:layout_constraintLeft_toLeftOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_keep_screen_on"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="@dimen/padding_normal"
-        android:contentDescription="@string/settings_stay_awake"
-        app:layout_constraintBottom_toBottomOf="@id/sw_stay_awake"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/sw_stay_awake"
-        app:layout_constraintTop_toBottomOf="@id/tv_general"
-        app:srcCompat="@drawable/ic_change_theme" />
+        <TextView
+            android:id="@+id/tv_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/settings_section_general"
+            android:textColor="@color/accentColor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteX="8dp" />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/sw_stay_awake"
-        style="@style/SwitchStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_large"
-        android:text="@string/settings_stay_awake"
-        app:layout_constraintLeft_toRightOf="@id/iv_keep_screen_on"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_general" />
+        <ImageView
+            android:id="@+id/iv_keep_screen_on"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/padding_normal"
+            android:contentDescription="@string/settings_stay_awake"
+            app:layout_constraintBottom_toBottomOf="@id/sw_stay_awake"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/sw_stay_awake"
+            app:layout_constraintTop_toBottomOf="@id/tv_general"
+            app:srcCompat="@drawable/ic_change_theme" />
 
-    <ImageView
-        android:id="@+id/iv_dark_theme"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginLeft="@dimen/padding_normal"
-        android:contentDescription="@string/settings_dark_theme"
-        app:layout_constraintBottom_toBottomOf="@id/sw_dark_theme"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/sw_dark_theme"
-        app:layout_constraintTop_toTopOf="@id/sw_dark_theme"
-        app:srcCompat="@drawable/ic_wb_incandescent" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/sw_stay_awake"
+            style="@style/SwitchStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_stay_awake"
+            app:layout_constraintLeft_toRightOf="@id/iv_keep_screen_on"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_general" />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/sw_dark_theme"
-        style="@style/SwitchStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_large"
-        android:text="@string/settings_dark_theme"
-        app:layout_constraintLeft_toRightOf="@id/iv_dark_theme"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sw_stay_awake" />
+        <ImageView
+            android:id="@+id/iv_dark_theme"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="@dimen/padding_normal"
+            android:contentDescription="@string/settings_dark_theme"
+            app:layout_constraintBottom_toBottomOf="@id/sw_dark_theme"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/sw_dark_theme"
+            app:layout_constraintTop_toTopOf="@id/sw_dark_theme"
+            app:srcCompat="@drawable/ic_wb_incandescent" />
 
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/sw_dark_theme"
+            style="@style/SwitchStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_dark_theme"
+            app:layout_constraintLeft_toRightOf="@id/iv_dark_theme"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sw_stay_awake" />
 
-    <TextView
-        android:id="@+id/tv_dice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/spacing_normal"
-        android:text="@string/settings_section_dice"
-        android:textColor="@color/accentColor"
-        app:layout_constraintLeft_toLeftOf="@id/tv_general"
-        app:layout_constraintTop_toBottomOf="@id/sw_dark_theme" />
+        <TextView
+            android:id="@+id/tv_dice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/settings_section_dice"
+            android:textColor="@color/accentColor"
+            app:layout_constraintLeft_toLeftOf="@id/tv_general"
+            app:layout_constraintTop_toBottomOf="@id/sw_dark_theme" />
 
-    <ImageView
-        android:id="@+id/iv_shake_to_roll"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:contentDescription="@string/settings_shake_to_roll"
-        app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
-        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
-        app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
-        app:srcCompat="@drawable/ic_compare_arrows" />
+        <ImageView
+            android:id="@+id/iv_shake_to_roll"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_shake_to_roll"
+            app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
+            app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
+            app:srcCompat="@drawable/ic_compare_arrows" />
 
-    <android.support.v7.widget.SwitchCompat
-        android:id="@+id/sw_shake_roll"
-        style="@style/SwitchStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_large"
-        android:text="@string/settings_shake_to_roll"
-        android:textColor="?myIconTint"
-        app:layout_constraintLeft_toRightOf="@id/iv_shake_to_roll"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_dice" />
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/sw_shake_roll"
+            style="@style/SwitchStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_shake_to_roll"
+            app:layout_constraintLeft_toRightOf="@id/iv_shake_to_roll"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_dice" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:background="@color/black_12"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="?myDividerColor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_6"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:background="@drawable/bg_selector_dice_toggle"
-        android:includeFontPadding="false"
-        android:textOff="6"
-        android:textOn="6"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tb_dice_8"
-        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll"
-        tools:ignore="HardcodedText" />
+        <ToggleButton
+            android:id="@+id/tb_dice_6"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@drawable/bg_selector_dice_toggle"
+            android:includeFontPadding="false"
+            android:textOff="6"
+            android:textOn="6"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tb_dice_8"
+            app:layout_constraintTop_toBottomOf="@id/sw_shake_roll"
+            tools:ignore="HardcodedText" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_8"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice_toggle"
-        android:includeFontPadding="false"
-        android:textOff="8"
-        android:textOn="8"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintLeft_toRightOf="@id/tb_dice_6"
-        app:layout_constraintRight_toLeftOf="@id/tb_dice_20"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <ToggleButton
+            android:id="@+id/tb_dice_8"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_selector_dice_toggle"
+            android:includeFontPadding="false"
+            android:textOff="8"
+            android:textOn="8"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+            app:layout_constraintLeft_toRightOf="@id/tb_dice_6"
+            app:layout_constraintRight_toLeftOf="@id/tb_dice_20"
+            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+            tools:ignore="HardcodedText" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_20"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice_toggle"
-        android:includeFontPadding="false"
-        android:textOff="20"
-        android:textOn="20"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintLeft_toRightOf="@id/tb_dice_8"
-        app:layout_constraintRight_toLeftOf="@id/tb_dice_x"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <ToggleButton
+            android:id="@+id/tb_dice_20"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_selector_dice_toggle"
+            android:includeFontPadding="false"
+            android:textOff="20"
+            android:textOn="20"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+            app:layout_constraintLeft_toRightOf="@id/tb_dice_8"
+            app:layout_constraintRight_toLeftOf="@id/tb_dice_x"
+            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+            tools:ignore="HardcodedText" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_x"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_dice_toggle"
-        android:includeFontPadding="false"
-        android:textOff="X"
-        android:textOn="X"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintLeft_toRightOf="@id/tb_dice_20"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <ToggleButton
+            android:id="@+id/tb_dice_x"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_selector_dice_toggle"
+            android:includeFontPadding="false"
+            android:textOff="X"
+            android:textOn="X"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+            app:layout_constraintLeft_toRightOf="@id/tb_dice_20"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+            tools:ignore="HardcodedText" />
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:background="@color/black_12"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="?myDividerColor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
 
-    <TextView
-        android:id="@+id/tv_contact_developer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:padding="@dimen/spacing_normal"
-        android:text="@string/settings_section_contact_developer"
-        android:textColor="@color/accentColor"
-        app:layout_constraintLeft_toLeftOf="@id/tv_general"
-        app:layout_constraintTop_toBottomOf="@id/divider3" />
+        <TextView
+            android:id="@+id/tv_contact_developer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:padding="@dimen/spacing_normal"
+            android:text="@string/settings_section_contact_developer"
+            android:textColor="@color/accentColor"
+            app:layout_constraintLeft_toLeftOf="@id/tv_general"
+            app:layout_constraintTop_toBottomOf="@id/divider3" />
 
-    <ImageView
-        android:id="@+id/iv_request_feature"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:contentDescription="@string/settings_send_feedback"
-        app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
-        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
-        app:layout_constraintRight_toLeftOf="@id/tv_request_feature"
-        app:layout_constraintTop_toTopOf="@id/tv_request_feature"
-        app:srcCompat="@drawable/ic_lightbulb_outline" />
+        <ImageView
+            android:id="@+id/iv_request_feature"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_section_request_a_feature"
+            app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
+            app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/tv_request_feature"
+            app:srcCompat="@drawable/ic_lightbulb_outline" />
 
-    <TextView
-        android:id="@+id/tv_request_feature"
-        style="@style/TwoLinesStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/padding_large"
-        android:text="@string/settings_send_feedback"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_subheading"
-        app:layout_constraintLeft_toRightOf="@id/iv_request_feature"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
+        <TextView
+            android:id="@+id/tv_request_feature"
+            style="@style/TwoLinesStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_section_request_a_feature"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
+            app:layout_constraintLeft_toRightOf="@id/iv_request_feature"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
 
-    <View
-        android:id="@+id/divider1"
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:background="@color/black_12"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="@color/black_12"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
 
-    <ImageView
-        android:id="@+id/iv_have_a_problem"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:contentDescription="@string/settings_have_a_problem"
-        app:layout_constraintBottom_toBottomOf="@id/tv_have_a_problem"
-        app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
-        app:layout_constraintTop_toTopOf="@id/tv_have_a_problem"
-        app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
+        <ImageView
+            android:id="@+id/iv_have_a_problem"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_have_a_problem"
+            app:layout_constraintBottom_toBottomOf="@id/tv_have_a_problem"
+            app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/tv_have_a_problem"
+            app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
 
-    <TextView
-        android:id="@+id/tv_have_a_problem"
-        style="@style/TwoLinesStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:includeFontPadding="false"
-        android:paddingLeft="@dimen/padding_large"
-        android:text="@string/settings_have_a_problem"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_subheading"
-        app:layout_constraintLeft_toRightOf="@id/iv_have_a_problem"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider1" />
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_have_a_problem"
+            style="@style/TwoLinesStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_have_a_problem"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
+            app:layout_constraintLeft_toRightOf="@id/iv_have_a_problem"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider1" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
