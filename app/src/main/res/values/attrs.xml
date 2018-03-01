@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="diceBackground" format="reference" />
-    <attr name="myIconTint" format="reference" />
+    <attr name="myDiceBackground" format="reference|color" />
+    <attr name="myIconTint" format="reference|color" />
+    <attr name="myDividerColor" format="reference|color" />
 </resources>

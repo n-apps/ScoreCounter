@@ -35,11 +35,12 @@
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі лічильники</string>
     <string name="menu_reset_all_counters">Скинути всі лічильники</string>
-    <string name="settings_ask_for_help">I have a problem</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Загальні</string>
-    <string name="settings_section_request_a_feature">Contact developer</string>
+    <string name="settings_section_request_a_feature">Мені не вистачає…</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Залишати екран ввімкненим</string>
     <string name="settings_dark_theme">Темна тема</string>
+    <string name="settings_have_a_problem">Поскаржитись</string>
+    <string name="settings_section_contact_developer">Написати розробнику</string>
 </resources>

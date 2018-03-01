@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -25,38 +26,40 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
 
-    private final static String TAG_SETTINGS_FRAGMENT = "settingsFragment";
-    private final static String TAG_COUNTERS_FRAGMENT = "countersFragment";
-    private final static String TAG_DICES_FRAGMENT = "dicesFragment";
-    private final static String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
+    private static final String TAG_SETTINGS_FRAGMENT = "settingsFragment";
+    private static final String TAG_COUNTERS_FRAGMENT = "countersFragment";
+    private static final String TAG_DICES_FRAGMENT = "dicesFragment";
+    private static final String STATE_LAST_DICE_RESULT = "STATE_LAST_DICE_RESULT";
+    private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
     private TinyDB settingsDB;
     private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
-    private int lastSelectedPosition;
     private TextBadgeItem diceNumberBadgeItem;
+    private int lastSelectedPosition;
     private int lastDiceResult;
+    private boolean isThemeLight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         settingsDB = new TinyDB(getApplicationContext());
-        boolean isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
+        isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
         AppCompatDelegate.setDefaultNightMode(isThemeLight ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
-        BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         settingsDB.registerOnSharedPreferenceChangeListener(this);
         lastSelectedPosition = settingsDB.getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
+        BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters"))
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, "Dice").setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings"))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(R.color.primaryColor)
+                .setBarBackgroundColor(isThemeLight ? R.color.primaryColor : R.color.black)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
                 .setActiveColor(R.color.white)
                 .setFirstSelectedPosition(lastSelectedPosition)
@@ -64,9 +67,26 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedPosition]);
-        ViewUtil.setLightStatusBar(this, lastSelectedPosition > 0);
+        if (isThemeLight) {
+            ViewUtil.setLightStatusBar(this, lastSelectedPosition > 0);
+        }
         applyKeepScreenOn(true);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        outState.putInt(STATE_LAST_DICE_RESULT, lastDiceResult);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            updateLastDiceResult(savedInstanceState.getInt(STATE_LAST_DICE_RESULT));
+        }
+    }
+
 
     @Override
     protected void onResume() {
@@ -90,7 +110,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        ViewUtil.setLightStatusBar(this, position > 0);
+        if (isThemeLight) {
+            ViewUtil.setLightStatusBar(this, position > 0);
+        }
     }
 
     @Override

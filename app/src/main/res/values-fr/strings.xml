@@ -35,11 +35,12 @@
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>
     <string name="menu_reset_all_counters">Effacer tout</string>
-    <string name="settings_ask_for_help">Вemander de l\'aide</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Général</string>
     <string name="settings_section_request_a_feature">Demander une fonctionnalité</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_dark_theme">Thème sombre</string>
+    <string name="settings_have_a_problem">Se plaindre</string>
+    <string name="settings_section_contact_developer">Contacter le développeur</string>
 </resources>
