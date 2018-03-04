@@ -17,10 +17,10 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.settings.SettingsFragment;
-import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_LAST_DICE_RESULT = "STATE_LAST_DICE_RESULT";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-    private TinyDB settingsDB;
     private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
@@ -44,14 +43,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        settingsDB = new TinyDB(getApplicationContext());
-        isThemeLight = settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
+        isThemeLight = App.getTinyDB().getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
         AppCompatDelegate.setDefaultNightMode(isThemeLight ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
-        settingsDB.registerOnSharedPreferenceChangeListener(this);
-        lastSelectedPosition = settingsDB.getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
+        App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
+        lastSelectedPosition = App.getTinyDB().getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
@@ -67,9 +65,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedPosition]);
-        if (isThemeLight) {
-            ViewUtil.setLightStatusBar(this, lastSelectedPosition > 0);
-        }
+        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0);
         applyKeepScreenOn(true);
     }
 
@@ -104,15 +100,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void onTabSelected(int position) {
         switchFragment(TAGS[position]);
         lastSelectedPosition = position;
-        settingsDB.putInt(Constants.LAST_SELECTED_BOTTOM_TAB, lastSelectedPosition);
+        App.getTinyDB().putInt(Constants.LAST_SELECTED_BOTTOM_TAB, lastSelectedPosition);
         if (lastDiceResult > 0) {
             diceNumberBadgeItem.setText("" + lastDiceResult);
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        if (isThemeLight) {
-            ViewUtil.setLightStatusBar(this, position > 0);
-        }
+        ViewUtil.setLightStatusBar(this, isThemeLight && position > 0);
     }
 
     @Override
@@ -167,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void applyKeepScreenOn(boolean trackAnalytics) {
-        final boolean isStayAwake = settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
+        final boolean isStayAwake = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
         if (isStayAwake) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
@@ -176,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (trackAnalytics) {
             Bundle params = new Bundle();
             params.putLong(FirebaseAnalytics.Param.SCORE, isStayAwake ? 1 : 0);
-            AndroidFirebaseAnalytics.logEvent(getApplicationContext(), "settings_keep_screen_on", params);
+            AndroidFirebaseAnalytics.logEvent("settings_keep_screen_on", params);
         }
     }
 
@@ -192,8 +186,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
-        settingsDB = null;
+        App.getTinyDB().unregisterOnSharedPreferenceChangeListener(this);
     }
 }
 

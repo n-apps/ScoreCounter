@@ -76,7 +76,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> {
             viewModel.addCounter();
-            AndroidFirebaseAnalytics.logEvent(getContext(), "empty_state_add_counter");
+            AndroidFirebaseAnalytics.logEvent("empty_state_add_counter");
         });
 
         return contentView;
@@ -119,15 +119,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 } else {
                     subscribeUi();
                 }
-                AndroidFirebaseAnalytics.logEvent(getActivity(), "menu_add_counter");
+                AndroidFirebaseAnalytics.logEvent("menu_add_counter");
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
-                AndroidFirebaseAnalytics.logEvent(getActivity(), "menu_remove_all");
+                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                 break;
             case R.id.menu_reset_all:
                 viewModel.resetAll();
-                AndroidFirebaseAnalytics.logEvent(getActivity(), "menu_reset_all");
+                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
                 break;
         }
         return true;
@@ -154,7 +154,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                     );
                     Bundle params = new Bundle();
                     params.putLong(FirebaseAnalytics.Param.SCORE, size);
-                    AndroidFirebaseAnalytics.logEvent(getActivity(), "starting_number_of_counters", params);
+                    AndroidFirebaseAnalytics.logEvent("starting_number_of_counters", params);
                     isFirstLoad = false;
                 }
             } else {
@@ -173,7 +173,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         EditCounterActivity.start(getActivity(), counterId);
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "edit");
-        AndroidFirebaseAnalytics.logEvent(getActivity(), "counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     @Override
@@ -183,7 +183,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public void onLongClick(Counter counter, boolean isIncrease) {
-        AndroidFirebaseAnalytics.logEvent(getActivity(), "counter_long_click");
+        AndroidFirebaseAnalytics.logEvent("counter_long_click");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity());
         final Observer<Counter> counterObserver = c -> {
             if (longClickDialog != null && c != null) {
@@ -326,7 +326,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         md.show();
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "name");
-        AndroidFirebaseAnalytics.logEvent(getActivity(), "counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     public void scrollToTop() {

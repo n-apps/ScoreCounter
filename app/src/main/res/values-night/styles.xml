@@ -5,16 +5,16 @@
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryColor</item>
         <item name="colorAccent">@color/accentColor</item>
-        <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
-        <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
-        <item name="android:textColorHint">@color/textColorHintInverse</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/source_sans_pro_regular</item>
         <item name="android:windowBackground">@color/black</item>
-        <item name="android:navigationBarColor">@color/primaryColor</item>
-        <item name="android:colorControlHighlight">@color/dice_bg_light</item>
+        <item name="android:navigationBarColor">@color/black</item>
         <item name="android:colorEdgeEffect">@color/dark_theme_bg</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
-        <item name="myDividerColor">@color/textColorHintInverse</item>
+        <item name="myDiceColor">?attr/colorPrimary</item>
+        <item name="myDividerColor">@color/textColorHint</item>
         <item name="myEmptyStateBackground">@color/black</item>
     </style>
 

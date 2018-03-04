@@ -11,11 +11,11 @@
         <item name="android:fontFamily">@font/source_sans_pro_regular</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:navigationBarColor">@color/primaryColor</item>
-        <item name="android:colorControlHighlight">@color/dice_bg_light</item>
-        <item name="android:colorEdgeEffect">@color/dice_bg_light</item>
+        <item name="android:colorEdgeEffect">@color/accentColor</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myEmptyStateBackground">@color/primaryColor</item>
+        <item name="myDiceColor">?attr/colorPrimary</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">

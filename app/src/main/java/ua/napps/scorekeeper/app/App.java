@@ -13,13 +13,28 @@ import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
+import ua.napps.scorekeeper.storage.TinyDB;
 
-public class ScoreKeeperApp extends Application {
+public class App extends Application {
+
+    private static TinyDB tinyDB;
+    private static App instance;
+
+    public static TinyDB getTinyDB() {
+        if (tinyDB == null) {
+            tinyDB = new TinyDB(App.getInstance());
+        }
+        return tinyDB;
+    }
+
+    public static App getInstance() {
+        return instance;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-
+        App.instance = this;
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new CrashlyticsTree(this));
         DatabaseHolder.init(this);

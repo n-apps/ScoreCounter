@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.dice;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
@@ -22,11 +21,11 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.app.Constants;
-import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
-public class DicesFragment extends Fragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class DicesFragment extends Fragment  {
 
     private static final String ARG_LAST_DICE_RESULT = "ARG_LAST_DICE_RESULT";
     private float accel;
@@ -37,7 +36,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     private SpringAnimation springAnimation;
     private SpringForce springForce;
     private DiceViewModel viewModel;
-    private TinyDB settingsDB;
     private int currentDiceVariant;
     private OnDiceFragmentInteractionListener diceFragmentInteractionListener;
     private boolean shakeToRoll;
@@ -72,7 +70,7 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(FirebaseAnalytics.Param.CHARACTER, "click");
-            AndroidFirebaseAnalytics.logEvent(getActivity(), "roll_dice", params);
+            AndroidFirebaseAnalytics.logEvent("roll_dice", params);
         });
         return contentView;
     }
@@ -80,10 +78,8 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        settingsDB = new TinyDB(getContext());
-        currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
-        shakeToRoll = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
-        settingsDB.registerOnSharedPreferenceChangeListener(this);
+        currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        shakeToRoll = App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_LOW)
@@ -109,8 +105,6 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
     public void onDetach() {
         super.onDetach();
         diceFragmentInteractionListener = null;
-        settingsDB.unregisterOnSharedPreferenceChangeListener(this);
-        settingsDB = null;
     }
 
 
@@ -181,27 +175,9 @@ public class DicesFragment extends Fragment implements SharedPreferences.OnShare
                 viewModel.rollDice();
                 Bundle params = new Bundle();
                 params.putString(FirebaseAnalytics.Param.CHARACTER, "sensor");
-                AndroidFirebaseAnalytics.logEvent(getActivity(), "roll_dice", params);
+                AndroidFirebaseAnalytics.logEvent("roll_dice", params);
             }
         });
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
-        switch (key) {
-            case Constants.SETTINGS_DICE_VARIANT:
-                currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
-                viewModel.updateDiceVariant(currentDiceVariant);
-                break;
-            case Constants.SETTINGS_SHAKE_TO_ROLL:
-                shakeToRoll = settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
-                if (!shakeToRoll) {
-                    viewModel.disableSensor();
-                } else {
-                    viewModel.enableLiveSensor(getActivity());
-                }
-                break;
-        }
     }
 
     public interface OnDiceFragmentInteractionListener {

@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -22,8 +23,8 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.app.Constants;
-import ua.napps.scorekeeper.storage.TinyDB;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 
@@ -34,7 +35,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     private ToggleButton diceTwenty;
     private ToggleButton diceCustom;
     private int currentDiceVariant;
-    private TinyDB settingsDB;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -58,11 +58,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
 
-        settingsDB = new TinyDB(getContext());
-        stayAwake.setChecked(settingsDB.getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true));
-        darkTheme.setChecked(!settingsDB.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true));
-        shakeToRoll.setChecked(settingsDB.getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true));
-        currentDiceVariant = settingsDB.getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        stayAwake.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true));
+        darkTheme.setChecked(!App.getTinyDB().getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true));
+        shakeToRoll.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true));
+        currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
         stayAwake.setOnCheckedChangeListener(this);
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
@@ -77,7 +76,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     private void refreshDices(boolean storeInDB) {
         if (storeInDB && currentDiceVariant <= 100) {
-            settingsDB.putInt(Constants.SETTINGS_DICE_VARIANT, currentDiceVariant);
+            App.getTinyDB().putInt(Constants.SETTINGS_DICE_VARIANT, currentDiceVariant);
         }
         switch (currentDiceVariant) {
             case 6:
@@ -124,21 +123,25 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
         intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
         intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        startActivity(Intent.createChooser(intent, getString(R.string.dialog_feedback_title)));
-        AndroidFirebaseAnalytics.logEvent(getContext(), "settings_send_feedback");
+        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+        }
+        AndroidFirebaseAnalytics.logEvent("settings_send_feedback");
     }
 
     @Override
     public void onCheckedChanged(CompoundButton v, boolean isChecked) {
         switch (v.getId()) {
             case R.id.sw_shake_roll:
-                settingsDB.putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, isChecked);
+                App.getTinyDB().putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, isChecked);
                 break;
             case R.id.sw_stay_awake:
-                settingsDB.putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked);
+                App.getTinyDB().putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked);
                 break;
             case R.id.sw_dark_theme:
-                settingsDB.putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, !isChecked);
+                App.getTinyDB().putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, !isChecked);
                 break;
         }
     }
@@ -204,11 +207,5 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 md.show();
                 break;
         }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        settingsDB = null;
     }
 }
