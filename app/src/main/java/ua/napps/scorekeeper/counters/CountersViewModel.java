@@ -69,7 +69,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != -counter.getStep()) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, amount);
-            AndroidFirebaseAnalytics.logEvent(getApplication(), "decrease_counter", params);
+            AndroidFirebaseAnalytics.logEvent("decrease_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -104,7 +104,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != counter.getStep()) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, amount);
-            AndroidFirebaseAnalytics.logEvent(getApplication(), "increase_counter", params);
+            AndroidFirebaseAnalytics.logEvent("increase_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -130,7 +130,7 @@ class CountersViewModel extends AndroidViewModel {
         if (!name.equals(counter.getName())) {
             Bundle params = new Bundle();
             params.putLong(Param.SCORE, counter.getName().length());
-            AndroidFirebaseAnalytics.logEvent(getApplication(), "edit_counter_name_length", params);
+            AndroidFirebaseAnalytics.logEvent("edit_counter_name_length", params);
         }
         repository.modifyName(counter.getId(), name)
                 .observeOn(AndroidSchedulers.mainThread())

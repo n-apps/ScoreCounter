@@ -25,11 +25,10 @@ public class ViewUtil {
 
         int oldSystemUiFlags = activity.getWindow().getDecorView().getSystemUiVisibility();
         int newSystemUiFlags = oldSystemUiFlags;
-        int lightColor = ContextCompat.getColor(activity, R.color.light_status_bar);
-        int darkColor = ContextCompat.getColor(activity, R.color.dark_status_bar);
 
         if (isLightStatusBar) {
             if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+                int lightColor = ContextCompat.getColor(activity, R.color.white);
                 window.setStatusBarColor(lightColor);
                 if (VERSION.SDK_INT >= VERSION_CODES.M) {
                     newSystemUiFlags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -37,6 +36,7 @@ public class ViewUtil {
             }
         } else {
             if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
+                int darkColor = ContextCompat.getColor(activity, R.color.dark_status_bar);
                 window.setStatusBarColor(darkColor);
                 if (VERSION.SDK_INT >= VERSION_CODES.M) {
                     newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

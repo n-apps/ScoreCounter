@@ -53,4 +53,5 @@
     <string name="settings_section_contact_developer">Contact developer</string>
     <string name="settings_have_a_problem">I have a problem</string>
     <string name="settings_dark_theme">Dark theme</string>
+    <string name="error_no_email_client">No email app on your device :(</string>
 </resources>

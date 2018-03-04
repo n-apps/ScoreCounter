@@ -4,9 +4,9 @@
     android:viewportWidth="512"
     android:viewportHeight="512">
     <path
-        android:fillColor="?attr/colorPrimary"
+        android:fillColor="?myDiceColor"
         android:pathData="@string/dice_frame" />
     <path
-        android:fillColor="?attr/colorPrimary"
+        android:fillColor="?myDiceColor"
         android:pathData="M249.297 163.92v13.248c-23.424 24.768-40.992 51.648-52.704 80.64-11.52 28.8-18.048 60.864-19.584 96.192h-14.976c3.072-69.696 26.88-128.64 71.424-176.832h-120.96V163.92h136.8zm152.719 0v13.248c-23.424 24.768-40.992 51.648-52.704 80.64-11.52 28.8-18.048 60.864-19.584 96.192h-14.976c3.072-69.696 26.88-128.64 71.424-176.832h-120.96V163.92h136.8z" />
 </vector>
