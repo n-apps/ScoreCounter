@@ -4,4 +4,8 @@
     <attr name="myDividerColor" format="reference|color" />
     <attr name="myEmptyStateBackground" format="reference|color" />
     <attr name="myDiceColor" format="reference|color" />
+
+    <declare-styleable name="RoundedColorView">
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
 </resources>

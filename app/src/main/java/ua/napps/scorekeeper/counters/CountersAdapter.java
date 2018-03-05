@@ -129,7 +129,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
-            counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(counter.getId()));
+            counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
 
             counterClickableArea.setOnTouchListener(new OnTouchListener() {
                 float touchedX, touchedY;

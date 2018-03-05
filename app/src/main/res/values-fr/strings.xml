@@ -43,4 +43,7 @@
     <string name="settings_dark_theme">Thème sombre</string>
     <string name="settings_have_a_problem">Se plaindre</string>
     <string name="settings_section_contact_developer">Contacter le développeur</string>
+    <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
+    <string name="dialog_custom_dice_title">Nombre de côtés</string>
+    <string name="dialog_custom_dice_hint">De 2 à 100</string>
 </resources>
