@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
+import android.view.View;
+
 interface CounterActionCallback {
 
     void onDecreaseClick(Counter counter);
@@ -10,6 +12,6 @@ interface CounterActionCallback {
 
     void onNameClick(Counter counter);
 
-    void onEditClick(int counterId);
+    void onEditClick(View view, Counter counter);
 
 }

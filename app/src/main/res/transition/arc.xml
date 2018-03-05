@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<transitionManager xmlns:android="http://schemas.android.com/apk/res/android">
-
-</transitionManager>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="together">
+    <changeBounds>
+        <!--suppress AndroidElementNotAllowed -->
+        <arcMotion
+            android:maximumAngle="45"
+            android:minimumHorizontalAngle="45"
+            android:minimumVerticalAngle="0"/>
+    </changeBounds>
+</transitionSet>

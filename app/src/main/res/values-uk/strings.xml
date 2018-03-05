@@ -43,4 +43,7 @@
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_have_a_problem">Поскаржитись</string>
     <string name="settings_section_contact_developer">Написати розробнику</string>
+    <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
+    <string name="dialog_custom_dice_title">Кількість граней</string>
+    <string name="dialog_custom_dice_hint">Від 2 до 100</string>
 </resources>

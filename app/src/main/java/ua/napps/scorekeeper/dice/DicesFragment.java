@@ -25,7 +25,7 @@ import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
-public class DicesFragment extends Fragment  {
+public class DicesFragment extends Fragment {
 
     private static final String ARG_LAST_DICE_RESULT = "ARG_LAST_DICE_RESULT";
     private float accel;
@@ -37,9 +37,8 @@ public class DicesFragment extends Fragment  {
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private int currentDiceVariant;
-    private OnDiceFragmentInteractionListener diceFragmentInteractionListener;
-    private boolean shakeToRoll;
     private int previousResult;
+    private OnDiceFragmentInteractionListener listener;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -79,13 +78,12 @@ public class DicesFragment extends Fragment  {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
-        shakeToRoll = App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true);
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_LOW)
                 .setFinalPosition(1);
         subscribeUI();
-        if (shakeToRoll) {
+        if (App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true)) {
             initSensorData();
             useSensorLiveData();
         }
@@ -95,7 +93,7 @@ public class DicesFragment extends Fragment  {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnDiceFragmentInteractionListener) {
-            diceFragmentInteractionListener = (OnDiceFragmentInteractionListener) context;
+            listener = (OnDiceFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString() + " must implement OnDiceFragmentInteractionListener");
         }
@@ -104,7 +102,7 @@ public class DicesFragment extends Fragment  {
     @Override
     public void onDetach() {
         super.onDetach();
-        diceFragmentInteractionListener = null;
+        listener = null;
     }
 
 
@@ -119,7 +117,7 @@ public class DicesFragment extends Fragment  {
         accelLast = SensorManager.GRAVITY_EARTH;
     }
 
-    private void rollDice(@IntRange(from = 0, to = 100) int rollResult) {
+    private void rollDice(@IntRange(from = 1, to = 100) int rollResult) {
         if (previousResult == 0) {
             previousResultTextView.setVisibility(View.GONE);
         } else {
@@ -137,15 +135,15 @@ public class DicesFragment extends Fragment  {
         springAnimation.start();
     }
 
-    private void changeDiceDrawable(@IntRange(from = 0, to = 100) int rollResult) {
+    private void changeDiceDrawable(@IntRange(from = 1, to = 100) int rollResult) {
         @DrawableRes int diceResId = getResources().getIdentifier("dice_digital_" + rollResult, "drawable", getActivity().getPackageName());
 
         dice.setImageResource(diceResId);
-        diceFragmentInteractionListener.updateLastDiceResult(rollResult);
+        listener.updateLastDiceResult(rollResult);
     }
 
     private void subscribeUI() {
-        DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant, previousResult);
+        DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant);
         viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(this, roll -> {

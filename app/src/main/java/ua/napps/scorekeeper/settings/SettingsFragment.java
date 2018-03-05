@@ -167,18 +167,18 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.tb_dice_x:
                 final MaterialDialog md = new MaterialDialog.Builder(getActivity())
-                        .content("Custom dice sides. From 1 to 100")
+                        .content(R.string.dialog_custom_dice_title)
                         .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                         .positiveText(R.string.common_set)
                         .negativeColorRes(R.color.primaryColor)
                         .negativeText(R.string.common_cancel)
                         .alwaysCallInputCallback()
                         .cancelListener(dialog -> refreshDices(false))
-                        .input("From 1 to 100", null, false,
+                        .input(getString(R.string.dialog_custom_dice_hint), null, false,
                                 (dialog, input) -> {
                                     if (input.length() > 0) {
                                         int parseInt = Integer.parseInt(input.toString());
-                                        if (parseInt <= 100 && parseInt > 0) {
+                                        if (parseInt <= 100 && parseInt > 1) {
                                             dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                                         } else {
                                             dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);

@@ -42,4 +42,7 @@
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_have_a_problem">Пожаловаться</string>
     <string name="settings_section_contact_developer">Написать разработчику</string>
+    <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
+    <string name="dialog_custom_dice_title">Количество граней</string>
+    <string name="dialog_custom_dice_hint">От 2 до 100</string>
 </resources>
