@@ -10,56 +10,40 @@
         android:id="@+id/app_bar"
         style="@style/AppBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="256dp"
         android:minHeight="?attr/actionBarSize">
 
-        <android.support.constraint.ConstraintLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ua.napps.scorekeeper.utils.RoundedColorView
+                android:id="@+id/reveal_image"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:transitionName="backgroundColorImage"
+                app:backgroundColor="?attr/colorPrimary" />
 
             <ImageView
                 android:id="@+id/appbar_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/accentColor"
-                android:visibility="invisible" />
-
-            <ua.napps.scorekeeper.utils.RoundedColorView
-                android:id="@+id/reveal_image"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:transitionName="backgroundColorImage"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_label_saved"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/padding_normal"
-                android:text="@string/label_all_changes_saved"
-                android:textColor="@color/textColorHintInverse"
-                android:textStyle="italic"
                 android:visibility="invisible"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
+                app:layout_collapseMode="parallax" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
                 android:paddingLeft="@dimen/spacing_normal"
                 android:theme="@style/LightEditText"
-                app:hintAnimationEnabled="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                app:hintAnimationEnabled="false">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/et_counter_name"
@@ -80,7 +64,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-        </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_label_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_margin="@dimen/padding_normal"
+                android:text="@string/label_all_changes_saved"
+                android:textColor="@color/textColorHintInverse"
+                android:textStyle="italic"
+                android:visibility="invisible"
+                tools:visibility="visible" />
+        </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout

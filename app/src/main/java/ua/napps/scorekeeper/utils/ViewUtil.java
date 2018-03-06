@@ -5,8 +5,8 @@ import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.util.Pair;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.View;
 import android.view.Window;
 
