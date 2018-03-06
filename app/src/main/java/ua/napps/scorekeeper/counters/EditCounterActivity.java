@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -10,19 +11,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.transition.Transition;
-import android.transition.TransitionInflater;
-import android.transition.TransitionSet;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -86,10 +84,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (extras != null && !extras.containsKey(ARGUMENT_COUNTER_ID)) {
             throw new UnsupportedOperationException("Activity should be started using the static start method");
         }
+        setContentView(R.layout.activity_edit_counter);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransitions();
         }
-        setContentView(R.layout.activity_edit_counter);
         ViewUtil.setLightStatusBar(this, false);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -285,36 +283,21 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private void setTransitions() {
         final String backgroundHex = getIntent().getExtras().getString(ARGUMENT_COUNTER_COLOR);
         final int backgroundColor = Color.parseColor(backgroundHex);
-        final TransitionInflater inflater = TransitionInflater.from(this);
-        final Transition transition = inflater.inflateTransition(R.transition.arc);
-
-        final TransitionSet enterSet = new TransitionSet();
-        enterSet.addTransition(transition);
-        enterSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        enterSet.setDuration(TRANSITION_DURATION);
-        enterSet.addListener(new TransitionListenerAdapter() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onTransitionEnd(Transition transition) {
-                reveal(backgroundColor);
-            }
-
-            @Override
-            public void onTransitionStart(Transition transition) {
-                revealImage.setBackgroundColor(backgroundColor);
-            }
-        });
-
-        final TransitionSet exitSet = new TransitionSet();
-        exitSet.addTransition(transition);
-        exitSet.setDuration(TRANSITION_DURATION);
-        exitSet.setInterpolator(new AccelerateDecelerateInterpolator());
-        exitSet.setStartDelay(200);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setSharedElementEnterTransition(enterSet);
-            getWindow().setSharedElementExitTransition(exitSet);
-            getWindow().setSharedElementReturnTransition(exitSet);
+            Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
+            sharedElementEnterTransition.addListener(new TransitionListenerAdapter() {
+                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                @Override
+                public void onTransitionEnd(Transition transition) {
+                    reveal(backgroundColor);
+                }
+
+                @Override
+                public void onTransitionStart(Transition transition) {
+                    revealImage.setBackgroundColor(backgroundColor);
+                }
+            });
         }
     }
 
@@ -327,8 +310,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 center.second.intValue(), 0f, appbarBackground.getWidth());
         anim.setDuration(400);
         appbarBackground.setVisibility(View.VISIBLE);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                getWindow().setStatusBarColor(backgroundColor);
+            }
+        });
         anim.start();
-        // TODO: 06-Mar-18 color status bar
     }
 
     @Override
@@ -378,9 +366,15 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             hideView();
         }
     }
