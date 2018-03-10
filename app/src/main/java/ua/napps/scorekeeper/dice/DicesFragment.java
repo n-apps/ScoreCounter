@@ -20,8 +20,7 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
-import ua.napps.scorekeeper.app.Constants;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class DicesFragment extends Fragment {
@@ -80,13 +79,13 @@ public class DicesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        currentDiceVariant = LocalSettings.getDiceMaxSide();
         springForce = new SpringForce()
                 .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_LOW)
                 .setFinalPosition(1);
         subscribeUI();
-        if (App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true)) {
+        if (LocalSettings.isShakeToRollEnabled()) {
             initSensorData();
             useSensorLiveData();
         }

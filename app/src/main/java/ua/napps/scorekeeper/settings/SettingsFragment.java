@@ -34,7 +34,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     private ToggleButton diceEight;
     private ToggleButton diceTwenty;
     private ToggleButton diceCustom;
-    private int currentDiceVariant;
+    private int diceMaxSide;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -48,7 +48,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
-        SwitchCompat stayAwake = contentView.findViewById(R.id.sw_stay_awake);
+        SwitchCompat stayAwake = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         SwitchCompat shakeToRoll = contentView.findViewById(R.id.sw_shake_roll);
         diceSix = contentView.findViewById(R.id.tb_dice_6);
@@ -57,10 +57,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
-        stayAwake.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true));
-        darkTheme.setChecked(!App.getTinyDB().getBoolean(Constants.SETTINGS_DARK_THEME, true));
-        shakeToRoll.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true));
-        currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
+        stayAwake.setChecked(LocalSettings.isShakeToRollEnabled());
+        darkTheme.setChecked(LocalSettings.isDarkTheme());
+        shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
+        diceMaxSide = LocalSettings.getDiceMaxSide();
         stayAwake.setOnCheckedChangeListener(this);
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
@@ -83,13 +83,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onCheckedChanged(CompoundButton v, boolean isChecked) {
         switch (v.getId()) {
             case R.id.sw_shake_roll:
-                App.getTinyDB().putBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, isChecked);
+                LocalSettings.saveShakeToRoll(isChecked);
                 break;
-            case R.id.sw_stay_awake:
-                App.getTinyDB().putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked);
+            case R.id.sw_keep_screen_on:
+                LocalSettings.saveKeepScreenOn(isChecked);
                 break;
             case R.id.sw_dark_theme:
-                App.getTinyDB().putBoolean(Constants.SETTINGS_DARK_THEME, !isChecked);
+                LocalSettings.saveDarkTheme(isChecked);
                 break;
         }
     }
@@ -106,15 +106,15 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 startEmailClient();
                 break;
             case R.id.tb_dice_6:
-                currentDiceVariant = 6;
+                diceMaxSide = 6;
                 refreshDices(true);
                 break;
             case R.id.tb_dice_8:
-                currentDiceVariant = 8;
+                diceMaxSide = 8;
                 refreshDices(true);
                 break;
             case R.id.tb_dice_20:
-                currentDiceVariant = 20;
+                diceMaxSide = 20;
                 refreshDices(true);
                 break;
             case R.id.tb_dice_x:
@@ -140,7 +140,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .onPositive((dialog, which) -> {
                             EditText editText = dialog.getInputEditText();
                             if (editText != null) {
-                                currentDiceVariant = Integer.parseInt(editText.getText().toString());
+                                diceMaxSide = Integer.parseInt(editText.getText().toString());
                                 refreshDices(true);
                             }
                         })
@@ -175,10 +175,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     private void refreshDices(boolean storeInDB) {
-        if (storeInDB && currentDiceVariant <= 100) {
-            App.getTinyDB().putInt(Constants.SETTINGS_DICE_VARIANT, currentDiceVariant);
+        if (storeInDB && diceMaxSide <= 100) {
+            LocalSettings.saveDiceMaxSide(diceMaxSide);
         }
-        switch (currentDiceVariant) {
+        switch (diceMaxSide) {
             case 6:
                 diceSix.setChecked(true);
                 diceEight.setChecked(false);
@@ -209,7 +209,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 diceEight.setChecked(false);
                 diceTwenty.setChecked(false);
                 diceCustom.setChecked(true);
-                String label = "" + currentDiceVariant;
+                String label = "" + diceMaxSide;
                 diceCustom.setTextOff(label);
                 diceCustom.setTextOn(label);
                 diceCustom.setText(label);
