@@ -63,7 +63,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
@@ -74,10 +73,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
         emptyState = contentView.findViewById(R.id.empty_state);
-        emptyState.setOnClickListener(view -> {
-            viewModel.addCounter();
-            AndroidFirebaseAnalytics.logEvent("empty_state_add_counter");
-        });
+        emptyState.setOnClickListener(view -> viewModel.addCounter());
 
         return contentView;
     }
@@ -86,7 +82,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         CountersDao countersDao = DatabaseHolder.database().countersDao();
-        CountersViewModelFactory factory = new CountersViewModelFactory(getActivity().getApplication(), countersDao);
+        CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication(), countersDao);
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this);
         subscribeUi();
@@ -125,7 +121,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 } else {
                     subscribeUi();
                 }
-                AndroidFirebaseAnalytics.logEvent("menu_add_counter");
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
@@ -151,16 +146,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 }
                 oldListSize = size;
                 if (isFirstLoad) {
+                    isFirstLoad = false;
                     recyclerView.post(() -> {
                                 countersAdapter.setContainerHeight(recyclerView.getHeight());
-                                countersAdapter.setContainerWidth(recyclerView.getWidth());
                                 recyclerView.setAdapter(countersAdapter);
                             }
                     );
                     Bundle params = new Bundle();
-                    params.putLong(FirebaseAnalytics.Param.SCORE, size);
-                    AndroidFirebaseAnalytics.logEvent("starting_number_of_counters", params);
-                    isFirstLoad = false;
+                    params.putString(FirebaseAnalytics.Param.CHARACTER, "" + size);
+                    AndroidFirebaseAnalytics.logEvent("active_counters", params);
                 }
             } else {
                 emptyState.setVisibility(View.VISIBLE);
@@ -189,7 +183,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @Override
     public void onLongClick(Counter counter, boolean isIncrease) {
         AndroidFirebaseAnalytics.logEvent("counter_long_click");
-        final MaterialDialog.Builder builder = new MaterialDialog.Builder(getActivity());
+        final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
         final Observer<Counter> counterObserver = c -> {
             if (longClickDialog != null && c != null) {
                 longClickDialog.getTitleView()
@@ -296,7 +290,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null) {
             inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
         }
@@ -304,7 +298,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public void onNameClick(Counter counter) {
-        final MaterialDialog md = new MaterialDialog.Builder(getActivity())
+        final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .content(R.string.counter_details_name)
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
@@ -338,5 +332,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         if (recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
         }
+        AndroidFirebaseAnalytics.logEvent("scroll_to_top");
     }
 }

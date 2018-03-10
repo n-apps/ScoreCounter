@@ -25,14 +25,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.MaterialDialog.Builder;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
@@ -50,6 +47,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
+    private static final String STATE_IS_NAME_MODIFIED = "STATE_IS_NAME_MODIFIED";
 
     private Counter counter;
     private EditText counterName;
@@ -88,19 +86,58 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             setTransitions();
         }
         ViewUtil.setLightStatusBar(this, false, ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
+
+        final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
+
+        initViews();
+        subscribeToModel(id);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(STATE_IS_NAME_MODIFIED, isNameModified);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            isNameModified = savedInstanceState.getBoolean(STATE_IS_NAME_MODIFIED);
+        }
+    }
+
+    private void initViews() {
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
-        final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
-
-        subscribeToModel(id);
-
-        initViews();
-        LinearLayout counterValueContainer = findViewById(R.id.counter_value);
-        LinearLayout counterDefaultValueContainer = findViewById(R.id.counter_default_value);
-        LinearLayout counterStepContainer = findViewById(R.id.counter_step);
-
+        counterName = findViewById(R.id.et_counter_name);
+        counterStep = findViewById(R.id.tv_counter_step);
+        counterDefaultValue = findViewById(R.id.tv_counter_default_value);
+        counterValue = findViewById(R.id.tv_counter_value);
+        labelChangesSaved = findViewById(R.id.tv_label_saved);
+        appbarBackground = findViewById(R.id.appbar_background);
+        revealView = findViewById(R.id.reveal_image);
+        counterNameLayout = findViewById(R.id.til_counter_name);
+        findViewById(R.id.fab).setOnClickListener(v -> {
+            new ColorChooserDialog.Builder(EditCounterActivity.this,
+                    R.string.counter_details_color_picker_title)
+                    .doneButton(R.string.common_select)
+                    .cancelButton(R.string.common_cancel)
+                    .customButton(R.string.common_custom)
+                    .backButton(R.string.common_back)
+                    .presetsButton(R.string.dialog_color_picker_presets_button)
+                    .dynamicButtonColor(false)
+                    .allowUserColorInputAlpha(false)
+                    .show(EditCounterActivity.this);
+            AndroidFirebaseAnalytics.logEvent("edit_counter_color_click");
+        });
+        findViewById(R.id.btn_delete).setOnClickListener(v -> {
+            setResult(RESULT_DELETE);
+            viewModel.deleteCounter();
+            AndroidFirebaseAnalytics.logEvent("edit_counter_delete_click");
+        });
         counterName.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(final Editable s) {
@@ -124,8 +161,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             }
         });
 
-        counterValueContainer.setOnClickListener(v -> {
-            final MaterialDialog md = new Builder(EditCounterActivity.this)
+        findViewById(R.id.counter_value).setOnClickListener(v -> {
+            final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_current_value_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -138,11 +175,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newValue);
                                         viewModel.updateValue(value);
-                                        Bundle params = new Bundle();
-                                        params.putLong(Param.SCORE, value);
-                                        AndroidFirebaseAnalytics
-                                                .logEvent("edit_counter_value_modified",
-                                                        params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newValue);
                                     }
@@ -164,8 +196,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             AndroidFirebaseAnalytics.logEvent("edit_counter_value_click");
         });
 
-        counterDefaultValueContainer.setOnClickListener(v -> {
-            final MaterialDialog md = new Builder(EditCounterActivity.this)
+        findViewById(R.id.counter_default_value).setOnClickListener(v -> {
+            final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_default_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -178,11 +210,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newDefaultValue);
                                         viewModel.updateDefaultValue(value);
-                                        Bundle params = new Bundle();
-                                        params.putLong(Param.SCORE, value);
-                                        AndroidFirebaseAnalytics
-                                                .logEvent("edit_counter_default_modified",
-                                                        params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newDefaultValue);
                                     }
@@ -205,8 +232,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             AndroidFirebaseAnalytics.logEvent("edit_counter_default_click");
         });
 
-        counterStepContainer.setOnClickListener(v -> {
-            final MaterialDialog md = new Builder(EditCounterActivity.this)
+        findViewById(R.id.counter_step).setOnClickListener(v -> {
+            final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_step_title)
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
@@ -219,11 +246,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     try {
                                         final int value = Integer.parseInt(newStepValue);
                                         viewModel.updateStep(value);
-                                        Bundle params = new Bundle();
-                                        params.putLong(Param.SCORE, value);
-                                        AndroidFirebaseAnalytics
-                                                .logEvent("edit_counter_step_modified",
-                                                        params);
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newStepValue);
                                     }
@@ -246,37 +268,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             AndroidFirebaseAnalytics.logEvent("edit_counter_step_click");
         });
 
-        findViewById(R.id.fab).setOnClickListener(v -> {
-            new ColorChooserDialog.Builder(EditCounterActivity.this,
-                    R.string.counter_details_color_picker_title)
-                    .doneButton(R.string.common_select)
-                    .cancelButton(R.string.common_cancel)
-                    .customButton(R.string.common_custom)
-                    .backButton(R.string.common_back)
-                    .presetsButton(R.string.dialog_color_picker_presets_button)
-                    .dynamicButtonColor(false)
-                    .allowUserColorInputAlpha(false)
-                    .show(EditCounterActivity.this);
-            AndroidFirebaseAnalytics.logEvent("edit_counter_color_click");
-        });
-
-        Button btnDelete = findViewById(R.id.btn_delete);
-        btnDelete.setOnClickListener(v -> {
-            setResult(RESULT_DELETE);
-            viewModel.deleteCounter();
-            AndroidFirebaseAnalytics.logEvent("edit_counter_delete_click");
-        });
-    }
-
-    private void initViews() {
-        counterName = findViewById(R.id.et_counter_name);
-        counterStep = findViewById(R.id.tv_counter_step);
-        counterDefaultValue = findViewById(R.id.tv_counter_default_value);
-        counterValue = findViewById(R.id.tv_counter_value);
-        labelChangesSaved = findViewById(R.id.tv_label_saved);
-        appbarBackground = findViewById(R.id.appbar_background);
-        revealView = findViewById(R.id.reveal_image);
-        counterNameLayout = findViewById(R.id.til_counter_name);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -399,8 +390,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         super.onDestroy();
         if (isNameModified && counter != null) {
             Bundle params = new Bundle();
-            params.putLong(Param.SCORE, counter.getName().length());
-            AndroidFirebaseAnalytics.logEvent("edit_counter_name_length", params);
+            params.putString(Param.CHARACTER, counter.getName());
+            AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
         }
     }
 }

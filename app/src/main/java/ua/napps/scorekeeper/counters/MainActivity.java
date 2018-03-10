@@ -40,17 +40,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private int lastSelectedPosition;
     private int currentDiceRoll;
     private int previousDiceRoll;
-    private boolean isThemeLight;
+    private boolean isDarkTheme;
+    private boolean isKeepScreenOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        isDarkTheme = App.getTinyDB().getBoolean(Constants.SETTINGS_DARK_THEME, true);
+        isKeepScreenOn = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
         if (savedInstanceState != null) {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
+        } else {
+            trackAnalytics();
         }
-        isThemeLight = App.getTinyDB().getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
-        AppCompatDelegate.setDefaultNightMode(isThemeLight ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+        AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(isThemeLight ? R.color.primaryColor : R.color.black)
+                .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.primaryColor)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
                 .setActiveColor(R.color.white)
                 .setFirstSelectedPosition(lastSelectedPosition)
@@ -71,9 +76,28 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedPosition]);
-        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0,
+        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedPosition > 0,
                 ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
-        applyKeepScreenOn(true);
+        applyKeepScreenOn();
+
+    }
+
+    private void trackAnalytics() {
+        Bundle params = new Bundle();
+        params.putLong(FirebaseAnalytics.Param.SCORE, isDarkTheme ? 1 : 0);
+        AndroidFirebaseAnalytics.logEvent("dark_theme", params);
+
+        Bundle params2 = new Bundle();
+        params.putLong(FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
+        AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
+
+        Bundle params3 = new Bundle();
+        params.putLong(FirebaseAnalytics.Param.SCORE, App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true) ? 1 : 0);
+        AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
+
+        Bundle params4 = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6));
+        AndroidFirebaseAnalytics.logEvent("dice_variant", params4);
     }
 
     @Override
@@ -113,7 +137,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0,
+        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedPosition > 0,
                 ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
     }
 
@@ -141,10 +165,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         switch (key) {
             case Constants.SETTINGS_KEEP_SCREEN_ON:
-                applyKeepScreenOn(false);
+                isKeepScreenOn = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
+                applyKeepScreenOn();
                 break;
-            case Constants.SETTINGS_DICE_THEME_LIGHT:
-                if (sharedPreferences.getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true)) {
+            case Constants.SETTINGS_DARK_THEME:
+                if (sharedPreferences.getBoolean(Constants.SETTINGS_DARK_THEME, true)) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -169,17 +194,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commitNow();
     }
 
-    private void applyKeepScreenOn(boolean trackAnalytics) {
-        final boolean isStayAwake = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
-        if (isStayAwake) {
+    private void applyKeepScreenOn() {
+        if (isKeepScreenOn) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        }
-        if (trackAnalytics) {
-            Bundle params = new Bundle();
-            params.putLong(FirebaseAnalytics.Param.SCORE, isStayAwake ? 1 : 0);
-            AndroidFirebaseAnalytics.logEvent("settings_keep_screen_on", params);
         }
     }
 

@@ -57,9 +57,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
-
         stayAwake.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true));
-        darkTheme.setChecked(!App.getTinyDB().getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true));
+        darkTheme.setChecked(!App.getTinyDB().getBoolean(Constants.SETTINGS_DARK_THEME, true));
         shakeToRoll.setChecked(App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true));
         currentDiceVariant = App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6);
         stayAwake.setOnCheckedChangeListener(this);
@@ -90,7 +89,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 App.getTinyDB().putBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, isChecked);
                 break;
             case R.id.sw_dark_theme:
-                App.getTinyDB().putBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, !isChecked);
+                App.getTinyDB().putBoolean(Constants.SETTINGS_DARK_THEME, !isChecked);
                 break;
         }
     }
@@ -99,7 +98,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
+                AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
+                startEmailClient();
+                break;
             case R.id.tv_have_a_problem:
+                AndroidFirebaseAnalytics.logEvent("i_have_a_problem_click");
                 startEmailClient();
                 break;
             case R.id.tb_dice_6:
@@ -115,7 +118,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 refreshDices(true);
                 break;
             case R.id.tb_dice_x:
-                final MaterialDialog md = new MaterialDialog.Builder(getActivity())
+                final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                         .content(R.string.dialog_custom_dice_title)
                         .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                         .positiveText(R.string.common_set)
@@ -169,7 +172,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         } else {
             Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
         }
-        AndroidFirebaseAnalytics.logEvent("settings_send_feedback");
     }
 
     private void refreshDices(boolean storeInDB) {

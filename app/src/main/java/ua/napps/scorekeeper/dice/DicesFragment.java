@@ -138,7 +138,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void changeDiceDrawable() {
-        int diceResId = getResources().getIdentifier("dice_digital_" + currentRoll, "drawable", getActivity().getPackageName());
+        int diceResId = getResources().getIdentifier("dice_digital_" + currentRoll, "drawable", requireActivity().getPackageName());
         dice.setImageResource(diceResId);
     }
 
