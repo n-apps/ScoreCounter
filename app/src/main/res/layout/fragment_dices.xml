@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:padding="@dimen/dice_padding"
+        android:layout_margin="@dimen/dice_margin"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/dice_empty" />
 

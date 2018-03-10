@@ -6,13 +6,16 @@ import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -24,14 +27,12 @@ import android.view.ViewAnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.MaterialDialog.Builder;
-import com.afollestad.materialdialogs.color.CircleView;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
@@ -40,24 +41,23 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
-import ua.napps.scorekeeper.utils.RoundedColorView;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
 
     public static final int RESULT_DELETE = 1003;
+
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
-    private static final int TRANSITION_DURATION = 330;
 
     private Counter counter;
-    private CircleView colorPreview;
-    private TextView counterDefaultValue;
     private EditText counterName;
-    private ImageView appbarBackground;
+    private View appbarBackground;
     private TextView counterStep;
-    private RoundedColorView revealImage;
+    private TextInputLayout counterNameLayout;
+    private View revealView;
+    private TextView counterDefaultValue;
     private TextView labelChangesSaved;
     private TextView counterValue;
     private boolean isNameModified;
@@ -72,7 +72,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (view != null) {
             bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view, "backgroundColorImage").toBundle();
         }
-
         activity.startActivity(intent, bundle);
     }
 
@@ -88,30 +87,19 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setTransitions();
         }
-        ViewUtil.setLightStatusBar(this, false);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        ViewUtil.setLightStatusBar(this, false, ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
+        setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
         final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
-        viewModel = getViewModel(id);
-        subscribeToModel();
+        subscribeToModel(id);
 
-        counterName = findViewById(R.id.et_counter_name);
-        counterStep = findViewById(R.id.tv_counter_step);
-        counterDefaultValue = findViewById(R.id.tv_counter_default_value);
-        counterValue = findViewById(R.id.tv_counter_value);
-        colorPreview = findViewById(R.id.color_preview);
-        labelChangesSaved = findViewById(R.id.tv_label_saved);
-        appbarBackground = findViewById(R.id.appbar_background);
-        revealImage = findViewById(R.id.reveal_image);
+        initViews();
         LinearLayout counterValueContainer = findViewById(R.id.counter_value);
         LinearLayout counterDefaultValueContainer = findViewById(R.id.counter_default_value);
         LinearLayout counterStepContainer = findViewById(R.id.counter_step);
-        LinearLayout counterColorContainer = findViewById(R.id.counter_color);
 
         counterName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -258,7 +246,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             AndroidFirebaseAnalytics.logEvent("edit_counter_step_click");
         });
 
-        counterColorContainer.setOnClickListener(v -> {
+        findViewById(R.id.fab).setOnClickListener(v -> {
             new ColorChooserDialog.Builder(EditCounterActivity.this,
                     R.string.counter_details_color_picker_title)
                     .doneButton(R.string.common_select)
@@ -280,32 +268,40 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         });
     }
 
+    private void initViews() {
+        counterName = findViewById(R.id.et_counter_name);
+        counterStep = findViewById(R.id.tv_counter_step);
+        counterDefaultValue = findViewById(R.id.tv_counter_default_value);
+        counterValue = findViewById(R.id.tv_counter_value);
+        labelChangesSaved = findViewById(R.id.tv_label_saved);
+        appbarBackground = findViewById(R.id.appbar_background);
+        revealView = findViewById(R.id.reveal_image);
+        counterNameLayout = findViewById(R.id.til_counter_name);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void setTransitions() {
         final String backgroundHex = getIntent().getExtras().getString(ARGUMENT_COUNTER_COLOR);
         final int backgroundColor = Color.parseColor(backgroundHex);
+        Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
+        sharedElementEnterTransition.addListener(new TransitionListenerAdapter() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                reveal(backgroundColor);
+            }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
-            sharedElementEnterTransition.addListener(new TransitionListenerAdapter() {
-                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public void onTransitionEnd(Transition transition) {
-                    reveal(backgroundColor);
-                }
-
-                @Override
-                public void onTransitionStart(Transition transition) {
-                    revealImage.setBackgroundColor(backgroundColor);
-                }
-            });
-        }
+            @Override
+            public void onTransitionStart(Transition transition) {
+                revealView.setBackgroundColor(backgroundColor);
+            }
+        });
     }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void reveal(int backgroundColor) {
         appbarBackground.setBackgroundColor(backgroundColor);
-        final Pair<Float, Float> center = ViewUtil.getCenter(revealImage);
+        final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
         Animator anim = ViewAnimationUtils.createCircularReveal(appbarBackground, center.first.intValue(),
                 center.second.intValue(), 0f, appbarBackground.getWidth());
         anim.setDuration(400);
@@ -313,10 +309,25 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
-                getWindow().setStatusBarColor(backgroundColor);
+                applyTintAccordingToCounterColor(backgroundColor);
             }
         });
         anim.start();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void applyTintAccordingToCounterColor(int backgroundColor) {
+        getWindow().setStatusBarColor(backgroundColor);
+        boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
+        int color = ContextCompat.getColor(EditCounterActivity.this, useLightTint ? R.color.white : R.color.black);
+        counterName.setTextColor(color);
+        counterNameLayout.setHintTextAppearance(useLightTint ? R.style.HintTextLight : R.style.HintTextDark);
+        Drawable wrappedDrawable = DrawableCompat.wrap(counterName.getBackground());
+        DrawableCompat.setTint(wrappedDrawable.mutate(), color);
+        counterName.setBackground(wrappedDrawable);
+        ViewUtil.setCursorTint(counterName, color);
+        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_back_white : R.drawable.ic_arrow_back);
+        ViewUtil.setLightStatusBar(EditCounterActivity.this, !useLightTint, backgroundColor, backgroundColor);
     }
 
     @Override
@@ -325,7 +336,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @Override
     public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
-        colorPreview.setBackgroundColor(color);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            reveal(color);
+        } else {
+            appbarBackground.setBackgroundColor(color);
+        }
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
         Bundle params = new Bundle();
@@ -333,13 +348,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         AndroidFirebaseAnalytics.logEvent("edit_counter_color_selected", params);
     }
 
-    private EditCounterViewModel getViewModel(int id) {
+    private void subscribeToModel(int id) {
         CountersDao countersDao = DatabaseHolder.database().countersDao();
         EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao, this);
-        return ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
-    }
-
-    private void subscribeToModel() {
+        viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
                 counter = c;
@@ -347,7 +359,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 counterValue.setText(String.valueOf(c.getValue()));
                 counterStep.setText(String.valueOf(c.getStep()));
                 counterDefaultValue.setText(String.valueOf(c.getDefaultValue()));
-                colorPreview.setBackgroundColor(Color.parseColor(c.getColor()));
                 if (!c.getName().equals(counterName.getText().toString())) {
                     counterName.setText(c.getName());
                     counterName.setSelection(c.getName().length());
@@ -366,12 +377,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
-
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
         if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
@@ -381,11 +386,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void hideView() {
-        final Pair<Float, Float> center = ViewUtil.getCenter(revealImage);
+        final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
         final Animator animator;
         animator = ViewAnimationUtils.createCircularReveal(appbarBackground,
                 center.first.intValue(), center.second.intValue(), appbarBackground.getWidth(), 0);
-        animator.setDuration(TRANSITION_DURATION);
+        animator.setDuration(300);
         animator.start();
     }
 

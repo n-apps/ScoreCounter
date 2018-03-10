@@ -1,7 +1,9 @@
 package ua.napps.scorekeeper.utils;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -28,6 +30,10 @@ public class AndroidFirebaseAnalytics {
 
     public static void logEvent(@NonNull String event) {
         getInstance().logEvent(event, null);
+    }
+
+    public static void trackScreen(Activity activity, @NonNull String screenName, @Nullable String screenOverride) {
+        firebaseAnalytics.setCurrentScreen(activity, screenName, screenOverride);
     }
 
 }

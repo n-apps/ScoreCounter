@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.animation.DynamicAnimation;
 import android.support.animation.SpringAnimation;
 import android.support.animation.SpringForce;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -27,27 +26,30 @@ import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class DicesFragment extends Fragment {
 
-    private static final String ARG_LAST_DICE_RESULT = "ARG_LAST_DICE_RESULT";
+    private static final String ARG_CURRENT_DICE_ROLL = "ARG_CURRENT_DICE_ROLL";
+    private static final String ARG_PREVIOUS_DICE_ROLL = "ARG_PREVIOUS_DICE_ROLL";
+
     private float accel;
     private float accelCurrent;
     private float accelLast;
     private ImageView dice;
     private TextView previousResultTextView;
-    private SpringAnimation springAnimation;
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private int currentDiceVariant;
-    private int previousResult;
+    private int previousRoll;
+    private int currentRoll;
     private OnDiceFragmentInteractionListener listener;
 
     public DicesFragment() {
         // Required empty public constructor
     }
 
-    public static DicesFragment newInstance(int lastDiceResult) {
+    public static DicesFragment newInstance(int lastDiceRoll, int previousDiceRoll) {
         DicesFragment fragment = new DicesFragment();
-        Bundle args = new Bundle(1);
-        args.putInt(ARG_LAST_DICE_RESULT, lastDiceResult);
+        Bundle args = new Bundle(2);
+        args.putInt(ARG_CURRENT_DICE_ROLL, lastDiceRoll);
+        args.putInt(ARG_PREVIOUS_DICE_ROLL, previousDiceRoll);
         fragment.setArguments(args);
         return fragment;
     }
@@ -56,7 +58,8 @@ public class DicesFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            previousResult = getArguments().getInt(ARG_LAST_DICE_RESULT);
+            currentRoll = getArguments().getInt(ARG_CURRENT_DICE_ROLL);
+            previousRoll = getArguments().getInt(ARG_PREVIOUS_DICE_ROLL);
         }
     }
 
@@ -100,15 +103,9 @@ public class DicesFragment extends Fragment {
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        listener = null;
-    }
-
-
-    private SpringAnimation getSpringAnimation() {
-        return new SpringAnimation(dice, DynamicAnimation.ROTATION).setSpring(springForce)
-                .setStartValue(100f).setStartVelocity(100);
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Dices", getClass().getSimpleName());
     }
 
     private void initSensorData() {
@@ -117,29 +114,32 @@ public class DicesFragment extends Fragment {
         accelLast = SensorManager.GRAVITY_EARTH;
     }
 
-    private void rollDice(@IntRange(from = 1, to = 100) int rollResult) {
-        if (previousResult == 0) {
-            previousResultTextView.setVisibility(View.GONE);
-        } else {
-            previousResultTextView.setVisibility(View.VISIBLE);
-            previousResultTextView
-                    .setText(String.format(getString(R.string.dice_previous_result_label), previousResult));
-            if (springAnimation != null) {
-                springAnimation.cancel();
-            }
-        }
-        previousResult = rollResult;
+    private void rollDice(@IntRange(from = 1, to = 100) int roll) {
+        updateLastRollLabel();
+        previousRoll = roll;
+        currentRoll = roll;
+        listener.updateCurrentRoll(currentRoll);
+        changeDiceDrawable();
 
-        changeDiceDrawable(rollResult);
-        springAnimation = getSpringAnimation();
-        springAnimation.start();
+        new SpringAnimation(dice, DynamicAnimation.ROTATION)
+                .setSpring(springForce)
+                .setStartValue(100f)
+                .setStartVelocity(100)
+                .start();
     }
 
-    private void changeDiceDrawable(@IntRange(from = 1, to = 100) int rollResult) {
-        @DrawableRes int diceResId = getResources().getIdentifier("dice_digital_" + rollResult, "drawable", getActivity().getPackageName());
+    private void updateLastRollLabel() {
+        if (previousRoll != 0) {
+            previousResultTextView.setVisibility(View.VISIBLE);
+            previousResultTextView.setText(String.format(getString(R.string.dice_previous_result_label), previousRoll));
+        } else {
+            previousResultTextView.setVisibility(View.GONE);
+        }
+    }
 
+    private void changeDiceDrawable() {
+        int diceResId = getResources().getIdentifier("dice_digital_" + currentRoll, "drawable", getActivity().getPackageName());
         dice.setImageResource(diceResId);
-        listener.updateLastDiceResult(rollResult);
     }
 
     private void subscribeUI() {
@@ -149,9 +149,9 @@ public class DicesFragment extends Fragment {
         diceLiveData.observe(this, roll -> {
             if (roll != null && roll > 0) {
                 rollDice(roll);
-            } else if (previousResult > 0) {
-                changeDiceDrawable(previousResult); // restored after fragment recreation
-                previousResultTextView.setVisibility(View.GONE);
+            } else if (currentRoll > 0) {
+                updateLastRollLabel();
+                changeDiceDrawable(); // restored after fragment recreation
             }
         });
     }
@@ -178,7 +178,14 @@ public class DicesFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
+    }
+
     public interface OnDiceFragmentInteractionListener {
-        void updateLastDiceResult(int number);
+
+        void updateCurrentRoll(int number);
     }
 }

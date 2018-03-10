@@ -25,7 +25,6 @@
         <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
     </style>
 
-
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
@@ -38,4 +37,17 @@
         <item name="android:background">@color/black</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
+
+    <style name="MyHintText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="HintTextLight" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="HintTextDark" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
 </resources>

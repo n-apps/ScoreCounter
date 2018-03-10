@@ -11,10 +11,10 @@
     <string name="common_set">Définir</string>
     <string name="counter_details_color">Couleur</string>
     <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
-    <string name="counter_details_default_value">Valeur par défaut</string>
+    <string name="counter_details_default_value">Valeur par défaut (après réinitialisation)</string>
     <string name="counter_details_delete">Supprimer le compteur</string>
     <string name="counter_details_name">Nom du compteur</string>
-    <string name="counter_details_step">Étape</string>
+    <string name="counter_details_step">Étape (-/+)</string>
     <string name="counter_details_value">Valeur actuelle</string>
     <string name="counters_empty_message">Appuyer n\'importe où pour ajouter le premier compteur ou utilisez le bouton + dans le coin supérieur droit</string>
     <string name="dialog_change_counter_value_title">Valeur actuelle: %d</string>
@@ -46,4 +46,7 @@
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
     <string name="dialog_custom_dice_hint">De 2 à 100</string>
+    <string name="bottom_navigation_tab_counters">Compteurs</string>
+    <string name="bottom_navigation_tab_dice">Dés</string>
+    <string name="bottom_navigation_tab_settings">Paramètres</string>
 </resources>

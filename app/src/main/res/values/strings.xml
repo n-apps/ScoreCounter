@@ -11,10 +11,10 @@
     <string name="common_set">Set</string>
     <string name="counter_details_color">Color</string>
     <string name="counter_details_color_picker_title">Select counter color</string>
-    <string name="counter_details_default_value">Default value</string>
+    <string name="counter_details_default_value">Default value (after reset)</string>
     <string name="counter_details_delete">Delete counter</string>
     <string name="counter_details_name">Counter name</string>
-    <string name="counter_details_step">Step</string>
+    <string name="counter_details_step">Step (-/+)</string>
     <string name="counter_details_value">Current value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
     <string name="dialog_change_counter_value_title">Current value: %d</string>
@@ -46,4 +46,7 @@
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
+    <string name="bottom_navigation_tab_counters">Counters</string>
+    <string name="bottom_navigation_tab_dice">Dice</string>
+    <string name="bottom_navigation_tab_settings">Settings</string>
 </resources>

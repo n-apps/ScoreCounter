@@ -2,10 +2,10 @@ package ua.napps.scorekeeper.counters;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.WindowManager;
@@ -26,10 +26,11 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
 
-    private static final String TAG_SETTINGS_FRAGMENT = "settingsFragment";
-    private static final String TAG_COUNTERS_FRAGMENT = "countersFragment";
-    private static final String TAG_DICES_FRAGMENT = "dicesFragment";
-    private static final String STATE_LAST_DICE_RESULT = "STATE_LAST_DICE_RESULT";
+    private static final String TAG_SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT";
+    private static final String TAG_COUNTERS_FRAGMENT = "COUNTERS_FRAGMENT";
+    private static final String TAG_DICES_FRAGMENT = "DICES_FRAGMENT";
+    private static final String STATE_CURRENT_DICE_ROLL = "STATE_CURRENT_DICE_ROLL";
+    private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
     private EasyRatingDialog easyRatingDialog;
@@ -37,12 +38,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
     private int lastSelectedPosition;
-    private int lastDiceResult;
+    private int currentDiceRoll;
+    private int previousDiceRoll;
     private boolean isThemeLight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
+            previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
+        }
         isThemeLight = App.getTinyDB().getBoolean(Constants.SETTINGS_DICE_THEME_LIGHT, true);
         AppCompatDelegate.setDefaultNightMode(isThemeLight ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
@@ -53,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, "Counters"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_dice, "Dice").setBadgeItem(diceNumberBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_settings, "Settings"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, getString(R.string.bottom_navigation_tab_counters)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBarBackgroundColor(isThemeLight ? R.color.primaryColor : R.color.black)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
@@ -65,24 +71,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedPosition]);
-        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0);
+        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0,
+                ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
         applyKeepScreenOn(true);
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        outState.putInt(STATE_LAST_DICE_RESULT, lastDiceResult);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(STATE_CURRENT_DICE_ROLL, currentDiceRoll);
+        outState.putInt(STATE_PREVIOUS_DICE_ROLL, previousDiceRoll);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         if (savedInstanceState != null) {
-            updateLastDiceResult(savedInstanceState.getInt(STATE_LAST_DICE_RESULT));
+            updateCurrentRoll(savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL));
         }
     }
-
 
     @Override
     protected void onResume() {
@@ -101,12 +108,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switchFragment(TAGS[position]);
         lastSelectedPosition = position;
         App.getTinyDB().putInt(Constants.LAST_SELECTED_BOTTOM_TAB, lastSelectedPosition);
-        if (lastDiceResult > 0) {
-            diceNumberBadgeItem.setText("" + lastDiceResult);
+        if (currentDiceRoll > 0) {
+            diceNumberBadgeItem.setText("" + currentDiceRoll);
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        ViewUtil.setLightStatusBar(this, isThemeLight && position > 0);
+        ViewUtil.setLightStatusBar(this, isThemeLight && lastSelectedPosition > 0,
+                ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
     }
 
     @Override
@@ -124,8 +132,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @Override
-    public void updateLastDiceResult(int number) {
-        lastDiceResult = number;
+    public void updateCurrentRoll(int number) {
+        previousDiceRoll = currentDiceRoll;
+        currentDiceRoll = number;
     }
 
     @Override
@@ -151,13 +160,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = CountersFragment.newInstance();
                 break;
             case TAG_DICES_FRAGMENT:
-                currentFragment = DicesFragment.newInstance(lastDiceResult);
+                currentFragment = DicesFragment.newInstance(currentDiceRoll, previousDiceRoll);
                 break;
             case TAG_SETTINGS_FRAGMENT:
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commit();
+        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commitNow();
     }
 
     private void applyKeepScreenOn(boolean trackAnalytics) {
