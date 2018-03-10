@@ -18,8 +18,8 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
-import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.dice.DicesFragment;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ViewUtil;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
-    private int lastSelectedPosition;
+    private int lastSelectedBottomTab;
     private int currentDiceRoll;
     private int previousDiceRoll;
     private boolean isDarkTheme;
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        isDarkTheme = App.getTinyDB().getBoolean(Constants.SETTINGS_DARK_THEME, true);
-        isKeepScreenOn = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
+        isDarkTheme = LocalSettings.isDarkTheme();
+        isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState != null) {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
-        lastSelectedPosition = App.getTinyDB().getInt(Constants.LAST_SELECTED_BOTTOM_TAB);
+        lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
@@ -71,12 +71,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.primaryColor)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
                 .setActiveColor(R.color.white)
-                .setFirstSelectedPosition(lastSelectedPosition)
+                .setFirstSelectedPosition(lastSelectedBottomTab)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
 
-        switchFragment(TAGS[lastSelectedPosition]);
-        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedPosition > 0,
+        switchFragment(TAGS[lastSelectedBottomTab]);
+        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedBottomTab > 0,
                 ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
         applyKeepScreenOn();
 
@@ -92,12 +92,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
 
         Bundle params3 = new Bundle();
-        params.putLong(FirebaseAnalytics.Param.SCORE, App.getTinyDB().getBoolean(Constants.SETTINGS_SHAKE_TO_ROLL, true) ? 1 : 0);
+        params.putLong(FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
 
         Bundle params4 = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + App.getTinyDB().getInt(Constants.SETTINGS_DICE_VARIANT, 6));
-        AndroidFirebaseAnalytics.logEvent("dice_variant", params4);
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
+        AndroidFirebaseAnalytics.logEvent("dice_max_side", params4);
     }
 
     @Override
@@ -130,14 +130,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onTabSelected(int position) {
         switchFragment(TAGS[position]);
-        lastSelectedPosition = position;
-        App.getTinyDB().putInt(Constants.LAST_SELECTED_BOTTOM_TAB, lastSelectedPosition);
+        lastSelectedBottomTab = position;
+        LocalSettings.saveLastSelectedBottomTab(lastSelectedBottomTab);
         if (currentDiceRoll > 0) {
             diceNumberBadgeItem.setText("" + currentDiceRoll);
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedPosition > 0,
+        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedBottomTab > 0,
                 ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
     }
 
@@ -164,15 +164,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         switch (key) {
-            case Constants.SETTINGS_KEEP_SCREEN_ON:
-                isKeepScreenOn = App.getTinyDB().getBoolean(Constants.SETTINGS_KEEP_SCREEN_ON, true);
+            case LocalSettings.KEEP_SCREEN_ON:
+                isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
                 applyKeepScreenOn();
                 break;
-            case Constants.SETTINGS_DARK_THEME:
-                if (sharedPreferences.getBoolean(Constants.SETTINGS_DARK_THEME, true)) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                } else {
+            case LocalSettings.DARK_THEME:
+                if (LocalSettings.isDarkTheme()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
                 recreate();
                 break;
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onBackPressed() {
-        if (lastSelectedPosition == 2) {
+        if (lastSelectedBottomTab == 2) {
             switchFragment(TAG_COUNTERS_FRAGMENT);
         } else {
             super.onBackPressed();
