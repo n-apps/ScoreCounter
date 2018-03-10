@@ -93,6 +93,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Counters", getClass().getSimpleName());
+    }
+
+    @Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem removeItem = menu.findItem(R.id.menu_remove_all);
         final boolean hasCounters = oldListSize > 0;
@@ -132,7 +138,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         }
         return true;
     }
-
 
     private void subscribeUi() {
         viewModel.getCounters().observe(this, counters -> {

@@ -104,4 +104,17 @@
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/white</item>
     </style>
+
+    <style name="MyHintText" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="HintTextLight" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="HintTextDark" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
 </resources>

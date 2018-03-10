@@ -74,61 +74,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         return contentView;
     }
 
-    private void refreshDices(boolean storeInDB) {
-        if (storeInDB && currentDiceVariant <= 100) {
-            App.getTinyDB().putInt(Constants.SETTINGS_DICE_VARIANT, currentDiceVariant);
-        }
-        switch (currentDiceVariant) {
-            case 6:
-                diceSix.setChecked(true);
-                diceEight.setChecked(false);
-                diceTwenty.setChecked(false);
-                diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
-                break;
-            case 8:
-                diceSix.setChecked(false);
-                diceEight.setChecked(true);
-                diceTwenty.setChecked(false);
-                diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
-                break;
-            case 20:
-                diceSix.setChecked(false);
-                diceEight.setChecked(false);
-                diceTwenty.setChecked(true);
-                diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
-                diceCustom.setText("X");
-                break;
-            default:
-                diceSix.setChecked(false);
-                diceEight.setChecked(false);
-                diceTwenty.setChecked(false);
-                diceCustom.setChecked(true);
-                String label = "" + currentDiceVariant;
-                diceCustom.setTextOff(label);
-                diceCustom.setTextOn(label);
-                diceCustom.setText(label);
-                break;
-        }
-    }
-
-    private void startEmailClient() {
-        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
-
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
-        intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-        }
-        AndroidFirebaseAnalytics.logEvent("settings_send_feedback");
+    @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Settings", getClass().getSimpleName());
     }
 
     @Override
@@ -205,6 +154,63 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     });
                 }
                 md.show();
+                break;
+        }
+    }
+
+    private void startEmailClient() {
+        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
+        intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+        }
+        AndroidFirebaseAnalytics.logEvent("settings_send_feedback");
+    }
+
+    private void refreshDices(boolean storeInDB) {
+        if (storeInDB && currentDiceVariant <= 100) {
+            App.getTinyDB().putInt(Constants.SETTINGS_DICE_VARIANT, currentDiceVariant);
+        }
+        switch (currentDiceVariant) {
+            case 6:
+                diceSix.setChecked(true);
+                diceEight.setChecked(false);
+                diceTwenty.setChecked(false);
+                diceCustom.setChecked(false);
+                diceCustom.setTextOff("X");
+                diceCustom.setTextOn("X");
+                break;
+            case 8:
+                diceSix.setChecked(false);
+                diceEight.setChecked(true);
+                diceTwenty.setChecked(false);
+                diceCustom.setChecked(false);
+                diceCustom.setTextOff("X");
+                diceCustom.setTextOn("X");
+                break;
+            case 20:
+                diceSix.setChecked(false);
+                diceEight.setChecked(false);
+                diceTwenty.setChecked(true);
+                diceCustom.setChecked(false);
+                diceCustom.setTextOff("X");
+                diceCustom.setTextOn("X");
+                diceCustom.setText("X");
+                break;
+            default:
+                diceSix.setChecked(false);
+                diceEight.setChecked(false);
+                diceTwenty.setChecked(false);
+                diceCustom.setChecked(true);
+                String label = "" + currentDiceVariant;
+                diceCustom.setTextOff(label);
+                diceCustom.setTextOn(label);
+                diceCustom.setText(label);
                 break;
         }
     }

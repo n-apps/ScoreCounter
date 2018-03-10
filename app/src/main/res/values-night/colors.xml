@@ -9,6 +9,10 @@
     <color name="textColorSecondary">#DEFFFFFF</color>
     <color name="textColorHint">#89FFFFFF</color>
 
+    <color name="textColorPrimaryInverse">#DE000000</color>
+    <color name="textColorSecondaryInverse">#89000000</color>
+    <color name="textColorHintInverse">#42000000</color>
+
     <color name="white">#fff</color>
     <color name="dark_theme_bg">#222</color>
     <color name="black">#000</color>

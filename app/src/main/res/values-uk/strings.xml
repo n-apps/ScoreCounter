@@ -11,10 +11,10 @@
     <string name="common_set">Встановити</string>
     <string name="counter_details_color">Колір</string>
     <string name="counter_details_color_picker_title">Оберіть колір лічильника</string>
-    <string name="counter_details_default_value">Число за замовчуванням</string>
+    <string name="counter_details_default_value">Число за замовчуванням (після скиду)</string>
     <string name="counter_details_delete">Видалити лічильник</string>
     <string name="counter_details_name">Назва лічильника</string>
-    <string name="counter_details_step">Крок</string>
+    <string name="counter_details_step">Крок (-/+)</string>
     <string name="counter_details_value">Поточне значення</string>
     <string name="counters_empty_message">Натисніть в будь-якому місці, щоб додати лічильник або використовуйте + в правому верхньому кутку</string>
     <string name="dialog_change_counter_value_title">Поточне значення: %d</string>
@@ -46,4 +46,7 @@
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
     <string name="dialog_custom_dice_title">Кількість граней</string>
     <string name="dialog_custom_dice_hint">Від 2 до 100</string>
+    <string name="bottom_navigation_tab_counters">Лічильники</string>
+    <string name="bottom_navigation_tab_dice">Кубик</string>
+    <string name="bottom_navigation_tab_settings">Налаштування</string>
 </resources>

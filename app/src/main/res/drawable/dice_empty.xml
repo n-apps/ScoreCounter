@@ -5,6 +5,6 @@
     android:viewportWidth="512.0">
 
     <path
-        android:fillColor="?myIconTint"
+        android:fillColor="?myDiceColor"
         android:pathData="@string/dice_frame" />
 </vector>

@@ -1,14 +1,23 @@
 package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
+import android.support.annotation.CheckResult;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,11 +25,9 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
-import ua.com.napps.scorekeeper.R;
-
 public class ViewUtil {
 
-    public static void setLightStatusBar(@NonNull Activity activity, boolean isLightStatusBar) {
+    public static void setLightStatusBar(@NonNull Activity activity, boolean isLightStatusBar, @ColorInt int lightColor, @ColorInt int darkColor) {
 
         Window window = activity.getWindow();
 
@@ -29,7 +36,6 @@ public class ViewUtil {
 
         if (isLightStatusBar) {
             if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
-                int lightColor = ContextCompat.getColor(activity, R.color.white);
                 window.setStatusBarColor(lightColor);
                 if (VERSION.SDK_INT >= VERSION_CODES.M) {
                     newSystemUiFlags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -37,7 +43,6 @@ public class ViewUtil {
             }
         } else {
             if (VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP) {
-                int darkColor = ContextCompat.getColor(activity, R.color.dark_status_bar);
                 window.setStatusBarColor(darkColor);
                 if (VERSION.SDK_INT >= VERSION_CODES.M) {
                     newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -97,5 +102,48 @@ public class ViewUtil {
                 view.getX() + view.getWidth() / 2,
                 view.getY() + view.getHeight() / 2
         );
+    }
+
+    public static void setCursorTint(@NonNull EditText editText, @ColorInt int color) {
+        try {
+            Field fCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
+            fCursorDrawableRes.setAccessible(true);
+            int mCursorDrawableRes = fCursorDrawableRes.getInt(editText);
+            Field fEditor = TextView.class.getDeclaredField("mEditor");
+            fEditor.setAccessible(true);
+            Object editor = fEditor.get(editText);
+            Class<?> clazz = editor.getClass();
+            Field fCursorDrawable = clazz.getDeclaredField("mCursorDrawable");
+            fCursorDrawable.setAccessible(true);
+            Drawable[] drawables = new Drawable[2];
+            drawables[0] = ContextCompat.getDrawable(editText.getContext(), mCursorDrawableRes);
+            drawables[0] = createTintedDrawable(drawables[0], color);
+            drawables[1] = ContextCompat.getDrawable(editText.getContext(), mCursorDrawableRes);
+            drawables[1] = createTintedDrawable(drawables[1], color);
+            fCursorDrawable.set(editor, drawables);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // This returns a NEW Drawable because of the mutate() call. The mutate() call is necessary because Drawables with the same resource have shared states otherwise.
+    @CheckResult
+    @Nullable
+    public static Drawable createTintedDrawable(@Nullable Drawable drawable, @ColorInt int color) {
+        if (drawable == null) return null;
+        drawable = DrawableCompat.wrap(drawable.mutate());
+        DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);
+        DrawableCompat.setTint(drawable, color);
+        return drawable;
+    }
+
+    // This returns a NEW Drawable because of the mutate() call. The mutate() call is necessary because Drawables with the same resource have shared states otherwise.
+    @CheckResult
+    @Nullable
+    public static Drawable createTintedDrawable(@Nullable Drawable drawable, @NonNull ColorStateList sl) {
+        if (drawable == null) return null;
+        drawable = DrawableCompat.wrap(drawable.mutate());
+        DrawableCompat.setTintList(drawable, sl);
+        return drawable;
     }
 }

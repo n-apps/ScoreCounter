@@ -10,10 +10,10 @@
     <string name="common_set">Установить</string>
     <string name="counter_details_color">Цвет</string>
     <string name="counter_details_color_picker_title">Выберите цвет счетчика</string>
-    <string name="counter_details_default_value">Число по умолчанию</string>
+    <string name="counter_details_default_value">Число по умолчанию (после сброса)</string>
     <string name="counter_details_delete">Удалить счетчик</string>
     <string name="counter_details_name">Название счетчика</string>
-    <string name="counter_details_step">Шаг</string>
+    <string name="counter_details_step">Шаг (-/+)</string>
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или используйте + в правом верхнем углу</string>
     <string name="dialog_change_counter_value_title">Текущее значение: %d</string>
@@ -45,4 +45,7 @@
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dialog_custom_dice_hint">От 2 до 100</string>
+    <string name="bottom_navigation_tab_counters">Счетчики</string>
+    <string name="bottom_navigation_tab_dice">Кубик</string>
+    <string name="bottom_navigation_tab_settings">Настройки</string>
 </resources>
