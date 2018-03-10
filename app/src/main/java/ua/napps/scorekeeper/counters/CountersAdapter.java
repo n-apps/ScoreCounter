@@ -31,7 +31,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     private final CounterActionCallback callback;
     private int containerHeight;
-    private int containerWidth;
     private List<Counter> counters;
 
     CountersAdapter(CounterActionCallback callback) {
@@ -72,10 +71,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         int itemCount = getItemCount();
         if (itemCount > 5) {// set height as 0.2 of recyclerview height
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, getContainerHeight() / 5);
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, getContainerHeight() / 5);
             holder.itemView.setLayoutParams(layoutParams);
         } else { // fit available space
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(containerWidth, getContainerHeight() / itemCount);
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, getContainerHeight() / itemCount);
             holder.itemView.setLayoutParams(layoutParams);
         }
     }
@@ -84,10 +83,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     public CountersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
         return new CountersViewHolder(v, callback);
-    }
-
-    public void setContainerWidth(int widthPixels) {
-        containerWidth = widthPixels;
     }
 
     public void setCountersList(final List<Counter> update) {
