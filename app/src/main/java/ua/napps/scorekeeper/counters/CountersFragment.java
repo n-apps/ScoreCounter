@@ -193,9 +193,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
         liveData.observe(this, counterObserver);
         int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
-        View contentView = LayoutInflater.from(getActivity()).inflate(layoutId, null, false);
+        final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
         Button buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
-
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 5);

@@ -217,4 +217,3 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         App.getTinyDB().unregisterOnSharedPreferenceChangeListener(this);
     }
 }
-

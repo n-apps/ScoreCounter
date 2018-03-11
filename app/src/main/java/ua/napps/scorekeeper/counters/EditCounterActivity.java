@@ -131,12 +131,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .dynamicButtonColor(false)
                     .allowUserColorInputAlpha(false)
                     .show(EditCounterActivity.this);
-            AndroidFirebaseAnalytics.logEvent("edit_counter_color_click");
         });
         findViewById(R.id.btn_delete).setOnClickListener(v -> {
             setResult(RESULT_DELETE);
             viewModel.deleteCounter();
-            AndroidFirebaseAnalytics.logEvent("edit_counter_delete_click");
         });
         counterName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -193,7 +191,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 });
             }
             md.show();
-            AndroidFirebaseAnalytics.logEvent("edit_counter_value_click");
         });
 
         findViewById(R.id.counter_default_value).setOnClickListener(v -> {
@@ -229,7 +226,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 });
             }
             md.show();
-            AndroidFirebaseAnalytics.logEvent("edit_counter_default_click");
         });
 
         findViewById(R.id.counter_step).setOnClickListener(v -> {
@@ -265,7 +261,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 });
             }
             md.show();
-            AndroidFirebaseAnalytics.logEvent("edit_counter_step_click");
         });
 
     }
