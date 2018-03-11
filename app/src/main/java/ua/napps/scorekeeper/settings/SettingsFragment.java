@@ -75,12 +75,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Settings", getClass().getSimpleName());
-    }
-
-    @Override
     public void onCheckedChanged(CompoundButton v, boolean isChecked) {
         switch (v.getId()) {
             case R.id.sw_shake_roll:
