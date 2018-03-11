@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
-import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-    private EasyRatingDialog easyRatingDialog;
+//    private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         isDarkTheme = LocalSettings.isDarkTheme();
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState != null) {
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-        easyRatingDialog = new EasyRatingDialog(this);
+//        easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
@@ -83,20 +81,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     private void trackAnalytics() {
-        Bundle params = new Bundle();
-        params.putLong(FirebaseAnalytics.Param.SCORE, isDarkTheme ? 1 : 0);
-        AndroidFirebaseAnalytics.logEvent("dark_theme", params);
+        Bundle params1 = new Bundle();
+        params1.putLong(FirebaseAnalytics.Param.SCORE, isDarkTheme ? 1 : 0);
+        AndroidFirebaseAnalytics.logEvent("dark_theme", params1);
 
         Bundle params2 = new Bundle();
-        params.putLong(FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
+        params1.putLong(FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
 
         Bundle params3 = new Bundle();
-        params.putLong(FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
+        params1.putLong(FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
 
         Bundle params4 = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
+        params1.putString(FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
         AndroidFirebaseAnalytics.logEvent("dice_max_side", params4);
     }
 
@@ -118,13 +116,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-        easyRatingDialog.showIfNeeded();
+//        easyRatingDialog.showIfNeeded();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        easyRatingDialog.onStart();
+//        easyRatingDialog.onStart();
     }
 
     @Override
