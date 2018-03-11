@@ -20,6 +20,7 @@ import android.widget.ToggleButton;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
@@ -142,6 +143,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                             if (editText != null) {
                                 diceMaxSide = Integer.parseInt(editText.getText().toString());
                                 refreshDices(true);
+                                Bundle params = new Bundle();
+                                params.putString(FirebaseAnalytics.Param.CHARACTER, "" + diceMaxSide);
+                                AndroidFirebaseAnalytics.logEvent("custom_dice_sides_submit", params);
                             }
                         })
                         .build();
