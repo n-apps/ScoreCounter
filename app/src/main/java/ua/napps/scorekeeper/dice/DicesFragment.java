@@ -101,12 +101,6 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Dices", getClass().getSimpleName());
-    }
-
     private void initSensorData() {
         accel = 0.00f;
         accelCurrent = SensorManager.GRAVITY_EARTH;
