@@ -6,12 +6,12 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
+
 import ua.napps.scorekeeper.counters.Counter;
 import ua.napps.scorekeeper.counters.CountersDao;
 
-@Database(entities = {Counter.class}, version = 1)
-public abstract class DatabaseHolder
-        extends RoomDatabase {
+@Database(entities = {Counter.class}, version = 1, exportSchema = false)
+public abstract class DatabaseHolder extends RoomDatabase {
 
     private static DatabaseHolder database;
 
@@ -22,8 +22,7 @@ public abstract class DatabaseHolder
 
     @MainThread
     public static void init(@NonNull Context context) {
-        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class,
-                "counters-database").build();
+        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database").build();
     }
 
     public abstract CountersDao countersDao();

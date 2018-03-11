@@ -49,7 +49,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
-        SwitchCompat stayAwake = contentView.findViewById(R.id.sw_keep_screen_on);
+        SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         SwitchCompat shakeToRoll = contentView.findViewById(R.id.sw_shake_roll);
         diceSix = contentView.findViewById(R.id.tb_dice_6);
@@ -58,11 +58,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
-        stayAwake.setChecked(LocalSettings.isShakeToRollEnabled());
+        keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(LocalSettings.isDarkTheme());
         shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
         diceMaxSide = LocalSettings.getDiceMaxSide();
-        stayAwake.setOnCheckedChangeListener(this);
+        keepScreenOn.setOnCheckedChangeListener(this);
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
         diceSix.setOnClickListener(this);
@@ -159,19 +159,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
-    private void startEmailClient() {
-        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
-
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
-        intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-        }
-    }
-
     private void refreshDices(boolean storeInDB) {
         if (storeInDB && diceMaxSide <= 100) {
             LocalSettings.saveDiceMaxSide(diceMaxSide);
@@ -212,6 +199,19 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 diceCustom.setTextOn(label);
                 diceCustom.setText(label);
                 break;
+        }
+    }
+
+    private void startEmailClient() {
+        final String title = getString(R.string.app_name) + BuildConfig.VERSION_NAME;
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
+        intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
         }
     }
 }

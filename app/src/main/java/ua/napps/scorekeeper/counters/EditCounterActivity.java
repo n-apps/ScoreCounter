@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
@@ -50,11 +51,12 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private static final String STATE_IS_NAME_MODIFIED = "STATE_IS_NAME_MODIFIED";
 
     private Counter counter;
-    private EditText counterName;
-    private View appbarBackground;
+    private View revealView;
+    private View revealBackground;
+    private AppBarLayout appBar;
     private TextView counterStep;
     private TextInputLayout counterNameLayout;
-    private View revealView;
+    private EditText counterName;
     private TextView counterDefaultValue;
     private TextView labelChangesSaved;
     private TextView counterValue;
@@ -117,8 +119,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterDefaultValue = findViewById(R.id.tv_counter_default_value);
         counterValue = findViewById(R.id.tv_counter_value);
         labelChangesSaved = findViewById(R.id.tv_label_saved);
-        appbarBackground = findViewById(R.id.appbar_background);
-        revealView = findViewById(R.id.reveal_image);
+        revealBackground = findViewById(R.id.appbar_background);
+        appBar = findViewById(R.id.app_bar);
+        revealView = findViewById(R.id.reveal_view);
         counterNameLayout = findViewById(R.id.til_counter_name);
         findViewById(R.id.fab).setOnClickListener(v -> {
             new ColorChooserDialog.Builder(EditCounterActivity.this,
@@ -158,7 +161,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
             }
         });
-
         findViewById(R.id.counter_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_current_value_title)
@@ -192,7 +194,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             }
             md.show();
         });
-
         findViewById(R.id.counter_default_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_default_title)
@@ -227,7 +228,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             }
             md.show();
         });
-
         findViewById(R.id.counter_step).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_counter_step_title)
@@ -279,6 +279,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
             @Override
             public void onTransitionStart(Transition transition) {
+                revealView.setVisibility(View.VISIBLE);
                 revealView.setBackgroundColor(backgroundColor);
             }
         });
@@ -286,12 +287,12 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void reveal(int backgroundColor) {
-        appbarBackground.setBackgroundColor(backgroundColor);
+        revealBackground.setBackgroundColor(backgroundColor);
         final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
-        Animator anim = ViewAnimationUtils.createCircularReveal(appbarBackground, center.first.intValue(),
-                center.second.intValue(), 0f, appbarBackground.getWidth());
+        Animator anim = ViewAnimationUtils.createCircularReveal(revealBackground, center.first.intValue(),
+                center.second.intValue(), 0f, revealBackground.getWidth());
         anim.setDuration(400);
-        appbarBackground.setVisibility(View.VISIBLE);
+        revealBackground.setVisibility(View.VISIBLE);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -301,9 +302,12 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         anim.start();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void applyTintAccordingToCounterColor(int backgroundColor) {
-        getWindow().setStatusBarColor(backgroundColor);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(backgroundColor);
+        } else {
+            appBar.setBackgroundColor(Color.parseColor(counter.getColor()));
+        }
         boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
         int color = ContextCompat.getColor(EditCounterActivity.this, useLightTint ? R.color.white : R.color.black);
         counterName.setTextColor(color);
@@ -325,7 +329,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             reveal(color);
         } else {
-            appbarBackground.setBackgroundColor(color);
+            applyTintAccordingToCounterColor(color);
         }
         final String hex = ColorUtil.intColorToString(color);
         viewModel.updateColor(hex);
@@ -348,6 +352,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 if (!c.getName().equals(counterName.getText().toString())) {
                     counterName.setText(c.getName());
                     counterName.setSelection(c.getName().length());
+                }
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                    applyTintAccordingToCounterColor(Color.parseColor(counter.getColor()));
                 }
             } else {
                 counter = null;
@@ -374,8 +381,8 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private void hideView() {
         final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
         final Animator animator;
-        animator = ViewAnimationUtils.createCircularReveal(appbarBackground,
-                center.first.intValue(), center.second.intValue(), appbarBackground.getWidth(), 0);
+        animator = ViewAnimationUtils.createCircularReveal(revealBackground,
+                center.first.intValue(), center.second.intValue(), revealBackground.getWidth(), 0);
         animator.setDuration(300);
         animator.start();
     }

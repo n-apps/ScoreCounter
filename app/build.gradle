@@ -4,7 +4,8 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 4
 ext.versionMinor = 0
-ext.versionPatch = 0
+ext.versionPatch = 1
+ext.postfix = '-beta'
 
 android {
     compileSdkVersion 27
@@ -32,24 +33,25 @@ android {
     buildTypes {
         debug {
             useProguard false
-            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+        debugMini {
+            initWith debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            matchingFallbacks = ['debug']
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            //noinspection GroovyAssignabilityCheck
             signingConfig signingConfigs.release
         }
     }
     compileOptions {
         targetCompatibility 1.8
         sourceCompatibility 1.8
-    }
-
-    lintOptions {
-        abortOnError true
     }
 }
 
@@ -107,12 +109,18 @@ def generateVersionCode() {
 }
 
 def generateVersionName() {
-    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}${ext.postfix}"
 }
 
 task _printVersion << {
     println "\n==================================================================================="
     println "VERSION CODE: " + generateVersionCode()
+    println "===================================================================================\n"
+}
+
+task _printVersionName << {
+    println "\n==================================================================================="
+    println "VERSION NAME: " + generateVersionName()
     println "===================================================================================\n"
 }
 
