@@ -17,10 +17,11 @@
             android:layout_height="match_parent">
 
             <ua.napps.scorekeeper.utils.RoundedColorView
-                android:id="@+id/reveal_image"
+                android:id="@+id/reveal_view"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
+                android:visibility="invisible"
                 android:transitionName="backgroundColorImage"
                 app:backgroundColor="?attr/colorPrimary" />
 

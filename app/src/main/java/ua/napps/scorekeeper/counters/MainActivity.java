@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private int previousDiceRoll;
     private boolean isDarkTheme;
     private boolean isKeepScreenOn;
+    private BottomNavigationBar bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             lastSelectedBottomTab = 0;
         }
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
-        BottomNavigationBar bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
+        bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_plus_one_white, getString(R.string.bottom_navigation_tab_counters)))
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
@@ -209,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (lastSelectedBottomTab != 2) {
             super.onBackPressed();
         } else {
-            onTabSelected(0);
+            bottomNavigationBar.selectTab(0);
         }
     }
 

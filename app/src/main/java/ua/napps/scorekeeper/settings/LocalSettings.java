@@ -15,24 +15,24 @@ public class LocalSettings {
         return App.getTinyDB().getBoolean(DARK_THEME, false);
     }
 
-    public static void saveDarkTheme(boolean isChecked) {
-        App.getTinyDB().putBoolean(DARK_THEME, isChecked);
+    public static void saveDarkTheme(boolean enabled) {
+        App.getTinyDB().putBoolean(DARK_THEME, enabled);
     }
 
     public static boolean isKeepScreenOnEnabled() {
         return App.getTinyDB().getBoolean(KEEP_SCREEN_ON, true);
     }
 
-    public static void saveKeepScreenOn(boolean isChecked) {
-        App.getTinyDB().putBoolean(KEEP_SCREEN_ON, isChecked);
+    public static void saveKeepScreenOn(boolean enabled) {
+        App.getTinyDB().putBoolean(KEEP_SCREEN_ON, enabled);
     }
 
     public static boolean isShakeToRollEnabled() {
         return App.getTinyDB().getBoolean(SHAKE_TO_ROLL, true);
     }
 
-    public static void saveShakeToRoll(boolean isChecked) {
-        App.getTinyDB().putBoolean(SHAKE_TO_ROLL, isChecked);
+    public static void saveShakeToRoll(boolean enabled) {
+        App.getTinyDB().putBoolean(SHAKE_TO_ROLL, enabled);
     }
 
     public static int getDiceMaxSide() {
