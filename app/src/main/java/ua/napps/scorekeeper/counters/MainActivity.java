@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-//        easyRatingDialog = new EasyRatingDialog(this);
+        easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
@@ -120,13 +121,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-//        easyRatingDialog.showIfNeeded();
+        easyRatingDialog.showIfNeeded();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        easyRatingDialog.onStart();
+        easyRatingDialog.onStart();
     }
 
     @Override
