@@ -263,6 +263,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             md.show();
         });
 
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            revealView.setVisibility(View.GONE);
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -279,7 +282,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
             @Override
             public void onTransitionStart(Transition transition) {
-                revealView.setVisibility(View.VISIBLE);
                 revealView.setBackgroundColor(backgroundColor);
             }
         });

@@ -21,7 +21,6 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:visibility="invisible"
                 android:transitionName="backgroundColorImage"
                 app:backgroundColor="?attr/colorPrimary" />
 
