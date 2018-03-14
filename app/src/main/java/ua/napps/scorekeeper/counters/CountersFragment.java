@@ -5,6 +5,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -28,12 +29,14 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
@@ -46,6 +49,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     private boolean isFirstLoad = true;
     private MaterialDialog longClickDialog;
     private int oldListSize;
+    private boolean isLongPressTipShowed;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -86,6 +90,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this);
         subscribeUi();
+        isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
     }
 
     @Override
@@ -157,11 +162,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
-    public void onDecreaseClick(Counter counter) {
-        viewModel.decreaseCounter(counter);
-    }
-
-    @Override
     public void onEditClick(View view, Counter counter) {
         EditCounterActivity.start(getActivity(), counter, view);
         Bundle params = new Bundle();
@@ -170,8 +170,24 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
+    public void onDecreaseClick(Counter counter) {
+        viewModel.decreaseCounter(counter);
+        showLongPressHint();
+    }
+
+    private void showLongPressHint() {
+        if (!isLongPressTipShowed) {
+            Handler handler = new Handler();
+            handler.postDelayed(() -> Toast.makeText(requireContext(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show(), 500);
+            LocalSettings.setLongPressTipShowed();
+            isLongPressTipShowed = true;
+        }
+    }
+
+    @Override
     public void onIncreaseClick(Counter counter) {
         viewModel.increaseCounter(counter);
+        showLongPressHint();
     }
 
     @Override
@@ -327,4 +343,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         }
         AndroidFirebaseAnalytics.logEvent("scroll_to_top");
     }
+
+
 }

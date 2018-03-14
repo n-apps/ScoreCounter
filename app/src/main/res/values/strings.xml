@@ -49,4 +49,7 @@
     <string name="bottom_navigation_tab_counters">Counters</string>
     <string name="bottom_navigation_tab_dice">Dice</string>
     <string name="bottom_navigation_tab_settings">Settings</string>
+    <string name="settings_telegram">Telegram</string>
+    <string name="message_telegram_app_not_installed">Telegram app is not installed</string>
+    <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
 </resources>

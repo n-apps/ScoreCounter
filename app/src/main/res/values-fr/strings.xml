@@ -49,4 +49,7 @@
     <string name="bottom_navigation_tab_counters">Compteurs</string>
     <string name="bottom_navigation_tab_dice">Dés</string>
     <string name="bottom_navigation_tab_settings">Paramètres</string>
+    <string name="settings_telegram">Telegram</string>
+    <string name="message_telegram_app_not_installed">Télégramme n\'est pas installé</string>
+    <string name="message_you_can_use_long_press">Vous pouvez également changer la valeur du compteur en appuyant longuement</string>
 </resources>
