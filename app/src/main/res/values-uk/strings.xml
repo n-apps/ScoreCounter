@@ -41,6 +41,8 @@
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі лічильники</string>
     <string name="menu_reset_all_counters">Скинути всі лічильники</string>
+    <string name="message_telegram_app_not_installed">Додаток Telegram не встановлено</string>
+    <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_have_a_problem">Поскаржитись</string>
     <string name="settings_section_contact_developer">Написати розробнику</string>
@@ -49,16 +51,5 @@
     <string name="settings_section_request_a_feature">Мені не вистачає…</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Залишати екран ввімкненим</string>
-    <string name="settings_dark_theme">Темна тема</string>
-    <string name="settings_have_a_problem">Поскаржитись</string>
-    <string name="settings_section_contact_developer">Написати розробнику</string>
-    <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="dialog_custom_dice_title">Кількість граней</string>
-    <string name="dialog_custom_dice_hint">Від 2 до 100</string>
-    <string name="bottom_navigation_tab_counters">Лічильники</string>
-    <string name="bottom_navigation_tab_dice">Кубик</string>
-    <string name="bottom_navigation_tab_settings">Налаштування</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="message_telegram_app_not_installed">Додаток Telegram не встановлено</string>
-    <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
 </resources>

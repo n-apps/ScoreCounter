@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.hugo'
 apply plugin: 'io.fabric'
 
-ext.versionMajor = 5
+ext.versionMajor = 4
 ext.versionMinor = 0
-ext.versionPatch = 0
-ext.postfix = '-beta'
+ext.versionPatch = 3
+ext.postfix = ''
 
 android {
     compileSdkVersion 27

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<resources>
-    <string name="app_name">Score Counter</string>
+<resources>    <string name="app_name">Score Counter</string>
     <string name="bottom_navigation_tab_counters">Counters</string>
     <string name="bottom_navigation_tab_dice">Dice</string>
     <string name="bottom_navigation_tab_settings">Settings</string>
@@ -41,6 +40,8 @@
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_remove_all_counters">Remove all counters</string>
     <string name="menu_reset_all_counters">Reset all</string>
+    <string name="message_telegram_app_not_installed">Telegram app is not installed</string>
+    <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_have_a_problem">I have a problem</string>
     <string name="settings_section_contact_developer">Contact developer</string>
@@ -50,6 +51,4 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="message_telegram_app_not_installed">Telegram app is not installed</string>
-    <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
 </resources>

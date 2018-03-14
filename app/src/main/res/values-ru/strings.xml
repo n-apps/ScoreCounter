@@ -41,6 +41,8 @@
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все счетчики</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
+    <string name="message_telegram_app_not_installed">Приложение Telegram не установлено</string>
+    <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_have_a_problem">Пожаловаться</string>
     <string name="settings_section_contact_developer">Написать разработчику</string>
@@ -49,16 +51,5 @@
     <string name="settings_section_request_a_feature">Мне не хватает…</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Оставлять экран включенным</string>
-    <string name="settings_dark_theme">Темная тема</string>
-    <string name="settings_have_a_problem">Пожаловаться</string>
-    <string name="settings_section_contact_developer">Написать разработчику</string>
-    <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="dialog_custom_dice_title">Количество граней</string>
-    <string name="dialog_custom_dice_hint">От 2 до 100</string>
-    <string name="bottom_navigation_tab_counters">Счетчики</string>
-    <string name="bottom_navigation_tab_dice">Кубик</string>
-    <string name="bottom_navigation_tab_settings">Настройки</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="message_telegram_app_not_installed">Приложение Telegram не установлено</string>
-    <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
 </resources>
