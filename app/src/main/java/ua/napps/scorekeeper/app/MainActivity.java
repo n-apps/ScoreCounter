@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.counters;
+package ua.napps.scorekeeper.app;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
+import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;

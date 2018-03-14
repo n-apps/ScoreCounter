@@ -129,7 +129,7 @@ public class ViewUtil {
     // This returns a NEW Drawable because of the mutate() call. The mutate() call is necessary because Drawables with the same resource have shared states otherwise.
     @CheckResult
     @Nullable
-    public static Drawable createTintedDrawable(@Nullable Drawable drawable, @ColorInt int color) {
+    private static Drawable createTintedDrawable(@Nullable Drawable drawable, @ColorInt int color) {
         if (drawable == null) return null;
         drawable = DrawableCompat.wrap(drawable.mutate());
         DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);

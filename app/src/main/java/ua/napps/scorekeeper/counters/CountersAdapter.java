@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.widget.RecyclerView;
@@ -51,7 +52,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(CountersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CountersViewHolder holder, int position) {
         final Counter counter = counters.get(position);
         holder.counter = counter;
         holder.counterName.setText(counter.getName());
@@ -79,9 +80,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         }
     }
 
+    @NonNull
     @Override
-    public CountersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
+    public CountersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
         return new CountersViewHolder(v, callback);
     }
 
