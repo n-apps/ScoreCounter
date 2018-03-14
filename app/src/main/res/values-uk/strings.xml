@@ -49,4 +49,7 @@
     <string name="bottom_navigation_tab_counters">Лічильники</string>
     <string name="bottom_navigation_tab_dice">Кубик</string>
     <string name="bottom_navigation_tab_settings">Налаштування</string>
+    <string name="settings_telegram">Telegram</string>
+    <string name="message_telegram_app_not_installed">Додаток Telegram не встановлено</string>
+    <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
 </resources>

@@ -48,4 +48,7 @@
     <string name="bottom_navigation_tab_counters">Счетчики</string>
     <string name="bottom_navigation_tab_dice">Кубик</string>
     <string name="bottom_navigation_tab_settings">Настройки</string>
+    <string name="settings_telegram">Telegram</string>
+    <string name="message_telegram_app_not_installed">Приложение Telegram не установлено</string>
+    <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
 </resources>
