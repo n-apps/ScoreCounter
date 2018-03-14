@@ -37,7 +37,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class CountersFragment extends Fragment implements CounterActionCallback {
@@ -85,8 +84,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        CountersDao countersDao = DatabaseHolder.database().countersDao();
-        CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication(), countersDao);
+        CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this);
         subscribeUi();

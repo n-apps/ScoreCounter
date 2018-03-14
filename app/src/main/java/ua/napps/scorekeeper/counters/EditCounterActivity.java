@@ -37,7 +37,6 @@ import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
@@ -345,8 +344,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void subscribeToModel(int id) {
-        CountersDao countersDao = DatabaseHolder.database().countersDao();
-        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao, this);
+        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, this);
         viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
