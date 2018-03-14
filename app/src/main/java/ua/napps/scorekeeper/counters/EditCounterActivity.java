@@ -32,11 +32,11 @@ import android.widget.TextView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
@@ -138,28 +138,28 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         findViewById(R.id.btn_delete).setOnClickListener(v -> {
             setResult(RESULT_DELETE);
             viewModel.deleteCounter();
-        });
-        counterName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void afterTextChanged(final Editable s) {
-                final String newName = s.toString();
-                if (counter != null && !counter.getName().equals(newName)) {
-                    viewModel.updateName(newName);
-                    isNameModified = true;
+            counterName.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void afterTextChanged(final Editable s) {
+                    final String newName = s.toString();
+                    if (counter != null && !counter.getName().equals(newName)) {
+                        viewModel.updateName(newName);
+                        isNameModified = true;
+                    }
                 }
-            }
 
-            @Override
-            public void beforeTextChanged(final CharSequence s, final int start, final int count,
-                                          final int after) {
+                @Override
+                public void beforeTextChanged(final CharSequence s, final int start, final int count,
+                                              final int after) {
 
-            }
+                }
 
-            @Override
-            public void onTextChanged(final CharSequence s, final int start, final int before,
-                                      final int count) {
+                @Override
+                public void onTextChanged(final CharSequence s, final int start, final int before,
+                                          final int count) {
 
-            }
+                }
+            });
         });
         findViewById(R.id.counter_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
@@ -211,6 +211,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newDefaultValue);
                                     }
+                                    Bundle params = new Bundle();
+                                    params.putString(FirebaseAnalytics.Param.CHARACTER, newDefaultValue);
+                                    AndroidFirebaseAnalytics.logEvent("counter_default_value_submit", params);
 
                                 }
                             })
@@ -341,8 +344,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void subscribeToModel(int id) {
-        CountersDao countersDao = DatabaseHolder.database().countersDao();
-        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, countersDao, this);
+        EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id, this);
         viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
