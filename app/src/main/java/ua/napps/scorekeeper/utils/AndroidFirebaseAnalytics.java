@@ -19,7 +19,7 @@ public class AndroidFirebaseAnalytics {
         if (firebaseAnalytics == null) {
             firebaseAnalytics = FirebaseAnalytics.getInstance(App.getInstance());
             firebaseAnalytics.setMinimumSessionDuration(3000); //minimum session time is 1 minute
-            firebaseAnalytics.setUserProperty("app_version", "beta");
+            firebaseAnalytics.setUserProperty("app_version", "free");
             firebaseAnalytics.setAnalyticsCollectionEnabled(!BuildConfig.DEBUG);
         }
         return firebaseAnalytics;
