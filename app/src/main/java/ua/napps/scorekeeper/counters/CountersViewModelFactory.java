@@ -5,15 +5,16 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
+import ua.napps.scorekeeper.storage.DatabaseHolder;
+
 class CountersViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final Application app;
-
     private final CountersRepository repository;
 
-    CountersViewModelFactory(Application scoreKeeperApp, CountersDao countersDao) {
+    CountersViewModelFactory(Application scoreKeeperApp) {
         app = scoreKeeperApp;
-        repository = new CountersRepository(countersDao);
+        repository = new CountersRepository(DatabaseHolder.database().countersDao());
     }
 
     @NonNull
