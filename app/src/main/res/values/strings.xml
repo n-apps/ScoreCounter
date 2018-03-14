@@ -49,4 +49,7 @@
     <string name="settings_section_request_a_feature">Request a feature</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
+    <string name="settings_telegram">Telegram</string>
+    <string name="message_telegram_app_not_installed">Telegram app is not installed</string>
+    <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
 </resources>

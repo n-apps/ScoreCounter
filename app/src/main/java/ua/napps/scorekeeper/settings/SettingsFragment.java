@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.settings;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,7 +25,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
-import ua.napps.scorekeeper.app.Constants;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 
@@ -55,8 +55,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         diceEight = contentView.findViewById(R.id.tb_dice_8);
         diceTwenty = contentView.findViewById(R.id.tb_dice_20);
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
-        contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(LocalSettings.isDarkTheme());
         shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
@@ -64,11 +62,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         keepScreenOn.setOnCheckedChangeListener(this);
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
+        contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_telegram_direct).setOnClickListener(this);
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
         diceTwenty.setOnClickListener(this);
         diceCustom.setOnClickListener(this);
-
         refreshDices(false);
         return contentView;
     }
@@ -98,6 +98,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_have_a_problem:
                 AndroidFirebaseAnalytics.logEvent("i_have_a_problem_click");
                 startEmailClient();
+                break;
+            case R.id.tv_telegram_direct:
+                AndroidFirebaseAnalytics.logEvent("telegram_click");
+                openTelegram();
                 break;
             case R.id.tb_dice_6:
                 diceMaxSide = 6;
@@ -199,15 +203,38 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     private void startEmailClient() {
-        final String title = getString(R.string.app_name) + BuildConfig.VERSION_NAME;
+        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", Constants.FEEDBACK_EMAIL_ADDRESS, null));
-        intent.putExtra(Intent.EXTRA_EMAIL, Constants.FEEDBACK_EMAIL_ADDRESS);
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
+        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
         intent.putExtra(Intent.EXTRA_SUBJECT, title);
         if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
             startActivity(intent);
         } else {
             Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openTelegram() {
+        if (isPackageInstalled("org.telegram.messenger", requireContext().getPackageManager()) ||
+                isPackageInstalled("org.telegram.plus", requireContext().getPackageManager()) ||
+                isPackageInstalled("org.thunderdog.challegram", requireContext().getPackageManager())) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse("https://t.me/artificially_busy"));
+            startActivity(intent);
+        } else {
+            Toast.makeText(requireContext(), R.string.message_telegram_app_not_installed, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isPackageInstalled(String packagename, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packagename, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
         }
     }
 }

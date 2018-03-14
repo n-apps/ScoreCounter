@@ -14,10 +14,10 @@
             android:id="@+id/tv_general"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
             android:text="@string/settings_section_general"
             android:textColor="@color/accentColor"
-            android:layout_marginLeft="@dimen/spacing_normal"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:layout_editor_absoluteX="8dp" />
 
@@ -246,5 +246,38 @@
             app:layout_constraintLeft_toRightOf="@id/iv_have_a_problem"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="@color/black_12"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_have_a_problem" />
+
+        <ImageView
+            android:id="@+id/iv_telegram"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_have_a_problem"
+            app:layout_constraintBottom_toBottomOf="@id/tv_telegram_direct"
+            app:layout_constraintLeft_toLeftOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/tv_telegram_direct"
+            app:srcCompat="@drawable/ic_telegram" />
+
+        <TextView
+            android:id="@+id/tv_telegram_direct"
+            style="@style/TwoLinesStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/padding_large"
+            android:text="@string/settings_telegram"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
+            app:layout_constraintLeft_toRightOf="@id/iv_telegram"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider4" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

@@ -80,7 +80,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_back_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/editor/ic_format_list_numbered_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -90,9 +90,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_arrow_back" />
-                            <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="S:\Android\ScoreKeeperApp\assets\dice-100.svg" />
+                            <entry key="outputName" value="ic_format_list_numbered" />
+                            <entry key="sourceFile" value="D:\telegram.svg" />
                           </map>
                         </option>
                       </PersistentState>

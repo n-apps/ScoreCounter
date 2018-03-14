@@ -4,16 +4,16 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
+import ua.napps.scorekeeper.storage.DatabaseHolder;
+
 class EditCounterViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private final int counterId;
-
     private final CountersRepository repository;
-
     private final EditCounterViewModel.EditCounterViewModelCallback callback;
 
-    EditCounterViewModelFactory(int counterId, CountersDao countersDao, EditCounterViewModel.EditCounterViewModelCallback callback) {
-        repository = new CountersRepository(countersDao);
+    EditCounterViewModelFactory(int counterId, EditCounterViewModel.EditCounterViewModelCallback callback) {
+        repository = new CountersRepository(DatabaseHolder.database().countersDao());
         this.counterId = counterId;
         this.callback = callback;
     }
