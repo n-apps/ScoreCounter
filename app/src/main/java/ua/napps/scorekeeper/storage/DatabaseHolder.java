@@ -22,7 +22,9 @@ public abstract class DatabaseHolder extends RoomDatabase {
 
     @MainThread
     public static void init(@NonNull Context context) {
-        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database").build();
+        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database")
+                .fallbackToDestructiveMigration()
+                .build();
     }
 
     public abstract CountersDao countersDao();
