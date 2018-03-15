@@ -59,7 +59,7 @@ ext {
     // App dependencies
     supportLibraryVersion = '27.1.0'
     archLifecycleVersion = "1.1.0"
-    archRoomVersion = "1.1.0-alpha2"
+    archRoomVersion = "1.1.0-alpha3"
     materialDialogsVersion = "0.9.6.0"
 }
 
