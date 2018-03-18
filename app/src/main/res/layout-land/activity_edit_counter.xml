@@ -9,7 +9,7 @@
         android:id="@+id/app_bar"
         style="@style/AppBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="152dp"
         android:minHeight="?attr/actionBarSize">
 
         <FrameLayout
@@ -31,31 +31,51 @@
                 android:visibility="invisible"
                 app:layout_collapseMode="parallax" />
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_counter_name"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:layout_marginLeft="@dimen/spacing_large"
-                android:layout_marginRight="96dp"
-                android:theme="@style/LightEditText"
-                app:hintAnimationEnabled="false"
-                app:hintTextAppearance="@style/MyHintText">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/et_counter_name"
-                    android:layout_width="match_parent"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/til_counter_name"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/counter_details_name"
-                    android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect"
-                    android:maxLength="20"
-                    android:maxLines="1"
-                    android:textAllCaps="true"
-                    android:textSize="@dimen/font_display"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginLeft="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_xlarge"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:layout_weight="1"
                     android:theme="@style/LightEditText"
-                    tools:text="@string/app_name" />
-            </android.support.design.widget.TextInputLayout>
+                    app:hintAnimationEnabled="false"
+                    app:hintTextAppearance="@style/MyHintText">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_counter_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/counter_details_name"
+                        android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect"
+                        android:maxLength="20"
+                        android:maxLines="1"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/font_display"
+                        android:theme="@style/LightEditText"
+                        tools:text="@string/app_name" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:layout_marginRight="@dimen/spacing_large"
+                    android:clickable="true"
+                    android:tint="@color/white"
+                    app:srcCompat="@drawable/ic_color_lens" />
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -85,17 +105,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:baselineAligned="false"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/counter_value"
-                style="@style/TwoLinesStyle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:padding="@dimen/spacing_normal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -112,17 +133,15 @@
                     tools:text="20" />
             </LinearLayout>
 
-            <include layout="@layout/divider" />
-
             <LinearLayout
                 android:id="@+id/counter_step"
-                style="@style/SingleLineStyle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:padding="@dimen/spacing_normal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -134,21 +153,20 @@
                     android:id="@+id/tv_counter_step"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="?android:attr/textColorPrimary"
                     tools:text="1" />
             </LinearLayout>
 
-            <include layout="@layout/divider" />
-
             <LinearLayout
                 android:id="@+id/counter_default_value"
-                style="@style/SingleLineStyle"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:padding="@dimen/spacing_normal">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -160,11 +178,10 @@
                     android:id="@+id/tv_counter_default_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="?android:attr/textColorPrimary"
                     tools:text="0" />
             </LinearLayout>
-
-            <include layout="@layout/divider" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
@@ -175,8 +192,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/bg_selector_flat_button"
-        android:minHeight="@dimen/button_min_height"
         android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/button_min_height"
         android:paddingBottom="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
         android:text="@string/counter_details_delete">
@@ -188,16 +205,5 @@
             android:text="@string/counter_details_delete"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
     </FrameLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_large"
-        android:clickable="true"
-        android:tint="@color/white"
-        app:layout_anchor="@id/appbar_background"
-        app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_color_lens" />
 
 </android.support.design.widget.CoordinatorLayout>
