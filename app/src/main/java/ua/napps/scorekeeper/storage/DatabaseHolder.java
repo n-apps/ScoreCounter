@@ -24,6 +24,7 @@ public abstract class DatabaseHolder extends RoomDatabase {
     public static void init(@NonNull Context context) {
         database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database")
                 .addMigrations(MIGRATION_1_2)
+                .fallbackToDestructiveMigration()
                 .build();
     }
 

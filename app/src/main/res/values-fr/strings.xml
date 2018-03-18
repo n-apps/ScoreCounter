@@ -14,7 +14,7 @@
     <string name="common_set">Définir</string>
     <string name="counter_details_color">Couleur</string>
     <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
-    <string name="counter_details_default_value">Valeur par défaut (après réinitialisation)</string>
+    <string name="counter_details_default_value">Valeur après réinitialisation</string>
     <string name="counter_details_delete">Supprimer le compteur</string>
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Étape (-/+)</string>
