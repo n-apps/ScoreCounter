@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import ua.napps.scorekeeper.counters.Counter;
 import ua.napps.scorekeeper.counters.CountersDao;
 
-@Database(entities = {Counter.class}, version = 1, exportSchema = false)
+@Database(entities = {Counter.class}, version = 2, exportSchema = false)
 public abstract class DatabaseHolder extends RoomDatabase {
 
     private static DatabaseHolder database;
@@ -22,8 +22,19 @@ public abstract class DatabaseHolder extends RoomDatabase {
 
     @MainThread
     public static void init(@NonNull Context context) {
-        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database").build();
+        database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database")
+                .addMigrations(MIGRATION_1_2)
+                .fallbackToDestructiveMigration()
+                .build();
     }
 
     public abstract CountersDao countersDao();
+
+
+    static final android.arch.persistence.room.migration.Migration MIGRATION_1_2 = new android.arch.persistence.room.migration.Migration(1, 2) {
+    @Override
+    public void migrate(android.arch.persistence.db.SupportSQLiteDatabase database) {
+        // Since we didn't alter the table, there's nothing else to do here.
+    }
+};
 }

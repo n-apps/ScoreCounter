@@ -4,8 +4,6 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.support.annotation.NonNull;
 
-import java.util.concurrent.TimeUnit;
-
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -38,7 +36,7 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        Timber.d("onComplete - successfully deleted counter");
+
                     }
 
                     @Override
@@ -64,7 +62,6 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .delay(1, TimeUnit.SECONDS)
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -90,7 +87,6 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .delay(1, TimeUnit.SECONDS)
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -116,7 +112,6 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .delay(1, TimeUnit.SECONDS)
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -142,7 +137,6 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .delay(1, TimeUnit.SECONDS)
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
@@ -168,7 +162,6 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.setCount(id, value)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .delay(1, TimeUnit.SECONDS)
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {

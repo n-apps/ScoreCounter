@@ -35,6 +35,11 @@ import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -62,6 +67,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private TextView counterValue;
     private boolean isNameModified;
     private EditCounterViewModel viewModel;
+    private Disposable disposable;
 
     public static void start(Activity activity, Counter counter, View view) {
         Intent intent = new Intent(activity, EditCounterActivity.class);
@@ -138,28 +144,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         findViewById(R.id.btn_delete).setOnClickListener(v -> {
             setResult(RESULT_DELETE);
             viewModel.deleteCounter();
-            counterName.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void afterTextChanged(final Editable s) {
-                    final String newName = s.toString();
-                    if (counter != null && !counter.getName().equals(newName)) {
-                        viewModel.updateName(newName);
-                        isNameModified = true;
-                    }
-                }
-
-                @Override
-                public void beforeTextChanged(final CharSequence s, final int start, final int count,
-                                              final int after) {
-
-                }
-
-                @Override
-                public void onTextChanged(final CharSequence s, final int start, final int before,
-                                          final int count) {
-
-                }
-            });
         });
         findViewById(R.id.counter_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
@@ -265,6 +249,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             }
             md.show();
         });
+        Observable<String> textChangeStream = createTextChangeObservable();
+        disposable = textChangeStream
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> {
+                    viewModel.updateName(s);
+                    isNameModified = true;
+                });
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             revealView.setVisibility(View.GONE);
@@ -316,6 +307,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
         int color = ContextCompat.getColor(EditCounterActivity.this, useLightTint ? R.color.white : R.color.black);
         counterName.setTextColor(color);
+        labelChangesSaved.setTextColor(color);
         counterNameLayout.setHintTextAppearance(useLightTint ? R.style.HintTextLight : R.style.HintTextDark);
         Drawable wrappedDrawable = DrawableCompat.wrap(counterName.getBackground());
         DrawableCompat.setTint(wrappedDrawable.mutate(), color);
@@ -373,12 +365,29 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         labelChangesSaved.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            hideView();
-        }
+    private Observable<String> createTextChangeObservable() {
+        Observable<String> textChangeObservable =
+                Observable.create(e -> {
+                    final TextWatcher textWatcher = new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start,
+                                                      int count, int after) {
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start,
+                                                  int before, int count) {
+                            e.onNext(s.toString());
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+                        }
+                    };
+                    counterName.addTextChangedListener(textWatcher);
+                    e.setCancellable(() -> counterName.removeTextChangedListener(textWatcher));
+                });
+        return textChangeObservable.distinctUntilChanged().debounce(1000, TimeUnit.MILLISECONDS);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -392,7 +401,18 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            hideView();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
         super.onDestroy();
         if (isNameModified && counter != null) {
             Bundle params = new Bundle();

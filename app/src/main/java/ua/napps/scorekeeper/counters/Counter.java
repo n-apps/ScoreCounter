@@ -7,12 +7,17 @@ import android.support.annotation.NonNull;
 @Entity(tableName = "counters")
 public class Counter {
 
+    private String color;
+
+    private int defaultValue;
+
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String color;
-    private int defaultValue;
+
     private String name;
+
     private int step;
+
     private int value;
 
     public Counter(@NonNull String name, String color) {

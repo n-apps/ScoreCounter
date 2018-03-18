@@ -22,5 +22,5 @@
     <color name="dice_bg_light">#F8EFE4</color>
     <color name="dice_bg_dark">#000</color>
     <color name="windowBackground">#000</color>
-
+    <color name="accentColorDark">#d76250</color>
 </resources>

@@ -40,6 +40,7 @@
 
     <style name="MyHintText" parent="TextAppearance.AppCompat.Small">
         <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="HintTextLight" parent="TextAppearance.AppCompat.Caption">

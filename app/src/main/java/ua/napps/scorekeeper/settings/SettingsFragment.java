@@ -22,6 +22,7 @@ import android.widget.ToggleButton;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
@@ -138,8 +139,14 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .onPositive((dialog, which) -> {
                             EditText editText = dialog.getInputEditText();
                             if (editText != null) {
-                                diceMaxSide = Integer.parseInt(editText.getText().toString());
-                                refreshDices(true);
+                                try {
+                                    diceMaxSide = Integer.parseInt(editText.getText().toString());
+                                } catch (NumberFormatException e) {
+                                    Timber.e(e, "diceMaxSide: %s", editText.getText().toString());
+                                } finally {
+                                    refreshDices(true);
+                                    dialog.dismiss();
+                                }
                             }
                         })
                         .build();
