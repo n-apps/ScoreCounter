@@ -24,8 +24,17 @@ public interface CountersDao {
     @Query("SELECT * FROM counters")
     LiveData<List<Counter>> loadAllCounters();
 
+    @Query("SELECT * FROM counters")
+    List<Counter> loadAllCountersSync();
+
+     @Query("SELECT COUNT(*) FROM counters")
+    int count();
+
     @Query("select * from counters where id = :counterId")
     LiveData<Counter> loadCounter(int counterId);
+
+        @Query("select * from counters where id = :counterId")
+    Counter loadCounterSync(int counterId);
 
     @Query("UPDATE counters " + "SET color = :hex WHERE id = :counterId")
     void modifyColor(int counterId, String hex);

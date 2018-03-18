@@ -14,7 +14,7 @@
     <string name="common_set">Установить</string>
     <string name="counter_details_color">Цвет</string>
     <string name="counter_details_color_picker_title">Выберите цвет счетчика</string>
-    <string name="counter_details_default_value">Число по умолчанию (после сброса)</string>
+    <string name="counter_details_default_value">Значение после сброса</string>
     <string name="counter_details_delete">Удалить счетчик</string>
     <string name="counter_details_name">Название счетчика</string>
     <string name="counter_details_step">Шаг (-/+)</string>
