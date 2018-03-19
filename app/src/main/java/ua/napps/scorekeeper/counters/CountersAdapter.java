@@ -37,14 +37,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
     private final CounterActionCallback callback;
     private int containerHeight;
+    private int maxFitCounters;
     private List<Counter> counters;
 
     CountersAdapter(CounterActionCallback callback) {
         this.callback = callback;
-    }
-
-    private int getContainerHeight() {
-        return containerHeight;
     }
 
     public void setContainerHeight(int height) {
@@ -76,11 +73,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         DrawableCompat.setTint(wrapDrawable2, textColor);
 
         int itemCount = getItemCount();
-        if (itemCount > 5) {// set height as 0.2 of recyclerview height
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, getContainerHeight() / 5);
+        if (itemCount <= maxFitCounters) { // fit available space
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
             holder.itemView.setLayoutParams(layoutParams);
-        } else { // fit available space
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, getContainerHeight() / itemCount);
+        } else {// set height as recyclerview height / maxFitCounters
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / maxFitCounters);
             holder.itemView.setLayoutParams(layoutParams);
         }
     }
@@ -127,6 +124,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counters = update;
             result.dispatchUpdatesTo(this);
         }
+    }
+
+    public void setMaxFitCounters(int maxFitCounters) {
+        this.maxFitCounters = maxFitCounters;
     }
 
     public class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
