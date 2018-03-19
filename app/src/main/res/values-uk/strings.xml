@@ -52,4 +52,5 @@
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Залишати екран ввімкненим</string>
     <string name="settings_telegram">Telegram</string>
+    <string name="settings_section_dice_sides">Кількість граней</string>
 </resources>

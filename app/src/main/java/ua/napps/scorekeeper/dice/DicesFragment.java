@@ -14,6 +14,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -124,7 +126,24 @@ public class DicesFragment extends Fragment {
     private void updateLastRollLabel() {
         if (previousRoll != 0) {
             previousResultTextView.setVisibility(View.VISIBLE);
-            previousResultTextView.setText(String.format(getString(R.string.dice_previous_result_label), previousRoll));
+            Animation animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.scale);
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    previousResultTextView.setText(String.format(getString(R.string.dice_previous_result_label), previousRoll));
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            previousResultTextView.startAnimation(animation);
         } else {
             previousResultTextView.setVisibility(View.GONE);
         }

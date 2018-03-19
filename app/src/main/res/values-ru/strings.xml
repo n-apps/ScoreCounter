@@ -52,4 +52,5 @@
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Оставлять экран включенным</string>
     <string name="settings_telegram">Telegram</string>
+    <string name="settings_section_dice_sides">Количество граней</string>
 </resources>

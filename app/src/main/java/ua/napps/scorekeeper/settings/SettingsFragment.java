@@ -21,6 +21,7 @@ import android.widget.ToggleButton;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
@@ -101,7 +102,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 startEmailClient();
                 break;
             case R.id.tv_telegram_direct:
-                AndroidFirebaseAnalytics.logEvent("telegram_click");
                 openTelegram();
                 break;
             case R.id.tb_dice_6:
@@ -223,6 +223,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     private void openTelegram() {
+        Bundle params = new Bundle();
         if (isPackageInstalled("org.telegram.messenger", requireContext().getPackageManager()) ||
                 isPackageInstalled("org.telegram.plus", requireContext().getPackageManager()) ||
                 isPackageInstalled("org.thunderdog.challegram", requireContext().getPackageManager())) {
@@ -231,9 +232,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             intent.addCategory(Intent.CATEGORY_BROWSABLE);
             intent.setData(Uri.parse("https://t.me/artificially_busy"));
             startActivity(intent);
+            params.putLong(FirebaseAnalytics.Param.SCORE, 1);
         } else {
             Toast.makeText(requireContext(), R.string.message_telegram_app_not_installed, Toast.LENGTH_SHORT).show();
+            params.putLong(FirebaseAnalytics.Param.SCORE, 0);
         }
+
+        AndroidFirebaseAnalytics.logEvent("telegram_click", params);
     }
 
     private boolean isPackageInstalled(String packagename, PackageManager packageManager) {

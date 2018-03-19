@@ -51,4 +51,5 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_telegram">Telegram</string>
+    <string name="settings_section_dice_sides">Dice sides</string>
 </resources>

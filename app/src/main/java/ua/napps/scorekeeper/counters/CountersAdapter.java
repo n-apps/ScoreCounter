@@ -10,6 +10,7 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,6 +31,9 @@ import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
+
+    public static final String INCREASE_VALUE_CLICK = "increase_value_click";
+    public static final String DECREASE_VALUE_CLICK = "decrease_value_click";
 
     private final CounterActionCallback callback;
     private int containerHeight;
@@ -92,24 +97,52 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counters = update;
             notifyItemRangeInserted(0, update.size());
         } else {
-            notifyDataSetChanged();
-            counters.clear();
-            counters.addAll(update);
+            DiffUtil.DiffResult result = DiffUtil.calculateDiff(new DiffUtil.Callback() {
+                @Override
+                public int getOldListSize() {
+                    return counters.size();
+                }
+
+                @Override
+                public int getNewListSize() {
+                    return update.size();
+                }
+
+                @Override
+                public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+                    return counters.get(oldItemPosition).getId() ==
+                            update.get(newItemPosition).getId();
+                }
+
+                @Override
+                public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+                    Counter newCounter = update.get(newItemPosition);
+                    Counter oldCounter = counters.get(oldItemPosition);
+                    return newCounter.getId() == oldCounter.getId()
+                            && Objects.equals(newCounter.getName(), oldCounter.getName())
+                            && Objects.equals(newCounter.getName(), oldCounter.getName())
+                            && newCounter.getValue() == oldCounter.getValue();
+                }
+            });
+            counters = update;
+            result.dispatchUpdatesTo(this);
         }
     }
 
-    public static class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
+    public class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
 
         private static final int MSG_PERFORM_LONGCLICK = 1;
+
+        public final ImageView decreaseImageView;
+        public final ImageView increaseImageView;
+        public final TextView counterValue;
+
         private final int TIME_LONG_CLICK = 300;
         private final CounterActionCallback counterActionCallback;
         private final FrameLayout counterClickableArea;
         private final TextView counterEdit;
         private final TextView counterName;
-        private final TextView counterValue;
-        private final ImageView decreaseImageView;
         private final Handler handler;
-        private final ImageView increaseImageView;
         private Counter counter;
         private MotionEvent motionEvent;
         private LongClickTimerTask timerTask;
@@ -189,8 +222,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         private void updateCounter(final MotionEvent e) {
             if (e.getX() > counterClickableArea.getWidth() / 2) {
+                notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
                 counterActionCallback.onIncreaseClick(counter);
             } else {
+                notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
                 counterActionCallback.onDecreaseClick(counter);
             }
         }

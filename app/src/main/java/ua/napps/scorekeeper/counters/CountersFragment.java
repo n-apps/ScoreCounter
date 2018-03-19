@@ -71,7 +71,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
-        recyclerView.setItemAnimator(null);
+        recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         recyclerView.setHasFixedSize(true);
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);

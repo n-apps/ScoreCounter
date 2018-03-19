@@ -78,7 +78,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (view != null) {
             bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view, "backgroundColorImage").toBundle();
         }
-        activity.startActivity(intent, bundle);
+        if (bundle == null) {
+            activity.startActivity(intent);
+        } else {
+            activity.startActivity(intent, bundle);
+        }
     }
 
     @Override
