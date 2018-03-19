@@ -137,6 +137,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 final int size = counters.size();
                 viewModel.setListSize(size);
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
+
+                if (oldListSize != size) {
+                    countersAdapter.notifyDataSetChanged();
+                    // TODO: 19-Mar-18 find a better way to keep counters height
+                }
+
                 countersAdapter.setCountersList(counters);
                 if (size > oldListSize && oldListSize > 0) {
                     recyclerView.smoothScrollToPosition(size);
@@ -146,6 +152,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                     isFirstLoad = false;
                     recyclerView.post(() -> {
                                 countersAdapter.setContainerHeight(recyclerView.getHeight());
+                                countersAdapter.setMaxFitCounters(getResources().getInteger(R.integer.max_counters_to_fit));
                                 recyclerView.setAdapter(countersAdapter);
                             }
                     );
