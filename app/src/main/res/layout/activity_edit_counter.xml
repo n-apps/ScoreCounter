@@ -40,6 +40,7 @@
                 android:layout_marginLeft="@dimen/spacing_large"
                 android:layout_marginRight="96dp"
                 android:theme="@style/LightEditText"
+                android:hint="@string/counter_details_name"
                 app:hintAnimationEnabled="false"
                 app:hintTextAppearance="@style/MyHintText">
 
@@ -47,7 +48,6 @@
                     android:id="@+id/et_counter_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/counter_details_name"
                     android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect"
                     android:maxLength="20"
                     android:maxLines="1"

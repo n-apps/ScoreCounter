@@ -52,4 +52,5 @@
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_telegram">Telegram</string>
+    <string name="settings_section_dice_sides">Nombre de côtés</string>
 </resources>
