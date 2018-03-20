@@ -190,6 +190,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Counters List");
+    }
+
+    @Override
     public void onIncreaseClick(Counter counter) {
         viewModel.increaseCounter(counter);
         showLongPressHint();
@@ -348,6 +354,4 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         }
         AndroidFirebaseAnalytics.logEvent("scroll_to_top");
     }
-
-
 }

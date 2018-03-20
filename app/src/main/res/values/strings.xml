@@ -28,7 +28,7 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dialog_feedback_title">Email Feedback</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
-    <string name="dice_previous_result_label">Previous result: %d</string>
+    <string name="dice_previous_result_label">Previous result:</string>
     <string name="erd_message">If you enjoy using Score Counter, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
     <string name="erd_no_thanks">No, Thanks</string>
     <string name="erd_rate_now">Rate</string>
@@ -51,5 +51,5 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="settings_section_dice_sides">Dice sides</string>
+    <string name="settings_section_dice_sides">Number of sides of the dice. Select the last one for a specific number of sides</string>
 </resources>

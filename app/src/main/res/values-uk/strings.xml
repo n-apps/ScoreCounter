@@ -29,7 +29,7 @@
     <string name="dialog_custom_dice_title">Кількість граней</string>
     <string name="dialog_feedback_title">Надіслати відгук через</string>
     <string name="dice_empty_state">Натисніть в будь-якому місці або потрясіть пристрій, щоб кинути кубик</string>
-    <string name="dice_previous_result_label">Попередній кидок: %d</string>
+    <string name="dice_previous_result_label">Попередній кидок:</string>
     <string name="erd_message">Якщо вам подобається Лічильник Очок, не могли би його оцінити? Це займе лише хвилину. Дякуємо за підтримку!</string>
     <string name="erd_no_thanks">Ні, дякую</string>
     <string name="erd_rate_now">Оцінити</string>
@@ -52,5 +52,5 @@
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Залишати екран ввімкненим</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="settings_section_dice_sides">Кількість граней</string>
+    <string name="settings_section_dice_sides">Кількість граней. Виберіть останній для довільної кількості граней</string>
 </resources>

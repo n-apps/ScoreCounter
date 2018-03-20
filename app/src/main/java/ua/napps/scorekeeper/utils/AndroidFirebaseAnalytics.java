@@ -25,15 +25,16 @@ public class AndroidFirebaseAnalytics {
         return firebaseAnalytics;
     }
 
-    public static void logEvent(@NonNull @Size(min = 1L,max = 40L)  String event, @NonNull Bundle params) {
+    public static void logEvent(@NonNull @Size(min = 1L, max = 40L) String event, @NonNull Bundle params) {
         getInstance().logEvent(event, params);
     }
 
-    public static void logEvent(@NonNull @Size(min = 1L,max = 40L) String event) {
+    public static void logEvent(@NonNull @Size(min = 1L, max = 40L) String event) {
         getInstance().logEvent(event, null);
     }
 
-    public static void trackScreen(Activity activity, @NonNull String screenName, @Nullable String screenOverride) {
-        firebaseAnalytics.setCurrentScreen(activity, screenName, screenOverride);
+    public static void trackScreen(@Nullable Activity activity, @NonNull String screenName) {
+        if (activity == null) return;
+        firebaseAnalytics.setCurrentScreen(activity, screenName, null);
     }
 }

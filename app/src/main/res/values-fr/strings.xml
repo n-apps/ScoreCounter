@@ -29,7 +29,7 @@
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
     <string name="dialog_feedback_title">Envoyez vos commentaires</string>
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
-    <string name="dice_previous_result_label">Résultat précédent: %d</string>
+    <string name="dice_previous_result_label">Résultat précédent:</string>
     <string name="erd_message">Il vous aimez Compteur Gardien, autant le dire et lui donner une note. Ça ne vous prendra pas plus d’une minute. Merci!</string>
     <string name="erd_no_thanks">Non merci</string>
     <string name="erd_rate_now">Donner une note</string>
@@ -52,5 +52,5 @@
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="settings_section_dice_sides">Nombre de côtés</string>
+    <string name="settings_section_dice_sides">Nombre de côtés des dés. Sélectionnez le dernier pour un nombre spécifique de côtés</string>
 </resources>

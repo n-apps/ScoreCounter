@@ -116,12 +116,13 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:paddingLeft="@dimen/padding_large"
             android:text="@string/settings_section_dice_sides"
             android:textColor="?android:attr/textColorHint"
             android:textSize="@dimen/font_body"
             app:layout_constraintBottom_toTopOf="@id/tb_dice_6"
-            app:layout_constraintLeft_toLeftOf="@id/sw_keep_screen_on"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/divider2" />
 
         <ToggleButton
@@ -133,7 +134,7 @@
             android:textOff="6"
             android:textOn="6"
             android:textSize="@dimen/font_display"
-            app:layout_constraintLeft_toLeftOf="@id/tv_dice_sides"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tb_dice_8"
             app:layout_constraintTop_toBottomOf="@id/tv_dice_sides"
             tools:ignore="HardcodedText" />

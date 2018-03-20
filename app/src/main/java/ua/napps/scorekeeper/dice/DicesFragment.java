@@ -1,5 +1,8 @@
 package ua.napps.scorekeeper.dice;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.hardware.SensorManager;
@@ -14,8 +17,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +35,9 @@ public class DicesFragment extends Fragment {
     private float accelCurrent;
     private float accelLast;
     private ImageView dice;
-    private TextView previousResultTextView;
+    private TextView previousRollTextView;
+    private TextView previousRollTextViewLabel;
+    private TextView emptyStateTextView;
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private int currentDiceVariant;
@@ -67,7 +70,9 @@ public class DicesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_dices, container, false);
-        previousResultTextView = contentView.findViewById(R.id.tv_previous_result);
+        previousRollTextView = contentView.findViewById(R.id.tv_previous_roll);
+        previousRollTextViewLabel = contentView.findViewById(R.id.tv_previous_roll_label);
+        emptyStateTextView = contentView.findViewById(R.id.tv_empty_state);
         dice = contentView.findViewById(R.id.dice);
         dice.setOnClickListener(v -> {
             viewModel.rollDice();
@@ -103,6 +108,12 @@ public class DicesFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Dice");
+    }
+
     private void initSensorData() {
         accel = 0.00f;
         accelCurrent = SensorManager.GRAVITY_EARTH;
@@ -123,29 +134,18 @@ public class DicesFragment extends Fragment {
                 .start();
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateLastRollLabel() {
+        emptyStateTextView.setVisibility(View.GONE);
         if (previousRoll != 0) {
-            previousResultTextView.setVisibility(View.VISIBLE);
-            Animation animation = AnimationUtils.loadAnimation(requireActivity(), R.anim.scale);
-            animation.setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    previousResultTextView.setText(String.format(getString(R.string.dice_previous_result_label), previousRoll));
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });
-            previousResultTextView.startAnimation(animation);
-        } else {
-            previousResultTextView.setVisibility(View.GONE);
+            previousRollTextViewLabel.setVisibility(View.VISIBLE);
+            previousRollTextView.setVisibility(View.VISIBLE);
+            previousRollTextView.setText("" + previousRoll);
+            ObjectAnimator scaleArrowAnimator =
+                    ObjectAnimator.ofPropertyValuesHolder(previousRollTextView,
+                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+            scaleArrowAnimator.start();
         }
     }
 
