@@ -29,7 +29,7 @@
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dialog_feedback_title">Отправить отзыв через</string>
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
-    <string name="dice_previous_result_label">Предыдущий бросок: %d</string>
+    <string name="dice_previous_result_label">Предыдущий бросок:</string>
     <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Благодарим за поддержку!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить</string>
@@ -52,5 +52,5 @@
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Оставлять экран включенным</string>
     <string name="settings_telegram">Telegram</string>
-    <string name="settings_section_dice_sides">Количество граней</string>
+    <string name="settings_section_dice_sides">Количество граней. Выберите последний для произвольного кол-ва граней</string>
 </resources>

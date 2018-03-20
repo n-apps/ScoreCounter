@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onTabSelected(int position) {
         switchFragment(TAGS[position]);
-        AndroidFirebaseAnalytics.trackScreen(this, TAGS[position], getClass().getSimpleName());
         lastSelectedBottomTab = position;
         LocalSettings.saveLastSelectedBottomTab(lastSelectedBottomTab);
         if (currentDiceRoll > 0) {
