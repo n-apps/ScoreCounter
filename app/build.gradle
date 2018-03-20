@@ -14,6 +14,7 @@ android {
         applicationId 'ua.napps.scorekeeper'
         minSdkVersion 19
         targetSdkVersion 27
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
@@ -87,6 +88,11 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
     implementation 'com.jakewharton.timber:timber:4.6.1'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
+
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
 
     annotationProcessor "android.arch.lifecycle:compiler:$archLifecycleVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$archRoomVersion"
