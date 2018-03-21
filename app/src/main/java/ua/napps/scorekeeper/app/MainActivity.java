@@ -90,15 +90,15 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         AndroidFirebaseAnalytics.logEvent("dark_theme", params1);
 
         Bundle params2 = new Bundle();
-        params1.putLong(FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
+        params2.putLong(FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
 
         Bundle params3 = new Bundle();
-        params1.putLong(FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
+        params3.putLong(FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
         AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
 
         Bundle params4 = new Bundle();
-        params1.putString(FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
+        params4.putString(FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
         AndroidFirebaseAnalytics.logEvent("dice_max_side", params4);
     }
 
