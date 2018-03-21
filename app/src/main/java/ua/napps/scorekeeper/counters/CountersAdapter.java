@@ -107,8 +107,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
                 @Override
                 public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-                    return counters.get(oldItemPosition).getId() ==
-                            update.get(newItemPosition).getId();
+                    return counters.get(oldItemPosition).getId() == update.get(newItemPosition).getId();
                 }
 
                 @Override
@@ -117,7 +116,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                     Counter oldCounter = counters.get(oldItemPosition);
                     return newCounter.getId() == oldCounter.getId()
                             && Objects.equals(newCounter.getName(), oldCounter.getName())
-                            && Objects.equals(newCounter.getName(), oldCounter.getName())
+                            && Objects.equals(newCounter.getColor(), oldCounter.getColor())
                             && newCounter.getValue() == oldCounter.getValue();
                 }
             });

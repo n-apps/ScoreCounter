@@ -50,22 +50,20 @@
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:minHeight">@dimen/list_single_line_min_height</item>
-        <item name="android:paddingLeft">@dimen/padding_normal</item>
-        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingStart">@dimen/padding_normal</item>
+        <item name="android:paddingEnd">@dimen/padding_normal</item>
     </style>
 
     <style name="TwoLinesStyle">
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
-        <item name="android:paddingLeft">@dimen/padding_normal</item>
-        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingEnd">@dimen/padding_normal</item>
     </style>
 
     <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
-        <item name="android:paddingLeft">@dimen/padding_normal</item>
-        <item name="android:paddingRight">@dimen/padding_normal</item>
+        <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
@@ -74,15 +72,10 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:paddingBottom">@dimen/padding_normal</item>
-        <item name="android:paddingLeft">@dimen/padding_large</item>
-        <item name="android:paddingRight">@dimen/padding_large</item>
+        <item name="android:fontFamily">@font/work_sans_light</item>
+        <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_body</item>
-    </style>
-
-    <style name="EmptyStateMessage.Inverted">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:alpha">0.38</item>
     </style>
 
     <style name="MiniDiceStyle">

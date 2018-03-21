@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/padding_large"
-    android:paddingRight="@dimen/padding_large"
+    android:paddingStart="@dimen/padding_large"
+    android:paddingEnd="@dimen/padding_large"
     android:paddingTop="@dimen/spacing_normal"
     tools:ignore="HardcodedText">
 
@@ -20,7 +20,7 @@
             android:id="@+id/btn_one"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">
 
@@ -36,8 +36,8 @@
             android:id="@+id/btn_two"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_normal"
-            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">
 
@@ -53,8 +53,8 @@
             android:id="@+id/btn_three"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_normal"
-            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">
 
@@ -70,7 +70,7 @@
             android:id="@+id/btn_four"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">
 
@@ -96,7 +96,7 @@
             android:id="@+id/et_add_custom_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:hint="@string/hint_type_any_number"
             android:inputType="number|numberSigned"
@@ -110,8 +110,8 @@
             android:layout_height="match_parent"
             android:enabled="false"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/padding_normal"
-            android:paddingRight="@dimen/padding_normal"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingEnd="@dimen/padding_normal"
             android:text="@string/common_decrease" />
     </LinearLayout>
 </LinearLayout>

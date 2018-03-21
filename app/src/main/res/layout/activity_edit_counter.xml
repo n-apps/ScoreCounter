@@ -37,10 +37,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="@dimen/spacing_large"
-                android:layout_marginLeft="@dimen/spacing_large"
-                android:layout_marginRight="96dp"
-                android:theme="@style/LightEditText"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:layout_marginEnd="96dp"
                 android:hint="@string/counter_details_name"
+                android:theme="@style/LightEditText"
                 app:hintAnimationEnabled="false"
                 app:hintTextAppearance="@style/MyHintText">
 
@@ -89,12 +89,11 @@
 
             <LinearLayout
                 android:id="@+id/counter_value"
-                style="@style/TwoLinesStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
+                android:paddingStart="@dimen/spacing_large"
                 android:paddingTop="@dimen/spacing_normal">
 
                 <TextView
@@ -114,55 +113,90 @@
 
             <include layout="@layout/divider" />
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/counter_step"
-                style="@style/SingleLineStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:foreground="?attr/selectableItemBackground">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    style="@style/SingleLineStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/counter_details_step"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingTop="@dimen/spacing_normal">
 
-                <TextView
-                    android:id="@+id/tv_counter_step"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    tools:text="1" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/counter_details_step"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <TextView
+                        android:id="@+id/tv_counter_step"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        tools:text="1" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_step_info"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:contentDescription="@string/common_info"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_help_outline" />
+            </FrameLayout>
 
             <include layout="@layout/divider" />
 
-            <LinearLayout
+            <FrameLayout
                 android:id="@+id/counter_default_value"
-                style="@style/SingleLineStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
-                android:paddingLeft="@dimen/spacing_large"
-                android:paddingTop="@dimen/spacing_normal">
+                android:foreground="?attr/selectableItemBackground">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    style="@style/SingleLineStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/counter_details_default_value"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/spacing_normal"
+                    android:paddingStart="@dimen/spacing_large"
+                    android:paddingTop="@dimen/spacing_normal">
 
-                <TextView
-                    android:id="@+id/tv_counter_default_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    tools:text="0" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/counter_details_default_value"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <TextView
+                        android:id="@+id/tv_counter_default_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        tools:text="0" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_default_value_info"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:contentDescription="@string/common_info"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_help_outline" />
+            </FrameLayout>
 
             <include layout="@layout/divider" />
 
@@ -175,8 +209,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@drawable/bg_selector_flat_button"
-        android:minHeight="@dimen/button_min_height"
         android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/button_min_height"
         android:paddingBottom="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
         android:text="@string/counter_details_delete">
@@ -186,7 +220,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/counter_details_delete"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
     </FrameLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -195,9 +230,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_large"
         android:clickable="true"
-        android:tint="@color/white"
         app:layout_anchor="@id/appbar_background"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_color_lens" />
+        app:srcCompat="@drawable/ic_color_lens_white" />
 
 </android.support.design.widget.CoordinatorLayout>

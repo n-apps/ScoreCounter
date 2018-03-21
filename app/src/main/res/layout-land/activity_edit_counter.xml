@@ -44,8 +44,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/spacing_large"
-                    android:layout_marginLeft="@dimen/spacing_large"
-                    android:layout_marginRight="@dimen/spacing_xlarge"
+                    android:layout_marginStart="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_xlarge"
                     android:layout_marginTop="@dimen/spacing_normal"
                     android:layout_weight="1"
                     android:hint="@string/counter_details_name"
@@ -71,10 +71,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/spacing_normal"
-                    android:layout_marginRight="@dimen/spacing_large"
+                    android:layout_marginEnd="@dimen/spacing_large"
                     android:clickable="true"
-                    android:tint="@color/white"
-                    app:srcCompat="@drawable/ic_color_lens" />
+                    app:srcCompat="@drawable/ic_color_lens_white" />
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar
@@ -203,7 +202,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/counter_details_delete"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
