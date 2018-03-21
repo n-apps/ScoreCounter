@@ -13,8 +13,8 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="match_parent"
             style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/app_name" />
     </android.support.design.widget.AppBarLayout>
@@ -35,8 +35,8 @@
         android:gravity="center"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:visibility="visible"
-        tools:ignore="UseCompoundDrawables">
+        tools:ignore="UseCompoundDrawables"
+        tools:visibility="visible">
 
         <ImageView
             android:layout_width="@dimen/empty_state_add_icon_size"
@@ -46,10 +46,12 @@
             app:srcCompat="@drawable/ic_empty_state_add_white" />
 
         <TextView
-            style="@style/EmptyStateMessage.Inverted"
+            style="@style/EmptyStateMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/counters_empty_message" />
+            android:maxWidth="256dp"
+            android:text="@string/counters_empty_message"
+            android:textColor="?android:attr/textColorSecondaryInverse" />
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

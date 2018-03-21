@@ -7,6 +7,7 @@
     <dimen name="counter_max_text_size">164sp</dimen>
     <dimen name="counter_min_text_size">12sp</dimen>
     <dimen name="dice_margin">64dp</dimen>
+    <dimen name="empty_state_max_width">256dp</dimen>
     <dimen name="drawer_width">@dimen/match_parent</dimen>
     <dimen name="empty_state_add_icon_size">96dp</dimen>
     <dimen name="font_body">14sp</dimen>

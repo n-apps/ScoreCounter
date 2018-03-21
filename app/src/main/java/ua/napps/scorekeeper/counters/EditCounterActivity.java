@@ -236,6 +236,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                     } catch (NumberFormatException e) {
                                         Timber.e(e, "value: %s", newStepValue);
                                     }
+                                    Bundle params = new Bundle();
+                                    params.putString(FirebaseAnalytics.Param.CHARACTER, newStepValue);
+                                    AndroidFirebaseAnalytics.logEvent("counter_step_submit", params);
 
                                 }
                             })
@@ -253,6 +256,23 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             }
             md.show();
         });
+
+        findViewById(R.id.iv_step_info).setOnClickListener(v -> {
+            AndroidFirebaseAnalytics.logEvent("help_tooltip_click");
+            new MaterialDialog.Builder(EditCounterActivity.this)
+                    .content(R.string.dialog_step_info_content)
+                    .positiveText(R.string.common_got_it)
+                    .show();
+        });
+
+        findViewById(R.id.iv_default_value_info).setOnClickListener(v -> {
+            AndroidFirebaseAnalytics.logEvent("help_tooltip_click");
+            new MaterialDialog.Builder(EditCounterActivity.this)
+                    .content(R.string.dialog_default_info_content)
+                    .positiveText(R.string.common_got_it)
+                    .show();
+        });
+
         Observable<String> textChangeStream = createTextChangeObservable();
         disposable = textChangeStream
                 .observeOn(AndroidSchedulers.mainThread())
@@ -329,6 +349,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             reveal(color);
+            revealView.setBackgroundColor(color);
         } else {
             applyTintAccordingToCounterColor(color);
         }

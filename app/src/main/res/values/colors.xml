@@ -23,6 +23,7 @@
     <color name="dice_bg_dark">#000</color>
     <color name="windowBackground">#ffffff</color>
     <color name="ic_launcher_background">#CC2A41</color>
-    <color name="accentColorDark">#b1263a</color>
+    <color name="flat_button_color">#CC2A41</color>
+    <color name="flat_button_color_pressed">#b1263a</color>
 
 </resources>

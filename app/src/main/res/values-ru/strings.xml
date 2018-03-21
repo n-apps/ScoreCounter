@@ -8,7 +8,7 @@
     <string name="common_cancel">Отменить</string>
     <string name="common_custom">Свой</string>
     <string name="common_decrease">Уменьшить</string>
-    <string name="common_edit">Отредактировать</string>
+    <string name="counter_header_edit">Параметры</string>
     <string name="common_increase">Увеличить</string>
     <string name="common_select">Выбрать</string>
     <string name="common_set">Установить</string>
@@ -30,7 +30,7 @@
     <string name="dialog_feedback_title">Отправить отзыв через</string>
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок:</string>
-    <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Благодарим за поддержку!</string>
+    <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Спасибо за поддержку!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить</string>
     <string name="erd_remind_me_later">Напомнить позже</string>
@@ -40,7 +40,7 @@
     <string name="label_all_changes_saved">Все изменения сохранены</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все счетчики</string>
-    <string name="menu_reset_all_counters">Сбросить все</string>
+    <string name="menu_reset_all_counters">Сбросить все значения</string>
     <string name="message_telegram_app_not_installed">Приложение Telegram не установлено</string>
     <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
@@ -53,4 +53,8 @@
     <string name="settings_stay_awake">Оставлять экран включенным</string>
     <string name="settings_telegram">Telegram</string>
     <string name="settings_section_dice_sides">Количество граней. Выберите последний для произвольного кол-ва граней</string>
+    <string name="common_info">Информация</string>
+    <string name="dialog_step_info_content">На сколько изменится значение счетчика при нажатии по нему. Левая половина отвечает за уменьшение, правая - за увеличение. Вы также можете менять его значение с помощью длительного нажатия</string>
+    <string name="dialog_default_info_content">Значение счетчика которое будет установлено после его сброса с помощью меню \"Сбросить все значения\" (три точки на главном экране)</string>
+    <string name="common_got_it">Понятно</string>
 </resources>
