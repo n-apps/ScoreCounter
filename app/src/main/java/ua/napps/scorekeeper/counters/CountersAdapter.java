@@ -15,7 +15,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -161,41 +160,34 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
 
-            counterClickableArea.setOnTouchListener(new OnTouchListener() {
-                float touchedX, touchedY;
+            counterClickableArea.setOnTouchListener((v12, event) -> {
+                switch (event.getActionMasked()) {
+                    case MotionEvent.ACTION_DOWN:
+                        motionEvent = event;
+                        if (timerTask != null) {
+                            timerTask.cancel();
+                        }
+                        // start counting long click time
+                        timerTask = new LongClickTimerTask();
+                        Timer timer = new Timer();
+                        timer.schedule(timerTask, TIME_LONG_CLICK);
+                        break;
 
-                @Override
-                public boolean onTouch(final View v, final MotionEvent event) {
-                    switch (event.getActionMasked()) {
-                        case MotionEvent.ACTION_DOWN:
-                            touchedX = event.getRawX();
-                            touchedY = event.getRawY();
-                            motionEvent = event;
-                            if (timerTask != null) {
-                                timerTask.cancel();
-                            }
-                            // start counting long click time
-                            timerTask = new LongClickTimerTask();
-                            Timer timer = new Timer();
-                            timer.schedule(timerTask, TIME_LONG_CLICK);
-                            break;
-
-                        case MotionEvent.ACTION_UP:
-                            long time = event.getEventTime() - event.getDownTime();
-                            if (time < TIME_LONG_CLICK) {
-                                v.performClick();
-                                updateCounter(event);
-                            }
-                            cancelLongClickTask();
-                            break;
-                        case MotionEvent.ACTION_POINTER_DOWN:
-                        case MotionEvent.ACTION_CANCEL:
-                        case MotionEvent.ACTION_POINTER_UP:
-                            cancelLongClickTask();
-                            break;
-                    }
-                    return false;
+                    case MotionEvent.ACTION_UP:
+                        long time = event.getEventTime() - event.getDownTime();
+                        if (time < TIME_LONG_CLICK) {
+                            v12.performClick();
+                            updateCounter(event);
+                        }
+                        cancelLongClickTask();
+                        break;
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                    case MotionEvent.ACTION_CANCEL:
+                    case MotionEvent.ACTION_POINTER_UP:
+                        cancelLongClickTask();
+                        break;
                 }
+                return false;
             });
         }
 

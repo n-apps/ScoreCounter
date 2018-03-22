@@ -44,8 +44,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/spacing_large"
-                    android:layout_marginStart="@dimen/spacing_large"
                     android:layout_marginEnd="@dimen/spacing_xlarge"
+                    android:layout_marginStart="@dimen/spacing_large"
                     android:layout_marginTop="@dimen/spacing_normal"
                     android:layout_weight="1"
                     android:hint="@string/counter_details_name"
@@ -72,7 +72,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/spacing_normal"
                     android:layout_marginEnd="@dimen/spacing_large"
-                    android:clickable="true"
                     app:srcCompat="@drawable/ic_color_lens_white" />
             </LinearLayout>
 
@@ -139,22 +138,40 @@
                 android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_normal">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/counter_details_step"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
 
-                <TextView
-                    android:id="@+id/tv_counter_step"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textColor="?android:attr/textColorPrimary"
-                    tools:text="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/counter_details_step"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <TextView
+                        android:id="@+id/tv_counter_step"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="?android:attr/textColorPrimary"
+                        tools:text="1" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_step_info"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@string/common_info"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_help_outline" />
             </LinearLayout>
 
             <LinearLayout
@@ -163,23 +180,41 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?attr/selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_normal">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/counter_details_default_value"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
 
-                <TextView
-                    android:id="@+id/tv_counter_default_value"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textColor="?android:attr/textColorPrimary"
-                    tools:text="0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/counter_details_default_value"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <TextView
+                        android:id="@+id/tv_counter_default_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="?android:attr/textColorPrimary"
+                        tools:text="0" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_default_value_info"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:contentDescription="@string/common_info"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_help_outline" />
             </LinearLayout>
 
         </LinearLayout>
@@ -202,8 +237,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/counter_details_delete"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:textColor="@color/white" />
     </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>

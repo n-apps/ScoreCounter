@@ -12,7 +12,6 @@
     <string name="common_increase">Augmenter</string>
     <string name="common_select">Choisir</string>
     <string name="common_set">Définir</string>
-    <string name="counter_details_color">Couleur</string>
     <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
     <string name="counter_details_default_value">Valeur après réinitialisation</string>
     <string name="counter_details_delete">Supprimer le compteur</string>
@@ -27,7 +26,6 @@
     <string name="dialog_current_value_title">Valeur actuelle</string>
     <string name="dialog_custom_dice_hint">De 2 à 100</string>
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
-    <string name="dialog_feedback_title">Envoyez vos commentaires</string>
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent:</string>
     <string name="erd_message">Il vous aimez Compteur Gardien, autant le dire et lui donner une note. Ça ne vous prendra pas plus d’une minute. Merci!</string>

@@ -49,8 +49,6 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
 
-    public static final int RESULT_DELETE = 1003;
-
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
     private static final String STATE_IS_NAME_MODIFIED = "STATE_IS_NAME_MODIFIED";
@@ -133,20 +131,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         appBar = findViewById(R.id.app_bar);
         revealView = findViewById(R.id.reveal_view);
         counterNameLayout = findViewById(R.id.til_counter_name);
-        findViewById(R.id.fab).setOnClickListener(v -> {
-            new ColorChooserDialog.Builder(EditCounterActivity.this,
-                    R.string.counter_details_color_picker_title)
-                    .doneButton(R.string.common_select)
-                    .cancelButton(R.string.common_cancel)
-                    .customButton(R.string.common_custom)
-                    .backButton(R.string.common_back)
-                    .presetsButton(R.string.dialog_color_picker_presets_button)
-                    .dynamicButtonColor(false)
-                    .allowUserColorInputAlpha(false)
-                    .show(EditCounterActivity.this);
-        });
+        findViewById(R.id.fab).setOnClickListener(v -> new ColorChooserDialog.Builder(EditCounterActivity.this,
+                R.string.counter_details_color_picker_title)
+                .doneButton(R.string.common_select)
+                .cancelButton(R.string.common_cancel)
+                .customButton(R.string.common_custom)
+                .backButton(R.string.common_back)
+                .presetsButton(R.string.dialog_color_picker_presets_button)
+                .dynamicButtonColor(false)
+                .allowUserColorInputAlpha(false)
+                .show(EditCounterActivity.this));
         findViewById(R.id.btn_delete).setOnClickListener(v -> {
-            setResult(RESULT_DELETE);
             viewModel.deleteCounter();
         });
         findViewById(R.id.counter_value).setOnClickListener(v -> {
@@ -379,7 +374,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 }
             } else {
                 counter = null;
-                setResult(RESULT_DELETE);
                 finish();
             }
         });

@@ -7,12 +7,4 @@
         <item>#F44336</item>
         <item>#FF9800</item>
     </string-array>
-    <string-array name="thought_provoking">
-        <item>#ECD078</item>
-        <item>#D95B43</item>
-        <item>#C02942</item>
-        <item>#542437</item>
-        <item>#53777A</item>
-    </string-array>
-
 </resources>

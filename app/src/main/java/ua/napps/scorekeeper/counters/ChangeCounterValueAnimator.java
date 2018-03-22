@@ -85,10 +85,10 @@ class ChangeCounterValueAnimator extends DefaultItemAnimator {
         animatorSet.start();
     }
 
-    public static class CountryItemHolderInfo extends ItemHolderInfo {
-        public String clickAction;
+    private static class CountryItemHolderInfo extends ItemHolderInfo {
+        final String clickAction;
 
-        public CountryItemHolderInfo(String clickAction) {
+        CountryItemHolderInfo(String clickAction) {
             this.clickAction = clickAction;
         }
     }
