@@ -26,3 +26,7 @@
 -keep public class * extends android.support.v4.view.ActionProvider {
     public <init>(android.content.Context);
 }
+
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
