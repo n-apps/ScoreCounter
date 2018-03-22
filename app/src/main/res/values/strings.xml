@@ -11,7 +11,6 @@
     <string name="common_increase">Increase</string>
     <string name="common_select">Select</string>
     <string name="common_set">Set</string>
-    <string name="counter_details_color">Color</string>
     <string name="counter_details_color_picker_title">Select counter color</string>
     <string name="counter_details_default_value">Value after reset</string>
     <string name="counter_details_delete">Delete counter</string>
@@ -26,7 +25,6 @@
     <string name="dialog_current_value_title">Current value</string>
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
-    <string name="dialog_feedback_title">Email Feedback</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous result:</string>
     <string name="erd_message">If you enjoy using Score Counter, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>

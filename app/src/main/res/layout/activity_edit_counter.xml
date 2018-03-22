@@ -92,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="?attr/selectableItemBackground"
                 android:paddingBottom="@dimen/spacing_normal"
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingTop="@dimen/spacing_normal">
@@ -229,7 +230,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_large"
-        android:clickable="true"
         app:layout_anchor="@id/appbar_background"
         app:layout_anchorGravity="bottom|right|end"
         app:srcCompat="@drawable/ic_color_lens_white" />

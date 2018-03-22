@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <dimen name="back_button_padding">12dp</dimen>
-    <dimen name="back_button_size">48dp</dimen>
     <dimen name="button_icon_size">24dp</dimen>
     <dimen name="button_min_height">36dp</dimen>
     <dimen name="counter_max_text_size">164sp</dimen>
     <dimen name="counter_min_text_size">12sp</dimen>
     <dimen name="dice_margin">64dp</dimen>
     <dimen name="empty_state_max_width">256dp</dimen>
-    <dimen name="drawer_width">@dimen/match_parent</dimen>
     <dimen name="empty_state_add_icon_size">96dp</dimen>
     <dimen name="font_body">14sp</dimen>
     <dimen name="font_button">15sp</dimen>
     <dimen name="font_display">24sp</dimen>
-    <dimen name="font_mini_dice">24sp</dimen>
     <dimen name="font_subheading">17sp</dimen>
     <dimen name="font_title">21sp</dimen>
     <dimen name="keyline_1">72dp</dimen>
     <dimen name="list_single_line_min_height">48dp</dimen>
     <dimen name="list_two_lines_min_height">56dp</dimen>
-    <dimen name="mini_dice_size">72dp</dimen>
     <dimen name="padding_large">24dp</dimen>
     <dimen name="padding_normal">16dp</dimen>
     <dimen name="spacing_huge">64dp</dimen>

@@ -37,8 +37,4 @@ class LiveSensor extends LiveData<SensorEvent> implements SensorEventListener {
 
     }
 
-    public void disableSensor() {
-        sensorManager.unregisterListener(this);
-    }
-
 }

@@ -14,6 +14,7 @@
         android:layout_weight="1"
         android:padding="@dimen/dice_margin"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/settings_section_dice"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

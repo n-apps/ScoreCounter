@@ -6,8 +6,8 @@ public class LocalSettings {
 
     public static final String DARK_THEME = "dark_theme";
     public static final String KEEP_SCREEN_ON = "keep_screen_on";
-    public static final String LAST_SELECTED_BOTTOM_TAB = "last_selected_bottom_tab";
-    public static final String LONG_PRESS_TIP_SHOWED = "long_click_tip_showed";
+    private static final String LAST_SELECTED_BOTTOM_TAB = "last_selected_bottom_tab";
+    private static final String LONG_PRESS_TIP_SHOWED = "long_click_tip_showed";
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
     private static final String DICE_MAX_SIDE = "dice_max_side";
 

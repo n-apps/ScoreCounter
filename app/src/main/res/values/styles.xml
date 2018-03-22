@@ -18,15 +18,6 @@
         <item name="myDiceColor">?attr/colorPrimary</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorAccent">@color/accentColor</item>
-        <item name="android:windowBackground">@color/dark_theme_bg</item>
-        <item name="android:textColorPrimary">@color/textColorPrimaryInverse</item>
-        <item name="android:textColorSecondary">@color/textColorSecondaryInverse</item>
-        <item name="android:textColorHint">@color/textColorHintInverse</item>
-        <item name="myIconTint">@color/white</item>
-    </style>
-
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
