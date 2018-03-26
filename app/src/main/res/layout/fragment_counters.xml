@@ -49,9 +49,9 @@
             style="@style/EmptyStateMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="256dp"
+            android:alpha="0.54"
             android:text="@string/counters_empty_message"
-            android:textColor="?android:attr/textColorSecondaryInverse" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
