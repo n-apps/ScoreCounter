@@ -65,6 +65,7 @@
         <item name="android:paddingBottom">@dimen/padding_normal</item>
         <item name="android:fontFamily">@font/work_sans_light</item>
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_body</item>
     </style>

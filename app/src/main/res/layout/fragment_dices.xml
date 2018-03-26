@@ -33,7 +33,6 @@
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
         android:text="@string/dice_empty_state"
-        android:textColor="?android:attr/textColorSecondary"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
