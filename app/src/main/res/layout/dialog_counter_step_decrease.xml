@@ -19,15 +19,15 @@
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_one"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">
 
             <TextView
                 style="@style/MiniDiceStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="-5"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
@@ -35,7 +35,7 @@
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_two"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
@@ -52,7 +52,7 @@
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_three"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
@@ -69,7 +69,7 @@
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_four"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_dice_toggle">

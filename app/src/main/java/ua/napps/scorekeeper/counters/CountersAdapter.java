@@ -196,7 +196,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             if (msg.what == MSG_PERFORM_LONGCLICK) {
                 if (motionEvent != null) {
                     final boolean isIncrease = motionEvent.getX() > counterClickableArea.getWidth() / 2;
-                    counterActionCallback.onLongClick(counter, isIncrease);
+                    counterActionCallback.onLongClick(counter, getAdapterPosition(), isIncrease);
                 }
             }
             return false;

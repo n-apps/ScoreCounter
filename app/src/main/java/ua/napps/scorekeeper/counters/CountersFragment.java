@@ -39,6 +39,9 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
+import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
+import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
+
 public class CountersFragment extends Fragment implements CounterActionCallback {
 
     private RecyclerView recyclerView;
@@ -202,7 +205,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
-    public void onLongClick(Counter counter, boolean isIncrease) {
+    public void onLongClick(Counter counter, int position, boolean isIncrease) {
         AndroidFirebaseAnalytics.logEvent("counter_long_click");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
         final Observer<Counter> counterObserver = c -> {
@@ -219,32 +222,40 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 5);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
                 viewModel.decreaseCounter(counter, -5);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 10);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
                 viewModel.decreaseCounter(counter, -10);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 15);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
                 viewModel.decreaseCounter(counter, -15);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 30);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
                 viewModel.decreaseCounter(counter, -30);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
@@ -275,8 +286,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 try {
                     if (isIncrease) {
                         viewModel.increaseCounter(counter, Integer.parseInt(value));
+                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                     } else {
                         viewModel.decreaseCounter(counter, -Integer.parseInt(value));
+                        countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                     }
                 } catch (NumberFormatException e) {
 //                    Timber.e(e, "value: %s", value);
@@ -296,8 +309,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
             try {
                 if (isIncrease) {
                     viewModel.increaseCounter(counter, Integer.parseInt(value));
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                 } else {
                     viewModel.decreaseCounter(counter, -Integer.parseInt(value));
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                 }
             } catch (NumberFormatException e) {
 //                Timber.e(e, "value: %s", value);

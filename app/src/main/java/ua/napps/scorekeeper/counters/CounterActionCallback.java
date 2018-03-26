@@ -8,7 +8,7 @@ interface CounterActionCallback {
 
     void onIncreaseClick(Counter counter);
 
-    void onLongClick(Counter counter, boolean isIncrease);
+    void onLongClick(Counter counter, int position, boolean isIncrease);
 
     void onNameClick(Counter counter);
 
