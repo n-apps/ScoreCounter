@@ -35,6 +35,6 @@ public class AndroidFirebaseAnalytics {
 
     public static void trackScreen(@Nullable Activity activity, @NonNull String screenName) {
         if (activity == null) return;
-        firebaseAnalytics.setCurrentScreen(activity, screenName, null);
+        getInstance().setCurrentScreen(activity, screenName, null);
     }
 }
