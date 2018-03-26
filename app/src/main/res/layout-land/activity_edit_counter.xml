@@ -45,7 +45,7 @@
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/spacing_large"
                     android:layout_marginEnd="@dimen/spacing_xlarge"
-                    android:layout_marginStart="@dimen/spacing_large"
+                    android:layout_marginStart="@dimen/keyline_1"
                     android:layout_marginTop="@dimen/spacing_normal"
                     android:layout_weight="1"
                     android:hint="@string/counter_details_name"
@@ -119,6 +119,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minLines="2"
                     android:text="@string/counter_details_value"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
@@ -151,6 +153,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minLines="2"
                         android:text="@string/counter_details_step"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
@@ -194,6 +198,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:minLines="2"
                         android:text="@string/counter_details_default_value"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
