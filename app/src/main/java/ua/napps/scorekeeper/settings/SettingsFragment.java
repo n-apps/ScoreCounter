@@ -23,11 +23,11 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Utilities;
 
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
@@ -131,36 +131,32 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .negativeText(R.string.common_cancel)
                         .alwaysCallInputCallback()
                         .cancelListener(dialog -> refreshDices(false))
+                        .inputRange(1, 3)
                         .input(getString(R.string.dialog_custom_dice_hint), null, false,
                                 (dialog, input) -> {
-                                    if (input.length() > 0) {
-                                        int parseInt = Integer.parseInt(input.toString());
-                                        if (parseInt <= 100 && parseInt > 1) {
-                                            dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
-                                        } else {
-                                            dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
-                                        }
+                                    int parseInt = Utilities.parseInt(input.toString());
+                                    if (parseInt <= 100 && parseInt > 1) {
+                                        dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
+                                    } else {
+                                        dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
                                     }
                                 })
                         .onPositive((dialog, which) -> {
                             EditText editText = dialog.getInputEditText();
                             if (editText != null) {
-                                try {
-                                    diceMaxSide = Integer.parseInt(editText.getText().toString());
-                                } catch (NumberFormatException e) {
-                                    Timber.e(e, "diceMaxSide: %s", editText.getText().toString());
-                                } finally {
+                                Integer side = Utilities.parseInt(editText.getText().toString());
+                                if (side > 0) {
+                                    diceMaxSide = side;
                                     refreshDices(true);
-                                    dialog.dismiss();
                                 }
+                                dialog.dismiss();
                             }
                         })
                         .build();
                 EditText editText = md.getInputEditText();
                 if (editText != null) {
                     editText.setOnEditorActionListener((textView, actionId, event) -> {
-                        if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                                == EditorInfo.IME_ACTION_DONE)) {
+                        if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                             View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                             positiveButton.callOnClick();
                         }
