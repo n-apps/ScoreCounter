@@ -40,11 +40,11 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
+import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback, EditCounterViewModel.EditCounterViewModelCallback {
@@ -101,6 +101,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
         initViews();
         subscribeToModel(id);
+        if (savedInstanceState == null) {
+            AndroidFirebaseAnalytics.trackScreen(this, "Edit Counter Screen");
+        }
     }
 
     @Override
@@ -141,9 +144,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 .dynamicButtonColor(false)
                 .allowUserColorInputAlpha(false)
                 .show(EditCounterActivity.this));
-        findViewById(R.id.btn_delete).setOnClickListener(v -> {
-            viewModel.deleteCounter();
-        });
+        findViewById(R.id.btn_delete).setOnClickListener(v -> viewModel.deleteCounter());
         findViewById(R.id.counter_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_current_value_title)
@@ -151,24 +152,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .positiveText(R.string.common_set)
                     .negativeColorRes(R.color.primaryColor)
                     .negativeText(R.string.common_cancel)
-                    .input(String.valueOf(counter.getValue()), null, true,
-                            (dialog, input) -> {
-                                if (input.length() > 0) {
-                                    final String newValue = input.toString();
-                                    try {
-                                        final int value = Integer.parseInt(newValue);
-                                        viewModel.updateValue(value);
-                                    } catch (NumberFormatException e) {
-                                        Timber.e(e, "value: %s", newValue);
-                                    }
-                                }
-                            })
+                    .inputRange(1, 9)
+                    .input(String.valueOf(counter.getValue()), null, false,
+                            (dialog, input) -> viewModel.updateValue(Utilities.parseInt(input.toString())))
                     .build();
             EditText inputEditText = md.getInputEditText();
             if (inputEditText != null) {
                 inputEditText.setOnEditorActionListener((textView, actionId, event) -> {
-                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                            == EditorInfo.IME_ACTION_DONE)) {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                         View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                         positiveButton.callOnClick();
                     }
@@ -184,28 +175,20 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .positiveText(R.string.common_set)
                     .negativeText(R.string.common_cancel)
                     .negativeColorRes(R.color.primaryColor)
-                    .input(String.valueOf(counter.getDefaultValue()), null, true,
+                    .inputRange(1, 9)
+                    .input(String.valueOf(counter.getDefaultValue()), null, false,
                             (dialog, input) -> {
-                                if (input.length() > 0) {
-                                    final String newDefaultValue = input.toString();
-                                    try {
-                                        final int value = Integer.parseInt(newDefaultValue);
-                                        viewModel.updateDefaultValue(value);
-                                    } catch (NumberFormatException e) {
-                                        Timber.e(e, "value: %s", newDefaultValue);
-                                    }
-                                    Bundle params = new Bundle();
-                                    params.putString(FirebaseAnalytics.Param.CHARACTER, newDefaultValue);
-                                    AndroidFirebaseAnalytics.logEvent("counter_default_value_submit", params);
-
-                                }
+                                String value = input.toString();
+                                viewModel.updateDefaultValue(Utilities.parseInt(value));
+                                Bundle params = new Bundle();
+                                params.putString(FirebaseAnalytics.Param.CHARACTER, value);
+                                AndroidFirebaseAnalytics.logEvent("counter_default_value_submit", params);
                             })
                     .build();
             EditText editText = md.getInputEditText();
             if (editText != null) {
                 editText.setOnEditorActionListener((textView, actionId, event) -> {
-                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                            == EditorInfo.IME_ACTION_DONE)) {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                         View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                         positiveButton.callOnClick();
                     }
@@ -221,28 +204,20 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .positiveText(R.string.common_set)
                     .negativeText(R.string.common_cancel)
                     .negativeColorRes(R.color.primaryColor)
-                    .input(String.valueOf(counter.getStep()), null, true,
+                    .inputRange(1, 9)
+                    .input(String.valueOf(counter.getStep()), null, false,
                             (dialog, input) -> {
-                                if (input.length() > 0) {
-                                    final String newStepValue = input.toString();
-                                    try {
-                                        final int value = Integer.parseInt(newStepValue);
-                                        viewModel.updateStep(value);
-                                    } catch (NumberFormatException e) {
-                                        Timber.e(e, "value: %s", newStepValue);
-                                    }
-                                    Bundle params = new Bundle();
-                                    params.putString(FirebaseAnalytics.Param.CHARACTER, newStepValue);
-                                    AndroidFirebaseAnalytics.logEvent("counter_step_submit", params);
-
-                                }
+                                final String value = input.toString();
+                                viewModel.updateStep(Utilities.parseInt(value));
+                                Bundle params = new Bundle();
+                                params.putString(FirebaseAnalytics.Param.CHARACTER, value);
+                                AndroidFirebaseAnalytics.logEvent("counter_step_submit", params);
                             })
                     .build();
             EditText editText = md.getInputEditText();
             if (editText != null) {
                 editText.setOnEditorActionListener((textView, actionId, event) -> {
-                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                            == EditorInfo.IME_ACTION_DONE)) {
+                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                         View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                         positiveButton.callOnClick();
                     }

@@ -100,7 +100,7 @@
             android:layout_weight="1"
             android:hint="@string/hint_type_any_number"
             android:inputType="number|numberSigned"
-            android:maxLength="3"
+            android:maxLength="8"
             android:maxLines="1" />
 
         <Button

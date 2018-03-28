@@ -38,6 +38,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
@@ -283,19 +284,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (TextUtils.isEmpty(value)) {
                     longClickDialog.dismiss();
                 }
-                try {
-                    if (isIncrease) {
-                        viewModel.increaseCounter(counter, Integer.parseInt(value));
-                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                    } else {
-                        viewModel.decreaseCounter(counter, -Integer.parseInt(value));
-                        countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-                    }
-                } catch (NumberFormatException e) {
-//                    Timber.e(e, "value: %s", value);
-                } finally {
-                    longClickDialog.dismiss();
+                if (isIncrease) {
+                    viewModel.increaseCounter(counter, Utilities.parseInt(value));
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                } else {
+                    viewModel.decreaseCounter(counter, -Utilities.parseInt(value));
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                 }
+                longClickDialog.dismiss();
             }
             return false;
         });
@@ -306,19 +302,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 longClickDialog.dismiss();
                 return;
             }
-            try {
-                if (isIncrease) {
-                    viewModel.increaseCounter(counter, Integer.parseInt(value));
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                } else {
-                    viewModel.decreaseCounter(counter, -Integer.parseInt(value));
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-                }
-            } catch (NumberFormatException e) {
-//                Timber.e(e, "value: %s", value);
-            } finally {
-                longClickDialog.dismiss();
+            if (isIncrease) {
+                viewModel.increaseCounter(counter, Utilities.parseInt(value));
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+            } else {
+                viewModel.decreaseCounter(counter, -Utilities.parseInt(value));
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
+            longClickDialog.dismiss();
         });
         builder.customView(contentView, false);
         builder.title(R.string.dialog_current_value_title);
@@ -339,18 +330,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 .positiveText(R.string.common_set)
                 .negativeColorRes(R.color.primaryColor)
                 .negativeText(R.string.common_cancel)
-                .input(counter.getName(), null, true,
-                        (dialog, input) -> {
-                            if (input.length() > 0) {
-                                viewModel.modifyName(counter, input.toString());
-                            }
-                        })
+                .inputRange(1, 20)
+                .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
                 .build();
         EditText editText = md.getInputEditText();
         if (editText != null) {
             editText.setOnEditorActionListener((textView, actionId, event) -> {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                        == EditorInfo.IME_ACTION_DONE)) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                     View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                     positiveButton.callOnClick();
                 }
