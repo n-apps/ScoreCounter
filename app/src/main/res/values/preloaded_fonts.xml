@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/nixie_one</item>
         <item>@font/source_sans_pro</item>
-        <item>@font/work_sans_light</item>
-        <item>@font/work_sans_semibold</item>
+        <item>@font/source_sans_pro_black</item>
     </array>
 </resources>

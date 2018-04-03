@@ -13,11 +13,12 @@ import android.support.animation.SpringForce;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
+import android.support.transition.TransitionManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -34,16 +35,17 @@ public class DicesFragment extends Fragment {
     private float accel;
     private float accelCurrent;
     private float accelLast;
-    private ImageView dice;
     private TextView previousRollTextView;
     private TextView previousRollTextViewLabel;
     private TextView emptyStateTextView;
+    private TextView diceTextView;
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private int currentDiceVariant;
     private int previousRoll;
     private int currentRoll;
     private OnDiceFragmentInteractionListener listener;
+    private ConstraintLayout root;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -73,8 +75,9 @@ public class DicesFragment extends Fragment {
         previousRollTextView = contentView.findViewById(R.id.tv_previous_roll);
         previousRollTextViewLabel = contentView.findViewById(R.id.tv_previous_roll_label);
         emptyStateTextView = contentView.findViewById(R.id.tv_empty_state);
-        dice = contentView.findViewById(R.id.dice);
-        dice.setOnClickListener(v -> {
+        diceTextView = contentView.findViewById(R.id.dice);
+        root = contentView.findViewById(R.id.container);
+        root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(FirebaseAnalytics.Param.CHARACTER, "click");
@@ -125,18 +128,28 @@ public class DicesFragment extends Fragment {
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
-        changeDiceDrawable();
+        diceTextView.setText("" + roll);
 
-        new SpringAnimation(dice, DynamicAnimation.ROTATION)
+        new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
                 .setSpring(springForce)
                 .setStartValue(100f)
                 .setStartVelocity(100)
+                .start();
+        new SpringAnimation(diceTextView, DynamicAnimation.SCALE_X)
+                .setStartValue(0.8f)
+                .setSpring(springForce)
+                .start();
+        new SpringAnimation(diceTextView, DynamicAnimation.SCALE_Y)
+                .setStartValue(0.8f)
+                .setSpring(springForce)
                 .start();
     }
 
     @SuppressLint("SetTextI18n")
     private void updateLastRollLabel() {
+        TransitionManager.beginDelayedTransition(root);
         emptyStateTextView.setVisibility(View.GONE);
+        diceTextView.setVisibility(View.VISIBLE);
         if (previousRoll != 0) {
             previousRollTextViewLabel.setVisibility(View.VISIBLE);
             previousRollTextView.setVisibility(View.VISIBLE);
@@ -149,11 +162,6 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    private void changeDiceDrawable() {
-        int diceResId = getResources().getIdentifier("dice_digital_" + currentRoll, "drawable", requireActivity().getPackageName());
-        dice.setImageResource(diceResId);
-    }
-
     private void subscribeUI() {
         DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant);
         viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
@@ -163,7 +171,7 @@ public class DicesFragment extends Fragment {
                 rollDice(roll);
             } else if (currentRoll > 0) {
                 updateLastRollLabel();
-                changeDiceDrawable(); // restored after fragment recreation
+                diceTextView.setText("" + currentRoll);
             }
         });
     }

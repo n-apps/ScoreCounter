@@ -17,6 +17,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 class CountersViewModel extends AndroidViewModel {
@@ -24,11 +25,13 @@ class CountersViewModel extends AndroidViewModel {
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
     private int listSize;
+    private boolean isDarkTheme;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
+        isDarkTheme = LocalSettings.isDarkTheme();
     }
 
     public LiveData<Counter> getCounterLiveData(int counterID) {
@@ -198,7 +201,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private String getNextColor() {
-        String[] colors = getApplication().getResources().getStringArray(R.array.spire);
+        String[] colors = getApplication().getResources().getStringArray(isDarkTheme ? R.array.dark : R.array.light);
         final int presetSize = colors.length;
         if (listSize < presetSize) {
             return colors[listSize];

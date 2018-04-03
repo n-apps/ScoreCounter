@@ -178,25 +178,25 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 diceEight.setChecked(false);
                 diceTwenty.setChecked(false);
                 diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
+                diceCustom.setTextOff("?");
+                diceCustom.setTextOn("?");
                 break;
             case 8:
                 diceSix.setChecked(false);
                 diceEight.setChecked(true);
                 diceTwenty.setChecked(false);
                 diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
+                diceCustom.setTextOff("?");
+                diceCustom.setTextOn("?");
                 break;
             case 20:
                 diceSix.setChecked(false);
                 diceEight.setChecked(false);
                 diceTwenty.setChecked(true);
                 diceCustom.setChecked(false);
-                diceCustom.setTextOff("X");
-                diceCustom.setTextOn("X");
-                diceCustom.setText("X");
+                diceCustom.setTextOff("?");
+                diceCustom.setTextOn("?");
+                diceCustom.setText("?");
                 break;
             default:
                 diceSix.setChecked(false);

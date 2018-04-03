@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string-array name="spire">
-        <item>#2196F3</item>
-        <item>#4CAF50</item>
-        <item>#FFEB3B</item>
-        <item>#F44336</item>
-        <item>#FF9800</item>
+    <string-array name="light">
+        <item>#424254</item>
+        <item>#D95555</item>
+        <item>#FFECCB</item>
+        <item>#A7D5B1</item>
+        <item>#759888</item>
+    </string-array>
+    <string-array name="dark">
+        <item>#000000</item>
+        <item>#A69682</item>
+        <item>#7E9991</item>
+        <item>#737373</item>
+        <item>#D8770C</item>
     </string-array>
 </resources>

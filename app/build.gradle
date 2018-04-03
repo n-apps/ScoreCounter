@@ -3,7 +3,7 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 5
 ext.versionMinor = 0
-ext.versionPatch = 6
+ext.versionPatch = 7
 ext.postfix = '-beta'
 
 android {
@@ -36,13 +36,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
-        debugMini {
-            initWith debug
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            matchingFallbacks = ['debug']
-        }
+
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
