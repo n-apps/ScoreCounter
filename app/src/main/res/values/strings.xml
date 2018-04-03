@@ -26,7 +26,7 @@
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
-    <string name="dice_previous_result_label">Previous result:</string>
+    <string name="dice_previous_result_label">Previous roll:</string>
     <string name="erd_message">If you enjoy using Score Counter, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
     <string name="erd_no_thanks">No, Thanks</string>
     <string name="erd_rate_now">Rate</string>

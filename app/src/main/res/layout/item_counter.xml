@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black_12"
+        android:background="@color/black_5"
         android:foreground="?attr/selectableItemBackground"
         android:minHeight="@dimen/button_min_height"
         android:orientation="horizontal">
@@ -24,10 +23,11 @@
             android:background="?attr/selectableItemBackground"
             android:clickable="false"
             android:ellipsize="end"
+            android:fontFamily="@font/source_sans_pro_black"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:paddingStart="@dimen/padding_normal"
             android:paddingEnd="@dimen/padding_normal"
+            android:paddingStart="@dimen/padding_normal"
             android:textAllCaps="true"
             android:textSize="@dimen/font_subheading"
             tools:text="@tools:sample/first_names" />
@@ -38,8 +38,8 @@
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
-            android:paddingStart="@dimen/padding_normal"
             android:paddingEnd="@dimen/padding_normal"
+            android:paddingStart="@dimen/padding_normal"
             android:text="@string/counter_header_edit"
             android:textAllCaps="true"
             android:textSize="@dimen/font_button" />
@@ -66,7 +66,7 @@
             android:layout_gravity="center"
             android:alpha=".87"
             android:clickable="false"
-            android:fontFamily="@font/work_sans_light"
+            android:fontFamily="@font/nixie_one"
             android:gravity="center"
             android:lines="1"
             app:autoSizeMaxTextSize="@dimen/counter_max_text_size"

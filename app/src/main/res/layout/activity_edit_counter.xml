@@ -48,7 +48,7 @@
                     android:id="@+id/et_counter_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapCharacters|textAutoComplete|textAutoCorrect"
+                    android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
                     android:maxLength="20"
                     android:maxLines="1"
                     android:textAllCaps="true"
