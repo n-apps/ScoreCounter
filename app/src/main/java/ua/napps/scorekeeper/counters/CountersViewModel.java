@@ -24,14 +24,14 @@ class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
+    private final String[] colors;
     private int listSize;
-    private boolean isDarkTheme;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        isDarkTheme = LocalSettings.isDarkTheme();
+        colors = application.getResources().getStringArray(LocalSettings.isDarkTheme() ? R.array.dark : R.array.light);
     }
 
     public LiveData<Counter> getCounterLiveData(int counterID) {
@@ -43,8 +43,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        repository.createCounter(String.valueOf(listSize + 1),
-                getNextColor())
+        repository.createCounter(String.valueOf(listSize + 1), getNextColor())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -201,12 +200,10 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private String getNextColor() {
-        String[] colors = getApplication().getResources().getStringArray(isDarkTheme ? R.array.dark : R.array.light);
-        final int presetSize = colors.length;
-        if (listSize < presetSize) {
+        if (listSize < colors.length) {
             return colors[listSize];
         } else {
-            return colors[listSize % presetSize];
+            return colors[listSize % colors.length];
         }
 
     }
