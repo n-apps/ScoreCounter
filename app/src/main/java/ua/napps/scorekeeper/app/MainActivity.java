@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-//    private EasyRatingDialog easyRatingDialog;
+    private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-//        easyRatingDialog = new EasyRatingDialog(this);
+        easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
@@ -117,17 +118,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        easyRatingDialog.showIfNeeded();
-//    }
-//
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        easyRatingDialog.onStart();
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        easyRatingDialog.showIfNeeded();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        easyRatingDialog.onStart();
+    }
 
     @Override
     public void onTabSelected(int position) {

@@ -51,7 +51,7 @@
     <string name="settings_telegram">Telegram</string>
     <string name="settings_section_dice_sides">Number of sides of the dice. Select the last one for a specific number of sides</string>
     <string name="common_info">Info</string>
-    <string name="dialog_step_info_content">For how much will the value of the counter changed when you click on it. The left half is responsible for the decrease, the right half for increase. You can also change its value by a long press</string>
-    <string name="dialog_default_info_content">The value of the counter that will be set after it was reset using the \"Reset all values\" menu (three points on the main screen)</string>
+    <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
+    <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
 </resources>
