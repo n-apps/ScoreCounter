@@ -16,10 +16,11 @@
         android:fontFamily="@font/nixie_one"
         android:gravity="center"
         android:includeFontPadding="false"
+        android:lines="1"
         android:textColor="?myDiceColor"
         android:visibility="invisible"
-        app:autoSizeMaxTextSize="172sp"
-        app:autoSizeMinTextSize="28sp"
+        app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
+        app:autoSizeMinTextSize="@dimen/counter_min_text_size"
         app:autoSizeStepGranularity="2sp"
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
@@ -27,6 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        tools:text="6"
+        tools:textSize="@dimen/counter_max_text_size"
         tools:visibility="visible" />
 
     <TextView
@@ -39,11 +42,11 @@
         android:paddingStart="@dimen/padding_normal"
         android:text="@string/dice_empty_state"
         android:textSize="@dimen/font_subheading"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tv_previous_roll_label"
