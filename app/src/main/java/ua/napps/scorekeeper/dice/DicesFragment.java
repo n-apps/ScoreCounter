@@ -14,6 +14,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.Group;
 import android.support.transition.TransitionManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -37,7 +38,7 @@ public class DicesFragment extends Fragment {
     private float accelLast;
     private TextView previousRollTextView;
     private TextView previousRollTextViewLabel;
-    private TextView emptyStateTextView;
+    private Group emptyStateGroup;
     private TextView diceTextView;
     private SpringForce springForce;
     private DiceViewModel viewModel;
@@ -74,7 +75,7 @@ public class DicesFragment extends Fragment {
         View contentView = inflater.inflate(R.layout.fragment_dices, container, false);
         previousRollTextView = contentView.findViewById(R.id.tv_previous_roll);
         previousRollTextViewLabel = contentView.findViewById(R.id.tv_previous_roll_label);
-        emptyStateTextView = contentView.findViewById(R.id.tv_empty_state);
+        emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
         root = contentView.findViewById(R.id.container);
         root.setOnClickListener(v -> {
@@ -112,8 +113,8 @@ public class DicesFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         AndroidFirebaseAnalytics.trackScreen(getActivity(), "Dice");
     }
 
@@ -148,7 +149,7 @@ public class DicesFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     private void updateLastRollLabel() {
         TransitionManager.beginDelayedTransition(root);
-        emptyStateTextView.setVisibility(View.GONE);
+        emptyStateGroup.setVisibility(View.GONE);
         diceTextView.setVisibility(View.VISIBLE);
         if (previousRoll != 0) {
             previousRollTextViewLabel.setVisibility(View.VISIBLE);

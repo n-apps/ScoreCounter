@@ -80,7 +80,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_help_outline_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Android/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_touch_app_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -90,7 +90,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_help_outline" />
+                            <entry key="outputName" value="ic_touch_app" />
                             <entry key="sourceFile" value="D:\telegram.svg" />
                           </map>
                         </option>

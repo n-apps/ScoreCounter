@@ -32,20 +32,38 @@
         tools:textSize="@dimen/counter_max_text_size"
         tools:visibility="visible" />
 
+    <android.support.constraint.Group
+        android:id="@+id/empty_state_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="im_empty_state,tv_empty_state" />
+
+    <ImageView
+        android:id="@+id/im_empty_state"
+        android:layout_width="@dimen/empty_state_icon_size"
+        android:layout_height="@dimen/empty_state_icon_size"
+        android:contentDescription="@string/dice_empty_state"
+        app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/ic_dice_empty_state" />
+
     <TextView
         android:id="@+id/tv_empty_state"
         style="@style/EmptyStateMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:alpha="0.54"
         android:lineSpacingMultiplier="1.4"
         android:paddingEnd="@dimen/padding_normal"
         android:paddingStart="@dimen/padding_normal"
         android:text="@string/dice_empty_state"
-        android:textSize="@dimen/font_subheading"
-        app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/im_empty_state"
         tools:visibility="visible" />
 
     <TextView

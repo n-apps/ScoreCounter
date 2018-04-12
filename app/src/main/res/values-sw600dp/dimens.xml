@@ -9,7 +9,7 @@
 
     <dimen name="dice_margin">128dp</dimen>
 
-    <dimen name="empty_state_add_icon_size">148dp</dimen>
+    <dimen name="empty_state_icon_size">148dp</dimen>
 
     <dimen name="font_body">21sp</dimen>
     <dimen name="font_button">21sp</dimen>

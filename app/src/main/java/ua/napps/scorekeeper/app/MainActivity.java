@@ -13,7 +13,6 @@ import android.view.WindowManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
-import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-    private EasyRatingDialog easyRatingDialog;
+//    private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -49,17 +48,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         isDarkTheme = LocalSettings.isDarkTheme();
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
+            trackAnalytics();
+        } else {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
-        } else {
-            trackAnalytics();
         }
         AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-        easyRatingDialog = new EasyRatingDialog(this);
+//        easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
-        App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
         if (lastSelectedBottomTab > 1) {
             lastSelectedBottomTab = 0;
@@ -111,23 +109,22 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        if (savedInstanceState != null) {
-            updateCurrentRoll(savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL));
-        }
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
-        easyRatingDialog.showIfNeeded();
+//        easyRatingDialog.showIfNeeded();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        easyRatingDialog.onStart();
+//        easyRatingDialog.onStart();
+        App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        App.getTinyDB().unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -194,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commitNow();
+        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commitAllowingStateLoss();
     }
 
     private void applyKeepScreenOn() {
@@ -214,9 +211,4 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        App.getTinyDB().unregisterOnSharedPreferenceChangeListener(this);
-    }
 }

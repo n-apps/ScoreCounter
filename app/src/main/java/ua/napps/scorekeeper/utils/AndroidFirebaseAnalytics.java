@@ -8,6 +8,7 @@ import android.support.annotation.Size;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.app.App;
 
@@ -26,14 +27,17 @@ public class AndroidFirebaseAnalytics {
 
     public static void logEvent(@NonNull @Size(min = 1L, max = 40L) String event, @NonNull Bundle params) {
         getInstance().logEvent(event, params);
+        Timber.d("%s | %s", event, params);
     }
 
     public static void logEvent(@NonNull @Size(min = 1L, max = 40L) String event) {
         getInstance().logEvent(event, null);
+        Timber.d("%s", event);
     }
 
     public static void trackScreen(@Nullable Activity activity, @NonNull String screenName) {
         if (activity == null) return;
+        Timber.d("trackScreen: %s", screenName);
         getInstance().setCurrentScreen(activity, screenName, null);
     }
 }
