@@ -194,8 +194,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         AndroidFirebaseAnalytics.trackScreen(getActivity(), "Counters List");
     }
 
@@ -330,7 +330,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 .positiveText(R.string.common_set)
                 .negativeColorRes(R.color.primaryColor)
                 .negativeText(R.string.common_cancel)
-                .inputRange(1, 20)
                 .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
                 .build();
         EditText editText = md.getInputEditText();

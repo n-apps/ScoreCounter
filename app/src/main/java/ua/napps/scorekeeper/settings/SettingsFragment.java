@@ -76,8 +76,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         AndroidFirebaseAnalytics.trackScreen(getActivity(), "Settings");
     }
 
@@ -131,7 +131,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .negativeText(R.string.common_cancel)
                         .alwaysCallInputCallback()
                         .cancelListener(dialog -> refreshDices(false))
-                        .inputRange(1, 3)
                         .input(getString(R.string.dialog_custom_dice_hint), null, false,
                                 (dialog, input) -> {
                                     int parseInt = Utilities.parseInt(input.toString());

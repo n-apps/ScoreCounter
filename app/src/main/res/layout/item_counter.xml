@@ -69,6 +69,8 @@
             android:fontFamily="@font/nixie_one"
             android:gravity="center"
             android:lines="1"
+            android:paddingEnd="@dimen/padding_large"
+            android:paddingStart="@dimen/padding_large"
             app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
             app:autoSizeMinTextSize="@dimen/counter_min_text_size"
             app:autoSizeStepGranularity="2sp"

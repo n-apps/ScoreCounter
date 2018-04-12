@@ -67,7 +67,7 @@
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
-        <item name="android:textSize">@dimen/font_body</item>
+        <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
     <style name="MiniDiceStyle">
