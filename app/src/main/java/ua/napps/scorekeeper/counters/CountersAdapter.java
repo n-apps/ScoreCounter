@@ -35,12 +35,17 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     public static final String DECREASE_VALUE_CLICK = "decrease_value_click";
 
     private final CounterActionCallback callback;
+    private final int maxFitCounters;
     private int containerHeight;
-    private int maxFitCounters;
     private List<Counter> counters;
 
-    CountersAdapter(CounterActionCallback callback) {
+    CountersAdapter(int maxCountersToFit, CounterActionCallback callback) {
         this.callback = callback;
+        this.maxFitCounters = maxCountersToFit;
+    }
+
+    public int getMaxFitCounters() {
+        return maxFitCounters;
     }
 
     public void setContainerHeight(int height) {
@@ -76,7 +81,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
             holder.itemView.setLayoutParams(layoutParams);
         } else {// set height as recyclerview height / maxFitCounters
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / maxFitCounters);
+            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / (maxFitCounters > 1 ? maxFitCounters / 2 : 1));
             holder.itemView.setLayoutParams(layoutParams);
         }
     }
@@ -122,10 +127,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counters = update;
             result.dispatchUpdatesTo(this);
         }
-    }
-
-    public void setMaxFitCounters(int maxFitCounters) {
-        this.maxFitCounters = maxFitCounters;
     }
 
     public class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
