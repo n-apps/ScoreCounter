@@ -23,7 +23,7 @@
             android:background="?attr/selectableItemBackground"
             android:clickable="false"
             android:ellipsize="end"
-            android:fontFamily="@font/source_sans_pro_black"
+            android:fontFamily="@font/open_sans_bold"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:paddingEnd="@dimen/padding_normal"
@@ -66,7 +66,7 @@
             android:layout_gravity="center"
             android:alpha=".87"
             android:clickable="false"
-            android:fontFamily="@font/nixie_one"
+            android:fontFamily="@font/cutive_mono"
             android:gravity="center"
             android:lines="1"
             android:paddingEnd="@dimen/padding_large"
@@ -88,7 +88,7 @@
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_increase"
-            app:srcCompat="@drawable/ic_keyboard_arrow_left" />
+            app:srcCompat="@drawable/ic_round_keyboard_arrow_left" />
 
         <ImageView
             android:id="@+id/iv_increase"
@@ -99,6 +99,6 @@
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_decrease"
-            app:srcCompat="@drawable/ic_keyboard_arrow_right" />
+            app:srcCompat="@drawable/ic_round_keyboard_arrow_right" />
     </FrameLayout>
 </LinearLayout>

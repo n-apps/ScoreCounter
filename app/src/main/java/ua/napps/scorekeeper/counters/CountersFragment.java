@@ -1,5 +1,6 @@
 package ua.napps.scorekeeper.counters;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -214,14 +215,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         showLongPressHint();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onLongClick(Counter counter, int position, boolean isIncrease) {
         AndroidFirebaseAnalytics.logEvent("counter_long_click");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
+
         final Observer<Counter> counterObserver = c -> {
             if (longClickDialog != null && c != null) {
-                longClickDialog.getTitleView()
-                        .setText(getString(R.string.dialog_change_counter_value_title, c.getValue()));
+                longClickDialog.getTitleView().setText(c.getName());
             }
         };
         final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());

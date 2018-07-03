@@ -42,7 +42,7 @@
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
             android:contentDescription="@string/counters_empty_message"
-            app:srcCompat="@drawable/ic_empty_state_add_white" />
+            app:srcCompat="@drawable/ic_round_add_circle_outline_96dp" />
 
         <TextView
             style="@style/EmptyStateMessage"

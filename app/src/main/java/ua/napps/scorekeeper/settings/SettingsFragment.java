@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.settings;
 
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,9 +20,7 @@ import android.widget.ToggleButton;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
-import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -65,8 +62,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_have_a_problem).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_telegram_direct).setOnClickListener(this);
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
         diceTwenty.setOnClickListener(this);
@@ -102,13 +97,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_request_feature:
                 AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
                 startEmailClient();
-                break;
-            case R.id.tv_have_a_problem:
-                AndroidFirebaseAnalytics.logEvent("i_have_a_problem_click");
-                startEmailClient();
-                break;
-            case R.id.tv_telegram_direct:
-                openTelegram();
                 break;
             case R.id.tb_dice_6:
                 diceMaxSide = 6;
@@ -211,7 +199,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     private void startEmailClient() {
-        final String title = getString(R.string.app_name) + " " + BuildConfig.VERSION_NAME;
+        final String title = getString(R.string.app_name);
 
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
         intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
@@ -220,34 +208,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             startActivity(intent);
         } else {
             Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void openTelegram() {
-        Bundle params = new Bundle();
-        if (isPackageInstalled("org.telegram.messenger", requireContext().getPackageManager()) ||
-                isPackageInstalled("org.telegram.plus", requireContext().getPackageManager()) ||
-                isPackageInstalled("org.thunderdog.challegram", requireContext().getPackageManager())) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.addCategory(Intent.CATEGORY_BROWSABLE);
-            intent.setData(Uri.parse("https://t.me/artificially_busy"));
-            startActivity(intent);
-            params.putLong(FirebaseAnalytics.Param.SCORE, 1);
-        } else {
-            Toast.makeText(requireContext(), R.string.message_telegram_app_not_installed, Toast.LENGTH_SHORT).show();
-            params.putLong(FirebaseAnalytics.Param.SCORE, 0);
-        }
-
-        AndroidFirebaseAnalytics.logEvent("telegram_click", params);
-    }
-
-    private boolean isPackageInstalled(String packagename, PackageManager packageManager) {
-        try {
-            packageManager.getPackageInfo(packagename, 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
         }
     }
 }

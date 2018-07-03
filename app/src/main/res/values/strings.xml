@@ -18,7 +18,6 @@
     <string name="counter_details_step">Step (-/+)</string>
     <string name="counter_details_value">Current value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
-    <string name="dialog_change_counter_value_title">Current value: %d</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
     <string name="dialog_counter_default_title">Default value</string>
     <string name="dialog_counter_step_title">Step</string>
@@ -38,7 +37,6 @@
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_remove_all_counters">Remove all counters</string>
     <string name="menu_reset_all_counters">Reset all values</string>
-    <string name="message_telegram_app_not_installed">Telegram app is not installed</string>
     <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_have_a_problem">I have a problem</string>
@@ -48,7 +46,6 @@
     <string name="settings_section_request_a_feature">Request a feature</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
-    <string name="settings_telegram">Telegram</string>
     <string name="settings_section_dice_sides">Number of sides of the dice. Select the last one for a specific number of sides</string>
     <string name="common_info">Info</string>
     <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
