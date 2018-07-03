@@ -38,7 +38,7 @@
             app:layout_constraintEnd_toStartOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_general"
-            app:srcCompat="@drawable/ic_change_theme" />
+            app:srcCompat="@drawable/ic_round_brightness_medium_white" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/sw_keep_screen_on"
@@ -59,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="@id/sw_dark_theme"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/sw_dark_theme"
-            app:srcCompat="@drawable/ic_wb_incandescent" />
+            app:srcCompat="@drawable/ic_round_wb_incandescent_white" />
 
         <View
             android:id="@+id/divider"
@@ -99,7 +99,7 @@
             app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
-            app:srcCompat="@drawable/ic_compare_arrows" />
+            app:srcCompat="@drawable/ic_round_compare_arrows_white" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/sw_shake_roll"
@@ -145,6 +145,7 @@
             android:includeFontPadding="false"
             android:textOff="6"
             android:textOn="6"
+            android:fontFamily="@font/cutive_mono"
             android:textSize="@dimen/font_display"
             app:layout_constraintEnd_toStartOf="@id/tb_dice_8"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +160,7 @@
             android:includeFontPadding="false"
             android:textOff="8"
             android:textOn="8"
+            android:fontFamily="@font/cutive_mono"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
             app:layout_constraintEnd_toStartOf="@id/tb_dice_20"
@@ -173,6 +175,7 @@
             android:background="@drawable/bg_selector_mini_dice_toogle"
             android:includeFontPadding="false"
             android:textOff="20"
+            android:fontFamily="@font/cutive_mono"
             android:textOn="20"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
@@ -188,6 +191,7 @@
             android:background="@drawable/bg_selector_mini_dice_toogle"
             android:includeFontPadding="false"
             android:textOff="?"
+            android:fontFamily="@font/cutive_mono"
             android:textOn="?"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
@@ -195,7 +199,6 @@
             app:layout_constraintStart_toEndOf="@id/tb_dice_20"
             app:layout_constraintTop_toTopOf="@id/tb_dice_6"
             tools:ignore="HardcodedText" />
-
 
         <TextView
             android:id="@+id/tv_contact_developer"
@@ -216,7 +219,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/tv_request_feature"
-            app:srcCompat="@drawable/ic_lightbulb_outline" />
+            app:srcCompat="@drawable/ic_round_mail_outline_white" />
 
         <TextView
             android:id="@+id/tv_request_feature"
@@ -230,68 +233,5 @@
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
 
-        <View
-            android:id="@+id/divider1"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
-
-        <ImageView
-            android:id="@+id/iv_have_a_problem"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_have_a_problem"
-            app:layout_constraintBottom_toBottomOf="@id/tv_have_a_problem"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_have_a_problem"
-            app:srcCompat="@drawable/ic_sentiment_dissatisfied" />
-
-        <TextView
-            android:id="@+id/tv_have_a_problem"
-            style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/settings_have_a_problem"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/divider1" />
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_have_a_problem" />
-
-        <ImageView
-            android:id="@+id/iv_telegram"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_have_a_problem"
-            app:layout_constraintBottom_toBottomOf="@id/tv_telegram_direct"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_telegram_direct"
-            app:srcCompat="@drawable/ic_telegram" />
-
-        <TextView
-            android:id="@+id/tv_telegram_direct"
-            style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:text="@string/settings_telegram"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/divider4" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

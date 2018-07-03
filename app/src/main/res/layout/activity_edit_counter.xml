@@ -155,7 +155,7 @@
                     android:contentDescription="@string/common_info"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_help_outline" />
+                    app:srcCompat="@drawable/ic_round_help_outline" />
             </FrameLayout>
 
             <View
@@ -202,7 +202,7 @@
                     android:contentDescription="@string/common_info"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_help_outline" />
+                    app:srcCompat="@drawable/ic_round_help_outline" />
             </FrameLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
@@ -224,6 +224,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/counter_details_delete"
+            android:fontFamily="@font/open_sans_bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
             android:textColor="@color/white" />
     </FrameLayout>
@@ -235,6 +236,6 @@
         android:layout_marginEnd="@dimen/padding_normal"
         app:layout_anchor="@id/appbar_background"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_color_lens_white" />
+        app:srcCompat="@drawable/ic_round_color_lens_white" />
 
 </android.support.design.widget.CoordinatorLayout>

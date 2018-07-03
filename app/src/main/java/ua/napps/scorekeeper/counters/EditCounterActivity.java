@@ -338,7 +338,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         DrawableCompat.setTint(wrappedDrawable.mutate(), color);
         counterName.setBackground(wrappedDrawable);
         ViewUtil.setCursorTint(counterName, color);
-        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_back_white : R.drawable.ic_arrow_back);
+        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_round_arrow_back_white : R.drawable.ic_round_arrow_back);
         ViewUtil.setLightStatusBar(EditCounterActivity.this, !useLightTint, backgroundColor, backgroundColor);
     }
 

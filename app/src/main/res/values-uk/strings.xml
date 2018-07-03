@@ -19,7 +19,6 @@
     <string name="counter_details_step">Крок (-/+)</string>
     <string name="counter_details_value">Поточне значення</string>
     <string name="counters_empty_message">Натисніть в будь-якому місці, щоб додати лічильник або використовуйте + в правому верхньому кутку</string>
-    <string name="dialog_change_counter_value_title">Поточне значення: %d</string>
     <string name="dialog_color_picker_presets_button">Набори</string>
     <string name="dialog_counter_default_title">Значення за замовчуванням</string>
     <string name="dialog_counter_step_title">Крок</string>
@@ -39,7 +38,6 @@
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі лічильники</string>
     <string name="menu_reset_all_counters">Скинути всі значення</string>
-    <string name="message_telegram_app_not_installed">Додаток Telegram не встановлено</string>
     <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_have_a_problem">Поскаржитись</string>
@@ -48,8 +46,7 @@
     <string name="settings_section_general">Загальні</string>
     <string name="settings_section_request_a_feature">Мені не вистачає…</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
-    <string name="settings_stay_awake">Залишати екран ввімкненим</string>
-    <string name="settings_telegram">Telegram</string>
+    <string name="settings_stay_awake">Не вимикати екран</string>
     <string name="settings_section_dice_sides">Кількість граней. Виберіть останній для довільної кількості граней</string>
     <string name="common_info">Інформація</string>
     <string name="dialog_step_info_content">Наскільки зміниться значення лічильника після натискання по ньому. Ліва половина відповідає за зменшення, права - за збільшення. Ви також можете змінювати його значення за допомогою тривалого натискання</string>

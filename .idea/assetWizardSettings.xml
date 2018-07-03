@@ -90,8 +90,10 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_touch_app" />
-                            <entry key="sourceFile" value="D:\telegram.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_round_color_lens_white" />
+                            <entry key="overrideSize" value="true" />
+                            <entry key="sourceFile" value="D:\round-color_lens-24px.svg" />
                           </map>
                         </option>
                       </PersistentState>

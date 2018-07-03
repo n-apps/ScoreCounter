@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_format_list_numbered, getString(R.string.bottom_navigation_tab_counters)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_round_format_list_numbered, getString(R.string.bottom_navigation_tab_counters)))
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_round_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.primaryColor)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)

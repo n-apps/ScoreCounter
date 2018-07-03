@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_margin="@dimen/dice_margin"
         android:background="@drawable/bg_selector_dice"
-        android:fontFamily="@font/nixie_one"
+        android:fontFamily="@font/cutive_mono"
         android:gravity="center"
         android:includeFontPadding="false"
         android:lines="1"

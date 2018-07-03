@@ -8,7 +8,7 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
-        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:fontFamily">@font/open_sans</item>
         <item name="android:windowBackground">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
         <item name="android:colorEdgeEffect">@color/dark_theme_bg</item>
@@ -22,16 +22,11 @@
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
         <item name="android:background">@color/black</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
-        <item name="titleTextAppearance">@style/MyToolbarTextAppearance</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
-
-    <style name="MyToolbarTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textStyle">bold</item>
-    </style>
 
     <style name="AppBarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:background">@color/black</item>

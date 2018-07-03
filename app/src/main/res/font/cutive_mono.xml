@@ -2,6 +2,6 @@
 <font-family xmlns:app="http://schemas.android.com/apk/res-auto"
         app:fontProviderAuthority="com.google.android.gms.fonts"
         app:fontProviderPackage="com.google.android.gms"
-        app:fontProviderQuery="name=Source Sans Pro&amp;weight=900"
+        app:fontProviderQuery="Cutive Mono"
         app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
 </font-family>

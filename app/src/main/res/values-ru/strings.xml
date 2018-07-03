@@ -19,7 +19,6 @@
     <string name="counter_details_step">Шаг (-/+)</string>
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или используйте + в правом верхнем углу</string>
-    <string name="dialog_change_counter_value_title">Текущее значение: %d</string>
     <string name="dialog_color_picker_presets_button">Наборы</string>
     <string name="dialog_counter_default_title">Значение по умолчанию</string>
     <string name="dialog_counter_step_title">Шаг</string>
@@ -39,7 +38,6 @@
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все счетчики</string>
     <string name="menu_reset_all_counters">Сбросить все значения</string>
-    <string name="message_telegram_app_not_installed">Приложение Telegram не установлено</string>
     <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_have_a_problem">Пожаловаться</string>
@@ -48,8 +46,7 @@
     <string name="settings_section_general">Основные</string>
     <string name="settings_section_request_a_feature">Мне не хватает…</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
-    <string name="settings_stay_awake">Оставлять экран включенным</string>
-    <string name="settings_telegram">Telegram</string>
+    <string name="settings_stay_awake">Не отключать экран</string>
     <string name="settings_section_dice_sides">Количество граней. Выберите последний для произвольного кол-ва граней</string>
     <string name="common_info">Информация</string>
     <string name="dialog_step_info_content">На сколько изменится значение счетчика при нажатии по нему. Левая половина отвечает за уменьшение, правая - за увеличение. Вы также можете менять его значение с помощью длительного нажатия</string>
