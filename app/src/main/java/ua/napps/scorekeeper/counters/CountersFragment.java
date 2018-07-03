@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearSnapHelper;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
@@ -38,6 +38,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.GroupSnapHelper;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -76,9 +77,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
-        recyclerView.setHasFixedSize(true);
-        SnapHelper snapHelper = new LinearSnapHelper();
+        recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 1));
+        SnapHelper snapHelper = new GroupSnapHelper(2);
         snapHelper.attachToRecyclerView(recyclerView);
+        recyclerView.setOnFlingListener(snapHelper);
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
@@ -90,7 +92,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         super.onActivityCreated(savedInstanceState);
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
-        countersAdapter = new CountersAdapter(this);
+        countersAdapter = new CountersAdapter(getResources().getInteger(R.integer.max_counters_to_fit), this);
         subscribeUi();
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
     }
@@ -144,7 +146,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
-                    // TODO: 19-Mar-18 find a better way to keep counters height
+                    if (size > countersAdapter.getMaxFitCounters()) {
+                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
+                            recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 2));
+                        }
+                    } else {
+                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
+                            recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 1));
+                        }
+                    }
                 }
 
                 countersAdapter.setCountersList(counters);
@@ -156,7 +166,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                     isFirstLoad = false;
                     recyclerView.post(() -> {
                                 countersAdapter.setContainerHeight(recyclerView.getHeight());
-                                countersAdapter.setMaxFitCounters(getResources().getInteger(R.integer.max_counters_to_fit));
                                 recyclerView.setAdapter(countersAdapter);
                             }
                     );
