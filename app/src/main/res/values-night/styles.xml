@@ -15,7 +15,6 @@
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDiceColor">?attr/colorPrimary</item>
         <item name="myDividerColor">@color/white_12</item>
-        <item name="myEmptyStateBackground">@color/black</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">

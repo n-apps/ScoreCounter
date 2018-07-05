@@ -2,18 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="@dimen/padding_large"
     android:paddingEnd="@dimen/padding_large"
+    android:paddingStart="@dimen/padding_large"
     android:paddingTop="@dimen/spacing_normal"
+    android:paddingBottom="@dimen/spacing_normal"
     tools:ignore="HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:baselineAligned="false"
+        android:orientation="horizontal"
         android:paddingBottom="@dimen/padding_normal">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
@@ -36,8 +37,8 @@
             android:id="@+id/btn_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
@@ -53,8 +54,8 @@
             android:id="@+id/btn_three"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
@@ -98,20 +99,34 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:hint="@string/hint_type_any_number"
+            android:hint="@string/hint_decrease"
             android:inputType="number|numberSigned"
             android:maxLength="8"
             android:maxLines="1" />
 
-        <Button
-            android:id="@+id/btn_add_custom_value"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:enabled="false"
-            android:gravity="center_vertical"
-            android:paddingStart="@dimen/padding_normal"
-            android:paddingEnd="@dimen/padding_normal"
-            android:text="@string/common_decrease" />
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/btn_add_custom_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:background="@drawable/bg_selector_flat_button"
+        android:enabled="false"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/button_min_height"
+        android:paddingBottom="@dimen/padding_normal"
+        android:paddingTop="@dimen/padding_normal"
+        android:text="@string/common_decrease">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="@string/common_decrease"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:textColor="@color/white" />
+    </FrameLayout>
 </LinearLayout>

@@ -8,6 +8,6 @@
         android:topRightRadius="4dp" />
     <solid android:color="@android:color/transparent" />
     <stroke
-        android:width="2dp"
+        android:width="4dp"
         android:color="@color/accentColor" />
 </shape>

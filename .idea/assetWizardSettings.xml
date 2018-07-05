@@ -91,9 +91,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_round_color_lens_white" />
-                            <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="D:\round-color_lens-24px.svg" />
+                            <entry key="outputName" value="ic_touch" />
+                            <entry key="sourceFile" value="D:\touch.svg" />
                           </map>
                         </option>
                       </PersistentState>

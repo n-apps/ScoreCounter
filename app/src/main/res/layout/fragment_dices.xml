@@ -36,6 +36,8 @@
         android:id="@+id/empty_state_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:constraint_referenced_ids="im_empty_state,tv_empty_state" />
 
     <ImageView
@@ -48,17 +50,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_dice_empty_state" />
+        app:srcCompat="@drawable/ic_touch" />
 
     <TextView
         android:id="@+id/tv_empty_state"
         style="@style/EmptyStateMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0.54"
-        android:lineSpacingMultiplier="1.4"
-        android:paddingEnd="@dimen/padding_normal"
-        android:paddingStart="@dimen/padding_normal"
         android:text="@string/dice_empty_state"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +73,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/dice_previous_result_label"
+        android:textSize="@dimen/font_button"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_previous_roll"
@@ -90,6 +89,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:minEms="1"
+        android:textSize="@dimen/font_button"
         android:textStyle="bold"
         android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@id/tv_previous_roll_label"

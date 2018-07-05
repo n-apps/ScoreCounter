@@ -2,6 +2,7 @@
     android:width="96dp"
     android:height="96dp"
     android:viewportHeight="24"
+    android:tint="?myIconTint"
     android:alpha=".54"
     android:viewportWidth="24">
     <path

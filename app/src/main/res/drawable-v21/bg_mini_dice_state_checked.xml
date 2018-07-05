@@ -9,7 +9,7 @@
                 android:topLeftRadius="4dp"
                 android:topRightRadius="4dp" />
             <stroke
-                android:width="2dp"
+                android:width="4dp"
                 android:color="@color/accentColor" />
         </shape>
     </item>
