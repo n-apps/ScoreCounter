@@ -33,7 +33,7 @@
     <string name="erd_remind_me_later">Нагадати пізніше</string>
     <string name="erd_title">Оцініть додаток</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="hint_type_any_number">Введіть число</string>
+    <string name="hint_decrease">Введіть число</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі лічильники</string>

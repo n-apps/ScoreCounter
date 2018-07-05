@@ -32,7 +32,7 @@
     <string name="erd_remind_me_later">Remind me later</string>
     <string name="erd_title">Rate Score Counter</string>
     <string name="error_no_email_client">No email app on your device :(</string>
-    <string name="hint_type_any_number">Enter any number</string>
+    <string name="hint_decrease">Decrease by...</string>
     <string name="label_all_changes_saved">All changes saved</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_remove_all_counters">Remove all counters</string>

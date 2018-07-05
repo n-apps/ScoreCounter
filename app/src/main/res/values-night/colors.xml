@@ -20,9 +20,9 @@
     <color name="black_5">#0D000000</color>
     <color name="white_12">#1FFFFFFF</color>
     <color name="dark_status_bar">@color/black</color>
-    <color name="dice_bg_light">#F8EFE4</color>
-    <color name="dice_bg_dark">#000</color>
+    <color name="dice_stroke">@color/primaryColor</color>
     <color name="windowBackground">#000</color>
     <color name="flat_button_color">#3b0800</color>
     <color name="flat_button_color_pressed">#9e1f0b</color>
+    <color name="flat_button_color_disabled">#1FFFFFFF</color>
 </resources>

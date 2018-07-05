@@ -33,7 +33,7 @@
     <string name="erd_remind_me_later">Напомнить позже</string>
     <string name="erd_title">Оцените приложение</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="hint_type_any_number">Введите число</string>
+    <string name="hint_decrease">Уменьшить на...</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все счетчики</string>

@@ -1,11 +1,11 @@
 package ua.napps.scorekeeper.app;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.WindowManager;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-//    private EasyRatingDialog easyRatingDialog;
+    //    private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -66,19 +66,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_round_format_list_numbered, getString(R.string.bottom_navigation_tab_counters)))
-                .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.ic_cube, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_round_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.primaryColor)
+                .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.white)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .setActiveColor(R.color.white)
+                .setActiveColor(!isDarkTheme ? R.color.accentColor : R.color.white)
                 .setFirstSelectedPosition(lastSelectedBottomTab)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedBottomTab]);
-        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedBottomTab > 0,
-                ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ViewUtil.setLightStatusBar(this, !isDarkTheme, true, true);
+        }
         applyKeepScreenOn();
 
     }
@@ -137,8 +138,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        ViewUtil.setLightStatusBar(this, !isDarkTheme && lastSelectedBottomTab > 0,
-                ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.dark_status_bar));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ViewUtil.setLightStatusBar(MainActivity.this, !isDarkTheme, true, true);
+        }
     }
 
     @Override

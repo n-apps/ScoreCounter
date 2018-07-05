@@ -29,7 +29,10 @@
             android:paddingEnd="@dimen/padding_normal"
             android:paddingStart="@dimen/padding_normal"
             android:textAllCaps="true"
-            android:textSize="@dimen/font_subheading"
+            app:autoSizeMaxTextSize="@dimen/font_subheading"
+            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
             tools:text="@tools:sample/first_names" />
 
         <TextView

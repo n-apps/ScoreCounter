@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="light">
-        <item>#424254</item>
-        <item>#D95555</item>
-        <item>#FFECCB</item>
-        <item>#A7D5B1</item>
-        <item>#759888</item>
+        <item>#FFFFFF</item>
+        <item>#000000</item>
+        <item>#FF006F</item>
+        <item>#FFB300</item>
+        <item>#FFF538</item>
     </string-array>
     <string-array name="dark">
         <item>#000000</item>

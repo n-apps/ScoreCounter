@@ -1,17 +1,16 @@
 package ua.napps.scorekeeper.counters;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -65,8 +64,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         holder.counterValue.setText(String.valueOf(counter.getValue()));
         holder.itemView.setBackgroundColor(Color.parseColor(counter.getColor()));
         final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
-        final Context context = holder.itemView.getContext();
-        final int textColor = ContextCompat.getColor(context, darkBackground ? R.color.white : R.color.black);
+        int textColor = darkBackground ? Color.WHITE : Color.BLACK;
         holder.counterName.setTextColor(textColor);
         holder.counterValue.setTextColor(textColor);
         holder.counterEdit.setTextColor(textColor);
@@ -78,11 +76,13 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         int itemCount = getItemCount();
         if (itemCount <= maxFitCounters) { // fit available space
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
-            holder.itemView.setLayoutParams(layoutParams);
+            StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
+            holder.itemView.setLayoutParams(lp);
+            lp.setFullSpan(false);
         } else {// set height as recyclerview height / maxFitCounters
-            RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / (maxFitCounters > 1 ? maxFitCounters / 2 : 1));
-            holder.itemView.setLayoutParams(layoutParams);
+            StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / (maxFitCounters > 1 ? itemCount / 2 : 1));
+            lp.setFullSpan(position == itemCount - 1 && itemCount % 2 == 1);
+            holder.itemView.setLayoutParams(lp);
         }
     }
 

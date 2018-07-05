@@ -33,7 +33,7 @@
     <string name="erd_remind_me_later">Me le rappeler plus tard</string>
     <string name="erd_title">Donner une note à Compteur Gardien</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
-    <string name="hint_type_any_number">Entrez un nombre</string>
+    <string name="hint_decrease">Entrez un nombre</string>
     <string name="label_all_changes_saved">Les changements ont été sauvegardés</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>

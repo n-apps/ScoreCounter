@@ -11,9 +11,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
@@ -28,7 +28,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -78,8 +77,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
-        recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 1));
-        SnapHelper snapHelper = new GroupSnapHelper(2);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
+        SnapHelper snapHelper = new GroupSnapHelper(1);
         snapHelper.attachToRecyclerView(recyclerView);
         recyclerView.setOnFlingListener(snapHelper);
         emptyState = contentView.findViewById(R.id.empty_state);
@@ -148,12 +147,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
                     if (size > countersAdapter.getMaxFitCounters()) {
-                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
-                            recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 2));
+                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
+                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                         }
                     } else {
-                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
-                            recyclerView.setLayoutManager(new GridLayoutManager(requireActivity(), 1));
+                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
+                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
                         }
                     }
                 }
@@ -230,7 +229,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         liveData.observe(this, counterObserver);
         int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
         final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
-        Button buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
+        View buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (isIncrease) {
                 viewModel.increaseCounter(counter, 5);
