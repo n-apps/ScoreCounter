@@ -9,7 +9,7 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/padding_normal">
+        android:paddingBottom="@dimen/padding_large">
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline"
@@ -26,6 +26,7 @@
             android:padding="@dimen/spacing_normal"
             android:text="@string/settings_section_general"
             android:textColor="@color/accentColor"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteX="8dp" />
 
@@ -38,7 +39,7 @@
             app:layout_constraintEnd_toStartOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_general"
-            app:srcCompat="@drawable/ic_round_brightness_medium_white" />
+            app:srcCompat="@drawable/ic_iphonex" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/sw_keep_screen_on"
@@ -59,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="@id/sw_dark_theme"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/sw_dark_theme"
-            app:srcCompat="@drawable/ic_round_wb_incandescent_white" />
+            app:srcCompat="@drawable/ic_moon" />
 
         <View
             android:id="@+id/divider"
@@ -99,7 +100,7 @@
             app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
-            app:srcCompat="@drawable/ic_round_compare_arrows_white" />
+            app:srcCompat="@drawable/ic_sort" />
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/sw_shake_roll"
@@ -126,10 +127,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:gravity="center"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingEnd="@dimen/padding_normal"
             android:paddingStart="@dimen/padding_normal"
-            android:gravity="center"
             android:text="@string/settings_section_dice_sides"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="@dimen/font_body"
@@ -144,10 +145,10 @@
             android:layout_height="64dp"
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:fontFamily="@font/cutive_mono"
             android:includeFontPadding="false"
             android:textOff="6"
             android:textOn="6"
-            android:fontFamily="@font/cutive_mono"
             android:textSize="@dimen/font_display"
             app:layout_constraintEnd_toStartOf="@id/tb_dice_8"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,10 +160,10 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:fontFamily="@font/cutive_mono"
             android:includeFontPadding="false"
             android:textOff="8"
             android:textOn="8"
-            android:fontFamily="@font/cutive_mono"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
             app:layout_constraintEnd_toStartOf="@id/tb_dice_20"
@@ -175,9 +176,9 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:fontFamily="@font/cutive_mono"
             android:includeFontPadding="false"
             android:textOff="20"
-            android:fontFamily="@font/cutive_mono"
             android:textOn="20"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
@@ -191,9 +192,9 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:fontFamily="@font/cutive_mono"
             android:includeFontPadding="false"
             android:textOff="?"
-            android:fontFamily="@font/cutive_mono"
             android:textOn="?"
             android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
@@ -221,7 +222,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/tv_request_feature"
-            app:srcCompat="@drawable/ic_round_mail_outline_white" />
+            app:srcCompat="@drawable/ic_mail" />
 
         <TextView
             android:id="@+id/tv_request_feature"
@@ -235,5 +236,35 @@
             app:layout_constraintStart_toEndOf="@id/guideline"
             app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
 
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="?myDividerColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
+
+        <ImageView
+            android:id="@+id/iv_rate_app"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_section_request_a_feature"
+            app:layout_constraintBottom_toBottomOf="@id/tv_rate_app"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/tv_rate_app"
+            app:srcCompat="@drawable/ic_like" />
+
+        <TextView
+            android:id="@+id/tv_rate_app"
+            style="@style/TwoLinesStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/erd_title"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/divider3" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

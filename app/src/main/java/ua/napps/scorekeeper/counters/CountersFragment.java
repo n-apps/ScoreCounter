@@ -12,7 +12,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -38,7 +37,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
-import ua.napps.scorekeeper.utils.GroupSnapHelper;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -77,10 +75,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL));
-        SnapHelper snapHelper = new GroupSnapHelper(1);
-        snapHelper.attachToRecyclerView(recyclerView);
-        recyclerView.setOnFlingListener(snapHelper);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
@@ -147,7 +142,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
                     if (size > countersAdapter.getMaxFitCounters()) {
-                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
+                            if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
                             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                         }
                     } else {

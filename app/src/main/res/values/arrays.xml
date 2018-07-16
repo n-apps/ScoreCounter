@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="light">
-        <item>#FFFFFF</item>
-        <item>#000000</item>
-        <item>#FF006F</item>
-        <item>#FFB300</item>
-        <item>#FFF538</item>
+        <item>#556270</item>
+        <item>#4ECDC4</item>
+        <item>#C7F464</item>
+        <item>#FF6B6B</item>
+        <item>#C44D58</item>
     </string-array>
     <string-array name="dark">
-        <item>#000000</item>
-        <item>#A69682</item>
-        <item>#7E9991</item>
-        <item>#737373</item>
-        <item>#D8770C</item>
+        <item>#E3C3AC</item>
+        <item>#031E29</item>
+        <item>#3FAB9E</item>
+        <item>#E45946</item>
+        <item>#EA9A2B</item>
     </string-array>
 </resources>

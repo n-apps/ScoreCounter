@@ -1,7 +1,7 @@
 package ua.napps.scorekeeper.app;
 
 import android.content.SharedPreferences;
-import android.os.Build;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-    //    private EasyRatingDialog easyRatingDialog;
+    private EasyRatingDialog easyRatingDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_main);
-//        easyRatingDialog = new EasyRatingDialog(this);
+        easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
         if (lastSelectedBottomTab > 1) {
@@ -65,9 +66,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
         bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_round_format_list_numbered, getString(R.string.bottom_navigation_tab_counters)))
-                .addItem(new BottomNavigationItem(R.drawable.ic_cube, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_round_settings, getString(R.string.bottom_navigation_tab_settings)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_grid, getString(R.string.bottom_navigation_tab_counters)))
+                .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
+                .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.white)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
@@ -77,8 +78,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedBottomTab]);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ViewUtil.setLightStatusBar(this, !isDarkTheme, true, true);
+        if (!isDarkTheme) {
+            ViewUtil.setLightStatusBar(this);
+        } else {
+            ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
         applyKeepScreenOn();
 
@@ -112,13 +115,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-//        easyRatingDialog.showIfNeeded();
+        easyRatingDialog.showIfNeeded();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        easyRatingDialog.onStart();
+        easyRatingDialog.onStart();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
     }
 
@@ -138,8 +141,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ViewUtil.setLightStatusBar(MainActivity.this, !isDarkTheme, true, true);
+        if (!isDarkTheme) {
+            ViewUtil.setLightStatusBar(this);
+        } else {
+            ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
     }
 

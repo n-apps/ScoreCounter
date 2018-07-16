@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingBottom="@dimen/spacing_normal"
     android:paddingEnd="@dimen/padding_large"
     android:paddingStart="@dimen/padding_large"
     android:paddingTop="@dimen/spacing_normal"
-    android:paddingBottom="@dimen/spacing_normal"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -93,13 +93,21 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/font_display"
+            android:text="–" />
+
         <EditText
             android:id="@+id/et_add_custom_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:hint="@string/hint_decrease"
+            android:hint="@string/hint_enter_number"
+            android:importantForAutofill="no"
             android:inputType="number|numberSigned"
             android:maxLength="8"
             android:maxLines="1" />

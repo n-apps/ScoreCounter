@@ -155,7 +155,7 @@
                     android:contentDescription="@string/common_info"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_round_help_outline" />
+                    app:srcCompat="@drawable/ic_information" />
             </FrameLayout>
 
             <View
@@ -202,7 +202,7 @@
                     android:contentDescription="@string/common_info"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_round_help_outline" />
+                    app:srcCompat="@drawable/ic_information" />
             </FrameLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
