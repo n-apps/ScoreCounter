@@ -161,10 +161,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("");
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ViewUtil.setLightStatusBar(this, false, true, true);
-        }
-
         counterName = findViewById(R.id.et_counter_name);
         counterStep = findViewById(R.id.tv_counter_step);
         counterDefaultValue = findViewById(R.id.tv_counter_default_value);
@@ -340,11 +336,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         DrawableCompat.setTint(wrappedDrawable.mutate(), color);
         counterName.setBackground(wrappedDrawable);
         ViewUtil.setCursorTint(counterName, color);
-        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_round_arrow_back_white : R.drawable.ic_round_arrow_back);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ViewUtil.setLightStatusBar(EditCounterActivity.this, !useLightTint, true, true);
+        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_left : R.drawable.ic_arrow_left_white);
+        if (!useLightTint) {
+            ViewUtil.setLightStatusBar(EditCounterActivity.this);
+        } else {
+            ViewUtil.clearLightStatusBar(EditCounterActivity.this, Color.BLACK);
         }
+
     }
 
     @Override

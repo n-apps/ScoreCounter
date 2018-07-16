@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_touch" />
+        app:srcCompat="@drawable/ic_hand_tap" />
 
     <TextView
         android:id="@+id/tv_empty_state"

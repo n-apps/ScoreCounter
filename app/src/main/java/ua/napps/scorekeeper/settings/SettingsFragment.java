@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.settings;
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -62,6 +64,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         shakeToRoll.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
         diceTwenty.setOnClickListener(this);
@@ -97,6 +100,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_request_feature:
                 AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
                 startEmailClient();
+                break;
+            case R.id.tv_rate_app:
+                AndroidFirebaseAnalytics.logEvent("rate_app__click");
+                rateApp();
                 break;
             case R.id.tb_dice_6:
                 diceMaxSide = 6;
@@ -152,6 +159,18 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 }
                 md.show();
                 break;
+        }
+    }
+
+    private void rateApp() {
+        Activity activity = requireActivity();
+        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            activity.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName());
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, playStoreUri));
         }
     }
 

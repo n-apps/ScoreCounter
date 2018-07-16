@@ -2,76 +2,54 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build.VERSION_CODES;
 import android.support.annotation.CheckResult;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.Pair;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 public class ViewUtil {
 
-    /**
-     * Sets the status and/or nav bar to be light or not. Light status bar means dark icons.
-     *
-     * @param activity  activity
-     * @param isLight   make sure the system bar is light.
-     * @param statusBar if true, make the status bar theme match the isLight param.
-     * @param navBar    if true, make the nav bar theme match the isLight param.
-     */
-    @RequiresApi(api = VERSION_CODES.M)
-    public static void setLightStatusBar(@NonNull Activity activity, boolean isLight, boolean statusBar, boolean navBar) {
+    public static void setLightStatusBar(Activity activity) {
+        setLightStatusBar(activity, 0);
+    }
 
-        Window window = activity.getWindow();
-        int oldSystemUiFlags = window.getDecorView().getSystemUiVisibility();
-        int newSystemUiFlags = oldSystemUiFlags;
-        if (isLight) {
-            if (statusBar) {
-                window.setStatusBarColor(Color.WHITE);
-                newSystemUiFlags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-                if (Utilities.checkIsMiuiRom()) {
-                    Class<? extends Window> clazz = window.getClass();
-                    try {
-                        Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                        Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
-                        int darkModeFlag = field.getInt(layoutParams);
-                        Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
-                        extraFlagField.invoke(window, statusBar ? darkModeFlag : 0, darkModeFlag);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            if (navBar && Utilities.isAtLeastO()) {
-//                window.setNavigationBarColor(Color.WHITE);
-                newSystemUiFlags |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-            }
-        } else {
-            if (statusBar) {
-                window.setStatusBarColor(Color.BLACK);
-                newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            }
-            if (navBar && Utilities.isAtLeastO()) {
-//                window.setNavigationBarColor(Color.BLACK);
-                newSystemUiFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-            }
+    public static void setLightStatusBar(Activity activity, int color) {
+        if (Utilities.hasMarshmallow()) {
+            View decorView = activity.getWindow().getDecorView();
+            int flags = decorView.getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            decorView.setSystemUiVisibility(flags);
         }
+        setStatusBarColor(activity, color);
+    }
 
-        if (newSystemUiFlags != oldSystemUiFlags) {
-            window.getDecorView().setSystemUiVisibility(newSystemUiFlags);
+    public static void clearLightStatusBar(Activity activity) {
+        clearLightStatusBar(activity, 0);
+    }
+
+    public static void clearLightStatusBar(Activity activity, int color) {
+        if (Utilities.hasMarshmallow()) {
+            View decorView = activity.getWindow().getDecorView();
+            int flags = decorView.getSystemUiVisibility();
+            flags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            decorView.setSystemUiVisibility(flags);
+        }
+        setStatusBarColor(activity, color);
+    }
+
+    public static void setStatusBarColor(Activity activity, int color) {
+        if (Utilities.hasLollipop() && color != 0) {
+            activity.getWindow().setStatusBarColor(color);
         }
     }
 

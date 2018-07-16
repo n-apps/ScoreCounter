@@ -58,7 +58,28 @@ public class Utilities {
         return line;
     }
 
-    public static boolean isAtLeastO() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    /**
+     * Checks if the device has Lolllipop or higher version.
+     * @return <code>true</code> if device is a tablet.
+     */
+    public static boolean hasLollipop() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
+
+    /**
+     * Checks if the device has Marshmallow or higher version.
+     * @return <code>true</code> if device is a tablet.
+     */
+    public static boolean hasMarshmallow() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
+    }
+
+    /**
+     * Checks if the device has Marshmallow or higher version.
+     * @return <code>true</code> if device is a tablet.
+     */
+    public static boolean hasNougat() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+
 }

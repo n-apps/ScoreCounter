@@ -91,7 +91,7 @@
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_increase"
-            app:srcCompat="@drawable/ic_round_keyboard_arrow_left" />
+            app:srcCompat="@drawable/ic_minus_round" />
 
         <ImageView
             android:id="@+id/iv_increase"
@@ -102,6 +102,6 @@
             android:alpha="0.38"
             android:clickable="false"
             android:contentDescription="@string/common_decrease"
-            app:srcCompat="@drawable/ic_round_keyboard_arrow_right" />
+            app:srcCompat="@drawable/ic_pluse_round" />
     </FrameLayout>
 </LinearLayout>

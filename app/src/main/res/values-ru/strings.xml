@@ -27,13 +27,13 @@
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок:</string>
-    <string name="erd_message">Если вам нравится Счетчик Очков, не могли бы его оценить? Это займет лишь минуту. Спасибо за поддержку!</string>
+    <string name="erd_message">Если вам нравится это приложение, не могли бы вы его оценить? Это займет лишь минуту. Спасибо за вашу поддержку!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
-    <string name="erd_rate_now">Оценить</string>
+    <string name="erd_rate_now">Оценить сейчас</string>
     <string name="erd_remind_me_later">Напомнить позже</string>
-    <string name="erd_title">Оцените приложение</string>
+    <string name="erd_title">Оцените это приложение</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="hint_decrease">Уменьшить на...</string>
+    <string name="hint_enter_number">Введите число…</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все счетчики</string>

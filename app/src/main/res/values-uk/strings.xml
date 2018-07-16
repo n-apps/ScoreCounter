@@ -29,11 +29,11 @@
     <string name="dice_previous_result_label">Попередній кидок:</string>
     <string name="erd_message">Якщо вам подобається Лічильник Очок, не могли би його оцінити? Це займе лише хвилину. Дякую за підтримку!</string>
     <string name="erd_no_thanks">Ні, дякую</string>
-    <string name="erd_rate_now">Оцінити</string>
+    <string name="erd_rate_now">Оцінити зараз</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
-    <string name="erd_title">Оцініть додаток</string>
+    <string name="erd_title">Оцініть цей додаток</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="hint_decrease">Введіть число</string>
+    <string name="hint_enter_number">Введіть число…</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі лічильники</string>
