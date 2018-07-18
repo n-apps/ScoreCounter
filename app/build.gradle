@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
-ext.versionMajor = 5
-ext.versionMinor = 1
-ext.versionPatch = 0
-ext.postfix = '-beta'
+ext.versionMajor = 4
+ext.versionMinor = 0
+ext.versionPatch = 9
+ext.postfix = ''
 
 android {
     compileSdkVersion 27

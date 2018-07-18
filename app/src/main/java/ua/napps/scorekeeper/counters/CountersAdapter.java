@@ -30,8 +30,8 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
-    public static final String INCREASE_VALUE_CLICK = "increase_value_click";
-    public static final String DECREASE_VALUE_CLICK = "decrease_value_click";
+    static final String INCREASE_VALUE_CLICK = "increase_value_click";
+    static final String DECREASE_VALUE_CLICK = "decrease_value_click";
 
     private final CounterActionCallback callback;
     private final int maxFitCounters;
@@ -43,11 +43,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         this.maxFitCounters = maxCountersToFit;
     }
 
-    public int getMaxFitCounters() {
+    int getMaxFitCounters() {
         return maxFitCounters;
     }
 
-    public void setContainerHeight(int height) {
+    void setContainerHeight(int height) {
         containerHeight = height;
     }
 
@@ -133,9 +133,9 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
 
         private static final int MSG_PERFORM_LONGCLICK = 1;
 
-        public final ImageView decreaseImageView;
-        public final ImageView increaseImageView;
-        public final TextView counterValue;
+        final ImageView decreaseImageView;
+        final ImageView increaseImageView;
+        final TextView counterValue;
 
         private final int TIME_LONG_CLICK = 300;
         private final CounterActionCallback counterActionCallback;
@@ -143,8 +143,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         private final TextView counterEdit;
         private final TextView counterName;
         private final Handler handler;
-        private Counter counter;
-        private MotionEvent motionEvent;
+        public Counter counter;
+        private float lastX;
         private LongClickTimerTask timerTask;
 
         @SuppressLint("ClickableViewAccessibility")
@@ -161,10 +161,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
 
-            counterClickableArea.setOnTouchListener((v12, event) -> {
-                switch (event.getActionMasked()) {
+            counterClickableArea.setOnTouchListener((v12, e) -> {
+                switch (e.getActionMasked()) {
                     case MotionEvent.ACTION_DOWN:
-                        motionEvent = event;
+                        lastX = e.getX();
                         if (timerTask != null) {
                             timerTask.cancel();
                         }
@@ -175,10 +175,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        long time = event.getEventTime() - event.getDownTime();
+                        long time = e.getEventTime() - e.getDownTime();
                         if (time < TIME_LONG_CLICK) {
                             v12.performClick();
-                            updateCounter(event);
+                            updateCounter(e.getX());
                         }
                         cancelLongClickTask();
                         break;
@@ -195,8 +195,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         @Override
         public boolean handleMessage(final Message msg) {
             if (msg.what == MSG_PERFORM_LONGCLICK) {
-                if (motionEvent != null) {
-                    final boolean isIncrease = motionEvent.getX() > counterClickableArea.getWidth() / 2;
+                if (lastX != -1) {
+                    final boolean isIncrease = lastX > counterClickableArea.getWidth() / 2;
                     counterActionCallback.onLongClick(counter, getAdapterPosition(), isIncrease);
                 }
             }
@@ -208,13 +208,11 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                 timerTask.setNonExecutable();
                 timerTask.cancel();
             }
-            if (motionEvent != null) {
-                motionEvent = null;
-            }
+            lastX = -1;
         }
 
-        private void updateCounter(final MotionEvent e) {
-            if (e.getX() > counterClickableArea.getWidth() / 2) {
+        private void updateCounter(float x) {
+            if (x > counterClickableArea.getWidth() / 2) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
                 counterActionCallback.onIncreaseClick(counter);
             } else {

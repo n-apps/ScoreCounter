@@ -323,7 +323,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private void applyTintAccordingToCounterColor(int backgroundColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(backgroundColor);
+            ViewUtil.setStatusBarColor(EditCounterActivity.this, backgroundColor);
         } else {
             appBar.setBackgroundColor(Color.parseColor(counter.getColor()));
         }
@@ -336,12 +336,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         DrawableCompat.setTint(wrappedDrawable.mutate(), color);
         counterName.setBackground(wrappedDrawable);
         ViewUtil.setCursorTint(counterName, color);
-        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_left : R.drawable.ic_arrow_left_white);
-        if (!useLightTint) {
-            ViewUtil.setLightStatusBar(EditCounterActivity.this);
-        } else {
-            ViewUtil.clearLightStatusBar(EditCounterActivity.this, Color.BLACK);
-        }
+        getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_left_white : R.drawable.ic_arrow_left);
 
     }
 
