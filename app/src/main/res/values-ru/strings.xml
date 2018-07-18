@@ -36,8 +36,8 @@
     <string name="hint_enter_number">Введите число…</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
-    <string name="menu_remove_all_counters">Удалить все счетчики</string>
-    <string name="menu_reset_all_counters">Сбросить все значения</string>
+    <string name="menu_remove_all_counters">Удалить все</string>
+    <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_have_a_problem">Пожаловаться</string>

@@ -142,7 +142,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
                     if (size > countersAdapter.getMaxFitCounters()) {
-                            if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
+                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
                             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                         }
                     } else {

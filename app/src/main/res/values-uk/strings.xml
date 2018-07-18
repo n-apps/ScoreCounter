@@ -36,8 +36,8 @@
     <string name="hint_enter_number">Введіть число…</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
-    <string name="menu_remove_all_counters">Видалити всі лічильники</string>
-    <string name="menu_reset_all_counters">Скинути всі значення</string>
+    <string name="menu_remove_all_counters">Видалити всі</string>
+    <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_have_a_problem">Поскаржитись</string>

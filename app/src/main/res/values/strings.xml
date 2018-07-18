@@ -35,8 +35,8 @@
     <string name="hint_enter_number">Enter a number…</string>
     <string name="label_all_changes_saved">All changes saved</string>
     <string name="menu_add_new_counter">Add counter</string>
-    <string name="menu_remove_all_counters">Remove all counters</string>
-    <string name="menu_reset_all_counters">Reset all values</string>
+    <string name="menu_remove_all_counters">Remove all</string>
+    <string name="menu_reset_all_counters">Reset all</string>
     <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_have_a_problem">I have a problem</string>

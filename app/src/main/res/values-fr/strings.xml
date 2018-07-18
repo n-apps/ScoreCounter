@@ -7,7 +7,7 @@
     <string name="common_back">Retournez</string>
     <string name="common_cancel">Annuler</string>
     <string name="common_custom">Votre</string>
-    <string name="common_decrease">Diminution</string>
+    <string name="common_decrease">Réduire</string>
     <string name="counter_header_edit">Paramètres</string>
     <string name="common_increase">Augmenter</string>
     <string name="common_select">Choisir</string>
@@ -17,7 +17,7 @@
     <string name="counter_details_delete">Supprimer le compteur</string>
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Étape (-/+)</string>
-    <string name="counter_details_value">Valeur actuelle</string>
+    <string name="counter_details_value">La valeur active</string>
     <string name="counters_empty_message">Appuyer n\'importe où pour ajouter le premier compteur ou utilisez le bouton + dans le coin supérieur droit</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
     <string name="dialog_counter_default_title">Valeur par défaut</string>
@@ -36,15 +36,15 @@
     <string name="hint_enter_number">Entrez un nombre…</string>
     <string name="label_all_changes_saved">Les changements ont été sauvegardés</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
-    <string name="menu_remove_all_counters">Supprimer tous les compteurs</string>
-    <string name="menu_reset_all_counters">Réinitialiser toutes les valeurs</string>
+    <string name="menu_remove_all_counters">Supprimer tout</string>
+    <string name="menu_reset_all_counters">Réinitialiser tous</string>
     <string name="message_you_can_use_long_press">Vous pouvez également changer la valeur du compteur en appuyant longuement</string>
     <string name="settings_dark_theme">Thème sombre</string>
     <string name="settings_have_a_problem">Se plaindre</string>
     <string name="settings_section_contact_developer">Contacter le développeur</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Général</string>
-    <string name="settings_section_request_a_feature">Demander une fonctionnalité</string>
+    <string name="settings_section_request_a_feature">Je n\'ai pas assez …</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés des dés. Sélectionnez le dernier pour un nombre spécifique de côtés</string>
