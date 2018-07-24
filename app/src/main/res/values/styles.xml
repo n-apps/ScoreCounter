@@ -71,8 +71,8 @@
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="autoSizeMaxTextSize">24sp</item>
-        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="autoSizeMaxTextSize">@dimen/font_display</item>
+        <item name="autoSizeMinTextSize">@dimen/font_body</item>
         <item name="autoSizeStepGranularity">2sp</item>
         <item name="autoSizeTextType">uniform</item>
     </style>

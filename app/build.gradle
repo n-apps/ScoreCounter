@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 ext.versionMajor = 4
-ext.versionMinor = 0
-ext.versionPatch = 9
+ext.versionMinor = 1
+ext.versionPatch = 0
 ext.postfix = ''
 
 android {
@@ -19,6 +19,10 @@ android {
         versionCode generateVersionCode()
         versionName generateVersionName()
         resConfigs "en", "ru", "uk", "fr"
+
+        manifestPlaceholders += [
+                crashlyticsEnabled: false
+        ]
     }
 
     signingConfigs {
@@ -39,8 +43,10 @@ android {
 
         release {
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            manifestPlaceholders += [crashlyticsEnabled: true]
         }
     }
     compileOptions {

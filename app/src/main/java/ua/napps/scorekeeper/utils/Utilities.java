@@ -82,4 +82,12 @@ public class Utilities {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
 
+    /**
+     * Checks if the device has Oreo or higher version.
+     * @return <code>true</code> if device is a tablet.
+     */
+    public static boolean hasOreo() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    }
+
 }

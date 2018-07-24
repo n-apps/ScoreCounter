@@ -21,7 +21,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
-            android:clickable="false"
             android:ellipsize="end"
             android:fontFamily="@font/open_sans_bold"
             android:gravity="center_vertical"
@@ -29,10 +28,7 @@
             android:paddingEnd="@dimen/padding_normal"
             android:paddingStart="@dimen/padding_normal"
             android:textAllCaps="true"
-            app:autoSizeMaxTextSize="@dimen/font_subheading"
-            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
-            app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform"
+            android:textSize="@dimen/font_button"
             tools:text="@tools:sample/first_names" />
 
         <TextView

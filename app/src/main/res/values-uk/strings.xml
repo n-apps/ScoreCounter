@@ -40,7 +40,6 @@
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
-    <string name="settings_have_a_problem">Поскаржитись</string>
     <string name="settings_section_contact_developer">Написати розробнику</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Загальні</string>
