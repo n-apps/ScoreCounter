@@ -20,8 +20,9 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="cc2a41" />
-                                      <entry key="backgroundImage" value="S:\Android\ScoreKeeperApp\assets\launcher_icon\ic_launcher_background_xxxhdpi.png" />
-                                      <entry key="foregroundImage" value="S:\Android\ScoreKeeperApp\assets\launcher_icon\ic_launcher_foreground_xxxhdpi.png" />
+                                      <entry key="backgroundImage" value="D:\ic_launcher_background.svg" />
+                                      <entry key="foregroundImage" value="D:\ic_launcher_foreground.svg" />
+                                      <entry key="previewDensity" value="XXXHIGH" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -91,8 +92,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_dice" />
-                            <entry key="sourceFile" value="D:\Group 2(1).svg" />
+                            <entry key="outputName" value="ic_launcher_background" />
+                            <entry key="sourceFile" value="D:\ic_launcher_background.svg" />
                           </map>
                         </option>
                       </PersistentState>

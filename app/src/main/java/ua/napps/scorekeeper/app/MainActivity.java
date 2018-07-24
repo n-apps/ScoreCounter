@@ -79,10 +79,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         switchFragment(TAGS[lastSelectedBottomTab]);
         if (!isDarkTheme) {
-            ViewUtil.setLightStatusBar(this);
+            ViewUtil.setLightStatusBar(this, Color.WHITE);
         } else {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
+        ViewUtil.setNavBarColor(this, !isDarkTheme);
         applyKeepScreenOn();
 
     }
@@ -146,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
+        ViewUtil.setNavBarColor(this, !isDarkTheme);
     }
 
     @Override

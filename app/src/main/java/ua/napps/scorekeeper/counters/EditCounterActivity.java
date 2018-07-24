@@ -41,6 +41,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
@@ -96,6 +97,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             String backgroundHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
             setTransitions(backgroundHex);
         }
+        ViewUtil.setNavBarColor(EditCounterActivity.this, !LocalSettings.isDarkTheme());
 
         final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
@@ -322,12 +324,15 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void applyTintAccordingToCounterColor(int backgroundColor) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ViewUtil.setStatusBarColor(EditCounterActivity.this, backgroundColor);
-        } else {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             appBar.setBackgroundColor(Color.parseColor(counter.getColor()));
         }
         boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
+        if (!useLightTint) {
+            ViewUtil.setLightStatusBar(this,backgroundColor);
+        } else {
+            ViewUtil.clearLightStatusBar(this, backgroundColor);
+        }
         int color = ContextCompat.getColor(EditCounterActivity.this, useLightTint ? R.color.white : R.color.black);
         counterName.setTextColor(color);
         labelChangesSaved.setTextColor(color);
