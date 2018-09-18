@@ -1,6 +1,6 @@
-# Score Counter + Dice
+# Score Counter + 🎲
 
-Score Counter + Dice will help you to track scores in board games, sport events or even in cooking.
+Score Counter + 🎲 will help you to track scores in board games, sport events or even in cooking.
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/500px-Get_it_on_Google_play.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
@@ -20,5 +20,3 @@ Score Counter + Dice will help you to track scores in board games, sport events 
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome.
-
-## License
