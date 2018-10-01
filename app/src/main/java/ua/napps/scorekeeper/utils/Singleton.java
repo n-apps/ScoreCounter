@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.utils;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import ua.napps.scorekeeper.log.LogEntry;
@@ -13,7 +15,17 @@ public class Singleton {
 
     private ArrayList<LogEntry> logEntries = new ArrayList<>();
 
+    private Context mainContext;
+
     private Singleton() {
+    }
+
+    public Context getMainContext() {
+        return mainContext;
+    }
+
+    public void setMainContext(Context mainContext) {
+        this.mainContext = mainContext;
     }
 
     public ArrayList<LogEntry> getLogEntries() {

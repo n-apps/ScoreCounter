@@ -15,6 +15,7 @@ import java.util.Locale;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.RoundedColorView;
+import ua.napps.scorekeeper.utils.Singleton;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
     private ArrayList<LogEntry> logEntries;
@@ -50,7 +51,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
 
         holder.tv_counter.setText(logEntry.counter.getName());
 
-        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance(Locale.ENGLISH); // TODO use user locale
+        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance(Singleton.getInstance().getMainContext().getResources().getConfiguration().locale);
 
         String info = "";
         switch (logEntry.type){
