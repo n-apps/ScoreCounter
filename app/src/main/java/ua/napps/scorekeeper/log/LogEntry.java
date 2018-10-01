@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.log;
 
+import java.util.Date;
+
 import ua.napps.scorekeeper.counters.Counter;
 
 /**
@@ -10,7 +12,7 @@ public class LogEntry {
     public Counter counter;
     public LogType type;
     public int value;
-    public long timestamp;
+    public Date timestamp;
 
     /**
      * Creates simple log entry with given type and value for current timestamp
@@ -21,7 +23,7 @@ public class LogEntry {
         this.counter = counter;
         this.type = type;
         this.value = value;
-        this.timestamp = System.currentTimeMillis();
+        this.timestamp = new Date();
     }
 
     /**

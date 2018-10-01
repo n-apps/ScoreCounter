@@ -1,54 +1,61 @@
 package ua.napps.scorekeeper.log;
 
+import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.utils.RoundedColorView;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
     private ArrayList<LogEntry> logEntries;
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class LogAdapterViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView tv_test;
+    static class LogAdapterViewHolder extends RecyclerView.ViewHolder {
+        TextView tv_main,tv_time;
+        RoundedColorView rcv_color;
 
-        public LogAdapterViewHolder(View v) {
+        LogAdapterViewHolder(View v) {
             super(v);
-            tv_test = v.findViewById(R.id.tv_item_log_test);
+            tv_main = v.findViewById(R.id.tv_item_log_main);
+            tv_time = v.findViewById(R.id.tv_item_log_time);
+            rcv_color = v.findViewById(R.id.rcv_item_log_color);
         }
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public LogAdapter(ArrayList<LogEntry> logEntries) {
+    LogAdapter(ArrayList<LogEntry> logEntries) {
         this.logEntries = logEntries;
     }
 
-    // Create new views (invoked by the layout manager)
+    @NonNull
     @Override
-    public LogAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public LogAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_log_entry, parent, false);
 
         return new LogAdapterViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(LogAdapterViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.tv_test.setText(logEntries.get(position).toString());
+    public void onBindViewHolder(@NonNull LogAdapterViewHolder holder, int position) {
+        LogEntry logEntry = logEntries.get(position);
 
+        holder.tv_main.setText(logEntry.toString());
+
+
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        String formatTime = format.format(logEntry.timestamp);
+
+        holder.tv_time.setText(formatTime);
+        holder.rcv_color.setBackgroundColor(Color.parseColor(logEntry.counter.getColor()));
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return logEntries.size();
