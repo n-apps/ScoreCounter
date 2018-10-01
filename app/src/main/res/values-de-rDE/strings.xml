@@ -12,13 +12,13 @@
     <string name="common_increase">Mehr</string>
     <string name="common_select">auswählen</string>
     <string name="common_set">setzen</string>
-    <string name="counter_details_color_picker_title">Wähler Zähler Frabe</string>
+    <string name="counter_details_color_picker_title">Wähle Zähler Farbe</string>
     <string name="counter_details_default_value">Wert nach reset</string>
     <string name="counter_details_delete">Zähler löschen</string>
     <string name="counter_details_name">Zähler Name</string>
     <string name="counter_details_step">Schritte (-/+)</string>
     <string name="counter_details_value">Aktueller Wert</string>
-    <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutzen den + Knopf oben rechts</string>
+    <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutze den + Knopf oben rechts</string>
     <string name="dialog_color_picker_presets_button">Voreinstellungen</string>
     <string name="dialog_counter_default_title">Standard Wert</string>
     <string name="dialog_counter_step_title">Schritt</string>
@@ -26,7 +26,7 @@
     <string name="dialog_custom_dice_hint">Von 2 bis 100</string>
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
-    <string name="dice_previous_result_label">Letzer Wurf:</string>
+    <string name="dice_previous_result_label">Letzter Wurf:</string>
     <string name="erd_message">Wenn dir die App gefällt kannst du sie gerne bewerten! Es dauert nicht lange. Danke für deine Unterstützung!</string>
     <string name="erd_no_thanks">Nein, Danke</string>
     <string name="erd_rate_now">Jetzt Bewerten</string>
@@ -46,7 +46,7 @@
     <string name="settings_section_request_a_feature">Frage nach einer Funktion</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
-    <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel. Wähle das letze für eine andere Anzahl.</string>
+    <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel. Wähle das letzte für eine andere Anzahl.</string>
     <string name="common_info">Info</string>
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Du kannst ihn außerdem durch einen langen Klick ändern.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
