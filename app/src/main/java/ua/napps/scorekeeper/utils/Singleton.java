@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.utils;
 import java.util.ArrayList;
 
 import ua.napps.scorekeeper.log.LogEntry;
+import ua.napps.scorekeeper.log.LogType;
 
 public class Singleton {
     private static final Singleton ourInstance = new Singleton();
@@ -20,7 +21,18 @@ public class Singleton {
     }
 
     public void addLogEntry(LogEntry entry) {
-        //TODO add logic to combine multiple single inc/dec logs
+        if(logEntries.size() > 0){
+            LogEntry lastEntry = logEntries.get(0);
+            if(entry.type == LogType.INC || entry.type == LogType.DEC){
+                if(lastEntry.type == entry.type && lastEntry.counter.equals(entry.counter) && System.currentTimeMillis() - lastEntry.timestamp.getTime() < 2000){
+                    lastEntry.value = lastEntry.value + entry.value;
+                    lastEntry.combined = true;
+                    this.logEntries.set(0,lastEntry);
+                    return;
+                }
+            }
+        }
+
         this.logEntries.add(0,entry);
     }
 }

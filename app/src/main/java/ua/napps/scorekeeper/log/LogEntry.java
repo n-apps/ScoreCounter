@@ -13,6 +13,7 @@ public class LogEntry {
     public LogType type;
     public int value;
     public Date timestamp;
+    public boolean combined;
 
     /**
      * Creates simple log entry with given type and value for current timestamp
@@ -24,6 +25,7 @@ public class LogEntry {
         this.type = type;
         this.value = value;
         this.timestamp = new Date();
+        this.combined = false;
     }
 
     /**
