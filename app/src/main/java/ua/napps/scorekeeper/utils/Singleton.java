@@ -21,6 +21,6 @@ public class Singleton {
 
     public void addLogEntry(LogEntry entry) {
         //TODO add logic to combine multiple single inc/dec logs
-        this.logEntries.add(entry);
+        this.logEntries.add(0,entry);
     }
 }

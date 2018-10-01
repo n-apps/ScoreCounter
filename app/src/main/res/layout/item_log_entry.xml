@@ -6,13 +6,35 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tv_item_log_test"
+        android:id="@+id/tv_item_log_main"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
+        app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
+        app:layout_constraintStart_toEndOf="@+id/rcv_item_log_color"
+        app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
+
+    <ua.napps.scorekeeper.utils.RoundedColorView
+        android:id="@+id/rcv_item_log_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_item_log_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
 </android.support.constraint.ConstraintLayout>
