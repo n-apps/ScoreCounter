@@ -20,3 +20,14 @@ Score Counter + 🎲 will help you to track scores in board games, sport events 
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome.
+
+### Development
+
+To start working on the app yourself, you have to follow these Steps
+
+1. clone the repository (or a fork of it) from this repository
+2. The app uses Google Firebase, to be able to build it you need to:
+   1. Create a Project on https://console.firebase.google.com/ 
+   2. Download the `google-services.json`
+   3. Place it in the projects `app` directory as shown on the firebase page
+3. Open the Project in Android Studio an start 
