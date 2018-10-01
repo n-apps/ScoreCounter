@@ -22,6 +22,7 @@ import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
@@ -85,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         ViewUtil.setNavBarColor(this, !isDarkTheme);
         applyKeepScreenOn();
+
+        Singleton.getInstance().setMainContext(this);
 
     }
 
