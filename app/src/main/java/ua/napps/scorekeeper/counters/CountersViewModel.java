@@ -17,8 +17,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.log.LogEntry;
+import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Singleton;
 
 class CountersViewModel extends AndroidViewModel {
 
@@ -156,6 +159,13 @@ class CountersViewModel extends AndroidViewModel {
 
 
     void removeAll() {
+        List<Counter> counterList = counters.getValue();
+        if(counterList != null){
+            for(int i = 0; i < counterList.size(); i++){
+                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i),LogType.RMV,0, counterList.get(i).getValue()));
+            }
+        }
+
         repository.deleteAll()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -178,6 +188,13 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void resetAll() {
+        List<Counter> counterList = counters.getValue();
+        if(counterList != null){
+            for(int i = 0; i < counterList.size(); i++){
+                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i),LogType.RST,0, counterList.get(i).getValue()));
+            }
+        }
+
         repository.resetAll()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
