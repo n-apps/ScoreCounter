@@ -32,3 +32,11 @@ To start working on the app yourself, you have to follow these steps
    3. Place it in the projects `app` directory as shown on the firebase page
 3. If you get an error related to signingConfigs go to your `app\build.gradle` and remove all settings related to `signingConfigs` since you do need to build signed releses of the app (alternatively create appropriate configs).
 4. Open the project in Android Studio an start working
+
+### Helping Translate
+
+If you want to help translate the App you can do this in multiple ways.
+
+With Android Studio open any of the `string.xml` files in the `res\values` directory and add a new locale using the translation editor. Without Android Studio just create a `values` folder with the desired country code and translate in the xml file itself.
+
+To **test your translations** go do `app\build.gradle` and add your locale to the `resConfig` setting (otherwise it wont be applied).
