@@ -41,9 +41,12 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.log.LogEntry;
+import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
+import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
@@ -189,7 +192,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 .dynamicButtonColor(false)
                 .allowUserColorInputAlpha(false)
                 .show(EditCounterActivity.this));
-        findViewById(R.id.btn_delete).setOnClickListener(v -> viewModel.deleteCounter());
+        findViewById(R.id.btn_delete).setOnClickListener(v -> {
+            Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.RMV,0, counter.getValue()));
+            viewModel.deleteCounter();
+        });
         findViewById(R.id.counter_value).setOnClickListener(v -> {
             final MaterialDialog md = new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_current_value_title)
@@ -198,7 +204,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .negativeColorRes(R.color.primaryColor)
                     .negativeText(R.string.common_cancel)
                     .input(String.valueOf(counter.getValue()), null, false,
-                            (dialog, input) -> viewModel.updateValue(Utilities.parseInt(input.toString())))
+                            (dialog, input) -> {
+                                int intValue = Utilities.parseInt(input.toString());
+                                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.SET,intValue, counter.getValue()));
+                                viewModel.updateValue(intValue);
+                            })
                     .build();
             EditText inputEditText = md.getInputEditText();
             if (inputEditText != null) {

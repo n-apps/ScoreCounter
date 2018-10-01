@@ -50,6 +50,8 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
 
         holder.tv_counter.setText(logEntry.counter.getName());
 
+        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance(Locale.ENGLISH); // TODO use user locale
+
         String info = "";
         switch (logEntry.type){
             case INC:
@@ -65,19 +67,22 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
                 info = "\u2796 ";
                 break;
             case SET:
-                info = "\uD83D\uDD8A ";
+                info = "\uD83D\uDD8A " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue + logEntry.value) + "]";
                 break;
             case RMV:
-                info = "\uD83D\uDDD1 ";
+                info = "\uD83D\uDDD1 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 ?]";
                 break;
             case RST:
                 info = "\uD83D\uDD04 ";
                 break;
         }
 
-        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance(Locale.ENGLISH); // TODO use user locale
-
-        info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue + logEntry.value) + "]";
+        if(logEntry.type == LogType.INC ||  logEntry.type == LogType.INC_C ){
+            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue + logEntry.value) + "]";
+        }
+        if(logEntry.type == LogType.DEC_C || logEntry.type == LogType.DEC){
+            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue - logEntry.value) + "]";
+        }
 
         holder.tv_info.setText(info);
 
