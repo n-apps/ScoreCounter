@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -35,6 +36,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -127,6 +129,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
             case R.id.menu_reset_all:
                 viewModel.resetAll();
                 AndroidFirebaseAnalytics.logEvent("menu_reset_all");
+                break;
+            case R.id.menu_log:
+                Intent intent = new Intent(getActivity(), LogActivity.class);
+                startActivity(intent);
                 break;
         }
         return true;
