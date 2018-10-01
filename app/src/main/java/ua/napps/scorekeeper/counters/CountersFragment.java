@@ -37,8 +37,11 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogActivity;
+import ua.napps.scorekeeper.log.LogEntry;
+import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -212,6 +215,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @Override
     public void onIncreaseClick(Counter counter) {
         viewModel.increaseCounter(counter);
+        Singleton singleton = Singleton.getInstance();
+        singleton.addLogEntry(new LogEntry(counter,LogType.INC,1));
+
         showLongPressHint();
     }
 
