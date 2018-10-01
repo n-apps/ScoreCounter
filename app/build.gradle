@@ -18,7 +18,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr"
+        resConfigs "en", "ru", "uk", "fr", "de-rDE"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
