@@ -16,4 +16,8 @@
         android:id="@+id/menu_remove_all"
         android:title="@string/menu_remove_all_counters"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_log"
+        android:title="@string/menu_log"
+        app:showAsAction="never" />
 </menu>
