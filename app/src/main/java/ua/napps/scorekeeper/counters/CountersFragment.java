@@ -193,6 +193,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public void onDecreaseClick(Counter counter) {
+        Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC,1, counter.getValue()));
+
         viewModel.decreaseCounter(counter);
         showLongPressHint();
     }
@@ -214,10 +216,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
     @Override
     public void onIncreaseClick(Counter counter) {
-        viewModel.increaseCounter(counter);
-        Singleton singleton = Singleton.getInstance();
-        singleton.addLogEntry(new LogEntry(counter,LogType.INC,1));
+        Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC,1, counter.getValue()));
 
+        viewModel.increaseCounter(counter);
         showLongPressHint();
     }
 
@@ -239,9 +240,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         View buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (isIncrease) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,5, counter.getValue()));
+
                 viewModel.increaseCounter(counter, 5);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,5, counter.getValue()));
+
                 viewModel.decreaseCounter(counter, -5);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -249,9 +254,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         });
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
             if (isIncrease) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,10, counter.getValue()));
+
                 viewModel.increaseCounter(counter, 10);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,10, counter.getValue()));
+
                 viewModel.decreaseCounter(counter, -10);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -259,9 +268,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         });
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             if (isIncrease) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,15, counter.getValue()));
+
                 viewModel.increaseCounter(counter, 15);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,15, counter.getValue()));
+
                 viewModel.decreaseCounter(counter, -15);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -269,9 +282,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         });
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             if (isIncrease) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,30, counter.getValue()));
+
                 viewModel.increaseCounter(counter, 30);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,30, counter.getValue()));
+
                 viewModel.decreaseCounter(counter, -30);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -294,6 +311,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
 
             }
         });
+
         editText.setOnEditorActionListener((textView, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
                     == EditorInfo.IME_ACTION_DONE)) {
@@ -301,11 +319,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (TextUtils.isEmpty(value)) {
                     longClickDialog.dismiss();
                 }
+                int intValue = Utilities.parseInt(value);
                 if (isIncrease) {
-                    viewModel.increaseCounter(counter, Utilities.parseInt(value));
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,intValue, counter.getValue()));
+
+                    viewModel.increaseCounter(counter, intValue);
                     countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                 } else {
-                    viewModel.decreaseCounter(counter, -Utilities.parseInt(value));
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,intValue, counter.getValue()));
+
+                    viewModel.decreaseCounter(counter, - intValue);
                     countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                 }
                 longClickDialog.dismiss();
@@ -319,11 +342,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 longClickDialog.dismiss();
                 return;
             }
+            int intValue = Utilities.parseInt(value);
             if (isIncrease) {
-                viewModel.increaseCounter(counter, Utilities.parseInt(value));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,intValue, counter.getValue()));
+
+                viewModel.increaseCounter(counter, intValue);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                viewModel.decreaseCounter(counter, -Utilities.parseInt(value));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,intValue, counter.getValue()));
+
+                viewModel.decreaseCounter(counter, - intValue);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();

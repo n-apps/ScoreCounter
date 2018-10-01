@@ -52,4 +52,5 @@
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
     <string name="menu_log">History</string>
+    <string name="log_counter">Counter:</string>
 </resources>

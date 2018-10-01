@@ -12,18 +12,22 @@ public class LogEntry {
     public Counter counter;
     public LogType type;
     public int value;
+    public int prevValue;
     public Date timestamp;
     public boolean combined;
 
     /**
      * Creates simple log entry with given type and value for current timestamp
+     * @param counter - {@link Counter} Counter belonging to log entry
      * @param type - {@link LogType}to use for entry
      * @param value - {@link Integer} value for entry
+     * @param prevValue - {@link Integer} previous value of counter
      */
-    public LogEntry(Counter counter, LogType type, int value){
+    public LogEntry(Counter counter, LogType type, int value, int prevValue){
         this.counter = counter;
         this.type = type;
         this.value = value;
+        this.prevValue = prevValue;
         this.timestamp = new Date();
         this.combined = false;
     }
@@ -34,7 +38,7 @@ public class LogEntry {
      */
     @Override
     public String toString(){
-        return type.toString() + " - " + value + " - " + timestamp;
+        return type.toString() + " - " + prevValue + " -> " + value;
     }
 
 }
