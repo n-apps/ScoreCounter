@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<resources>    <string name="app_name">Score Counter</string>
+<resources>
+    <string name="app_name">Score Counter</string>
     <string name="bottom_navigation_tab_counters">Counters</string>
     <string name="bottom_navigation_tab_dice">Dice</string>
     <string name="bottom_navigation_tab_settings">Settings</string>
@@ -50,4 +51,6 @@
     <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
+    <string name="menu_log">History</string>
+    <string name="log_counter">Counter:</string>
 </resources>

@@ -89,4 +89,24 @@ public class Counter {
     public String toString() {
         return "Counter{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", value=" + value + '}';
     }
+
+    /**
+     * Checks if two counters are equal, uses id, color and name (id would suffice but this way it safer)
+     * @param other - {@link Object } to compare to
+     * @return {@link Boolean} if equal or not
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof Counter)) {
+            return false;
+        }
+        Counter counter = (Counter) other;
+        return this.id == counter.id && this.name.equals(counter.name);
+    }
 }

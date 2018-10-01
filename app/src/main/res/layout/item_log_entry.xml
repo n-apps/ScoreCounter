@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp">
+
+    <TextView
+        android:id="@+id/tv_item_log_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
+        app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
+        app:layout_constraintStart_toEndOf="@+id/rcv_item_log_color"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_log_counter" />
+
+    <ua.napps.scorekeeper.utils.RoundedColorView
+        android:id="@+id/rcv_item_log_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_item_log_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
+
+    <TextView
+        android:id="@+id/tv_item_log_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
+        app:layout_constraintStart_toEndOf="@+id/tv_item_log_lbl_counter"
+        app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
+
+    <TextView
+        android:id="@+id/tv_item_log_lbl_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/log_counter"
+        app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
+        app:layout_constraintStart_toEndOf="@+id/rcv_item_log_color" />
+</android.support.constraint.ConstraintLayout>
