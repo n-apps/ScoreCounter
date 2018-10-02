@@ -51,4 +51,7 @@
     <string name="dialog_step_info_content">На сколько изменится значение счетчика при нажатии по нему. Левая половина отвечает за уменьшение, правая - за увеличение. Вы также можете менять его значение с помощью длительного нажатия</string>
     <string name="dialog_default_info_content">Значение счетчика которое будет установлено после его сброса с помощью меню \"Сбросить все значения\" (три точки на главном экране)</string>
     <string name="common_got_it">Понятно</string>
+    <string name="menu_log">История</string>
+    <string name="log_counter">Счетчик:</string>
+    <string name="history_empty_message">Пока нет истории</string>
 </resources>

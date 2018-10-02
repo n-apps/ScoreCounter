@@ -19,22 +19,14 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
-
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
@@ -136,6 +128,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
                 startActivity(intent);
+                AndroidFirebaseAnalytics.logEvent("menu_log");
                 break;
         }
         return true;

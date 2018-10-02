@@ -51,4 +51,7 @@
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Du kannst ihn außerdem durch einen langen Klick ändern.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
     <string name="common_got_it">Verstanden</string>
+    <string name="menu_log">Geschichte</string>
+    <string name="log_counter">Zähler:</string>
+    <string name="history_empty_message">Keine Geschichte</string>
 </resources>

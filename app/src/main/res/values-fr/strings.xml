@@ -51,4 +51,7 @@
     <string name="dialog_step_info_content">Combien va changer la valeur du compteur en cliquant dessus. La moitié gauche est responsable de la diminution, la moitié droite de l\'augmentation. Vous pouvez également changer sa valeur avec un appui long</string>
     <string name="dialog_default_info_content">La valeur du compteur qui sera définie après sa réinitialisation à l\'aide du menu \"Réinitialiser toutes les valeurs\" (trois points sur l\'écran principal)</string>
     <string name="common_got_it">C’est bon!</string>
+    <string name="menu_log">Histoire</string>
+    <string name="log_counter">Сompteur:</string>
+    <string name="history_empty_message">Pas encore d\'histoire</string>
 </resources>

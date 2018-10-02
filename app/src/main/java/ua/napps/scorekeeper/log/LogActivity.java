@@ -1,13 +1,17 @@
 package ua.napps.scorekeeper.log;
 
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.Group;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
+import android.view.View;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class LogActivity extends AppCompatActivity {
 
@@ -33,6 +37,16 @@ public class LogActivity extends AppCompatActivity {
         LogAdapter mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
         mRecyclerView.setAdapter(mAdapter);
 
+        Group emptyState = findViewById(R.id.g_empty_history);
+        emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
+
+        boolean isDarkTheme = LocalSettings.isDarkTheme();
+        if (!isDarkTheme) {
+            ViewUtil.setLightStatusBar(this, Color.WHITE);
+        } else {
+            ViewUtil.clearLightStatusBar(this, Color.BLACK);
+        }
+        ViewUtil.setNavBarColor(this, !isDarkTheme);
     }
 
     @Override

@@ -51,4 +51,7 @@
     <string name="dialog_step_info_content">Наскільки зміниться значення лічильника після натискання по ньому. Ліва половина відповідає за зменшення, права - за збільшення. Ви також можете змінювати його значення за допомогою тривалого натискання</string>
     <string name="dialog_default_info_content">Значення лічильника яке буде встановлено після його скидання за допомогою меню \"Скинути все значення\" (три точки на головному екрані)</string>
     <string name="common_got_it">Зрозуміло</string>
+    <string name="menu_log">Історія</string>
+    <string name="log_counter">Лічильник:</string>
+    <string name="history_empty_message">Поки немає історії</string>
 </resources>
