@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 ext.versionMajor = 4
-ext.versionMinor = 1
+ext.versionMinor = 2
 ext.versionPatch = 0
 ext.postfix = ''
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '28.0.2'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'

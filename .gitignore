@@ -38,8 +38,8 @@ captures/
 
 # IntelliJ
 *.iml
+/.idea/
 .idea/*
-!.idea/codeStyles/codeStyleConfig.xml
 
 # Keystore files
 *.jks
@@ -67,3 +67,4 @@ gen-external-apklibs
 
 
 # End of https://www.gitignore.io/api/android
+
