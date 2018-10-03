@@ -39,4 +39,6 @@ If you want to help translate the App you can do this in multiple ways.
 
 With Android Studio open any of the `string.xml` files in the `res\values` directory and add a new locale using the translation editor. Without Android Studio just create a `values` folder with the desired country code and translate in the xml file itself.
 
-To **test your translations** go do `app\build.gradle` and add your locale to the `resConfig` setting (otherwise it wont be applied).
+**Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
+
+If you've never used git and not familiar with Android development, download this file and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
