@@ -25,14 +25,14 @@ If you have any ideas or feature requests, don't hesitate to reach out to me. Ev
 
 To start working on the app yourself, you have to follow these steps
 
-1. Clone the repository (or a fork of it). Follow the instructions at http://help.github.com/fork-a-repo/
+1. Clone the repository (or a fork of it). Follow the instructions [here](http://help.github.com/fork-a-repo/)
 2. The app uses Google Firebase, to be able to build it you need to:
    1. Create a Project on https://console.firebase.google.com/ 
    2. Download the `google-services.json`
    3. Place it in the projects `app` directory as shown on the firebase page
 3. If you get an error related to signingConfigs go to your `app\build.gradle` and remove all settings related to `signingConfigs` since you do need to build signed releses of the app (alternatively create appropriate configs).
 4. Open the project in Android Studio an start working
-5. Send me a "pull request" from your repo - see instructions [here](http://help.github.com/send-pull-requests/)
+5. Send me a "pull request" from your repo - see instructions [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 ### Helping Translate
 
