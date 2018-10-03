@@ -19,19 +19,20 @@ Score Counter + 🎲 will help you to track scores in board games, sport events 
 [<img src="https://i.imgur.com/BvIY1ji.jpg" width=250>](https://i.imgur.com/BvIY1ji.jpg)
 
 ## Contribution
-If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome.
+If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
 
 ### Development
 
 To start working on the app yourself, you have to follow these steps
 
-1. clone the repository (or a fork of it)
+1. Clone the repository (or a fork of it). Follow the instructions at http://help.github.com/fork-a-repo/
 2. The app uses Google Firebase, to be able to build it you need to:
    1. Create a Project on https://console.firebase.google.com/ 
    2. Download the `google-services.json`
    3. Place it in the projects `app` directory as shown on the firebase page
 3. If you get an error related to signingConfigs go to your `app\build.gradle` and remove all settings related to `signingConfigs` since you do need to build signed releses of the app (alternatively create appropriate configs).
 4. Open the project in Android Studio an start working
+5. Send me a "pull request" from your repo - see instructions [here](http://help.github.com/send-pull-requests/)
 
 ### Helping Translate
 
@@ -41,4 +42,4 @@ With Android Studio open any of the `string.xml` files in the `res\values` direc
 
 **Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
 
-If you've never used git and not familiar with Android development, download this file and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
+If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/app/src/main/res/values/strings.xml) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
