@@ -15,10 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.Toast;
-import android.widget.ToggleButton;
+import android.widget.*;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -31,10 +28,8 @@ import ua.napps.scorekeeper.utils.Utilities;
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    private ToggleButton diceSix;
-    private ToggleButton diceEight;
-    private ToggleButton diceTwenty;
-    private ToggleButton diceCustom;
+    private ToggleButton diceSix,diceEight,diceTwenty,diceCustom;
+    private Button btn_c_1,btn_c_2,btn_c_3,btn_c_4;
     private int diceMaxSide;
 
     public SettingsFragment() {
@@ -52,10 +47,17 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         SwitchCompat shakeToRoll = contentView.findViewById(R.id.sw_shake_roll);
+
         diceSix = contentView.findViewById(R.id.tb_dice_6);
         diceEight = contentView.findViewById(R.id.tb_dice_8);
         diceTwenty = contentView.findViewById(R.id.tb_dice_20);
         diceCustom = contentView.findViewById(R.id.tb_dice_x);
+
+        btn_c_1 = contentView.findViewById(R.id.btn_settings_counter_1);
+        btn_c_2 = contentView.findViewById(R.id.btn_settings_counter_2);
+        btn_c_3 = contentView.findViewById(R.id.btn_settings_counter_3);
+        btn_c_4 = contentView.findViewById(R.id.btn_settings_counter_4);
+
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(LocalSettings.isDarkTheme());
         shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
@@ -65,10 +67,22 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         darkTheme.setOnCheckedChangeListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
+
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
         diceTwenty.setOnClickListener(this);
         diceCustom.setOnClickListener(this);
+
+        btn_c_1.setOnClickListener(this);
+        btn_c_2.setOnClickListener(this);
+        btn_c_3.setOnClickListener(this);
+        btn_c_4.setOnClickListener(this);
+
+        btn_c_1.setText(String.valueOf(LocalSettings.getCustomCounter(1)));
+        btn_c_2.setText(String.valueOf(LocalSettings.getCustomCounter(2)));
+        btn_c_3.setText(String.valueOf(LocalSettings.getCustomCounter(3)));
+        btn_c_4.setText(String.valueOf(LocalSettings.getCustomCounter(4)));
+
         refreshDices(false);
         return contentView;
     }
@@ -158,6 +172,78 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     });
                 }
                 md.show();
+                break;
+            case R.id.btn_settings_counter_1:
+                openCustomCounterDialog(1);
+                break;
+            case R.id.btn_settings_counter_2:
+                openCustomCounterDialog(2);
+                break;
+            case R.id.btn_settings_counter_3:
+                openCustomCounterDialog(3);
+                break;
+            case R.id.btn_settings_counter_4:
+                openCustomCounterDialog(4);
+                break;
+        }
+    }
+
+    private void openCustomCounterDialog(final int id){
+        final MaterialDialog customCounterDialog = new MaterialDialog.Builder(requireActivity())
+                .content(R.string.dialog_custom_dice_title) //TODO set title
+                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                .positiveText(R.string.common_set)
+                .negativeColorRes(R.color.primaryColor)
+                .negativeText(R.string.common_cancel)
+                .alwaysCallInputCallback()
+                .input(getString(R.string.dialog_custom_dice_hint), null, false, //TODO set hint
+                        (dialog, input) -> {
+                            int parseInt = Utilities.parseInt(input.toString());
+                            if (parseInt <= 999 && parseInt > 1) {
+                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
+                            } else {
+                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
+                            }
+                        })
+                .onPositive((dialog, which) -> {
+                    EditText editText = dialog.getInputEditText();
+                    if (editText != null) {
+                        Integer parseInt = Utilities.parseInt(editText.getText().toString());
+                        if (parseInt <= 999 && parseInt > 1) {
+                            setCustomCounter(id,parseInt);
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .build();
+
+        EditText editText = customCounterDialog.getInputEditText();
+        if (editText != null) {
+            editText.setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = customCounterDialog.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+        }
+        customCounterDialog.show();
+    }
+
+    private void setCustomCounter(int id, int value){
+        LocalSettings.saveCustomCounter(id,value);
+        switch (id){
+            case 1:
+                btn_c_1.setText(String.valueOf(value));
+                break;
+            case 2:
+                btn_c_2.setText(String.valueOf(value));
+                break;
+            case 3:
+                btn_c_3.setText(String.valueOf(value));
+                break;
+            case 4:
+                btn_c_4.setText(String.valueOf(value));
                 break;
         }
     }

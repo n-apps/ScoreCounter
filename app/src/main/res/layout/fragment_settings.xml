@@ -121,7 +121,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_settings_counter_custom"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_2" android:layout_marginEnd="8dp"/>
+                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_2" android:layout_marginEnd="8dp"
+                android:textStyle="bold"/>
 
         <Button
                 android:text="10"
@@ -134,7 +135,7 @@
                 android:textSize="24sp" app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_1"
                 app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_1"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_1"
-                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_3"/>
+                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_3" android:textStyle="bold"/>
         <Button
                 android:text="15"
                 android:layout_width="64dp"
@@ -147,7 +148,7 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_2"
                 app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_2"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_2"
-                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_4"/>
+                app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_4" android:textStyle="bold"/>
         <Button
                 android:text="30"
                 android:layout_width="64dp"
@@ -160,7 +161,7 @@
                 app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_3" android:layout_marginStart="8dp"
                 app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_3"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_3"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintEnd_toEndOf="parent" android:textStyle="bold"/>
         <TextView
                 android:id="@+id/tv_dice"
                 android:layout_width="wrap_content"
