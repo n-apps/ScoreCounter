@@ -15,14 +15,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.*;
 
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.FirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
 
 
@@ -90,7 +94,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public void onStart() {
         super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Settings");
+        FirebaseAnalytics.trackScreen(getActivity(), "Settings");
     }
 
     @Override
@@ -112,11 +116,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
-                AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
+                FirebaseAnalytics.logEvent("request_a_feature_click");
                 startEmailClient();
                 break;
             case R.id.tv_rate_app:
-                AndroidFirebaseAnalytics.logEvent("rate_app__click");
+                FirebaseAnalytics.logEvent("rate_app__click");
                 rateApp();
                 break;
             case R.id.tb_dice_6:
@@ -213,6 +217,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                             setCustomCounter(id,parseInt);
                         }
                         dialog.dismiss();
+                        FirebaseAnalytics.logEvent("set_custom_counter_value_for_dialog");
                     }
                 })
                 .build();

@@ -22,21 +22,18 @@ import android.text.TextWatcher;
 import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.FirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
-import ua.napps.scorekeeper.utils.SquareFrameLayout;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -122,16 +119,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
-                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
+                FirebaseAnalytics.logEvent("menu_remove_all");
                 break;
             case R.id.menu_reset_all:
                 viewModel.resetAll();
-                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
+                FirebaseAnalytics.logEvent("menu_reset_all");
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
                 startActivity(intent);
-                AndroidFirebaseAnalytics.logEvent("menu_log");
+                FirebaseAnalytics.logEvent("menu_log");
                 break;
         }
         return true;
@@ -170,8 +167,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                             }
                     );
                     Bundle params = new Bundle();
-                    params.putString(FirebaseAnalytics.Param.CHARACTER, "" + size);
-                    AndroidFirebaseAnalytics.logEvent("active_counters", params);
+                    params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "" + size);
+                    FirebaseAnalytics.logEvent("active_counters", params);
                 }
             } else {
                 emptyState.setVisibility(View.VISIBLE);
@@ -183,8 +180,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     public void onEditClick(View view, Counter counter) {
         EditCounterActivity.start(getActivity(), counter, view);
         Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "edit");
-        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
+        params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "edit");
+        FirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     @Override
@@ -207,7 +204,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @Override
     public void onStart() {
         super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Counters List");
+        FirebaseAnalytics.trackScreen(getActivity(), "Counters List");
     }
 
     @Override
@@ -221,7 +218,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @SuppressLint("SetTextI18n")
     @Override
     public void onLongClick(Counter counter, int position, boolean isIncrease) {
-        AndroidFirebaseAnalytics.logEvent("counter_long_click");
+        FirebaseAnalytics.logEvent("counter_long_click");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
 
         final Observer<Counter> counterObserver = c -> {
@@ -403,14 +400,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         }
         md.show();
         Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "name");
-        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
+        params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "name");
+        FirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     public void scrollToTop() {
         if (recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
         }
-        AndroidFirebaseAnalytics.logEvent("scroll_to_top");
+        FirebaseAnalytics.logEvent("scroll_to_top");
     }
 }

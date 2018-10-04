@@ -33,7 +33,7 @@
     <string name="erd_remind_me_later">Frag mich später</string>
     <string name="erd_title">App Bewerten</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
-    <string name="hint_enter_number">Gebe eine Nummer ein ...</string>
+    <string name="hint_enter_number">Gebe eine Nummer ein…</string>
     <string name="label_all_changes_saved">Alle Änderungen gespeichert</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
     <string name="menu_remove_all_counters">Alle entfernen</string>

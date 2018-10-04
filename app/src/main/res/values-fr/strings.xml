@@ -54,4 +54,8 @@
     <string name="menu_log">Histoire</string>
     <string name="log_counter">Сompteur:</string>
     <string name="history_empty_message">Pas encore d\'histoire</string>
+    <string name="common_counter">Сompteur</string>
+    <string name="dialog_custom_counter_title">Valeur de compteur spéciale</string>
+    <string name="dialog_custom_counter_hint">De 2 à 999</string>
+    <string name="settings_section_counter_buttons">Définir la valeur des boutons dans la boîte de dialogue (par appui long)</string>
 </resources>

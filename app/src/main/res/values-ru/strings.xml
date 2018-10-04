@@ -54,4 +54,8 @@
     <string name="menu_log">История</string>
     <string name="log_counter">Счетчик:</string>
     <string name="history_empty_message">Пока нет истории</string>
+    <string name="common_counter">Счетчик</string>
+    <string name="settings_section_counter_buttons">Установите значение кнопок в диалоговом окне (по долгому нажатию)</string>
+    <string name="dialog_custom_counter_hint">От 2 до 999</string>
+    <string name="dialog_custom_counter_title">Специальное значение счетчика</string>
 </resources>

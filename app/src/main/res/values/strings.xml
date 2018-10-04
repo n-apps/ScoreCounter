@@ -55,7 +55,7 @@
     <string name="log_counter">Counter:</string>
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
-    <string name="dialog_custom_counter_title">Custom Counter Values</string>
+    <string name="dialog_custom_counter_title">Custom counter value</string>
     <string name="dialog_custom_counter_hint">From 2 to 999</string>
-    <string name="settings_section_counter_buttons">Set value of buttons in counter long click dialog</string>
+    <string name="settings_section_counter_buttons">Set the value of the buttons in a counter dialog (by long press)</string>
 </resources>

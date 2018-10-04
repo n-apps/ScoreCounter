@@ -12,13 +12,13 @@ import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.app.App;
 
-public class AndroidFirebaseAnalytics {
+public class FirebaseAnalytics {
 
-    private static FirebaseAnalytics firebaseAnalytics;
+    private static com.google.firebase.analytics.FirebaseAnalytics firebaseAnalytics;
 
-    private static FirebaseAnalytics getInstance() {
+    private static com.google.firebase.analytics.FirebaseAnalytics getInstance() {
         if (firebaseAnalytics == null) {
-            firebaseAnalytics = FirebaseAnalytics.getInstance(App.getInstance());
+            firebaseAnalytics = com.google.firebase.analytics.FirebaseAnalytics.getInstance(App.getInstance());
             firebaseAnalytics.setMinimumSessionDuration(3000); //minimum session time is 1 minute
             firebaseAnalytics.setAnalyticsCollectionEnabled(!BuildConfig.DEBUG);
         }

@@ -20,7 +20,7 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.FirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 
 class CountersViewModel extends AndroidViewModel {
@@ -74,7 +74,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != -counter.getStep()) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("decrease_counter", params);
+            FirebaseAnalytics.logEvent("decrease_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -109,7 +109,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != counter.getStep()) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("increase_counter", params);
+            FirebaseAnalytics.logEvent("increase_counter", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -135,7 +135,7 @@ class CountersViewModel extends AndroidViewModel {
         if (!name.equals(counter.getName())) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, counter.getName());
-            AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
+            FirebaseAnalytics.logEvent("counter_name_submit", params);
         }
         repository.modifyName(counter.getId(), name)
                 .observeOn(AndroidSchedulers.mainThread())

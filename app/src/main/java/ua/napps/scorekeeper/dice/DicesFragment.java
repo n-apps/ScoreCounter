@@ -22,11 +22,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.FirebaseAnalytics;
 
 public class DicesFragment extends Fragment {
 
@@ -81,8 +79,8 @@ public class DicesFragment extends Fragment {
         root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
-            params.putString(FirebaseAnalytics.Param.CHARACTER, "click");
-            AndroidFirebaseAnalytics.logEvent("roll_dice", params);
+            params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "click");
+            FirebaseAnalytics.logEvent("roll_dice", params);
         });
         return contentView;
     }
@@ -115,7 +113,7 @@ public class DicesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Dice");
+        FirebaseAnalytics.trackScreen(getActivity(), "Dice");
     }
 
     private void initSensorData() {
@@ -193,8 +191,8 @@ public class DicesFragment extends Fragment {
             if (accel > 5.0) {
                 viewModel.rollDice();
                 Bundle params = new Bundle();
-                params.putString(FirebaseAnalytics.Param.CHARACTER, "sensor");
-                AndroidFirebaseAnalytics.logEvent("roll_dice", params);
+                params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "sensor");
+                FirebaseAnalytics.logEvent("roll_dice", params);
             }
         });
     }

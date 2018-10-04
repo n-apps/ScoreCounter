@@ -54,4 +54,8 @@
     <string name="menu_log">Історія</string>
     <string name="log_counter">Лічильник:</string>
     <string name="history_empty_message">Поки немає історії</string>
+    <string name="common_counter">Лічильник</string>
+    <string name="dialog_custom_counter_title">Спеціальне значення лічильника</string>
+    <string name="dialog_custom_counter_hint">Від 2 до 999</string>
+    <string name="settings_section_counter_buttons">Встановіть значення кнопок у діалоговому вікні (по довгого натисканню)</string>
 </resources>

@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.FirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -47,6 +48,10 @@ public class LogActivity extends AppCompatActivity {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
         ViewUtil.setNavBarColor(this, !isDarkTheme);
+
+        if (savedInstanceState == null) {
+            FirebaseAnalytics.trackScreen(this, "Log Screen");
+        }
     }
 
     @Override

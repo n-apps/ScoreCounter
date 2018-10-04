@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 ext.versionMajor = 4
-ext.versionMinor = 2
+ext.versionMinor = 3
 ext.versionPatch = 0
 ext.postfix = ''
 
@@ -18,7 +18,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de-rDE"
+        resConfigs "en", "ru", "uk", "fr", "de"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
