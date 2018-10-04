@@ -54,4 +54,8 @@
     <string name="menu_log">Geschichte</string>
     <string name="log_counter">Zähler:</string>
     <string name="history_empty_message">Keine Geschichte</string>
+    <string name="common_counter">Zähler</string>
+    <string name="dialog_custom_counter_title">Eigne Zähler Werte</string>
+    <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
+    <string name="settings_section_counter_buttons">Setze den Wert der Knöpfe im Zähler lang-klick Dialog</string>
 </resources>

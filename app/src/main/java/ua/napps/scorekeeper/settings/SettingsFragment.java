@@ -190,13 +190,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     private void openCustomCounterDialog(final int id){
         final MaterialDialog customCounterDialog = new MaterialDialog.Builder(requireActivity())
-                .content(R.string.dialog_custom_dice_title) //TODO set title
+                .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .negativeColorRes(R.color.primaryColor)
                 .negativeText(R.string.common_cancel)
                 .alwaysCallInputCallback()
-                .input(getString(R.string.dialog_custom_dice_hint), null, false, //TODO set hint
+                .input(getString(R.string.dialog_custom_counter_hint), null, false,
                         (dialog, input) -> {
                             int parseInt = Utilities.parseInt(input.toString());
                             if (parseInt <= 999 && parseInt > 1) {
