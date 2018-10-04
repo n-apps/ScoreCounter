@@ -22,7 +22,9 @@ import android.text.TextWatcher;
 import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -34,6 +36,7 @@ import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.SquareFrameLayout;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -231,62 +234,80 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
         final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
         View buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
+
+        String btnSign = "-";
+        if (isIncrease){
+            btnSign = "+";
+        }
+
+        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(1)));
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
+            int value = LocalSettings.getCustomCounter(1);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,5, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
 
-                viewModel.increaseCounter(counter, 5);
+                viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,5, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C, -value, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -5);
+                viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
+
+        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(2)));
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
+            int value = LocalSettings.getCustomCounter(2);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,10, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
 
-                viewModel.increaseCounter(counter, 10);
+                viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,10, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -10);
+                viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
+
+        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(3)));
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
+            int value = LocalSettings.getCustomCounter(3);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,15, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
 
-                viewModel.increaseCounter(counter, 15);
+                viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,15, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -15);
+                viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
+
+        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(4)));
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
+            int value = LocalSettings.getCustomCounter(4);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,30, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
 
-                viewModel.increaseCounter(counter, 30);
+                viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,30, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -30);
+                viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
         });
+
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
         editText.addTextChangedListener(new TextWatcher() {
             @Override

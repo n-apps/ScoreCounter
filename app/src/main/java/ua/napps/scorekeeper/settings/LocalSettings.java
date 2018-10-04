@@ -11,6 +11,11 @@ public class LocalSettings {
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
     private static final String DICE_MAX_SIDE = "dice_max_side";
 
+    private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
+    private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
+    private static final String CUSTOM_COUNTER_3 = "custom_counter_3";
+    private static final String CUSTOM_COUNTER_4 = "custom_counter_4";
+
     public static boolean isDarkTheme() {
         return App.getTinyDB().getBoolean(DARK_THEME, false);
     }
@@ -57,5 +62,42 @@ public class LocalSettings {
 
     public static void setLongPressTipShowed() {
         App.getTinyDB().putBoolean(LONG_PRESS_TIP_SHOWED, true);
+    }
+
+
+    public static int getCustomCounter(int counterId) {
+        switch (counterId) {
+            case 1:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_1, 5);
+            case 2:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_2, 10);
+            case 3:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_3, 15);
+            case 4:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_4, 30);
+            default:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_1, 5);
+        }
+    }
+
+    public static void saveCustomCounter(int counterId, int counterValue) {
+        String save_id = "";
+        switch (counterId) {
+            case 1:
+                save_id = CUSTOM_COUNTER_1;
+                break;
+            case 2:
+                save_id = CUSTOM_COUNTER_2;
+                break;
+            case 3:
+                save_id = CUSTOM_COUNTER_3;
+                break;
+            case 4:
+                save_id = CUSTOM_COUNTER_4;
+                break;
+        }
+        if(!save_id.equals("")){
+            App.getTinyDB().putInt(save_id, counterValue);
+        }
     }
 }
