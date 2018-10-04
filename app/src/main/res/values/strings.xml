@@ -54,4 +54,5 @@
     <string name="menu_log">History</string>
     <string name="log_counter">Counter:</string>
     <string name="history_empty_message">No history yet</string>
+    <string name="common_counter">Counter</string>
 </resources>
