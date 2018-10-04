@@ -32,7 +32,7 @@ import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.FirebaseAnalytics;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 
@@ -119,16 +119,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 break;
             case R.id.menu_remove_all:
                 viewModel.removeAll();
-                FirebaseAnalytics.logEvent("menu_remove_all");
+                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                 break;
             case R.id.menu_reset_all:
                 viewModel.resetAll();
-                FirebaseAnalytics.logEvent("menu_reset_all");
+                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
                 startActivity(intent);
-                FirebaseAnalytics.logEvent("menu_log");
+                AndroidFirebaseAnalytics.logEvent("menu_log");
                 break;
         }
         return true;
@@ -168,7 +168,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                     );
                     Bundle params = new Bundle();
                     params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "" + size);
-                    FirebaseAnalytics.logEvent("active_counters", params);
+                    AndroidFirebaseAnalytics.logEvent("active_counters", params);
                 }
             } else {
                 emptyState.setVisibility(View.VISIBLE);
@@ -181,7 +181,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         EditCounterActivity.start(getActivity(), counter, view);
         Bundle params = new Bundle();
         params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "edit");
-        FirebaseAnalytics.logEvent("counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     @Override
@@ -204,7 +204,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseAnalytics.trackScreen(getActivity(), "Counters List");
+        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Counters List");
     }
 
     @Override
@@ -218,7 +218,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     @SuppressLint("SetTextI18n")
     @Override
     public void onLongClick(Counter counter, int position, boolean isIncrease) {
-        FirebaseAnalytics.logEvent("counter_long_click");
+        AndroidFirebaseAnalytics.logEvent("counter_long_click");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
 
         final Observer<Counter> counterObserver = c -> {
@@ -401,13 +401,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         md.show();
         Bundle params = new Bundle();
         params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "name");
-        FirebaseAnalytics.logEvent("counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
     }
 
     public void scrollToTop() {
         if (recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
         }
-        FirebaseAnalytics.logEvent("scroll_to_top");
+        AndroidFirebaseAnalytics.logEvent("scroll_to_top");
     }
 }

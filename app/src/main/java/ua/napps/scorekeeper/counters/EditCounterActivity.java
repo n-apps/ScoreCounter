@@ -44,7 +44,7 @@ import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.FirebaseAnalytics;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
@@ -108,7 +108,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         subscribeToModel(id);
 
         if (savedInstanceState == null) {
-            FirebaseAnalytics.trackScreen(this, "Edit Counter Screen");
+            AndroidFirebaseAnalytics.trackScreen(this, "Edit Counter Screen");
         } else {
             isNameModified = savedInstanceState.getBoolean(STATE_IS_NAME_MODIFIED);
         }
@@ -146,7 +146,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (isNameModified && counter != null) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, counter.getName());
-            FirebaseAnalytics.logEvent("counter_name_submit", params);
+            AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
         }
     }
 
@@ -235,7 +235,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 viewModel.updateDefaultValue(Utilities.parseInt(value));
                                 Bundle params = new Bundle();
                                 params.putString(Param.CHARACTER, value);
-                                FirebaseAnalytics.logEvent("counter_default_value_submit", params);
+                                AndroidFirebaseAnalytics.logEvent("counter_default_value_submit", params);
                             })
                     .build();
             EditText editText = md.getInputEditText();
@@ -263,7 +263,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 viewModel.updateStep(Utilities.parseInt(value));
                                 Bundle params = new Bundle();
                                 params.putString(Param.CHARACTER, value);
-                                FirebaseAnalytics.logEvent("counter_step_submit", params);
+                                AndroidFirebaseAnalytics.logEvent("counter_step_submit", params);
                             })
                     .build();
             EditText editText = md.getInputEditText();
@@ -280,7 +280,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         });
 
         findViewById(R.id.iv_step_info).setOnClickListener(v -> {
-            FirebaseAnalytics.logEvent("help_tooltip_click");
+            AndroidFirebaseAnalytics.logEvent("help_tooltip_click");
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_step_info_content)
                     .positiveText(R.string.common_got_it)
@@ -288,7 +288,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         });
 
         findViewById(R.id.iv_default_value_info).setOnClickListener(v -> {
-            FirebaseAnalytics.logEvent("help_tooltip_click");
+            AndroidFirebaseAnalytics.logEvent("help_tooltip_click");
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_default_info_content)
                     .positiveText(R.string.common_got_it)
@@ -372,7 +372,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         viewModel.updateColor(hex);
         Bundle params = new Bundle();
         params.putString(Param.CHARACTER, hex);
-        FirebaseAnalytics.logEvent("edit_counter_color_selected", params);
+        AndroidFirebaseAnalytics.logEvent("edit_counter_color_selected", params);
     }
 
     private void subscribeToModel(int id) {

@@ -20,7 +20,7 @@ import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
-import ua.napps.scorekeeper.utils.FirebaseAnalytics;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -93,19 +93,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private void trackAnalytics() {
         Bundle params1 = new Bundle();
         params1.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isDarkTheme ? 1 : 0);
-        FirebaseAnalytics.logEvent("dark_theme", params1);
+        AndroidFirebaseAnalytics.logEvent("dark_theme", params1);
 
         Bundle params2 = new Bundle();
         params2.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
-        FirebaseAnalytics.logEvent("keep_screen_on", params2);
+        AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
 
         Bundle params3 = new Bundle();
         params3.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
-        FirebaseAnalytics.logEvent("shake_to_roll", params3);
+        AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
 
         Bundle params4 = new Bundle();
         params4.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
-        FirebaseAnalytics.logEvent("dice_max_side", params4);
+        AndroidFirebaseAnalytics.logEvent("dice_max_side", params4);
     }
 
     @Override

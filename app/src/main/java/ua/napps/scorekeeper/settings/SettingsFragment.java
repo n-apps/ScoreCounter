@@ -26,7 +26,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
-import ua.napps.scorekeeper.utils.FirebaseAnalytics;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
 
 
@@ -94,7 +94,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public void onStart() {
         super.onStart();
-        FirebaseAnalytics.trackScreen(getActivity(), "Settings");
+        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Settings");
     }
 
     @Override
@@ -116,11 +116,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
-                FirebaseAnalytics.logEvent("request_a_feature_click");
+                AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
                 startEmailClient();
                 break;
             case R.id.tv_rate_app:
-                FirebaseAnalytics.logEvent("rate_app__click");
+                AndroidFirebaseAnalytics.logEvent("rate_app__click");
                 rateApp();
                 break;
             case R.id.tb_dice_6:
@@ -217,7 +217,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                             setCustomCounter(id,parseInt);
                         }
                         dialog.dismiss();
-                        FirebaseAnalytics.logEvent("set_custom_counter_value_for_dialog");
+                        AndroidFirebaseAnalytics.logEvent("set_custom_counter_value_for_dialog");
                     }
                 })
                 .build();
