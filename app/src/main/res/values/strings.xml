@@ -58,4 +58,7 @@
     <string name="dialog_custom_counter_title">Custom counter value</string>
     <string name="dialog_custom_counter_hint">From 2 to 999</string>
     <string name="settings_section_counter_buttons">Set the value of the buttons in a counter dialog (by a long press)</string>
+    <string name="dialog_confirmation_question">Are you sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 </resources>

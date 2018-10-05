@@ -28,6 +28,8 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.MainActivity;
+import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
@@ -118,12 +120,24 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 }
                 break;
             case R.id.menu_remove_all:
-                viewModel.removeAll();
-                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
+                    DialogPositiveClickListener dialogListenerRemove = new DialogPositiveClickListener() {
+                        @Override
+                        public void onPositiveButtonClicked(Context context) {
+                            viewModel.removeAll();
+                            AndroidFirebaseAnalytics.logEvent("menu_remove_all");
+                        }
+                    };
+                    ((MainActivity) getActivity()).showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
-                viewModel.resetAll();
-                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
+                DialogPositiveClickListener dialogListenerReset = new DialogPositiveClickListener() {
+                    @Override
+                    public void onPositiveButtonClicked(Context context) {
+                        viewModel.resetAll();
+                        AndroidFirebaseAnalytics.logEvent("menu_reset_all");
+                    }
+                };
+                ((MainActivity) getActivity()).showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerReset);
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);

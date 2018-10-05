@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,11 +20,13 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
+import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
+
 
 public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
 
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private boolean isDarkTheme;
     private boolean isKeepScreenOn;
     private BottomNavigationBar bottomNavigationBar;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -220,6 +225,28 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             bottomNavigationBar.selectTab(0);
         }
+    }
+
+    public void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
+        if (alertDialog != null && alertDialog.isShowing()) {
+            return;
+        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onPositiveButtonClicked(MainActivity.this);
+                    }
+                })
+                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+
+        alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }

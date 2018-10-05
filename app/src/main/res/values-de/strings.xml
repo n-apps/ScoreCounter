@@ -58,4 +58,7 @@
     <string name="dialog_custom_counter_title">Eigne Zähler Werte</string>
     <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
     <string name="settings_section_counter_buttons">Setze den Wert der Knöpfe im Zähler lang-klick Dialog</string>
+    <string name="dialog_confirmation_question">Are you sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
 </resources>
