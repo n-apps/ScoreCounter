@@ -1,10 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -109,6 +111,25 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         inflater.inflate(R.menu.counters_menu, menu);
     }
 
+    public void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
+        AlertDialog alertDialog;
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        listener.onPositiveButtonClicked(getActivity());
+                    }
+                })
+                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog = builder.create();
+        alertDialog.show();
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -120,24 +141,24 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 }
                 break;
             case R.id.menu_remove_all:
+                    AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                     DialogPositiveClickListener dialogListenerRemove = new DialogPositiveClickListener() {
                         @Override
                         public void onPositiveButtonClicked(Context context) {
                             viewModel.removeAll();
-                            AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                         }
                     };
-                    ((MainActivity) getActivity()).showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
+                    showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
+                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
                 DialogPositiveClickListener dialogListenerReset = new DialogPositiveClickListener() {
                     @Override
                     public void onPositiveButtonClicked(Context context) {
                         viewModel.resetAll();
-                        AndroidFirebaseAnalytics.logEvent("menu_reset_all");
                     }
                 };
-                ((MainActivity) getActivity()).showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerReset);
+                showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerReset);
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
