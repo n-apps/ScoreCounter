@@ -18,14 +18,13 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de"
+        resConfigs "en", "ru", "uk", "fr", "de", "es"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
         ]
     }
 
-/*
     signingConfigs {
         release {
             storeFile new File(STORE_FILE)
@@ -34,19 +33,19 @@ android {
             keyPassword KEY_PASSWORD
         }
     }
-  */
+
     buildTypes {
         debug {
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
         }
 
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.release
             manifestPlaceholders += [crashlyticsEnabled: true]
         }
     }

@@ -112,7 +112,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     public void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
-        AlertDialog alertDialog;
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage(message)
                 .setCancelable(false)
@@ -126,8 +125,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                         dialog.dismiss();
                     }
                 });
-        alertDialog = builder.create();
-        alertDialog.show();
+        builder.create().show();
     }
 
     @Override
