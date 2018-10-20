@@ -1,7 +1,7 @@
 package ua.napps.scorekeeper.dice;
 
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.IntRange;
+import androidx.lifecycle.LiveData;
+import androidx.annotation.IntRange;
 
 class DiceLiveData extends LiveData<Integer> {
 

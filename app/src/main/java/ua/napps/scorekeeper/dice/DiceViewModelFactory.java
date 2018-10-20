@@ -1,9 +1,9 @@
 package ua.napps.scorekeeper.dice;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
 
 class DiceViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 

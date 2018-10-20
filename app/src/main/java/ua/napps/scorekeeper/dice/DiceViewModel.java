@@ -1,11 +1,11 @@
 package ua.napps.scorekeeper.dice;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 import android.content.Context;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
-import android.support.annotation.IntRange;
+import androidx.annotation.IntRange;
 
 class DiceViewModel extends ViewModel {
 
