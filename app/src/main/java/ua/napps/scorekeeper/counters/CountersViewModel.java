@@ -66,6 +66,7 @@ class CountersViewModel extends AndroidViewModel {
                     }
                 });
         nextCounterColor++;
+        
     }
 
     void decreaseCounter(Counter counter) {
