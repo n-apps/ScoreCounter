@@ -20,9 +20,12 @@ public class Counter {
 
     private int value;
 
-    public Counter(@NonNull String name, String color) {
+    private int position;
+
+    public Counter(@NonNull String name, String color, int position) {
         this.name = name;
         this.color = color;
+        this.position = position;
         value = 0;
         defaultValue = 0;
         step = 1;
@@ -31,10 +34,19 @@ public class Counter {
     public Counter(Counter counter) {
         id = counter.id;
         this.name = counter.name;
-        color = counter.color;
-        value = counter.value;
+        this.color = counter.color;
+        this.value = counter.value;
+        this.position = counter.position;
         defaultValue = counter.defaultValue;
         step = counter.step;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public String getColor() {
@@ -87,11 +99,12 @@ public class Counter {
 
     @Override
     public String toString() {
-        return "Counter{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", value=" + value + '}';
+        return "Counter{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", value=" + value + '\'' + ", position=" + position + '}';
     }
 
+
     /**
-     * Checks if two counters are equal, uses id, color and name (id would suffice but this way it safer)
+     * Checks if two counters are equal, uses id, color, name and position (id would suffice but this way it safer)
      * @param other - {@link Object } to compare to
      * @return {@link Boolean} if equal or not
      */
@@ -107,6 +120,6 @@ public class Counter {
             return false;
         }
         Counter counter = (Counter) other;
-        return this.id == counter.id && this.name.equals(counter.name);
+        return this.id == counter.id && this.name.equals(counter.name) && this.position == counter.position;
     }
 }

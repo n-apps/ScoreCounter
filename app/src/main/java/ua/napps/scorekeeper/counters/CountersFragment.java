@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,8 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
@@ -31,6 +31,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
+import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
@@ -42,7 +43,7 @@ import ua.napps.scorekeeper.utils.Utilities;
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
 
-public class CountersFragment extends Fragment implements CounterActionCallback {
+public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
     private RecyclerView recyclerView;
     private CountersAdapter countersAdapter;
@@ -52,6 +53,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     private MaterialDialog longClickDialog;
     private int oldListSize;
     private boolean isLongPressTipShowed;
+    private ItemTouchHelper itemTouchHelper;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -75,7 +77,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
@@ -87,7 +89,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
         super.onActivityCreated(savedInstanceState);
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
-        countersAdapter = new CountersAdapter(getResources().getInteger(R.integer.max_counters_to_fit), this);
+        countersAdapter = new CountersAdapter(getResources().getInteger(R.integer.max_counters_to_fit), this, this);
         subscribeUi();
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
     }
@@ -158,6 +160,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
     }
 
     private void subscribeUi() {
+        final Context context = getContext();
         viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
                 final int size = counters.size();
@@ -167,12 +170,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
                     if (size > countersAdapter.getMaxFitCounters()) {
-                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
-                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
+                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                         }
                     } else {
-                        if (((StaggeredGridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
-                            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
+                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
+                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
                         }
                     }
                 }
@@ -187,6 +190,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
                     recyclerView.post(() -> {
                                 countersAdapter.setContainerHeight(recyclerView.getHeight());
                                 recyclerView.setAdapter(countersAdapter);
+                                ItemTouchHelper.Callback callback = new ItemDragHelperCallback(countersAdapter);
+                                itemTouchHelper = new ItemTouchHelper(callback);
+                                itemTouchHelper.attachToRecyclerView(recyclerView);
                             }
                     );
                     Bundle params = new Bundle();
@@ -432,5 +438,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback 
             recyclerView.smoothScrollToPosition(0);
         }
         AndroidFirebaseAnalytics.logEvent("scroll_to_top");
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        itemTouchHelper.startDrag(viewHolder);
+    }
+
+    @Override
+    public void afterDrag(Counter counter, int fromPosition, int toPosition) {
+        viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
 }

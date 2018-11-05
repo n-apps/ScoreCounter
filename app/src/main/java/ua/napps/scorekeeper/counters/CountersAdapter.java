@@ -26,20 +26,23 @@ import java.util.TimerTask;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
+import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
-public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
+public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> implements ItemDragAdapter {
 
     static final String INCREASE_VALUE_CLICK = "increase_value_click";
     static final String DECREASE_VALUE_CLICK = "decrease_value_click";
 
     private final CounterActionCallback callback;
+    private final DragItemListener dragViewListener;
     private final int maxFitCounters;
     private int containerHeight;
     private List<Counter> counters;
 
-    CountersAdapter(int maxCountersToFit, CounterActionCallback callback) {
+    CountersAdapter(int maxCountersToFit, CounterActionCallback callback, DragItemListener dragViewListener) {
         this.callback = callback;
+        this.dragViewListener = dragViewListener;
         this.maxFitCounters = maxCountersToFit;
     }
 
@@ -90,7 +93,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
     @Override
     public CountersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
-        return new CountersViewHolder(v, callback);
+        return new CountersViewHolder(v, callback, dragViewListener);
     }
 
     public void setCountersList(final List<Counter> update) {
@@ -122,11 +125,34 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
                             && Objects.equals(newCounter.getName(), oldCounter.getName())
                             && Objects.equals(newCounter.getColor(), oldCounter.getColor())
                             && newCounter.getValue() == oldCounter.getValue();
+                    // We don`t want to check position, because during dragging items were moved only within adapter.
+                    // Position in database was changed only after the end of dragging event.
+                    // Checking for position change in this method, would result into recycler view redundant refresh.
                 }
             });
             counters = update;
             result.dispatchUpdatesTo(this);
         }
+    }
+
+    private Counter lastMovedCounter = null;
+    @Override
+    public void onItemMove(int fromPosition, int toPosition) {
+        Counter counter = counters.remove(fromPosition);
+        counters.add(toPosition > fromPosition ? toPosition - 0 : toPosition, counter);
+        notifyItemMoved(fromPosition, toPosition);
+
+        if (lastMovedCounter == null) {
+            lastMovedCounter = counter;
+        }
+    }
+
+    @Override
+    public void onItemClear(int fromPosition, int toPosition) {
+        if (lastMovedCounter != null) {
+            dragViewListener.afterDrag(lastMovedCounter, fromPosition, toPosition);
+        }
+        lastMovedCounter = null;
     }
 
     public class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
@@ -148,7 +174,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
         private LongClickTimerTask timerTask;
 
         @SuppressLint("ClickableViewAccessibility")
-        CountersViewHolder(View v, CounterActionCallback callback) {
+        CountersViewHolder(View v, CounterActionCallback callback, DragItemListener dragItemListener) {
             super(v);
             counterActionCallback = callback;
             handler = new Handler(this);
@@ -160,6 +186,23 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> {
             decreaseImageView = v.findViewById(R.id.iv_decrease);
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
+
+            final CountersViewHolder holder = this;
+            counterName.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    dragViewListener.onStartDrag(holder);
+                    return false;
+                }
+            });
+
+            counterEdit.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    dragViewListener.onStartDrag(holder);
+                    return false;
+                }
+            });
 
             counterClickableArea.setOnTouchListener((v12, e) -> {
                 switch (e.getActionMasked()) {
