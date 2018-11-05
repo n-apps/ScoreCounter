@@ -1,120 +1,33 @@
-apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-ext.versionMajor = 4
-ext.versionMinor = 3
-ext.versionPatch = 0
-ext.postfix = ''
-
-android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
-
-    defaultConfig {
-        applicationId 'ua.napps.scorekeeper'
-        minSdkVersion 19
-        targetSdkVersion 28
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
-        versionCode generateVersionCode()
-        versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de", "es"
-
-        manifestPlaceholders += [
-                crashlyticsEnabled: false
-        ]
-    }
-
-//    signingConfigs {
-//        release {
-//            storeFile new File(STORE_FILE)
-//            storePassword STORE_PASSWORD
-//            keyAlias KEY_ALIAS
-//            keyPassword KEY_PASSWORD
-//        }
-//    }
-
-    buildTypes {
-        debug {
-            useProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-           // signingConfig signingConfigs.release
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
         }
 
-        release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.release
-            manifestPlaceholders += [crashlyticsEnabled: true]
-        }
     }
-    compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.google.gms:google-services:4.1.0'
+        classpath 'io.fabric.tools:gradle:1.26.1'
     }
 }
 
-dependencies {
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
-    implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.room:room-runtime:2.1.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
-    implementation 'com.google.firebase:firebase-core:16.0.4'
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.5@aar') {
-        transitive = true
-    }
-    implementation('com.github.fernandodev.easyratingdialog:easyratingdialog:1.1.2') {
-        exclude module: 'material-dialogs'
-    }
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
-    implementation 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
-
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.hamcrest:hamcrest-all:1.3'
-    androidTestImplementation 'androidx.test:runner:1.1.0-beta02'
-
-    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha01'
+plugins {
+    id 'com.github.ben-manes.versions' version '0.20.0'
 }
 
-configurations.all {
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion "$supportLibraryVersion"
-            }
-        }
+allprojects {
+    repositories {
+        jcenter()
+        google()
+        maven { url "https://dl.bintray.com/drummer-aidan/maven/" }
     }
 }
 
-def generateVersionCode() {
-    return ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
-
-def generateVersionName() {
-    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}${ext.postfix}"
-}
-
-task _printVersion << {
-    println "\n==================================================================================="
-    println "VERSION CODE: " + generateVersionCode()
-    println "===================================================================================\n"
-}
-
-task _printVersionName << {
-    println "\n==================================================================================="
-    println "VERSION NAME: " + generateVersionName()
-    println "===================================================================================\n"
-}
-
-apply plugin: 'com.google.gms.google-services'
