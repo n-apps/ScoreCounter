@@ -54,4 +54,11 @@
     <string name="menu_log">Historial</string>
     <string name="log_counter">Contador:</string>
     <string name="history_empty_message">No hay historial aún</string>
+    <string name="common_counter">Contador</string>
+    <string name="dialog_custom_counter_title">Valor de contador personalizado</string>
+    <string name="dialog_custom_counter_hint">De 2 a 999.</string>
+    <string name="settings_section_counter_buttons">Establezca el valor de los botones en un cuadro de diálogo de contador (presionando prolongadamente)</string>
+    <string name="dialog_confirmation_question">¿Estás seguro?</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_yes">Sí</string>
 </resources>

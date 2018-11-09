@@ -58,7 +58,7 @@
     <string name="dialog_custom_counter_title">Спеціальне значення лічильника</string>
     <string name="dialog_custom_counter_hint">Від 2 до 999</string>
     <string name="settings_section_counter_buttons">Встановіть значення кнопок у діалоговому вікні (по довгого натисканню)</string>
-    <string name="dialog_confirmation_question">Are you sure?</string>
-    <string name="dialog_yes">Yes</string>
-    <string name="dialog_no">No</string>
+    <string name="dialog_confirmation_question">Ви впевнені?</string>
+    <string name="dialog_yes">Так</string>
+    <string name="dialog_no">Ні</string>
 </resources>
