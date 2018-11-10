@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 ext.versionMajor = 4
-ext.versionMinor = 3
+ext.versionMinor = 4
 ext.versionPatch = 0
 ext.postfix = ''
 

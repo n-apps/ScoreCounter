@@ -58,11 +58,11 @@
     <string name="dialog_custom_counter_title">Custom counter value</string>
     <string name="dialog_custom_counter_hint">From 2 to 999</string>
     <string name="settings_section_counter_buttons">Set the value of the buttons in a counter dialog (by a long press)</string>
-    <string name="dialog_confirmation_question">Are you sure?</string>
+    <string name="dialog_confirmation_question">Are you sure?</string>You entered current position of the counter.
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
     <string name="counter_details_position">Position</string>
     <string name="counter_position_zero">Position cannot be zero.</string>
-    <string name="counter_position_current">You entered current position of the counter.</string>
     <string name="dialog_position_info_content">Position of given counter in the list. Must be higher than 0. If you set position higher than current number of counters, counter will be moved to the end of list.</string>
+    <string name="counter_position_current">You entered current position of the counter.</string>
 </resources>

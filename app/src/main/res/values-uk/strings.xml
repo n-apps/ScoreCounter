@@ -58,10 +58,10 @@
     <string name="dialog_custom_counter_title">Спеціальне значення лічильника</string>
     <string name="dialog_custom_counter_hint">Від 2 до 999</string>
     <string name="settings_section_counter_buttons">Встановіть значення кнопок у діалоговому вікні (по довгого натисканню)</string>
-    <string name="counter_details_position">Position</string>
-    <string name="counter_position_zero">Position cannot be zero.</string>
-    <string name="counter_position_current">You entered current position of the counter.</string>
-    <string name="dialog_position_info_content">Position of given counter in the list. Must be higher than 0. If you set position higher than current number of counters, counter will be moved to the end of list.</string>
+    <string name="counter_details_position">Позиція</string>
+    <string name="counter_position_zero">Позиція не може бути нульовою.</string>
+    <string name="counter_position_current">Ви ввели поточну позицію лічильника.</string>
+    <string name="dialog_position_info_content">Позиція даного лічильника в списку. Має бути вище 0. Якщо ви встановите позицію вище поточної кількості лічильників, лічильник буде перенесено до кінця списку.</string>
     <string name="dialog_confirmation_question">Ви впевнені?</string>
     <string name="dialog_yes">Так</string>
     <string name="dialog_no">Ні</string>

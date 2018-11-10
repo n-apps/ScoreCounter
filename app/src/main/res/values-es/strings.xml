@@ -54,10 +54,10 @@
     <string name="menu_log">Historial</string>
     <string name="log_counter">Contador:</string>
     <string name="history_empty_message">No hay historial aún</string>
-    <string name="counter_details_position">Position</string>
-    <string name="counter_position_zero">Position cannot be zero.</string>
-    <string name="counter_position_current">You entered current position of the counter.</string>
-    <string name="dialog_position_info_content">Position of given counter in the list. Must be higher than 0. If you set position higher than current number of counters, counter will be moved to the end of list.</string>
+    <string name="counter_details_position">Posición</string>
+    <string name="counter_position_zero">La posición no puede ser cero.</string>
+    <string name="counter_position_current">Has introducido la posición actual del contador.</string>
+    <string name="dialog_position_info_content">Posición del contador dado en la lista. Debe ser mayor que 0. Si establece una posición más alta que el número actual de contadores, el contador se moverá al final de la lista.</string>
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Valor de contador personalizado</string>
     <string name="dialog_custom_counter_hint">De 2 a 999.</string>
