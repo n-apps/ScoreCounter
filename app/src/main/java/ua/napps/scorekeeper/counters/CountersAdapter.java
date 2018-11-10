@@ -70,12 +70,13 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         int textColor = darkBackground ? Color.WHITE : Color.BLACK;
         holder.counterName.setTextColor(textColor);
         holder.counterValue.setTextColor(textColor);
-        holder.counterEdit.setTextColor(textColor);
 
         Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
         Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
+        Drawable wrapDrawable3 = DrawableCompat.wrap(holder.counterOptionsImageView.getDrawable().mutate());
         DrawableCompat.setTint(wrapDrawable1, textColor);
         DrawableCompat.setTint(wrapDrawable2, textColor);
+        DrawableCompat.setTint(wrapDrawable3, textColor);
 
         int itemCount = getItemCount();
         if (itemCount <= maxFitCounters) { // fit available space
@@ -166,7 +167,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         private final int TIME_LONG_CLICK = 300;
         private final CounterActionCallback counterActionCallback;
         private final FrameLayout counterClickableArea;
-        private final TextView counterEdit;
+        private final ImageView counterOptionsImageView;
         private final TextView counterName;
         private final Handler handler;
         public Counter counter;
@@ -180,12 +181,12 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
             handler = new Handler(this);
             counterValue = v.findViewById(R.id.tv_counter_value);
             counterName = v.findViewById(R.id.tv_counter_name);
-            counterEdit = v.findViewById(R.id.tv_counter_edit);
+            counterOptionsImageView = v.findViewById(R.id.iv_counter_edit);
             counterClickableArea = v.findViewById(R.id.counter_interaction_area);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
-            counterEdit.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
+            counterOptionsImageView.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
 
             final CountersViewHolder holder = this;
             counterName.setOnLongClickListener(new View.OnLongClickListener() {
@@ -196,7 +197,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
                 }
             });
 
-            counterEdit.setOnLongClickListener(new View.OnLongClickListener() {
+            counterOptionsImageView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
                     dragViewListener.onStartDrag(holder);

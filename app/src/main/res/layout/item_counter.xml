@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:foreground="?attr/selectableItemBackgroundBorderless"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_5"
-        android:foreground="?attr/selectableItemBackground"
         android:minHeight="@dimen/button_min_height"
         android:orientation="horizontal">
 
@@ -25,23 +23,22 @@
             android:fontFamily="@font/open_sans_bold"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:paddingEnd="@dimen/padding_normal"
             android:paddingStart="@dimen/padding_normal"
+            android:paddingEnd="@dimen/padding_normal"
             android:textAllCaps="true"
             android:textSize="@dimen/font_button"
             tools:text="@tools:sample/first_names" />
 
-        <TextView
-            android:id="@+id/tv_counter_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:paddingEnd="@dimen/padding_normal"
-            android:paddingStart="@dimen/padding_normal"
-            android:text="@string/counter_header_edit"
-            android:textAllCaps="true"
-            android:textSize="@dimen/font_button" />
+        <ImageView
+            android:id="@+id/iv_counter_edit"
+            android:layout_width="48dp"
+            android:layout_height="@dimen/button_min_height"
+            android:padding="@dimen/spacing_normal"
+            android:foreground="?selectableItemBackground"
+            android:alpha="0.87"
+            android:gravity="right"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_more" />
     </LinearLayout>
 
     <FrameLayout
@@ -68,8 +65,8 @@
             android:fontFamily="@font/cutive_mono"
             android:gravity="center"
             android:lines="1"
-            android:paddingEnd="40dp"
             android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
             app:autoSizeMinTextSize="@dimen/counter_min_text_size"
             app:autoSizeStepGranularity="2sp"
