@@ -47,7 +47,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        repository.createCounter(String.valueOf(nextCounterColor + 1), getNextColor())
+        repository.createCounter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -157,6 +157,103 @@ class CountersViewModel extends AndroidViewModel {
 
                     }
                 });
+    }
+
+
+    void setPositionAfterDBMigration(Counter counter, int position){
+        repository.modifyPosition(counter.getId(), position)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "modifyPosition counter");
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
+    void modifyPosition(Counter counter, int fromPosition, int toPosition) {
+        if (fromPosition == toPosition) {
+            return;
+        }
+
+        if (toPosition == counter.getPosition()) {
+            return;
+        }
+
+        if (toPosition > counters.getValue().size() - 1) {
+            toPosition = counters.getValue().size() - 1;
+        }
+
+        Bundle params = new Bundle();
+        params.putString(Param.CHARACTER, "" + toPosition);
+        AndroidFirebaseAnalytics.logEvent("counter_position_change", params);
+
+        int smallerIndex = Math.min(fromPosition, toPosition);
+        int largerIndex = Math.max(fromPosition, toPosition);
+        int moveStep;
+
+        if (toPosition > fromPosition) {
+            moveStep = -1;
+        } else {
+            moveStep = 1;
+        }
+
+        List<Counter> counterList = counters.getValue();
+        if (counterList != null) {
+            for (int i = 0; i < counterList.size(); i++) {
+                if (counterList.get(i).getId() == counter.getId()) {
+                    repository.modifyPosition(counter.getId(), toPosition)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new CompletableObserver() {
+                                @Override
+                                public void onComplete() {
+
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Timber.e(e, "modifyPosition counter");
+                                }
+
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+                            });
+                } else if (counterList.get(i).getPosition() >= smallerIndex && counterList.get(i).getPosition() <= largerIndex) {
+                    repository.modifyPosition(counterList.get(i).getId(), counterList.get(i).getPosition() + moveStep)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new CompletableObserver() {
+                                @Override
+                                public void onComplete() {
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Timber.e(e, "modifyPosition counter");
+                                }
+
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+                            });
+                }
+            }
+        }
+
     }
 
 

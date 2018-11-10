@@ -58,7 +58,12 @@
     <string name="dialog_custom_counter_title">Valeur de compteur spéciale</string>
     <string name="dialog_custom_counter_hint">De 2 à 999</string>
     <string name="settings_section_counter_buttons">Définir la valeur des boutons dans la boîte de dialogue (par appui long)</string>
+    <string name="counter_details_position">Position</string>
+    <string name="counter_position_zero">Position cannot be zero.</string>
+    <string name="counter_position_current">You entered current position of the counter.</string>
+    <string name="dialog_position_info_content">Position of given counter in the list. Must be higher than 0. If you set position higher than current number of counters, counter will be moved to the end of list.</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
+
 </resources>

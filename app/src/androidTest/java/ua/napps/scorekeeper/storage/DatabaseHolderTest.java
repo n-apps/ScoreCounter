@@ -33,7 +33,7 @@ public class DatabaseHolderTest {
 
     @Test
 public void insertDeleteAndCount() {
-    final Counter counter = new Counter("Counter", "#2196F3");
+    final Counter counter = new Counter("Counter", "#2196F3",0);
 
     assertThat(database.countersDao().count(), Is.is(0));
             database.countersDao().insert(counter);

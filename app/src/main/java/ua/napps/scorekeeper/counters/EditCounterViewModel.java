@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
+import java.util.List;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ class EditCounterViewModel extends ViewModel {
 
     private final CountersRepository countersRepository;
     private final EditCounterViewModelCallback callback;
+    private final LiveData<List<Counter>> countersLiveData;
     private final LiveData<Counter> counterLiveData;
     private final int id;
     private Counter counter;
@@ -23,6 +26,15 @@ class EditCounterViewModel extends ViewModel {
         id = counterId;
         countersRepository = repository;
         counterLiveData = repository.loadCounter(counterId);
+        countersLiveData = countersRepository.getCounters();
+    }
+
+    LiveData<Counter> getCounterLiveData() {
+        return counterLiveData;
+    }
+
+    LiveData<List<Counter>> getCounters() {
+        return countersLiveData;
     }
 
     public void setCounter(@NonNull Counter c) {
@@ -49,10 +61,6 @@ class EditCounterViewModel extends ViewModel {
 
                     }
                 });
-    }
-
-    LiveData<Counter> getCounterLiveData() {
-        return counterLiveData;
     }
 
     void updateColor(String hex) {
@@ -178,6 +186,72 @@ class EditCounterViewModel extends ViewModel {
 
                     }
                 });
+    }
+
+    void updatePosition(int toPosition) {
+        if (toPosition == counter.getPosition()) {
+            return;
+        }
+        int fromPosition = counter.getPosition();
+
+        List<Counter> countersList = countersLiveData.getValue();
+        if (countersList != null) {
+            if (toPosition > countersList.size() - 1) {
+                toPosition = countersList.size() - 1;
+            }
+
+            int smallerIndex = Math.min(fromPosition, toPosition);
+            int largerIndex = Math.max(fromPosition, toPosition);
+            int moveStep;
+            if (toPosition > fromPosition) {
+                moveStep = -1;
+            } else {
+                moveStep = 1;
+            }
+
+            for (int i = 0; i < countersList.size(); i++) {
+                if (countersList.get(i).getId() == counter.getId()) {
+                    countersRepository.modifyPosition(counter.getId(), toPosition)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new CompletableObserver() {
+                                @Override
+                                public void onComplete() {
+
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Timber.e(e, "modifyPosition counter");
+                                }
+
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+                            });
+                } else if (countersList.get(i).getPosition() >= smallerIndex && countersList.get(i).getPosition() <= largerIndex) {
+                    countersRepository.modifyPosition(countersList.get(i).getId(), countersList.get(i).getPosition() + moveStep)
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new CompletableObserver() {
+                                @Override
+                                public void onComplete() {
+                                }
+
+                                @Override
+                                public void onError(Throwable e) {
+                                    Timber.e(e, "modifyPosition counter");
+                                }
+
+                                @Override
+                                public void onSubscribe(Disposable d) {
+
+                                }
+                            });
+                }
+            }
+        }
     }
 
     public interface EditCounterViewModelCallback {

@@ -21,13 +21,13 @@ public interface CountersDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Counter counter);
 
-    @Query("SELECT * FROM counters")
+    @Query("SELECT * FROM counters ORDER BY position")
     LiveData<List<Counter>> loadAllCounters();
 
-    @Query("SELECT * FROM counters")
+    @Query("SELECT * FROM counters ORDER BY position")
     List<Counter> loadAllCountersSync();
 
-     @Query("SELECT COUNT(*) FROM counters")
+    @Query("SELECT COUNT(*) FROM counters")
     int count();
 
     @Query("select * from counters where id = :counterId")
@@ -50,6 +50,9 @@ public interface CountersDao {
 
     @Query("UPDATE counters SET value =(value +:difference) WHERE id ==:counterId")
     void modifyValue(int counterId, int difference);
+
+    @Query("UPDATE counters " + "SET position = :position WHERE id = :counterId")
+    void modifyPosition(int counterId, int position);
 
     @Query("UPDATE counters " + "SET value = defaultValue")
     void resetValues();

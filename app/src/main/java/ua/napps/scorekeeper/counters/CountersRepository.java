@@ -16,10 +16,10 @@ class CountersRepository {
         this.countersDao = countersDao;
     }
 
-    public Completable createCounter(String name, String color) {
+    public Completable createCounter(String name, String color, int position) {
 
         return Completable.fromAction(() -> {
-            final Counter counter = new Counter(name, color);
+            final Counter counter = new Counter(name, color,position);
             countersDao.insert(counter);
         });
     }
@@ -58,6 +58,10 @@ class CountersRepository {
 
     public Completable modifyStep(int counterId, int step) {
         return Completable.fromAction(() -> countersDao.modifyStep(counterId, step));
+    }
+
+    public Completable modifyPosition(int counterId, int position) {
+        return Completable.fromAction(() -> countersDao.modifyPosition(counterId,position));
     }
 
     public Completable resetAll() {
