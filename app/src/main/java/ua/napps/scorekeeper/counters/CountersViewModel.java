@@ -29,6 +29,7 @@ class CountersViewModel extends AndroidViewModel {
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
     private int listSize;
+    private int nextCounterColor;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -46,7 +47,7 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void addCounter() {
-        repository.createCounter(String.valueOf(listSize + 1), getNextColor(), listSize)
+        repository.createCounter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -64,6 +65,7 @@ class CountersViewModel extends AndroidViewModel {
 
                     }
                 });
+        nextCounterColor++;
     }
 
     void decreaseCounter(Counter counter) {
@@ -257,9 +259,9 @@ class CountersViewModel extends AndroidViewModel {
 
     void removeAll() {
         List<Counter> counterList = counters.getValue();
-        if(counterList != null){
-            for(int i = 0; i < counterList.size(); i++){
-                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i),LogType.RMV,0, counterList.get(i).getValue()));
+        if (counterList != null) {
+            for (int i = 0; i < counterList.size(); i++) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i), LogType.RMV, 0, counterList.get(i).getValue()));
             }
         }
 
@@ -286,9 +288,9 @@ class CountersViewModel extends AndroidViewModel {
 
     void resetAll() {
         List<Counter> counterList = counters.getValue();
-        if(counterList != null){
-            for(int i = 0; i < counterList.size(); i++){
-                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i),LogType.RST,0, counterList.get(i).getValue()));
+        if (counterList != null) {
+            for (int i = 0; i < counterList.size(); i++) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i), LogType.RST, 0, counterList.get(i).getValue()));
             }
         }
 
@@ -314,11 +316,10 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private String getNextColor() {
-        if (listSize < colors.length) {
-            return colors[listSize];
+        if (nextCounterColor < colors.length) {
+            return colors[nextCounterColor];
         } else {
-            return colors[listSize % colors.length];
+            return colors[nextCounterColor % colors.length];
         }
-
     }
 }

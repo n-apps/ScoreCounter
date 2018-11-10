@@ -1,7 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -113,7 +113,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setMessage(message)
                 .setPositiveButton(R.string.dialog_yes, (dialog, id) -> listener.onPositiveButtonClicked(getActivity()))
                 .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss());
