@@ -163,6 +163,17 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         final Context context = getContext();
         viewModel.getCounters().observe(this, counters -> {
             if (counters != null) {
+                boolean databaseVersionMigration = true;
+                for (Counter counter : counters) {
+                    if (counters.size() > 1 && counter.getPosition() != 0){
+                        databaseVersionMigration = false;
+                    }
+                }
+                if (databaseVersionMigration) {
+                    for (int i = 0; i < counters.size(); i++) {
+                        viewModel.setPositionAfterDBMigration(counters.get(i), i);
+                    }
+                }
                 final int size = counters.size();
                 viewModel.setListSize(size);
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);

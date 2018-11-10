@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import ua.napps.scorekeeper.counters.Counter;
 import ua.napps.scorekeeper.counters.CountersDao;
 
-@Database(entities = {Counter.class}, version = 2, exportSchema = false)
+@Database(entities = {Counter.class}, version = 3, exportSchema = false)
 public abstract class DatabaseHolder extends RoomDatabase {
 
     private static DatabaseHolder database;
@@ -25,7 +25,7 @@ public abstract class DatabaseHolder extends RoomDatabase {
     @MainThread
     public static void init(@NonNull Context context) {
         database = Room.databaseBuilder(context.getApplicationContext(), DatabaseHolder.class, "counters-database")
-                .addMigrations(MIGRATION_1_2)
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                 .fallbackToDestructiveMigration()
                 .build();
     }
@@ -39,4 +39,12 @@ public abstract class DatabaseHolder extends RoomDatabase {
         // Since we didn't alter the table, there's nothing else to do here.
     }
 };
+
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE counters "
+                    + " ADD COLUMN position INTEGER NOT NULL DEFAULT 0");
+        }
+    };
 }

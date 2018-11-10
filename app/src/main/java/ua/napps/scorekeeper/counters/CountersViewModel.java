@@ -158,6 +158,27 @@ class CountersViewModel extends AndroidViewModel {
     }
 
 
+    void setPositionAfterDBMigration(Counter counter, int position){
+        repository.modifyPosition(counter.getId(), position)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e, "modifyPosition counter");
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
     void modifyPosition(Counter counter, int fromPosition, int toPosition) {
         if (fromPosition == toPosition) {
             return;
