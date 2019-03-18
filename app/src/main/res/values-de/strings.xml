@@ -64,5 +64,6 @@
     <string name="counter_position_zero">Position cannot be zero.</string>
     <string name="counter_position_current">Sie haben die aktuelle Position des Zählers eingegeben.</string>
     <string name="dialog_position_info_content">Position des angegebenen Zählers in der Liste. Muss höher als 0 sein. Wenn Sie die Position höher als die aktuelle Anzahl der Zähler setzen, wird der Zähler an das Ende der Liste verschoben.</string>
+    <string name="privacy_policy">Datenschutzerklärung</string>
 
 </resources>

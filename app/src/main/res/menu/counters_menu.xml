@@ -20,4 +20,13 @@
         android:id="@+id/menu_log"
         android:title="@string/menu_log"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_request"
+        android:title="@string/settings_section_request_a_feature"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_rate"
+        android:title="@string/erd_title"
+        app:showAsAction="never" />
 </menu>

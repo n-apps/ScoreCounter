@@ -1,11 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
 import android.app.Application;
-import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.LiveData;
 import android.os.Bundle;
+
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
@@ -28,8 +29,6 @@ class CountersViewModel extends AndroidViewModel {
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
-    private int listSize;
-    private int nextCounterColor;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -42,30 +41,29 @@ class CountersViewModel extends AndroidViewModel {
         return repository.loadCounter(counterID);
     }
 
-    public void setListSize(final int listSize) {
-        this.listSize = listSize;
-    }
-
     void addCounter() {
-        repository.createCounter(String.valueOf(nextCounterColor + 1), getNextColor(),listSize)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
+        List<Counter> value = counters.getValue();
+        if (value != null) {
+            int size = value.size() + 1;
+            repository.createCounter(String.valueOf(size), getNextColor(size), size)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onComplete() {
+                        }
 
-                    @Override
-                    public void onError(Throwable e) {
-                        Timber.e(e, "create counter");
-                    }
+                        @Override
+                        public void onError(Throwable e) {
+                            Timber.e(e, "create counter");
+                        }
 
-                    @Override
-                    public void onSubscribe(Disposable d) {
+                        @Override
+                        public void onSubscribe(Disposable d) {
 
-                    }
-                });
-        nextCounterColor++;
+                        }
+                    });
+        }
     }
 
     void decreaseCounter(Counter counter) {
@@ -159,8 +157,7 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-
-    void setPositionAfterDBMigration(Counter counter, int position){
+    void setPositionAfterDBMigration(Counter counter, int position) {
         repository.modifyPosition(counter.getId(), position)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -315,11 +312,11 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    private String getNextColor() {
-        if (nextCounterColor < colors.length) {
-            return colors[nextCounterColor];
+    private String getNextColor(int size) {
+        if (size < colors.length) {
+            return colors[size];
         } else {
-            return colors[nextCounterColor % colors.length];
+            return colors[size % colors.length];
         }
     }
 }

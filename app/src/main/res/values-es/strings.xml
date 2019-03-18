@@ -64,4 +64,5 @@
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>
+    <string name="privacy_policy">Política de privacidad</string>
 </resources>

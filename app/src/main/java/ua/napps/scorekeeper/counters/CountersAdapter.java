@@ -6,11 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
-import androidx.annotation.NonNull;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +13,12 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.List;
 import java.util.Objects;
@@ -67,7 +68,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         holder.counterValue.setText(String.valueOf(counter.getValue()));
         holder.itemView.setBackgroundColor(Color.parseColor(counter.getColor()));
         final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
-        int textColor = darkBackground ? Color.WHITE : Color.BLACK;
+        int textColor = darkBackground ? Color.WHITE : 0xDE000000;
         holder.counterName.setTextColor(textColor);
         holder.counterValue.setTextColor(textColor);
 

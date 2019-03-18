@@ -1,35 +1,48 @@
 package ua.napps.scorekeeper.counters;
 
 import android.annotation.SuppressLint;
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.*;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+
 import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
@@ -155,13 +168,21 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 startActivity(intent);
                 AndroidFirebaseAnalytics.logEvent("menu_log");
                 break;
+            case R.id.menu_request:
+                startEmailClient();
+                AndroidFirebaseAnalytics.logEvent("menu_request_a_feature");
+                break;
+            case R.id.menu_rate:
+                rateApp();
+                AndroidFirebaseAnalytics.logEvent("menu_rate_app");
+                break;
         }
         return true;
     }
 
     private void subscribeUi() {
         final Context context = getContext();
-        viewModel.getCounters().observe(this, counters -> {
+        viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 boolean databaseVersionMigration = true;
                 for (Counter counter : counters) {
@@ -175,7 +196,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     }
                 }
                 final int size = counters.size();
-                viewModel.setListSize(size);
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
 
                 if (oldListSize != size) {
@@ -266,8 +286,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 longClickDialog.getTitleView().setText(c.getName());
             }
         };
+
         final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
         liveData.observe(this, counterObserver);
+
         int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
         final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
         View buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
@@ -460,5 +482,30 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void afterDrag(Counter counter, int fromPosition, int toPosition) {
         viewModel.modifyPosition(counter, fromPosition, toPosition);
+    }
+
+    private void rateApp() {
+        Activity activity = requireActivity();
+        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            activity.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName());
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, playStoreUri));
+        }
+    }
+
+    private void startEmailClient() {
+        final String title = getString(R.string.app_name);
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
+        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+        }
     }
 }

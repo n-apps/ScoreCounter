@@ -8,7 +8,7 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
-        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/inter_ui_regular</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorEdgeEffect">@color/accentColor</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
@@ -57,7 +57,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:paddingBottom">@dimen/padding_normal</item>
-        <item name="android:fontFamily">@font/open_sans_bold</item>
+        <item name="android:fontFamily">@font/inter_ui_medium</item>
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:textColor">?android:attr/textColorHint</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>

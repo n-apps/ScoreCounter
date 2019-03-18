@@ -3,24 +3,25 @@ package ua.napps.scorekeeper.dice;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
-import androidx.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.SpringAnimation;
-import androidx.dynamicanimation.animation.SpringForce;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
-import androidx.transition.TransitionManager;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.SpringAnimation;
+import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.transition.TransitionManager;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
@@ -165,7 +166,7 @@ public class DicesFragment extends Fragment {
         DiceViewModelFactory factory = new DiceViewModelFactory(currentDiceVariant);
         viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
-        diceLiveData.observe(this, roll -> {
+        diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {
                 rollDice(roll);
             } else if (currentRoll > 0) {
@@ -176,7 +177,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void useSensorLiveData() {
-        viewModel.getSensorLiveData(getActivity()).observe(this, se -> {
+        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
             if (se == null) {
                 return;
             }

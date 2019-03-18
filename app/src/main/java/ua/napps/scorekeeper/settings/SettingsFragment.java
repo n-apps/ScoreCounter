@@ -5,22 +5,23 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.SwitchCompat;
 import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.fragment.app.Fragment;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -71,6 +72,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         darkTheme.setOnCheckedChangeListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
 
         diceSix.setOnClickListener(this);
         diceEight.setOnClickListener(this);
@@ -122,6 +124,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_rate_app:
                 AndroidFirebaseAnalytics.logEvent("rate_app__click");
                 rateApp();
+                break;
+            case R.id.tv_privacy_policy:
+                AndroidFirebaseAnalytics.logEvent("privacy_policy__click");
+                Intent viewIntent =
+                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
+                startActivity(viewIntent);
                 break;
             case R.id.tb_dice_6:
                 diceMaxSide = 6;
