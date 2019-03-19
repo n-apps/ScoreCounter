@@ -10,19 +10,13 @@
         style="@style/AppBarStyle"
         android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:minHeight="?attr/actionBarSize">
+        android:minHeight="?attr/actionBarSize"
+        tools:background="@color/dark_theme_bg"
+        app:elevation="0dp">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <ua.napps.scorekeeper.utils.RoundedColorView
-                android:id="@+id/reveal_view"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:transitionName="backgroundColorImage"
-                app:backgroundColor="?attr/colorPrimary" />
 
             <View
                 android:id="@+id/appbar_background"
@@ -36,9 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_marginStart="69dp"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_marginBottom="@dimen/spacing_large"
                 android:hint="@string/counter_details_name"
                 android:theme="@style/LightEditText"
                 app:hintAnimationEnabled="false"
@@ -51,9 +45,7 @@
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
                     android:maxLength="20"
                     android:maxLines="1"
-                    android:textAllCaps="true"
-                    android:textSize="@dimen/font_display"
-                    android:theme="@style/LightEditText"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     tools:text="@string/app_name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,12 +58,14 @@
             <TextView
                 android:id="@+id/tv_label_saved"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="top|right"
-                android:layout_margin="@dimen/padding_normal"
                 android:text="@string/label_all_changes_saved"
+                android:gravity="center"
+                android:paddingStart="@dimen/padding_normal"
+                android:paddingEnd="@dimen/padding_normal"
+                android:alpha=".54"
                 android:textColor="@color/textColorHintInverse"
-                android:textStyle="italic"
                 android:visibility="invisible"
                 tools:visibility="visible" />
         </FrameLayout>
@@ -85,6 +79,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="@dimen/padding_large"
             android:orientation="vertical">
 
             <LinearLayout
@@ -93,15 +88,15 @@
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/spacing_normal"
                 android:paddingStart="@dimen/keyline_1"
-                android:paddingTop="@dimen/spacing_normal">
+                android:paddingTop="@dimen/spacing_normal"
+                android:paddingBottom="@dimen/spacing_normal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/counter_details_value"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                 <TextView
                     android:id="@+id/tv_counter_value"
@@ -115,8 +110,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="?myDividerColor"
-                android:layout_marginStart="@dimen/keyline_1" />
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="?myDividerColor" />
 
             <FrameLayout
                 android:id="@+id/counter_step"
@@ -128,15 +123,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/spacing_normal"
                     android:paddingStart="@dimen/keyline_1"
-                    android:paddingTop="@dimen/spacing_normal">
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingBottom="@dimen/spacing_normal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/counter_details_step"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                     <TextView
                         android:id="@+id/tv_counter_step"
@@ -161,8 +156,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="?myDividerColor"
-                android:layout_marginStart="@dimen/keyline_1" />
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="?myDividerColor" />
 
             <FrameLayout
                 android:id="@+id/counter_default_value"
@@ -174,15 +169,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/spacing_normal"
                     android:paddingStart="@dimen/keyline_1"
-                    android:paddingTop="@dimen/spacing_normal">
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingBottom="@dimen/spacing_normal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/counter_details_default_value"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                     <TextView
                         android:id="@+id/tv_counter_default_value"
@@ -208,8 +203,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="?myDividerColor"
-                android:layout_marginStart="@dimen/keyline_1" />
+                android:layout_marginStart="@dimen/keyline_1"
+                android:background="?myDividerColor" />
 
             <FrameLayout
                 android:id="@+id/counter_position"
@@ -221,15 +216,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingBottom="@dimen/spacing_normal"
                     android:paddingStart="@dimen/keyline_1"
-                    android:paddingTop="@dimen/spacing_normal">
+                    android:paddingTop="@dimen/spacing_normal"
+                    android:paddingBottom="@dimen/spacing_normal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/counter_details_position"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                     <TextView
                         android:id="@+id/tv_counter_position"
@@ -255,27 +250,31 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <FrameLayout
+    <TextView
         android:id="@+id/btn_delete"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@drawable/bg_selector_flat_button"
-        android:foreground="?attr/selectableItemBackground"
-        android:minHeight="@dimen/button_min_height"
-        android:paddingBottom="@dimen/padding_normal"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:background="?attr/selectableItemBackground"
+        android:fontFamily="@font/inter_ui_medium"
+        android:gravity="center"
+        android:paddingStart="@dimen/padding_large"
         android:paddingTop="@dimen/padding_normal"
-        android:text="@string/counter_details_delete">
+        android:paddingEnd="@dimen/padding_large"
+        android:paddingBottom="@dimen/padding_normal"
+        android:text="@string/counter_details_delete"
+        android:textColor="#CC2A41" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/counter_details_delete"
-            android:fontFamily="@font/inter_ui_medium"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
-            android:textColor="@color/white" />
-    </FrameLayout>
+    <ua.napps.scorekeeper.utils.RoundedColorView
+        android:id="@+id/reveal_view"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:visibility="invisible"
+        app:backgroundColor="?attr/colorPrimary"
+        app:layout_anchor="@id/appbar_background"
+        app:layout_anchorGravity="bottom|right|end" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

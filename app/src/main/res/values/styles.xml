@@ -14,6 +14,7 @@
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>
+        <item name="superBottomSheet_backgroundColor">@color/white</item>
     </style>
 
     <style name="ToolBarStyle">
@@ -50,7 +51,7 @@
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
         <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="colorControlActivated">@color/accentColor</item>
     </style>
 
     <style name="EmptyStateMessage" parent="TextAppearance.AppCompat.Medium">

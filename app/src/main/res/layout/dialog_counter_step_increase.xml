@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@drawable/bg_selector_flat_button"
+        android:background="@drawable/bg_selector_rounded_button"
         android:enabled="false"
         android:foreground="?attr/selectableItemBackground"
         android:minHeight="@dimen/button_min_height"
@@ -125,7 +125,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/inter_ui_medium"
             android:text="@string/common_increase"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             android:textColor="@color/white" />
     </FrameLayout>
 </LinearLayout>

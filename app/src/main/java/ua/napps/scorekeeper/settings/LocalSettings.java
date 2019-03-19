@@ -16,8 +16,8 @@ public class LocalSettings {
     private static final String CUSTOM_COUNTER_3 = "custom_counter_3";
     private static final String CUSTOM_COUNTER_4 = "custom_counter_4";
 
-    public static boolean isDarkTheme() {
-        return App.getTinyDB().getBoolean(DARK_THEME, false);
+    public static boolean isLightTheme() {
+        return !App.getTinyDB().getBoolean(DARK_THEME, true);
     }
 
     public static void saveDarkTheme(boolean enabled) {

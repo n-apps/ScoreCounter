@@ -2,12 +2,14 @@ package ua.napps.scorekeeper.log;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.constraintlayout.widget.Group;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
-import android.view.View;
+
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -41,13 +43,13 @@ public class LogActivity extends AppCompatActivity {
         Group emptyState = findViewById(R.id.g_empty_history);
         emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
 
-        boolean isDarkTheme = LocalSettings.isDarkTheme();
-        if (!isDarkTheme) {
+        boolean isLightTheme = LocalSettings.isLightTheme();
+        if (isLightTheme) {
             ViewUtil.setLightStatusBar(this, Color.WHITE);
         } else {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
-        ViewUtil.setNavBarColor(this, !isDarkTheme);
+        ViewUtil.setNavBarColor(this, isLightTheme);
 
         if (savedInstanceState == null) {
             AndroidFirebaseAnalytics.trackScreen(this, "Log Screen");

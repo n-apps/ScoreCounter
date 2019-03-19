@@ -1,11 +1,12 @@
 package ua.napps.scorekeeper.dice;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 import android.content.Context;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
+
 import androidx.annotation.IntRange;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 class DiceViewModel extends ViewModel {
 
@@ -13,6 +14,10 @@ class DiceViewModel extends ViewModel {
     private LiveSensor sensorLiveData;
 
     DiceViewModel(@IntRange(from = 1, to = 100) int diceVariant) {
+        setDiceVariant(diceVariant);
+    }
+
+    public void setDiceVariant(@IntRange(from = 1, to = 100) int diceVariant) {
         diceResult.setDiceVariant(diceVariant);
     }
 

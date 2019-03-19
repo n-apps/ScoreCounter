@@ -43,12 +43,12 @@
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_keep_screen_on"
-            style="@style/SwitchStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:paddingStart="@dimen/keyline_1"
             android:text="@string/settings_stay_awake"
+            android:theme="@style/SwitchStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_general" />
@@ -74,13 +74,13 @@
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_dark_theme"
-            style="@style/SwitchStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            android:text="@string/settings_dark_theme"
-            app:layout_constraintEnd_toEndOf="parent"
             android:paddingStart="@dimen/keyline_1"
+            android:text="@string/settings_dark_theme"
+            android:theme="@style/SwitchStyle"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sw_keep_screen_on" />
 
@@ -88,10 +88,10 @@
             android:id="@+id/tv_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
             android:padding="@dimen/spacing_normal"
             android:text="@string/common_counter"
             android:textColor="@color/accentColor"
-            android:layout_marginTop="@dimen/spacing_large"
             app:layout_constraintStart_toStartOf="@id/tv_general"
             app:layout_constraintTop_toBottomOf="@id/sw_dark_theme" />
 
@@ -106,7 +106,7 @@
             android:paddingStart="@dimen/padding_normal"
             android:paddingEnd="@dimen/padding_normal"
             android:text="@string/settings_section_counter_buttons"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="@color/textColorSecondary"
             android:textSize="@dimen/font_body"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -178,128 +178,6 @@
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_3"
             tools:ignore="HardcodedText" />
 
-        <TextView
-            android:id="@+id/tv_dice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_large"
-            android:padding="@dimen/spacing_normal"
-            android:text="@string/settings_section_dice"
-            android:textColor="@color/accentColor"
-            app:layout_constraintStart_toStartOf="@id/tv_general"
-            app:layout_constraintTop_toBottomOf="@+id/btn_settings_counter_1" />
-
-        <ImageView
-            android:id="@+id/iv_shake_to_roll"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_shake_to_roll"
-            app:layout_constraintBottom_toBottomOf="@id/sw_shake_roll"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/sw_shake_roll"
-            app:srcCompat="@drawable/ic_sort" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_shake_roll"
-            style="@style/SwitchStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
-            android:foreground="?attr/selectableItemBackground"
-            android:text="@string/settings_shake_to_roll"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_dice" />
-
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
-
-        <TextView
-            android:id="@+id/tv_dice_sides"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:gravity="center"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_normal"
-            android:paddingEnd="@dimen/padding_normal"
-            android:text="@string/settings_section_dice_sides"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textSize="@dimen/font_body"
-            app:layout_constraintBottom_toTopOf="@id/tb_dice_6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@dimen/padding_normal"
-            app:layout_constraintTop_toBottomOf="@id/divider2" />
-
-        <ToggleButton
-            android:id="@+id/tb_dice_6"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
-            android:fontFamily="@font/inter_ui_medium"
-            android:includeFontPadding="false"
-            android:textOff="6"
-            android:textOn="6"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintEnd_toStartOf="@id/tb_dice_8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_dice_sides"
-            tools:ignore="HardcodedText" />
-
-        <ToggleButton
-            android:id="@+id/tb_dice_8"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
-            android:fontFamily="@font/inter_ui_medium"
-            android:includeFontPadding="false"
-            android:textOff="8"
-            android:textOn="8"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-            app:layout_constraintEnd_toStartOf="@id/tb_dice_20"
-            app:layout_constraintStart_toEndOf="@id/tb_dice_6"
-            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-            tools:ignore="HardcodedText" />
-
-        <ToggleButton
-            android:id="@+id/tb_dice_20"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
-            android:fontFamily="@font/inter_ui_medium"
-            android:includeFontPadding="false"
-            android:textOff="20"
-            android:textOn="20"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-            app:layout_constraintEnd_toStartOf="@id/tb_dice_x"
-            app:layout_constraintStart_toEndOf="@id/tb_dice_8"
-            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-            tools:ignore="HardcodedText" />
-
-        <ToggleButton
-            android:id="@+id/tb_dice_x"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
-            android:fontFamily="@font/inter_ui_medium"
-            android:includeFontPadding="false"
-            android:textOff="\?"
-            android:textOn="\?"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tb_dice_20"
-            app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tv_contact_developer"
@@ -310,7 +188,7 @@
             android:text="@string/settings_section_contact_developer"
             android:textColor="@color/accentColor"
             app:layout_constraintStart_toStartOf="@id/tv_general"
-            app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
+            app:layout_constraintTop_toBottomOf="@id/btn_settings_counter_1" />
 
         <ImageView
             android:id="@+id/iv_request_feature"
@@ -327,10 +205,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:paddingStart="@dimen/keyline_1"
             android:text="@string/settings_section_request_a_feature"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="@dimen/font_subheading"
-            android:paddingStart="@dimen/keyline_1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
@@ -359,8 +237,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/erd_title"
             android:paddingStart="@dimen/keyline_1"
+            android:text="@string/erd_title"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="@dimen/font_subheading"
             app:layout_constraintEnd_toEndOf="parent"
@@ -391,8 +269,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/privacy_policy"
             android:paddingStart="@dimen/keyline_1"
+            android:text="@string/privacy_policy"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="@dimen/font_subheading"
             app:layout_constraintEnd_toEndOf="parent"

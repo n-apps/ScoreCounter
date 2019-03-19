@@ -19,7 +19,7 @@
     <color name="black_5">#0D000000</color>
     <color name="white_12">#1FFFFFFF</color>
     <color name="dice_stroke">#424254</color>
-    <color name="flat_button_color">#CC2A41</color>
-    <color name="flat_button_color_pressed">#b1263a</color>
+    <color name="flat_button_color">#222</color>
+    <color name="flat_button_color_pressed">#42000000</color>
 
 </resources>

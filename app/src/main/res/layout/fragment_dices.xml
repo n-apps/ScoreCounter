@@ -8,6 +8,32 @@
     tools:context="ua.napps.scorekeeper.dice.DicesFragment">
 
     <TextView
+        android:id="@+id/tv_dice_variant_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:paddingStart="@dimen/padding_normal"
+        android:paddingEnd="@dimen/padding_normal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="d6" />
+
+    <ImageView
+        android:id="@+id/iv_dice_menu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/spacing_normal"
+        android:contentDescription="@string/settings_section_dice"
+        android:scaleType="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_settings"
+        app:tint="?myIconTint" />
+
+    <TextView
         android:id="@+id/dice"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -36,9 +62,9 @@
         android:id="@+id/empty_state_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:constraint_referenced_ids="im_empty_state,tv_empty_state" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/im_empty_state"
@@ -68,8 +94,8 @@
         android:id="@+id/tv_previous_roll_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_large"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="@dimen/spacing_large"
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="@string/dice_previous_result_label"

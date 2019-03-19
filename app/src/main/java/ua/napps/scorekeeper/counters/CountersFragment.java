@@ -144,14 +144,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
                 break;
             case R.id.menu_remove_all:
-                    AndroidFirebaseAnalytics.logEvent("menu_remove_all");
-                    DialogPositiveClickListener dialogListenerRemove = new DialogPositiveClickListener() {
-                        @Override
-                        public void onPositiveButtonClicked(Context context) {
-                            viewModel.removeAll();
-                        }
-                    };
-                    showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
+                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
+                DialogPositiveClickListener dialogListenerRemove = new DialogPositiveClickListener() {
+                    @Override
+                    public void onPositiveButtonClicked(Context context) {
+                        viewModel.removeAll();
+                    }
+                };
+                showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
                 AndroidFirebaseAnalytics.logEvent("menu_reset_all");
@@ -186,7 +186,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (counters != null) {
                 boolean databaseVersionMigration = true;
                 for (Counter counter : counters) {
-                    if (counters.size() > 1 && counter.getPosition() != 0){
+                    if (counters.size() > 1 && counter.getPosition() != 0) {
                         databaseVersionMigration = false;
                     }
                 }
@@ -246,7 +246,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onDecreaseClick(Counter counter) {
-        Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC,1, counter.getValue()));
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
 
         viewModel.decreaseCounter(counter);
         showLongPressHint();
@@ -269,7 +269,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onIncreaseClick(Counter counter) {
-        Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC,1, counter.getValue()));
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
 
         viewModel.increaseCounter(counter);
         showLongPressHint();
@@ -292,10 +292,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
         final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
-        View buttonAddValue = contentView.findViewById(R.id.btn_add_custom_value);
+        View btnCustomValue = contentView.findViewById(R.id.btn_add_custom_value);
+        btnCustomValue.setEnabled(false);
 
         String btnSign = "-";
-        if (isIncrease){
+        if (isIncrease) {
             btnSign = "+";
         }
 
@@ -303,12 +304,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(1);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                 viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C, -value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
@@ -320,12 +321,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(2);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                 viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
@@ -337,12 +338,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(3);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                 viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
@@ -354,12 +355,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(4);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                 viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,value, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
@@ -371,12 +372,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                buttonAddValue.setEnabled(s.length() > 0);
+                btnCustomValue.setEnabled(s.length() > 0);
             }
 
             @Override
@@ -389,27 +389,26 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
                     == EditorInfo.IME_ACTION_DONE)) {
                 final String value = editText.getText().toString();
-                if (TextUtils.isEmpty(value)) {
-                    longClickDialog.dismiss();
-                }
-                int intValue = Utilities.parseInt(value);
-                if (isIncrease) {
-                    Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,intValue, counter.getValue()));
+                if (!TextUtils.isEmpty(value)) {
+                    int intValue = Utilities.parseInt(value);
+                    if (isIncrease) {
+                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
-                    viewModel.increaseCounter(counter, intValue);
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                } else {
-                    Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,intValue, counter.getValue()));
+                        viewModel.increaseCounter(counter, intValue);
+                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                    } else {
+                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
 
-                    viewModel.decreaseCounter(counter, - intValue);
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                        viewModel.decreaseCounter(counter, -intValue);
+                        countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                    }
                 }
                 longClickDialog.dismiss();
             }
             return false;
         });
 
-        buttonAddValue.setOnClickListener(view -> {
+        btnCustomValue.setOnClickListener(v -> {
             final String value = editText.getText().toString();
             if (TextUtils.isEmpty(value)) {
                 longClickDialog.dismiss();
@@ -417,14 +416,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
             int intValue = Utilities.parseInt(value);
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.INC_C,intValue, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
                 viewModel.increaseCounter(counter, intValue);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.DEC_C,intValue, counter.getValue()));
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, - intValue);
+                viewModel.decreaseCounter(counter, -intValue);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
             longClickDialog.dismiss();
@@ -446,7 +445,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .content(R.string.counter_details_name)
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
-                .inputRange(1,20)
+                .inputRange(1, 20)
                 .negativeColorRes(R.color.primaryColor)
                 .negativeText(R.string.common_cancel)
                 .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))

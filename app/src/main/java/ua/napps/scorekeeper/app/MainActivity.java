@@ -3,12 +3,13 @@ package ua.napps.scorekeeper.app;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import android.view.WindowManager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -41,14 +42,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private int lastSelectedBottomTab;
     private int currentDiceRoll;
     private int previousDiceRoll;
-    private boolean isDarkTheme;
+    private boolean isLightTheme;
     private boolean isKeepScreenOn;
     private BottomNavigationBar bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isDarkTheme = LocalSettings.isDarkTheme();
+        isLightTheme = LocalSettings.isLightTheme();
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState == null) {
             trackAnalytics();
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
-        AppCompatDelegate.setDefaultNightMode(isDarkTheme ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
         easyRatingDialog = new EasyRatingDialog(this);
         manager = getSupportFragmentManager();
@@ -71,20 +72,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(isDarkTheme ? R.color.black : R.color.white)
+                .setBarBackgroundColor(isLightTheme ? R.color.white : R.color.black)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .setActiveColor(!isDarkTheme ? R.color.accentColor : R.color.white)
+                .setActiveColor(isLightTheme ? R.color.accentColor : R.color.white)
                 .setFirstSelectedPosition(lastSelectedBottomTab)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
 
         switchFragment(TAGS[lastSelectedBottomTab]);
-        if (!isDarkTheme) {
+        if (isLightTheme) {
             ViewUtil.setLightStatusBar(this, Color.WHITE);
         } else {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
-        ViewUtil.setNavBarColor(this, !isDarkTheme);
+        ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOn();
 
         Singleton.getInstance().setMainContext(this);
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private void trackAnalytics() {
         Bundle params1 = new Bundle();
-        params1.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isDarkTheme ? 1 : 0);
+        params1.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isLightTheme ? 0 : 1);
         AndroidFirebaseAnalytics.logEvent("dark_theme", params1);
 
         Bundle params2 = new Bundle();
@@ -145,12 +146,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             diceNumberBadgeItem.hide(false);
         }
-        if (!isDarkTheme) {
+        if (isLightTheme) {
             ViewUtil.setLightStatusBar(this);
         } else {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
-        ViewUtil.setNavBarColor(this, !isDarkTheme);
+        ViewUtil.setNavBarColor(this, isLightTheme);
     }
 
     @Override
@@ -181,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 applyKeepScreenOn();
                 break;
             case LocalSettings.DARK_THEME:
-                if (LocalSettings.isDarkTheme()) {
+                if (LocalSettings.isLightTheme()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

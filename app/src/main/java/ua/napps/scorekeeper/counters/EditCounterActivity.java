@@ -3,27 +3,15 @@ package ua.napps.scorekeeper.counters;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.textfield.TextInputLayout;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.transition.Transition;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,12 +21,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -51,7 +47,6 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
-import ua.napps.scorekeeper.utils.TransitionListenerAdapter;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -67,7 +62,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private AppBarLayout appBar;
     private TextView counterStep;
     private TextInputLayout counterNameLayout;
-    private EditText counterName;
+    private TextInputEditText counterName;
     private TextView counterDefaultValue;
     private TextView counterPosition;
     private TextView labelChangesSaved;
@@ -80,16 +75,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         Intent intent = new Intent(activity, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, counter.getId());
         intent.putExtra(ARGUMENT_COUNTER_COLOR, counter.getColor());
-
-        Bundle bundle = null;
-        if (view != null) {
-            bundle = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view, "backgroundColorImage").toBundle();
-        }
-        if (bundle == null) {
-            activity.startActivity(intent);
-        } else {
-            activity.startActivity(intent, bundle);
-        }
+        activity.startActivity(intent);
     }
 
     @Override
@@ -101,11 +87,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             throw new UnsupportedOperationException("Activity should be started using the static start method");
         }
         setContentView(R.layout.activity_edit_counter);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            String backgroundHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
-            setTransitions(backgroundHex);
-        }
-        ViewUtil.setNavBarColor(EditCounterActivity.this, !LocalSettings.isDarkTheme());
+        ViewUtil.setNavBarColor(EditCounterActivity.this, LocalSettings.isLightTheme());
 
         final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
@@ -183,10 +165,10 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         appBar = findViewById(R.id.app_bar);
         revealView = findViewById(R.id.reveal_view);
         counterNameLayout = findViewById(R.id.til_counter_name);
+        int color = Color.parseColor(getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR));
+        appBar.setBackgroundColor(color);
+        applyTintAccordingToCounterColor(color);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            revealView.setVisibility(View.GONE);
-        }
     }
 
     private void setOnClickListeners() {
@@ -201,7 +183,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 .allowUserColorInputAlpha(false)
                 .show(EditCounterActivity.this));
         findViewById(R.id.btn_delete).setOnClickListener(v -> {
-            Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.RMV,0, counter.getValue()));
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
             viewModel.deleteCounter();
         });
         findViewById(R.id.counter_value).setOnClickListener(v -> {
@@ -214,7 +196,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .input(String.valueOf(counter.getValue()), null, false,
                             (dialog, input) -> {
                                 int intValue = Utilities.parseInt(input.toString());
-                                Singleton.getInstance().addLogEntry(new LogEntry(counter,LogType.SET,intValue, counter.getValue()));
+                                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, intValue, counter.getValue()));
                                 viewModel.updateValue(intValue);
                             })
                     .build();
@@ -301,7 +283,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                                 int position = Utilities.parseInt(value);
                                 if (position == 0) {
                                     Toast.makeText(context, R.string.counter_position_zero, Toast.LENGTH_SHORT).show();
-                                }else if (position == counter.getPosition() + 1) {
+                                } else if (position == counter.getPosition() + 1) {
                                     Toast.makeText(context, R.string.counter_position_current, Toast.LENGTH_SHORT).show();
                                 } else {
                                     viewModel.updatePosition(position - 1);
@@ -350,32 +332,12 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void setTransitions(String backgroundHex) {
-        if (!TextUtils.isEmpty(backgroundHex)) {
-            final int backgroundColor = Color.parseColor(backgroundHex);
-            final Transition sharedElementEnterTransition = getWindow().getSharedElementEnterTransition();
-            sharedElementEnterTransition.addListener(new TransitionListenerAdapter() {
-                @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                @Override
-                public void onTransitionEnd(Transition transition) {
-                    reveal(backgroundColor);
-                }
-
-                @Override
-                public void onTransitionStart(Transition transition) {
-                    revealView.setBackgroundColor(backgroundColor);
-                }
-            });
-        }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void reveal(int backgroundColor) {
         revealBackground.setBackgroundColor(backgroundColor);
         final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
         Animator anim = ViewAnimationUtils.createCircularReveal(revealBackground, center.first.intValue(),
                 center.second.intValue(), 0f, revealBackground.getWidth());
-        anim.setDuration(400);
+        anim.setDuration(200);
         revealBackground.setVisibility(View.VISIBLE);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -392,17 +354,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         }
         boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
         if (!useLightTint) {
-            ViewUtil.setLightStatusBar(this,backgroundColor);
+            ViewUtil.setLightStatusBar(this, backgroundColor);
         } else {
             ViewUtil.clearLightStatusBar(this, backgroundColor);
         }
         int color = ContextCompat.getColor(EditCounterActivity.this, useLightTint ? R.color.white : R.color.black);
-        counterName.setTextColor(color);
         labelChangesSaved.setTextColor(color);
+        counterName.setTextColor(color);
         counterNameLayout.setHintTextAppearance(useLightTint ? R.style.HintTextLight : R.style.HintTextDark);
-        Drawable wrappedDrawable = DrawableCompat.wrap(counterName.getBackground());
-        DrawableCompat.setTint(wrappedDrawable.mutate(), color);
-        counterName.setBackground(wrappedDrawable);
+
+        counterName.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+        counterName.setHighlightColor(color);
         ViewUtil.setCursorTint(counterName, color);
         getSupportActionBar().setHomeAsUpIndicator(useLightTint ? R.drawable.ic_arrow_left_white : R.drawable.ic_arrow_left);
 
@@ -438,20 +400,18 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 counterValue.setText(String.valueOf(c.getValue()));
                 counterStep.setText(String.valueOf(c.getStep()));
                 counterDefaultValue.setText(String.valueOf(c.getDefaultValue()));
-                counterPosition.setText(String.valueOf(c.getPosition()+1));
+                counterPosition.setText(String.valueOf(c.getPosition() + 1));
                 if (!c.getName().equals(counterName.getText().toString())) {
                     counterName.setText(c.getName());
                     counterName.setSelection(c.getName().length());
-                }
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                    applyTintAccordingToCounterColor(Color.parseColor(counter.getColor()));
                 }
             } else {
                 counter = null;
                 finish();
             }
         });
-        viewModel.getCounters().observe(this, c -> {});
+        viewModel.getCounters().observe(this, c -> {
+        });
     }
 
     @Override
@@ -484,30 +444,5 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 .debounce(1000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .filter(s -> s.length() > 0);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void hideView() {
-        final Pair<Float, Float> center = ViewUtil.getCenter(revealView);
-        final Animator animator;
-        animator = ViewAnimationUtils.createCircularReveal(revealBackground,
-                center.first.intValue(), center.second.intValue(), revealBackground.getWidth(), 0);
-        animator.setDuration(300);
-        animator.start();
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return false;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            supportFinishAfterTransition();
-            hideView();
-        }
     }
 }

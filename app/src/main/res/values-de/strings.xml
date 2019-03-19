@@ -45,7 +45,7 @@
     <string name="settings_section_request_a_feature">Frage nach einer Funktion</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
-    <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel. Wähle das letzte für eine andere Anzahl.</string>
+    <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel</string>
     <string name="common_info">Info</string>
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Du kannst ihn außerdem durch einen langen Klick ändern.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>

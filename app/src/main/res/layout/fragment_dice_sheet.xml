@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_dice_sides"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:gravity="center"
+        android:minHeight="@dimen/list_single_line_min_height"
+        android:paddingStart="@dimen/padding_normal"
+        android:paddingEnd="@dimen/padding_normal"
+        android:text="@string/settings_section_dice_sides"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="@dimen/font_body"
+        app:layout_constraintBottom_toTopOf="@id/tb_dice_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+    <ToggleButton
+        android:id="@+id/tb_dice_6"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:fontFamily="@font/inter_ui_medium"
+        android:includeFontPadding="false"
+        android:textOff="6"
+        android:textOn="6"
+        android:textSize="@dimen/font_display"
+        android:textColor="@color/textColorPrimary"
+        app:layout_constraintEnd_toStartOf="@id/tb_dice_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice_sides"
+        tools:ignore="HardcodedText" />
+
+    <ToggleButton
+        android:id="@+id/tb_dice_8"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:fontFamily="@font/inter_ui_medium"
+        android:includeFontPadding="false"
+        android:textOff="8"
+        android:textOn="8"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_display"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintEnd_toStartOf="@id/tb_dice_20"
+        app:layout_constraintStart_toEndOf="@id/tb_dice_6"
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
+
+    <ToggleButton
+        android:id="@+id/tb_dice_20"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:fontFamily="@font/inter_ui_medium"
+        android:includeFontPadding="false"
+        android:textOff="20"
+        android:textOn="20"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="@dimen/font_display"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintEnd_toStartOf="@id/tb_dice_x"
+        app:layout_constraintStart_toEndOf="@id/tb_dice_8"
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
+
+    <ToggleButton
+        android:id="@+id/tb_dice_x"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:fontFamily="@font/inter_ui_medium"
+        android:includeFontPadding="false"
+        android:textOff="\?"
+        android:textOn="\?"
+        android:textSize="@dimen/font_display"
+        android:textColor="@color/textColorPrimary"
+        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tb_dice_20"
+        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="?myDividerColor"
+        android:layout_marginTop="@dimen/spacing_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/sw_shake_roll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/padding_normal"
+        android:text="@string/settings_shake_to_roll"
+        android:theme="@style/SwitchStyle"
+        android:textColor="@color/textColorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

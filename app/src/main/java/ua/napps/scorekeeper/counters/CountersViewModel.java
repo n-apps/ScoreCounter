@@ -34,7 +34,7 @@ class CountersViewModel extends AndroidViewModel {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        colors = application.getResources().getStringArray(LocalSettings.isDarkTheme() ? R.array.dark : R.array.light);
+        colors = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
     }
 
     public LiveData<Counter> getCounterLiveData(int counterID) {

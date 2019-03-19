@@ -19,6 +19,6 @@
     <color name="black_5">#0D000000</color>
     <color name="white_12">#1FFFFFFF</color>
     <color name="dice_stroke">@color/primaryColor</color>
-    <color name="flat_button_color">#3b0800</color>
-    <color name="flat_button_color_pressed">#9e1f0b</color>
+    <color name="flat_button_color">#222</color>
+    <color name="flat_button_color_pressed">#1F000000</color>
 </resources>

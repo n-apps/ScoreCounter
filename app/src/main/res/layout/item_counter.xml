@@ -49,12 +49,6 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless">
 
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/black_5" />
-
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="match_parent"

@@ -45,7 +45,7 @@
     <string name="settings_section_request_a_feature">Request a feature</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
-    <string name="settings_section_dice_sides">Number of sides of the dice. Select the last one for a specific number of sides</string>
+    <string name="settings_section_dice_sides">Number of sides of the dice</string>
     <string name="common_info">Info</string>
     <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
