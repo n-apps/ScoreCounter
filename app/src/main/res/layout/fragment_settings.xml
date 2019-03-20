@@ -88,7 +88,7 @@
             android:id="@+id/tv_counter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_normal"
             android:padding="@dimen/spacing_normal"
             android:text="@string/common_counter"
             android:textColor="@color/accentColor"

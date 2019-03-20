@@ -350,7 +350,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private void applyTintAccordingToCounterColor(int backgroundColor) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            appBar.setBackgroundColor(Color.parseColor(counter.getColor()));
+            appBar.setBackgroundColor(backgroundColor);
         }
         boolean useLightTint = ColorUtil.isDarkBackground(backgroundColor);
         if (!useLightTint) {

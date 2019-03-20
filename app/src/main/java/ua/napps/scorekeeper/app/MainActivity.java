@@ -19,6 +19,7 @@ import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
+import ua.napps.scorekeeper.dice.OnDiceFragmentInteractionListener;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -26,7 +27,7 @@ import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, DicesFragment.OnDiceFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, OnDiceFragmentInteractionListener {
 
     private static final String TAG_DICES_FRAGMENT = "DICES_FRAGMENT";
     private static final String TAG_COUNTERS_FRAGMENT = "COUNTERS_FRAGMENT";
