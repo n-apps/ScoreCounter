@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentTransaction;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
-import com.github.fernandodev.easyratingdialog.library.EasyRatingDialog;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
@@ -23,6 +22,7 @@ import ua.napps.scorekeeper.dice.OnDiceFragmentInteractionListener;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
 
-    private EasyRatingDialog easyRatingDialog;
+    private RateMyAppDialog rateMyAppDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
     private TextBadgeItem diceNumberBadgeItem;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         setContentView(R.layout.activity_main);
-        easyRatingDialog = new EasyRatingDialog(this);
+        rateMyAppDialog = new RateMyAppDialog(this);
         manager = getSupportFragmentManager();
         lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
         if (lastSelectedBottomTab > 1) {
@@ -121,13 +121,13 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-        easyRatingDialog.showIfNeeded();
+        rateMyAppDialog.showIfNeeded();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        easyRatingDialog.onStart();
+        rateMyAppDialog.onStart();
         App.getTinyDB().registerOnSharedPreferenceChangeListener(this);
     }
 

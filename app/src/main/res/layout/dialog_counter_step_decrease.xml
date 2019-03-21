@@ -125,8 +125,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:minHeight="@dimen/button_min_height"
         android:paddingBottom="@dimen/padding_normal"
-        android:paddingTop="@dimen/padding_normal"
-        android:text="@string/common_decrease">
+        android:paddingTop="@dimen/padding_normal">
 
         <TextView
             android:layout_width="wrap_content"

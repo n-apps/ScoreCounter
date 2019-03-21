@@ -1,5 +1,9 @@
 package ua.napps.scorekeeper.utils;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 
@@ -60,6 +64,7 @@ public class Utilities {
 
     /**
      * Checks if the device has Lolllipop or higher version.
+     *
      * @return <code>true</code> if device is a tablet.
      */
     public static boolean hasLollipop() {
@@ -68,6 +73,7 @@ public class Utilities {
 
     /**
      * Checks if the device has Marshmallow or higher version.
+     *
      * @return <code>true</code> if device is a tablet.
      */
     public static boolean hasMarshmallow() {
@@ -76,6 +82,7 @@ public class Utilities {
 
     /**
      * Checks if the device has Marshmallow or higher version.
+     *
      * @return <code>true</code> if device is a tablet.
      */
     public static boolean hasNougat() {
@@ -84,10 +91,25 @@ public class Utilities {
 
     /**
      * Checks if the device has Oreo or higher version.
+     *
      * @return <code>true</code> if device is a tablet.
      */
     public static boolean hasOreo() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    }
+
+    public static void rateApp(Context context) {
+        Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        try {
+            context.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
     }
 
 }

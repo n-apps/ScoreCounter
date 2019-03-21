@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_large">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/inter_ui_medium"
+        android:text="@string/erd_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/erd_message"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+
+    <FrameLayout
+        android:id="@+id/btn_rate_it"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:background="@drawable/bg_rate_app_button"
+        android:foreground="?attr/selectableItemBackground"
+        android:minHeight="@dimen/button_min_height"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_ui_medium"
+            android:text="@string/erd_rate_now"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/white" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_no_thanks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_ui_medium"
+            android:paddingStart="@dimen/padding_normal"
+            android:paddingTop="@dimen/spacing_micro"
+            android:background="?selectableItemBackground"
+            android:paddingEnd="@dimen/padding_normal"
+            android:paddingBottom="@dimen/spacing_micro"
+            android:text="@string/erd_no_thanks"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/rate_app_options" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btn_remind_later"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/inter_ui_medium"
+            android:paddingStart="@dimen/padding_normal"
+            android:background="?selectableItemBackground"
+            android:paddingTop="@dimen/spacing_micro"
+            android:paddingEnd="@dimen/padding_normal"
+            android:paddingBottom="@dimen/spacing_micro"
+            android:text="@string/erd_remind_me_later"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/rate_app_options" />
+    </LinearLayout>
+
+</LinearLayout>

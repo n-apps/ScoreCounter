@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.IntRange;
@@ -36,6 +35,8 @@ public class DicesFragment extends Fragment {
     private float accel;
     private float accelCurrent;
     private float accelLast;
+    private int previousRoll;
+    private int currentRoll;
     private TextView previousRollTextView;
     private TextView diceVariantInfo;
     private TextView previousRollTextViewLabel;
@@ -43,11 +44,8 @@ public class DicesFragment extends Fragment {
     private TextView diceTextView;
     private SpringForce springForce;
     private DiceViewModel viewModel;
-    private int previousRoll;
-    private int currentRoll;
-    private OnDiceFragmentInteractionListener listener;
     private ConstraintLayout root;
-    private DiceBottomSheetFragment diceBottomSheetFragment;
+    private OnDiceFragmentInteractionListener listener;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -80,24 +78,32 @@ public class DicesFragment extends Fragment {
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
         root = contentView.findViewById(R.id.container);
+        contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> {
+            AndroidFirebaseAnalytics.logEvent("dice_menu_click");
+            showBottomSheet();
+        });
         root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "click");
             AndroidFirebaseAnalytics.logEvent("roll_dice", params);
         });
-        ImageView diceMenu = contentView.findViewById(R.id.iv_dice_menu);
-        diceMenu.setOnClickListener(v -> {
-            AndroidFirebaseAnalytics.logEvent("dice_menu_click");
-            diceBottomSheetFragment = new DiceBottomSheetFragment();
-            diceBottomSheetFragment.show(getFragmentManager(), "DiceBottomSheetFragment");
-            diceBottomSheetFragment.setOnDismissListener(d -> updateDiceVariant());
+        root.setOnLongClickListener(v -> {
+            showBottomSheet();
+            return true;
         });
+
 
         int maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
 
         return contentView;
+    }
+
+    private void showBottomSheet() {
+        DiceBottomSheetFragment bottomSheet = new DiceBottomSheetFragment();
+        bottomSheet.show(getFragmentManager(), "DiceBottomSheetFragment");
+        bottomSheet.setOnDismissListener(d -> updateDiceVariant());
     }
 
     private void updateDiceVariant() {

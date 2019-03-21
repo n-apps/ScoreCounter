@@ -21,5 +21,6 @@
     <color name="dice_stroke">#424254</color>
     <color name="flat_button_color">#222</color>
     <color name="flat_button_color_pressed">#42000000</color>
+    <color name="rate_app_options">#de000000</color>
 
 </resources>

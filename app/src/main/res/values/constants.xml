@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <integer name="erd_launch_times">18</integer>
-    <integer name="erd_max_days_after">14</integer>
-</resources>

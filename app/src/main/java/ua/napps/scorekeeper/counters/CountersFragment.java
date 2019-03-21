@@ -1,8 +1,6 @@
 package ua.napps.scorekeeper.counters;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -172,7 +170,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 AndroidFirebaseAnalytics.logEvent("menu_request_a_feature");
                 break;
             case R.id.menu_rate:
-                rateApp();
+                Utilities.rateApp(requireActivity());
                 AndroidFirebaseAnalytics.logEvent("menu_rate_app");
                 break;
         }
@@ -478,17 +476,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
 
-    private void rateApp() {
-        Activity activity = requireActivity();
-        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-        try {
-            activity.startActivity(goToMarket);
-        } catch (ActivityNotFoundException e) {
-            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName());
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, playStoreUri));
-        }
-    }
+
 
     private void startEmailClient() {
         final String title = getString(R.string.app_name);

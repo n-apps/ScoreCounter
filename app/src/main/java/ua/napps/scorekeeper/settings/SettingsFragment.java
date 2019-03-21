@@ -1,7 +1,5 @@
 package ua.napps.scorekeeper.settings;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -104,7 +102,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.tv_rate_app:
                 AndroidFirebaseAnalytics.logEvent("rate_app__click");
-                rateApp();
+                Utilities.rateApp(requireActivity());
                 break;
             case R.id.tv_privacy_policy:
                 AndroidFirebaseAnalytics.logEvent("privacy_policy__click");
@@ -186,18 +184,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case 4:
                 btn_c_4.setText(String.valueOf(value));
                 break;
-        }
-    }
-
-    private void rateApp() {
-        Activity activity = requireActivity();
-        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-        try {
-            activity.startActivity(goToMarket);
-        } catch (ActivityNotFoundException e) {
-            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName());
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, playStoreUri));
         }
     }
 
