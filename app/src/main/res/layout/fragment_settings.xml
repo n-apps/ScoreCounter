@@ -112,66 +112,64 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_counter" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_1"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
             android:fontFamily="@font/inter_ui_medium"
             android:includeFontPadding="false"
             android:text="5"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_settings_counter_custom"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_2"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
             android:includeFontPadding="false"
             android:text="10"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_1"
             app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_3"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_1"
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_1"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_3"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
             android:includeFontPadding="false"
             android:text="15"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_2"
             app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_4"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_2"
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_2"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_4"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/bg_selector_mini_dice_toogle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
             android:includeFontPadding="false"
+            app:layout_constraintDimensionRatio="1,1"вш
             android:text="30"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:textSize="@dimen/font_display"
+            android:textColor="@color/textColorPrimary"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_3"

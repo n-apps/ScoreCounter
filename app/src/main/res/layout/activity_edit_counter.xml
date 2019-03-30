@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="192dp"
         android:minHeight="?attr/actionBarSize"
-        tools:background="@color/dark_theme_bg"
-        app:elevation="0dp">
+        app:elevation="0dp"
+        tools:background="@color/flat_button_color_pressed">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -27,16 +27,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="69dp"
                 android:layout_marginEnd="@dimen/spacing_large"
-                android:layout_marginBottom="@dimen/spacing_large"
-                android:hint="@string/counter_details_name"
-                android:theme="@style/LightEditText"
-                app:hintAnimationEnabled="false"
-                app:hintTextAppearance="@style/MyHintText">
+                android:layout_marginBottom="@dimen/spacing_xlarge"
+                android:hint="@string/counter_details_name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_name"
@@ -59,11 +57,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="top|right"
-                android:text="@string/label_all_changes_saved"
+                android:alpha=".54"
                 android:gravity="center"
                 android:paddingStart="@dimen/padding_normal"
                 android:paddingEnd="@dimen/padding_normal"
-                android:alpha=".54"
+                android:text="@string/label_all_changes_saved"
                 android:textColor="@color/textColorHintInverse"
                 android:visibility="invisible"
                 tools:visibility="visible" />
@@ -78,8 +76,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/padding_large"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_large">
 
             <LinearLayout
                 android:id="@+id/counter_value"
