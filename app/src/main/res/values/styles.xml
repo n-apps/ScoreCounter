@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryColor</item>
@@ -23,14 +23,14 @@
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
     </style>
 
-    <style name="AppBarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+    <style name="AppBarStyle" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <item name="android:background">@color/primaryColor</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
 
     <style name="SingleLineStyle">
         <item name="android:background">?attr/selectableItemBackground</item>
@@ -47,14 +47,14 @@
         <item name="android:paddingEnd">@dimen/padding_normal</item>
     </style>
 
-    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+    <style name="SwitchStyle" parent="Widget.MaterialComponents.CompoundButton.Switch">
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
         <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
         <item name="colorControlActivated">@color/accentColor</item>
     </style>
 
-    <style name="EmptyStateMessage" parent="TextAppearance.AppCompat.Medium">
+    <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:paddingBottom">@dimen/padding_normal</item>
@@ -79,21 +79,21 @@
     </style>
 
     <!--Input field style-->
-    <style name="LightEditText" parent="Theme.AppCompat">
+    <style name="LightEditText" parent="Theme.MaterialComponents">
         <item name="colorControlNormal">@color/white</item>
         <item name="colorControlActivated">@color/white</item>
     </style>
 
-    <style name="MyHintText" parent="TextAppearance.AppCompat.Caption">
+    <style name="MyHintText" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textColor">@color/textColorPrimaryInverse</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="HintTextLight" parent="TextAppearance.AppCompat.Caption">
+    <style name="HintTextLight" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textColor">@color/textColorPrimaryInverse</item>
     </style>
 
-    <style name="HintTextDark" parent="TextAppearance.AppCompat.Caption">
+    <style name="HintTextDark" parent="TextAppearance.MaterialComponents.Caption">
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
