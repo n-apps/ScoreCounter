@@ -438,7 +438,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .content(R.string.counter_details_name)
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
-                .inputRange(1, 20)
                 .negativeColorRes(R.color.primaryColor)
                 .negativeText(R.string.common_cancel)
                 .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
