@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black_5"
-        android:minHeight="@dimen/button_min_height"
+        android:minHeight="@dimen/list_single_line_min_height"
         android:orientation="horizontal">
 
         <TextView
@@ -25,17 +25,15 @@
             android:maxLines="1"
             android:paddingStart="@dimen/padding_normal"
             android:paddingEnd="@dimen/padding_normal"
-            android:textAllCaps="true"
-            android:textSize="@dimen/font_button"
+            android:textSize="@dimen/font_display"
             tools:text="@tools:sample/first_names" />
 
         <ImageView
             android:id="@+id/iv_counter_edit"
-            android:layout_width="48dp"
-            android:layout_height="@dimen/button_min_height"
+            android:layout_width="@dimen/list_single_line_min_height"
+            android:layout_height="@dimen/list_single_line_min_height"
             android:padding="@dimen/spacing_normal"
             android:foreground="?selectableItemBackground"
-            android:alpha="0.87"
             android:gravity="right"
             android:scaleType="center"
             app:srcCompat="@drawable/ic_more" />

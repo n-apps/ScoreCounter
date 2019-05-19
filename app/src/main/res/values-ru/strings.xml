@@ -13,7 +13,7 @@
     <string name="common_set">Установить</string>
     <string name="counter_details_color_picker_title">Выберите цвет счетчика</string>
     <string name="counter_details_default_value">Значение после сброса</string>
-    <string name="counter_details_delete">Удалить счетчик</string>
+    <string name="counter_remove">Удалить счетчик</string>
     <string name="counter_details_name">Название счетчика</string>
     <string name="counter_details_step">Шаг (-/+)</string>
     <string name="counter_details_value">Текущее значение</string>
@@ -39,9 +39,9 @@
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
-    <string name="settings_section_contact_developer">Написать разработчику</string>
+    <string name="settings_section_info">Инфо</string>
     <string name="settings_section_dice">Кубик</string>
-    <string name="settings_section_general">Основные</string>
+    <string name="settings_section_general">Внешний вид</string>
     <string name="settings_section_request_a_feature">Мне не хватает…</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать экран</string>
@@ -65,5 +65,6 @@
     <string name="dialog_no">Нет</string>
     <string name="counter_position_current">Вы ввели текущее положение счетчика.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="settings_github">Помочь проекту (Github)</string>
 
 </resources>

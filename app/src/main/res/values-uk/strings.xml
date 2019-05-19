@@ -13,7 +13,7 @@
     <string name="common_set">Встановити</string>
     <string name="counter_details_color_picker_title">Оберіть колір лічильника</string>
     <string name="counter_details_default_value">Значення після скиду</string>
-    <string name="counter_details_delete">Видалити лічильник</string>
+    <string name="counter_remove">Видалити лічильник</string>
     <string name="counter_details_name">Назва лічильника</string>
     <string name="counter_details_step">Крок (-/+)</string>
     <string name="counter_details_value">Поточне значення</string>
@@ -39,9 +39,9 @@
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
-    <string name="settings_section_contact_developer">Написати розробнику</string>
+    <string name="settings_section_info">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
-    <string name="settings_section_general">Загальні</string>
+    <string name="settings_section_general">Зовнішній вигляд</string>
     <string name="settings_section_request_a_feature">Мені не вистачає…</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
@@ -65,4 +65,5 @@
     <string name="dialog_yes">Так</string>
     <string name="dialog_no">Ні</string>
     <string name="privacy_policy">Політика конфіденційності</string>
+    <string name="settings_github">Допомогти проекту (Github)</string>
 </resources>

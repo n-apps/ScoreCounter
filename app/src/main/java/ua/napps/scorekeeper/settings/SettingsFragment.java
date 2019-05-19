@@ -30,7 +30,7 @@ import ua.napps.scorekeeper.utils.Utilities;
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    private Button btn_c_1,btn_c_2,btn_c_3,btn_c_4;
+    private Button btn_c_1, btn_c_2, btn_c_3, btn_c_4;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -61,6 +61,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_github).setOnClickListener(this);
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
@@ -104,6 +105,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 AndroidFirebaseAnalytics.logEvent("rate_app__click");
                 Utilities.rateApp(requireActivity());
                 break;
+            case R.id.tv_github:
+                AndroidFirebaseAnalytics.logEvent("github__click");
+                Intent githubIntent =
+                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/n-apps/ScoreCounter/issues"));
+                startActivity(githubIntent);
+                break;
             case R.id.tv_privacy_policy:
                 AndroidFirebaseAnalytics.logEvent("privacy_policy__click");
                 Intent viewIntent =
@@ -126,7 +133,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
-    private void openCustomCounterDialog(final int id){
+    private void openCustomCounterDialog(final int id) {
         final MaterialDialog customCounterDialog = new MaterialDialog.Builder(requireActivity())
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
@@ -148,7 +155,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     if (editText != null) {
                         Integer parseInt = Utilities.parseInt(editText.getText().toString());
                         if (parseInt <= 999 && parseInt > 1) {
-                            setCustomCounter(id,parseInt);
+                            setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();
                         AndroidFirebaseAnalytics.logEvent("set_custom_counter_value_for_dialog");
@@ -169,9 +176,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         customCounterDialog.show();
     }
 
-    private void setCustomCounter(int id, int value){
-        LocalSettings.saveCustomCounter(id,value);
-        switch (id){
+    private void setCustomCounter(int id, int value) {
+        LocalSettings.saveCustomCounter(id, value);
+        switch (id) {
             case 1:
                 btn_c_1.setText(String.valueOf(value));
                 break;

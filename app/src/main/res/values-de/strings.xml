@@ -13,7 +13,7 @@
     <string name="common_set">setzen</string>
     <string name="counter_details_color_picker_title">Wähle Zähler Farbe</string>
     <string name="counter_details_default_value">Wert nach reset</string>
-    <string name="counter_details_delete">Zähler löschen</string>
+    <string name="counter_remove">Zähler löschen</string>
     <string name="counter_details_name">Zähler Name</string>
     <string name="counter_details_step">Schritte (-/+)</string>
     <string name="counter_details_value">Aktueller Wert</string>
@@ -39,9 +39,9 @@
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
     <string name="message_you_can_use_long_press">Du kannst die Zähler Werte auch durch einen langen Klick anpassen</string>
     <string name="settings_dark_theme">Dunkles Theme</string>
-    <string name="settings_section_contact_developer">Entwickler kontaktieren</string>
+    <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Würfel</string>
-    <string name="settings_section_general">Allgemein</string>
+    <string name="settings_section_general">Aussehen</string>
     <string name="settings_section_request_a_feature">Frage nach einer Funktion</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
@@ -65,5 +65,6 @@
     <string name="counter_position_current">Sie haben die aktuelle Position des Zählers eingegeben.</string>
     <string name="dialog_position_info_content">Position des angegebenen Zählers in der Liste. Muss höher als 0 sein. Wenn Sie die Position höher als die aktuelle Anzahl der Zähler setzen, wird der Zähler an das Ende der Liste verschoben.</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
+    <string name="settings_github">Beitragen (Github)</string>
 
 </resources>
