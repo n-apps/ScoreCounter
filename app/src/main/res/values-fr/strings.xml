@@ -13,7 +13,7 @@
     <string name="common_set">Définir</string>
     <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
     <string name="counter_details_default_value">Valeur après réinitialisation</string>
-    <string name="counter_details_delete">Supprimer le compteur</string>
+    <string name="counter_remove">Supprimer le compteur</string>
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Étape (-/+)</string>
     <string name="counter_details_value">La valeur active</string>
@@ -39,10 +39,10 @@
     <string name="menu_reset_all_counters">Réinitialiser tous</string>
     <string name="message_you_can_use_long_press">Vous pouvez également changer la valeur du compteur en appuyant longuement</string>
     <string name="settings_dark_theme">Thème sombre</string>
-    <string name="settings_section_contact_developer">Contacter le développeur</string>
+    <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Dés</string>
-    <string name="settings_section_general">Général</string>
-    <string name="settings_section_request_a_feature">Je n\'ai pas assez …</string>
+    <string name="settings_section_general">Apparence</string>
+    <string name="settings_section_request_a_feature">Proposer une fonctionnalité</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés des dés</string>
@@ -65,5 +65,6 @@
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="settings_github">Contribuer (Github)</string>
 
 </resources>

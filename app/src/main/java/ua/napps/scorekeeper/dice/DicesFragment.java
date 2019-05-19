@@ -5,6 +5,7 @@ import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ public class DicesFragment extends Fragment {
     private DiceViewModel viewModel;
     private ConstraintLayout root;
     private OnDiceFragmentInteractionListener listener;
+    private MediaPlayer mp;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -92,6 +94,8 @@ public class DicesFragment extends Fragment {
             showBottomSheet();
             return true;
         });
+
+        diceVariantInfo.setOnClickListener(v -> showBottomSheet());
 
 
         int maxSide = LocalSettings.getDiceMaxSide();
@@ -149,10 +153,15 @@ public class DicesFragment extends Fragment {
     }
 
     private void rollDice(@IntRange(from = 1, to = 100) int roll) {
+
+        mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
+        mp.start();
+
         updateLastRollLabel();
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
+
         diceTextView.setText("" + roll);
 
         new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
@@ -160,12 +169,17 @@ public class DicesFragment extends Fragment {
                 .setStartValue(100f)
                 .setStartVelocity(100)
                 .start();
+
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_X)
-                .setStartValue(0.8f)
+                .setStartValue(0.5f)
+                .setSpring(springForce)
+                .start();
+        new SpringAnimation(diceTextView, DynamicAnimation.ALPHA)
+                .setStartValue(0.1f)
                 .setSpring(springForce)
                 .start();
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_Y)
-                .setStartValue(0.8f)
+                .setStartValue(0.5f)
                 .setSpring(springForce)
                 .start();
     }
@@ -227,6 +241,9 @@ public class DicesFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         listener = null;
+        if (mp != null) {
+            mp.release();
+        }
     }
 
 }

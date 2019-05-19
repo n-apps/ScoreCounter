@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -123,6 +124,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setMessage(message)
                 .setPositiveButton(R.string.dialog_yes, (dialog, id) -> listener.onPositiveButtonClicked(getActivity()))
@@ -142,22 +144,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_remove_all:
                 AndroidFirebaseAnalytics.logEvent("menu_remove_all");
-                DialogPositiveClickListener dialogListenerRemove = new DialogPositiveClickListener() {
-                    @Override
-                    public void onPositiveButtonClicked(Context context) {
-                        viewModel.removeAll();
-                    }
-                };
+                DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
                 showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
                 AndroidFirebaseAnalytics.logEvent("menu_reset_all");
-                DialogPositiveClickListener dialogListenerReset = new DialogPositiveClickListener() {
-                    @Override
-                    public void onPositiveButtonClicked(Context context) {
-                        viewModel.resetAll();
-                    }
-                };
+                DialogPositiveClickListener dialogListenerReset = context -> viewModel.resetAll();
                 showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerReset);
                 break;
             case R.id.menu_log:
@@ -430,6 +422,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.show();
+        InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputMethodManager != null) {
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        }
     }
 
     @Override
@@ -474,8 +470,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void afterDrag(Counter counter, int fromPosition, int toPosition) {
         viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
-
-
 
     private void startEmailClient() {
         final String title = getString(R.string.app_name);
