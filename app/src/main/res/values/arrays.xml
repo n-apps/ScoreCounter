@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="light">
-        <item>#556270</item>
-        <item>#4ECDC4</item>
-        <item>#C7F464</item>
-        <item>#FF6B6B</item>
+        <item>#c44569</item>
+        <item>#546de5</item>
+        <item>#f5cd79</item>
+        <item>#f19066</item>
         <item>#C44D58</item>
+        <item>#63cdda</item>
+        <item>#303952</item>
+        <item>#f78fb3</item>
+        <item>#f7d794</item>
+        <item>#596275</item>
     </string-array>
     <string-array name="dark">
-        <item>#E3C3AC</item>
-        <item>#031E29</item>
-        <item>#3FAB9E</item>
-        <item>#E45946</item>
-        <item>#EA9A2B</item>
+        <item>#c44569</item>
+        <item>#546de5</item>
+        <item>#e15f41</item>
+        <item>#596275</item>
+        <item>#C44D58</item>
+        <item>#574b90</item>
+        <item>#303952</item>
+        <item>#f78fb3</item>
+        <item>#f7d794</item>
+        <item>#596275</item>
     </string-array>
 </resources>

@@ -82,8 +82,8 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         int itemCount = getItemCount();
         if (itemCount <= maxFitCounters) { // fit available space
             StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
+            lp.setFullSpan(true);
             holder.itemView.setLayoutParams(lp);
-            lp.setFullSpan(false);
         } else {// set height as recyclerview height / maxFitCounters
             StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / (maxFitCounters > 1 ? itemCount / 2 : 1));
             lp.setFullSpan(position == itemCount - 1 && itemCount % 2 == 1);
