@@ -32,7 +32,7 @@
         <activity
             android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
             android:parentActivityName="ua.napps.scorekeeper.app.MainActivity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustPan" />
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"

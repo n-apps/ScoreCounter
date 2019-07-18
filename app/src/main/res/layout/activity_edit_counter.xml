@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     tools:context="ua.napps.scorekeeper.counters.EditCounterActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         style="@style/AppBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        app:elevation="0dp">
+        app:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/til_counter_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="8dp"
         app:endIconContentDescription="@string/counter_details_name"
         app:endIconDrawable="@drawable/ic_round_color_lens_white"
         app:endIconMode="custom"
-        app:helperText="@string/counter_details_name">
+        app:endIconTint="@color/accentColor"
+        app:helperText="@string/counter_details_name"
+        app:layout_constraintBottom_toTopOf="@+id/til_counter_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_counter_name"
@@ -41,6 +53,7 @@
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
             android:maxLines="1"
+            android:imeOptions="actionDone"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             tools:text="@string/app_name" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -48,12 +61,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_value"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginEnd="@dimen/spacing_large"
-        app:helperText="@string/counter_details_value">
+        android:layout_marginBottom="8dp"
+        app:boxStrokeColor="?android:attr/textColorPrimary"
+        app:helperText="@string/counter_details_value"
+        app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
+        app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
+        app:layout_constraintStart_toStartOf="@+id/til_counter_name"
+        app:layout_constraintTop_toBottomOf="@+id/til_counter_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_counter_value"
@@ -61,6 +77,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:maxLines="1"
+            android:imeOptions="actionDone"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             tools:text="1" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,22 +85,27 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_step"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:endIconDrawable="@drawable/ic_information"
         app:endIconMode="custom"
-        app:helperText="@string/counter_details_step">
+        app:helperText="@string/counter_details_step"
+        app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/til_counter_value"
+        app:layout_constraintTop_toBottomOf="@+id/til_counter_value">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_counter_step"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
+            android:imeOptions="actionDone"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             tools:text="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,14 +113,17 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_default_value"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="16dp"
+        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:endIconDrawable="@drawable/ic_information"
         app:endIconMode="custom"
-        app:helperText="@string/counter_details_default_value">
+        app:helperText="@string/counter_details_default_value"
+        app:layout_constraintEnd_toEndOf="@+id/til_counter_value"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/til_counter_step"
+        app:layout_constraintTop_toTopOf="@+id/til_counter_step">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_counter_default_value"
@@ -106,21 +131,26 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:imeOptions="actionDone"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             tools:text="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_position"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:endIconDrawable="@drawable/ic_information"
         app:endIconMode="custom"
-        app:helperText="@string/counter_details_position">
+        app:helperText="@string/counter_details_position"
+        app:layout_constraintEnd_toEndOf="@+id/til_counter_step"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_counter_default_value">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_counter_position"
@@ -128,8 +158,25 @@
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:imeOptions="actionDone"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             tools:text="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:minWidth="80dp"
+        android:text="Save"
+        app:backgroundTint="#63cdda"
+        android:paddingLeft="@dimen/padding_large"
+        android:paddingRight="@dimen/padding_large"
+        app:cornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
