@@ -1,28 +1,32 @@
 package ua.napps.scorekeeper.counters;
 
-import java.util.List;
+import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.annotation.NonNull;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.util.List;
 
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 class EditCounterViewModel extends ViewModel {
 
     private final CountersRepository countersRepository;
-    private final EditCounterViewModelCallback callback;
     private final LiveData<List<Counter>> countersLiveData;
     private final LiveData<Counter> counterLiveData;
     private final int id;
     private Counter counter;
 
-    EditCounterViewModel(CountersRepository repository, final int counterId, EditCounterViewModelCallback callback) {
-        this.callback = callback;
+    EditCounterViewModel(CountersRepository repository, final int counterId) {
         id = counterId;
         countersRepository = repository;
         counterLiveData = repository.loadCounter(counterId);
@@ -63,8 +67,8 @@ class EditCounterViewModel extends ViewModel {
                 });
     }
 
-    void updateColor(String hex) {
-        if (hex.equals(counter.getColor())) {
+    void updateColor(@Nullable String hex) {
+        if (hex == null || hex.equals(counter.getColor())) {
             return;
         }
         countersRepository.modifyColor(id, hex)
@@ -73,7 +77,7 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        callback.showSavedState();
+
                     }
 
                     @Override
@@ -98,7 +102,6 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        callback.showSavedState();
                     }
 
                     @Override
@@ -114,16 +117,16 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateName(@NonNull String newName) {
-        if (newName.equals(counter.getName())) {
+        if (newName.equals(counter.getName()) ) {
             return;
         }
+
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        callback.showSavedState();
                     }
 
                     @Override
@@ -136,10 +139,14 @@ class EditCounterViewModel extends ViewModel {
 
                     }
                 });
+
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, counter.getName());
+        AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
     }
 
     void updateStep(int step) {
-        if (step == counter.getStep()) {
+        if (step == counter.getStep() || step == 0) {
             return;
         }
         countersRepository.modifyStep(id, step)
@@ -148,7 +155,7 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        callback.showSavedState();
+
                     }
 
                     @Override
@@ -173,7 +180,6 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-                        callback.showSavedState();
                     }
 
                     @Override
@@ -252,9 +258,5 @@ class EditCounterViewModel extends ViewModel {
                 }
             }
         }
-    }
-
-    public interface EditCounterViewModelCallback {
-        void showSavedState();
     }
 }
