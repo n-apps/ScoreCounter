@@ -9,12 +9,21 @@
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/inter_ui_regular</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="android:colorEdgeEffect">@color/accentColor</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>
         <item name="superBottomSheet_backgroundColor">@color/white</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/ButtonBarTheme</item>
+    </style>
+
+    <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/accentColor</item>
     </style>
 
     <style name="ToolBarStyle">

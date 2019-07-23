@@ -33,16 +33,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
-    private static final String STATE_IS_NAME_MODIFIED = "STATE_IS_NAME_MODIFIED";
 
     private Counter counter;
     private TextInputEditText counterStep;
     private TextInputLayout counterNameLayout;
     private TextInputEditText counterName;
     private TextInputEditText counterDefaultValue;
-    private TextInputEditText counterPosition;
-    private Button btnSave;
     private TextInputEditText counterValue;
+    private Button btnSave;
     private EditCounterViewModel viewModel;
     private String newCounterColorHex;
 
@@ -117,7 +115,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterStep = findViewById(R.id.et_counter_step);
         counterDefaultValue = findViewById(R.id.et_counter_default_value);
         counterValue = findViewById(R.id.et_counter_value);
-        counterPosition = findViewById(R.id.et_counter_position);
         counterNameLayout = findViewById(R.id.til_counter_name);
         btnSave = findViewById(R.id.btn_save);
         int color = Color.parseColor(getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR));
@@ -150,13 +147,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .show();
         });
 
-        ((TextInputLayout)findViewById(R.id.til_counter_position)).setEndIconOnClickListener(v -> {
-            new MaterialDialog.Builder(EditCounterActivity.this)
-                    .content(R.string.dialog_position_info_content)
-                    .positiveText(R.string.common_got_it)
-                    .show();
-        });
-
         btnSave.setOnClickListener(v -> validateAndSave());
     }
 
@@ -165,7 +155,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         viewModel.updateColor(newCounterColorHex);
         viewModel.updateValue(Utilities.parseInt(counterValue.getText().toString()));
         viewModel.updateDefaultValue(Utilities.parseInt(counterDefaultValue.getText().toString()));
-        viewModel.updatePosition(Utilities.parseInt(counterPosition.getText().toString()));
         viewModel.updateStep(Utilities.parseInt(counterStep.getText().toString()));
         supportFinishAfterTransition();
     }
@@ -193,7 +182,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 counterValue.setText(String.valueOf(c.getValue()));
                 counterStep.setText(String.valueOf(c.getStep()));
                 counterDefaultValue.setText(String.valueOf(c.getDefaultValue()));
-                counterPosition.setText(String.valueOf(c.getPosition() + 1));
                 if (!c.getName().equals(counterName.getText().toString())) {
                     counterName.setText(c.getName());
                     counterName.setSelection(c.getName().length());

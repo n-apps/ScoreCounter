@@ -58,12 +58,9 @@
     <string name="dialog_custom_counter_hint">От 2 до 999</string>
     <string name="dialog_custom_counter_title">Специальное значение счетчика</string>
     <string name="counter_details_position">Позиция</string>
-    <string name="counter_position_zero">Позиция не может быть равна нулю.</string>
-    <string name="dialog_position_info_content">Позиция данного счетчика в списке. Должно быть больше 0. Если вы установите позицию выше текущего количества счетчиков, счетчик будет перемещен в конец списка.</string>
     <string name="dialog_confirmation_question">Вы уверены?</string>
     <string name="dialog_yes">Да</string>
     <string name="dialog_no">Нет</string>
-    <string name="counter_position_current">Вы ввели текущее положение счетчика.</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="settings_github">Помочь проекту (Github)</string>
 

@@ -57,13 +57,10 @@
     <string name="dialog_custom_counter_title">Eigne Zähler Werte</string>
     <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
     <string name="settings_section_counter_buttons">Setze den Wert der Knöpfe im Zähler lang-klick Dialog</string>
-    <string name="dialog_confirmation_question">Are you sure?</string>
+    <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
     <string name="counter_details_position">Position</string>
-    <string name="counter_position_zero">Position cannot be zero.</string>
-    <string name="counter_position_current">Sie haben die aktuelle Position des Zählers eingegeben.</string>
-    <string name="dialog_position_info_content">Position des angegebenen Zählers in der Liste. Muss höher als 0 sein. Wenn Sie die Position höher als die aktuelle Anzahl der Zähler setzen, wird der Zähler an das Ende der Liste verschoben.</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="settings_github">Beitragen (Github)</string>
 
