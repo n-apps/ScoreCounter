@@ -123,10 +123,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         inflater.inflate(R.menu.counters_menu, menu);
     }
 
-    private void showDialogWithAction(int message, final DialogPositiveClickListener listener) {
+    private void showDialogWithAction(final DialogPositiveClickListener listener) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-        builder.setMessage(message)
+        builder.setMessage(R.string.dialog_confirmation_question)
                 .setPositiveButton(R.string.dialog_yes, (dialog, id) -> listener.onPositiveButtonClicked(getActivity()))
                 .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss());
         builder.create().show();
@@ -145,12 +145,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             case R.id.menu_remove_all:
                 AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                 DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
-                showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerRemove);
+                showDialogWithAction(dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
                 AndroidFirebaseAnalytics.logEvent("menu_reset_all");
                 DialogPositiveClickListener dialogListenerReset = context -> viewModel.resetAll();
-                showDialogWithAction(R.string.dialog_confirmation_question, dialogListenerReset);
+                showDialogWithAction(dialogListenerReset);
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
