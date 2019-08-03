@@ -251,9 +251,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Counters List");
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Counters List", getClass().getSimpleName());
     }
 
     @Override

@@ -50,10 +50,12 @@ public class LogActivity extends AppCompatActivity {
             ViewUtil.clearLightStatusBar(this, Color.BLACK);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
+    }
 
-        if (savedInstanceState == null) {
-            AndroidFirebaseAnalytics.trackScreen(this, "Log Screen");
-        }
+    @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(this, "History Screen", getClass().getSimpleName());
     }
 
     @Override

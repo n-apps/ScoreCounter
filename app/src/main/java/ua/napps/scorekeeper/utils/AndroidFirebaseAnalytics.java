@@ -2,21 +2,23 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.Size;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import timber.log.Timber;
 import ua.com.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.app.App;
 
 public class AndroidFirebaseAnalytics {
 
-    private static com.google.firebase.analytics.FirebaseAnalytics firebaseAnalytics;
+    private static FirebaseAnalytics firebaseAnalytics;
 
-    private static com.google.firebase.analytics.FirebaseAnalytics getInstance() {
+    private static FirebaseAnalytics getInstance() {
         if (firebaseAnalytics == null) {
-            firebaseAnalytics = com.google.firebase.analytics.FirebaseAnalytics.getInstance(App.getInstance());
-            firebaseAnalytics.setMinimumSessionDuration(3000); //minimum session time is 1 minute
+            firebaseAnalytics = FirebaseAnalytics.getInstance(App.getInstance());
             firebaseAnalytics.setAnalyticsCollectionEnabled(!BuildConfig.DEBUG);
         }
         return firebaseAnalytics;
@@ -32,9 +34,7 @@ public class AndroidFirebaseAnalytics {
         Timber.d("%s", event);
     }
 
-    public static void trackScreen(@Nullable Activity activity, @NonNull String screenName) {
-        if (activity == null) return;
-        Timber.d("trackScreen: %s", screenName);
-        getInstance().setCurrentScreen(activity, screenName, null);
+    public static void trackScreen(@NonNull Activity activity, @NonNull String screenName, String classOverride) {
+        getInstance().setCurrentScreen(activity, screenName, classOverride);
     }
 }
