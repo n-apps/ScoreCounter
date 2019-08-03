@@ -75,10 +75,13 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         ViewUtil.setNavBarColor(this, isLightTheme);
 
         subscribeToModel(id);
+    }
 
-        if (savedInstanceState == null) {
-            AndroidFirebaseAnalytics.trackScreen(this, "Edit Counter Screen");
-        }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(this, "Edit Counter", getClass().getSimpleName());
     }
 
     @Override

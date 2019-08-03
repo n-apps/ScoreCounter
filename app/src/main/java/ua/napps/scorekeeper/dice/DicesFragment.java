@@ -141,9 +141,9 @@ public class DicesFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Dice");
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Dice", getClass().getSimpleName());
     }
 
     private void initSensorData() {

@@ -77,9 +77,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        AndroidFirebaseAnalytics.trackScreen(getActivity(), "Settings");
+    public void onResume() {
+        super.onResume();
+        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Settings", getClass().getSimpleName());
     }
 
     @Override
