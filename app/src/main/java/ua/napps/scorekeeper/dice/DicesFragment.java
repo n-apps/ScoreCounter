@@ -118,6 +118,10 @@ public class DicesFragment extends Fragment {
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
         if (!LocalSettings.isShakeToRollEnabled()) {
             viewModel.getSensorLiveData(getActivity()).removeObservers(getViewLifecycleOwner());
+        } else {
+            if (viewModel.getSensorLiveData(getActivity()) == null) {
+                initSensorData();
+            }
         }
     }
 
@@ -131,7 +135,6 @@ public class DicesFragment extends Fragment {
         subscribeUI();
         if (LocalSettings.isShakeToRollEnabled()) {
             initSensorData();
-            useSensorLiveData();
         }
     }
 
@@ -155,6 +158,25 @@ public class DicesFragment extends Fragment {
         accel = 0.00f;
         accelCurrent = SensorManager.GRAVITY_EARTH;
         accelLast = SensorManager.GRAVITY_EARTH;
+        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
+            if (se == null) {
+                return;
+            }
+
+            float x = se.values[0];
+            float y = se.values[1];
+            float z = se.values[2];
+            accelLast = accelCurrent;
+            accelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
+            float delta = accelCurrent - accelLast;
+            accel = accel * 0.9f + delta; // perform low-cut filter
+            if (accel > 5.0) {
+                viewModel.rollDice();
+                Bundle params = new Bundle();
+                params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "sensor");
+                AndroidFirebaseAnalytics.logEvent("roll_dice", params);
+            }
+        });
     }
 
     private void rollDice(@IntRange(from = 1, to = 100) int roll) {
@@ -222,25 +244,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void useSensorLiveData() {
-        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
-            if (se == null) {
-                return;
-            }
 
-            float x = se.values[0];
-            float y = se.values[1];
-            float z = se.values[2];
-            accelLast = accelCurrent;
-            accelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
-            float delta = accelCurrent - accelLast;
-            accel = accel * 0.9f + delta; // perform low-cut filter
-            if (accel > 5.0) {
-                viewModel.rollDice();
-                Bundle params = new Bundle();
-                params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "sensor");
-                AndroidFirebaseAnalytics.logEvent("roll_dice", params);
-            }
-        });
     }
 
     @Override
