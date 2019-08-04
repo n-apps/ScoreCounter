@@ -159,10 +159,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 startActivity(intent);
                 AndroidFirebaseAnalytics.logEvent("menu_log");
                 break;
-            case R.id.menu_request:
-                startEmailClient();
-                AndroidFirebaseAnalytics.logEvent("menu_request_a_feature");
-                break;
             case R.id.menu_rate:
                 Utilities.rateApp(requireActivity());
                 AndroidFirebaseAnalytics.logEvent("menu_rate_app");

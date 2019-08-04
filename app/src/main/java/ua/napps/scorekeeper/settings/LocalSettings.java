@@ -10,6 +10,7 @@ public class LocalSettings {
     private static final String LONG_PRESS_TIP_SHOWED = "long_click_tip_showed";
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
     private static final String DICE_MAX_SIDE = "dice_max_side";
+    private static final String SOUND_ROLL = "sound_roll";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
     private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
@@ -30,6 +31,14 @@ public class LocalSettings {
 
     public static void saveKeepScreenOn(boolean enabled) {
         App.getTinyDB().putBoolean(KEEP_SCREEN_ON, enabled);
+    }
+
+    public static void saveSoundRoll(boolean enabled) {
+        App.getTinyDB().putBoolean(SOUND_ROLL, enabled);
+    }
+
+    public static boolean isSoundRollEnabled() {
+        return App.getTinyDB().getBoolean(SOUND_ROLL, true);
     }
 
     public static boolean isShakeToRollEnabled() {
