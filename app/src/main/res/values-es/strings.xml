@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">No, gracias</string>
     <string name="erd_rate_now">Evalúame ahora</string>
     <string name="erd_remind_me_later">Recuérdamelo después</string>
-    <string name="erd_title">Evalúa esta app</string>
+    <string name="erd_title">Evalúa esta app ❤</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
     <string name="hint_enter_number">Introduce un número…</string>
     <string name="label_all_changes_saved">Todos los cambios se han guardado</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
-    <string name="settings_section_request_a_feature">Solicitar un rasgo nuevo</string>
+    <string name="settings_section_request_a_feature">Comentarios, Informe de errores, Solicitud de funciones</string>
     <string name="settings_shake_to_roll">Agita para tirar</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de caras del dado</string>

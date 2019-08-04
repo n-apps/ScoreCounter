@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Nein, Danke</string>
     <string name="erd_rate_now">Jetzt Bewerten</string>
     <string name="erd_remind_me_later">Frag mich später</string>
-    <string name="erd_title">App Bewerten</string>
+    <string name="erd_title">App Bewerten ❤</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="hint_enter_number">Gebe eine Nummer ein…</string>
     <string name="label_all_changes_saved">Alle Änderungen gespeichert</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Würfel</string>
     <string name="settings_section_general">Aussehen</string>
-    <string name="settings_section_request_a_feature">Frage nach einer Funktion</string>
+    <string name="settings_section_request_a_feature">Feedback, fehlerreport, wünsche</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
     <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel</string>

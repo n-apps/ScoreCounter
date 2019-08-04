@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Ні, дякую</string>
     <string name="erd_rate_now">Оцінити зараз</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
-    <string name="erd_title">Оцініть цей додаток</string>
+    <string name="erd_title">Оцініти цей додаток ❤</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
     <string name="hint_enter_number">Введіть число…</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Зовнішній вигляд</string>
-    <string name="settings_section_request_a_feature">Мені не вистачає…</string>
+    <string name="settings_section_request_a_feature">Зворотній зв\'язок, проблеми, побажання</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
     <string name="settings_section_dice_sides">Кількість граней</string>
