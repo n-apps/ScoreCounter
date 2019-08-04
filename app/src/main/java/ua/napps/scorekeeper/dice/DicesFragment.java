@@ -48,6 +48,7 @@ public class DicesFragment extends Fragment {
     private ConstraintLayout root;
     private OnDiceFragmentInteractionListener listener;
     private MediaPlayer mp;
+    private boolean soundRollEnabled;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -94,9 +95,9 @@ public class DicesFragment extends Fragment {
             showBottomSheet();
             return true;
         });
+        soundRollEnabled = LocalSettings.isSoundRollEnabled();
 
         diceVariantInfo.setOnClickListener(v -> showBottomSheet());
-
 
         int maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
@@ -107,13 +108,17 @@ public class DicesFragment extends Fragment {
     private void showBottomSheet() {
         DiceBottomSheetFragment bottomSheet = new DiceBottomSheetFragment();
         bottomSheet.show(getFragmentManager(), "DiceBottomSheetFragment");
-        bottomSheet.setOnDismissListener(d -> updateDiceVariant());
+        bottomSheet.setOnDismissListener(d -> updateOnDismiss());
     }
 
-    private void updateDiceVariant() {
+    private void updateOnDismiss() {
         int maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
         viewModel.setDiceVariant(maxSide);
+        soundRollEnabled = LocalSettings.isSoundRollEnabled();
+        if (!LocalSettings.isShakeToRollEnabled()) {
+            viewModel.getSensorLiveData(getActivity()).removeObservers(getViewLifecycleOwner());
+        }
     }
 
     @Override
@@ -153,9 +158,10 @@ public class DicesFragment extends Fragment {
     }
 
     private void rollDice(@IntRange(from = 1, to = 100) int roll) {
-
-        mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
-        mp.start();
+        if (soundRollEnabled) {
+            mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
+            mp.start();
+        }
 
         updateLastRollLabel();
         previousRoll = roll;

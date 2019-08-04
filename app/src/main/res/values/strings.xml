@@ -42,7 +42,7 @@
     <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Dice</string>
     <string name="settings_section_general">Appearance</string>
-    <string name="settings_section_request_a_feature">Feedback, bug Report, feature Request</string>
+    <string name="settings_section_request_a_feature">Feedback, bug report, feature request</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_section_dice_sides">Number of sides of the dice</string>

@@ -41,6 +41,10 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
         shakeToRoll.setOnCheckedChangeListener((b, isChecked) -> LocalSettings.saveShakeToRoll(isChecked));
         shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
 
+        SwitchCompat soundRoll = contentView.findViewById(R.id.sw_sound_roll);
+        soundRoll.setOnCheckedChangeListener((b, isChecked) -> LocalSettings.saveSoundRoll(isChecked));
+        soundRoll.setChecked(LocalSettings.isSoundRollEnabled());
+
         diceMaxSide = LocalSettings.getDiceMaxSide();
         diceSix = contentView.findViewById(R.id.tb_dice_6);
         diceEight = contentView.findViewById(R.id.tb_dice_8);
