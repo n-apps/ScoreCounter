@@ -16,6 +16,7 @@
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>
         <item name="superBottomSheet_backgroundColor">@color/white</item>
+        <item name="materialButtonStyle">@style/MyButton</item>
     </style>
 
     <style name="AlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
@@ -87,23 +88,12 @@
         <item name="autoSizeTextType">uniform</item>
     </style>
 
-    <!--Input field style-->
-    <style name="LightEditText" parent="Theme.MaterialComponents">
-        <item name="colorControlNormal">@color/white</item>
-        <item name="colorControlActivated">@color/white</item>
+    <style name="EditCounterTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/text_input_layout</item>
     </style>
 
-    <style name="MyHintText" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/textColorPrimaryInverse</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-
-    <style name="HintTextLight" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/textColorPrimaryInverse</item>
-    </style>
-
-    <style name="HintTextDark" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/textColorPrimary</item>
+    <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/colorAccent</item>
     </style>
 
 </resources>

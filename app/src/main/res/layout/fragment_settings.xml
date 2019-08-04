@@ -114,6 +114,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_1"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
@@ -130,6 +131,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_2"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
@@ -137,8 +139,8 @@
             android:text="10"
             android:textColor="@color/textColorPrimary"
             android:textSize="@dimen/font_display"
-            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_1"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_3"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_1"
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_1"
@@ -146,6 +148,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_3"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
@@ -153,8 +156,8 @@
             android:text="15"
             android:textColor="@color/textColorPrimary"
             android:textSize="@dimen/font_display"
-            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_2"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_4"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_2"
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_2"
@@ -162,15 +165,16 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_settings_counter_4"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:fontFamily="@font/inter_ui_medium"
             android:includeFontPadding="false"
-            app:layout_constraintDimensionRatio="1,1"
             android:text="30"
-            android:textSize="@dimen/font_display"
             android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/font_display"
             app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_3"
+            app:layout_constraintDimensionRatio="1,1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_3"
             app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_3"
@@ -251,6 +255,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_rate_app" />
+
         <ImageView
             android:id="@+id/iv_github"
             android:layout_width="24dp"
@@ -260,6 +265,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
             app:layout_constraintTop_toTopOf="@id/tv_github"
             app:srcCompat="@drawable/ic_users" />
+
         <TextView
             android:id="@+id/tv_github"
             style="@style/TwoLinesStyle"

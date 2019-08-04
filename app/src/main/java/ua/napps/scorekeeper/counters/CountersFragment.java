@@ -86,6 +86,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+       toolbar.setTitle("");
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
@@ -145,6 +146,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             case R.id.menu_remove_all:
                 AndroidFirebaseAnalytics.logEvent("menu_remove_all");
                 DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
+                recyclerView.invalidate(); // ugly code to prevent next counter being half width
                 showDialogWithAction(dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:

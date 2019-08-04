@@ -45,7 +45,7 @@ class CountersViewModel extends AndroidViewModel {
         List<Counter> value = counters.getValue();
         if (value != null) {
             int size = value.size() + 1;
-            repository.createCounter(String.valueOf(size), getNextColor(size), size)
+            repository.createCounter('#' + String.valueOf(size), getNextColor(size), size)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new CompletableObserver() {
