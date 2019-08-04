@@ -15,6 +15,7 @@
         <item name="myDiceColor">?attr/colorPrimary</item>
         <item name="myDividerColor">@color/white_12</item>
         <item name="superBottomSheet_backgroundColor">@color/dark_theme_bg</item>
+        <item name="materialButtonStyle">@style/MyButton</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
@@ -32,17 +33,13 @@
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 
-    <style name="MyHintText" parent="TextAppearance.MaterialComponents.Body1">
-        <item name="android:textColor">@color/textColorPrimary</item>
-        <item name="android:textAllCaps">true</item>
+    <style name="EditCounterTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/text_input_layout</item>
     </style>
 
-    <style name="HintTextLight" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/textColorPrimary</item>
+    <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">?attr/colorAccent</item>
     </style>
 
-    <style name="HintTextDark" parent="TextAppearance.MaterialComponents.Caption">
-        <item name="android:textColor">@color/textColorPrimaryInverse</item>
-    </style>
 
 </resources>

@@ -61,11 +61,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_value"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/EditCounterTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:helperText="@string/counter_details_value"
         app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
         app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
@@ -86,12 +85,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_step"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/EditCounterTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:endIconDrawable="@drawable/ic_information"
         app:endIconMode="custom"
         app:helperText="@string/counter_details_step"
@@ -115,11 +113,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_counter_default_value"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/EditCounterTextInputLayoutStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        app:boxStrokeColor="?android:attr/textColorPrimary"
         app:endIconDrawable="@drawable/ic_information"
         app:endIconMode="custom"
         app:helperText="@string/counter_details_default_value"
@@ -143,7 +140,6 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_save"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_large"
@@ -151,7 +147,6 @@
         android:layout_marginEnd="@dimen/spacing_large"
         android:layout_marginStart="@dimen/spacing_large"
         android:text="Save"
-        app:backgroundTint="#63cdda"
         android:insetBottom="0dp"
         android:insetTop="0dp"
         app:cornerRadius="4dp"

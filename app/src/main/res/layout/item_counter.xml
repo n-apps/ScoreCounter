@@ -1,92 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black_5"
-        android:minHeight="@dimen/list_single_line_min_height"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/tv_counter_name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
-            android:ellipsize="end"
-            android:fontFamily="@font/inter_ui_medium"
-            android:gravity="center_vertical"
-            android:maxLines="1"
-            android:paddingStart="@dimen/padding_normal"
-            android:paddingEnd="@dimen/padding_normal"
-            android:textSize="@dimen/font_display"
-            tools:text="@tools:sample/first_names" />
-
-        <ImageView
-            android:id="@+id/iv_counter_edit"
-            android:layout_width="@dimen/list_single_line_min_height"
-            android:layout_height="@dimen/list_single_line_min_height"
-            android:padding="@dimen/spacing_normal"
-            android:foreground="?selectableItemBackground"
-            android:gravity="right"
-            android:scaleType="center"
-            app:srcCompat="@drawable/ic_more" />
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/counter_interaction_area"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless">
+        android:layout_marginStart="@dimen/padding_normal"
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/padding_normal">
 
-        <TextView
-            android:id="@+id/tv_counter_value"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:alpha=".87"
-            android:clickable="false"
-            android:fontFamily="@font/inter_ui_medium"
-            android:gravity="center"
-            android:lines="1"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
-            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            tools:ignore="MissingPrefix"
-            tools:text="0"
-            tools:textSize="192sp" />
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/iv_decrease"
-            android:layout_width="@dimen/button_icon_size"
-            android:layout_height="@dimen/button_icon_size"
-            android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:alpha="0.38"
-            android:clickable="false"
-            android:contentDescription="@string/common_increase"
-            app:srcCompat="@drawable/ic_minus_round" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black_5"
+                android:minHeight="@dimen/list_single_line_min_height"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/iv_increase"
-            android:layout_width="@dimen/button_icon_size"
-            android:layout_height="@dimen/button_icon_size"
-            android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            android:alpha="0.38"
-            android:clickable="false"
-            android:contentDescription="@string/common_decrease"
-            app:srcCompat="@drawable/ic_pluse_round" />
-    </FrameLayout>
-</LinearLayout>
+                <TextView
+                    android:id="@+id/tv_counter_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_ui_medium"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/padding_normal"
+                    android:paddingEnd="@dimen/padding_normal"
+                    android:textSize="@dimen/font_display"
+                    tools:text="@tools:sample/first_names" />
+
+                <ImageView
+                    android:id="@+id/iv_counter_edit"
+                    android:layout_width="@dimen/list_single_line_min_height"
+                    android:layout_height="@dimen/list_single_line_min_height"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="end"
+                    android:padding="@dimen/spacing_normal"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/ic_more" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/counter_interaction_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <TextView
+                    android:id="@+id/tv_counter_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:alpha=".87"
+                    android:clickable="false"
+                    android:fontFamily="@font/inter_ui_medium"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
+                    app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
+                    app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    tools:ignore="MissingPrefix"
+                    tools:text="0"
+                    tools:textSize="192sp" />
+
+                <ImageView
+                    android:id="@+id/iv_decrease"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:alpha="0.38"
+                    android:clickable="false"
+                    android:contentDescription="@string/common_increase"
+                    app:srcCompat="@drawable/ic_minus_round" />
+
+                <ImageView
+                    android:id="@+id/iv_increase"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:alpha="0.38"
+                    android:clickable="false"
+                    android:contentDescription="@string/common_decrease"
+                    app:srcCompat="@drawable/ic_pluse_round" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>
