@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_rate_now">Rate it now</string>
     <string name="erd_remind_me_later">Remind me later</string>
-    <string name="erd_title">Rate this app</string>
+    <string name="erd_title">Rate this app ❤️</string>
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="hint_enter_number">Enter a number…</string>
     <string name="label_all_changes_saved">All changes saved</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Dice</string>
     <string name="settings_section_general">Appearance</string>
-    <string name="settings_section_request_a_feature">Suggest a feature</string>
+    <string name="settings_section_request_a_feature">Feedback, bug Report, feature Request</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_section_dice_sides">Number of sides of the dice</string>

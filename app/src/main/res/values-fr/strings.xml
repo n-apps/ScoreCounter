@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Non, merci</string>
     <string name="erd_rate_now">Évaluer maintenant</string>
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
-    <string name="erd_title">Evaluation de l\'application</string>
+    <string name="erd_title">Evaluation de l\'application ❤</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
     <string name="hint_enter_number">Entrez un nombre…</string>
     <string name="label_all_changes_saved">Les changements ont été sauvegardés</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Info</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Apparence</string>
-    <string name="settings_section_request_a_feature">Proposer une fonctionnalité</string>
+    <string name="settings_section_request_a_feature">Retour d\'information, rapport d\'erreur, souhaits</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés des dés</string>

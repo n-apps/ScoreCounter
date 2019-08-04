@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить сейчас</string>
     <string name="erd_remind_me_later">Напомнить позже</string>
-    <string name="erd_title">Оцените это приложение</string>
+    <string name="erd_title">Оценить это приложение ❤</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
     <string name="hint_enter_number">Введите число…</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
@@ -42,7 +42,7 @@
     <string name="settings_section_info">Инфо</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Внешний вид</string>
-    <string name="settings_section_request_a_feature">Мне не хватает…</string>
+    <string name="settings_section_request_a_feature">Обратная связь, проблемы, пожелания</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать экран</string>
     <string name="settings_section_dice_sides">Количество граней</string>
