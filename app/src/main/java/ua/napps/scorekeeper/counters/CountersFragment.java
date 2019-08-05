@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.counters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -20,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +38,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
 
+import java.util.List;
+
+import timber.log.Timber;
 import ua.com.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
@@ -48,13 +54,14 @@ import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.DonateAdapter;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
 
-public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
+public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener, PurchasesUpdatedListener {
 
     private RecyclerView recyclerView;
     private CountersAdapter countersAdapter;
@@ -86,7 +93,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-       toolbar.setTitle("");
+        toolbar.setTitle("");
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
@@ -162,6 +169,28 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             case R.id.menu_rate:
                 Utilities.rateApp(requireActivity());
                 AndroidFirebaseAnalytics.logEvent("menu_rate_app");
+                break;
+            case R.id.menu_donate:
+                AndroidFirebaseAnalytics.logEvent("menu_donate");
+                ListAdapter adapter = new DonateAdapter(new CharSequence[]{"Title 1", "Title 2"}, new CharSequence[]{"☕", "\uD83C\uDF55"});
+                viewModel.setupBillingClient();
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Donate")
+                        .setAdapter(adapter, (dialog, which) -> viewModel.onDonateClicked((responseCode, skuDetailsList) -> {
+                            if (responseCode == BillingClient.BillingResponse.OK) {
+                                Timber.d("querySkuDetailsAsync, responseCode: %d", responseCode);
+                                BillingFlowParams billingFlowParams = BillingFlowParams
+                                        .newBuilder()
+                                        .setSkuDetails(skuDetailsList.get(which))
+                                        .build();
+                                viewModel.launchBillingFlow(requireActivity(), billingFlowParams);
+
+                            } else {
+                                Timber.d("Can't querySkuDetailsAsync, responseCode: %d", responseCode);
+                            }
+
+                        }))
+                        .show();
                 break;
         }
         return true;
@@ -469,16 +498,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
 
-    private void startEmailClient() {
-        final String title = getString(R.string.app_name);
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
-        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+    @Override
+    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
+        if (responseCode == BillingClient.BillingResponse.OK) {
+            Toast.makeText(getContext(), "Thank you!", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

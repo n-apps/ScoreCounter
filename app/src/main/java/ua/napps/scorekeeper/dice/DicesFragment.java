@@ -107,7 +107,7 @@ public class DicesFragment extends Fragment {
 
     private void showBottomSheet() {
         DiceBottomSheetFragment bottomSheet = new DiceBottomSheetFragment();
-        bottomSheet.show(getFragmentManager(), "DiceBottomSheetFragment");
+        bottomSheet.show(requireFragmentManager(), "DiceBottomSheetFragment");
         bottomSheet.setOnDismissListener(d -> updateOnDismiss());
     }
 
@@ -139,7 +139,7 @@ public class DicesFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof OnDiceFragmentInteractionListener) {
             listener = (OnDiceFragmentInteractionListener) context;
@@ -241,10 +241,6 @@ public class DicesFragment extends Fragment {
                 diceTextView.setText("" + currentRoll);
             }
         });
-    }
-
-    private void useSensorLiveData() {
-
     }
 
     @Override
