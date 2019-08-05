@@ -1,15 +1,26 @@
 package ua.napps.scorekeeper.counters;
 
+import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.SkuDetailsParams;
+import com.android.billingclient.api.SkuDetailsResponseListener;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.CompletableObserver;
@@ -24,11 +35,12 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 
-class CountersViewModel extends AndroidViewModel {
+class CountersViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
 
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
+    private BillingClient billingClient;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -318,5 +330,54 @@ class CountersViewModel extends AndroidViewModel {
         } else {
             return colors[size % colors.length];
         }
+    }
+
+    void setupBillingClient() {
+        billingClient = BillingClient
+                .newBuilder(getApplication())
+                .setListener(this)
+                .build();
+
+        billingClient.startConnection(new BillingClientStateListener() {
+            @Override
+            public void onBillingSetupFinished(int responseCode) {
+                if (responseCode == BillingClient.BillingResponse.OK) {
+                    Timber.d("BILLING | startConnection | RESULT OK");
+                } else {
+                    Timber.d("BILLING | startConnection | RESULT: %d", responseCode);
+                }
+            }
+
+            @Override
+            public void onBillingServiceDisconnected() {
+                Timber.d("BILLING | onBillingServiceDisconnected | DISCONNECTED");
+            }
+        });
+    }
+
+    @Override
+    public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
+
+    }
+
+    void onDonateClicked(SkuDetailsResponseListener listener) {
+        if (billingClient.isReady()) {
+            List<String> skuList = new ArrayList<>();
+            String[] stringArray = getApplication().getResources().getStringArray(R.array.donate_in_app_sku_array);
+            Collections.addAll(skuList, stringArray);
+            SkuDetailsParams params = SkuDetailsParams
+                    .newBuilder()
+                    .setSkusList(skuList)
+                    .setType(BillingClient.SkuType.INAPP)
+                    .build();
+
+            billingClient.querySkuDetailsAsync(params, listener);
+        } else {
+            Timber.d("Billing Client not ready");
+        }
+    }
+
+    void launchBillingFlow(Activity activity, BillingFlowParams billingFlowParams) {
+        billingClient.launchBillingFlow(activity, billingFlowParams);
     }
 }

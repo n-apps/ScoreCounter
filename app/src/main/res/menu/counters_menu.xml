@@ -25,4 +25,9 @@
         android:id="@+id/menu_rate"
         android:title="@string/erd_title"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_donate"
+        android:title="Donate"
+        app:showAsAction="never" />
 </menu>
