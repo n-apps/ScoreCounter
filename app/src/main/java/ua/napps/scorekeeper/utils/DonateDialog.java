@@ -1,6 +1,8 @@
 package ua.napps.scorekeeper.utils;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -8,9 +10,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.android.billingclient.api.AcknowledgePurchaseParams;
-import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -25,25 +29,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
+import ua.com.napps.scorekeeper.BuildConfig;
 
 import static com.android.billingclient.api.BillingClient.BillingResponseCode;
 import static com.android.billingclient.api.BillingClient.SkuType;
 import static com.android.billingclient.api.BillingClient.newBuilder;
 
-public class DonateDialog extends DialogFragment implements PurchasesUpdatedListener {
 
+class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
+
+    MutableLiveData<List<SkuDetails>> skuDetailsList = new MutableLiveData<>();
     private BillingClient billingClient;
-    private List<SkuDetails> skuDetailsList;
-    private AcknowledgePurchaseResponseListener acknowledgePurchaseResponseListener;
+    private PurchaseCompletedCallback callback;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setupBillingClient();
-    }
+    public DonateViewModel(@NonNull Application application) {
+        super(application);
+        Timber.d("Setup billing client");
 
-    private void setupBillingClient() {
-        billingClient = newBuilder(requireActivity()).setListener(this).enablePendingPurchases().build();
+        billingClient = newBuilder(application).setListener(this).enablePendingPurchases().build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(BillingResult billingResult) {
@@ -51,6 +54,12 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
                     // The BillingClient is ready. You can query purchases here.
                     Timber.d("// The BillingClient is ready. You can query purchases here.");
                     List<String> skuList = new ArrayList<>();
+                    if (BuildConfig.DEBUG) {
+                        skuList.add("android.test.purchased");
+                        skuList.add("android.test.canceled");
+                        skuList.add("android.test.refunded");
+                        skuList.add("android.test.item_unavailable");
+                    }
                     skuList.add("buy_me_a_coffee");
                     skuList.add("buy_me_a_pizza");
 
@@ -58,16 +67,16 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
                     params.setSkusList(skuList).setType(SkuType.INAPP);
                     // Retrieve a value for "skuDetails" by calling querySkuDetailsAsync().
                     billingClient.querySkuDetailsAsync(params.build(), (billingResult1, skuDetailsListResponse) -> {
-                                // Process the result.
-                                Timber.d("// Process the result");
-                                if (billingResult1.getResponseCode() == BillingResponseCode.OK) {
-                                    if (skuDetailsListResponse != null) {
-                                        skuDetailsList = skuDetailsListResponse;
-                                    }
-                                }
-                            });
-
-
+                        // Process the result.
+                        Timber.d("// Process the result");
+                        if (billingResult1.getResponseCode() == BillingResponseCode.OK) {
+                            if (skuDetailsListResponse != null) {
+                                skuDetailsList.setValue(skuDetailsListResponse);
+                            }
+                        }
+                    });
+                } else {
+                    Timber.d("Problem setting up in-app billing: %s", billingResult.getResponseCode());
                 }
             }
 
@@ -76,41 +85,32 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
                 // Try to restart the connection on the next request to
                 // Google Play by calling the startConnection() method.
                 billingClient.startConnection(this);
+                Timber.d("onBillingServiceDisconnected");
             }
         });
-        acknowledgePurchaseResponseListener = billingResult -> {
-        };
-    }
 
 
-    private void purchase(int which) {
-        if (skuDetailsList == null) {
-            Toast.makeText(requireContext(), "skuDetailsList is null :(", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        BillingFlowParams flowParams = BillingFlowParams.newBuilder()
-                .setSkuDetails(skuDetailsList.get(which))
-                .build();
-        billingClient.launchBillingFlow(requireActivity(), flowParams);
-    }
-
-    @NonNull
-    @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        DonateAdapter adapter = new DonateAdapter(new CharSequence[]{"Title 1", "Title 2"}, new CharSequence[]{"☕", "\uD83C\uDF55"});
-
-        return new AlertDialog.Builder(requireContext())
-                .setAdapter(adapter, (dialog, which) -> purchase(which))
-                .setTitle("Donate").create();
     }
 
     @Override
     public void onPurchasesUpdated(BillingResult billingResult, @Nullable List<Purchase> purchases) {
+        Timber.d("onPurchasesUpdated");
         if (billingResult.getResponseCode() == BillingResponseCode.OK && purchases != null) {
             for (Purchase purchase : purchases) {
                 handlePurchase(purchase);
             }
         }
+    }
+
+    void purchase(Activity activity, SkuDetails sku) {
+        if (sku == null) {
+            Timber.e("sku is null :(");
+            return;
+        }
+        BillingFlowParams flowParams = BillingFlowParams.newBuilder()
+                .setSkuDetails(sku)
+                .build();
+        billingClient.launchBillingFlow(activity, flowParams);
     }
 
     private void handlePurchase(Purchase purchase) {
@@ -119,9 +119,14 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
         acknowledgePurchase(purchase);
 
         // FOR DEV PURPOSE ONLY
-        billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(),(billingResult, purchaseToken) -> {
-            Timber.d("purchase consumed");
-        } );
+        billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
+            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchaseToken != null) {
+                Toast.makeText(getApplication(), "Thank you!", Toast.LENGTH_SHORT).show();
+                Timber.d("AllowMultiplePurchases success, responseCode: %s", billingResult.getResponseCode());
+            } else {
+                Timber.d("Can't allowMultiplePurchases, responseCode: %s", billingResult.getResponseCode());
+            }
+        });
     }
 
     private void acknowledgePurchase(Purchase purchase) {
@@ -129,11 +134,11 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
             // Grant entitlement to the user.
             // Acknowledge the purchase if it hasn't already been acknowledged.
             if (!purchase.isAcknowledged()) {
-                AcknowledgePurchaseParams acknowledgePurchaseParams =
+                AcknowledgePurchaseParams params =
                         AcknowledgePurchaseParams.newBuilder()
                                 .setPurchaseToken(purchase.getPurchaseToken())
                                 .build();
-                billingClient.acknowledgePurchase(acknowledgePurchaseParams, acknowledgePurchaseResponseListener);
+                billingClient.acknowledgePurchase(params, billingResult -> Timber.d("purchase acknowledged. Code: %s", billingResult.getResponseCode()));
             }
 
         } else if (purchase.getPurchaseState() == Purchase.PurchaseState.PENDING) {
@@ -148,11 +153,45 @@ public class DonateDialog extends DialogFragment implements PurchasesUpdatedList
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (billingClient != null) {
-            billingClient.endConnection();
-            billingClient = null;
-        }
+    protected void onCleared() {
+        super.onCleared();
+        billingClient.endConnection();
     }
+
+    interface PurchaseCompletedCallback {
+        void onSuccess(int responseCode);
+    }
+}
+
+public class DonateDialog extends DialogFragment {
+
+    private DonateViewModel viewModel;
+    private DonateAdapter adapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = ViewModelProviders.of(requireActivity()).get(DonateViewModel.class);
+        adapter = new DonateAdapter();
+        viewModel.skuDetailsList.observe(this, skuDetails -> {
+            if (skuDetails != null) {
+                for (SkuDetails skuDetail : skuDetails) {
+                    adapter.addDonateInfo(null, skuDetail.getTitle());
+                }
+            }
+            adapter.notifyDataSetChanged();
+        });
+    }
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        return new AlertDialog.Builder(requireContext())
+                .setAdapter(adapter, (dialog, which) -> {
+                    SkuDetails sku = viewModel.skuDetailsList.getValue().get(which);
+                    viewModel.purchase(requireActivity(), sku);
+                })
+                .create();
+    }
+
 }
