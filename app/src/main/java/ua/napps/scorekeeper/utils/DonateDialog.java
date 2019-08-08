@@ -117,10 +117,11 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
         Timber.d("Got a verified purchase: %s", purchase.toString());
 
         acknowledgePurchase(purchase);
-
-        // FOR DEV PURPOSE ONLY
+        // allow multiple purchases
         billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
             if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchaseToken != null) {
+                // TODO: do we need to move it on view side? like PurchaseCompletedCallback
+                //  see https://github.com/ianhanniballake/LocalStorage/blob/master/mobile/src/main/java/com/ianhanniballake/localstorage/DonateDialogFragment.kt
                 Toast.makeText(getApplication(), "Thank you!", Toast.LENGTH_SHORT).show();
                 Timber.d("AllowMultiplePurchases success, responseCode: %s", billingResult.getResponseCode());
             } else {
@@ -173,6 +174,7 @@ public class DonateDialog extends DialogFragment {
         super.onCreate(savedInstanceState);
         viewModel = ViewModelProviders.of(requireActivity()).get(DonateViewModel.class);
         adapter = new DonateAdapter();
+        // replace LiveData with plain ArrayList, if fetching products is not required by Google
         viewModel.skuDetailsList.observe(this, skuDetails -> {
             if (skuDetails != null) {
                 for (SkuDetails skuDetail : skuDetails) {
