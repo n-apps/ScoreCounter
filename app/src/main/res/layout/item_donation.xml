@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,15 +11,31 @@
         android:id="@+id/emoji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:gravity="center"
         android:textSize="@dimen/font_display"
-        tools:text="🍕" />
+        tools:text="\u2764" />
 
-    <TextView
-        android:id="@+id/primary"
-        style="@style/TextAppearance.MaterialComponents.Body1"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_normal"
-        tools:text="Pizza donation" />
-</LinearLayout>
+        android:layout_marginStart="56dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Pizza donation" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_micro"
+            android:textColor="@color/textColorSecondary"
+            tools:text="Pizza donation" />
+    </LinearLayout>
+</FrameLayout>
