@@ -63,5 +63,8 @@
     <string name="counter_details_position">Position</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="settings_github">Beitragen (Github)</string>
+    <string name="donation_thank_you">\u2764</string>
+    <string name="donation_coffee_title" />
+    <string name="donation_pizza_title" />
 
 </resources>

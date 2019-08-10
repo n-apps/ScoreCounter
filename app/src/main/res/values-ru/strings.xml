@@ -63,5 +63,8 @@
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="settings_github">Помочь проекту (Github)</string>
+    <string name="donation_thank_you">Спасибо \u2764</string>
+    <string name="donation_coffee_title">Одна вкусная пицца</string>
+    <string name="donation_pizza_title">Успокаивающий кофе</string>
 
 </resources>

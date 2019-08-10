@@ -63,5 +63,8 @@
     <string name="dialog_no">Non</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="settings_github">Contribuer (Github)</string>
+    <string name="donation_thank_you">\u2764</string>
+    <string name="donation_coffee_title" />
+    <string name="donation_pizza_title" />
 
 </resources>

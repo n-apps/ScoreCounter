@@ -63,4 +63,9 @@
     <string name="counter_details_position">Position</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="settings_github">Contribute (Github)</string>
+    <string name="donation_thank_you">Thank you \u2764️</string>
+    <string name="donation_coffee_title">A calming coffee</string>
+    <string name="donation_pizza_title">One tasty pizza</string>
+    <string name="donation_coffee_description">What keeps the developer awake at night? Your coffee</string>
+    <string name="donation_pizza_description">With onions, cheese and salami please. And no mushrooms!</string>
 </resources>
