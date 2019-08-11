@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Ні, дякую</string>
     <string name="erd_rate_now">Оцінити зараз</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
-    <string name="erd_title">Оцініти цей додаток ❤</string>
+    <string name="erd_title">Оцініти цей додаток</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
     <string name="hint_enter_number">Введіть число…</string>
     <string name="label_all_changes_saved">Всі зміни збережені</string>
@@ -63,7 +63,12 @@
     <string name="dialog_no">Ні</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="settings_github">Допомогти проекту (Github)</string>
-    <string name="donation_thank_you">\u2764</string>
-    <string name="donation_coffee_title" />
-    <string name="donation_pizza_title" />
+    <string name="donation_thank_you">Дякую \u2764</string>
+    <string name="donation_coffee_title">Філіжанка кави</string>
+    <string name="donation_pizza_title">Одна смачна піца</string>
+    <string name="donation_coffee_description">Що саме не дає розробникові заснути вночі? Ваша кава</string>
+    <string name="donation_pizza_description">З цибулею, сиром і салямі, будь ласка. І ніяких грибів!</string>
+    <string name="settings_sound">Звук</string>
+    <string name="action_donate">Пожертвувати</string>
+    <string name="error_message">Виникла помилка.</string>
 </resources>

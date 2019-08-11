@@ -10,6 +10,7 @@
         tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/menu_log"
+        android:icon="@drawable/ic_history"
         android:title="@string/menu_log"
         app:showAsAction="never" />
     <item
@@ -20,14 +21,13 @@
         android:id="@+id/menu_remove_all"
         android:title="@string/menu_remove_all_counters"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/menu_rate"
         android:title="@string/erd_title"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/menu_donate"
-        android:title="Donate"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_love"
+        android:title="@string/action_donate"
+        app:showAsAction="ifRoom" />
 </menu>

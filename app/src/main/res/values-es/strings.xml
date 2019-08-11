@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Score Counter</string>
+    <string name="app_name">Contador de puntuación</string>
     <string name="bottom_navigation_tab_counters">Contadores</string>
     <string name="bottom_navigation_tab_dice">Dado</string>
     <string name="bottom_navigation_tab_settings">Ajustes</string>
@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">No, gracias</string>
     <string name="erd_rate_now">Evalúame ahora</string>
     <string name="erd_remind_me_later">Recuérdamelo después</string>
-    <string name="erd_title">Evalúa esta app ❤</string>
+    <string name="erd_title">Evalúa esta app</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
     <string name="hint_enter_number">Introduce un número…</string>
     <string name="label_all_changes_saved">Todos los cambios se han guardado</string>
@@ -63,7 +63,12 @@
     <string name="dialog_yes">Sí</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="settings_github">Contribuir (Github)</string>
-    <string name="donation_thank_you">\u2764</string>
-    <string name="donation_coffee_title" />
-    <string name="donation_pizza_title" />
+    <string name="donation_thank_you">Gracias \u2764</string>
+    <string name="donation_coffee_title">Un café calmante</string>
+    <string name="donation_pizza_title">Una pizza sabrosa</string>
+    <string name="donation_coffee_description">¿Qué mantiene al desarrollador despierto por la noches? Tu café</string>
+    <string name="donation_pizza_description">Con cebolla, queso y salami por favor. ¡Y sin hongos!</string>
+    <string name="settings_sound">Sonar</string>
+    <string name="action_donate">Donar</string>
+    <string name="error_message">Ocurrió un error.</string>
 </resources>

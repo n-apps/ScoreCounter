@@ -70,7 +70,6 @@ public class RateMyAppDialog {
         return App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false);
     }
 
-
     private void tryShow(Context context) {
         if (isShowing())
             return;
@@ -79,6 +78,7 @@ public class RateMyAppDialog {
             mDialog = null;
             mDialog = createDialog(context);
             mDialog.show();
+            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenAppear");
         } catch (Exception e) {
             //It prevents many Android exceptions
             //when user interactions conflicts with UI thread or Activity expired window token
@@ -86,6 +86,7 @@ public class RateMyAppDialog {
             Timber.e(e);
         }
     }
+
 
     private boolean shouldShow() {
         if (App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false)) {
@@ -124,15 +125,18 @@ public class RateMyAppDialog {
                 .create();
 
         contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
-            Utilities.rateApp(context);
             dialog.dismiss();
+            Utilities.rateApp(context);
+            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenRateClick");
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
             remindMeLater();
+            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenRemindLaterClick");
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_no_thanks).setOnClickListener(v -> {
             neverReminder();
+            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenNoThanksClick");
             dialog.dismiss();
         });
 

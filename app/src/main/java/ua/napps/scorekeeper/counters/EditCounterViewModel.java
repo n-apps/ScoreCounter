@@ -46,6 +46,8 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void deleteCounter() {
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenDeleteCounterClick");
+
         countersRepository.delete(counter)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -71,6 +73,9 @@ class EditCounterViewModel extends ViewModel {
         if (hex == null || hex.equals(counter.getColor())) {
             return;
         }
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, hex);
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewColorSelected", params);
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -96,6 +101,10 @@ class EditCounterViewModel extends ViewModel {
         if (defaultValue == counter.getDefaultValue()) {
             return;
         }
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + defaultValue);
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewDefaultValueSubmit", params);
+
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -117,9 +126,13 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateName(@NonNull String newName) {
-        if (newName.equals(counter.getName()) ) {
+        if (newName.equals(counter.getName())) {
             return;
         }
+
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, newName);
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewNameSubmit", params);
 
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -139,16 +152,16 @@ class EditCounterViewModel extends ViewModel {
 
                     }
                 });
-
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, counter.getName());
-        AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
     }
 
     void updateStep(int step) {
         if (step == counter.getStep() || step == 0) {
             return;
         }
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + step);
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewStepSubmit", params);
+
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -174,6 +187,10 @@ class EditCounterViewModel extends ViewModel {
         if (value == counter.getValue()) {
             return;
         }
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + value);
+        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewValueSubmit", params);
+
         countersRepository.setCount(id, value)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -192,71 +209,5 @@ class EditCounterViewModel extends ViewModel {
 
                     }
                 });
-    }
-
-    void updatePosition(int toPosition) {
-        if (toPosition == counter.getPosition()) {
-            return;
-        }
-        int fromPosition = counter.getPosition();
-
-        List<Counter> countersList = countersLiveData.getValue();
-        if (countersList != null) {
-            if (toPosition > countersList.size() - 1) {
-                toPosition = countersList.size() - 1;
-            }
-
-            int smallerIndex = Math.min(fromPosition, toPosition);
-            int largerIndex = Math.max(fromPosition, toPosition);
-            int moveStep;
-            if (toPosition > fromPosition) {
-                moveStep = -1;
-            } else {
-                moveStep = 1;
-            }
-
-            for (int i = 0; i < countersList.size(); i++) {
-                if (countersList.get(i).getId() == counter.getId()) {
-                    countersRepository.modifyPosition(counter.getId(), toPosition)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new CompletableObserver() {
-                                @Override
-                                public void onComplete() {
-
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-                                    Timber.e(e, "modifyPosition counter");
-                                }
-
-                                @Override
-                                public void onSubscribe(Disposable d) {
-
-                                }
-                            });
-                } else if (countersList.get(i).getPosition() >= smallerIndex && countersList.get(i).getPosition() <= largerIndex) {
-                    countersRepository.modifyPosition(countersList.get(i).getId(), countersList.get(i).getPosition() + moveStep)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new CompletableObserver() {
-                                @Override
-                                public void onComplete() {
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-                                    Timber.e(e, "modifyPosition counter");
-                                }
-
-                                @Override
-                                public void onSubscribe(Disposable d) {
-
-                                }
-                            });
-                }
-            }
-        }
     }
 }

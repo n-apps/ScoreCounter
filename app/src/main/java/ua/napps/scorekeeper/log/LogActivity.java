@@ -55,7 +55,7 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(this, "History Screen", getClass().getSimpleName());
+        AndroidFirebaseAnalytics.trackScreen(this, "History", getClass().getSimpleName());
     }
 
     @Override

@@ -46,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
+            android:minHeight="56dp"
             android:paddingStart="@dimen/keyline_1"
             android:text="@string/settings_stay_awake"
             android:theme="@style/SwitchStyle"
@@ -77,6 +78,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
+            android:minHeight="56dp"
             android:paddingStart="@dimen/keyline_1"
             android:text="@string/settings_dark_theme"
             android:theme="@style/SwitchStyle"
@@ -225,6 +227,38 @@
             app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
 
         <ImageView
+            android:id="@+id/iv_donation"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/settings_section_request_a_feature"
+            app:layout_constraintBottom_toBottomOf="@id/tv_donation"
+            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
+            app:layout_constraintTop_toTopOf="@id/tv_donation"
+            app:srcCompat="@drawable/ic_love" />
+
+        <TextView
+            android:id="@+id/tv_donation"
+            style="@style/TwoLinesStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/keyline_1"
+            android:text="@string/action_donate"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:background="?myDividerColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_donation" />
+
+        <ImageView
             android:id="@+id/iv_rate_app"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -245,7 +279,7 @@
             android:textSize="@dimen/font_subheading"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider3" />
+            app:layout_constraintTop_toBottomOf="@id/divider6" />
 
         <View
             android:id="@+id/divider4"

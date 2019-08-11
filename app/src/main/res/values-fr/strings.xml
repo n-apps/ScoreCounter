@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Non, merci</string>
     <string name="erd_rate_now">Évaluer maintenant</string>
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
-    <string name="erd_title">Evaluation de l\'application ❤</string>
+    <string name="erd_title">Evaluation de l\'application</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
     <string name="hint_enter_number">Entrez un nombre…</string>
     <string name="label_all_changes_saved">Les changements ont été sauvegardés</string>
@@ -61,10 +61,15 @@
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
-    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
     <string name="settings_github">Contribuer (Github)</string>
-    <string name="donation_thank_you">\u2764</string>
-    <string name="donation_coffee_title" />
-    <string name="donation_pizza_title" />
+    <string name="donation_thank_you">Je vous remercie \u2764</string>
+    <string name="donation_coffee_title">Un café apaisant</string>
+    <string name="donation_pizza_title">Une savoureuse pizza</string>
+    <string name="donation_coffee_description">Qu’est-ce qui empêche le développeur de dormir la nuit ? Le café que vous lui</string>
+    <string name="donation_pizza_description">Avec des oignons, du fromage et du salami s\'il vous plaît. Et pas de champignons!</string>
+    <string name="settings_sound">Du son</string>
+    <string name="action_donate">Faire un don</string>
+    <string name="error_message">Une erreur est survenue.</string>
 
 </resources>

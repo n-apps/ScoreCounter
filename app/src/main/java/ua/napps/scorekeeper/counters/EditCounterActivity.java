@@ -17,7 +17,6 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.color.ColorChooserDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
@@ -170,9 +169,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
         counterNameLayout.setBoxStrokeColor(color);
         newCounterColorHex = ColorUtil.intColorToString(color);
-        Bundle params = new Bundle();
-        params.putString(Param.CHARACTER, newCounterColorHex);
-        AndroidFirebaseAnalytics.logEvent("edit_counter_color_selected", params);
     }
 
     private void subscribeToModel(int id) {
