@@ -104,6 +104,8 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
             for (Purchase purchase : purchases) {
                 handlePurchase(purchase);
             }
+        } else {
+            callback.onResult(billingResult.getResponseCode());
         }
     }
 
@@ -124,7 +126,6 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
     private void handlePurchase(Purchase purchase) {
         acknowledgePurchase(purchase);
 
-        // allow multiple purchases
         billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
             callback.onResult(billingResult.getResponseCode());
             AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionPurchased");
@@ -187,10 +188,14 @@ public class DonateDialog extends DialogFragment implements DonateViewModel.Bill
     @Override
     public void onResult(int responseCode) {
         if (responseCode == BillingResponseCode.OK) {
-            Toast.makeText(requireContext(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
+            if (isAdded() && getActivity() != null) {
+                Toast.makeText(requireContext(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
+            }
             AndroidFirebaseAnalytics.setUserProperty("donated", "true");
         } else {
-            Toast.makeText(requireContext(), R.string.error_message, Toast.LENGTH_SHORT).show();
+            if (isAdded() && getActivity() != null) {
+                Toast.makeText(requireContext(), R.string.error_message, Toast.LENGTH_SHORT).show();
+            }
         }
         dismiss();
     }
