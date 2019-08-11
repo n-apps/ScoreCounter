@@ -37,13 +37,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.android.billingclient.api.BillingClient;
-import com.android.billingclient.api.BillingResult;
-import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
-
-import java.util.List;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
@@ -60,7 +54,7 @@ import ua.napps.scorekeeper.utils.Utilities;
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
 
-public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener, PurchasesUpdatedListener {
+public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
     private RecyclerView recyclerView;
     private CountersAdapter countersAdapter;
@@ -478,10 +472,4 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
 
-    @Override
-    public void onPurchasesUpdated(BillingResult billingResult, @Nullable List<Purchase> purchases) {
-        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-            Toast.makeText(getContext(), "Thank you!", Toast.LENGTH_SHORT).show();
-        }
-    }
 }

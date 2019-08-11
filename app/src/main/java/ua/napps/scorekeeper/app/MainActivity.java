@@ -1,7 +1,6 @@
 package ua.napps.scorekeeper.app;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -81,9 +80,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         switchFragment(TAGS[lastSelectedBottomTab]);
         if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this, Color.WHITE);
+            ViewUtil.setLightStatusBar(this);
         } else {
-            ViewUtil.clearLightStatusBar(this, Color.BLACK);
+            ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOn();
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (isLightTheme) {
             ViewUtil.setLightStatusBar(this);
         } else {
-            ViewUtil.clearLightStatusBar(this, Color.BLACK);
+            ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
     }

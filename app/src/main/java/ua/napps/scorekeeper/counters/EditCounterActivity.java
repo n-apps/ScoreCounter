@@ -67,9 +67,9 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
         boolean isLightTheme = LocalSettings.isLightTheme();
         if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this, Color.WHITE);
+            ViewUtil.setLightStatusBar(this);
         } else {
-            ViewUtil.clearLightStatusBar(this, Color.BLACK);
+            ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
 

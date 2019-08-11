@@ -11,7 +11,7 @@
         <item name="android:fontFamily">@font/inter_ui_regular</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="android:windowBackground">@color/white</item>
-        <item name="android:colorEdgeEffect">@color/accentColor</item>
+        <item name="android:colorEdgeEffect">@color/black_5</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>
