@@ -41,6 +41,7 @@ import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.List;
 
@@ -91,7 +92,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setTitle("");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(null);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
@@ -112,7 +113,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public void onPrepareOptionsMenu(Menu menu) {
+    public void onPrepareOptionsMenu(@NonNull Menu menu) {
         MenuItem removeItem = menu.findItem(R.id.menu_remove_all);
         final boolean hasCounters = oldListSize > 0;
         if (removeItem != null) {
@@ -125,7 +126,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.counters_menu, menu);
     }
 
@@ -139,7 +140,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_counter:
                 if (viewModel.getCounters().getValue() != null) {
@@ -149,50 +150,30 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
                 break;
             case R.id.menu_remove_all:
-                AndroidFirebaseAnalytics.logEvent("menu_remove_all");
+                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuRemoveAllClick");
                 DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
                 recyclerView.invalidate(); // ugly code to prevent next counter being half width
                 showDialogWithAction(dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
-                AndroidFirebaseAnalytics.logEvent("menu_reset_all");
+                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuResetAllClick");
                 DialogPositiveClickListener dialogListenerReset = context -> viewModel.resetAll();
                 showDialogWithAction(dialogListenerReset);
                 break;
             case R.id.menu_log:
                 Intent intent = new Intent(getActivity(), LogActivity.class);
                 startActivity(intent);
-                AndroidFirebaseAnalytics.logEvent("menu_log");
+                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuHistoryClick");
                 break;
             case R.id.menu_rate:
                 Utilities.rateApp(requireActivity());
-                AndroidFirebaseAnalytics.logEvent("menu_rate_app");
+                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuRateClick");
                 break;
             case R.id.menu_donate:
-                AndroidFirebaseAnalytics.logEvent("menu_donate");
-
+                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuDonateClick");
 
                 DonateDialog dialog = new DonateDialog();
                 dialog.show(requireFragmentManager(), "donate");
-
-//                viewModel.setupBillingClient();
-//                new AlertDialog.Builder(requireContext())
-//                        .setTitle("Donate")
-//                        .setAdapter(adapter, (dialog, which) -> viewModel.onDonateClicked((responseCode, skuDetailsList) -> {
-//                            if (responseCode == BillingClient.BillingResponse.OK) {
-//                                Timber.d("querySkuDetailsAsync, responseCode: %d", responseCode);
-//                                BillingFlowParams billingFlowParams = BillingFlowParams
-//                                        .newBuilder()
-//                                        .setSkuDetails(skuDetailsList.get(which))
-//                                        .build();
-//                                viewModel.launchBillingFlow(requireActivity(), billingFlowParams);
-//
-//                            } else {
-//                                Timber.d("Can't querySkuDetailsAsync, responseCode: %d", responseCode);
-//                            }
-//
-//                        }))
-//                        .show();
                 break;
         }
         return true;
@@ -244,9 +225,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                                 itemTouchHelper.attachToRecyclerView(recyclerView);
                             }
                     );
-                    Bundle params = new Bundle();
-                    params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "" + size);
-                    AndroidFirebaseAnalytics.logEvent("active_counters", params);
+                    AndroidFirebaseAnalytics.setUserProperty("counters_size", "" + size);
                 }
             } else {
                 emptyState.setVisibility(View.VISIBLE);
@@ -258,8 +237,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onEditClick(View view, Counter counter) {
         EditCounterActivity.start(getActivity(), counter, view);
         Bundle params = new Bundle();
-        params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "edit");
-        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "edit");
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterHeaderClick", params);
     }
 
     @Override
@@ -296,7 +275,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @SuppressLint("SetTextI18n")
     @Override
     public void onLongClick(Counter counter, int position, boolean isIncrease) {
-        AndroidFirebaseAnalytics.logEvent("counter_long_click");
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterLongClick");
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
 
         final Observer<Counter> counterObserver = c -> {
@@ -480,14 +459,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         md.show();
         Bundle params = new Bundle();
         params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "name");
-        AndroidFirebaseAnalytics.logEvent("counter_header_click", params);
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterHeaderClick", params);
     }
 
     public void scrollToTop() {
         if (recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
         }
-        AndroidFirebaseAnalytics.logEvent("scroll_to_top");
     }
 
     @Override
@@ -499,7 +477,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void afterDrag(Counter counter, int fromPosition, int toPosition) {
         viewModel.modifyPosition(counter, fromPosition, toPosition);
     }
-
 
     @Override
     public void onPurchasesUpdated(BillingResult billingResult, @Nullable List<Purchase> purchases) {

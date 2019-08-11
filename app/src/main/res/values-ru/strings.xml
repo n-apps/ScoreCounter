@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить сейчас</string>
     <string name="erd_remind_me_later">Напомнить позже</string>
-    <string name="erd_title">Оценить это приложение ❤</string>
+    <string name="erd_title">Оценить это приложение</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
     <string name="hint_enter_number">Введите число…</string>
     <string name="label_all_changes_saved">Все изменения сохранены</string>
@@ -66,5 +66,9 @@
     <string name="donation_thank_you">Спасибо \u2764</string>
     <string name="donation_coffee_title">Одна вкусная пицца</string>
     <string name="donation_pizza_title">Успокаивающий кофе</string>
-
+    <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
+    <string name="donation_pizza_description">С луком, сыром и салями, пожалуйста. Но никаких грибов!</string>
+    <string name="settings_sound">Звук</string>
+    <string name="action_donate">Пожертвование</string>
+    <string name="error_message">Произошла ошибка.</string>
 </resources>

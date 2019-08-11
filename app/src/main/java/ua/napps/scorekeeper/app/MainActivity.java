@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
@@ -52,9 +53,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         super.onCreate(savedInstanceState);
         isLightTheme = LocalSettings.isLightTheme();
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
-        if (savedInstanceState == null) {
-            trackAnalytics();
-        } else {
+        if (savedInstanceState != null) {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
@@ -89,30 +88,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOn();
 
+        trackAnalytics();
         Singleton.getInstance().setMainContext(this);
-
     }
 
     private void trackAnalytics() {
-        Bundle params1 = new Bundle();
-        params1.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isLightTheme ? 0 : 1);
-        AndroidFirebaseAnalytics.logEvent("dark_theme", params1);
-
-        Bundle params2 = new Bundle();
-        params2.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, isKeepScreenOn ? 1 : 0);
-        AndroidFirebaseAnalytics.logEvent("keep_screen_on", params2);
-
-        Bundle params3 = new Bundle();
-        params3.putLong(com.google.firebase.analytics.FirebaseAnalytics.Param.SCORE, LocalSettings.isShakeToRollEnabled() ? 1 : 0);
-        AndroidFirebaseAnalytics.logEvent("shake_to_roll", params3);
-
-        Bundle params4 = new Bundle();
-        params4.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "" + LocalSettings.getDiceMaxSide());
-        AndroidFirebaseAnalytics.logEvent("dice_max_side", params4);
+        AndroidFirebaseAnalytics.setUserProperty("dark_theme_enabled", isLightTheme ? "false" : "true");
+        AndroidFirebaseAnalytics.setUserProperty("keep_screen_on_enabled", LocalSettings.isKeepScreenOnEnabled() ? "true" : "false");
+        AndroidFirebaseAnalytics.setUserProperty("shake_to_roll_enabled", LocalSettings.isShakeToRollEnabled() ? "true" : "false");
+        AndroidFirebaseAnalytics.setUserProperty("sound_enabled", LocalSettings.isSoundRollEnabled() ? "true" : "false");
+        AndroidFirebaseAnalytics.setUserProperty("dice_max_side", "" + LocalSettings.getDiceMaxSide());
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(STATE_CURRENT_DICE_ROLL, currentDiceRoll);
         outState.putInt(STATE_PREVIOUS_DICE_ROLL, previousDiceRoll);

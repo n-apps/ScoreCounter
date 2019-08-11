@@ -30,7 +30,7 @@
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_rate_now">Rate it now</string>
     <string name="erd_remind_me_later">Remind me later</string>
-    <string name="erd_title">Rate this app ❤️</string>
+    <string name="erd_title">Rate this app️</string>
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="hint_enter_number">Enter a number…</string>
     <string name="label_all_changes_saved">All changes saved</string>
@@ -68,4 +68,7 @@
     <string name="donation_pizza_title">One tasty pizza</string>
     <string name="donation_coffee_description">What keeps the developer awake at night? Your coffee</string>
     <string name="donation_pizza_description">With onions, cheese and salami please. And no mushrooms!</string>
+    <string name="settings_sound">Sound</string>
+    <string name="action_donate">Donate</string>
+    <string name="error_message">Sorry, there seems to have been an error.</string>
 </resources>

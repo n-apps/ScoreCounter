@@ -21,10 +21,12 @@ import androidx.fragment.app.Fragment;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
 
 
@@ -47,7 +49,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
 
-
         btn_c_1 = contentView.findViewById(R.id.btn_settings_counter_1);
         btn_c_2 = contentView.findViewById(R.id.btn_settings_counter_2);
         btn_c_3 = contentView.findViewById(R.id.btn_settings_counter_3);
@@ -62,6 +63,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_github).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_donation).setOnClickListener(this);
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
@@ -98,26 +100,30 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
-                AndroidFirebaseAnalytics.logEvent("request_a_feature_click");
+                AndroidFirebaseAnalytics.logEvent("SettingsScreenFeedbackClick");
                 startEmailClient();
                 break;
             case R.id.tv_rate_app:
-                AndroidFirebaseAnalytics.logEvent("rate_app__click");
+                AndroidFirebaseAnalytics.logEvent("SettingsScreenRateAppClick");
                 Utilities.rateApp(requireActivity());
                 break;
+            case R.id.tv_donation:
+                AndroidFirebaseAnalytics.logEvent("SettingsScreenDonateClick");
+                DonateDialog dialog = new DonateDialog();
+                dialog.show(requireFragmentManager(), "donate");
+                break;
             case R.id.tv_github:
-                AndroidFirebaseAnalytics.logEvent("github__click");
+                AndroidFirebaseAnalytics.logEvent("SettingsScreenContributeClick");
                 Intent githubIntent =
                         new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/n-apps/ScoreCounter/issues"));
                 startActivity(githubIntent);
                 break;
             case R.id.tv_privacy_policy:
-                AndroidFirebaseAnalytics.logEvent("privacy_policy__click");
+                AndroidFirebaseAnalytics.logEvent("SettingsScreenPrivacyClick");
                 Intent viewIntent =
                         new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
                 startActivity(viewIntent);
                 break;
-
             case R.id.btn_settings_counter_1:
                 openCustomCounterDialog(1);
                 break;
@@ -153,12 +159,15 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .onPositive((dialog, which) -> {
                     EditText editText = dialog.getInputEditText();
                     if (editText != null) {
-                        Integer parseInt = Utilities.parseInt(editText.getText().toString());
+                        String value = editText.getText().toString();
+                        Integer parseInt = Utilities.parseInt(value);
                         if (parseInt <= 999 && parseInt > 1) {
                             setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();
-                        AndroidFirebaseAnalytics.logEvent("set_custom_counter_value_for_dialog");
+                        Bundle params = new Bundle();
+                        params.putString(FirebaseAnalytics.Param.CHARACTER, value);
+                        AndroidFirebaseAnalytics.logEvent("SettingsScreenCounterDialogValueSubmit", params);
                     }
                 })
                 .build();

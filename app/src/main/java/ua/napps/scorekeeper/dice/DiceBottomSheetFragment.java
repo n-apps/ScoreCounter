@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
@@ -24,6 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
 
 public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements View.OnClickListener {
@@ -32,7 +34,6 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
     private int diceMaxSide;
     private ToggleButton diceSix, diceEight, diceTwenty, diceCustom;
 
-    @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -60,7 +61,7 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
     }
 
     @Override
-    public void onDismiss(DialogInterface dialog) {
+    public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
 
         if (onDismissListener != null) {
@@ -90,6 +91,7 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
                 getDialog().getWindow().getDecorView().setSystemUiVisibility(newFlags);
             }
         }
+        AndroidFirebaseAnalytics.logEvent("DiceBottomSheetScreenAppear");
     }
 
     @Override

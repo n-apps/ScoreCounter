@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_history_48dp" />
+        app:srcCompat="@drawable/ic_history" />
 
     <TextView
         android:id="@+id/tv_empty_state"

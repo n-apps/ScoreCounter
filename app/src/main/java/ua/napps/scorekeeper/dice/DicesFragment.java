@@ -24,6 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.transition.TransitionManager;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import ua.com.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -82,14 +84,13 @@ public class DicesFragment extends Fragment {
         diceTextView = contentView.findViewById(R.id.dice);
         root = contentView.findViewById(R.id.container);
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> {
-            AndroidFirebaseAnalytics.logEvent("dice_menu_click");
             showBottomSheet();
         });
         root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
-            params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "click");
-            AndroidFirebaseAnalytics.logEvent("roll_dice", params);
+            params.putString(FirebaseAnalytics.Param.CHARACTER, "by_touch");
+            AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
         });
         root.setOnLongClickListener(v -> {
             showBottomSheet();
@@ -173,8 +174,8 @@ public class DicesFragment extends Fragment {
             if (accel > 5.0) {
                 viewModel.rollDice();
                 Bundle params = new Bundle();
-                params.putString(com.google.firebase.analytics.FirebaseAnalytics.Param.CHARACTER, "sensor");
-                AndroidFirebaseAnalytics.logEvent("roll_dice", params);
+                params.putString(FirebaseAnalytics.Param.CHARACTER, "by_shake");
+                AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
             }
         });
     }

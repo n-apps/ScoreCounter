@@ -74,7 +74,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != -counter.getStep()) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("decrease_counter", params);
+            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterDecreased", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -109,7 +109,7 @@ class CountersViewModel extends AndroidViewModel {
         if (amount != counter.getStep()) {
             Bundle params = new Bundle();
             params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("increase_counter", params);
+            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterIncreased", params);
         }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -134,8 +134,8 @@ class CountersViewModel extends AndroidViewModel {
     void modifyName(Counter counter, @NonNull String name) {
         if (!name.equals(counter.getName())) {
             Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, counter.getName());
-            AndroidFirebaseAnalytics.logEvent("counter_name_submit", params);
+            params.putString(Param.CHARACTER, name);
+            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterNewNameSubmit", params);
         }
         repository.modifyName(counter.getId(), name)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -191,9 +191,7 @@ class CountersViewModel extends AndroidViewModel {
             toPosition = counters.getValue().size() - 1;
         }
 
-        Bundle params = new Bundle();
-        params.putString(Param.CHARACTER, "" + toPosition);
-        AndroidFirebaseAnalytics.logEvent("counter_position_change", params);
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterDragNDropped");
 
         int smallerIndex = Math.min(fromPosition, toPosition);
         int largerIndex = Math.max(fromPosition, toPosition);
