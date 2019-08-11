@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.android.billingclient.api.AcknowledgePurchaseParams;
@@ -36,21 +38,39 @@ import static com.android.billingclient.api.BillingClient.BillingResponseCode;
 import static com.android.billingclient.api.BillingClient.SkuType;
 import static com.android.billingclient.api.BillingClient.newBuilder;
 
+class DonateDialogViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+
+    private final DonateViewModel.BillingCallback completedCallback;
+    private final Application app;
+
+    DonateDialogViewModelFactory(Application application, DonateViewModel.BillingCallback callback) {
+        completedCallback = callback;
+        app = application;
+    }
+
+    @NonNull
+    @Override
+    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        //noinspection unchecked
+        return (T) new DonateViewModel(app, completedCallback);
+    }
+}
+
 class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
 
+    private final BillingCallback callback;
     private BillingClient billingClient;
-    private PurchaseCompletedCallback callback;
     private List<SkuDetails> skuDetailsList = new ArrayList<>();
 
-    public DonateViewModel(@NonNull Application application) {
+    DonateViewModel(@NonNull Application application, BillingCallback completedCallback) {
         super(application);
-
+        callback = completedCallback;
         billingClient = newBuilder(application).setListener(this).enablePendingPurchases().build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
             public void onBillingSetupFinished(BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingResponseCode.OK) {
-                    List<String> skuList = new ArrayList<>();
+                    List<String> skuList = new ArrayList<>(2);
                     skuList.add("buy_me_a_coffee");
                     skuList.add("buy_me_a_pizza");
 
@@ -66,6 +86,7 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
                         }
                     });
                 } else {
+                    callback.onResult(billingResult.getResponseCode());
                     Timber.e("Problem setting up in-app billing: %s", billingResult.getResponseCode());
                 }
             }
@@ -91,8 +112,8 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
         params.putString(FirebaseAnalytics.Param.CHARACTER, "" + donateOption);
         AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionSubmit", params);
 
-        if (skuDetailsList == null || donateOption > 1) {
-            Timber.e("skuDetailsList is null :(");
+        if (skuDetailsList.isEmpty() || donateOption > 1) {
+            Timber.e("skuDetailsList is empty :(");
             return;
         }
         billingClient.launchBillingFlow(activity, BillingFlowParams.newBuilder()
@@ -105,7 +126,7 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
 
         // allow multiple purchases
         billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
-            callback.onSuccess(billingResult.getResponseCode());
+            callback.onResult(billingResult.getResponseCode());
             AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionPurchased");
             if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchaseToken != null) {
                 Timber.d("AllowMultiplePurchases success, responseCode: %s", billingResult.getResponseCode());
@@ -117,8 +138,6 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
 
     private void acknowledgePurchase(Purchase purchase) {
         if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
-            // Grant entitlement to the user.
-            // Acknowledge the purchase if it hasn't already been acknowledged.
             if (!purchase.isAcknowledged()) {
                 billingClient.acknowledgePurchase(AcknowledgePurchaseParams.newBuilder()
                         .setPurchaseToken(purchase.getPurchaseToken())
@@ -133,20 +152,15 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
 
     @Override
     protected void onCleared() {
-        super.onCleared();
         billingClient.endConnection();
     }
 
-    void setCallback(PurchaseCompletedCallback callback) {
-        this.callback = callback;
-    }
-
-    interface PurchaseCompletedCallback {
-        void onSuccess(int responseCode);
+    interface BillingCallback {
+        void onResult(int responseCode);
     }
 }
 
-public class DonateDialog extends DialogFragment {
+public class DonateDialog extends DialogFragment implements DonateViewModel.BillingCallback {
 
     private DonateViewModel viewModel;
     private DonateAdapter adapter;
@@ -154,17 +168,9 @@ public class DonateDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(requireActivity()).get(DonateViewModel.class);
+        DonateDialogViewModelFactory factory = new DonateDialogViewModelFactory(requireActivity().getApplication(), this);
+        viewModel = ViewModelProviders.of(requireActivity(), factory).get(DonateViewModel.class);
         adapter = new DonateAdapter(requireContext());
-        viewModel.setCallback(responseCode -> {
-            if (responseCode == BillingResponseCode.OK) {
-                Toast.makeText(requireContext(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
-                AndroidFirebaseAnalytics.setUserProperty("donated", "true");
-            } else {
-                Toast.makeText(requireContext(), R.string.error_message, Toast.LENGTH_SHORT).show();
-            }
-            dismiss();
-        });
     }
 
     @NonNull
@@ -176,5 +182,16 @@ public class DonateDialog extends DialogFragment {
                 .create();
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.purchase(requireActivity(), donateOption));
         return alertDialog;
+    }
+
+    @Override
+    public void onResult(int responseCode) {
+        if (responseCode == BillingResponseCode.OK) {
+            Toast.makeText(requireContext(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
+            AndroidFirebaseAnalytics.setUserProperty("donated", "true");
+        } else {
+            Toast.makeText(requireContext(), R.string.error_message, Toast.LENGTH_SHORT).show();
+        }
+        dismiss();
     }
 }

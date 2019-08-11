@@ -1,6 +1,5 @@
 package ua.napps.scorekeeper.log;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
@@ -45,9 +44,9 @@ public class LogActivity extends AppCompatActivity {
 
         boolean isLightTheme = LocalSettings.isLightTheme();
         if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this, Color.WHITE);
+            ViewUtil.setLightStatusBar(this);
         } else {
-            ViewUtil.clearLightStatusBar(this, Color.BLACK);
+            ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
     }
