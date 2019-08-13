@@ -12,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.android.billingclient.api.AcknowledgePurchaseParams;
@@ -38,33 +36,13 @@ import static com.android.billingclient.api.BillingClient.BillingResponseCode;
 import static com.android.billingclient.api.BillingClient.SkuType;
 import static com.android.billingclient.api.BillingClient.newBuilder;
 
-class DonateDialogViewModelFactory extends ViewModelProvider.NewInstanceFactory {
-
-    private final DonateViewModel.BillingCallback completedCallback;
-    private final Application app;
-
-    DonateDialogViewModelFactory(Application application, DonateViewModel.BillingCallback callback) {
-        completedCallback = callback;
-        app = application;
-    }
-
-    @NonNull
-    @Override
-    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        //noinspection unchecked
-        return (T) new DonateViewModel(app, completedCallback);
-    }
-}
-
 class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
 
-    private final BillingCallback callback;
     private BillingClient billingClient;
     private List<SkuDetails> skuDetailsList = new ArrayList<>();
 
-    DonateViewModel(@NonNull Application application, BillingCallback completedCallback) {
+    DonateViewModel(@NonNull Application application) {
         super(application);
-        callback = completedCallback;
         billingClient = newBuilder(application).setListener(this).enablePendingPurchases().build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
@@ -86,8 +64,8 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
                         }
                     });
                 } else {
-                    callback.onResult(billingResult.getResponseCode());
                     Timber.e("Problem setting up in-app billing: %s", billingResult.getResponseCode());
+                    Toast.makeText(getApplication(), R.string.error_message, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -105,7 +83,7 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
                 handlePurchase(purchase);
             }
         } else {
-            callback.onResult(billingResult.getResponseCode());
+            Toast.makeText(getApplication(), R.string.error_message, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -127,7 +105,7 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
         acknowledgePurchase(purchase);
 
         billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
-            callback.onResult(billingResult.getResponseCode());
+            Toast.makeText(getApplication(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
             AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionPurchased");
             if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchaseToken != null) {
                 Timber.d("AllowMultiplePurchases success, responseCode: %s", billingResult.getResponseCode());
@@ -155,13 +133,9 @@ class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListen
     protected void onCleared() {
         billingClient.endConnection();
     }
-
-    interface BillingCallback {
-        void onResult(int responseCode);
-    }
 }
 
-public class DonateDialog extends DialogFragment implements DonateViewModel.BillingCallback {
+public class DonateDialog extends DialogFragment {
 
     private DonateViewModel viewModel;
     private DonateAdapter adapter;
@@ -169,8 +143,7 @@ public class DonateDialog extends DialogFragment implements DonateViewModel.Bill
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DonateDialogViewModelFactory factory = new DonateDialogViewModelFactory(requireActivity().getApplication(), this);
-        viewModel = ViewModelProviders.of(requireActivity(), factory).get(DonateViewModel.class);
+        viewModel = ViewModelProviders.of(requireActivity()).get(DonateViewModel.class);
         adapter = new DonateAdapter(requireContext());
     }
 
@@ -183,20 +156,5 @@ public class DonateDialog extends DialogFragment implements DonateViewModel.Bill
                 .create();
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.purchase(requireActivity(), donateOption));
         return alertDialog;
-    }
-
-    @Override
-    public void onResult(int responseCode) {
-        if (responseCode == BillingResponseCode.OK) {
-            if (isAdded() && getActivity() != null) {
-                Toast.makeText(requireContext(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
-            }
-            AndroidFirebaseAnalytics.setUserProperty("donated", "true");
-        } else {
-            if (isAdded() && getActivity() != null) {
-                Toast.makeText(requireContext(), R.string.error_message, Toast.LENGTH_SHORT).show();
-            }
-        }
-        dismiss();
     }
 }
