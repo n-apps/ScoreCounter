@@ -64,8 +64,8 @@
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="settings_github">Помочь проекту (Github)</string>
     <string name="donation_thank_you">Спасибо \u2764</string>
-    <string name="donation_coffee_title">Одна вкусная пицца</string>
-    <string name="donation_pizza_title">Успокаивающий кофе</string>
+    <string name="donation_coffee_title">Успокаивающий кофе</string>
+    <string name="donation_pizza_title">Одна вкусная пицца</string>
     <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
     <string name="donation_pizza_description">С луком, сыром и салями, пожалуйста. Но никаких грибов!</string>
     <string name="settings_sound">Звук</string>
