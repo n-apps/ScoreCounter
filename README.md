@@ -1,10 +1,8 @@
 # Score Counter + 🎲
 
-Score Counter + 🎲 will help you to track scores in board games, sport events or even in cooking.
+Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/500px-Get_it_on_Google_play.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
-
-Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
 
 ## Key features
 * Easy to use
