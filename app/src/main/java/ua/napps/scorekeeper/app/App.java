@@ -2,12 +2,14 @@ package ua.napps.scorekeeper.app;
 
 import android.app.Application;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatDelegate;
-import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.crashlytics.android.Crashlytics;
+
+import org.jetbrains.annotations.Nullable;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
@@ -42,20 +44,29 @@ public class App extends Application {
 
     private static class CrashlyticsTree extends Timber.Tree {
 
+        private static final String CRASHLYTICS_KEY_PRIORITY = "priority";
+        private static final String CRASHLYTICS_KEY_TAG = "tag";
+        private static final String CRASHLYTICS_KEY_MESSAGE = "message";
+
         CrashlyticsTree(Context context) {
             Fabric.with(context, new Crashlytics());
         }
 
         @Override
-        protected void log(int priority, String tag, @NonNull String message, Throwable t) {
-            if (priority == Log.VERBOSE || priority == Log.DEBUG) {
-                return;
-            }
-            if (!TextUtils.isEmpty(message)) {
-                Crashlytics.log(priority, tag, message);
-            }
+        protected boolean isLoggable(@Nullable String tag, int priority) {
+            return priority >= Log.WARN;
+        }
+
+        @Override
+        protected void log(int priority, String tag, @NonNull String message, @Nullable Throwable t) {
+            Crashlytics.setInt(CRASHLYTICS_KEY_PRIORITY, priority);
+            Crashlytics.setString(CRASHLYTICS_KEY_TAG, tag);
+            Crashlytics.setString(CRASHLYTICS_KEY_MESSAGE, message);
+
             if (t != null) {
                 Crashlytics.logException(t);
+            } else {
+                Crashlytics.logException(new RuntimeException(message));
             }
         }
     }
