@@ -77,6 +77,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
                 handlePurchase(purchase);
             }
         } else {
+            Timber.e("Purchase error, responseCode: %s", billingResult.getResponseCode());
             Toast.makeText(getApplication(), R.string.error_message, Toast.LENGTH_SHORT).show();
         }
     }
