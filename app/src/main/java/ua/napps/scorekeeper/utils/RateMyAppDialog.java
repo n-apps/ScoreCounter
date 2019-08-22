@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import java.util.Date;
 
 import timber.log.Timber;
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
 
 public class RateMyAppDialog {

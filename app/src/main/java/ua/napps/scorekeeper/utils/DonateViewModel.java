@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import timber.log.Timber;
-import ua.com.napps.scorekeeper.BuildConfig;
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.BuildConfig;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
 import ua.napps.scorekeeper.utils.livedata.MessageIntent;
 import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;

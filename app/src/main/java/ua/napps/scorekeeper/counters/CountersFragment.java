@@ -39,7 +39,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;

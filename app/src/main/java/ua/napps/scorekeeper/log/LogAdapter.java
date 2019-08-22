@@ -1,18 +1,19 @@
 package ua.napps.scorekeeper.log;
 
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.RoundedColorView;
 import ua.napps.scorekeeper.utils.Singleton;
 

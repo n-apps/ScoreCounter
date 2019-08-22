@@ -15,7 +15,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.dice.OnDiceFragmentInteractionListener;

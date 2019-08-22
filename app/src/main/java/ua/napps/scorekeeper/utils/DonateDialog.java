@@ -11,7 +11,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
 import ua.napps.scorekeeper.utils.livedata.MessageIntent;
 import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;

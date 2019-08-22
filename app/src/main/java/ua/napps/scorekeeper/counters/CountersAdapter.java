@@ -27,7 +27,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.utils.ColorUtil;

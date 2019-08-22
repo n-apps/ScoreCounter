@@ -26,7 +26,7 @@ import androidx.transition.TransitionManager;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 

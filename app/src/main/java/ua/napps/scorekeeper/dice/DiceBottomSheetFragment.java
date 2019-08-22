@@ -23,7 +23,7 @@ import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment;
 
 import org.jetbrains.annotations.NotNull;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;

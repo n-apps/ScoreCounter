@@ -6,11 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import ua.com.napps.scorekeeper.R;
+import androidx.annotation.Nullable;
+
+import ua.napps.scorekeeper.R;
 
 public class RoundedColorView extends View {
     private final int DEFAULT_BACKGROUND_COLOR = Color.CYAN;

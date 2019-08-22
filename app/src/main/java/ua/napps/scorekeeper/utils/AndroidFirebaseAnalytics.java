@@ -10,7 +10,7 @@ import androidx.annotation.Size;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import timber.log.Timber;
-import ua.com.napps.scorekeeper.BuildConfig;
+import ua.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.app.App;
 
 public class AndroidFirebaseAnalytics {

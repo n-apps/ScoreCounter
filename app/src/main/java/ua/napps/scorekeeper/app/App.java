@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
-import ua.com.napps.scorekeeper.BuildConfig;
+import ua.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
 import ua.napps.scorekeeper.storage.TinyDB;
 

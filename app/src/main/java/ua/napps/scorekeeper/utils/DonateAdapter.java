@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import ua.com.napps.scorekeeper.R;
+import ua.napps.scorekeeper.R;
 
 public class DonateAdapter extends BaseAdapter {
 
