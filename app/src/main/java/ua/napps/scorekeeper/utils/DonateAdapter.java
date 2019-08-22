@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import ua.com.napps.scorekeeper.R;
 
+//TODO: Fill list with SkuDetails
 public class DonateAdapter extends BaseAdapter {
 
     private final Context context;

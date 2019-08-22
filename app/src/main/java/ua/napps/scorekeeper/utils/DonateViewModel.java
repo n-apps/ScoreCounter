@@ -9,8 +9,8 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
 
-import com.android.billingclient.api.AcknowledgePurchaseParams;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -26,14 +26,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import timber.log.Timber;
+import ua.com.napps.scorekeeper.BuildConfig;
 import ua.com.napps.scorekeeper.R;
 
 import static com.android.billingclient.api.BillingClient.newBuilder;
 
 public class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
 
+    public static final Integer EVENT_DISMISS = 101;
+
     private BillingClient billingClient;
     private List<SkuDetails> skuDetailsList = new ArrayList<>();
+    public final MutableLiveData<ConsumableEvent> events = new MutableLiveData<>();
 
     public DonateViewModel(@NonNull Application application) {
         super(application);
@@ -57,6 +61,13 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
                             Timber.e("Problem retrieve a value sku details list : %s", billingResult.getResponseCode());
                         }
                     });
+                    Purchase.PurchasesResult purchasesResult = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
+                    List<Purchase> purchasesList = purchasesResult.getPurchasesList();
+                    if (purchasesList != null) {
+                        for (Purchase purchase : purchasesList) {
+                            consumePurchase(purchase);
+                        }
+                    }
                 } else {
                     Timber.e("Problem setting up in-app billing: %s", billingResult.getResponseCode());
                     Toast.makeText(getApplication(), R.string.error_message, Toast.LENGTH_SHORT).show();
@@ -74,11 +85,17 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
     public void onPurchasesUpdated(BillingResult billingResult, @Nullable List<Purchase> purchases) {
         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchases != null) {
             for (Purchase purchase : purchases) {
-                handlePurchase(purchase);
+                consumePurchase(purchase);
             }
+            Toast.makeText(getApplication(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplication(), R.string.error_message, Toast.LENGTH_SHORT).show();
         }
+        postDismissEvent();
+    }
+
+    private void postDismissEvent() {
+        events.postValue(new ConsumableEvent<>(EVENT_DISMISS));
     }
 
     void purchase(Activity activity, @IntRange(from = 0, to = 1) int donateOption) {
@@ -95,11 +112,8 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
                 .build());
     }
 
-    private void handlePurchase(Purchase purchase) {
-        acknowledgePurchase(purchase);
-
+    private void consumePurchase(Purchase purchase) {
         billingClient.consumeAsync(ConsumeParams.newBuilder().setPurchaseToken(purchase.getPurchaseToken()).build(), (billingResult, purchaseToken) -> {
-            Toast.makeText(getApplication(), R.string.donation_thank_you, Toast.LENGTH_SHORT).show();
             AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionPurchased");
             if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchaseToken != null) {
                 Timber.d("AllowMultiplePurchases success, responseCode: %s", billingResult.getResponseCode());
@@ -107,20 +121,6 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
                 Timber.e("Can't allow multiple purchases, responseCode: %s", billingResult.getResponseCode());
             }
         });
-    }
-
-    private void acknowledgePurchase(Purchase purchase) {
-        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
-            if (!purchase.isAcknowledged()) {
-                billingClient.acknowledgePurchase(AcknowledgePurchaseParams.newBuilder()
-                        .setPurchaseToken(purchase.getPurchaseToken())
-                        .build(), billingResult -> {
-                    if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-                        Timber.e("Can't acknowledge purchase, responseCode: %s", billingResult.getResponseCode());
-                    }
-                });
-            }
-        }
     }
 
     @Override
