@@ -4,19 +4,24 @@ Score Counter + 🎲 will help you to track scores in board games, sport events 
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/500px-Get_it_on_Google_play.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
-## Features
-* Modern design
-* Use everywhere for any game
-* Set counter names, initial values and colors
-* Forgot to bring a dice? There are d6, d8, d20 and even d88 :)
+Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
+
+## Key features
+* Easy to use
+* Modern and simple design
+* Suitable for any game. Multiple counters on one screen
+* You can change the name, initial value, step and even color for any counter
+* Can't find a dice? There are d6, d8, d20, and even d88 :)
 * Shake to roll
-* Dark theme
-* No ads at all
+* Dark theme will save your eyes in the evening :)
+* No ads at all. NEVER
+
+I 🖤 board games and appreciate your feedback. I regularly use this application for Carcassone, Star Realms or even UNO :)
 
 ## Screenshots
-[<img src="https://i.imgur.com/6sOojxA.jpg" width=250>](https://i.imgur.com/6sOojxA.jpg)
-[<img src="https://i.imgur.com/DdPmaM8.jpg" width=250>](https://i.imgur.com/DdPmaM8.jpg)
-[<img src="https://i.imgur.com/BvIY1ji.jpg" width=250>](https://i.imgur.com/BvIY1ji.jpg)
+[<img src="https://lh3.googleusercontent.com/sP04i1HuOFsjz-fstQh-2ZD_admLQZcqoeQfV0CDjUKbzx6HfosxxXcD8vNUCQffxw=s0" width=250>]
+[<img src="https://lh3.googleusercontent.com/g4yJZHDimvB1DWzNnTzpU2E8DxgLfaNeFct9DucvWxZ-iypYg7aMG6r5bfm4khBBmy6C=s0" width=250>]
+[<img src="https://lh3.googleusercontent.com/nEdxwJLKelY22x_VM6ahYE7QZ1X1Ld0faLhjBFR586Wpr-v6EoWj1See2uldOD3dnvQ_=s0" width=250>]
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
