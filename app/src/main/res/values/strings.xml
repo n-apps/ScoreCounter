@@ -19,8 +19,6 @@
     <string name="counter_details_value">Current value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
-    <string name="dialog_counter_default_title">Default value</string>
-    <string name="dialog_counter_step_title">Step</string>
     <string name="dialog_current_value_title">Current value</string>
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
@@ -33,7 +31,6 @@
     <string name="erd_title">Rate this app️</string>
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="hint_enter_number">Enter a number…</string>
-    <string name="label_all_changes_saved">All changes saved</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_remove_all_counters">Remove all</string>
     <string name="menu_reset_all_counters">Reset all</string>
@@ -46,7 +43,6 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_section_dice_sides">Number of sides of the dice</string>
-    <string name="common_info">Info</string>
     <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
@@ -54,13 +50,12 @@
     <string name="log_counter">Counter:</string>
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
-    <string name="dialog_custom_counter_title">Custom counter value</string>
+    <string name="dialog_custom_counter_title">Quick change option</string>
     <string name="dialog_custom_counter_hint">From 2 to 999</string>
-    <string name="settings_section_counter_buttons">Set the value of the buttons in a counter dialog (by a long press)</string>
+    <string name="settings_section_counter_buttons">Options for quickly changing the value \nYou can quickly change the counter value by long pressing on it 🤓</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
-    <string name="counter_details_position">Position</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="settings_github">Contribute (Github)</string>
     <string name="donation_thank_you">Thank you \u2764️</string>
@@ -71,4 +66,5 @@
     <string name="settings_sound">Sound</string>
     <string name="action_donate">Donate</string>
     <string name="error_message">Sorry, there seems to have been an error.</string>
+    <string name="save">Save</string>
 </resources>

@@ -19,8 +19,6 @@
     <string name="counter_details_value">Aktueller Wert</string>
     <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutze den + Knopf oben rechts</string>
     <string name="dialog_color_picker_presets_button">Voreinstellungen</string>
-    <string name="dialog_counter_default_title">Standard Wert</string>
-    <string name="dialog_counter_step_title">Schritt</string>
     <string name="dialog_current_value_title">Aktueller Wert</string>
     <string name="dialog_custom_dice_hint">Von 2 bis 100</string>
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
@@ -33,7 +31,6 @@
     <string name="erd_title">App Bewerten</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="hint_enter_number">Gebe eine Nummer ein…</string>
-    <string name="label_all_changes_saved">Alle Änderungen gespeichert</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
     <string name="menu_remove_all_counters">Alle entfernen</string>
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
@@ -46,7 +43,6 @@
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
     <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel</string>
-    <string name="common_info">Info</string>
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Du kannst ihn außerdem durch einen langen Klick ändern.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
     <string name="common_got_it">Verstanden</string>
@@ -54,13 +50,12 @@
     <string name="log_counter">Zähler:</string>
     <string name="history_empty_message">Keine Geschichte</string>
     <string name="common_counter">Zähler</string>
-    <string name="dialog_custom_counter_title">Eigne Zähler Werte</string>
+    <string name="dialog_custom_counter_title">Schnellwechseloption</string>
     <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
-    <string name="settings_section_counter_buttons">Setze den Wert der Knöpfe im Zähler lang-klick Dialog</string>
+    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes \nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken 🤓</string>
     <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
-    <string name="counter_details_position">Position</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="settings_github">Beitragen (Github)</string>
     <string name="donation_thank_you">Vielen Dank \u2764</string>
@@ -71,5 +66,6 @@
     <string name="settings_sound">Klingen</string>
     <string name="action_donate">Spenden</string>
     <string name="error_message">Es ist ein Fehler aufgetreten</string>
+    <string name="save">Speichern</string>
 
 </resources>

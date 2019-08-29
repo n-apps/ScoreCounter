@@ -240,7 +240,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
 
         viewModel.decreaseCounter(counter);
-        showLongPressHint();
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+            showLongPressHint();
+        }
     }
 
     private void showLongPressHint() {
@@ -263,7 +265,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
 
         viewModel.increaseCounter(counter);
-        showLongPressHint();
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+            showLongPressHint();
+        }
     }
 
     @SuppressLint("SetTextI18n")

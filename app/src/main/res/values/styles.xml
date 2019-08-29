@@ -42,14 +42,6 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
 
-    <style name="SingleLineStyle">
-        <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:minHeight">@dimen/list_single_line_min_height</item>
-        <item name="android:paddingStart">@dimen/padding_normal</item>
-        <item name="android:paddingEnd">@dimen/padding_normal</item>
-    </style>
-
     <style name="TwoLinesStyle">
         <item name="android:background">?attr/selectableItemBackground</item>
         <item name="android:gravity">center_vertical</item>

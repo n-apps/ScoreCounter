@@ -19,8 +19,6 @@
     <string name="counter_details_value">La valeur active</string>
     <string name="counters_empty_message">Appuyer n\'importe où pour ajouter le premier compteur ou utilisez le bouton + dans le coin supérieur droit</string>
     <string name="dialog_color_picker_presets_button">Presets</string>
-    <string name="dialog_counter_default_title">Valeur par défaut</string>
-    <string name="dialog_counter_step_title">Étape</string>
     <string name="dialog_current_value_title">Valeur actuelle</string>
     <string name="dialog_custom_dice_hint">De 2 à 100</string>
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
@@ -33,7 +31,6 @@
     <string name="erd_title">Evaluation de l\'application</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
     <string name="hint_enter_number">Entrez un nombre…</string>
-    <string name="label_all_changes_saved">Les changements ont été sauvegardés</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_remove_all_counters">Supprimer tout</string>
     <string name="menu_reset_all_counters">Réinitialiser tous</string>
@@ -46,7 +43,6 @@
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés des dés</string>
-    <string name="common_info">Info</string>
     <string name="dialog_step_info_content">Combien va changer la valeur du compteur en cliquant dessus. La moitié gauche est responsable de la diminution, la moitié droite de l\'augmentation. Vous pouvez également changer sa valeur avec un appui long</string>
     <string name="dialog_default_info_content">La valeur du compteur qui sera définie après sa réinitialisation à l\'aide du menu \"Réinitialiser toutes les valeurs\" (trois points sur l\'écran principal)</string>
     <string name="common_got_it">C’est bon!</string>
@@ -54,10 +50,9 @@
     <string name="log_counter">Сompteur:</string>
     <string name="history_empty_message">Pas encore d\'histoire</string>
     <string name="common_counter">Сompteur</string>
-    <string name="dialog_custom_counter_title">Valeur de compteur spéciale</string>
+    <string name="dialog_custom_counter_title">Option de changement rapide</string>
     <string name="dialog_custom_counter_hint">De 2 à 999</string>
-    <string name="settings_section_counter_buttons">Définir la valeur des boutons dans la boîte de dialogue (par appui long)</string>
-    <string name="counter_details_position">Position</string>
+    <string name="settings_section_counter_buttons">Options pour changer rapidement la valeur \nVous pouvez changer rapidement la valeur du compteur en appuyant longuement dessus 🤓</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
@@ -71,5 +66,6 @@
     <string name="settings_sound">Du son</string>
     <string name="action_donate">Faire un don</string>
     <string name="error_message">Une erreur est survenue.</string>
+    <string name="save">Sauvegarder</string>
 
 </resources>

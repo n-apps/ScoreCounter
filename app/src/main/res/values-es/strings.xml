@@ -19,8 +19,6 @@
     <string name="counter_details_value">Valor actual</string>
     <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador, o usar el botón + de la esquina superior derecha</string>
     <string name="dialog_color_picker_presets_button">Predeterminados</string>
-    <string name="dialog_counter_default_title">Valor por defecto</string>
-    <string name="dialog_counter_step_title">Paso</string>
     <string name="dialog_current_value_title">Valor actual</string>
     <string name="dialog_custom_dice_hint">De 2 a 100</string>
     <string name="dialog_custom_dice_title">Caras del dado propias</string>
@@ -33,7 +31,6 @@
     <string name="erd_title">Evalúa esta app</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
     <string name="hint_enter_number">Introduce un número…</string>
-    <string name="label_all_changes_saved">Todos los cambios se han guardado</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_remove_all_counters">Quitar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
@@ -46,14 +43,12 @@
     <string name="settings_shake_to_roll">Agita para tirar</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de caras del dado</string>
-    <string name="common_info">Información</string>
     <string name="dialog_step_info_content">Cómo cambia el contador cuando lo modificas: La mitad izquierda disminuye y la derecha aumenta. También puedes cambiar el valor del contador presionando de forma mantenida.</string>
     <string name="dialog_default_info_content">El valor del contador, será creado de nuevo después de este reseteo, usando el menú \"Resetear todo"\ (en la pantalla principal).</string>
     <string name="common_got_it">Entendido</string>
     <string name="menu_log">Historial</string>
     <string name="log_counter">Contador:</string>
     <string name="history_empty_message">No hay historial aún</string>
-    <string name="counter_details_position">Posición</string>
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Valor de contador personalizado</string>
     <string name="dialog_custom_counter_hint">De 2 a 999.</string>
@@ -71,4 +66,5 @@
     <string name="settings_sound">Sonar</string>
     <string name="action_donate">Donar</string>
     <string name="error_message">Ocurrió un error.</string>
+    <string name="save">Guardar</string>
 </resources>

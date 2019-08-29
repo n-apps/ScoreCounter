@@ -12,18 +12,18 @@ import java.util.Date;
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
+import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class RateMyAppDialog {
-    private static final String KEY_WAS_RATED = "KEY_WAS_RATED";
-    private static final String KEY_NEVER_REMINDER = "KEY_NEVER_REMINDER";
+
     private static final String KEY_FIRST_HIT_DATE = "KEY_FIRST_HIT_DATE";
     private static final String KEY_LAUNCH_TIMES = "KEY_LAUNCH_TIMES";
 
-    private final Context mContext;
-    private Dialog mDialog;
+    private final Context context;
+    private Dialog dialog;
 
     public RateMyAppDialog(Context context) {
-        mContext = context;
+        this.context = context;
     }
 
     public void onStart() {
@@ -39,18 +39,10 @@ public class RateMyAppDialog {
         registerHitCount(++launchTimes);
     }
 
-    public void showAnyway() {
-        tryShow(mContext);
-    }
-
     public void showIfNeeded() {
         if (shouldShow()) {
-            tryShow(mContext);
+            tryShow(context);
         }
-    }
-
-    private void neverReminder() {
-        App.getTinyDB().putBoolean(KEY_NEVER_REMINDER, true);
     }
 
     private void remindMeLater() {
@@ -59,15 +51,15 @@ public class RateMyAppDialog {
     }
 
     private boolean isShowing() {
-        return mDialog != null && mDialog.isShowing();
+        return dialog != null && dialog.isShowing();
     }
 
     private boolean didRate() {
-        return App.getTinyDB().getBoolean(KEY_WAS_RATED, false);
+        return LocalSettings.didRate();
     }
 
     private boolean didNeverReminder() {
-        return App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false);
+        return LocalSettings.didNeverReminder();
     }
 
     private void tryShow(Context context) {
@@ -75,9 +67,9 @@ public class RateMyAppDialog {
             return;
 
         try {
-            mDialog = null;
-            mDialog = createDialog(context);
-            mDialog.show();
+            dialog = null;
+            dialog = createDialog(context);
+            dialog.show();
             AndroidFirebaseAnalytics.logEvent("RateMyAppScreenAppear");
         } catch (Exception e) {
             //It prevents many Android exceptions
@@ -89,12 +81,7 @@ public class RateMyAppDialog {
 
 
     private boolean shouldShow() {
-        if (App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false)) {
-            return false;
-        }
-        if (App.getTinyDB().getBoolean(KEY_WAS_RATED, false)) {
-            return false;
-        }
+        if (didRate() || didNeverReminder()) return false;
 
         int launchTimes = App.getTinyDB().getInt(KEY_LAUNCH_TIMES, 0);
         long firstDate = App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, 0L);
@@ -125,9 +112,9 @@ public class RateMyAppDialog {
                 .create();
 
         contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
-            dialog.dismiss();
             Utilities.rateApp(context);
             AndroidFirebaseAnalytics.logEvent("RateMyAppScreenRateClick");
+            dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
             remindMeLater();
@@ -135,7 +122,7 @@ public class RateMyAppDialog {
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_no_thanks).setOnClickListener(v -> {
-            neverReminder();
+            LocalSettings.neverReminder();
             AndroidFirebaseAnalytics.logEvent("RateMyAppScreenNoThanksClick");
             dialog.dismiss();
         });

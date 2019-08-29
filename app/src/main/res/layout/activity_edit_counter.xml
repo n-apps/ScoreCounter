@@ -137,14 +137,6 @@
             tools:text="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="100"
-        app:layout_constraintTop_toBottomOf="@id/til_counter_default_value"
-        android:layout_height="wrap_content" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_save"
         android:layout_width="match_parent"
@@ -156,12 +148,11 @@
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:minWidth="64dp"
-        android:text="Save"
+        android:text="@string/save"
         app:cornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

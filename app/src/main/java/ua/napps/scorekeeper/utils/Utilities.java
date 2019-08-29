@@ -14,6 +14,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import timber.log.Timber;
+import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class Utilities {
 
@@ -102,6 +103,9 @@ public class Utilities {
         Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        LocalSettings.markRateApp();
+
         try {
             context.startActivity(goToMarket);
         } catch (ActivityNotFoundException e) {

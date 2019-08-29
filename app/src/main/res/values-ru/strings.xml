@@ -19,8 +19,6 @@
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или используйте + в правом верхнем углу</string>
     <string name="dialog_color_picker_presets_button">Наборы</string>
-    <string name="dialog_counter_default_title">Значение по умолчанию</string>
-    <string name="dialog_counter_step_title">Шаг</string>
     <string name="dialog_current_value_title">Текущее значение</string>
     <string name="dialog_custom_dice_hint">От 2 до 100</string>
     <string name="dialog_custom_dice_title">Количество граней</string>
@@ -33,7 +31,6 @@
     <string name="erd_title">Оценить это приложение</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
     <string name="hint_enter_number">Введите число…</string>
-    <string name="label_all_changes_saved">Все изменения сохранены</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
@@ -46,7 +43,6 @@
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать экран</string>
     <string name="settings_section_dice_sides">Количество граней</string>
-    <string name="common_info">Информация</string>
     <string name="dialog_step_info_content">На сколько изменится значение счетчика при нажатии по нему. Левая половина отвечает за уменьшение, правая - за увеличение. Вы также можете менять его значение с помощью длительного нажатия</string>
     <string name="dialog_default_info_content">Значение счетчика которое будет установлено после его сброса с помощью меню \"Сбросить все значения\" (три точки на главном экране)</string>
     <string name="common_got_it">Понятно</string>
@@ -54,21 +50,21 @@
     <string name="log_counter">Счетчик:</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="common_counter">Счетчик</string>
-    <string name="settings_section_counter_buttons">Установите значение кнопок в диалоговом окне (по долгому нажатию)</string>
+    <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему 🤓</string>
     <string name="dialog_custom_counter_hint">От 2 до 999</string>
-    <string name="dialog_custom_counter_title">Специальное значение счетчика</string>
-    <string name="counter_details_position">Позиция</string>
+    <string name="dialog_custom_counter_title">Вариант быстрой смены значения</string>
     <string name="dialog_confirmation_question">Вы уверены?</string>
     <string name="dialog_yes">Да</string>
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
-    <string name="settings_github">Помочь проекту (Github)</string>
+    <string name="settings_github">Хочу запилить фичу! (Github)</string>
     <string name="donation_thank_you">Спасибо \u2764</string>
     <string name="donation_coffee_title">Успокаивающий кофе</string>
     <string name="donation_pizza_title">Одна вкусная пицца</string>
     <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
     <string name="donation_pizza_description">С луком, сыром и салями, пожалуйста. Но никаких грибов!</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Пожертвование</string>
+    <string name="action_donate">Поблагодарить автора</string>
     <string name="error_message">Произошла ошибка.</string>
+    <string name="save">Сохранить</string>
 </resources>
