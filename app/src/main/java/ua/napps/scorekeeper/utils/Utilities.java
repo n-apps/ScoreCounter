@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.utils;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;

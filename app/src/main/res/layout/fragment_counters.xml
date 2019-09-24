@@ -15,8 +15,8 @@
             android:id="@+id/toolbar"
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
-            app:title=""
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            app:title="" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
