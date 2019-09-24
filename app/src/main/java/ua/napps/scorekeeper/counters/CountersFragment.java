@@ -18,7 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +50,7 @@ import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.DonateDialog;
+import ua.napps.scorekeeper.utils.EvalUtils;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 
@@ -385,18 +388,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     == EditorInfo.IME_ACTION_DONE)) {
                 final String value = editText.getText().toString();
                 if (!TextUtils.isEmpty(value)) {
-                    int intValue = Utilities.parseInt(value);
-                    if (isIncrease) {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
-
-                        viewModel.increaseCounter(counter, intValue);
-                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                    } else {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
-
-                        viewModel.decreaseCounter(counter, -intValue);
-                        countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-                    }
+                    handleCustomValue(value, isIncrease, counter, position);
                 }
                 longClickDialog.dismiss();
             }
@@ -409,20 +401,17 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 longClickDialog.dismiss();
                 return;
             }
-            int intValue = Utilities.parseInt(value);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
-                viewModel.increaseCounter(counter, intValue);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
+            handleCustomValue(value, isIncrease, counter, position);
 
-                viewModel.decreaseCounter(counter, -intValue);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-            }
             longClickDialog.dismiss();
         });
+
+        ImageButton btnCustomInfo = contentView.findViewById(R.id.btn_add_custom_info);
+        btnCustomInfo.setOnClickListener(v -> {
+            Toast.makeText(requireContext(), getString(R.string.counters_help_button_info), Toast.LENGTH_LONG).show();
+        });
+
         builder.customView(contentView, false);
         builder.title(R.string.dialog_current_value_title);
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
@@ -431,6 +420,33 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null) {
             inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        }
+    }
+
+    private void handleCustomValue(String value, boolean isIncrease, Counter counter, int position){
+        int intValue;
+
+        if (value.charAt(0) == '=') {
+            try {
+                intValue = (int) EvalUtils.eval(value.substring(1));
+            } catch (Exception e) {
+                Toast.makeText(requireContext(), getString(R.string.counters_custom_formula_failed), Toast.LENGTH_LONG).show();
+                return;
+            }
+        }else{
+            intValue = Utilities.parseInt(value);
+        }
+
+        if (isIncrease) {
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
+
+            viewModel.increaseCounter(counter, intValue);
+            countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+        } else {
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
+
+            viewModel.decreaseCounter(counter, -intValue);
+            countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
         }
     }
 

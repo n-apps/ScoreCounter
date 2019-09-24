@@ -67,4 +67,7 @@
     <string name="action_donate">Donate</string>
     <string name="error_message">Sorry, there seems to have been an error.</string>
     <string name="save">Save</string>
+    <string name="counters_custom_formula_failed">The formula you entered is incorrect. All counters are unchanged!</string>
+    <string name="counters_help_button">Help Button</string>
+    <string name="counters_help_button_info">Enter a number or an \'=\' followed by a simple formula (+,-,*,/).</string>
 </resources>

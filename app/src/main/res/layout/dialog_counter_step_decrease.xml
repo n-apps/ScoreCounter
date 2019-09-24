@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -109,8 +110,21 @@
             android:hint="@string/hint_enter_number"
             android:importantForAutofill="no"
             android:inputType="number|numberSigned"
-            android:maxLength="8"
+            android:digits="0123456789=*/+-"
+            android:maxLength="12"
             android:maxLines="1" />
+
+        <ImageButton
+            android:id="@+id/btn_add_custom_info"
+            app:icon="@android:drawable/ic_menu_help"
+            app:iconPadding="0px"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:background="@null"
+            android:contentDescription="@string/counters_help_button"
+            android:src="@android:drawable/ic_menu_help"
+            android:textAlignment="center" />
 
     </LinearLayout>
 

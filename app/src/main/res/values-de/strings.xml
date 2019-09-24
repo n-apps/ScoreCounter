@@ -67,5 +67,7 @@
     <string name="action_donate">Spenden</string>
     <string name="error_message">Es ist ein Fehler aufgetreten</string>
     <string name="save">Speichern</string>
-
+    <string name="counters_custom_formula_failed">Die eingegebene Formel ist falsch. Die Zähler wurden nicht verändert.</string>
+    <string name="counters_help_button">Info Button</string>
+    <string name="counters_help_button_info">Gib eine Zahl oder ein \'=\' gefolgt von einer einfachen Formel ein (+,-,*,/).</string>
 </resources>
