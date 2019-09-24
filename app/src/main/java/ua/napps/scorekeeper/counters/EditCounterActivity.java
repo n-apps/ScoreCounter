@@ -153,11 +153,17 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void validateAndSave() {
+        int newValue = Utilities.parseInt(counterValue.getText().toString());
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, newValue, counter.getValue()));
+
         viewModel.updateName(counterName.getText().toString());
         viewModel.updateColor(newCounterColorHex);
-        viewModel.updateValue(Utilities.parseInt(counterValue.getText().toString()));
+        viewModel.updateValue(newValue);
         viewModel.updateDefaultValue(Utilities.parseInt(counterDefaultValue.getText().toString()));
         viewModel.updateStep(Utilities.parseInt(counterStep.getText().toString()));
+
+
+
         supportFinishAfterTransition();
     }
 

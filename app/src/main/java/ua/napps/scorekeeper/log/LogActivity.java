@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,11 +31,14 @@ public class LogActivity extends AppCompatActivity {
 
         // setup recycler view and adapter
         RecyclerView mRecyclerView = findViewById(R.id.rv_log_main);
-
-        mRecyclerView.setHasFixedSize(true);
-
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                mLayoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+        mRecyclerView.setHasFixedSize(true);
 
         LogAdapter mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
         mRecyclerView.setAdapter(mAdapter);

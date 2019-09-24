@@ -20,7 +20,8 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/menu_log" />
+            app:title="@string/menu_log"
+            app:titleTextColor="@color/accentColor" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

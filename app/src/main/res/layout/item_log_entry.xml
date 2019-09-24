@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
@@ -24,40 +25,29 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="@dimen/keyline_1" />
 
-    <TextView
-        android:id="@+id/tv_item_log_lbl_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/log_counter"
-        app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
-        app:layout_constraintStart_toEndOf="@+id/gl_keyline"
-        app:layout_constraintTop_toBottomOf="@id/tv_item_log_info"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/tv_item_log_counter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_micro"
+        android:layout_marginStart="16dp"
         android:gravity="start"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_item_log_lbl_counter"
         app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
-        app:layout_constraintStart_toEndOf="@+id/tv_item_log_lbl_counter"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rcv_item_log_color"
         app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
 
     <TextView
         android:id="@+id/tv_item_log_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/spacing_micro"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
-        app:layout_constraintStart_toStartOf="@+id/tv_item_log_lbl_counter"
-        app:layout_constraintTop_toBottomOf="@+id/tv_item_log_lbl_counter" />
-
+        app:layout_constraintStart_toEndOf="@+id/rcv_item_log_color"
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_log_counter" />
 
     <TextView
         android:id="@+id/tv_item_log_time"
@@ -68,4 +58,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/rcv_item_log_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rcv_item_log_color" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
