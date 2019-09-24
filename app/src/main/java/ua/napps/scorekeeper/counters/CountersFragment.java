@@ -229,7 +229,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onEditClick(View view, Counter counter) {
-        EditCounterActivity.start(getActivity(), counter, view);
+        EditCounterActivity.start(getActivity(), counter);
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "edit");
         AndroidFirebaseAnalytics.logEvent("CountersScreenCounterHeaderClick", params);
