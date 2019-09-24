@@ -295,7 +295,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             btnSign = "+";
         }
 
-        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(1)));
+        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + LocalSettings.getCustomCounter(1));
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(1);
             if (isIncrease) {
@@ -312,7 +312,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(2)));
+        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + LocalSettings.getCustomCounter(2));
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(2);
             if (isIncrease) {
@@ -329,7 +329,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(3)));
+        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + LocalSettings.getCustomCounter(3));
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(3);
             if (isIncrease) {
@@ -346,7 +346,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + String.valueOf(LocalSettings.getCustomCounter(4)));
+        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + LocalSettings.getCustomCounter(4));
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             int value = LocalSettings.getCustomCounter(4);
             if (isIncrease) {
@@ -428,10 +428,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (inputMethodManager != null) {
-            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-        }
+
+        editText.post(() -> {
+            editText.requestFocus();
+
+            InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (inputMethodManager != null) {
+                inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+            }
+        });
+
     }
 
     @Override
