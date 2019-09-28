@@ -1,8 +1,11 @@
 package ua.napps.scorekeeper.log;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
@@ -17,6 +20,9 @@ import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class LogActivity extends AppCompatActivity {
+
+    private LogAdapter mAdapter;
+    private Group emptyState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +49,7 @@ public class LogActivity extends AppCompatActivity {
         LogAdapter mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
         mRecyclerView.setAdapter(mAdapter);
 
-        Group emptyState = findViewById(R.id.g_empty_history);
+        emptyState = findViewById(R.id.g_empty_history);
         emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
 
         boolean isLightTheme = LocalSettings.isLightTheme();
@@ -53,6 +59,29 @@ public class LogActivity extends AppCompatActivity {
             ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.remove, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_remove) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.dialog_confirmation_question)
+                    .setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
+                        Singleton.getInstance().clearLogEntries();
+                        mAdapter.notifyDataSetChanged();
+                        emptyState.setVisibility(View.VISIBLE);
+                    })
+                    .setNegativeButton(R.string.dialog_no, (dialog, which) -> dialog.dismiss());
+            builder.create().show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

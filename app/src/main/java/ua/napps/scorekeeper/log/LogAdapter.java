@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.RoundedColorView;
 import ua.napps.scorekeeper.utils.Singleton;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
@@ -22,14 +22,14 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
 
     static class LogAdapterViewHolder extends RecyclerView.ViewHolder {
         TextView tv_counter,tv_info,tv_time;
-        RoundedColorView rcv_color;
+        FrameLayout rcv_color;
 
         LogAdapterViewHolder(View v) {
             super(v);
             tv_counter = v.findViewById(R.id.tv_item_log_counter);
             tv_info = v.findViewById(R.id.tv_item_log_info);
             tv_time = v.findViewById(R.id.tv_item_log_time);
-            rcv_color = v.findViewById(R.id.rcv_item_log_color);
+            rcv_color = v.findViewById(R.id.fl_item_log_color);
         }
     }
 
@@ -71,7 +71,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
                 info = "\uD83D\uDD8A " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format( logEntry.value) + "]";
                 break;
             case RMV:
-                info = "\uD83D\uDDD1 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 ?]";
+                info = "\uD83D\uDDD1 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 \u2620️ ]";
                 break;
             case RST:
                 info = "\uD83D\uDD04 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 0]";
