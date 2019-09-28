@@ -13,7 +13,7 @@
     <string name="common_set">Set</string>
     <string name="counter_details_color_picker_title">Select counter color</string>
     <string name="counter_details_default_value">Value after reset</string>
-    <string name="counter_remove">Remove counter</string>
+    <string name="remove">Remove</string>
     <string name="counter_details_name">Counter name</string>
     <string name="counter_details_step">Step (-/+)</string>
     <string name="counter_details_value">Current value</string>

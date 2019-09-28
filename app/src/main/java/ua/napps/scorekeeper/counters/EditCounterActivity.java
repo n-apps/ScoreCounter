@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -43,7 +42,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private EditCounterViewModel viewModel;
     private String newCounterColorHex;
 
-    public static void start(Activity activity, Counter counter, View view) {
+    public static void start(Activity activity, Counter counter) {
         Intent intent = new Intent(activity, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, counter.getId());
         intent.putExtra(ARGUMENT_COUNTER_COLOR, counter.getColor());
@@ -91,15 +90,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.remove_counter, menu);
+        getMenuInflater().inflate(R.menu.remove, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menu_remove_counter){
-
+        if (id == R.id.menu_remove) {
             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
             viewModel.deleteCounter();
         }
@@ -119,8 +117,12 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterValue = findViewById(R.id.et_counter_value);
         counterNameLayout = findViewById(R.id.til_counter_name);
         btnSave = findViewById(R.id.btn_save);
-        int color = Color.parseColor(getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR));
-        counterNameLayout.setBoxStrokeColor(color);
+        String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
+        if (colorHex != null) {
+            counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
+        }
+
+
     }
 
     private void setOnClickListeners() {
@@ -135,14 +137,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                 .allowUserColorInputAlpha(false)
                 .show(EditCounterActivity.this));
 
-        ((TextInputLayout)findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> {
+        ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> {
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_step_info_content)
                     .positiveText(R.string.common_got_it)
                     .show();
         });
 
-        ((TextInputLayout)findViewById(R.id.til_counter_default_value)).setEndIconOnClickListener(v -> {
+        ((TextInputLayout) findViewById(R.id.til_counter_default_value)).setEndIconOnClickListener(v -> {
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_default_info_content)
                     .positiveText(R.string.common_got_it)

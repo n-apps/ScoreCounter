@@ -16,7 +16,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
+import ua.napps.scorekeeper.log.LogEntry;
+import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
+import ua.napps.scorekeeper.utils.Singleton;
 
 class EditCounterViewModel extends ViewModel {
 
@@ -190,6 +193,8 @@ class EditCounterViewModel extends ViewModel {
         Bundle params = new Bundle();
         params.putString(FirebaseAnalytics.Param.CHARACTER, "" + value);
         AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewValueSubmit", params);
+
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, value, counter.getValue()));
 
         countersRepository.setCount(id, value)
                 .observeOn(AndroidSchedulers.mainThread())

@@ -13,7 +13,7 @@
     <string name="common_set">setzen</string>
     <string name="counter_details_color_picker_title">Wähle Zähler Farbe</string>
     <string name="counter_details_default_value">Wert nach reset</string>
-    <string name="counter_remove">Zähler löschen</string>
+    <string name="remove">Zähler</string>
     <string name="counter_details_name">Zähler Name</string>
     <string name="counter_details_step">Schritte (-/+)</string>
     <string name="counter_details_value">Aktueller Wert</string>
