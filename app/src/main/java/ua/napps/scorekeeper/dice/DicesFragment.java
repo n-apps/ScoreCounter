@@ -96,9 +96,13 @@ public class DicesFragment extends Fragment {
             showBottomSheet();
             return true;
         });
-        soundRollEnabled = LocalSettings.isSoundRollEnabled();
 
         diceVariantInfo.setOnClickListener(v -> showBottomSheet());
+
+        soundRollEnabled = LocalSettings.isSoundRollEnabled();
+        if (soundRollEnabled) {
+            mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
+        }
 
         int maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
@@ -181,8 +185,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void rollDice(@IntRange(from = 1, to = 100) int roll) {
-        if (soundRollEnabled) {
-            mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
+        if (soundRollEnabled && mp != null) {
             mp.start();
         }
 
