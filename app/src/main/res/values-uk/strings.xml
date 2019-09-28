@@ -13,7 +13,7 @@
     <string name="common_set">Встановити</string>
     <string name="counter_details_color_picker_title">Оберіть колір лічильника</string>
     <string name="counter_details_default_value">Значення після скиду</string>
-    <string name="counter_remove">Видалити лічильник</string>
+    <string name="remove">Видалити</string>
     <string name="counter_details_name">Назва лічильника</string>
     <string name="counter_details_step">Крок (-/+)</string>
     <string name="counter_details_value">Поточне значення</string>
