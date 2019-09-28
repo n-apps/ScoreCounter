@@ -13,7 +13,7 @@
     <string name="common_set">Fijar</string>
     <string name="counter_details_color_picker_title">Seleccionar el color del contador</string>
     <string name="counter_details_default_value">Valor después de resetear</string>
-    <string name="counter_remove">Eliminar contador</string>
+    <string name="remove">Eliminar</string>
     <string name="counter_details_name">Nombre del contador</string>
     <string name="counter_details_step">Paso (-/+)</string>
     <string name="counter_details_value">Valor actual</string>
