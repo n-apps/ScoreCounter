@@ -2,19 +2,17 @@
 <resources>
 
     <color name="primaryColor">#E8E5C5</color>
-    <color name="primaryColorDark">#E0D2B1</color>
-    <color name="accentColor">#F77D6A</color>
+    <color name="primaryColorDark">#D1BD8D</color>
+    <color name="accentColor">#F4533A</color>
 
     <color name="textColorPrimary">#FFFFFFFF</color>
     <color name="textColorSecondary">#DEFFFFFF</color>
     <color name="textColorHint">#89FFFFFF</color>
 
-    <color name="textColorPrimaryInverse">#DE000000</color>
-    <color name="textColorHintInverse">#42000000</color>
+    <color name="primaryBackground">#121212</color>
 
     <color name="white">#fff</color>
-    <color name="dark_theme_bg">#222</color>
-    <color name="black">#000</color>
+
     <color name="black_12">#1F000000</color>
     <color name="black_5">#0D000000</color>
     <color name="white_12">#1FFFFFFF</color>

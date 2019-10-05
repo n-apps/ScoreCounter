@@ -85,7 +85,7 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
                 getDialog().getWindow().setNavigationBarColor(Color.WHITE);
             } else {
                 newFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-                getDialog().getWindow().setNavigationBarColor(ContextCompat.getColor(requireActivity(), R.color.dark_theme_bg));
+                getDialog().getWindow().setNavigationBarColor(ContextCompat.getColor(requireActivity(), R.color.primaryBackground));
             }
             if (newFlags != oldFlags) {
                 getDialog().getWindow().getDecorView().setSystemUiVisibility(newFlags);

@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.app;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -24,6 +25,7 @@ import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 
@@ -56,7 +58,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
-        AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+
+        // If android Q override night mode settings from system default
+        if(Utilities.hasQ()) {
+            AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM );
+
+            int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+
+            LocalSettings.saveDarkTheme((currentNightMode == Configuration.UI_MODE_NIGHT_YES));
+            isLightTheme = LocalSettings.isLightTheme();
+        } else {
+            AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+        }
+
+
         setContentView(R.layout.activity_main);
         rateMyAppDialog = new RateMyAppDialog(this);
         manager = getSupportFragmentManager();
@@ -71,9 +86,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .addItem(new BottomNavigationItem(R.drawable.ic_dice, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.ic_settings, getString(R.string.bottom_navigation_tab_settings)))
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(isLightTheme ? R.color.white : R.color.black)
+                .setBarBackgroundColor(R.color.primaryBackground)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .setActiveColor(isLightTheme ? R.color.accentColor : R.color.white)
+                .setActiveColor(R.color.accentColor)
                 .setFirstSelectedPosition(lastSelectedBottomTab)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
