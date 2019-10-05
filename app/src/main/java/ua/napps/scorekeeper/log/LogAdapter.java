@@ -68,7 +68,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
                 info = "\u2796 ";
                 break;
             case SET:
-                info = "\uD83D\uDD8A " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.value) + "]";
+                info = "\uD83D\uDD8A " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format( logEntry.value) + "]";
                 break;
             case RMV:
                 info = "\uD83D\uDDD1 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 \u2620️ ]";
