@@ -248,9 +248,25 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onDecreaseClick(Counter counter) {
+        if (counter.getStep() == 0) {
+            return;
+        }
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
 
-        viewModel.decreaseCounter(counter);
+        viewModel.decreaseCounter(counter, -counter.getStep());
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+            showLongPressHint();
+        }
+    }
+
+    @Override
+    public void onIncreaseClick(Counter counter) {
+        if (counter.getStep() == 0) {
+            return;
+        }
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
+
+        viewModel.increaseCounter(counter, counter.getStep());
         if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
             showLongPressHint();
         }
@@ -269,16 +285,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onResume() {
         super.onResume();
         AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Counters List", getClass().getSimpleName());
-    }
-
-    @Override
-    public void onIncreaseClick(Counter counter) {
-        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
-
-        viewModel.increaseCounter(counter);
-        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
-            showLongPressHint();
-        }
     }
 
     @SuppressLint("SetTextI18n")

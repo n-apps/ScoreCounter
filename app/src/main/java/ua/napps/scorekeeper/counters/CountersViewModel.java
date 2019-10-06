@@ -66,8 +66,8 @@ class CountersViewModel extends AndroidViewModel {
         }
     }
 
-    void decreaseCounter(Counter counter) {
-        decreaseCounter(counter, -counter.getStep());
+    LiveData<List<Counter>> getCounters() {
+        return counters;
     }
 
     void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
@@ -95,14 +95,6 @@ class CountersViewModel extends AndroidViewModel {
 
                     }
                 });
-    }
-
-    LiveData<List<Counter>> getCounters() {
-        return counters;
-    }
-
-    void increaseCounter(Counter counter) {
-        increaseCounter(counter, counter.getStep());
     }
 
     void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
@@ -250,7 +242,6 @@ class CountersViewModel extends AndroidViewModel {
         }
 
     }
-
 
     void removeAll() {
         repository.deleteAll()

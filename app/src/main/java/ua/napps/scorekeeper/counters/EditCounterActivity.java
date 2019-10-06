@@ -121,8 +121,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (colorHex != null) {
             counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
         }
-
-
     }
 
     private void setOnClickListeners() {
@@ -162,8 +160,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         viewModel.updateValue(newValue);
         viewModel.updateDefaultValue(Utilities.parseInt(counterDefaultValue.getText().toString()));
         viewModel.updateStep(Utilities.parseInt(counterStep.getText().toString()));
-
-
 
         supportFinishAfterTransition();
     }
