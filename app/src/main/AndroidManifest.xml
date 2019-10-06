@@ -35,6 +35,7 @@
         </activity>
         <activity
             android:name="ua.napps.scorekeeper.counters.EditCounterActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName="ua.napps.scorekeeper.app.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 

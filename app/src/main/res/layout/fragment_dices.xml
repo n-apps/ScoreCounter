@@ -37,7 +37,7 @@
         android:id="@+id/dice"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="@dimen/dice_margin"
+        android:layout_margin="72dp"
         android:background="@drawable/bg_selector_dice"
         android:fontFamily="@font/inter_ui_medium"
         android:gravity="center"
@@ -52,8 +52,10 @@
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
         app:layout_constraintDimensionRatio="H,1:1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="20"
         tools:text="6"
         tools:textSize="@dimen/counter_max_text_size"
         tools:visibility="visible" />
@@ -64,7 +66,8 @@
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/im_empty_state"
@@ -76,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_hand_tap" />
+        app:srcCompat="@drawable/ic_hand_tap_96dp" />
 
     <TextView
         android:id="@+id/tv_empty_state"
@@ -123,4 +126,6 @@
         app:layout_constraintStart_toEndOf="@id/tv_previous_roll_label"
         tools:text="18"
         tools:visibility="visible" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

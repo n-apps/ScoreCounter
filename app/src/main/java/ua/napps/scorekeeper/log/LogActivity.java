@@ -46,7 +46,7 @@ public class LogActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
 
-        LogAdapter mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
+        mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
         mRecyclerView.setAdapter(mAdapter);
 
         emptyState = findViewById(R.id.g_empty_history);
@@ -63,7 +63,7 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.remove, menu);
+        getMenuInflater().inflate(R.menu.menu_remove, menu);
         return true;
     }
 

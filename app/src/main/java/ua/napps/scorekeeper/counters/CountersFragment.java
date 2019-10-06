@@ -125,7 +125,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         inflater.inflate(R.menu.counters_menu, menu);
 
         // To display icon on overflow menu
-        if(menu instanceof MenuBuilder){
+        if (menu instanceof MenuBuilder) {
             MenuBuilder m = (MenuBuilder) menu;
             m.setOptionalIconsVisible(true);
         }
@@ -152,8 +152,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_remove_all:
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuRemoveAllClick");
-                DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
-                recyclerView.invalidate(); // ugly code to prevent next counter being half width
+                DialogPositiveClickListener dialogListenerRemove = context -> {
+                    viewModel.removeAll();
+
+                    // ugly code to prevent next counter being half width
+                    recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+                };
                 showDialogWithAction(dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
