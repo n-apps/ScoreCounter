@@ -42,24 +42,26 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_save"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
-                android:minHeight="48dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:minWidth="64dp"
+                android:minHeight="48dp"
                 android:text="@string/save"
+                android:textAllCaps="false"
                 app:backgroundTint="@color/accentColor"
                 app:cornerRadius="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_counter_step" />
+                app:layout_constraintTop_toBottomOf="@+id/til_counter_step"
+                app:layout_constraintVertical_bias="1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_step"

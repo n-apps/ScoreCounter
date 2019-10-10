@@ -3,7 +3,7 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 5
 ext.versionMinor = 3
-ext.versionPatch = 0
+ext.versionPatch = 1
 ext.postfix = ''
 
 android {
@@ -62,7 +62,7 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
-    implementation 'androidx.room:room-runtime:2.1.0'
+    implementation 'androidx.room:room-runtime:2.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
     implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
@@ -83,7 +83,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.1.0'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.2.0'
 }
 
 configurations.all {

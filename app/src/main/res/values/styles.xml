@@ -12,6 +12,7 @@
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
+        <item name="android:statusBarColor">@color/white</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>

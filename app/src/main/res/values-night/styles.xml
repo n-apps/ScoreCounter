@@ -13,6 +13,7 @@
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDiceColor">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="myDividerColor">@color/white_12</item>
         <item name="superBottomSheet_backgroundColor">@color/primaryBackground</item>
         <item name="materialButtonStyle">@style/MyButton</item>
