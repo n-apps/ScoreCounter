@@ -90,7 +90,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.remove, menu);
+        getMenuInflater().inflate(R.menu.menu_remove, menu);
         return true;
     }
 
@@ -121,8 +121,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         if (colorHex != null) {
             counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
         }
-
-
     }
 
     private void setOnClickListeners() {
@@ -155,11 +153,14 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void validateAndSave() {
+        int newValue = Utilities.parseInt(counterValue.getText().toString());
+
         viewModel.updateName(counterName.getText().toString());
         viewModel.updateColor(newCounterColorHex);
-        viewModel.updateValue(Utilities.parseInt(counterValue.getText().toString()));
+        viewModel.updateValue(newValue);
         viewModel.updateDefaultValue(Utilities.parseInt(counterDefaultValue.getText().toString()));
         viewModel.updateStep(Utilities.parseInt(counterStep.getText().toString()));
+
         supportFinishAfterTransition();
     }
 

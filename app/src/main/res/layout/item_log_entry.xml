@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/spacing_normal"
     android:minHeight="@dimen/list_two_lines_min_height">
 
     <FrameLayout
@@ -20,14 +19,13 @@
         android:id="@+id/tv_item_log_counter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_micro"
+        android:layout_marginTop="4dp"
         android:gravity="start"
         android:textSize="@dimen/font_body"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_item_log_lbl_counter"
         app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
-        app:layout_constraintStart_toEndOf="@+id/tv_item_log_lbl_counter"
+        app:layout_constraintStart_toStartOf="@+id/gl_keyline"
         app:layout_constraintTop_toTopOf="@+id/fl_item_log_color"
         tools:text="#1" />
 
@@ -35,44 +33,31 @@
         android:id="@+id/tv_item_log_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_micro"
+        android:layout_marginBottom="4dp"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="@dimen/font_subheading"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
-        app:layout_constraintStart_toStartOf="@+id/tv_item_log_lbl_counter"
-        app:layout_constraintTop_toBottomOf="@+id/tv_item_log_lbl_counter"
+        app:layout_constraintStart_toStartOf="@+id/gl_keyline"
         tools:text="🖊 2 [3 ➡ 4]" />
 
     <TextView
         android:id="@+id/tv_item_log_time"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_height="17dp"
+        android:layout_marginEnd="4dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
         android:textColor="?android:attr/textColorHint"
         android:textStyle="italic"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_log_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_item_log_counter"
+        app:layout_constraintTop_toTopOf="@+id/tv_item_log_counter"
         tools:text="23:14:12" />
-
-    <TextView
-        android:id="@+id/tv_item_log_lbl_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/log_counter"
-        android:textColor="?android:attr/textColorSecondary"
-        android:textSize="@dimen/font_body"
-        app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
-        app:layout_constraintStart_toEndOf="@+id/gl_keyline"
-        app:layout_constraintTop_toBottomOf="@id/tv_item_log_info"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_keyline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/keyline_1" />
+        app:layout_constraintGuide_begin="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

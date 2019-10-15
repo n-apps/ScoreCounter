@@ -15,14 +15,17 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_reset_all"
+        android:icon="@drawable/ic_refresh"
         android:title="@string/menu_reset_all_counters"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_remove_all"
+        android:icon="@drawable/ic_trash_red"
         android:title="@string/menu_remove_all_counters"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_rate"
+        android:icon="@drawable/ic_like"
         android:title="@string/erd_title"
         app:showAsAction="never" />
     <item

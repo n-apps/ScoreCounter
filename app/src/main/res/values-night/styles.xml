@@ -9,18 +9,19 @@
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/inter_ui_regular</item>
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:colorEdgeEffect">@color/dark_theme_bg</item>
+        <item name="android:windowBackground">@color/primaryBackground</item>
+        <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDiceColor">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="myDividerColor">@color/white_12</item>
-        <item name="superBottomSheet_backgroundColor">@color/dark_theme_bg</item>
+        <item name="superBottomSheet_backgroundColor">@color/primaryBackground</item>
         <item name="materialButtonStyle">@style/MyButton</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/primaryBackground</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 
@@ -29,7 +30,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
 
     <style name="AppBarStyle" parent="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/primaryBackground</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 

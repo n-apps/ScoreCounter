@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.view.View;
 
+import ua.napps.scorekeeper.R;
+
 public class ViewUtil {
 
     public static void setLightStatusBar(Activity activity) {
@@ -31,7 +33,7 @@ public class ViewUtil {
             if (newFlags != oldFlags) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
             }
-            activity.getWindow().setStatusBarColor(Color.BLACK);
+            activity.getWindow().setStatusBarColor(activity.getColor(R.color.primaryBackground));
         }
 
     }
@@ -46,7 +48,7 @@ public class ViewUtil {
                 activity.getWindow().setNavigationBarColor(Color.WHITE);
             } else {
                 newFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-                activity.getWindow().setNavigationBarColor(Color.BLACK);
+                activity.getWindow().setNavigationBarColor(activity.getColor(R.color.primaryBackground));
             }
             if (newFlags != oldFlags) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);

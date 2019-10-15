@@ -10,8 +10,9 @@
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:fontFamily">@font/inter_ui_regular</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
-        <item name="android:windowBackground">@color/white</item>
-        <item name="android:colorEdgeEffect">@color/black_5</item>
+        <item name="android:windowBackground">@color/primaryBackground</item>
+        <item name="android:colorEdgeEffect">@color/primaryBackground</item>
+        <item name="android:statusBarColor">@color/white</item>
         <item name="myIconTint">?attr/colorControlNormal</item>
         <item name="myDividerColor">@color/black_12</item>
         <item name="myDiceColor">#424254</item>
@@ -34,7 +35,7 @@
     </style>
 
     <style name="AppBarStyle" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="android:background">@color/primaryColor</item>
+        <item name="android:background">@color/primaryBackground</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 

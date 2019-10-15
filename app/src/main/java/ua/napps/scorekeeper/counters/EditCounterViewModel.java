@@ -158,7 +158,7 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateStep(int step) {
-        if (step == counter.getStep() || step == 0) {
+        if (step == counter.getStep()) {
             return;
         }
         Bundle params = new Bundle();

@@ -15,8 +15,8 @@
             android:id="@+id/toolbar"
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
-            app:title=""
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            app:title="" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -41,6 +41,7 @@
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
+            android:alpha=".38"
             android:contentDescription="@string/counters_empty_message"
             app:srcCompat="@drawable/ic_pluse_48dp" />
 

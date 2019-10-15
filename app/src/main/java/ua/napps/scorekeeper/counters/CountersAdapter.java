@@ -97,7 +97,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
     @Override
     public CountersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
-        return new CountersViewHolder(v, callback, dragViewListener);
+        return new CountersViewHolder(v, callback);
     }
 
     public void setCountersList(final List<Counter> update) {
@@ -128,6 +128,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
                     return newCounter.getId() == oldCounter.getId()
                             && Objects.equals(newCounter.getName(), oldCounter.getName())
                             && Objects.equals(newCounter.getColor(), oldCounter.getColor())
+                            && Objects.equals(newCounter.getStep(), oldCounter.getStep())
                             && newCounter.getValue() == oldCounter.getValue();
                     // We don`t want to check position, because during dragging items were moved only within adapter.
                     // Position in database was changed only after the end of dragging event.
@@ -179,7 +180,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         private LongClickTimerTask timerTask;
 
         @SuppressLint("ClickableViewAccessibility")
-        CountersViewHolder(View v, CounterActionCallback callback, DragItemListener dragItemListener) {
+        CountersViewHolder(View v, CounterActionCallback callback) {
             super(v);
             counterActionCallback = callback;
             handler = new Handler(this);
@@ -255,6 +256,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         }
 
         private void updateCounter(float x) {
+            if (counter.getStep() == 0) return;
             if (x > counterClickableArea.getWidth() / 2) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
                 counterActionCallback.onIncreaseClick(counter);

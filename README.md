@@ -2,7 +2,7 @@
 
 Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
 
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Get_it_on_Google_play.svg/500px-Get_it_on_Google_play.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="float: left; padding-right: 10px;" height="88">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 ## Key features
 * Easy to use

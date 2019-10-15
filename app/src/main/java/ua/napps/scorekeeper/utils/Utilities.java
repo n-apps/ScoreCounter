@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.utils;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
@@ -82,7 +83,7 @@ public class Utilities {
     }
 
     /**
-     * Checks if the device has Marshmallow or higher version.
+     * Checks if the device has Nougat or higher version.
      *
      * @return <code>true</code> if device is a tablet.
      */
@@ -97,6 +98,15 @@ public class Utilities {
      */
     public static boolean hasOreo() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
+    }
+
+    /**
+     * Checks if the device has Q or higher version.
+     *
+     * @return <code>true</code> if device is a tablet.
+     */
+    public static boolean hasQ() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
     }
 
     public static void rateApp(Context context) {

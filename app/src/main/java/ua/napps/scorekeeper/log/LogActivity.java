@@ -9,6 +9,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import ua.napps.scorekeeper.R;
@@ -35,6 +37,12 @@ public class LogActivity extends AppCompatActivity {
 
         // setup recycler view and adapter
         RecyclerView mRecyclerView = findViewById(R.id.rv_log_main);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                mLayoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
         mRecyclerView.setHasFixedSize(true);
 
@@ -55,7 +63,7 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.remove, menu);
+        getMenuInflater().inflate(R.menu.menu_remove, menu);
         return true;
     }
 

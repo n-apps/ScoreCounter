@@ -75,6 +75,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         btn_c_3.setText(String.valueOf(LocalSettings.getCustomCounter(3)));
         btn_c_4.setText(String.valueOf(LocalSettings.getCustomCounter(4)));
 
+        if(Utilities.hasQ()) {
+            darkTheme.setVisibility(View.GONE);
+            contentView.findViewById(R.id.iv_dark_theme).setVisibility(View.GONE);
+        }
+
         return contentView;
     }
 
