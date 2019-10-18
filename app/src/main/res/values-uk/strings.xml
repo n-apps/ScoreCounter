@@ -24,9 +24,9 @@
     <string name="dialog_custom_dice_title">Кількість граней</string>
     <string name="dice_empty_state">Натисніть в будь-якому місці або потрясіть пристрій, щоб кинути кубик</string>
     <string name="dice_previous_result_label">Попередній кидок:</string>
-    <string name="erd_message">Якщо вам подобається Лічильник Очок, не могли би його оцінити? Це займе лише хвилину. Дякую за підтримку!</string>
+    <string name="erd_message">Якщо вам подобається Лічильник Очок, будь ласка, оцініть мій додаток. Це займе не більше хвилини. Дякую за вашу підтримку!</string>
     <string name="erd_no_thanks">Ні, дякую</string>
-    <string name="erd_rate_now">Оцінити зараз</string>
+    <string name="erd_rate_now">Оцінити Лічильник Очок</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
     <string name="erd_title">Оцініти цей додаток</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
