@@ -134,8 +134,8 @@ public class DicesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         springForce = new SpringForce()
-                .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
-                .setStiffness(SpringForce.STIFFNESS_LOW)
+                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+                .setStiffness(SpringForce.STIFFNESS_VERY_LOW)
                 .setFinalPosition(1);
         subscribeUI();
         if (LocalSettings.isShakeToRollEnabled()) {
@@ -198,8 +198,8 @@ public class DicesFragment extends Fragment {
 
         new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
                 .setSpring(springForce)
-                .setStartValue(100f)
-                .setStartVelocity(100)
+                .setStartValue(1000f)
+                .setStartVelocity(1000)
                 .start();
 
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_X)
