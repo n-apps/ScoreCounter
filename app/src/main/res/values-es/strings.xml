@@ -67,4 +67,5 @@
     <string name="action_donate">Donar</string>
     <string name="error_message">Ocurrió un error.</string>
     <string name="save">Guardar</string>
+    <string name="toast_middle_zone_no_action_yet">Hasta ahora, hacer clic aquí no hace nada. Intente un poco hacia la izquierda o hacia la derecha;)\n\nSi tiene ideas sobre qué acción sería útil aquí, no dude en enviarme un correo electrónico (ver Configuración)</string>
 </resources>

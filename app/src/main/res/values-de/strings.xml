@@ -67,5 +67,6 @@
     <string name="action_donate">Spenden</string>
     <string name="error_message">Es ist ein Fehler aufgetreten</string>
     <string name="save">Speichern</string>
+    <string name="toast_middle_zone_no_action_yet">Bisher macht das Klicken hier nichts. Versuchen Sie es ein wenig nach links oder rechts;)\n\nWenn Sie Ideen haben, welche Aktion hier nützlich sein könnte, schreiben Sie mir bitte eine E-Mail (siehe Einstellungen).</string>
 
 </resources>

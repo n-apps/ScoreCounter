@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/spacing_normal"
-    android:paddingEnd="@dimen/padding_large"
     android:paddingStart="@dimen/padding_large"
     android:paddingTop="@dimen/spacing_normal"
+    android:paddingEnd="@dimen/padding_large"
+    android:paddingBottom="@dimen/spacing_large"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -25,7 +25,8 @@
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
-            <TextView android:id="@+id/btn_one_text"
+            <TextView
+                android:id="@+id/btn_one_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -37,12 +38,13 @@
             android:id="@+id/btn_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
-            <TextView android:id="@+id/btn_two_text"
+            <TextView
+                android:id="@+id/btn_two_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -54,12 +56,13 @@
             android:id="@+id/btn_three"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
-            <TextView android:id="@+id/btn_three_text"
+            <TextView
+                android:id="@+id/btn_three_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -75,7 +78,8 @@
             android:layout_weight="1"
             android:background="@drawable/bg_selector_mini_dice_toogle">
 
-            <TextView android:id="@+id/btn_four_text"
+            <TextView
+                android:id="@+id/btn_four_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -97,8 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:textSize="@dimen/font_display"
-            android:text="–" />
+            android:text="–"
+            android:textSize="@dimen/font_display" />
 
         <EditText
             android:id="@+id/et_add_custom_value"
@@ -110,30 +114,8 @@
             android:importantForAutofill="no"
             android:inputType="number|numberSigned"
             android:maxLength="8"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textSize="@dimen/font_display" />
 
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/btn_add_custom_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@drawable/bg_selector_rounded_button"
-        android:enabled="false"
-        android:foreground="?attr/selectableItemBackground"
-        android:minHeight="@dimen/button_min_height"
-        android:paddingBottom="@dimen/padding_normal"
-        android:paddingTop="@dimen/padding_normal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/inter_ui_medium"
-            android:text="@string/common_decrease"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/white" />
-    </FrameLayout>
 </LinearLayout>

@@ -1,14 +1,11 @@
 package ua.napps.scorekeeper.counters;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -54,6 +51,9 @@ import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_DECREASE_VALUE;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_INCREASE_VALUE;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
 
 public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
@@ -246,32 +246,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         AndroidFirebaseAnalytics.logEvent("CountersScreenCounterHeaderClick", params);
     }
 
-    @Override
-    public void onDecreaseClick(Counter counter) {
-        if (counter.getStep() == 0) {
-            return;
-        }
-        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
-
-        viewModel.decreaseCounter(counter, -counter.getStep());
-        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
-            showLongPressHint();
-        }
-    }
-
-    @Override
-    public void onIncreaseClick(Counter counter) {
-        if (counter.getStep() == 0) {
-            return;
-        }
-        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
-
-        viewModel.increaseCounter(counter, counter.getStep());
-        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
-            showLongPressHint();
-        }
-    }
-
     private void showLongPressHint() {
         if (!isLongPressTipShowed) {
             Handler handler = new Handler();
@@ -287,174 +261,171 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Counters List", getClass().getSimpleName());
     }
 
-    @SuppressLint("SetTextI18n")
+
     @Override
-    public void onLongClick(Counter counter, int position, boolean isIncrease) {
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterLongClick");
-        final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
+    public void onSingleClick(Counter counter, int mode) {
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + mode);
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterSingleClick", params);
 
-        final Observer<Counter> counterObserver = c -> {
-            if (longClickDialog != null && c != null) {
-                longClickDialog.getTitleView().setText(c.getName());
-            }
-        };
-
-        final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
-        liveData.observe(this, counterObserver);
-
-        int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
-        final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
-        View btnCustomValue = contentView.findViewById(R.id.btn_add_custom_value);
-        btnCustomValue.setEnabled(false);
-
-        String btnSign = "-";
-        if (isIncrease) {
-            btnSign = "+";
-        }
-
-        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + LocalSettings.getCustomCounter(1));
-        contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(1);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
-
-                viewModel.increaseCounter(counter, value);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -value);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-            }
-            longClickDialog.dismiss();
-        });
-
-        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + LocalSettings.getCustomCounter(2));
-        contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(2);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
-
-                viewModel.increaseCounter(counter, value);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -value);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-            }
-            longClickDialog.dismiss();
-        });
-
-        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + LocalSettings.getCustomCounter(3));
-        contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(3);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
-
-                viewModel.increaseCounter(counter, value);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -value);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-            }
-            longClickDialog.dismiss();
-        });
-
-        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + LocalSettings.getCustomCounter(4));
-        contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(4);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
-
-                viewModel.increaseCounter(counter, value);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -value);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-            }
-            longClickDialog.dismiss();
-        });
-
-        final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                btnCustomValue.setEnabled(s.length() > 0);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        editText.setOnEditorActionListener((textView, actionId, event) -> {
-            if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
-                    == EditorInfo.IME_ACTION_DONE)) {
-                final String value = editText.getText().toString();
-                if (!TextUtils.isEmpty(value)) {
-                    int intValue = Utilities.parseInt(value);
-                    if (isIncrease) {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
-
-                        viewModel.increaseCounter(counter, intValue);
-                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                    } else {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
-
-                        viewModel.decreaseCounter(counter, -intValue);
-                        countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
-                    }
-                }
-                longClickDialog.dismiss();
-            }
-            return false;
-        });
-
-        btnCustomValue.setOnClickListener(v -> {
-            final String value = editText.getText().toString();
-            if (TextUtils.isEmpty(value)) {
-                longClickDialog.dismiss();
+        if (mode == MODE_DECREASE_VALUE) {
+            if (counter.getStep() == 0) {
                 return;
             }
-            int intValue = Utilities.parseInt(value);
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
+
+            viewModel.decreaseCounter(counter, -counter.getStep());
+            if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+                showLongPressHint();
+            }
+        } else if (mode == MODE_INCREASE_VALUE) {
+            if (counter.getStep() == 0) {
+                return;
+            }
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
+
+            viewModel.increaseCounter(counter, counter.getStep());
+            if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+                showLongPressHint();
+            }
+        } else {
+            Toast.makeText(requireContext(), R.string.toast_middle_zone_no_action_yet, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onLongClick(Counter counter, int position, int mode) {
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + mode);
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterLongClick", params);
+
+        final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
+        if (mode != MODE_SET_VALUE) {
+            final Observer<Counter> counterObserver = c -> {
+                if (longClickDialog != null && c != null) {
+                    longClickDialog.getTitleView().setText(c.getName());
+                }
+            };
+            boolean isIncrease = mode == MODE_INCREASE_VALUE;
+            final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
+            liveData.observe(this, counterObserver);
+
+            int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
+            final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
+
+            String btnSign = "-";
             if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
-
-                viewModel.increaseCounter(counter, intValue);
-                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -intValue);
-                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                btnSign = "+";
             }
-            longClickDialog.dismiss();
-        });
-        builder.customView(contentView, false);
-        builder.title(R.string.dialog_current_value_title);
-        builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
-        longClickDialog = builder.build();
-        longClickDialog.show();
 
-        editText.post(() -> {
-            editText.requestFocus();
+            ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + LocalSettings.getCustomCounter(1));
+            contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
+                int value = LocalSettings.getCustomCounter(1);
+                if (isIncrease) {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
-            InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (inputMethodManager != null) {
-                inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
-            }
-        });
+                    viewModel.increaseCounter(counter, value);
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                } else {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
 
+                    viewModel.decreaseCounter(counter, -value);
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                }
+                longClickDialog.dismiss();
+            });
+
+            ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + LocalSettings.getCustomCounter(2));
+            contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
+                int value = LocalSettings.getCustomCounter(2);
+                if (isIncrease) {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+
+                    viewModel.increaseCounter(counter, value);
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                } else {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+
+                    viewModel.decreaseCounter(counter, -value);
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                }
+                longClickDialog.dismiss();
+            });
+
+            ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + LocalSettings.getCustomCounter(3));
+            contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
+                int value = LocalSettings.getCustomCounter(3);
+                if (isIncrease) {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+
+                    viewModel.increaseCounter(counter, value);
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                } else {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+
+                    viewModel.decreaseCounter(counter, -value);
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                }
+                longClickDialog.dismiss();
+            });
+
+            ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + LocalSettings.getCustomCounter(4));
+            contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
+                int value = LocalSettings.getCustomCounter(4);
+                if (isIncrease) {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+
+                    viewModel.increaseCounter(counter, value);
+                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                } else {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+
+                    viewModel.decreaseCounter(counter, -value);
+                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                }
+                longClickDialog.dismiss();
+            });
+
+            final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
+            editText.setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
+                        == EditorInfo.IME_ACTION_DONE)) {
+                    final String value = editText.getText().toString();
+                    if (!TextUtils.isEmpty(value)) {
+                        int intValue = Utilities.parseInt(value);
+                        if (isIncrease) {
+                            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
+
+                            viewModel.increaseCounter(counter, intValue);
+                            countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                        } else {
+                            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
+
+                            viewModel.decreaseCounter(counter, -intValue);
+                            countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                        }
+                    }
+                    longClickDialog.dismiss();
+                }
+                return false;
+            });
+            builder.customView(contentView, false);
+            builder.title(R.string.dialog_current_value_title);
+            builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
+            longClickDialog = builder.build();
+            longClickDialog.show();
+
+            editText.post(() -> {
+                editText.requestFocus();
+
+                InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (inputMethodManager != null) {
+                    inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+                }
+            });
+        } else {
+            Toast.makeText(requireContext(), R.string.toast_middle_zone_no_action_yet, Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override

@@ -34,14 +34,17 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> implements ItemDragAdapter {
 
+    public static final int MODE_INCREASE_VALUE = 1;
+    public static final int MODE_DECREASE_VALUE = 2;
+    public static final int MODE_SET_VALUE = 3;
     static final String INCREASE_VALUE_CLICK = "increase_value_click";
     static final String DECREASE_VALUE_CLICK = "decrease_value_click";
-
     private final CounterActionCallback callback;
     private final DragItemListener dragViewListener;
     private final int maxFitCounters;
     private int containerHeight;
     private List<Counter> counters;
+    private Counter lastMovedCounter = null;
 
     CountersAdapter(int maxCountersToFit, CounterActionCallback callback, DragItemListener dragViewListener) {
         this.callback = callback;
@@ -140,11 +143,10 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         }
     }
 
-    private Counter lastMovedCounter = null;
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
         Counter counter = counters.remove(fromPosition);
-        counters.add(toPosition > fromPosition ? toPosition - 0 : toPosition, counter);
+        counters.add(toPosition > fromPosition ? toPosition : toPosition, counter);
         notifyItemMoved(fromPosition, toPosition);
 
         if (lastMovedCounter == null) {
@@ -240,8 +242,14 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         public boolean handleMessage(final Message msg) {
             if (msg.what == MSG_PERFORM_LONGCLICK) {
                 if (lastX != -1) {
-                    final boolean isIncrease = lastX > counterClickableArea.getWidth() / 2;
-                    counterActionCallback.onLongClick(counter, getAdapterPosition(), isIncrease);
+                    int interactionAreaWidth = counterClickableArea.getWidth() / 3;
+                    if (lastX >= interactionAreaWidth * 2) {
+                        counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
+                    } else if (lastX <= interactionAreaWidth) {
+                        counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
+                    } else {
+                        counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_SET_VALUE);
+                    }
                 }
             }
             return false;
@@ -257,12 +265,16 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
 
         private void updateCounter(float x) {
             if (counter.getStep() == 0) return;
-            if (x > counterClickableArea.getWidth() / 2) {
+
+            int width = counterClickableArea.getWidth();
+            if (x >= width - width / 3) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
-                counterActionCallback.onIncreaseClick(counter);
-            } else {
+                counterActionCallback.onSingleClick(counter, MODE_INCREASE_VALUE);
+            } else if (x <= width / 3) {
                 notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
-                counterActionCallback.onDecreaseClick(counter);
+                counterActionCallback.onSingleClick(counter, MODE_DECREASE_VALUE);
+            } else {
+                counterActionCallback.onSingleClick(counter, MODE_SET_VALUE);
             }
         }
 

@@ -30,7 +30,7 @@
     <string name="erd_remind_me_later">Нагадати пізніше</string>
     <string name="erd_title">Оцініти цей додаток</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="hint_enter_number">Введіть число…</string>
+    <string name="hint_enter_number">Або введіть число…</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
@@ -67,4 +67,5 @@
     <string name="action_donate">Подякувати</string>
     <string name="error_message">Виникла помилка.</string>
     <string name="save">Зберегти</string>
+    <string name="toast_middle_zone_no_action_yet">Поки що натискання тут нічого не робить. Спробуйте трохи ліворуч або праворуч;)\n\nЯкщо у вас є ідеї, яка дія тут буде корисною - не соромтеся писати мені на пошту (див. Налаштування)</string>
 </resources>

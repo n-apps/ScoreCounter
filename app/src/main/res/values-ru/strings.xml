@@ -30,7 +30,7 @@
     <string name="erd_remind_me_later">Напомнить позже</string>
     <string name="erd_title">Оценить это приложение</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="hint_enter_number">Введите число…</string>
+    <string name="hint_enter_number">Или введите число…</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
@@ -67,4 +67,5 @@
     <string name="action_donate">Поблагодарить автора</string>
     <string name="error_message">Произошла ошибка.</string>
     <string name="save">Сохранить</string>
+    <string name="toast_middle_zone_no_action_yet">Пока что нажатие здесь ничего не делает. Попробуйте левее или правее ;)\n\nЕсли у вас есть идеи, что было бы полезно при этом нажатии - не стесняйтесь писать мне на почту (см. Настройки)</string>
 </resources>

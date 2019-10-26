@@ -4,11 +4,9 @@ import android.view.View;
 
 interface CounterActionCallback {
 
-    void onDecreaseClick(Counter counter);
+    void onSingleClick(Counter counter, int mode);
 
-    void onIncreaseClick(Counter counter);
-
-    void onLongClick(Counter counter, int position, boolean isIncrease);
+    void onLongClick(Counter counter, int position, int mode);
 
     void onNameClick(Counter counter);
 

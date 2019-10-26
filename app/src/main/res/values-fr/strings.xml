@@ -67,5 +67,6 @@
     <string name="action_donate">Faire un don</string>
     <string name="error_message">Une erreur est survenue.</string>
     <string name="save">Sauvegarder</string>
+    <string name="toast_middle_zone_no_action_yet">Jusqu\'ici, cliquer ici ne fait rien. Essayez un peu à gauche ou à droite;)\n\nSi vous avez une idée de l\'action à utiliser ici, n\'hésitez pas à m\'envoyer un e-mail (voir Paramètres)</string>
 
 </resources>
