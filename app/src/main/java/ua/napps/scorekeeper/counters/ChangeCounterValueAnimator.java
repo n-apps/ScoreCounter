@@ -4,10 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.view.animation.DecelerateInterpolator;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.animation.DecelerateInterpolator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ class ChangeCounterValueAnimator extends DefaultItemAnimator {
         if (preInfo instanceof CountryItemHolderInfo) {
 
             CountryItemHolderInfo itemHolderInfo = (CountryItemHolderInfo) preInfo;
-            CountersAdapter.CountersViewHolder holder = (CountersAdapter.CountersViewHolder) newHolder;
+            CountersAdapter.CounterFullViewHolder holder = (CountersAdapter.CounterFullViewHolder) newHolder;
 
             if (itemHolderInfo.clickAction.equals(CountersAdapter.INCREASE_VALUE_CLICK)) {
                 animateHolder(holder, true);
@@ -57,7 +58,7 @@ class ChangeCounterValueAnimator extends DefaultItemAnimator {
         return false;
     }
 
-    private void animateHolder(CountersAdapter.CountersViewHolder holder, boolean isIncrease) {
+    private void animateHolder(CountersAdapter.CounterFullViewHolder holder, boolean isIncrease) {
         AnimatorSet animatorSet = new AnimatorSet();
         ArrayList<Animator> items = new ArrayList<>();
 

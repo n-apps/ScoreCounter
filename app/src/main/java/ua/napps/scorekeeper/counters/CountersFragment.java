@@ -29,8 +29,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -47,6 +47,7 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
 
 import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
@@ -90,7 +91,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(null);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
@@ -102,7 +103,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         super.onActivityCreated(savedInstanceState);
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
-        countersAdapter = new CountersAdapter(getResources().getInteger(R.integer.max_counters_to_fit), this, this);
+        countersAdapter = new CountersAdapter(this, this);
         subscribeUi();
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
     }
@@ -156,7 +157,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     viewModel.removeAll();
 
                     // ugly code to prevent next counter being half width
-                    recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+//                    recyclerView.setLayoutManager(new SpanningLinearLayoutManager(getContext()));
                 };
                 showDialogWithAction(dialogListenerRemove);
                 break;
@@ -185,7 +186,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void subscribeUi() {
-        final Context context = getContext();
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 boolean databaseVersionMigration = true;
@@ -204,14 +204,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
-                    if (size > countersAdapter.getMaxFitCounters()) {
-                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 2) {
-                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                        }
+                    if (size > 4) {
+                        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
                     } else {
-                        if (((GridLayoutManager) recyclerView.getLayoutManager()).getSpanCount() != 1) {
-                            recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
-                        }
+                        recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
                     }
                 }
 
@@ -223,7 +220,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 if (isFirstLoad) {
                     isFirstLoad = false;
                     recyclerView.post(() -> {
-                                countersAdapter.setContainerHeight(recyclerView.getHeight());
                                 recyclerView.setAdapter(countersAdapter);
                                 ItemTouchHelper.Callback callback = new ItemDragHelperCallback(countersAdapter);
                                 itemTouchHelper = new ItemTouchHelper(callback);

@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.google.android.material.card.MaterialCardView;
 
@@ -28,36 +27,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.counters.CountersAdapter.CountersViewHolder;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
-public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> implements ItemDragAdapter {
+public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ItemDragAdapter {
 
     public static final int MODE_INCREASE_VALUE = 1;
     public static final int MODE_DECREASE_VALUE = 2;
     public static final int MODE_SET_VALUE = 3;
+    public static final int TYPE_FULL = 1;
+    public static final int TYPE_COMPACT = 2;
+
     static final String INCREASE_VALUE_CLICK = "increase_value_click";
     static final String DECREASE_VALUE_CLICK = "decrease_value_click";
     private final CounterActionCallback callback;
     private final DragItemListener dragViewListener;
-    private final int maxFitCounters;
-    private int containerHeight;
     private List<Counter> counters;
     private Counter lastMovedCounter = null;
 
-    CountersAdapter(int maxCountersToFit, CounterActionCallback callback, DragItemListener dragViewListener) {
+    CountersAdapter(CounterActionCallback callback, DragItemListener dragViewListener) {
         this.callback = callback;
         this.dragViewListener = dragViewListener;
-        this.maxFitCounters = maxCountersToFit;
-    }
-
-    int getMaxFitCounters() {
-        return maxFitCounters;
-    }
-
-    void setContainerHeight(int height) {
-        containerHeight = height;
     }
 
     @Override
@@ -65,42 +55,63 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         return counters == null ? 0 : counters.size();
     }
 
+    @NonNull
     @Override
-    public void onBindViewHolder(@NonNull CountersViewHolder holder, int position) {
-        final Counter counter = counters.get(position);
-        holder.counter = counter;
-        holder.counterName.setText(counter.getName());
-        holder.counterValue.setText(String.valueOf(counter.getValue()));
-        holder.container.setCardBackgroundColor(Color.parseColor(counter.getColor()));
-        final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
-        int tintColor = darkBackground ? 0x89FFFFFF : 0x89000000;
-        holder.counterName.setTextColor(tintColor);
-        holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
-
-        Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
-        Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
-        Drawable wrapDrawable3 = DrawableCompat.wrap(holder.counterOptionsImageView.getDrawable().mutate());
-        DrawableCompat.setTint(wrapDrawable1, tintColor);
-        DrawableCompat.setTint(wrapDrawable2, tintColor);
-        DrawableCompat.setTint(wrapDrawable3, tintColor);
-
-        int itemCount = getItemCount();
-        if (itemCount <= maxFitCounters) { // fit available space
-            StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / itemCount);
-            lp.setFullSpan(true);
-            holder.itemView.setLayoutParams(lp);
-        } else {// set height as recyclerview height / maxFitCounters
-            StaggeredGridLayoutManager.LayoutParams lp = new StaggeredGridLayoutManager.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT, containerHeight / (maxFitCounters > 1 ? itemCount / 2 : 1));
-            lp.setFullSpan(position == itemCount - 1 && itemCount % 2 == 1);
-            holder.itemView.setLayoutParams(lp);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == TYPE_FULL) {
+            final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter_full, parent, false);
+            return new CounterFullViewHolder(v, callback);
+        } else {
+            final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter_compact, parent, false);
+            return new CounterCompactViewHolder(v, callback);
         }
     }
 
-    @NonNull
     @Override
-    public CountersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_counter, parent, false);
-        return new CountersViewHolder(v, callback);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+        final Counter counter = counters.get(position);
+        if (getItemViewType(position) == TYPE_FULL) {
+            CounterFullViewHolder holder = (CounterFullViewHolder) viewHolder;
+            holder.counter = counter;
+            holder.counterName.setText(counter.getName());
+            holder.counterValue.setText(String.valueOf(counter.getValue()));
+            holder.container.setCardBackgroundColor(Color.parseColor(counter.getColor()));
+            final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
+            int tintColor = darkBackground ? 0x89FFFFFF : 0x89000000;
+            holder.counterName.setTextColor(tintColor);
+            holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
+
+            Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
+            Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
+            Drawable wrapDrawable3 = DrawableCompat.wrap(holder.counterOptionsImageView.getDrawable().mutate());
+            DrawableCompat.setTint(wrapDrawable1, tintColor);
+            DrawableCompat.setTint(wrapDrawable2, tintColor);
+            DrawableCompat.setTint(wrapDrawable3, tintColor);
+        } else {
+            CounterCompactViewHolder holder = (CounterCompactViewHolder) viewHolder;
+            holder.counter = counter;
+            holder.counterName.setText(counter.getName());
+            holder.counterValue.setText(String.valueOf(counter.getValue()));
+            holder.container.setCardBackgroundColor(Color.parseColor(counter.getColor()));
+            final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
+            int tintColor = darkBackground ? 0x89FFFFFF : 0x89000000;
+            holder.counterName.setTextColor(tintColor);
+            holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
+
+            Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
+            Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
+            DrawableCompat.setTint(wrapDrawable1, tintColor);
+            DrawableCompat.setTint(wrapDrawable2, tintColor);
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (getItemCount() < 5) {
+            return TYPE_FULL;
+        } else {
+            return TYPE_COMPACT;
+        }
     }
 
     public void setCountersList(final List<Counter> update) {
@@ -162,7 +173,43 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         lastMovedCounter = null;
     }
 
-    public class CountersViewHolder extends RecyclerView.ViewHolder implements Callback {
+    public class CounterCompactViewHolder extends RecyclerView.ViewHolder  {
+
+        private static final int MSG_PERFORM_LONGCLICK = 1;
+
+        final ImageView decreaseImageView;
+        final ImageView increaseImageView;
+        final TextView counterValue;
+        final MaterialCardView container;
+
+        private final int TIME_LONG_CLICK = 300;
+        private final CounterActionCallback counterActionCallback;
+        private final TextView counterName;
+        public Counter counter;
+        private float lastX;
+
+        @SuppressLint("ClickableViewAccessibility")
+        CounterCompactViewHolder(View v, CounterActionCallback callback) {
+            super(v);
+            counterActionCallback = callback;
+            counterValue = v.findViewById(R.id.tv_counter_value);
+            counterName = v.findViewById(R.id.tv_counter_name);
+            increaseImageView = v.findViewById(R.id.iv_increase);
+            decreaseImageView = v.findViewById(R.id.iv_decrease);
+            container = v.findViewById(R.id.card);
+            counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
+
+            final CounterCompactViewHolder holder = this;
+            counterName.setOnLongClickListener(view -> {
+                dragViewListener.onStartDrag(holder);
+                return false;
+            });
+        }
+
+
+    }
+
+    public class CounterFullViewHolder extends RecyclerView.ViewHolder implements Callback {
 
         private static final int MSG_PERFORM_LONGCLICK = 1;
 
@@ -182,7 +229,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         private LongClickTimerTask timerTask;
 
         @SuppressLint("ClickableViewAccessibility")
-        CountersViewHolder(View v, CounterActionCallback callback) {
+        CounterFullViewHolder(View v, CounterActionCallback callback) {
             super(v);
             counterActionCallback = callback;
             handler = new Handler(this);
@@ -196,7 +243,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterOptionsImageView.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
 
-            final CountersViewHolder holder = this;
+            final CounterFullViewHolder holder = this;
             counterName.setOnLongClickListener(view -> {
                 dragViewListener.onStartDrag(holder);
                 return false;
@@ -266,7 +313,7 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
         private void updateCounter(float x) {
             if (counter.getStep() == 0) return;
 
-            int width = counterClickableArea.getWidth();
+            float width = counterClickableArea.getWidth();
             if (x >= width - width / 3) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
                 counterActionCallback.onSingleClick(counter, MODE_INCREASE_VALUE);
@@ -298,6 +345,6 @@ public class CountersAdapter extends RecyclerView.Adapter<CountersViewHolder> im
             }
 
         }
-    }
 
+    }
 }
