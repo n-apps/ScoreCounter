@@ -1,139 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reset"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/padding_normal"
+    android:paddingEnd="@dimen/padding_normal">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_1"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@id/btn_step_2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_2"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@+id/btn_step_3"
-        app:layout_constraintStart_toEndOf="@id/btn_step_1"
-        app:layout_constraintTop_toTopOf="@id/btn_step_1"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_3"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@+id/btn_step_4"
-        app:layout_constraintStart_toEndOf="@+id/btn_step_2"
-        app:layout_constraintTop_toTopOf="@id/btn_step_1"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_4"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/spacing_normal"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_step_3"
-        app:layout_constraintTop_toTopOf="@id/btn_step_1"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_5"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@+id/btn_step_6"
-        app:layout_constraintStart_toStartOf="@id/btn_step_1"
-        app:layout_constraintTop_toBottomOf="@+id/btn_step_1"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_6"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@+id/btn_step_7"
-        app:layout_constraintStart_toEndOf="@+id/btn_step_5"
-        app:layout_constraintTop_toTopOf="@+id/btn_step_5"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_7"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toStartOf="@+id/btn_step_8"
-        app:layout_constraintStart_toEndOf="@+id/btn_step_6"
-        app:layout_constraintTop_toTopOf="@+id/btn_step_6"
-        tools:ignore="HardcodedText" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_step_8"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:fontFamily="@font/inter_ui_medium"
-        android:includeFontPadding="false"
-        android:text="5"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintDimensionRatio="1,1"
-        app:layout_constraintEnd_toEndOf="@+id/btn_step_4"
-        app:layout_constraintStart_toEndOf="@+id/btn_step_7"
-        app:layout_constraintTop_toTopOf="@+id/btn_step_7"
-        tools:ignore="HardcodedText" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        style="@style/TwoLinesStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableLeft="@drawable/ic_refresh"
+        android:drawablePadding="@dimen/padding_normal"
+        android:text="@string/menu_reset_all_counters"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/font_subheading" />
+</LinearLayout>

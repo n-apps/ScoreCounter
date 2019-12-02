@@ -16,12 +16,21 @@ import org.jetbrains.annotations.NotNull;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
-public class CountersBottomSheetFragment extends SuperBottomSheetFragment implements View.OnClickListener {
+public class CountersBottomSheetFragment extends SuperBottomSheetFragment {
+
+    private OnCounterResetListener onCounterResetListener;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_counters_sheet, container, false);
+        View contentView = inflater.inflate(R.layout.fragment_counters_sheet, container, false);
+        contentView.findViewById(R.id.reset).setOnClickListener(v -> {
+            if (onCounterResetListener != null) {
+                onCounterResetListener.resetCounter();
+                dismiss();
+            }
+        });
+        return contentView;
     }
 
     @Override
@@ -45,8 +54,13 @@ public class CountersBottomSheetFragment extends SuperBottomSheetFragment implem
 //        AndroidFirebaseAnalytics.logEvent("CountersBottomSheetScreenAppear");
     }
 
-    @Override
-    public void onClick(View v) {
+    void setOnCounterResetListener(OnCounterResetListener onCounterResetListener) {
+        this.onCounterResetListener = onCounterResetListener;
+    }
+
+    public interface OnCounterResetListener {
+
+        void resetCounter();
     }
 
 }

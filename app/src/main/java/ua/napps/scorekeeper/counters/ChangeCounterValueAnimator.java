@@ -31,7 +31,7 @@ class ChangeCounterValueAnimator extends DefaultItemAnimator {
         if (changeFlags == FLAG_CHANGED) {
             for (Object payload : payloads) {
                 if (payload instanceof String) {
-                    return new CountryItemHolderInfo((String) payload);
+                    return new CounterItemHolderInfo((String) payload);
                 }
             }
         }
@@ -44,52 +44,79 @@ class ChangeCounterValueAnimator extends DefaultItemAnimator {
                                  @NonNull ItemHolderInfo preInfo,
                                  @NonNull ItemHolderInfo postInfo) {
 
-        if (preInfo instanceof CountryItemHolderInfo) {
+        if (preInfo instanceof CounterItemHolderInfo) {
 
-            CountryItemHolderInfo itemHolderInfo = (CountryItemHolderInfo) preInfo;
-            CountersAdapter.CounterFullViewHolder holder = (CountersAdapter.CounterFullViewHolder) newHolder;
+            CounterItemHolderInfo itemHolderInfo = (CounterItemHolderInfo) preInfo;
 
             if (itemHolderInfo.clickAction.equals(CountersAdapter.INCREASE_VALUE_CLICK)) {
-                animateHolder(holder, true);
+                animateHolder(newHolder, true);
             } else if (itemHolderInfo.clickAction.equals(CountersAdapter.DECREASE_VALUE_CLICK)) {
-                animateHolder(holder, false);
+                animateHolder(newHolder, false);
             }
         }
         return false;
     }
 
-    private void animateHolder(CountersAdapter.CounterFullViewHolder holder, boolean isIncrease) {
+    private void animateHolder(RecyclerView.ViewHolder holder, boolean isIncrease) {
         AnimatorSet animatorSet = new AnimatorSet();
         ArrayList<Animator> items = new ArrayList<>();
 
-        ObjectAnimator scaleAnimator =
-                ObjectAnimator.ofPropertyValuesHolder(holder.counterValue,
-                        PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.87f, 1.0f),
-                        PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.87f, 1.0f));
-        scaleAnimator.setInterpolator(DECELERATE_INTERPOLATOR);
-        scaleAnimator.setDuration(500);
-        items.add(scaleAnimator);
-        if (isIncrease) {
-            ObjectAnimator scaleArrowAnimator =
-                    ObjectAnimator.ofPropertyValuesHolder(holder.increaseImageView,
-                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
-                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
-            items.add(scaleArrowAnimator);
-        } else {
-            ObjectAnimator scaleArrowAnimator =
-                    ObjectAnimator.ofPropertyValuesHolder(holder.decreaseImageView,
-                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
-                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
-            items.add(scaleArrowAnimator);
+        if (holder instanceof CountersAdapter.CounterFullViewHolder) {
+            CountersAdapter.CounterFullViewHolder h = (CountersAdapter.CounterFullViewHolder) holder;
+            ObjectAnimator scaleAnimator =
+                    ObjectAnimator.ofPropertyValuesHolder(h.counterValue,
+                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.87f, 1.0f),
+                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.87f, 1.0f));
+            scaleAnimator.setInterpolator(DECELERATE_INTERPOLATOR);
+            scaleAnimator.setDuration(500);
+            items.add(scaleAnimator);
+            if (isIncrease) {
+                ObjectAnimator scaleArrowAnimator =
+                        ObjectAnimator.ofPropertyValuesHolder(h.increaseImageView,
+                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+                items.add(scaleArrowAnimator);
+            } else {
+                ObjectAnimator scaleArrowAnimator =
+                        ObjectAnimator.ofPropertyValuesHolder(h.decreaseImageView,
+                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+                items.add(scaleArrowAnimator);
+            }
+            animatorSet.playTogether(items);
+            animatorSet.start();
+        } else if (holder instanceof CountersAdapter.CounterCompactViewHolder) {
+            CountersAdapter.CounterCompactViewHolder h = (CountersAdapter.CounterCompactViewHolder) holder;
+            ObjectAnimator scaleAnimator =
+                    ObjectAnimator.ofPropertyValuesHolder(h.counterValue,
+                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.87f, 1.0f),
+                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.87f, 1.0f));
+            scaleAnimator.setInterpolator(DECELERATE_INTERPOLATOR);
+            scaleAnimator.setDuration(500);
+            items.add(scaleAnimator);
+            if (isIncrease) {
+                ObjectAnimator scaleArrowAnimator =
+                        ObjectAnimator.ofPropertyValuesHolder(h.increaseImageView,
+                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+                items.add(scaleArrowAnimator);
+            } else {
+                ObjectAnimator scaleArrowAnimator =
+                        ObjectAnimator.ofPropertyValuesHolder(h.decreaseImageView,
+                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+                items.add(scaleArrowAnimator);
+            }
+            animatorSet.playTogether(items);
+            animatorSet.start();
         }
-        animatorSet.playTogether(items);
-        animatorSet.start();
+
     }
 
-    private static class CountryItemHolderInfo extends ItemHolderInfo {
+    private static class CounterItemHolderInfo extends ItemHolderInfo {
         final String clickAction;
 
-        CountryItemHolderInfo(String clickAction) {
+        CounterItemHolderInfo(String clickAction) {
             this.clickAction = clickAction;
         }
     }

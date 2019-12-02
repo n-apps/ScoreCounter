@@ -86,7 +86,7 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginStart="@dimen/spacing_normal"
-                    android:alpha="0.38"
+                    android:alpha="0.7"
                     android:clickable="false"
                     android:contentDescription="@string/common_increase"
                     app:srcCompat="@drawable/ic_minus_round" />
@@ -97,7 +97,7 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="@dimen/spacing_normal"
-                    android:alpha="0.38"
+                    android:alpha="0.7"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
                     app:srcCompat="@drawable/ic_pluse_round" />

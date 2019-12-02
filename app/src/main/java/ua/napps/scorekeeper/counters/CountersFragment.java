@@ -50,8 +50,6 @@ import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
 
-import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
-import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
 import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_DECREASE_VALUE;
 import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_INCREASE_VALUE;
 import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
@@ -188,17 +186,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private void subscribeUi() {
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
-                boolean databaseVersionMigration = true;
-                for (Counter counter : counters) {
-                    if (counters.size() > 1 && counter.getPosition() != 0) {
-                        databaseVersionMigration = false;
-                    }
-                }
-                if (databaseVersionMigration) {
-                    for (int i = 0; i < counters.size(); i++) {
-                        viewModel.setPositionAfterDBMigration(counters.get(i), i);
-                    }
-                }
                 final int size = counters.size();
                 emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
 
@@ -284,8 +271,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
             }
-        } else {
-            Toast.makeText(requireContext(), R.string.toast_middle_zone_no_action_yet, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -321,12 +306,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                     viewModel.increaseCounter(counter, value);
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_INCREASE_VALUE);
                 } else {
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
 
                     viewModel.decreaseCounter(counter, -value);
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
                 }
                 longClickDialog.dismiss();
             });
@@ -338,12 +323,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                     viewModel.increaseCounter(counter, value);
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_INCREASE_VALUE);
                 } else {
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                     viewModel.decreaseCounter(counter, -value);
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
                 }
                 longClickDialog.dismiss();
             });
@@ -355,12 +340,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                     viewModel.increaseCounter(counter, value);
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_INCREASE_VALUE);
                 } else {
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                     viewModel.decreaseCounter(counter, -value);
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
                 }
                 longClickDialog.dismiss();
             });
@@ -372,12 +357,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
                     viewModel.increaseCounter(counter, value);
-                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_INCREASE_VALUE);
                 } else {
                     Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
 
                     viewModel.decreaseCounter(counter, -value);
-                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                    countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
                 }
                 longClickDialog.dismiss();
             });
@@ -393,12 +378,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
                             viewModel.increaseCounter(counter, intValue);
-                            countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                            countersAdapter.notifyItemChanged(position, MODE_INCREASE_VALUE);
                         } else {
                             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
 
                             viewModel.decreaseCounter(counter, -intValue);
-                            countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                            countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
                         }
                     }
                     longClickDialog.dismiss();
@@ -421,6 +406,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             });
         } else {
             Toast.makeText(requireContext(), R.string.toast_middle_zone_no_action_yet, Toast.LENGTH_LONG).show();
+
+//            CountersBottomSheetFragment bottomSheet = new CountersBottomSheetFragment();
+//            bottomSheet.show(requireFragmentManager(), "CountersBottomSheetFragment");
+//            bottomSheet.setOnCounterResetListener(() -> {
+//                viewModel.resetCounter(counter);
+//
+//            });
+
         }
     }
 

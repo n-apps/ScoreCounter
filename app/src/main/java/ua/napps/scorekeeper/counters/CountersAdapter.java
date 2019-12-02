@@ -70,14 +70,15 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         final Counter counter = counters.get(position);
+        int counterColor = Color.parseColor(counter.getColor());
         if (getItemViewType(position) == TYPE_FULL) {
             CounterFullViewHolder holder = (CounterFullViewHolder) viewHolder;
             holder.counter = counter;
             holder.counterName.setText(counter.getName());
             holder.counterValue.setText(String.valueOf(counter.getValue()));
-            holder.container.setCardBackgroundColor(Color.parseColor(counter.getColor()));
-            final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
-            int tintColor = darkBackground ? 0x89FFFFFF : 0x89000000;
+            holder.container.setCardBackgroundColor(counterColor);
+            final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
+            int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
             holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
 
@@ -92,9 +93,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counter = counter;
             holder.counterName.setText(counter.getName());
             holder.counterValue.setText(String.valueOf(counter.getValue()));
-            holder.container.setCardBackgroundColor(Color.parseColor(counter.getColor()));
-            final boolean darkBackground = ColorUtil.isDarkBackground(counter.getColor());
-            int tintColor = darkBackground ? 0x89FFFFFF : 0x89000000;
+            holder.container.setCardBackgroundColor(counterColor);
+            final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
+            int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
             holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
 
@@ -173,7 +174,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         lastMovedCounter = null;
     }
 
-    public class CounterCompactViewHolder extends RecyclerView.ViewHolder  {
+    public class CounterCompactViewHolder extends RecyclerView.ViewHolder {
 
         private static final int MSG_PERFORM_LONGCLICK = 1;
 
@@ -204,8 +205,25 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 dragViewListener.onStartDrag(holder);
                 return false;
             });
-        }
+            increaseImageView.setOnClickListener(v1 -> {
+                notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
+                counterActionCallback.onSingleClick(counter, MODE_INCREASE_VALUE);
+            });
 
+            decreaseImageView.setOnClickListener(v2 -> {
+                notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
+                counterActionCallback.onSingleClick(counter, MODE_DECREASE_VALUE);
+            });
+            increaseImageView.setOnLongClickListener(v1 -> {
+                counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
+                return true;
+            });
+
+            decreaseImageView.setOnLongClickListener(v2 -> {
+                counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
+                return true;
+            });
+        }
 
     }
 

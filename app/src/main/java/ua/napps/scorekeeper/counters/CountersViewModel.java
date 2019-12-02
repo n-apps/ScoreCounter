@@ -10,6 +10,8 @@ import androidx.lifecycle.LiveData;
 
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import io.reactivex.CompletableObserver;
@@ -34,7 +36,9 @@ class CountersViewModel extends AndroidViewModel {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        colors = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
+        String[] arr = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
+        shuffleColors(arr);
+        colors = arr;
     }
 
     public LiveData<Counter> getCounterLiveData(int counterID) {
@@ -149,27 +153,6 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    void setPositionAfterDBMigration(Counter counter, int position) {
-        repository.modifyPosition(counter.getId(), position)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Timber.e(e, "modifyPosition counter");
-                    }
-
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-                });
-    }
-
     void modifyPosition(Counter counter, int fromPosition, int toPosition) {
         if (fromPosition == toPosition) {
             return;
@@ -251,6 +234,7 @@ class CountersViewModel extends AndroidViewModel {
                     @Override
                     public void onComplete() {
                         Singleton.getInstance().clearLogEntries();
+                        shuffleColors(colors);
                     }
 
                     @Override
@@ -292,6 +276,35 @@ class CountersViewModel extends AndroidViewModel {
 
                     }
                 });
+    }
+
+    void resetCounter(Counter counter) {
+        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterReset");
+
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RST, counter.getDefaultValue(), counter.getValue()));
+
+        repository.setCount(counter.getId(), counter.getDefaultValue())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e);
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
+    private void shuffleColors(String[] arr) {
+        Collections.shuffle(Arrays.asList(arr));
     }
 
     private String getNextColor(int size) {
