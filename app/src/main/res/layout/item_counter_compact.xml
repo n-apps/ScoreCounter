@@ -32,8 +32,8 @@
 
         <ImageView
             android:id="@+id/iv_decrease"
-            android:layout_width="56dp"
-            android:layout_height="@dimen/list_single_line_min_height"
+            android:layout_width="@dimen/list_two_lines_min_height"
+            android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.7"
@@ -60,8 +60,8 @@
 
         <ImageView
             android:id="@+id/iv_increase"
-            android:layout_width="56dp"
-            android:layout_height="@dimen/list_single_line_min_height"
+            android:layout_width="@dimen/list_two_lines_min_height"
+            android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.7"
             android:clickable="false"

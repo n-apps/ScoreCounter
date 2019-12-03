@@ -14,7 +14,7 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:textSize="@dimen/font_display"
-        tools:text="\u2764" />
+        tools:text="💙" />
 
     <LinearLayout
         android:layout_width="match_parent"

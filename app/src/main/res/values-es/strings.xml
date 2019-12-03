@@ -58,7 +58,7 @@
     <string name="dialog_yes">Sí</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="settings_github">Contribuir (Github)</string>
-    <string name="donation_thank_you">Gracias \u2764</string>
+    <string name="donation_thank_you">Gracias 💙</string>
     <string name="donation_coffee_title">Un café calmante</string>
     <string name="donation_pizza_title">Una pizza sabrosa</string>
     <string name="donation_coffee_description">¿Qué mantiene al desarrollador despierto por la noches? Tu café</string>
@@ -68,4 +68,6 @@
     <string name="error_message">Ocurrió un error.</string>
     <string name="save">Guardar</string>
     <string name="toast_middle_zone_no_action_yet">Hasta ahora, hacer clic aquí no hace nada. Intente un poco hacia la izquierda o hacia la derecha;)\n\nSi tiene ideas sobre qué acción sería útil aquí, no dude en enviarme un correo electrónico (ver Configuración)</string>
+    <string name="common_more">Más</string>
+    <string name="happy_ny">🎄 Felices vacaciones 🎄</string>
 </resources>

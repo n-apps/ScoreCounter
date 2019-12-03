@@ -51,6 +51,7 @@ public class DicesFragment extends Fragment {
     private OnDiceFragmentInteractionListener listener;
     private MediaPlayer mp;
     private boolean soundRollEnabled;
+    private int maxSide;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -86,10 +87,15 @@ public class DicesFragment extends Fragment {
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> {
             showBottomSheet();
         });
+
+        maxSide = LocalSettings.getDiceMaxSide();
+        diceVariantInfo.setText("d" + maxSide);
+
         root.setOnClickListener(v -> {
             viewModel.rollDice();
             Bundle params = new Bundle();
             params.putString(FirebaseAnalytics.Param.CHARACTER, "by_touch");
+            params.putString(FirebaseAnalytics.Param.ITEM_VARIANT, "d" + maxSide);
             AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
         });
         root.setOnLongClickListener(v -> {
@@ -104,8 +110,6 @@ public class DicesFragment extends Fragment {
             mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
         }
 
-        int maxSide = LocalSettings.getDiceMaxSide();
-        diceVariantInfo.setText("d" + maxSide);
 
         return contentView;
     }
@@ -117,7 +121,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void updateOnDismiss() {
-        int maxSide = LocalSettings.getDiceMaxSide();
+        maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
         viewModel.setDiceVariant(maxSide);
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
@@ -178,6 +182,7 @@ public class DicesFragment extends Fragment {
             if (accel > 5.0) {
                 viewModel.rollDice();
                 Bundle params = new Bundle();
+                params.putString(FirebaseAnalytics.Param.ITEM_VARIANT, "d" + maxSide);
                 params.putString(FirebaseAnalytics.Param.CHARACTER, "by_shake");
                 AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
             }
@@ -201,7 +206,6 @@ public class DicesFragment extends Fragment {
                 .setStartValue(1000f)
                 .setStartVelocity(1000)
                 .start();
-
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_X)
                 .setStartValue(0.5f)
                 .setSpring(springForce)

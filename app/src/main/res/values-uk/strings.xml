@@ -58,7 +58,7 @@
     <string name="dialog_no">Ні</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="settings_github">Допомогти проекту (Github)</string>
-    <string name="donation_thank_you">Дякую \u2764</string>
+    <string name="donation_thank_you">Дякую 💙</string>
     <string name="donation_coffee_title">Філіжанка кави</string>
     <string name="donation_pizza_title">Одна смачна піца</string>
     <string name="donation_coffee_description">Що саме не дає розробникові заснути вночі? Ваша кава</string>
@@ -68,4 +68,6 @@
     <string name="error_message">Виникла помилка.</string>
     <string name="save">Зберегти</string>
     <string name="toast_middle_zone_no_action_yet">Поки що натискання тут нічого не робить. Спробуйте трохи ліворуч або праворуч;)\n\nЯкщо у вас є ідеї, яка дія тут буде корисною - не соромтеся писати мені на пошту (див. Налаштування)</string>
+    <string name="common_more">Більше</string>
+    <string name="happy_ny">🎄 Щасливих свят 🎄</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import java.util.Arrays;
@@ -144,6 +145,36 @@ class CountersViewModel extends AndroidViewModel {
                     @Override
                     public void onError(Throwable e) {
                         Timber.e(e, "modifyName counter");
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+                });
+    }
+
+    void modifyCurrentValue(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int newValue) {
+        if (newValue == counter.getValue()) {
+            return;
+        }
+        Bundle params = new Bundle();
+        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + newValue);
+        AndroidFirebaseAnalytics.logEvent("CountersScreenNewValueSubmit", params);
+
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, newValue, counter.getValue()));
+
+        repository.setCount(counter.getId(), newValue)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Timber.e(e);
                     }
 
                     @Override

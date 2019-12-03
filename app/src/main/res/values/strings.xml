@@ -58,7 +58,7 @@
     <string name="dialog_no">No</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="settings_github">Contribute (Github)</string>
-    <string name="donation_thank_you">Thank you \u2764️</string>
+    <string name="donation_thank_you">Thank you 💙️</string>
     <string name="donation_coffee_title">A calming coffee</string>
     <string name="donation_pizza_title">One tasty pizza</string>
     <string name="donation_coffee_description">What keeps the developer awake at night? Your coffee</string>
@@ -68,4 +68,6 @@
     <string name="error_message">Sorry, there seems to have been an error.</string>
     <string name="save">Save</string>
     <string name="toast_middle_zone_no_action_yet">So far clicking here does nothing. Try a little to the left or right;)\n\nIf you have ideas what action would be useful here - feel free to email me (see Settings)</string>
+    <string name="common_more">More</string>
+    <string name="happy_ny">🎄 Happy Holidays 🎄</string>
 </resources>

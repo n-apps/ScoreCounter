@@ -176,18 +176,14 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public class CounterCompactViewHolder extends RecyclerView.ViewHolder {
 
-        private static final int MSG_PERFORM_LONGCLICK = 1;
-
         final ImageView decreaseImageView;
         final ImageView increaseImageView;
         final TextView counterValue;
         final MaterialCardView container;
 
-        private final int TIME_LONG_CLICK = 300;
         private final CounterActionCallback counterActionCallback;
         private final TextView counterName;
         public Counter counter;
-        private float lastX;
 
         @SuppressLint("ClickableViewAccessibility")
         CounterCompactViewHolder(View v, CounterActionCallback callback) {
@@ -205,15 +201,18 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 dragViewListener.onStartDrag(holder);
                 return false;
             });
+
             increaseImageView.setOnClickListener(v1 -> {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, MODE_INCREASE_VALUE);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
             });
 
             decreaseImageView.setOnClickListener(v2 -> {
                 notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, MODE_DECREASE_VALUE);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
             });
+            counterValue.setOnClickListener(v12 -> counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_SET_VALUE));
+
             increaseImageView.setOnLongClickListener(v1 -> {
                 counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
                 return true;
@@ -221,6 +220,11 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             decreaseImageView.setOnLongClickListener(v2 -> {
                 counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
+                return true;
+            });
+
+            counterValue.setOnLongClickListener(v13 -> {
+                counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_SET_VALUE);
                 return true;
             });
         }
@@ -259,7 +263,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             decreaseImageView = v.findViewById(R.id.iv_decrease);
             container = v.findViewById(R.id.card);
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
-            counterOptionsImageView.setOnClickListener(v2 -> counterActionCallback.onEditClick(v, counter));
+            counterOptionsImageView.setOnClickListener(v2 -> counterActionCallback.onEditClick(counter));
 
             final CounterFullViewHolder holder = this;
             counterName.setOnLongClickListener(view -> {
@@ -334,12 +338,12 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             float width = counterClickableArea.getWidth();
             if (x >= width - width / 3) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, MODE_INCREASE_VALUE);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
             } else if (x <= width / 3) {
                 notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, MODE_DECREASE_VALUE);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
             } else {
-                counterActionCallback.onSingleClick(counter, MODE_SET_VALUE);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_SET_VALUE);
             }
         }
 

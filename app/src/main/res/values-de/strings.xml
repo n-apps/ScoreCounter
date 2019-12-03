@@ -58,7 +58,7 @@
     <string name="dialog_no">Nein</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="settings_github">Beitragen (Github)</string>
-    <string name="donation_thank_you">Vielen Dank \u2764</string>
+    <string name="donation_thank_you">Vielen Dank 💙</string>
     <string name="donation_coffee_title">Ein beruhigender Kaffee</string>
     <string name="donation_pizza_title">Eine leckere Pizza</string>
     <string name="donation_coffee_description">Was hält den Entwickler in der Nacht wach? Dein Kaffee</string>
@@ -68,5 +68,7 @@
     <string name="error_message">Es ist ein Fehler aufgetreten</string>
     <string name="save">Speichern</string>
     <string name="toast_middle_zone_no_action_yet">Bisher macht das Klicken hier nichts. Versuchen Sie es ein wenig nach links oder rechts;)\n\nWenn Sie Ideen haben, welche Aktion hier nützlich sein könnte, schreiben Sie mir bitte eine E-Mail (siehe Einstellungen).</string>
+    <string name="common_more">Mehr</string>
+    <string name="happy_ny">🎄 Schöne Ferien 🎄</string>
 
 </resources>

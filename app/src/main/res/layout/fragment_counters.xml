@@ -25,6 +25,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_counter_full"
+        app:layoutManager=".utils.SpanningLinearLayoutManager"
         tools:visibility="gone" />
 
     <LinearLayout

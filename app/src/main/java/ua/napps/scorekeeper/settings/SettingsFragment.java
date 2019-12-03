@@ -75,7 +75,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         btn_c_3.setText(String.valueOf(LocalSettings.getCustomCounter(3)));
         btn_c_4.setText(String.valueOf(LocalSettings.getCustomCounter(4)));
 
-        if(Utilities.hasQ()) {
+        if (Utilities.hasQ()) {
             darkTheme.setVisibility(View.GONE);
             contentView.findViewById(R.id.iv_dark_theme).setVisibility(View.GONE);
         }
@@ -149,8 +149,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .negativeColorRes(R.color.primaryColor)
-                .negativeText(R.string.common_cancel)
+                .widgetColorRes(R.color.alert_dialog_button)
+                .positiveColorRes(R.color.alert_dialog_button)
                 .alwaysCallInputCallback()
                 .input(getString(R.string.dialog_custom_counter_hint), null, false,
                         (dialog, input) -> {

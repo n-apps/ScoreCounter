@@ -20,5 +20,6 @@
     <color name="flat_button_color">#222</color>
     <color name="flat_button_color_pressed">#42000000</color>
     <color name="rate_app_options">#de000000</color>
+    <color name="alert_dialog_button">#4dabf7</color>
 
 </resources>

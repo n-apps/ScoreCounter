@@ -58,7 +58,7 @@
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="settings_github">Хочу запилить фичу! (Github)</string>
-    <string name="donation_thank_you">Спасибо \u2764</string>
+    <string name="donation_thank_you">Спасибо 💙</string>
     <string name="donation_coffee_title">Успокаивающий кофе</string>
     <string name="donation_pizza_title">Одна вкусная пицца</string>
     <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
@@ -68,4 +68,6 @@
     <string name="error_message">Произошла ошибка.</string>
     <string name="save">Сохранить</string>
     <string name="toast_middle_zone_no_action_yet">Пока что нажатие здесь ничего не делает. Попробуйте левее или правее ;)\n\nЕсли у вас есть идеи, что было бы полезно при этом нажатии - не стесняйтесь писать мне на почту (см. Настройки)</string>
+    <string name="common_more">Больше</string>
+    <string name="happy_ny">🎄 Счастливых праздников 🎄</string>
 </resources>
