@@ -167,9 +167,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onItemClear(int fromPosition, int toPosition) {
+    public void onItemClear(int fromIndex, int toIndex) {
         if (lastMovedCounter != null) {
-            dragViewListener.afterDrag(lastMovedCounter, fromPosition, toPosition);
+            dragViewListener.afterDrag(lastMovedCounter, fromIndex, toIndex);
         }
         lastMovedCounter = null;
     }

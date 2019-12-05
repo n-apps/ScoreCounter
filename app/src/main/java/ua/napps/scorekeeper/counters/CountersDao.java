@@ -1,62 +1,78 @@
 package ua.napps.scorekeeper.counters;
 
+import android.util.SparseIntArray;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import java.util.List;
 
+import io.reactivex.Completable;
+
 @Dao
-public interface CountersDao {
+public abstract class CountersDao {
 
     @Query("DELETE FROM counters")
-    void deleteAll();
+    public abstract Completable deleteAll();
 
     @Delete
-    void deleteCounter(Counter counter);
+    public abstract Completable deleteCounter(Counter counter);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(Counter counter);
+    public abstract Completable insert(Counter counter);
 
     @Query("SELECT * FROM counters ORDER BY position")
-    LiveData<List<Counter>> loadAllCounters();
+    public abstract LiveData<List<Counter>> loadAllCounters();
 
     @Query("SELECT * FROM counters ORDER BY position")
-    List<Counter> loadAllCountersSync();
+    public abstract List<Counter> loadAllCountersSync();
 
     @Query("SELECT COUNT(*) FROM counters")
-    int count();
+    public abstract int count();
 
     @Query("select * from counters where id = :counterId")
-    LiveData<Counter> loadCounter(int counterId);
+    public abstract LiveData<Counter> loadCounter(int counterId);
 
-        @Query("select * from counters where id = :counterId")
-    Counter loadCounterSync(int counterId);
+    @Query("select * from counters where id = :counterId")
+    public abstract Counter loadCounterSync(int counterId);
 
     @Query("UPDATE counters " + "SET color = :hex WHERE id = :counterId")
-    void modifyColor(int counterId, String hex);
+    public abstract Completable modifyColor(int counterId, String hex);
 
     @Query("UPDATE counters " + "SET defaultValue = :defaultValue WHERE id = :counterId")
-    void modifyDefaultValue(int counterId, int defaultValue);
+    public abstract Completable modifyDefaultValue(int counterId, int defaultValue);
 
     @Query("UPDATE counters " + "SET name = :counterName WHERE id = :counterId")
-    void modifyName(int counterId, String counterName);
+    public abstract Completable modifyName(int counterId, String counterName);
 
     @Query("UPDATE counters " + "SET step = :step WHERE id = :counterId")
-    void modifyStep(int counterId, int step);
+    public abstract Completable modifyStep(int counterId, int step);
 
     @Query("UPDATE counters SET value =(value +:difference) WHERE id ==:counterId")
-    void modifyValue(int counterId, int difference);
+    public abstract Completable modifyValue(int counterId, int difference);
 
     @Query("UPDATE counters " + "SET position = :position WHERE id = :counterId")
-    void modifyPosition(int counterId, int position);
+    public abstract void modifyPosition(int counterId, int position);
+
+    @Transaction
+    public void modifyPositionBatch(@NonNull SparseIntArray positionMap) {
+        int size = positionMap.size();
+        for (int i = 0; i < size; i++) {
+            int counterId = positionMap.keyAt(i);
+            int newPosition = positionMap.valueAt(i);
+            modifyPosition(counterId, newPosition);
+        }
+    }
 
     @Query("UPDATE counters " + "SET value = defaultValue")
-    void resetValues();
+    public abstract Completable resetValues();
 
     @Query("UPDATE counters " + "SET value = :value WHERE id = :counterId")
-    void setValue(int counterId, int value);
+    public abstract Completable setValue(int counterId, int value);
 }
