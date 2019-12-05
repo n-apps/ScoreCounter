@@ -63,6 +63,7 @@ dependencies {
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.room:room-runtime:2.2.1'
+    implementation "androidx.room:room-rxjava2:2.2.1"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta3'
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
     implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'

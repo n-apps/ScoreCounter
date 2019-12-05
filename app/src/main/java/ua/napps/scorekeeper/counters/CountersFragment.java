@@ -489,8 +489,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public void afterDrag(Counter counter, int fromPosition, int toPosition) {
-        viewModel.modifyPosition(counter, fromPosition, toPosition);
+    public void afterDrag(Counter counter, int fromIndex, int toIndex) {
+        viewModel.modifyPosition(counter, fromIndex, toIndex);
     }
 
 }

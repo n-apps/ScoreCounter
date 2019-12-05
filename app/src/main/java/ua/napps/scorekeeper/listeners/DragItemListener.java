@@ -8,5 +8,5 @@ public interface DragItemListener {
 
     void onStartDrag(RecyclerView.ViewHolder viewHolder);
 
-    void afterDrag(Counter counter, int fromPosition, int toPosition);
+    void afterDrag(Counter counter, int fromIndex, int toIndex);
 }

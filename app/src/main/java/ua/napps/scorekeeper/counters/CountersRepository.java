@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
+import android.util.SparseIntArray;
+
 import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
 
@@ -17,19 +19,16 @@ class CountersRepository {
     }
 
     public Completable createCounter(String name, String color, int position) {
-
-        return Completable.fromAction(() -> {
-            final Counter counter = new Counter(name, color,position);
-            countersDao.insert(counter);
-        });
+        final Counter counter = new Counter(name, color,position);
+        return countersDao.insert(counter);
     }
 
     public Completable delete(Counter counter) {
-        return Completable.fromAction(() -> countersDao.deleteCounter(counter));
+        return countersDao.deleteCounter(counter);
     }
 
     public Completable deleteAll() {
-        return Completable.fromAction(countersDao::deleteAll);
+        return countersDao.deleteAll();
     }
 
     public LiveData<List<Counter>> getCounters() {
@@ -41,34 +40,34 @@ class CountersRepository {
     }
 
     public Completable modifyColor(int counterId, String hex) {
-        return Completable.fromAction(() -> countersDao.modifyColor(counterId, hex));
+        return countersDao.modifyColor(counterId, hex);
     }
 
     public Completable modifyCount(int counterId, int difference) {
-        return Completable.fromAction(() -> countersDao.modifyValue(counterId, difference));
+        return countersDao.modifyValue(counterId, difference);
     }
 
     public Completable modifyDefaultValue(int counterId, int defaultValue) {
-        return Completable.fromAction(() -> countersDao.modifyDefaultValue(counterId, defaultValue));
+        return countersDao.modifyDefaultValue(counterId, defaultValue);
     }
 
     public Completable modifyName(int counterId, String name) {
-        return Completable.fromAction(() -> countersDao.modifyName(counterId, name));
+        return countersDao.modifyName(counterId, name);
     }
 
     public Completable modifyStep(int counterId, int step) {
-        return Completable.fromAction(() -> countersDao.modifyStep(counterId, step));
+        return countersDao.modifyStep(counterId, step);
     }
 
-    public Completable modifyPosition(int counterId, int position) {
-        return Completable.fromAction(() -> countersDao.modifyPosition(counterId,position));
+    public Completable modifyPositionBatch(@NonNull SparseIntArray positionMap) {
+        return Completable.fromAction(() -> countersDao.modifyPositionBatch(positionMap));
     }
 
     public Completable resetAll() {
-        return Completable.fromAction(countersDao::resetValues);
+        return countersDao.resetValues();
     }
 
     public Completable setCount(int counterId, int value) {
-        return Completable.fromAction(() -> countersDao.setValue(counterId, value));
+        return countersDao.setValue(counterId, value);
     }
 }

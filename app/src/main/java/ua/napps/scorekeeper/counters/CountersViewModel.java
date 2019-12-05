@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.app.Application;
 import android.os.Bundle;
+import android.util.SparseIntArray;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
@@ -184,77 +185,48 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    void modifyPosition(Counter counter, int fromPosition, int toPosition) {
-        if (fromPosition == toPosition) {
-            return;
-        }
+    void modifyPosition(Counter counter, int fromIndex, int toIndex) {
 
-        if (toPosition == counter.getPosition()) {
-            return;
-        }
+        if (fromIndex == toIndex) return;
 
-        if (toPosition > counters.getValue().size() - 1) {
-            toPosition = counters.getValue().size() - 1;
-        }
+        List<Counter> counterList = counters.getValue();
+        if(counterList == null) return;
+
+        // Counter's position starts from 1, not from 0, so we should make + 1
+        int fromPosition = fromIndex + 1;
+        int toPosition = toIndex + 1;
 
         AndroidFirebaseAnalytics.logEvent("CountersScreenCounterDragNDropped");
 
-        int smallerIndex = Math.min(fromPosition, toPosition);
-        int largerIndex = Math.max(fromPosition, toPosition);
-        int moveStep;
+        int movedCounterId = counter.getId();
+        final SparseIntArray positionMap = buildPositionUpdate(counterList, movedCounterId, fromPosition, toPosition);
 
-        if (toPosition > fromPosition) {
-            moveStep = -1;
-        } else {
-            moveStep = 1;
-        }
+        repository.modifyPositionBatch(positionMap)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .doOnError(e -> Timber.e(e, "modifyPosition counter"))
+                .onErrorComplete()
+                .subscribe();
 
-        List<Counter> counterList = counters.getValue();
-        if (counterList != null) {
-            for (int i = 0; i < counterList.size(); i++) {
-                if (counterList.get(i).getId() == counter.getId()) {
-                    repository.modifyPosition(counter.getId(), toPosition)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new CompletableObserver() {
-                                @Override
-                                public void onComplete() {
+    }
 
-                                }
+    private SparseIntArray buildPositionUpdate(@NonNull List<Counter> counterList, int movedCounterId, int fromPosition, int toPosition) {
+        int smallerPosition = Math.min(fromPosition, toPosition);
+        int largerPosition = Math.max(fromPosition, toPosition);
+        int moveStep = toPosition > fromPosition ? -1 : 1;
+        final SparseIntArray positionMap = new SparseIntArray();
 
-                                @Override
-                                public void onError(Throwable e) {
-                                    Timber.e(e, "modifyPosition counter");
-                                }
+        for (int i = 0; i < counterList.size(); i++) {
 
-                                @Override
-                                public void onSubscribe(Disposable d) {
+            int position = counterList.get(i).getPosition();
 
-                                }
-                            });
-                } else if (counterList.get(i).getPosition() >= smallerIndex && counterList.get(i).getPosition() <= largerIndex) {
-                    repository.modifyPosition(counterList.get(i).getId(), counterList.get(i).getPosition() + moveStep)
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe(new CompletableObserver() {
-                                @Override
-                                public void onComplete() {
-                                }
-
-                                @Override
-                                public void onError(Throwable e) {
-                                    Timber.e(e, "modifyPosition counter");
-                                }
-
-                                @Override
-                                public void onSubscribe(Disposable d) {
-
-                                }
-                            });
-                }
+            if (position >= smallerPosition && position <= largerPosition) {
+                int id = counterList.get(i).getId();
+                int newPosition = id == movedCounterId ? toPosition : position + moveStep;
+                positionMap.append(id, newPosition);
             }
         }
-
+        return positionMap;
     }
 
     void removeAll() {
