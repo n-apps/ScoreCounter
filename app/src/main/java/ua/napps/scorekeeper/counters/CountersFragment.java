@@ -86,12 +86,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(requireContext(), R.string.happy_ny, Toast.LENGTH_SHORT).show();
-                AndroidFirebaseAnalytics.logEvent("CountersScreenToolbarClick");
-            }
+        toolbar.setOnLongClickListener(v -> {
+            Toast.makeText(requireContext(), R.string.happy_ny, Toast.LENGTH_SHORT).show();
+            AndroidFirebaseAnalytics.logEvent("CountersScreenToolbarClick");
+            return false;
         });
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
@@ -226,7 +224,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private void updateToolbarTitle(int size) {
         StringBuilder title = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            title.append("\ud83c\udf28");
+            title.append("\u26c4");
         }
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title.toString());
     }
