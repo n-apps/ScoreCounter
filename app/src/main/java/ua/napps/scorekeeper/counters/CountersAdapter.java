@@ -194,7 +194,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
             container = v.findViewById(R.id.card);
-            counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
+            counterName.setOnClickListener(v1 -> counterActionCallback.onEditClick(counter));
 
             final CounterCompactViewHolder holder = this;
             counterName.setOnLongClickListener(view -> {

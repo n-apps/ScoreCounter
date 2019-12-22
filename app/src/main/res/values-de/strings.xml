@@ -70,5 +70,6 @@
     <string name="toast_middle_zone_no_action_yet">Bisher macht das Klicken hier nichts. Versuchen Sie es ein wenig nach links oder rechts;)\n\nWenn Sie Ideen haben, welche Aktion hier nützlich sein könnte, schreiben Sie mir bitte eine E-Mail (siehe Einstellungen).</string>
     <string name="common_more">Mehr</string>
     <string name="happy_ny">🎄 Schöne Ferien 🎄</string>
+    <string name="reset">Zähler Zurücksetzen</string>
 
 </resources>

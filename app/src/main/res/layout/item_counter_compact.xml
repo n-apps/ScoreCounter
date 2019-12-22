@@ -51,12 +51,10 @@
             android:fontFamily="@font/inter_ui_medium"
             android:gravity="center"
             android:lines="1"
-            android:minEms="3"
-            android:paddingLeft="@dimen/spacing_large"
-            android:paddingRight="@dimen/spacing_large"
+            android:minEms="2"
             android:textSize="32sp"
             tools:ignore="MissingPrefix"
-            tools:text="0" />
+            tools:text="42" />
 
         <ImageView
             android:id="@+id/iv_increase"

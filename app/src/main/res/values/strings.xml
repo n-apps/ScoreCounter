@@ -70,4 +70,5 @@
     <string name="toast_middle_zone_no_action_yet">So far clicking here does nothing. Try a little to the left or right;)\n\nIf you have ideas what action would be useful here - feel free to email me (see Settings)</string>
     <string name="common_more">More</string>
     <string name="happy_ny">🎄 Happy Holidays 🎄</string>
+    <string name="reset">Reset</string>
 </resources>

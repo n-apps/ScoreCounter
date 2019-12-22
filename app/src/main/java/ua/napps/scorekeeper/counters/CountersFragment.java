@@ -285,12 +285,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .content(counter.getName())
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
+                    .neutralText(R.string.reset)
+                    .neutralColorRes(R.color.flat_button_color)
                     .widgetColorRes(R.color.alert_dialog_button)
                     .positiveColorRes(R.color.alert_dialog_button)
                     .alwaysCallInputCallback()
                     .input("" + counter.getValue(), null, false, (dialog, input) -> {
 
                     })
+                    .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
                     .onPositive((dialog, which) -> {
                         EditText editText = dialog.getInputEditText();
                         if (editText != null) {

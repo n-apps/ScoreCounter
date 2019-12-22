@@ -70,4 +70,5 @@
     <string name="toast_middle_zone_no_action_yet">Hasta ahora, hacer clic aquí no hace nada. Intente un poco hacia la izquierda o hacia la derecha;)\n\nSi tiene ideas sobre qué acción sería útil aquí, no dude en enviarme un correo electrónico (ver Configuración)</string>
     <string name="common_more">Más</string>
     <string name="happy_ny">🎄 Felices vacaciones 🎄</string>
+    <string name="reset">Reiniciar contador</string>
 </resources>
