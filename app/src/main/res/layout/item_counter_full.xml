@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/padding_normal"
-        android:layout_marginBottom="@dimen/spacing_normal"
-        android:layout_marginEnd="@dimen/padding_normal">
+        android:layout_marginEnd="@dimen/padding_normal"
+        android:layout_marginBottom="@dimen/spacing_normal">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:ellipsize="end"
-                    android:fontFamily="@font/inter_ui_medium"
+                    android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:maxLines="1"
                     android:paddingStart="@dimen/padding_normal"
@@ -67,7 +67,7 @@
                     android:layout_gravity="center"
                     android:alpha=".87"
                     android:clickable="false"
-                    android:fontFamily="@font/inter_ui_medium"
+                    android:fontFamily="sans-serif-black"
                     android:gravity="center"
                     android:lines="1"
                     android:paddingStart="40dp"
@@ -77,7 +77,7 @@
                     app:autoSizeStepGranularity="2sp"
                     app:autoSizeTextType="uniform"
                     tools:ignore="MissingPrefix"
-                    tools:text="0"
+                    tools:text="20"
                     tools:textSize="192sp" />
 
                 <ImageView

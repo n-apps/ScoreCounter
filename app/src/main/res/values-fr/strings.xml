@@ -24,7 +24,7 @@
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent:</string>
-    <string name="erd_message">Vous aimez notre application, voulez-vous prendre un moment pour l\'évaluer? Cela ne vous prendra pas plus d\'une minute. Merci de votre soutien!</string>
+    <string name="erd_message">Vous aimez notre application, voulez-vous prendre un moment pour l\'évaluer? Cela ne vous prendra pas plus d\'une minute. \nMerci de votre soutien!</string>
     <string name="erd_no_thanks">Non, merci</string>
     <string name="erd_rate_now">Évaluer maintenant</string>
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
@@ -69,7 +69,6 @@
     <string name="save">Sauvegarder</string>
     <string name="toast_middle_zone_no_action_yet">Jusqu\'ici, cliquer ici ne fait rien. Essayez un peu à gauche ou à droite;)\n\nSi vous avez une idée de l\'action à utiliser ici, n\'hésitez pas à m\'envoyer un e-mail (voir Paramètres)</string>
     <string name="common_more">Plus</string>
-    <string name="happy_ny">🎄 Joyeuses fêtes 🎄</string>
     <string name="reset">Réinitialiser</string>
 
 </resources>

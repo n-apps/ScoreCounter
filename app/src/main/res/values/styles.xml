@@ -8,7 +8,6 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
-        <item name="android:fontFamily">@font/inter_ui_regular</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
@@ -60,7 +59,6 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:paddingBottom">@dimen/padding_normal</item>
-        <item name="android:fontFamily">@font/inter_ui_medium</item>
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:textColor">?android:attr/textColorHint</item>
         <item name="android:paddingTop">@dimen/padding_normal</item>
@@ -73,6 +71,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="autoSizeMaxTextSize">@dimen/font_display</item>
         <item name="autoSizeMinTextSize">@dimen/font_body</item>

@@ -24,7 +24,7 @@
     <string name="dialog_custom_dice_title">Caras del dado propias</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar, o agita tu dispositivo para tirar el dado</string>
     <string name="dice_previous_result_label">Anterior tirada:</string>
-    <string name="erd_message">Si te gusta esta app, ¿te importaría evaluarla en un momentito? No será más de un minuto. ¡Gracias por tu apoyo!</string>
+    <string name="erd_message">Si te gusta esta app, ¿te importaría evaluarla en un momentito? No será más de un minuto. \n¡Gracias por tu apoyo!</string>
     <string name="erd_no_thanks">No, gracias</string>
     <string name="erd_rate_now">Evalúame ahora</string>
     <string name="erd_remind_me_later">Recuérdamelo después</string>
@@ -69,6 +69,5 @@
     <string name="save">Guardar</string>
     <string name="toast_middle_zone_no_action_yet">Hasta ahora, hacer clic aquí no hace nada. Intente un poco hacia la izquierda o hacia la derecha;)\n\nSi tiene ideas sobre qué acción sería útil aquí, no dude en enviarme un correo electrónico (ver Configuración)</string>
     <string name="common_more">Más</string>
-    <string name="happy_ny">🎄 Felices vacaciones 🎄</string>
     <string name="reset">Reiniciar contador</string>
 </resources>

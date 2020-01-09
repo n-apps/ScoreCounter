@@ -52,6 +52,7 @@ public class DicesFragment extends Fragment {
     private MediaPlayer mp;
     private boolean soundRollEnabled;
     private int maxSide;
+    private TextView diceHintTextView;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -83,6 +84,7 @@ public class DicesFragment extends Fragment {
         diceVariantInfo = contentView.findViewById(R.id.tv_dice_variant_info);
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
+        diceHintTextView = contentView.findViewById(R.id.tv_dice_hint);
         root = contentView.findViewById(R.id.container);
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> {
             showBottomSheet();
@@ -198,7 +200,6 @@ public class DicesFragment extends Fragment {
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
-
         diceTextView.setText("" + roll);
 
         new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
@@ -225,6 +226,7 @@ public class DicesFragment extends Fragment {
         TransitionManager.beginDelayedTransition(root);
         emptyStateGroup.setVisibility(View.GONE);
         diceTextView.setVisibility(View.VISIBLE);
+        diceHintTextView.setVisibility(View.VISIBLE);
         if (previousRoll != 0) {
             previousRollTextViewLabel.setVisibility(View.VISIBLE);
             previousRollTextView.setVisibility(View.VISIBLE);

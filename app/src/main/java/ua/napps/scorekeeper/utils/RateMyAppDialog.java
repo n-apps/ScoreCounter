@@ -62,7 +62,7 @@ public class RateMyAppDialog {
         return LocalSettings.didNeverReminder();
     }
 
-    private void tryShow(Context context) {
+    public void tryShow(Context context) {
         if (isShowing())
             return;
 
@@ -78,7 +78,6 @@ public class RateMyAppDialog {
             Timber.e(e);
         }
     }
-
 
     private boolean shouldShow() {
         if (didRate() || didNeverReminder()) return false;

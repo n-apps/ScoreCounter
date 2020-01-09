@@ -86,11 +86,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setOnLongClickListener(v -> {
-            Toast.makeText(requireContext(), R.string.happy_ny, Toast.LENGTH_SHORT).show();
-            AndroidFirebaseAnalytics.logEvent("CountersScreenToolbarClick");
-            return false;
-        });
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(null);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         emptyState = contentView.findViewById(R.id.empty_state);
@@ -195,7 +191,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     } else {
                         recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
                     }
-                    updateToolbarTitle(size);
                 }
 
                 countersAdapter.setCountersList(counters);
@@ -218,15 +213,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 emptyState.setVisibility(View.VISIBLE);
             }
         });
-    }
-
-    // xmas easter-egg
-    private void updateToolbarTitle(int size) {
-        StringBuilder title = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            title.append("\u26c4");
-        }
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title.toString());
     }
 
     private void showLongPressHint() {

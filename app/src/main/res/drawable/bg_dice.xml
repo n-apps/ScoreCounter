@@ -8,6 +8,6 @@
         android:topRightRadius="16dp" />
     <solid android:color="@android:color/transparent" />
     <stroke
-        android:width="4dp"
+        android:width="8dp"
         android:color="@color/dice_stroke" />
 </shape>

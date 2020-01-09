@@ -24,7 +24,7 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like Score Counter, please rate my app. It will take less than a minute. Thanks for your support!</string>
+    <string name="erd_message">If you like Score Counter, please rate my app. It will take less than a minute.\nThanks for your support!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_rate_now">Rate Score Counter</string>
     <string name="erd_remind_me_later">Remind me later</string>
@@ -69,6 +69,5 @@
     <string name="save">Save</string>
     <string name="toast_middle_zone_no_action_yet">So far clicking here does nothing. Try a little to the left or right;)\n\nIf you have ideas what action would be useful here - feel free to email me (see Settings)</string>
     <string name="common_more">More</string>
-    <string name="happy_ny">🎄 Happy Holidays 🎄</string>
     <string name="reset">Reset</string>
 </resources>
