@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="primaryColor">#E8E5C5</color>
-    <color name="primaryColorDark">#D1BD8D</color>
-    <color name="accentColor">#F4533A</color>
+    <color name="primaryColor">#E7E5E2</color>
+    <color name="primaryColorDark">#E7E5E2</color>
+    <color name="accentColor">#00458b</color>
 
     <color name="textColorPrimary">#FFFFFFFF</color>
     <color name="textColorSecondary">#DEFFFFFF</color>
@@ -20,4 +20,5 @@
     <color name="flat_button_color">#222</color>
     <color name="flat_button_color_pressed">#1F000000</color>
     <color name="rate_app_options">#DEFFFFFF</color>
+    <color name="section_bg">#959595</color>
 </resources>

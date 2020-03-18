@@ -2,18 +2,23 @@
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryColor</item>
-        <item name="colorAccent">@color/accentColor</item>
+        <item name="colorPrimary">#005e5e</item>
+        <item name="colorPrimaryVariant">#005e5e</item>
+        <item name="colorOnPrimary">#fff</item>
+        <item name="colorSecondary">#FFF44F</item>
+        <item name="colorSecondaryVariant">#EDE451</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">#ffffff</item>
+        <item name="colorSurface">@color/color_surface</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
-        <item name="myIconTint">?attr/colorControlNormal</item>
+        <item name="myIconTint">#959595</item>
         <item name="myDiceColor">?attr/colorPrimary</item>
         <item name="android:statusBarColor">@color/primaryBackground</item>
-        <item name="myDividerColor">@color/white_12</item>
         <item name="superBottomSheet_backgroundColor">@color/primaryBackground</item>
         <item name="materialButtonStyle">@style/MyButton</item>
     </style>
@@ -39,6 +44,7 @@
 
     <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="backgroundTint">?attr/colorAccent</item>
+        <item name="fontFamily">@font/inter_bold</item>
     </style>
 
 

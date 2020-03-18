@@ -12,7 +12,11 @@
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/padding_normal"
         android:layout_marginEnd="@dimen/padding_normal"
-        android:layout_marginBottom="@dimen/spacing_normal">
+        android:layout_marginBottom="@dimen/spacing_normal"
+        app:strokeWidth="1dp"
+        app:cardElevation="1dp"
+        app:strokeColor="@android:color/black"
+        app:cardCornerRadius="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +37,7 @@
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
                     android:ellipsize="end"
-                    android:fontFamily="sans-serif-condensed"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="center_vertical"
                     android:maxLines="1"
                     android:paddingStart="@dimen/padding_normal"
@@ -67,7 +71,7 @@
                     android:layout_gravity="center"
                     android:alpha=".87"
                     android:clickable="false"
-                    android:fontFamily="sans-serif-black"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="center"
                     android:lines="1"
                     android:paddingStart="40dp"

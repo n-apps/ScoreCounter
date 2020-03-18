@@ -28,18 +28,18 @@
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_rate_now">Оценить Счетчик Очков</string>
     <string name="erd_remind_me_later">Напомнить позже</string>
-    <string name="erd_title">Оценить это приложение</string>
+    <string name="erd_title">Оценить Счетчик Очков</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="hint_enter_number">Или введите число…</string>
+    <string name="hint_enter_number">или введите число…</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_remove_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="message_you_can_use_long_press">Вы также можете изменять значение счетчика с помощью долгого нажатия</string>
     <string name="settings_dark_theme">Темная тема</string>
-    <string name="settings_section_info">Инфо</string>
+    <string name="settings_section_actions">Действия</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Внешний вид</string>
-    <string name="settings_section_request_a_feature">Обратная связь, проблемы, пожелания</string>
+    <string name="settings_section_request_a_feature">Отправить отзыв</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать экран</string>
     <string name="settings_section_dice_sides">Количество граней</string>
@@ -70,4 +70,6 @@
     <string name="toast_middle_zone_no_action_yet">Пока что нажатие здесь ничего не делает. Попробуйте левее или правее ;)\n\nЕсли у вас есть идеи, что было бы полезно при этом нажатии - не стесняйтесь писать мне на почту (см. Настройки)</string>
     <string name="common_more">Больше</string>
     <string name="reset">Сброс</string>
+    <string name="setting_share">Рекомендовать другу</string>
+    <string name="share_snippet">Привет! Счетчик Очков + 🎲 поможет тебе с легкостью и в пару нажатий вести счет в настольных играх, спорте или других занятиях. Качай приложение для Android тут:\n http://play.google.com/store/apps/details?id=</string>
 </resources>

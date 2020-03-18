@@ -8,7 +8,9 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/padding_normal"
     android:layout_marginEnd="@dimen/padding_normal"
-    android:layout_marginBottom="@dimen/spacing_normal">
+    android:layout_marginBottom="@dimen/spacing_normal"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="false"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:lines="1"
             android:minEms="2"

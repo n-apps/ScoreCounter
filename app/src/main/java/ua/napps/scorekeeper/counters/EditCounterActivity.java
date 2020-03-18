@@ -139,7 +139,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_step_info_content)
                     .positiveText(R.string.common_got_it)
-                    .positiveColorRes(R.color.alert_dialog_button)
                     .show();
         });
 
@@ -147,7 +146,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
             new MaterialDialog.Builder(EditCounterActivity.this)
                     .content(R.string.dialog_default_info_content)
                     .positiveText(R.string.common_got_it)
-                    .positiveColorRes(R.color.alert_dialog_button)
                     .show();
         });
 

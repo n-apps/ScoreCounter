@@ -26,9 +26,9 @@
     <string name="dice_previous_result_label">Letzter Wurf:</string>
     <string name="erd_message">Wenn dir die App gefällt kannst du sie gerne bewerten! Es dauert nicht lange. \nDanke für deine Unterstützung!</string>
     <string name="erd_no_thanks">Nein, Danke</string>
-    <string name="erd_rate_now">Jetzt Bewerten</string>
+    <string name="erd_rate_now">Punktezähler Bewerten</string>
     <string name="erd_remind_me_later">Frag mich später</string>
-    <string name="erd_title">App Bewerten</string>
+    <string name="erd_title">Punktezähler Bewerten</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="hint_enter_number">Gebe eine Nummer ein…</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
@@ -36,7 +36,7 @@
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
     <string name="message_you_can_use_long_press">Du kannst die Zähler Werte auch durch einen langen Klick anpassen</string>
     <string name="settings_dark_theme">Dunkles Theme</string>
-    <string name="settings_section_info">Info</string>
+    <string name="settings_section_actions">Aktionen</string>
     <string name="settings_section_dice">Würfel</string>
     <string name="settings_section_general">Aussehen</string>
     <string name="settings_section_request_a_feature">Feedback, fehlerreport, wünsche</string>
@@ -70,5 +70,7 @@
     <string name="toast_middle_zone_no_action_yet">Bisher macht das Klicken hier nichts. Versuchen Sie es ein wenig nach links oder rechts;)\n\nWenn Sie Ideen haben, welche Aktion hier nützlich sein könnte, schreiben Sie mir bitte eine E-Mail (siehe Einstellungen).</string>
     <string name="common_more">Mehr</string>
     <string name="reset">Zähler Zurücksetzen</string>
+    <string name="setting_share">Einem Freund empfehlen</string>
+    <string name="share_snippet">Hallo! Klickzähler + 🎲 wird Ihnen helfen, die Punktzahl in allen Spielen leicht zu halten oder andere Aktivitäten. Holen Sie sich die kostenlose Android App hier:\n http://play.google.com/store/apps/details?id=</string>
 
 </resources>

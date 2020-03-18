@@ -26,17 +26,17 @@
     <string name="dice_previous_result_label">Résultat précédent:</string>
     <string name="erd_message">Vous aimez notre application, voulez-vous prendre un moment pour l\'évaluer? Cela ne vous prendra pas plus d\'une minute. \nMerci de votre soutien!</string>
     <string name="erd_no_thanks">Non, merci</string>
-    <string name="erd_rate_now">Évaluer maintenant</string>
+    <string name="erd_rate_now">Évaluer Compteur de Points</string>
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
-    <string name="erd_title">Evaluation de l\'application</string>
+    <string name="erd_title">Évaluer Compteur de Points</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
-    <string name="hint_enter_number">Entrez un nombre…</string>
+    <string name="hint_enter_number">entrez un nombre…</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_remove_all_counters">Supprimer tout</string>
     <string name="menu_reset_all_counters">Réinitialiser tous</string>
     <string name="message_you_can_use_long_press">Vous pouvez également changer la valeur du compteur en appuyant longuement</string>
     <string name="settings_dark_theme">Thème sombre</string>
-    <string name="settings_section_info">Info</string>
+    <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Apparence</string>
     <string name="settings_section_request_a_feature">Retour d\'information, rapport d\'erreur, souhaits</string>
@@ -70,5 +70,7 @@
     <string name="toast_middle_zone_no_action_yet">Jusqu\'ici, cliquer ici ne fait rien. Essayez un peu à gauche ou à droite;)\n\nSi vous avez une idée de l\'action à utiliser ici, n\'hésitez pas à m\'envoyer un e-mail (voir Paramètres)</string>
     <string name="common_more">Plus</string>
     <string name="reset">Réinitialiser</string>
+    <string name="setting_share">Recommander à un ami</string>
+    <string name="share_snippet">Salut! Compteur de Points + 🎲 vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
 
 </resources>

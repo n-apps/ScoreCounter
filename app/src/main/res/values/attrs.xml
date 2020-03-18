@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="myIconTint" format="reference|color" />
-    <attr name="myDividerColor" format="reference|color" />
     <attr name="myDiceColor" format="reference|color" />
 
     <declare-styleable name="RoundedColorView">

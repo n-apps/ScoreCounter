@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Contador de puntuación</string>
+    <string name="app_name">Contador de puntos</string>
     <string name="bottom_navigation_tab_counters">Contadores</string>
     <string name="bottom_navigation_tab_dice">Dado</string>
     <string name="bottom_navigation_tab_settings">Ajustes</string>
@@ -26,17 +26,17 @@
     <string name="dice_previous_result_label">Anterior tirada:</string>
     <string name="erd_message">Si te gusta esta app, ¿te importaría evaluarla en un momentito? No será más de un minuto. \n¡Gracias por tu apoyo!</string>
     <string name="erd_no_thanks">No, gracias</string>
-    <string name="erd_rate_now">Evalúame ahora</string>
+    <string name="erd_rate_now">Evalúa Contador de puntos</string>
     <string name="erd_remind_me_later">Recuérdamelo después</string>
-    <string name="erd_title">Evalúa esta app</string>
+    <string name="erd_title">Evalúa Contador de puntos</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
-    <string name="hint_enter_number">Introduce un número…</string>
+    <string name="hint_enter_number">introduce un número…</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_remove_all_counters">Quitar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
     <string name="message_you_can_use_long_press">También puedes cambiar el valor del contador pulsando mantenido</string>
     <string name="settings_dark_theme">Tema oscuro</string>
-    <string name="settings_section_info">Info</string>
+    <string name="settings_section_actions">Acciones</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
     <string name="settings_section_request_a_feature">Comentarios, informe de errores, solicitud de funciones</string>
@@ -70,4 +70,6 @@
     <string name="toast_middle_zone_no_action_yet">Hasta ahora, hacer clic aquí no hace nada. Intente un poco hacia la izquierda o hacia la derecha;)\n\nSi tiene ideas sobre qué acción sería útil aquí, no dude en enviarme un correo electrónico (ver Configuración)</string>
     <string name="common_more">Más</string>
     <string name="reset">Reiniciar contador</string>
+    <string name="setting_share">Recomendar a un amigo</string>
+    <string name="share_snippet">¡Hola! Contador de puntuaciones + 🎲 te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
 </resources>

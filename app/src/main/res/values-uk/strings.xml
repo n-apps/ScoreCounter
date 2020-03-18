@@ -28,18 +28,18 @@
     <string name="erd_no_thanks">Ні, дякую</string>
     <string name="erd_rate_now">Оцінити Лічильник Очок</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
-    <string name="erd_title">Оцініти цей додаток</string>
+    <string name="erd_title">Оцініти Лічильник Очок</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="hint_enter_number">Або введіть число…</string>
+    <string name="hint_enter_number">або введіть число…</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_remove_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Ви також можете змінювати значення лічильника за допомогою довгого натискання</string>
     <string name="settings_dark_theme">Темна тема</string>
-    <string name="settings_section_info">Інформація</string>
+    <string name="settings_section_actions">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Зовнішній вигляд</string>
-    <string name="settings_section_request_a_feature">Зворотній зв\'язок, проблеми, побажання</string>
+    <string name="settings_section_request_a_feature">Отправить отзыв</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
     <string name="settings_section_dice_sides">Кількість граней</string>
@@ -70,4 +70,6 @@
     <string name="toast_middle_zone_no_action_yet">Поки що натискання тут нічого не робить. Спробуйте трохи ліворуч або праворуч;)\n\nЯкщо у вас є ідеї, яка дія тут буде корисною - не соромтеся писати мені на пошту (див. Налаштування)</string>
     <string name="common_more">Більше</string>
     <string name="reset">Скинути</string>
+    <string name="setting_share">Рекомендувати другу</string>
+    <string name="share_snippet">Привіт! Лічильник Очок + 🎲 допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай додаток для Android тут:\n http://play.google.com/store/apps/details?id=</string>
 </resources>

@@ -114,8 +114,6 @@ public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements
                         .content(R.string.dialog_custom_dice_title)
                         .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                         .positiveText(R.string.common_set)
-                        .widgetColorRes(R.color.alert_dialog_button)
-                        .positiveColorRes(R.color.alert_dialog_button)
                         .alwaysCallInputCallback()
                         .dismissListener(d -> refreshDices(false))
                         .input(getString(R.string.dialog_custom_dice_hint), null, false,

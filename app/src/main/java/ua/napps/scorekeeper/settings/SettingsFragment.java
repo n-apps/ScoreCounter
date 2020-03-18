@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +32,7 @@ import ua.napps.scorekeeper.utils.Utilities;
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    private Button btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -49,10 +49,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
 
-        btn_c_1 = contentView.findViewById(R.id.btn_settings_counter_1);
-        btn_c_2 = contentView.findViewById(R.id.btn_settings_counter_2);
-        btn_c_3 = contentView.findViewById(R.id.btn_settings_counter_3);
-        btn_c_4 = contentView.findViewById(R.id.btn_settings_counter_4);
+        btn_c_1 = contentView.findViewById(R.id.btn_1_text);
+        btn_c_2 = contentView.findViewById(R.id.btn_2_text);
+        btn_c_3 = contentView.findViewById(R.id.btn_3_text);
+        btn_c_4 = contentView.findViewById(R.id.btn_4_text);
 
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(!LocalSettings.isLightTheme());
@@ -64,6 +64,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_github).setOnClickListener(this);
         contentView.findViewById(R.id.tv_donation).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_share).setOnClickListener(this);
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
@@ -77,7 +79,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         if (Utilities.hasQ()) {
             darkTheme.setVisibility(View.GONE);
-            contentView.findViewById(R.id.iv_dark_theme).setVisibility(View.GONE);
         }
 
         return contentView;
@@ -129,17 +130,33 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
                 startActivity(viewIntent);
                 break;
-            case R.id.btn_settings_counter_1:
+            case R.id.btn_1_text:
                 openCustomCounterDialog(1);
                 break;
-            case R.id.btn_settings_counter_2:
+            case R.id.btn_2_text:
                 openCustomCounterDialog(2);
                 break;
-            case R.id.btn_settings_counter_3:
+            case R.id.btn_3_text:
                 openCustomCounterDialog(3);
                 break;
-            case R.id.btn_settings_counter_4:
+            case R.id.btn_4_text:
                 openCustomCounterDialog(4);
+                break;
+            case R.id.tv_counter:
+                new MaterialDialog.Builder(requireActivity())
+                        .content(R.string.settings_section_counter_buttons)
+                        .positiveText(R.string.common_got_it)
+                        .show();
+
+                break;
+
+            case R.id.tv_share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_snippet) + requireActivity().getPackageName());
+                Intent chooserIntent = Intent.createChooser(shareIntent, getString(R.string.setting_share));
+                chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                requireActivity().startActivity(chooserIntent);
                 break;
         }
     }
@@ -149,8 +166,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .widgetColorRes(R.color.alert_dialog_button)
-                .positiveColorRes(R.color.alert_dialog_button)
                 .alwaysCallInputCallback()
                 .input(getString(R.string.dialog_custom_counter_hint), null, false,
                         (dialog, input) -> {

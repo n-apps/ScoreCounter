@@ -48,16 +48,14 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="16dp"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/inter_bold"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:minWidth="64dp"
                 android:minHeight="48dp"
                 android:text="@string/save"
-                android:textSize="@dimen/font_subheading"
                 android:textAllCaps="false"
-                app:backgroundTint="@color/accentColor"
-                app:cornerRadius="24dp"
+                android:textSize="@dimen/font_subheading"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,13 +64,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_step"
-                style="@style/EditCounterTextInputLayoutStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                app:endIconDrawable="@drawable/ic_information"
+                app:endIconDrawable="@drawable/ic_help_circle"
                 app:endIconMode="custom"
+                app:endIconTint="#959595"
                 app:helperText="@string/counter_details_step"
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -94,12 +93,13 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_default_value"
-                style="@style/EditCounterTextInputLayoutStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                app:endIconDrawable="@drawable/ic_information"
+                app:endIconDrawable="@drawable/ic_help_circle"
                 app:endIconMode="custom"
+                app:endIconTint="#959595"
                 app:helperText="@string/counter_details_default_value"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_value"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -136,6 +136,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_name"
                     android:layout_width="match_parent"
@@ -149,7 +150,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_value"
-                style="@style/EditCounterTextInputLayoutStyle"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"

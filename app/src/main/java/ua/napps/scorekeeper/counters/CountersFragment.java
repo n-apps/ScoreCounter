@@ -272,9 +272,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .neutralText(R.string.reset)
-                    .neutralColorRes(R.color.flat_button_color)
-                    .widgetColorRes(R.color.alert_dialog_button)
-                    .positiveColorRes(R.color.alert_dialog_button)
                     .alwaysCallInputCallback()
                     .input("" + counter.getValue(), null, false, (dialog, input) -> {
 
@@ -437,10 +434,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .content(R.string.counter_details_name)
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
-                .widgetColorRes(R.color.alert_dialog_button)
-                .positiveColorRes(R.color.alert_dialog_button)
                 .neutralText(R.string.common_more)
-                .neutralColorRes(R.color.flat_button_color)
                 .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
                 .onNeutral((dialog, which) -> onEditClick(counter))
                 .build();

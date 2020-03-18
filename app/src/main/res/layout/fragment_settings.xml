@@ -1,349 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingBottom="@dimen/padding_large">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="@dimen/keyline_1" />
 
         <TextView
             android:id="@+id/tv_general"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:padding="@dimen/spacing_normal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/section_bg"
+            android:gravity="start"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/settings_section_general"
-            android:textColor="@color/accentColor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp" />
-
-        <ImageView
-            android:id="@+id/iv_keep_screen_on"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_stay_awake"
-            app:layout_constraintBottom_toBottomOf="@id/sw_keep_screen_on"
-            app:layout_constraintEnd_toStartOf="@id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_general"
-            app:srcCompat="@drawable/ic_iphonex" />
+            android:textColor="@color/accentColor" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_keep_screen_on"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            android:minHeight="56dp"
-            android:paddingStart="@dimen/keyline_1"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_stay_awake"
-            android:theme="@style/SwitchStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_general" />
+            android:theme="@style/SwitchStyle" />
 
-        <ImageView
-            android:id="@+id/iv_dark_theme"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_dark_theme"
-            app:layout_constraintBottom_toBottomOf="@id/sw_dark_theme"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/sw_dark_theme"
-            app:srcCompat="@drawable/ic_moon" />
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sw_keep_screen_on" />
+        <include layout="@layout/divider" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_dark_theme"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
-            android:minHeight="56dp"
-            android:paddingStart="@dimen/keyline_1"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_dark_theme"
-            android:theme="@style/SwitchStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sw_keep_screen_on" />
+            android:theme="@style/SwitchStyle" />
 
         <TextView
             android:id="@+id/tv_counter"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:padding="@dimen/spacing_normal"
+            android:background="@color/section_bg"
+            android:drawableEnd="@drawable/ic_help_circle"
+            android:drawableTint="#959595"
+            android:gravity="start"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/common_counter"
-            android:textColor="@color/accentColor"
-            app:layout_constraintStart_toStartOf="@id/tv_general"
-            app:layout_constraintTop_toBottomOf="@id/sw_dark_theme" />
+            android:textColor="@color/accentColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_normal">
+
+            <ua.napps.scorekeeper.utils.SquareFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_selector_mini_dice_toogle"
+                android:foreground="?selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/btn_1_text"
+                    style="@style/MiniDiceStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    tools:text="+5">
+
+                </TextView>
+            </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+            <ua.napps.scorekeeper.utils.SquareFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_selector_mini_dice_toogle"
+                android:foreground="?selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/btn_2_text"
+                    style="@style/MiniDiceStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="+5">
+
+                </TextView>
+            </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+            <ua.napps.scorekeeper.utils.SquareFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_selector_mini_dice_toogle"
+                android:foreground="?selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/btn_3_text"
+                    style="@style/MiniDiceStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="+5">
+
+                </TextView>
+            </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+            <ua.napps.scorekeeper.utils.SquareFrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:addStatesFromChildren="true"
+                android:background="@drawable/bg_selector_mini_dice_toogle"
+                android:foreground="?selectableItemBackground">
+
+                <TextView
+                    android:id="@+id/btn_4_text"
+                    style="@style/MiniDiceStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="+5">
+
+                </TextView>
+            </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_settings_counter_custom"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_normal"
-            android:paddingEnd="@dimen/padding_normal"
-            android:text="@string/settings_section_counter_buttons"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="@dimen/font_body"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_counter" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_settings_counter_1"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:includeFontPadding="false"
-            android:text="5"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintDimensionRatio="1,1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_settings_counter_custom"
-            tools:ignore="HardcodedText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_settings_counter_2"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:includeFontPadding="false"
-            android:text="10"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_1"
-            app:layout_constraintDimensionRatio="1,1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_3"
-            app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_1"
-            app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_1"
-            tools:ignore="HardcodedText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_settings_counter_3"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:includeFontPadding="false"
-            android:text="15"
-            android:textColor="@color/textColorPrimary"
-            android:fontFamily="sans-serif-black"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_2"
-            app:layout_constraintDimensionRatio="1,1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_settings_counter_4"
-            app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_2"
-            app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_2"
-            tools:ignore="HardcodedText" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_settings_counter_4"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-black"
-            android:includeFontPadding="false"
-            android:text="30"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="@dimen/font_display"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_settings_counter_3"
-            app:layout_constraintDimensionRatio="1,1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_settings_counter_3"
-            app:layout_constraintTop_toTopOf="@+id/btn_settings_counter_3"
-            tools:ignore="HardcodedText" />
-
-
-        <TextView
-            android:id="@+id/tv_contact_developer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_large"
-            android:padding="@dimen/spacing_normal"
-            android:text="@string/settings_section_info"
-            android:textColor="@color/accentColor"
-            app:layout_constraintStart_toStartOf="@id/tv_general"
-            app:layout_constraintTop_toBottomOf="@id/btn_settings_counter_1" />
-
-        <ImageView
-            android:id="@+id/iv_request_feature"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_section_request_a_feature"
-            app:layout_constraintBottom_toBottomOf="@id/tv_request_feature"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_request_feature"
-            app:srcCompat="@drawable/ic_mail" />
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@color/section_bg"
+            android:gravity="start"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingVertical="@dimen/spacing_normal"
+            android:text="@string/settings_section_actions"
+            android:textColor="@color/accentColor" />
 
         <TextView
             android:id="@+id/tv_request_feature"
             style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_section_request_a_feature"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_contact_developer" />
+            android:textSize="@dimen/font_subheading" />
 
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
-
-        <ImageView
-            android:id="@+id/iv_donation"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_section_request_a_feature"
-            app:layout_constraintBottom_toBottomOf="@id/tv_donation"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_donation"
-            app:srcCompat="@drawable/ic_love" />
+        <include layout="@layout/divider" />
 
         <TextView
-            android:id="@+id/tv_donation"
+            android:id="@+id/tv_share"
             style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
-            android:text="@string/action_donate"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/setting_share"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_request_feature" />
+            android:textSize="@dimen/font_subheading" />
 
-        <View
-            android:id="@+id/divider6"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_donation" />
+        <include layout="@layout/divider" />
 
-        <ImageView
-            android:id="@+id/iv_rate_app"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_section_request_a_feature"
-            app:layout_constraintBottom_toBottomOf="@id/tv_rate_app"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_rate_app"
-            app:srcCompat="@drawable/ic_like" />
 
         <TextView
             android:id="@+id/tv_rate_app"
             style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/erd_title"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider6" />
+            android:textSize="@dimen/font_subheading" />
 
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_rate_app" />
+        <include layout="@layout/divider" />
 
-        <ImageView
-            android:id="@+id/iv_github"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_github"
-            app:layout_constraintBottom_toBottomOf="@id/tv_github"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_github"
-            app:srcCompat="@drawable/ic_users" />
+        <TextView
+            android:id="@+id/tv_donation"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/action_donate"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading" />
+
+        <include layout="@layout/divider" />
 
         <TextView
             android:id="@+id/tv_github"
             style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
+            android:drawableEnd="@drawable/ic_external_link"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_github"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider4" />
+            android:textSize="@dimen/font_subheading" />
 
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="0dp"
-            android:layout_height="0.5dp"
-            android:background="?myDividerColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_github" />
-
-        <ImageView
-            android:id="@+id/iv_privacy"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/settings_section_request_a_feature"
-            app:layout_constraintBottom_toBottomOf="@id/tv_privacy_policy"
-            app:layout_constraintStart_toStartOf="@id/iv_keep_screen_on"
-            app:layout_constraintTop_toTopOf="@id/tv_privacy_policy"
-            app:srcCompat="@drawable/ic_external_link" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@color/section_bg"
+            android:gravity="start"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingVertical="@dimen/spacing_normal"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/accentColor" />
 
         <TextView
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/keyline_1"
+            android:drawableEnd="@drawable/ic_external_link"
+            android:paddingStart="@dimen/padding_large"
             android:text="@string/privacy_policy"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="@dimen/font_subheading"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/divider5" />
+            android:textSize="@dimen/font_subheading" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>

@@ -2,34 +2,34 @@
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryColor</item>
-        <item name="colorAccent">@color/accentColor</item>
+        <item name="colorPrimary">#005e5e</item>
+        <item name="colorPrimaryVariant">#005e5e</item>
+        <item name="colorOnPrimary">#fff</item>
+        <item name="colorSecondary">#6E008B</item>
+        <item name="colorSecondaryVariant">#5D0175</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">#ffffff</item>
+        <item name="colorSurface">@color/color_surface</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
-        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="android:statusBarColor">@color/white</item>
-        <item name="myIconTint">?attr/colorControlNormal</item>
-        <item name="myDividerColor">@color/black_12</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="myIconTint">#000000</item>
         <item name="myDiceColor">#424254</item>
+        <item name="fontFamily">@font/inter_regular</item>
         <item name="superBottomSheet_backgroundColor">@color/white</item>
         <item name="materialButtonStyle">@style/MyButton</item>
+
     </style>
 
-    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
-        <item name="buttonBarButtonStyle">@style/ButtonBarTheme</item>
-    </style>
-
-    <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">@color/accentColor</item>
-    </style>
-
-    <style name="ToolBarStyle">
+    <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="android:background">?colorPrimary</item>
+        <item name="android:background">@null</item>
+        <item name="android:elevation">0dp</item>
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
     </style>
 
@@ -71,7 +71,6 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="autoSizeMaxTextSize">@dimen/font_display</item>
         <item name="autoSizeMinTextSize">@dimen/font_body</item>
@@ -79,12 +78,8 @@
         <item name="autoSizeTextType">uniform</item>
     </style>
 
-    <style name="EditCounterTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="boxStrokeColor">@color/text_input_layout</item>
-    </style>
-
     <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="backgroundTint">?attr/colorAccent</item>
+        <item name="fontFamily">@font/inter_bold</item>
     </style>
 
 </resources>

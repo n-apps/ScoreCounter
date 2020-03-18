@@ -12,10 +12,9 @@ android {
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables.useSupportLibrary = true
         versionCode generateVersionCode()
         versionName generateVersionName()
         resConfigs "en", "ru", "uk", "fr", "de", "es"
