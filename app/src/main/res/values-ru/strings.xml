@@ -11,7 +11,7 @@
     <string name="common_increase">Увеличить</string>
     <string name="common_select">Выбрать</string>
     <string name="common_set">Установить</string>
-    <string name="counter_details_color_picker_title">Выберите цвет счетчика</string>
+    <string name="counter_details_color_picker_title">Цвет счетчика</string>
     <string name="counter_details_default_value">Значение после сброса</string>
     <string name="remove">Удалить</string>
     <string name="counter_details_name">Название счетчика</string>

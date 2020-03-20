@@ -8,12 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.color.ColorChooserDialog;
+import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -27,7 +26,7 @@ import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
-public class EditCounterActivity extends AppCompatActivity implements ColorChooserDialog.ColorCallback {
+public class EditCounterActivity extends AppCompatActivity {
 
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
@@ -41,6 +40,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     private Button btnSave;
     private EditCounterViewModel viewModel;
     private String newCounterColorHex;
+    private ColorSlider colorSlider;
 
     public static void start(Activity activity, Counter counter) {
         Intent intent = new Intent(activity, EditCounterActivity.class);
@@ -117,6 +117,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         counterValue = findViewById(R.id.et_counter_value);
         counterNameLayout = findViewById(R.id.til_counter_name);
         btnSave = findViewById(R.id.btn_save);
+        colorSlider = findViewById(R.id.color_slider);
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
             counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
@@ -124,16 +125,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
     }
 
     private void setOnClickListeners() {
-        counterNameLayout.setEndIconOnClickListener(v -> new ColorChooserDialog.Builder(EditCounterActivity.this,
-                R.string.counter_details_color_picker_title)
-                .doneButton(R.string.common_select)
-                .cancelButton(R.string.common_cancel)
-                .customButton(R.string.common_custom)
-                .backButton(R.string.common_back)
-                .presetsButton(R.string.dialog_color_picker_presets_button)
-                .dynamicButtonColor(false)
-                .allowUserColorInputAlpha(false)
-                .show(EditCounterActivity.this));
 
         ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> {
             new MaterialDialog.Builder(EditCounterActivity.this)
@@ -147,6 +138,11 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     .content(R.string.dialog_default_info_content)
                     .positiveText(R.string.common_got_it)
                     .show();
+        });
+
+        colorSlider.setListener((position, color) -> {
+            counterNameLayout.setBoxStrokeColor(color);
+            newCounterColorHex = ColorUtil.intColorToString(color);
         });
 
         btnSave.setOnClickListener(v -> validateAndSave());
@@ -164,16 +160,6 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
         supportFinishAfterTransition();
     }
 
-    @Override
-    public void onColorChooserDismissed(@NonNull ColorChooserDialog dialog) {
-    }
-
-    @Override
-    public void onColorSelection(@NonNull ColorChooserDialog dialog, int color) {
-        counterNameLayout.setBoxStrokeColor(color);
-        newCounterColorHex = ColorUtil.intColorToString(color);
-    }
-
     private void subscribeToModel(int id) {
         EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id);
         viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
@@ -188,6 +174,7 @@ public class EditCounterActivity extends AppCompatActivity implements ColorChoos
                     counterName.setText(c.getName());
                     counterName.setSelection(c.getName().length());
                 }
+                colorSlider.selectColor(Color.parseColor(c.getColor()));
             } else {
                 counter = null;
                 finish();

@@ -40,14 +40,13 @@
         android:id="@+id/iv_history"
         android:layout_width="@dimen/empty_state_icon_size"
         android:layout_height="@dimen/empty_state_icon_size"
-        android:alpha=".38"
         android:contentDescription="@string/counters_empty_message"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_chainStyle="packed"
-        android:src="@drawable/ic_history" />
+        android:src="?history_picture" />
 
     <TextView
         android:id="@+id/tv_empty_state"

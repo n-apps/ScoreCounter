@@ -11,7 +11,7 @@
     <string name="common_increase">Збільшити</string>
     <string name="common_select">Вибрати</string>
     <string name="common_set">Встановити</string>
-    <string name="counter_details_color_picker_title">Оберіть колір лічильника</string>
+    <string name="counter_details_color_picker_title">Колір лічильника</string>
     <string name="counter_details_default_value">Значення після скиду</string>
     <string name="remove">Видалити</string>
     <string name="counter_details_name">Назва лічильника</string>

@@ -73,15 +73,17 @@
                 app:endIconMode="custom"
                 app:endIconTint="#959595"
                 app:helperText="@string/counter_details_step"
+                app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/til_counter_value"
-                app:layout_constraintTop_toBottomOf="@+id/til_counter_value">
+                app:layout_constraintStart_toStartOf="@+id/tv_long_press_hint"
+                app:layout_constraintTop_toBottomOf="@+id/tv_long_press_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_step"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
                     android:maxLines="1"
@@ -101,6 +103,7 @@
                 app:endIconMode="custom"
                 app:endIconTint="#959595"
                 app:helperText="@string/counter_details_default_value"
+                app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_value"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/til_counter_step"
@@ -110,6 +113,7 @@
                     android:id="@+id/et_counter_default_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
                     android:maxLines="1"
@@ -125,22 +129,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
-                android:layout_marginBottom="8dp"
-                app:endIconContentDescription="@string/counter_details_name"
-                app:endIconDrawable="@drawable/ic_round_color_lens_white"
-                app:endIconMode="custom"
-                app:endIconTint="@color/accentColor"
+                android:layout_marginBottom="@dimen/spacing_normal"
                 app:helperText="@string/counter_details_name"
-                app:layout_constraintBottom_toTopOf="@+id/til_counter_value"
+                app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
+                app:layout_constraintBottom_toTopOf="@+id/color_slider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
                     android:imeOptions="actionDone"
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
                     android:maxLines="1"
@@ -148,21 +149,51 @@
                     tools:text="@string/app_name" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.github.naz013.colorslider.ColorSlider
+                android:id="@+id/color_slider"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/spacing_large"
+                android:layout_marginEnd="@dimen/spacing_large"
+                app:cs_hex_colors="?colors_scheme"
+                app:layout_constraintBottom_toTopOf="@id/tv_color"
+                app:layout_constraintEnd_toEndOf="@id/til_counter_name"
+                app:layout_constraintStart_toStartOf="@id/til_counter_name"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
+
+            <TextView
+                android:id="@+id/tv_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:textColor="?android:textColorSecondary"
+                android:text="@string/counter_details_color_picker_title"
+                android:layout_marginLeft="@dimen/spacing_normal"
+                android:textAppearance="@style/TextAppearance.Design.HelperText"
+                app:layout_constraintBottom_toTopOf="@id/til_counter_value"
+                app:layout_constraintStart_toStartOf="@id/color_slider"
+                app:layout_constraintTop_toBottomOf="@id/color_slider">
+
+            </TextView>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_value"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/spacing_micro"
                 app:helperText="@string/counter_details_value"
-                app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
+                app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
+                app:layout_constraintBottom_toTopOf="@+id/tv_long_press_hint"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
-                app:layout_constraintStart_toStartOf="@+id/til_counter_name">
+                app:layout_constraintStart_toStartOf="@+id/til_counter_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_color">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_value"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
                     android:maxLines="1"
@@ -170,6 +201,16 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_long_press_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                app:layout_constraintStart_toStartOf="@id/til_counter_value"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_value"
+                app:layout_constraintBottom_toTopOf="@id/til_counter_step"
+                android:text="@string/message_you_can_use_long_press" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

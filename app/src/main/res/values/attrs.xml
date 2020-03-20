@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="myIconTint" format="reference|color" />
-    <attr name="myDiceColor" format="reference|color" />
+    <attr name="plus_picture" format="reference"/>
+    <attr name="dice_picture" format="reference"/>
+    <attr name="history_picture" format="reference"/>
+    <attr name="colors_scheme" format="reference"/>
 
     <declare-styleable name="RoundedColorView">
         <attr name="backgroundColor" format="color" />

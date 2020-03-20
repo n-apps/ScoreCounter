@@ -2,15 +2,15 @@
 
     <style name="ScoreCounter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">#005e5e</item>
-        <item name="colorPrimaryVariant">#005e5e</item>
+        <item name="colorPrimary">#6E008B</item>
+        <item name="colorPrimaryVariant">#6E008B</item>
         <item name="colorOnPrimary">#fff</item>
         <item name="colorSecondary">#6E008B</item>
         <item name="colorSecondaryVariant">#5D0175</item>
         <item name="colorOnSecondary">#000000</item>
-        <item name="colorError">@color/error</item>
+        <item name="colorError">#FF4F5E</item>
         <item name="colorOnError">#ffffff</item>
-        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorSurface">#ffffff</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
@@ -19,8 +19,10 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="myIconTint">#000000</item>
-        <item name="myDiceColor">#424254</item>
-        <item name="fontFamily">@font/inter_regular</item>
+        <item name="plus_picture">@drawable/empty_state_counters_light</item>
+        <item name="dice_picture">@drawable/empty_state_dice_light</item>
+        <item name="history_picture">@drawable/empty_state_history_light</item>
+        <item name="colors_scheme">@array/light</item>
         <item name="superBottomSheet_backgroundColor">@color/white</item>
         <item name="materialButtonStyle">@style/MyButton</item>
 
@@ -52,16 +54,15 @@
     <style name="SwitchStyle" parent="Widget.MaterialComponents.CompoundButton.Switch">
         <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
-        <item name="colorControlActivated">@color/accentColor</item>
     </style>
 
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
-        <item name="android:paddingBottom">@dimen/padding_normal</item>
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
-        <item name="android:textColor">?android:attr/textColorHint</item>
-        <item name="android:paddingTop">@dimen/padding_normal</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:layout_marginTop">@dimen/spacing_large</item>
+        <item name="fontFamily">@font/inter_bold</item>
         <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
@@ -81,5 +82,11 @@
     <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="fontFamily">@font/inter_bold</item>
     </style>
+
+    <style name="DefaultHelperTextAppearance" parent="TextAppearance.Design.Hint">
+        <item name="android:textStyle">normal</item>
+        <item name="fontFamily">@font/inter_regular</item>
+    </style>
+
 
 </resources>

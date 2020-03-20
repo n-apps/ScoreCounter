@@ -63,7 +63,9 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_remove, menu);
+        if (mAdapter != null && mAdapter.getItemCount() > 0) {
+            getMenuInflater().inflate(R.menu.menu_remove, menu);
+        }
         return true;
     }
 

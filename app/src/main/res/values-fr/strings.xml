@@ -11,7 +11,7 @@
     <string name="common_increase">Augmenter</string>
     <string name="common_select">Choisir</string>
     <string name="common_set">Définir</string>
-    <string name="counter_details_color_picker_title">Choisir la couleur de compteur</string>
+    <string name="counter_details_color_picker_title">La couleur de compteur</string>
     <string name="counter_details_default_value">Valeur après réinitialisation</string>
     <string name="remove">Supprimer</string>
     <string name="counter_details_name">Nom du compteur</string>

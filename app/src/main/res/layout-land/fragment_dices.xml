@@ -43,7 +43,7 @@
         android:includeFontPadding="false"
         android:lines="1"
         android:padding="@dimen/padding_large"
-        android:textColor="?myDiceColor"
+        android:textColor="?android:textColorPrimary"
         android:textSize="112sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"

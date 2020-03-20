@@ -11,7 +11,7 @@
     <string name="common_increase">Increase</string>
     <string name="common_select">Select</string>
     <string name="common_set">Set</string>
-    <string name="counter_details_color_picker_title">Select counter color</string>
+    <string name="counter_details_color_picker_title">Counter color</string>
     <string name="counter_details_default_value">Value after reset</string>
     <string name="remove">Remove</string>
     <string name="counter_details_name">Counter name</string>
