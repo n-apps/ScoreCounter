@@ -163,10 +163,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 startActivity(intent);
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuHistoryClick");
                 break;
-            case R.id.menu_rate:
-                Utilities.rateApp(requireActivity());
-                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuRateClick");
-                break;
             case R.id.menu_donate:
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuDonateClick");
 

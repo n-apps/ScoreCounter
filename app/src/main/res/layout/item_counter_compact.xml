@@ -42,7 +42,7 @@
             android:clickable="false"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_minus_round" />
+            android:src="@drawable/ic_minus" />
 
         <TextView
             android:id="@+id/tv_counter_value"
@@ -68,7 +68,7 @@
             android:contentDescription="@string/common_decrease"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="center"
-            app:srcCompat="@drawable/ic_pluse_round" />
+            android:src="@drawable/ic_add" />
 
     </LinearLayout>
 

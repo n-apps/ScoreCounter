@@ -8,8 +8,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:background="@null"
         android:layout_height="wrap_content"
+        android:background="@null"
         app:elevation="1dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -24,9 +24,9 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layoutManager=".utils.SpanningLinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_counter_full"
-        app:layoutManager=".utils.SpanningLinearLayoutManager"
         tools:visibility="gone" />
 
     <LinearLayout
@@ -42,9 +42,8 @@
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
-            android:alpha=".38"
             android:contentDescription="@string/counters_empty_message"
-            app:srcCompat="@drawable/ic_pluse_48dp" />
+            android:src="@drawable/ic_add_black" />
 
         <TextView
             style="@style/EmptyStateMessage"

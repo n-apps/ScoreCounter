@@ -53,7 +53,7 @@
                     android:gravity="end"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_more" />
+                    android:src="@drawable/ic_more" />
             </LinearLayout>
 
             <FrameLayout
@@ -93,7 +93,7 @@
                     android:alpha="0.7"
                     android:clickable="false"
                     android:contentDescription="@string/common_increase"
-                    app:srcCompat="@drawable/ic_minus_round" />
+                    android:src="@drawable/ic_minus" />
 
                 <ImageView
                     android:id="@+id/iv_increase"
@@ -103,8 +103,8 @@
                     android:layout_marginEnd="@dimen/spacing_normal"
                     android:alpha="0.7"
                     android:clickable="false"
-                    android:contentDescription="@string/common_decrease"
-                    app:srcCompat="@drawable/ic_pluse_round" />
+                    android:src="@drawable/ic_add"
+                    android:contentDescription="@string/common_decrease" />
             </FrameLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

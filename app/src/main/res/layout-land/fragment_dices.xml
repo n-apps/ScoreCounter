@@ -30,7 +30,7 @@
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings"
+        android:src="@drawable/ic_more"
         app:tint="?myIconTint" />
 
     <TextView
@@ -76,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_hand_tap_96dp" />
+        android:src="@drawable/ic_die_96dp" />
 
     <TextView
         android:id="@+id/tv_empty_state"

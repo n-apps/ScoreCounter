@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="ScoreCounter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="colorPrimary">#005e5e</item>
         <item name="colorPrimaryVariant">#005e5e</item>

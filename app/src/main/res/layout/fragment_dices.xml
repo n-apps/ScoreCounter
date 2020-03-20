@@ -12,11 +12,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_normal"
+        android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:minHeight="48dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/font_display"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="d6" />
@@ -28,9 +29,9 @@
         android:layout_margin="@dimen/spacing_normal"
         android:contentDescription="@string/settings_section_dice"
         android:scaleType="center"
+        android:src="@drawable/ic_more"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_settings"
         app:tint="?myIconTint" />
 
     <TextView
@@ -43,7 +44,7 @@
         android:includeFontPadding="false"
         android:lines="1"
         android:padding="@dimen/padding_large"
-        android:textColor="?myDiceColor"
+        android:textColor="?android:textColorPrimary"
         android:textSize="112sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
@@ -74,7 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_hand_tap_96dp" />
+        android:src="@drawable/ic_die_96dp" />
 
     <TextView
         android:id="@+id/tv_empty_state"
@@ -133,7 +134,7 @@
         android:padding="@dimen/padding_normal"
         android:text="@string/dice_empty_state"
         android:textColor="?android:attr/textColorHint"
-        android:textSize="@dimen/font_button"
+        android:textSize="@dimen/font_body"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

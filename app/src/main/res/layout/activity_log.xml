@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="1dp"
+        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +20,7 @@
             android:id="@+id/toolbar_log_main"
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="?android:actionBarSize"
             app:title="@string/menu_log" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/ic_history" />
+        android:src="@drawable/ic_history" />
 
     <TextView
         android:id="@+id/tv_empty_state"
