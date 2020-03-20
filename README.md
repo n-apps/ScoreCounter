@@ -16,6 +16,8 @@ Having troubles to find a pen and paper at your fingertips when playing? Score C
 
 I 🖤 board games and appreciate your feedback. I regularly use this application for Carcassone, Star Realms or even UNO :)
 
+If you have something to share (feedback, problems or requests), feel free to write at scorekeeper.feedback@gmail.com. If you like this app, please leave a feedback. Thank you!
+
 ## Screenshots
 [<img src="https://lh3.googleusercontent.com/tDkEGMIeRW4RuB7kSQ-AfzBJoeLgNbW83T_yCDyxNbe858iXxXrUzXdQqvWadDOHfA=s0" width=250>]()
 [<img src="https://lh3.googleusercontent.com/ub7thddKYikRWs0kHEF2e_8Co5s0UWOoQqmj5sT6yu0AbBQwcGWv51abYOtxBnMWTBsR=s0" width=250>]()
