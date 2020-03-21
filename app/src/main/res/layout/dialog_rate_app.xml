@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -14,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/erd_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="@dimen/font_display"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,6 @@
         android:gravity="center"
         android:lineSpacingMultiplier="1.2"
         android:text="@string/erd_message"
-        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         android:textColor="?android:attr/textColorSecondary" />
 
     <com.google.android.material.button.MaterialButton
@@ -40,8 +39,7 @@
         android:minHeight="56dp"
         android:text="@string/erd_rate_now"
         android:textAllCaps="false"
-        android:textSize="@dimen/font_subheading"
-        app:backgroundTint="@color/accentColor" />
+        android:textSize="@dimen/font_subheading" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,12 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackground"
+            android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
             android:text="@string/erd_no_thanks"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/rate_app_options" />
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_button" />
 
         <Space
             android:layout_width="0dp"
@@ -71,12 +70,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?selectableItemBackground"
+            android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
             android:text="@string/erd_remind_me_later"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            android:textColor="@color/rate_app_options" />
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_button" />
     </LinearLayout>
 
 </LinearLayout>

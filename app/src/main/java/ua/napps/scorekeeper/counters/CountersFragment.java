@@ -29,7 +29,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -104,7 +104,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
-        viewModel = ViewModelProviders.of(this, factory).get(CountersViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this, this);
         subscribeUi();
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();

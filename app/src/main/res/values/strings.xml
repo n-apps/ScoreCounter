@@ -18,7 +18,6 @@
     <string name="counter_details_step">Step (-/+)</string>
     <string name="counter_details_value">Current value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
-    <string name="dialog_color_picker_presets_button">Presets</string>
     <string name="dialog_current_value_title">Current value</string>
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
@@ -47,7 +46,6 @@
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
     <string name="menu_log">History</string>
-    <string name="log_counter">Counter:</string>
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
     <string name="dialog_custom_counter_title">Quick change option</string>
@@ -67,7 +65,6 @@
     <string name="action_donate">Donate</string>
     <string name="error_message">Sorry, there seems to have been an error.</string>
     <string name="save">Save</string>
-    <string name="toast_middle_zone_no_action_yet">So far clicking here does nothing. Try a little to the left or right;)\n\nIf you have ideas what action would be useful here - feel free to email me (see Settings)</string>
     <string name="common_more">More</string>
     <string name="reset">Reset</string>
     <string name="setting_share">Recommend to a friend</string>

@@ -45,11 +45,10 @@ public class ViewUtil {
             int newFlags = oldFlags;
             if (isLight) {
                 newFlags |= View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
-                activity.getWindow().setNavigationBarColor(Color.WHITE);
             } else {
                 newFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-                activity.getWindow().setNavigationBarColor(activity.getColor(R.color.primaryBackground));
             }
+            activity.getWindow().setNavigationBarColor(activity.getColor(R.color.primaryBackground));
             if (newFlags != oldFlags) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
             }

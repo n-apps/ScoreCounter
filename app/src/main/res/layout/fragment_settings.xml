@@ -19,8 +19,7 @@
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_normal"
-            android:text="@string/settings_section_general"
-            android:textColor="@color/accentColor" />
+            android:text="@string/settings_section_general" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_keep_screen_on"
@@ -30,7 +29,7 @@
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_stay_awake"
-            android:theme="@style/SwitchStyle" />
+            style="@style/SwitchStyle" />
 
         <include layout="@layout/divider" />
 
@@ -42,7 +41,7 @@
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_dark_theme"
-            android:theme="@style/SwitchStyle" />
+            style="@style/SwitchStyle" />
 
         <TextView
             android:id="@+id/tv_counter"
@@ -51,12 +50,11 @@
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@color/section_bg"
             android:drawableEnd="@drawable/ic_help_circle"
-            android:drawableTint="#959595"
+            android:drawableTint="#fff"
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_normal"
-            android:text="@string/common_counter"
-            android:textColor="@color/accentColor" />
+            android:text="@string/common_counter" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -151,8 +149,7 @@
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_normal"
-            android:text="@string/settings_section_actions"
-            android:textColor="@color/accentColor" />
+            android:text="@string/settings_section_actions" />
 
         <TextView
             android:id="@+id/tv_request_feature"
@@ -226,8 +223,7 @@
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_normal"
-            android:text="@string/privacy_policy"
-            android:textColor="@color/accentColor" />
+            android:text="@string/privacy_policy" />
 
         <TextView
             android:id="@+id/tv_privacy_policy"

@@ -21,7 +21,7 @@ import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
 import androidx.dynamicanimation.animation.SpringForce;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.transition.TransitionManager;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -200,8 +200,6 @@ public class DicesFragment extends Fragment {
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
-        diceTextView.setText("" + roll);
-
         new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
                 .setSpring(springForce)
                 .setStartValue(1000f)
@@ -219,6 +217,9 @@ public class DicesFragment extends Fragment {
                 .setStartValue(0.5f)
                 .setSpring(springForce)
                 .start();
+
+        diceTextView.setText("" + roll);
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -241,7 +242,7 @@ public class DicesFragment extends Fragment {
 
     private void subscribeUI() {
         DiceViewModelFactory factory = new DiceViewModelFactory(LocalSettings.getDiceMaxSide());
-        viewModel = ViewModelProviders.of(this, factory).get(DiceViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {

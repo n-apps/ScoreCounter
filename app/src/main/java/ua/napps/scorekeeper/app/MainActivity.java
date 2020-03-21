@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.google.android.material.transition.MaterialFadeThrough;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
 
         // If android Q override night mode settings from system default
-        if(Utilities.hasQ()) {
-            AppCompatDelegate.setDefaultNightMode( AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM );
+        if (Utilities.hasQ()) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
 
             int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (lastSelectedBottomTab > 1) {
             lastSelectedBottomTab = 0;
         }
-        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.accentColor);
+        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.bottom_bar_badge_color);
         bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.ic_list, getString(R.string.bottom_navigation_tab_counters)))
@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
                 .setBarBackgroundColor(R.color.primaryBackground)
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .setActiveColor(R.color.accentColor)
                 .setFirstSelectedPosition(lastSelectedBottomTab)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(this);
@@ -208,7 +207,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        manager.beginTransaction().replace(R.id.container, currentFragment, tag).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE).commitAllowingStateLoss();
+        MaterialFadeThrough fadeThrough = MaterialFadeThrough.create(this);
+        currentFragment.setEnterTransition(fadeThrough);
+        manager.beginTransaction()
+                .replace(R.id.container, currentFragment, tag)
+                .commit();
     }
 
     private void applyKeepScreenOn() {

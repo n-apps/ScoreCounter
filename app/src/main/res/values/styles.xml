@@ -2,30 +2,31 @@
 
     <style name="ScoreCounter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">#6E008B</item>
-        <item name="colorPrimaryVariant">#6E008B</item>
-        <item name="colorOnPrimary">#fff</item>
+        <item name="colorPrimary">#54FFBD</item>
+        <item name="colorPrimaryVariant">#54FFBD</item>
+        <item name="colorOnPrimary">#000</item>
         <item name="colorSecondary">#6E008B</item>
-        <item name="colorSecondaryVariant">#5D0175</item>
+        <item name="colorSecondaryVariant">#6E008B</item>
         <item name="colorOnSecondary">#000000</item>
         <item name="colorError">#FF4F5E</item>
         <item name="colorOnError">#ffffff</item>
-        <item name="colorSurface">#ffffff</item>
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:textColorSecondary">@color/textColorSecondary</item>
-        <item name="android:textColorHint">@color/textColorHint</item>
+        <item name="colorSurface">@color/primaryBackground</item>
+        <item name="android:textColorPrimary">#de000000</item>
+        <item name="android:textColorSecondary">#89000000</item>
+        <item name="android:textColorHint">#42000000</item>
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
-        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="android:windowLightStatusBar">true</item>
+
         <item name="myIconTint">#000000</item>
         <item name="plus_picture">@drawable/empty_state_counters_light</item>
         <item name="dice_picture">@drawable/empty_state_dice_light</item>
         <item name="history_picture">@drawable/empty_state_history_light</item>
         <item name="colors_scheme">@array/light</item>
-        <item name="superBottomSheet_backgroundColor">@color/white</item>
         <item name="materialButtonStyle">@style/MyButton</item>
-
+        <item name="android:textViewStyle">@style/InterTextViewStyle</item>
+        <item name="bottomSheetDialogTheme">@style/MyBottomSheetStyle</item>
     </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
@@ -51,9 +52,12 @@
         <item name="android:paddingEnd">@dimen/padding_normal</item>
     </style>
 
-    <style name="SwitchStyle" parent="Widget.MaterialComponents.CompoundButton.Switch">
+    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:textSize">@dimen/font_subheading</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:colorControlActivated">?android:colorPrimary</item>
     </style>
 
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
@@ -88,5 +92,15 @@
         <item name="fontFamily">@font/inter_regular</item>
     </style>
 
+    <style name="InterTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/inter_regular</item>
+    </style>
+
+    <style name="MyBottomSheetStyle" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item> <!-- This is important -->
+        <item name="android:statusBarColor">@android:color/transparent</item> <!-- And then this will be needed -->
+        <item name="android:navigationBarColor">@color/primaryBackground</item>
+        <item name="android:colorBackground">@color/primaryBackground</item>
+    </style>
 
 </resources>

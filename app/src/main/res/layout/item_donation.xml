@@ -24,18 +24,20 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/TextAppearance.MaterialComponents.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading"
             tools:text="Pizza donation" />
 
         <TextView
             android:id="@+id/description"
-            style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_micro"
-            android:textColor="@color/textColorSecondary"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="@dimen/font_body"
             tools:text="Pizza donation" />
     </LinearLayout>
 </FrameLayout>

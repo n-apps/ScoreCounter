@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.naz013.colorslider.ColorSlider;
@@ -162,7 +162,7 @@ public class EditCounterActivity extends AppCompatActivity {
 
     private void subscribeToModel(int id) {
         EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id);
-        viewModel = ViewModelProviders.of(this, factory).get(EditCounterViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
                 counter = c;

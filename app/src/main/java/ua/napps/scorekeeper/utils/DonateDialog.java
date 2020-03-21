@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
@@ -17,9 +17,6 @@ import ua.napps.scorekeeper.utils.livedata.MessageIntent;
 import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
 
 public class DonateDialog extends DialogFragment {
-
-    private DonateViewModel viewModel;
-    private DonateAdapter adapter;
 
     private final Observer<SingleShotEvent> eventBusObserver = event -> {
         Object intent = event.getValueAndConsume();
@@ -32,11 +29,13 @@ public class DonateDialog extends DialogFragment {
             dismiss();
         }
     };
+    private DonateViewModel viewModel;
+    private DonateAdapter adapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(requireActivity()).get(DonateViewModel.class);
+        viewModel = new ViewModelProvider(this).get(DonateViewModel.class);
         adapter = new DonateAdapter(requireContext());
     }
 

@@ -18,7 +18,6 @@
     <string name="counter_details_step">Étape (-/+)</string>
     <string name="counter_details_value">La valeur active</string>
     <string name="counters_empty_message">Appuyer n\'importe où pour ajouter le premier compteur ou utilisez le bouton + dans le coin supérieur droit</string>
-    <string name="dialog_color_picker_presets_button">Presets</string>
     <string name="dialog_current_value_title">Valeur actuelle</string>
     <string name="dialog_custom_dice_hint">De 2 à 100</string>
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
@@ -47,7 +46,6 @@
     <string name="dialog_default_info_content">La valeur du compteur qui sera définie après sa réinitialisation à l\'aide du menu \"Réinitialiser toutes les valeurs\" (trois points sur l\'écran principal)</string>
     <string name="common_got_it">C’est bon!</string>
     <string name="menu_log">Histoire</string>
-    <string name="log_counter">Сompteur:</string>
     <string name="history_empty_message">Pas encore d\'histoire</string>
     <string name="common_counter">Сompteur</string>
     <string name="dialog_custom_counter_title">Option de changement rapide</string>
@@ -67,7 +65,6 @@
     <string name="action_donate">Faire un don</string>
     <string name="error_message">Une erreur est survenue.</string>
     <string name="save">Sauvegarder</string>
-    <string name="toast_middle_zone_no_action_yet">Jusqu\'ici, cliquer ici ne fait rien. Essayez un peu à gauche ou à droite;)\n\nSi vous avez une idée de l\'action à utiliser ici, n\'hésitez pas à m\'envoyer un e-mail (voir Paramètres)</string>
     <string name="common_more">Plus</string>
     <string name="reset">Réinitialiser</string>
     <string name="setting_share">Recommander à un ami</string>

@@ -76,7 +76,7 @@
                 app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/tv_long_press_hint"
+                app:layout_constraintStart_toStartOf="@+id/til_counter_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_long_press_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -165,11 +165,11 @@
                 android:id="@+id/tv_color"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_normal"
-                android:textColor="?android:textColorSecondary"
-                android:text="@string/counter_details_color_picker_title"
                 android:layout_marginLeft="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:text="@string/counter_details_color_picker_title"
                 android:textAppearance="@style/TextAppearance.Design.HelperText"
+                android:textColor="?android:textColorSecondary"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
                 app:layout_constraintStart_toStartOf="@id/color_slider"
                 app:layout_constraintTop_toBottomOf="@id/color_slider">
@@ -207,10 +207,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
-                app:layout_constraintStart_toStartOf="@id/til_counter_value"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_value"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:text="@string/message_you_can_use_long_press"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_step"
-                android:text="@string/message_you_can_use_long_press" />
+                app:layout_constraintEnd_toEndOf="@id/til_counter_value"
+                app:layout_constraintStart_toStartOf="@id/til_counter_value"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_value" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.andrefrsousa.superbottomsheet.SuperBottomSheetFragment;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +28,7 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
 
-public class DiceBottomSheetFragment extends SuperBottomSheetFragment implements View.OnClickListener {
+public class DiceBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
     private DialogInterface.OnDismissListener onDismissListener;
     private int diceMaxSide;

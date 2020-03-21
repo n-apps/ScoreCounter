@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <color name="primaryColor">#E7E5E2</color>
-    <color name="primaryColorDark">#E7E5E2</color>
-    <color name="accentColor">#00458b</color>
-
-    <color name="textColorPrimary">#FFFFFFFF</color>
-    <color name="textColorSecondary">#DEFFFFFF</color>
-    <color name="textColorHint">#89FFFFFF</color>
-
     <color name="primaryBackground">#121212</color>
-
-    <color name="white">#fff</color>
-
-    <color name="black_12">#1F000000</color>
-    <color name="black_5">#0D000000</color>
-    <color name="white_12">#1FFFFFFF</color>
-    <color name="dice_stroke">@color/primaryColor</color>
-    <color name="flat_button_color">#222</color>
-    <color name="flat_button_color_pressed">#1F000000</color>
-    <color name="rate_app_options">#DEFFFFFF</color>
     <color name="section_bg">#959595</color>
+    <color name="bottom_bar_badge_color">#005E5E</color>
 </resources>
