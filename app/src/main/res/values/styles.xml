@@ -109,7 +109,7 @@
     </style>
 
     <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?android:colorSecondary</item>
+        <item name="android:textColor">?colorPrimary</item>
     </style>
 
 </resources>
