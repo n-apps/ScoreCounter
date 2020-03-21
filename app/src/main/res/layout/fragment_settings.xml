@@ -68,15 +68,13 @@
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_weight="1"
                 android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toogle"
-                android:foreground="?selectableItemBackground">
+                android:background="@drawable/bg_selector_mini_dice_toogle">
 
                 <TextView
                     android:id="@+id/btn_1_text"
                     style="@style/MiniDiceStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:clickable="true"
                     tools:text="+5">
 
                 </TextView>
@@ -88,8 +86,7 @@
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_weight="1"
                 android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toogle"
-                android:foreground="?selectableItemBackground">
+                android:background="@drawable/bg_selector_mini_dice_toogle">
 
                 <TextView
                     android:id="@+id/btn_2_text"
@@ -107,8 +104,7 @@
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_weight="1"
                 android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toogle"
-                android:foreground="?selectableItemBackground">
+                android:background="@drawable/bg_selector_mini_dice_toogle">
 
                 <TextView
                     android:id="@+id/btn_3_text"
@@ -126,8 +122,7 @@
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:layout_weight="1"
                 android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toogle"
-                android:foreground="?selectableItemBackground">
+                android:background="@drawable/bg_selector_mini_dice_toogle">
 
                 <TextView
                     android:id="@+id/btn_4_text"

@@ -26,7 +26,7 @@
         <item name="colors_scheme">@array/light</item>
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/InterTextViewStyle</item>
-        <item name="bottomSheetDialogTheme">@style/MyBottomSheetStyle</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
@@ -98,9 +98,18 @@
 
     <style name="MyBottomSheetStyle" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item> <!-- This is important -->
-        <item name="android:statusBarColor">@android:color/transparent</item> <!-- And then this will be needed -->
+        <item name="android:statusBarColor">@android:color/transparent
+        </item> <!-- And then this will be needed -->
         <item name="android:navigationBarColor">@color/primaryBackground</item>
         <item name="android:colorBackground">@color/primaryBackground</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/ButtonBarTheme</item>
+    </style>
+
+    <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:colorSecondary</item>
     </style>
 
 </resources>

@@ -23,6 +23,7 @@
         <item name="dice_picture">@drawable/empty_state_dice_dark</item>
         <item name="history_picture">@drawable/empty_state_history_dark</item>
         <item name="colors_scheme">@array/dark</item>
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
@@ -40,5 +41,12 @@
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
     </style>
 
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
+        <item name="buttonBarButtonStyle">@style/ButtonBarTheme</item>
+    </style>
+
+    <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?colorSecondary</item>
+    </style>
 
 </resources>
