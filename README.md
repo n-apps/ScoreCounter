@@ -16,10 +16,12 @@ Having troubles to find a pen and paper at your fingertips when playing? Score C
 
 I 🖤 board games and appreciate your feedback. I regularly use this application for Carcassone, Star Realms or even UNO :)
 
+If you have something to share (feedback, problems or requests), feel free to write at scorekeeper.feedback@gmail.com. If you like this app, please leave a feedback. Thank you!
+
 ## Screenshots
-[<img src="https://lh3.googleusercontent.com/sP04i1HuOFsjz-fstQh-2ZD_admLQZcqoeQfV0CDjUKbzx6HfosxxXcD8vNUCQffxw=s0" width=250>]()
-[<img src="https://lh3.googleusercontent.com/g4yJZHDimvB1DWzNnTzpU2E8DxgLfaNeFct9DucvWxZ-iypYg7aMG6r5bfm4khBBmy6C=s0" width=250>]()
-[<img src="https://lh3.googleusercontent.com/nEdxwJLKelY22x_VM6ahYE7QZ1X1Ld0faLhjBFR586Wpr-v6EoWj1See2uldOD3dnvQ_=s0" width=250>]()
+[<img src="https://lh3.googleusercontent.com/tDkEGMIeRW4RuB7kSQ-AfzBJoeLgNbW83T_yCDyxNbe858iXxXrUzXdQqvWadDOHfA=s0" width=250>]()
+[<img src="https://lh3.googleusercontent.com/ub7thddKYikRWs0kHEF2e_8Co5s0UWOoQqmj5sT6yu0AbBQwcGWv51abYOtxBnMWTBsR=s0" width=250>]()
+[<img src="https://lh3.googleusercontent.com/3XG76yeu1667UAJrUPeJ3lXu0qIzCULpB2pUNQA2Y3nnWc_OYMjyiIqxGORKU_IAlgw=s0" width=250>]()
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
