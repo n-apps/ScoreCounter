@@ -9,7 +9,7 @@ import ua.napps.scorekeeper.log.LogType;
 
 public class Singleton {
     private static final Singleton ourInstance = new Singleton();
-    private ArrayList<LogEntry> logEntries = new ArrayList<>();
+    private final ArrayList<LogEntry> logEntries = new ArrayList<>();
     private Context mainContext;
 
     private Singleton() {

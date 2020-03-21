@@ -51,6 +51,7 @@ public class LogActivity extends AppCompatActivity {
 
         emptyState = findViewById(R.id.g_empty_history);
         emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
+        findViewById(R.id.btn_close).setOnClickListener(v -> finishAfterTransition());
 
         boolean isLightTheme = LocalSettings.isLightTheme();
         if (isLightTheme) {

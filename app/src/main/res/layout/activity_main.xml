@@ -19,6 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:bnbElevation="1dp"
-        tools:background="@color/black_5" />
+        tools:background="@color/section_bg" />
 
 </LinearLayout>

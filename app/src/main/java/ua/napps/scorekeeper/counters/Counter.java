@@ -1,8 +1,8 @@
 package ua.napps.scorekeeper.counters;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.annotation.NonNull;
 
 @Entity(tableName = "counters")
 public class Counter {
@@ -97,6 +97,7 @@ public class Counter {
         this.value = value;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Counter{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", value=" + value + '\'' + ", position=" + position + '}';

@@ -4,7 +4,6 @@
     <dimen name="button_min_height">36dp</dimen>
     <dimen name="counter_max_text_size">164sp</dimen>
     <dimen name="counter_min_text_size">12sp</dimen>
-    <dimen name="dice_margin">64dp</dimen>
     <dimen name="empty_state_max_width">256dp</dimen>
     <dimen name="empty_state_icon_size">180dp</dimen>
     <dimen name="font_body">14sp</dimen>
@@ -22,5 +21,4 @@
     <dimen name="spacing_micro">4dp</dimen>
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_xlarge">48dp</dimen>
-    <item name="match_parent" format="integer" type="dimen">-1</item>
 </resources>

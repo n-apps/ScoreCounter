@@ -40,6 +40,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.7"
             android:clickable="false"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
             android:src="@drawable/ic_minus" />

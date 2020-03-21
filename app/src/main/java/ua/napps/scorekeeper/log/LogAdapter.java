@@ -18,11 +18,13 @@ import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.Singleton;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
-    private ArrayList<LogEntry> logEntries;
+    private final ArrayList<LogEntry> logEntries;
 
     static class LogAdapterViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_counter,tv_info,tv_time;
-        FrameLayout rcv_color;
+        final TextView tv_counter;
+        final TextView tv_info;
+        final TextView tv_time;
+        final FrameLayout rcv_color;
 
         LogAdapterViewHolder(View v) {
             super(v);
@@ -56,14 +58,10 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
         String info = "";
         switch (logEntry.type){
             case INC:
-                info = "\u2795 ";
-                break;
             case INC_C:
                 info = "\u2795 ";
                 break;
             case DEC:
-                info = "\u2796 ";
-                break;
             case DEC_C:
                 info = "\u2796 ";
                 break;

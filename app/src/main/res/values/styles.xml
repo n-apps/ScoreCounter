@@ -27,7 +27,7 @@
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/InterTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
-    </style>
+</style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>

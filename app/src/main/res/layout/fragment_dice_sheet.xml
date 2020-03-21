@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:paddingBottom="@dimen/padding_large"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_large">
 
     <TextView
         android:id="@+id/tv_dice_sides"
@@ -29,7 +29,7 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:background="@drawable/bg_selector_mini_dice_toggle"
         android:fontFamily="@font/inter_bold"
         android:includeFontPadding="false"
         android:textColor="?android:attr/textColorPrimary"
@@ -45,7 +45,7 @@
         android:id="@+id/tb_dice_8"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:background="@drawable/bg_selector_mini_dice_toggle"
         android:fontFamily="@font/inter_bold"
         android:includeFontPadding="false"
         android:textColor="?android:attr/textColorPrimary"
@@ -62,7 +62,7 @@
         android:id="@+id/tb_dice_20"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:background="@drawable/bg_selector_mini_dice_toggle"
         android:fontFamily="@font/inter_bold"
         android:includeFontPadding="false"
         android:textColor="?android:attr/textColorPrimary"
@@ -79,7 +79,7 @@
         android:id="@+id/tb_dice_x"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toogle"
+        android:background="@drawable/bg_selector_mini_dice_toggle"
         android:fontFamily="@font/inter_bold"
         android:includeFontPadding="false"
         android:textColor="?android:attr/textColorPrimary"

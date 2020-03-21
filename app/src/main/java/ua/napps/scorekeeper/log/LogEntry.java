@@ -9,11 +9,11 @@ import ua.napps.scorekeeper.counters.Counter;
  */
 public class LogEntry {
 
-    public Counter counter;
-    public LogType type;
+    public final Counter counter;
+    public final LogType type;
     public int value;
-    public int prevValue;
-    public Date timestamp;
+    public final int prevValue;
+    public final Date timestamp;
     public boolean combined;
 
     /**

@@ -86,9 +86,7 @@ public class DicesFragment extends Fragment {
         diceTextView = contentView.findViewById(R.id.dice);
         diceHintTextView = contentView.findViewById(R.id.tv_dice_hint);
         root = contentView.findViewById(R.id.container);
-        contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> {
-            showBottomSheet();
-        });
+        contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
 
         maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
@@ -118,7 +116,7 @@ public class DicesFragment extends Fragment {
 
     private void showBottomSheet() {
         DiceBottomSheetFragment bottomSheet = new DiceBottomSheetFragment();
-        bottomSheet.show(requireFragmentManager(), "DiceBottomSheetFragment");
+        bottomSheet.show(getParentFragmentManager(), "DiceBottomSheetFragment");
         bottomSheet.setOnDismissListener(d -> updateOnDismiss());
     }
 
@@ -178,7 +176,7 @@ public class DicesFragment extends Fragment {
             float y = se.values[1];
             float z = se.values[2];
             accelLast = accelCurrent;
-            accelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
+            accelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
             float delta = accelCurrent - accelLast;
             accel = accel * 0.9f + delta; // perform low-cut filter
             if (accel > 5.0) {

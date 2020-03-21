@@ -116,7 +116,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_donation:
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenDonateClick");
                 DonateDialog dialog = new DonateDialog();
-                dialog.show(requireFragmentManager(), "donate");
+                dialog.show(getParentFragmentManager(), "donate");
                 break;
             case R.id.tv_github:
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenContributeClick");

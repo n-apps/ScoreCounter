@@ -10,8 +10,8 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="1dp"
         android:background="@null"
+        app:elevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,9 +30,10 @@
         android:layout_height="0dp"
         android:overScrollMode="ifContentScrolls"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="@dimen/padding_normal"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         tools:listitem="@layout/item_log_entry" />
 
@@ -41,12 +42,12 @@
         android:layout_width="@dimen/empty_state_icon_size"
         android:layout_height="@dimen/empty_state_icon_size"
         android:contentDescription="@string/counters_empty_message"
+        android:src="?history_picture"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:src="?history_picture" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/tv_empty_state"
@@ -66,4 +67,20 @@
         android:visibility="gone"
         app:constraint_referenced_ids="tv_empty_state,iv_history" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_close"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_large"
+        android:fontFamily="@font/inter_bold"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="128dp"
+        android:text="@string/common_back"
+        android:textAllCaps="false"
+        android:textColor="?colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

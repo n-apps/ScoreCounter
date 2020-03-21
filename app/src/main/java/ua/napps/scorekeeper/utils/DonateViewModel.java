@@ -42,7 +42,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
 
     public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
 
-    private BillingClient billingClient;
+    private final BillingClient billingClient;
 
     private final List<SkuDetails> skuDetailsList = new ArrayList<>();
     private final List<String> skuList = BuildConfig.DEBUG

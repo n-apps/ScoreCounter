@@ -6,7 +6,6 @@
     <string name="bottom_navigation_tab_settings">Paramètres</string>
     <string name="common_back">Retournez</string>
     <string name="common_cancel">Annuler</string>
-    <string name="common_custom">Votre</string>
     <string name="common_decrease">Réduire</string>
     <string name="common_increase">Augmenter</string>
     <string name="common_select">Choisir</string>
@@ -69,5 +68,6 @@
     <string name="reset">Réinitialiser</string>
     <string name="setting_share">Recommander à un ami</string>
     <string name="share_snippet">Salut! Compteur de Points + 🎲 vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="common_edit">Modifier</string>
 
 </resources>

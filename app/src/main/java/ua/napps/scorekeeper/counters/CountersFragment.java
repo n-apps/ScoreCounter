@@ -165,7 +165,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuDonateClick");
 
                 DonateDialog dialog = new DonateDialog();
-                dialog.show(requireFragmentManager(), "donate");
+                dialog.show(getParentFragmentManager(), "donate");
                 break;
         }
         return true;

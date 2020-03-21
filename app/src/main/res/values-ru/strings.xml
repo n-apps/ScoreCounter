@@ -6,7 +6,6 @@
     <string name="bottom_navigation_tab_settings">Настройки</string>
     <string name="common_back">Назад</string>
     <string name="common_cancel">Отменить</string>
-    <string name="common_custom">Свой</string>
     <string name="common_decrease">Уменьшить</string>
     <string name="common_increase">Увеличить</string>
     <string name="common_select">Выбрать</string>
@@ -69,4 +68,5 @@
     <string name="reset">Сброс</string>
     <string name="setting_share">Рекомендовать другу</string>
     <string name="share_snippet">Привет! Счетчик Очков + 🎲 поможет тебе с легкостью и в пару нажатий вести счет в настольных играх, спорте или других занятиях. Качай приложение для Android тут:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="common_edit">Изменить</string>
 </resources>

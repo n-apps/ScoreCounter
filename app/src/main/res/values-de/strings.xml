@@ -6,7 +6,6 @@
     <string name="bottom_navigation_tab_settings">Einstellungen</string>
     <string name="common_back">Zurück</string>
     <string name="common_cancel">Abbrechen</string>
-    <string name="common_custom">Eigene</string>
     <string name="common_decrease">Weniger</string>
     <string name="common_increase">Mehr</string>
     <string name="common_select">auswählen</string>
@@ -69,5 +68,6 @@
     <string name="reset">Zähler Zurücksetzen</string>
     <string name="setting_share">Einem Freund empfehlen</string>
     <string name="share_snippet">Hallo! Klickzähler + 🎲 wird Ihnen helfen, die Punktzahl in allen Spielen leicht zu halten oder andere Aktivitäten. Holen Sie sich die kostenlose Android App hier:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="common_edit">Bearbeiten</string>
 
 </resources>

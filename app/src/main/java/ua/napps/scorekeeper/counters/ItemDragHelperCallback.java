@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.graphics.Canvas;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +31,7 @@ public class ItemDragHelperCallback extends ItemTouchHelper.Callback{
 
 
     @Override
-    public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         final int dragFlags = ItemTouchHelper.UP   | ItemTouchHelper.DOWN |
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
         return makeMovementFlags(dragFlags, 0);
@@ -38,7 +39,7 @@ public class ItemDragHelperCallback extends ItemTouchHelper.Callback{
 
 
     @Override
-    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder source, RecyclerView.ViewHolder target) {
+    public boolean onMove(@NonNull RecyclerView recyclerView, RecyclerView.ViewHolder source, RecyclerView.ViewHolder target) {
         // Called during dragging event
         if (source.getItemViewType() != target.getItemViewType()) {
             return false;
@@ -52,7 +53,7 @@ public class ItemDragHelperCallback extends ItemTouchHelper.Callback{
     }
 
     @Override
-    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+    public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
         //Do not allow dragging items out of bounds
         float topY = viewHolder.itemView.getTop() + dY;
         float bottomY = topY + viewHolder.itemView.getHeight();
@@ -73,7 +74,7 @@ public class ItemDragHelperCallback extends ItemTouchHelper.Callback{
     }
 
     @Override
-    public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
         // Called after dragging event, when item is released
         super.clearView(recyclerView, viewHolder);
 
@@ -85,7 +86,7 @@ public class ItemDragHelperCallback extends ItemTouchHelper.Callback{
     }
 
     @Override
-    public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
        // No action when swiped
     }
 

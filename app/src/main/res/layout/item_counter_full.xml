@@ -51,6 +51,7 @@
                     android:layout_height="@dimen/list_single_line_min_height"
                     android:foreground="?selectableItemBackground"
                     android:gravity="end"
+                    android:contentDescription="@string/common_edit"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
                     android:src="@drawable/ic_more" />

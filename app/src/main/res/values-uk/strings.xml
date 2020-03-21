@@ -6,7 +6,6 @@
     <string name="bottom_navigation_tab_settings">Налаштування</string>
     <string name="common_back">Назад</string>
     <string name="common_cancel">Скасувати</string>
-    <string name="common_custom">Свій</string>
     <string name="common_decrease">Зменшити</string>
     <string name="common_increase">Збільшити</string>
     <string name="common_select">Вибрати</string>
@@ -69,4 +68,5 @@
     <string name="reset">Скинути</string>
     <string name="setting_share">Рекомендувати другу</string>
     <string name="share_snippet">Привіт! Лічильник Очок + 🎲 допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай додаток для Android тут:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="common_edit">Редагувати</string>
 </resources>

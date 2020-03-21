@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toogle">
+            android:background="@drawable/bg_selector_mini_dice_toggle">
 
             <TextView
                 android:id="@+id/btn_one_text"
@@ -41,7 +41,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toogle">
+            android:background="@drawable/bg_selector_mini_dice_toggle">
 
             <TextView
                 android:id="@+id/btn_two_text"
@@ -59,7 +59,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toogle">
+            android:background="@drawable/bg_selector_mini_dice_toggle">
 
             <TextView
                 android:id="@+id/btn_three_text"
@@ -76,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toogle">
+            android:background="@drawable/bg_selector_mini_dice_toggle">
 
             <TextView
                 android:id="@+id/btn_four_text"

@@ -126,19 +126,15 @@ public class EditCounterActivity extends AppCompatActivity {
 
     private void setOnClickListeners() {
 
-        ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> {
-            new MaterialDialog.Builder(EditCounterActivity.this)
-                    .content(R.string.dialog_step_info_content)
-                    .positiveText(R.string.common_got_it)
-                    .show();
-        });
+        ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
+                .content(R.string.dialog_step_info_content)
+                .positiveText(R.string.common_got_it)
+                .show());
 
-        ((TextInputLayout) findViewById(R.id.til_counter_default_value)).setEndIconOnClickListener(v -> {
-            new MaterialDialog.Builder(EditCounterActivity.this)
-                    .content(R.string.dialog_default_info_content)
-                    .positiveText(R.string.common_got_it)
-                    .show();
-        });
+        ((TextInputLayout) findViewById(R.id.til_counter_default_value)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
+                .content(R.string.dialog_default_info_content)
+                .positiveText(R.string.common_got_it)
+                .show());
 
         colorSlider.setListener((position, color) -> {
             counterNameLayout.setBoxStrokeColor(color);

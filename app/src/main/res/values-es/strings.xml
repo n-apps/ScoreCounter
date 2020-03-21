@@ -6,7 +6,6 @@
     <string name="bottom_navigation_tab_settings">Ajustes</string>
     <string name="common_back">Atrás</string>
     <string name="common_cancel">Cancelar</string>
-    <string name="common_custom">Tuyo</string>
     <string name="common_decrease">Reducir</string>
     <string name="common_increase">Aumentar</string>
     <string name="common_select">Seleccionar</string>
@@ -69,4 +68,5 @@
     <string name="reset">Reiniciar contador</string>
     <string name="setting_share">Recomendar a un amigo</string>
     <string name="share_snippet">¡Hola! Contador de puntuaciones + 🎲 te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="common_edit">Editar</string>
 </resources>
