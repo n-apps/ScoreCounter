@@ -17,7 +17,8 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            app:title="" />
+            app:title="ʕ•ᴥ•ʔ"
+            app:titleTextColor="?android:textColorHint" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView

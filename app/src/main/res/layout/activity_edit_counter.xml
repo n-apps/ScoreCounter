@@ -77,7 +77,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/til_counter_name"
-                app:layout_constraintTop_toBottomOf="@+id/tv_long_press_hint">
+                app:layout_constraintTop_toBottomOf="@+id/til_counter_value">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_step"
@@ -184,8 +184,11 @@
                 android:layout_marginBottom="@dimen/spacing_micro"
                 app:helperText="@string/counter_details_value"
                 app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
-                app:layout_constraintBottom_toTopOf="@+id/tv_long_press_hint"
+                app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
+                app:endIconDrawable="@drawable/ic_help_circle"
+                app:endIconMode="custom"
+                app:endIconTint="#959595"
                 app:layout_constraintStart_toStartOf="@+id/til_counter_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_color">
 
@@ -202,18 +205,7 @@
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tv_long_press_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/padding_large"
-                android:text="@string/message_you_can_use_long_press"
-                app:layout_constraintBottom_toTopOf="@id/til_counter_step"
-                app:layout_constraintEnd_toEndOf="@id/til_counter_value"
-                app:layout_constraintStart_toStartOf="@id/til_counter_value"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_value" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

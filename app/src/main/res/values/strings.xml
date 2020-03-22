@@ -32,7 +32,7 @@
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_remove_all_counters">Remove all</string>
     <string name="menu_reset_all_counters">Reset all</string>
-    <string name="message_you_can_use_long_press">You can also change counter\'s value by a long press</string>
+    <string name="message_you_can_use_long_press">You can also change the counter value by long pressing on it</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dice</string>
@@ -41,7 +41,7 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_section_dice_sides">Number of sides of the dice</string>
-    <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change counter value by a long press</string>
+    <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change the counter value by long pressing on it</string>
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
     <string name="menu_log">History</string>

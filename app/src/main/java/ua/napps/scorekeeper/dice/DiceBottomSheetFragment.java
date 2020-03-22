@@ -155,7 +155,9 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     private void refreshDices(boolean storeInDB) {
         if (storeInDB && diceMaxSide <= 100) {
             LocalSettings.saveDiceMaxSide(diceMaxSide);
-            onDismiss(getDialog());
+            if (getDialog() != null) {
+                onDismiss(getDialog());
+            }
             return;
         }
         switch (diceMaxSide) {

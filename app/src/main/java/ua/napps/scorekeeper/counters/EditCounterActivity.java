@@ -136,6 +136,11 @@ public class EditCounterActivity extends AppCompatActivity {
                 .positiveText(R.string.common_got_it)
                 .show());
 
+        ((TextInputLayout) findViewById(R.id.til_counter_value)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
+                .content(R.string.message_you_can_use_long_press)
+                .positiveText(R.string.common_got_it)
+                .show());
+
         colorSlider.setListener((position, color) -> {
             counterNameLayout.setBoxStrokeColor(color);
             newCounterColorHex = ColorUtil.intColorToString(color);

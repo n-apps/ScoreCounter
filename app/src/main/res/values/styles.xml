@@ -27,7 +27,7 @@
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/InterTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
-</style>
+    </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
@@ -96,7 +96,7 @@
         <item name="android:fontFamily">@font/inter_regular</item>
     </style>
 
-    <style name="MyBottomSheetStyle" parent="Theme.MaterialComponents.DayNight.BottomSheetDialog">
+    <style name="MyBottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item> <!-- This is important -->
         <item name="android:statusBarColor">@android:color/transparent
         </item> <!-- And then this will be needed -->
