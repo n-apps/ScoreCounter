@@ -43,7 +43,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:lines="1"
-        android:padding="@dimen/padding_large"
+        android:paddingVertical="@dimen/padding_large"
         android:textColor="?android:textColorPrimary"
         android:textSize="112sp"
         android:visibility="invisible"
@@ -52,7 +52,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
-        tools:text="6"
+        tools:text="20"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group

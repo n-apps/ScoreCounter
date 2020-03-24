@@ -28,9 +28,9 @@
         android:layout_margin="@dimen/spacing_normal"
         android:contentDescription="@string/settings_section_dice"
         android:scaleType="center"
+        android:src="@drawable/ic_more"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_more"
         app:tint="?myIconTint" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:lines="1"
-        android:padding="@dimen/padding_large"
+        android:paddingVertical="@dimen/padding_large"
         android:textColor="?android:textColorPrimary"
         android:textSize="112sp"
         android:visibility="invisible"
@@ -53,7 +53,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="20"
-        tools:text="6"
+        tools:text="20"
         tools:textSize="@dimen/counter_max_text_size"
         tools:visibility="visible" />
 
@@ -71,12 +71,12 @@
         android:layout_width="@dimen/empty_state_icon_size"
         android:layout_height="@dimen/empty_state_icon_size"
         android:contentDescription="@string/dice_empty_state"
+        android:src="@drawable/ic_die_96dp"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:src="@drawable/ic_die_96dp" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/tv_empty_state"
