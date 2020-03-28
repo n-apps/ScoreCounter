@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/ripple"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical"
@@ -39,8 +39,7 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.7"
-            android:clickable="false"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:background="@drawable/ripple"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
             android:src="@drawable/ic_minus" />
@@ -48,9 +47,9 @@
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:clickable="false"
+            android:background="@drawable/ripple"
             android:fontFamily="@font/inter_bold"
             android:gravity="center"
             android:lines="1"
@@ -65,9 +64,8 @@
             android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.7"
-            android:clickable="false"
+            android:background="@drawable/ripple"
             android:contentDescription="@string/common_decrease"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="center"
             android:src="@drawable/ic_add" />
 

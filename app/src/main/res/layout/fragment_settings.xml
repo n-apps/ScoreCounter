@@ -25,7 +25,6 @@
             android:id="@+id/sw_keep_screen_on"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_stay_awake"
@@ -37,7 +36,7 @@
             android:id="@+id/sw_dark_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
+
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_dark_theme"

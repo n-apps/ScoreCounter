@@ -12,7 +12,7 @@
     <string name="common_set">Встановити</string>
     <string name="counter_details_color_picker_title">Колір лічильника</string>
     <string name="counter_details_default_value">Значення після скиду</string>
-    <string name="remove">Видалити</string>
+    <string name="delete">Видалити</string>
     <string name="counter_details_name">Назва лічильника</string>
     <string name="counter_details_step">Крок (-/+)</string>
     <string name="counter_details_value">Поточне значення</string>
@@ -30,7 +30,7 @@
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
     <string name="hint_enter_number">або введіть число…</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
-    <string name="menu_remove_all_counters">Видалити всі</string>
+    <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Також можна змінювати значення лічильника за допомогою довгого натискання по ньому</string>
     <string name="settings_dark_theme">Темна тема</string>
@@ -69,4 +69,7 @@
     <string name="setting_share">Рекомендувати другу</string>
     <string name="share_snippet">Привіт! Лічильник Очок + 🎲 допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай додаток для Android тут:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Редагувати</string>
+    <string name="counter_deleted">Лічильник видалено</string>
+    <string name="counter_added">Лічильник додано</string>
+    <string name="snackbar_action_one_more">Ще один</string>
 </resources>

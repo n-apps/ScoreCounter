@@ -3,4 +3,5 @@
     <color name="primaryBackground">#fff</color>
     <color name="section_bg">#E7E5E2</color>
     <color name="bottom_bar_badge_color">#6E008B</color>
+    <color name="overlay">#0D000000</color>
 </resources>

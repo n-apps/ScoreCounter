@@ -12,7 +12,7 @@
     <string name="common_set">Set</string>
     <string name="counter_details_color_picker_title">Counter color</string>
     <string name="counter_details_default_value">Value after reset</string>
-    <string name="remove">Remove</string>
+    <string name="delete">Delete</string>
     <string name="counter_details_name">Counter name</string>
     <string name="counter_details_step">Step (-/+)</string>
     <string name="counter_details_value">Current value</string>
@@ -30,7 +30,7 @@
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="hint_enter_number">or enter a number…</string>
     <string name="menu_add_new_counter">Add counter</string>
-    <string name="menu_remove_all_counters">Remove all</string>
+    <string name="menu_delete_all_counters">Delete all</string>
     <string name="menu_reset_all_counters">Reset all</string>
     <string name="message_you_can_use_long_press">You can also change the counter value by long pressing on it</string>
     <string name="settings_dark_theme">Dark theme</string>
@@ -40,7 +40,7 @@
     <string name="settings_section_request_a_feature">Send feedback</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
-    <string name="settings_section_dice_sides">Number of sides of the dice</string>
+    <string name="settings_section_dice_sides">Number of sides</string>
     <string name="dialog_step_info_content">How much does the counter change when you click on it. The left half decreases, the right half increases. You can also change the counter value by long pressing on it</string>
     <string name="dialog_default_info_content">The value of the counter, which will be set after its reset, using the menu \"Reset all values\" menu (on the main screen)</string>
     <string name="common_got_it">Got it</string>
@@ -69,4 +69,7 @@
     <string name="setting_share">Recommend to a friend</string>
     <string name="share_snippet">Hi there! Score Counter + 🎲 will help you easily keep score in any games, sports or other activities. Get the free Android app here:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Edit</string>
+    <string name="counter_deleted">Counter deleted</string>
+    <string name="counter_added">Counter added</string>
+    <string name="snackbar_action_one_more">One more</string>
 </resources>

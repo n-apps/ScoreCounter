@@ -24,6 +24,7 @@
         <item name="history_picture">@drawable/empty_state_history_dark</item>
         <item name="colors_scheme">@array/dark</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="materialButtonOutlinedStyle">@style/MaterialButtonOutlinedStyle</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">

@@ -12,7 +12,7 @@
     <string name="common_set">Fijar</string>
     <string name="counter_details_color_picker_title">Сolor del contador</string>
     <string name="counter_details_default_value">Valor después de resetear</string>
-    <string name="remove">Eliminar</string>
+    <string name="delete">Eliminar</string>
     <string name="counter_details_name">Nombre del contador</string>
     <string name="counter_details_step">Paso (-/+)</string>
     <string name="counter_details_value">Valor actual</string>
@@ -30,7 +30,7 @@
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
     <string name="hint_enter_number">introduce un número…</string>
     <string name="menu_add_new_counter">Añadir contador</string>
-    <string name="menu_remove_all_counters">Quitar todo</string>
+    <string name="menu_delete_all_counters">Quitar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
     <string name="message_you_can_use_long_press">También puede cambiar el valor del contador presionándolo prolongadamente</string>
     <string name="settings_dark_theme">Tema oscuro</string>
@@ -40,7 +40,7 @@
     <string name="settings_section_request_a_feature">Comentarios, informe de errores, solicitud de funciones</string>
     <string name="settings_shake_to_roll">Agita para tirar</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
-    <string name="settings_section_dice_sides">Número de caras del dado</string>
+    <string name="settings_section_dice_sides">Número de lados</string>
     <string name="dialog_step_info_content">Cómo cambia el contador cuando lo modificas: La mitad izquierda disminuye y la derecha aumenta. También puede cambiar el valor del contador presionándolo prolongadamente.</string>
     <string name="dialog_default_info_content">El valor del contador, será creado de nuevo después de este reseteo, usando el menú \"Resetear todo"\ (en la pantalla principal).</string>
     <string name="common_got_it">Entendido</string>
@@ -69,4 +69,7 @@
     <string name="setting_share">Recomendar a un amigo</string>
     <string name="share_snippet">¡Hola! Contador de puntuaciones + 🎲 te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
+    <string name="counter_deleted">Contador eliminado</string>
+    <string name="counter_added">Contador agregado</string>
+    <string name="snackbar_action_one_more">Uno mas</string>
 </resources>

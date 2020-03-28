@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/padding_large">
 
     <TextView
@@ -11,103 +11,72 @@
         style="@style/InterTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/spacing_normal"
         android:gravity="center"
         android:minHeight="@dimen/list_single_line_min_height"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
         android:text="@string/settings_section_dice_sides"
-        android:textSize="@dimen/font_subheading"
-        app:layout_constraintBottom_toTopOf="@id/tb_dice_6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="@dimen/font_subheading" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_6"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@drawable/bg_selector_mini_dice_toggle"
-        android:fontFamily="@font/inter_bold"
-        android:includeFontPadding="false"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textOff="6"
-        android:textOn="6"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintEnd_toStartOf="@id/tb_dice_8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_dice_sides"
-        tools:ignore="HardcodedText" />
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/dice_sides_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_large"
+        app:selectionRequired="true"
+        app:singleSelection="true">
 
-    <ToggleButton
-        android:id="@+id/tb_dice_8"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toggle"
-        android:fontFamily="@font/inter_bold"
-        android:includeFontPadding="false"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textOff="8"
-        android:textOn="8"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintEnd_toStartOf="@id/tb_dice_20"
-        app:layout_constraintStart_toEndOf="@id/tb_dice_6"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/btn_1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="6"
+            android:textSize="@dimen/font_display" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_20"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toggle"
-        android:fontFamily="@font/inter_bold"
-        android:includeFontPadding="false"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textOff="20"
-        android:textOn="20"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintEnd_toStartOf="@id/tb_dice_x"
-        app:layout_constraintStart_toEndOf="@id/tb_dice_8"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/btn_2"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="8"
+            android:textSize="@dimen/font_display" />
 
-    <ToggleButton
-        android:id="@+id/tb_dice_x"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_selector_mini_dice_toggle"
-        android:fontFamily="@font/inter_bold"
-        android:includeFontPadding="false"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textOff="\?"
-        android:textOn="\?"
-        android:textSize="@dimen/font_display"
-        app:layout_constraintBottom_toBottomOf="@id/tb_dice_6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tb_dice_20"
-        app:layout_constraintTop_toTopOf="@id/tb_dice_6"
-        tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/btn_3"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="20"
+            android:textSize="@dimen/font_display" />
+
+        <Button
+            android:id="@+id/btn_4"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="X"
+            android:textSize="@dimen/font_display" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <View
         android:id="@+id/divider2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="@dimen/spacing_large"
-        android:background="@color/section_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tb_dice_6" />
+        android:background="@color/section_bg" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_shake_roll"
         style="@style/SwitchStyle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
         android:minHeight="56dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
@@ -120,9 +89,8 @@
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_sound_roll"
         style="@style/SwitchStyle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?attr/selectableItemBackground"
         android:minHeight="56dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
@@ -132,4 +100,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

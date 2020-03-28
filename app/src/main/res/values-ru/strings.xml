@@ -12,7 +12,7 @@
     <string name="common_set">Установить</string>
     <string name="counter_details_color_picker_title">Цвет счетчика</string>
     <string name="counter_details_default_value">Значение после сброса</string>
-    <string name="remove">Удалить</string>
+    <string name="delete">Удалить</string>
     <string name="counter_details_name">Название счетчика</string>
     <string name="counter_details_step">Шаг (-/+)</string>
     <string name="counter_details_value">Текущее значение</string>
@@ -30,7 +30,7 @@
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
     <string name="hint_enter_number">или введите число…</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
-    <string name="menu_remove_all_counters">Удалить все</string>
+    <string name="menu_delete_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="message_you_can_use_long_press">Также можно менять значение счетчика с помощью долгого нажатия по нему</string>
     <string name="settings_dark_theme">Темная тема</string>
@@ -69,4 +69,7 @@
     <string name="setting_share">Рекомендовать другу</string>
     <string name="share_snippet">Привет! Счетчик Очков + 🎲 поможет тебе с легкостью и в пару нажатий вести счет в настольных играх, спорте или других занятиях. Качай приложение для Android тут:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Изменить</string>
+    <string name="counter_deleted">Счетчик удален</string>
+    <string name="counter_added">Счетчик добавлено</string>
+    <string name="snackbar_action_one_more">Еще один</string>
 </resources>

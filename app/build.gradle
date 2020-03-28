@@ -3,7 +3,7 @@ apply plugin: 'io.fabric'
 
 ext.versionMajor = 6
 ext.versionMinor = 0
-ext.versionPatch = 2
+ext.versionPatch = 3
 ext.postfix = ''
 
 android {

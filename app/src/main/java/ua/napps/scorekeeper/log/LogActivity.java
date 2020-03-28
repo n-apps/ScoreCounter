@@ -65,14 +65,14 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (mAdapter != null && mAdapter.getItemCount() > 0) {
-            getMenuInflater().inflate(R.menu.menu_remove, menu);
+            getMenuInflater().inflate(R.menu.menu_delete, menu);
         }
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_remove) {
+        if (item.getItemId() == R.id.menu_delete) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage(R.string.dialog_confirmation_question)
                     .setPositiveButton(R.string.dialog_yes, (dialog, which) -> {

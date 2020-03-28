@@ -13,10 +13,10 @@
         android:layout_marginStart="@dimen/padding_normal"
         android:layout_marginEnd="@dimen/padding_normal"
         android:layout_marginBottom="@dimen/spacing_normal"
-        app:strokeWidth="1dp"
+        app:cardCornerRadius="2dp"
         app:cardElevation="1dp"
         app:strokeColor="@android:color/black"
-        app:cardCornerRadius="2dp">
+        app:strokeWidth="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0D000000"
+                android:background="@color/overlay"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:orientation="horizontal">
 
@@ -35,7 +35,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="?attr/selectableItemBackground"
+                    android:background="@drawable/ripple"
                     android:ellipsize="end"
                     android:fontFamily="@font/inter_regular"
                     android:gravity="center_vertical"
@@ -49,21 +49,24 @@
                     android:id="@+id/iv_counter_edit"
                     android:layout_width="@dimen/list_single_line_min_height"
                     android:layout_height="@dimen/list_single_line_min_height"
-                    android:foreground="?selectableItemBackground"
-                    android:gravity="end"
+                    android:background="@drawable/ripple"
                     android:contentDescription="@string/common_edit"
+                    android:gravity="end"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
                     android:src="@drawable/ic_more" />
             </LinearLayout>
 
-            <FrameLayout
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/counter_interaction_area"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="?attr/selectableItemBackgroundBorderless">
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp"
+                app:rippleColor="#0D000000">
 
                 <TextView
                     android:id="@+id/tv_counter_value"
@@ -104,9 +107,9 @@
                     android:layout_marginEnd="@dimen/spacing_normal"
                     android:alpha="0.7"
                     android:clickable="false"
-                    android:src="@drawable/ic_add"
-                    android:contentDescription="@string/common_decrease" />
-            </FrameLayout>
+                    android:contentDescription="@string/common_decrease"
+                    android:src="@drawable/ic_add" />
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>

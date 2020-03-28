@@ -8,22 +8,24 @@
         android:title="@string/menu_add_new_counter"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
-    <item
-        android:id="@+id/menu_donate"
-        android:icon="@drawable/ic_love"
-        android:title="@string/action_donate"
-        app:showAsAction="ifRoom" />
+
     <item
         android:id="@+id/menu_log"
+        android:icon="@drawable/ic_history"
         android:title="@string/menu_log"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_reset_all"
         android:title="@string/menu_reset_all_counters"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_remove_all"
-        android:title="@string/menu_remove_all_counters"
+        android:title="@string/menu_delete_all_counters"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_donate"
+        android:icon="@drawable/ic_love"
+        android:title="@string/action_donate"
+        app:showAsAction="ifRoom" />
 
 </menu>

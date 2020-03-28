@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/erd_title"
         android:textColor="?android:attr/textColorPrimary"
-        android:textSize="@dimen/font_display"/>
+        android:textSize="@dimen/font_display" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
             android:id="@+id/btn_no_thanks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?selectableItemBackground"
+            android:background="@drawable/ripple"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
@@ -68,7 +68,7 @@
             android:id="@+id/btn_remind_later"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?selectableItemBackground"
+            android:background="@drawable/ripple"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"

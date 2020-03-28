@@ -12,7 +12,7 @@
     <string name="common_set">setzen</string>
     <string name="counter_details_color_picker_title">Wähle Zähler Farbe</string>
     <string name="counter_details_default_value">Wert nach reset</string>
-    <string name="remove">Zähler</string>
+    <string name="delete">Zähler</string>
     <string name="counter_details_name">Zähler Name</string>
     <string name="counter_details_step">Schritte (-/+)</string>
     <string name="counter_details_value">Aktueller Wert</string>
@@ -30,7 +30,7 @@
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="hint_enter_number">Gebe eine Nummer ein…</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
-    <string name="menu_remove_all_counters">Alle entfernen</string>
+    <string name="menu_delete_all_counters">Alle entfernen</string>
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
     <string name="message_you_can_use_long_press">Sie können den Zählerwert auch ändern, indem Sie lange darauf drücken</string>
     <string name="settings_dark_theme">Dunkles Theme</string>
@@ -40,7 +40,7 @@
     <string name="settings_section_request_a_feature">Feedback, fehlerreport, wünsche</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
-    <string name="settings_section_dice_sides">Anzahl der Seiten auf dem Würfel</string>
+    <string name="settings_section_dice_sides">Anzahl der Seiten</string>
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Sie können den Zählerwert auch ändern, indem Sie lange darauf drücken.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
     <string name="common_got_it">Verstanden</string>
@@ -69,5 +69,8 @@
     <string name="setting_share">Einem Freund empfehlen</string>
     <string name="share_snippet">Hallo! Klickzähler + 🎲 wird Ihnen helfen, die Punktzahl in allen Spielen leicht zu halten oder andere Aktivitäten. Holen Sie sich die kostenlose Android App hier:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Bearbeiten</string>
+    <string name="counter_deleted">Zähler gelöscht</string>
+    <string name="counter_added">Hinzugefügt</string>
+    <string name="snackbar_action_one_more">Noch eins</string>
 
 </resources>

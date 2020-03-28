@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -90,16 +91,23 @@ public class EditCounterActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_remove, menu);
+        getMenuInflater().inflate(R.menu.menu_delete, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.menu_remove) {
-            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
-            viewModel.deleteCounter();
+        if (id == R.id.menu_delete) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.dialog_confirmation_question)
+                    .setPositiveButton(R.string.dialog_yes, (dialog, l1) -> {
+                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
+                        viewModel.deleteCounter();
+                    })
+                    .setNegativeButton(R.string.dialog_no, (dialog, l2) -> dialog.dismiss());
+            builder.create().show();
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -121,6 +129,7 @@ public class EditCounterActivity extends AppCompatActivity {
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
             counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
+            counterNameLayout.requestFocus();
         }
     }
 

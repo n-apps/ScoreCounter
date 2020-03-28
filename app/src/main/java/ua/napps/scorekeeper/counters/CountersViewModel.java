@@ -27,12 +27,14 @@ import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.SnackbarMessage;
 
 class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
+    private SnackbarMessage snackbarMessage = new SnackbarMessage();
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -57,6 +59,7 @@ class CountersViewModel extends AndroidViewModel {
                     .subscribe(new CompletableObserver() {
                         @Override
                         public void onComplete() {
+                            showSnackbarMessage(R.string.counter_added);
                         }
 
                         @Override
@@ -190,7 +193,7 @@ class CountersViewModel extends AndroidViewModel {
         if (fromIndex == toIndex) return;
 
         List<Counter> counterList = counters.getValue();
-        if(counterList == null) return;
+        if (counterList == null) return;
 
         // Counter's position starts from 1, not from 0, so we should make + 1
         int fromPosition = fromIndex + 1;
@@ -316,5 +319,13 @@ class CountersViewModel extends AndroidViewModel {
         } else {
             return colors[size % colors.length];
         }
+    }
+
+    public SnackbarMessage getSnackbarMessage() {
+        return snackbarMessage;
+    }
+
+    private void showSnackbarMessage(int value) {
+        snackbarMessage.setValue(value);
     }
 }
