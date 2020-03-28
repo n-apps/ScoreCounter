@@ -74,7 +74,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
-    implementation 'com.android.billingclient:billing:2.1.0'
+    implementation 'com.android.billingclient:billing:2.2.0'
     implementation 'com.github.naz013:ColorSlider:2.0.6'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
