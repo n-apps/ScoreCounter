@@ -7,7 +7,7 @@
         <item name="colorOnPrimary">#000</item>
         <item name="colorSecondary">#6E008B</item>
         <item name="colorSecondaryVariant">#6E008B</item>
-        <item name="colorOnSecondary">#000000</item>
+        <item name="colorOnSecondary">#ffffff</item>
         <item name="colorError">#FF4F5E</item>
         <item name="colorOnError">#ffffff</item>
         <item name="colorSurface">@color/primaryBackground</item>

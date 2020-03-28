@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Aktionen</string>
     <string name="settings_section_dice">Würfel</string>
     <string name="settings_section_general">Aussehen</string>
-    <string name="settings_section_request_a_feature">Feedback, fehlerreport, wünsche</string>
+    <string name="settings_section_feedback">Feedback, fehlerreport, wünsche</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
     <string name="settings_section_dice_sides">Anzahl der Seiten</string>

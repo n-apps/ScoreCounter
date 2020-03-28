@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Acciones</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
-    <string name="settings_section_request_a_feature">Comentarios, informe de errores, solicitud de funciones</string>
+    <string name="settings_section_feedback">Comentarios, informe de errores, solicitud de funciones</string>
     <string name="settings_shake_to_roll">Agita para tirar</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de lados</string>

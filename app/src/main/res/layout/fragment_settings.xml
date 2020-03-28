@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
-            android:text="@string/settings_section_request_a_feature"
+            android:text="@string/settings_section_feedback"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="@dimen/font_subheading" />
 
@@ -220,6 +220,16 @@
             android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/privacy_policy" />
 
+        <TextView
+            android:id="@+id/tv_about"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
+            android:text="About"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textSize="@dimen/font_subheading" />
         <TextView
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"

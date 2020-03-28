@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Зовнішній вигляд</string>
-    <string name="settings_section_request_a_feature">Отправить отзыв</string>
+    <string name="settings_section_feedback">Отправить отзыв</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
     <string name="settings_section_dice_sides">Кількість граней</string>

@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Apparence</string>
-    <string name="settings_section_request_a_feature">Retour d\'information, rapport d\'erreur, souhaits</string>
+    <string name="settings_section_feedback">Retour d\'information, rapport d\'erreur, souhaits</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés</string>

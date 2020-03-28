@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".AboutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:background="?attr/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            app:title="About" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/padding_large"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/cover"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/about" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:text="Hi!"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textColor="?colorOnPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="ав­то­мат, агент, ад­во­кат, акт, ак­тёр, ак­ция, аль­бом, Аме­ри­ка, ам­фи­бия, ан­гел, Ан­глия, ап­па­рат, аре­на, ат­лас, ат­лет, Аф­ри­ка, ба­боч­ка, ба­гет, ба­за, ба­ланс, банк, бан­ка, ба­ня, бар, ба­рак, ба­рьер, бас­сейн, ба­та­рея, Бах, баш­ня, бел­ки, бе­лый, бе­рё­за, Бер­лин, би­лет, бир­жа, бит­ва, блин, блок, боб, бо­е­вик, бокс, бо­лезнь, боль­ни­ца, бом­ба, бо­ров, бор, борт, бо­ти­нок, боч­ка, брак, брев­но, буб­ны, бу­ма­га, бу­тыл­ка, бы­чок, бюст, ва­гон, вал, ведь­ма, век, ве­ли­кан, ве­нец, ве­ра, вер­то­лёт, верфь, вес, вес­на, ве­тер, ве­чер, взгляд, вид, вил­ка, ви­рус, вис­ки, во­да, во­до­лаз, вождь, воз­дух, вой­на, вол­на, во­ля, вор, во­рот, во­ро­та, врач, вре­мя, вы­печ­ка, вы­со­та, вы­ступ­ле­ние, га­вань, газ, га­зель, га­лоп, гвоздь, ге­ний, герб, Гер­ма­ния, ге­рой, ги­гант, глаз, Гол­ли­вуд, го­ло­ва, го­лос, го­лубь, гольф, го­ра, гор­ло, горн, го­род, Горь­кий, град, гра­нат, гра­нит, гре­бень, Гре­ция, гриф, груп­па, гру­ша, гу­ба, губ­ка, гу­се­ни­ца, да­ма, да­ча, двор, двор­ник, день, де­ре­во, дес­на, ди­но­завр, диск, дождь, до­за, док­тор, долг, до­ля, дра­кон, дра­ма, дробь, друж­ба, дуб, ду­ма, ду­хи, ды­ра, дя­тел, Еги­пет, еди­но­рог, ёж, ёл­ка, ёрш, жас­мин, же­ле­зо, жизнь, жи­ла, жу­равль, жу­чок, за­бор, за­вод, за­го­вор, за­кат, за­лив, за­лог, за­мок, за­но­за, за­пад, за­пах, за­яц, звез­да, зво­нок, звук, зеб­ра, зе­лень, зем­ля, зер­но, зи­ма, змей, знак, зо­ло­то, зо­на, зуб, иг­ла, иг­ра, ик­ра, Ин­дия, ин­сти­тут, ин­стру­мент, ирис, ис­кра, ис­точ­ник, ка­ба­чок, ка­би­нет, ка­ва­лер, кадр, ка­зи­но, ка­мень, ка­ме­ра, ка­нал, кант, ка­пи­тан, ка­ра­бин, ка­ра­ул, кар­лик, кар­та, ка­ток, ка­ша, квад­рат, кен­гу­ру, кен­тавр, кет­чуп, ки­ви, ки­но, кисть, кит, Ки­тай, класс, клет­ка, кли­нок, клуб, клык, ключ, кноп­ка, ко­зёл, код, ко­кет­ка, кол, ко­ло­да, ко­лон­ка, ко­лон­на, коль­цо, ко­ман­да, ко­ме­та, ко­нёк, кон­тра­бан­дист, кон­церт, ко­ра, ко­рабль, ко­рень, ко­ро­ва, ко­ро­ле­ва, ко­роль, ко­ро­на, ко­са, кос­мос, кость, ко­стюм, ко­сяк, кот, ко­те­лок, кош­ка, край, кран, кре­пос"
+                android:textColor="?colorOnPrimary" />
+
+            <Button
+                android:id="@+id/btn_donate"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:text="@string/action_donate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_rate"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:text="@string/erd_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btn_feedback"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:text="@string/settings_section_feedback"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

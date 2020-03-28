@@ -23,6 +23,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+import ua.napps.scorekeeper.AboutActivity;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
@@ -62,6 +63,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_about).setOnClickListener(this);
         contentView.findViewById(R.id.tv_github).setOnClickListener(this);
         contentView.findViewById(R.id.tv_donation).setOnClickListener(this);
         contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
@@ -157,6 +159,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 Intent chooserIntent = Intent.createChooser(shareIntent, getString(R.string.setting_share));
                 chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 requireActivity().startActivity(chooserIntent);
+                break;
+            case R.id.tv_about:
+                AboutActivity.start(requireActivity());
                 break;
         }
     }
