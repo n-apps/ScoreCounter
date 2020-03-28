@@ -1,4 +1,4 @@
-# Score Counter + 🎲
+# Score Counter + 🎲 Android App
 
 Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
 
@@ -21,7 +21,7 @@ If you have something to share (feedback, problems or requests), feel free to wr
 ## Screenshots
 [<img src="https://lh3.googleusercontent.com/tDkEGMIeRW4RuB7kSQ-AfzBJoeLgNbW83T_yCDyxNbe858iXxXrUzXdQqvWadDOHfA=s0" width=250>]()
 [<img src="https://lh3.googleusercontent.com/ub7thddKYikRWs0kHEF2e_8Co5s0UWOoQqmj5sT6yu0AbBQwcGWv51abYOtxBnMWTBsR=s0" width=250>]()
-[<img src="https://lh3.googleusercontent.com/3XG76yeu1667UAJrUPeJ3lXu0qIzCULpB2pUNQA2Y3nnWc_OYMjyiIqxGORKU_IAlgw=s0" width=250>]()
+[<img src="https://lh3.googleusercontent.com/ZQ2VODaugmz-0Nw7cSlxJ-3tkjEJDKVZ-jG0jMbGVgt7OYSRpBHmJTj6UhL2Yj01VzY=s0" width=250>]()
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
