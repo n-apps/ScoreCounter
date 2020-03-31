@@ -61,7 +61,7 @@
     <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
     <string name="donation_pizza_description">С луком, сыром и салями, пожалуйста. Но никаких грибов!</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Донейшн</string>
+    <string name="action_donate">Поддержать</string>
     <string name="error_message">Произошла ошибка.</string>
     <string name="save">Сохранить</string>
     <string name="common_more">Больше</string>
@@ -72,4 +72,6 @@
     <string name="counter_deleted">Счетчик удален</string>
     <string name="counter_added">Счетчик добавлено</string>
     <string name="snackbar_action_one_more">Еще один</string>
+    <string name="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="about_title">Привет!!</string>
 </resources>

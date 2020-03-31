@@ -72,5 +72,7 @@
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch eins</string>
+    <string name="about_text">То есть кто-то прошёл экстра милю: — согласовал идею — договорился о технологии — и вовлёк команду в эти экстра косты на производство (с одной стороны) С другой → удивил меня и порадовал. Это настоящий микро-момент, где ты испытываешь своё микро-WOW: коробка рассказывает тебе свою историю в категориях пользы для тебя. Дружественный, но не инфантильный tone-of-voice. Пожелание хорошего дня.</string>
+    <string name="about_title">Привет!!</string>
 
 </resources>

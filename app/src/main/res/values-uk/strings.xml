@@ -61,7 +61,7 @@
     <string name="donation_coffee_description">Що саме не дає розробникові заснути вночі? Ваша кава</string>
     <string name="donation_pizza_description">З цибулею, сиром і салямі, будь ласка. І ніяких грибів!</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Донейшн</string>
+    <string name="action_donate">Підтримати</string>
     <string name="error_message">Виникла помилка.</string>
     <string name="save">Зберегти</string>
     <string name="common_more">Більше</string>
@@ -72,4 +72,6 @@
     <string name="counter_deleted">Лічильник видалено</string>
     <string name="counter_added">Лічильник додано</string>
     <string name="snackbar_action_one_more">Ще один</string>
+    <string name="about_text">То есть кто-то прошёл экстра милю: — согласовал идею — договорился о технологии — и вовлёк команду в эти экстра косты на производство (с одной стороны) С другой → удивил меня и порадовал. Это настоящий микро-момент, где ты испытываешь своё микро-WOW: коробка рассказывает тебе свою историю в категориях пользы для тебя. Дружественный, но не инфантильный tone-of-voice. Пожелание хорошего дня.</string>
+    <string name="about_title">Привет!!</string>
 </resources>
