@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -75,7 +76,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CounterFullViewHolder holder = (CounterFullViewHolder) viewHolder;
             holder.counter = counter;
             holder.counterName.setText(counter.getName());
-            holder.counterValue.setText(String.valueOf(counter.getValue()));
+            holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
             int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
@@ -92,7 +93,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CounterCompactViewHolder holder = (CounterCompactViewHolder) viewHolder;
             holder.counter = counter;
             holder.counterName.setText(counter.getName());
-            holder.counterValue.setText(String.valueOf(counter.getValue()));
+            holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
             int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
