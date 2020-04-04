@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dés</string>
     <string name="settings_section_general">Apparence</string>
-    <string name="settings_section_feedback">Retour d\'information, rapport d\'erreur, souhaits</string>
+    <string name="settings_feedback">Retour d\'information, rapport d\'erreur, souhaits</string>
     <string name="settings_shake_to_roll">Secouer pour rouler</string>
     <string name="settings_stay_awake">Gardez l\'écran allumé</string>
     <string name="settings_section_dice_sides">Nombre de côtés</string>
@@ -54,7 +54,7 @@
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
     <string name="privacy_policy">Politique de confidentialité</string>
-    <string name="donation_thank_you">Je vous remercie 💙</string>
+    <string name="donation_thank_you">Je vous remercie 💜</string>
     <string name="donation_coffee_title">Un café apaisant</string>
     <string name="donation_pizza_title">Une savoureuse pizza</string>
     <string name="donation_coffee_description">Qu’est-ce qui empêche le développeur de dormir la nuit ? Le café que vous lui</string>

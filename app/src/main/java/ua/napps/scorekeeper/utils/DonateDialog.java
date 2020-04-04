@@ -25,7 +25,7 @@ public class DonateDialog extends DialogFragment {
             Toast.makeText(requireContext(), messageResId, Toast.LENGTH_SHORT).show();
         } else if (intent instanceof CloseScreenIntent) {
             int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
-            Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
             dismiss();
         }
     };

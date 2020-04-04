@@ -12,8 +12,8 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:background="@null"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -40,11 +40,12 @@
             <ImageView
                 android:id="@+id/cover"
                 android:layout_width="match_parent"
-                android:layout_height="256dp"
+                android:layout_height="228dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/about"
-                tools:visibility="gone" />
+                tools:tintMode="screen"
+                tools:tint="?attr/colorPrimary"
+                android:src="@drawable/about" />
 
             <TextView
                 android:id="@+id/content"

@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
-            android:text="@string/settings_section_feedback"
+            android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
         <include layout="@layout/divider" />

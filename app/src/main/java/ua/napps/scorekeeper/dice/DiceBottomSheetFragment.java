@@ -28,7 +28,6 @@ import ua.napps.scorekeeper.utils.Utilities;
 public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
 
     private DialogInterface.OnDismissListener onDismissListener;
-    private MaterialButtonToggleGroup diceSidesGroup;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
         soundRoll.setOnCheckedChangeListener((b, isChecked) -> LocalSettings.saveSoundRoll(isChecked));
         soundRoll.setChecked(LocalSettings.isSoundRollEnabled());
 
-        diceSidesGroup = contentView.findViewById(R.id.dice_sides_group);
+        MaterialButtonToggleGroup diceSidesGroup = contentView.findViewById(R.id.dice_sides_group);
         int diceMaxSide = LocalSettings.getDiceMaxSide();
         switch (diceMaxSide) {
             case 6:
@@ -58,62 +57,59 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                 diceSidesGroup.check(R.id.btn_4);
                 break;
         }
-        diceSidesGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
-            @Override
-            public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
-                if (isChecked) {
-                    switch (checkedId) {
-                        case R.id.btn_1:
-                            validateAndStore(6);
-                            break;
-                        case R.id.btn_2:
-                            validateAndStore(8);
-                            break;
-                        case R.id.btn_3:
-                            validateAndStore(20);
-                            break;
-                        case R.id.btn_4:
-                            final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                    .content(R.string.dialog_custom_dice_title)
-                                    .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
-                                    .positiveText(R.string.common_set)
-                                    .alwaysCallInputCallback()
-                                    .input(getString(R.string.dialog_custom_dice_hint), null, false,
-                                            (dialog, input) -> {
-                                                int parseInt = Utilities.parseInt(input.toString());
-                                                if (parseInt <= 100 && parseInt > 1) {
-                                                    dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
-                                                } else {
-                                                    dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
-                                                }
-                                            })
-                                    .onPositive((dialog, which) -> {
-                                        EditText editText = dialog.getInputEditText();
-                                        if (editText != null) {
-                                            Integer side = Utilities.parseInt(editText.getText().toString());
-                                            if (side > 0) {
-                                                validateAndStore(side);
+        diceSidesGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+            if (isChecked) {
+                switch (checkedId) {
+                    case R.id.btn_1:
+                        validateAndStore(6);
+                        break;
+                    case R.id.btn_2:
+                        validateAndStore(8);
+                        break;
+                    case R.id.btn_3:
+                        validateAndStore(20);
+                        break;
+                    case R.id.btn_4:
+                        final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
+                                .content(R.string.dialog_custom_dice_title)
+                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                                .positiveText(R.string.common_set)
+                                .alwaysCallInputCallback()
+                                .input(getString(R.string.dialog_custom_dice_hint), null, false,
+                                        (dialog, input) -> {
+                                            int parseInt = Utilities.parseInt(input.toString());
+                                            if (parseInt <= 100 && parseInt > 1) {
+                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
+                                            } else {
+                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
                                             }
-                                            dialog.dismiss();
+                                        })
+                                .onPositive((dialog, which) -> {
+                                    EditText editText = dialog.getInputEditText();
+                                    if (editText != null) {
+                                        Integer side = Utilities.parseInt(editText.getText().toString());
+                                        if (side > 0) {
+                                            validateAndStore(side);
                                         }
-                                    })
-                                    .build();
-                            EditText editText = md.getInputEditText();
-                            if (editText != null) {
-                                editText.setOnEditorActionListener((textView, actionId, event) -> {
-                                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                                        positiveButton.callOnClick();
+                                        dialog.dismiss();
                                     }
-                                    return false;
-                                });
-                            }
-                            md.show();
-                            break;
-                    }
-                } else if (-1 == group.getCheckedButtonId()) {
-                    group.check(R.id.btn_4);
+                                })
+                                .build();
+                        EditText editText = md.getInputEditText();
+                        if (editText != null) {
+                            editText.setOnEditorActionListener((textView, actionId, event) -> {
+                                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                                    positiveButton.callOnClick();
+                                }
+                                return false;
+                            });
+                        }
+                        md.show();
+                        break;
                 }
+            } else if (-1 == group.getCheckedButtonId()) {
+                group.check(R.id.btn_4);
             }
         });
         return contentView;

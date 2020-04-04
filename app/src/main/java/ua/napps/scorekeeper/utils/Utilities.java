@@ -90,11 +90,10 @@ public class Utilities {
     }
 
     public static void startEmail(Context context) {
-        final String title = context.getString(R.string.app_name);
+        String mailTo = "mailto:scorekeeper.feedback@gmail.com" +
+                "?&subject=" + context.getString(R.string.app_name);
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
-        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mailTo));
         if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
             context.startActivity(intent);
         } else {
