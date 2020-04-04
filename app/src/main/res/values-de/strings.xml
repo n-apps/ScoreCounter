@@ -54,7 +54,6 @@
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
-    <string name="settings_github">Beitragen (Github)</string>
     <string name="donation_thank_you">Vielen Dank 💙</string>
     <string name="donation_coffee_title">Ein beruhigender Kaffee</string>
     <string name="donation_pizza_title">Eine leckere Pizza</string>
@@ -76,6 +75,4 @@
     <string name="about_donation">Spenden Sie →</string>
     <string name="about_rate">Unterstützung bei Google Play →</string>
     <string name="about_feedback">Kontaktiere mich →</string>
-    <string name="about">Die Info</string>
-
 </resources>

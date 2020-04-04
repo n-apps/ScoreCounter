@@ -17,6 +17,8 @@
         <item name="android:windowBackground">@color/primaryBackground</item>
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="android:statusBarColor">@color/primaryBackground</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/fade</item>
 
         <item name="myIconTint">#959595</item>
         <item name="plus_picture">@drawable/empty_state_counters_dark</item>

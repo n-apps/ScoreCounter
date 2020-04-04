@@ -54,7 +54,6 @@
     <string name="dialog_yes">Да</string>
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
-    <string name="settings_github">Хочу запилить фичу! (Github)</string>
     <string name="donation_thank_you">Спасибо 💙</string>
     <string name="donation_coffee_title">Успокаивающий кофе</string>
     <string name="donation_pizza_title">Одна вкусная пицца</string>
@@ -77,5 +76,4 @@
     <string name="about_donation">Сделать донейшн →</string>
     <string name="about_rate">Поддержать в сторе →</string>
     <string name="about_feedback">Написать мне →</string>
-    <string name="about">About</string>
 </resources>

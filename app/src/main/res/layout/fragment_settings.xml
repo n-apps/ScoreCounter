@@ -201,7 +201,7 @@
             android:gravity="start"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_normal"
-            android:text="@string/about" />
+            android:text="@string/app_name" />
 
         <TextView
             android:id="@+id/tv_about"
@@ -210,7 +210,7 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
-            android:text="@string/about"
+            android:text="@string/app_name"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
         <include layout="@layout/divider" />

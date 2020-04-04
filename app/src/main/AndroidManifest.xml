@@ -21,7 +21,6 @@
         android:theme="@style/ScoreCounter"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
         tools:replace="android:supportsRtl">
-        <activity android:name=".AboutActivity" />
 
         <activity
             android:name=".app.MainActivity"
@@ -41,11 +40,13 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".log.LogActivity" />
+
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="${crashlyticsEnabled}" />
 
-        <activity android:name=".log.LogActivity" />
     </application>
 
 </manifest>

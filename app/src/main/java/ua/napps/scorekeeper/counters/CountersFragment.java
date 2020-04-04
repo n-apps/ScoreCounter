@@ -175,8 +175,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 showDialogWithAction(dialogListenerReset);
                 break;
             case R.id.menu_log:
-                Intent intent = new Intent(getActivity(), LogActivity.class);
-                startActivity(intent);
+                LogActivity.start(requireActivity());
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuHistoryClick");
                 break;
         }

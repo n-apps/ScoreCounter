@@ -15,6 +15,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:minHeight="@dimen/list_two_lines_min_height"
         android:orientation="horizontal">
 
@@ -25,7 +26,6 @@
             android:layout_weight="1"
             android:background="@drawable/ripple"
             android:ellipsize="end"
-            android:fontFamily="sans-serif-condensed"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:paddingStart="@dimen/padding_normal"

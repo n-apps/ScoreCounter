@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.log;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +26,12 @@ public class LogActivity extends AppCompatActivity {
 
     private LogAdapter mAdapter;
     private Group emptyState;
+
+    public static void start(Activity activity) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
+        Intent intent = new Intent(activity, LogActivity.class);
+        activity.startActivity(intent, options.toBundle());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -54,7 +54,6 @@
     <string name="dialog_yes">Так</string>
     <string name="dialog_no">Ні</string>
     <string name="privacy_policy">Політика конфіденційності</string>
-    <string name="settings_github">Допомогти проекту (Github)</string>
     <string name="donation_thank_you">Дякую 💙</string>
     <string name="donation_coffee_title">Філіжанка кави</string>
     <string name="donation_pizza_title">Одна смачна піца</string>
@@ -77,5 +76,4 @@
     <string name="about_donation">Зробити донейшн →</string>
     <string name="about_rate">Підтримати в Google Play →</string>
     <string name="about_feedback">Написати мені →</string>
-    <string name="about">Iнфо</string>
 </resources>

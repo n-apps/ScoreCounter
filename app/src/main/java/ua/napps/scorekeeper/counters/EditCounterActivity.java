@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -44,10 +45,11 @@ public class EditCounterActivity extends AppCompatActivity {
     private ColorSlider colorSlider;
 
     public static void start(Activity activity, Counter counter) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
         Intent intent = new Intent(activity, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, counter.getId());
         intent.putExtra(ARGUMENT_COUNTER_COLOR, counter.getColor());
-        activity.startActivity(intent);
+        activity.startActivity(intent, options.toBundle());
     }
 
     @Override
@@ -194,4 +196,9 @@ public class EditCounterActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 }

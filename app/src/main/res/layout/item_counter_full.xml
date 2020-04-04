@@ -13,8 +13,8 @@
         android:layout_marginStart="@dimen/padding_normal"
         android:layout_marginEnd="@dimen/padding_normal"
         android:layout_marginBottom="@dimen/spacing_normal"
-        app:cardCornerRadius="2dp"
-        app:cardElevation="1dp"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="0dp"
         app:strokeColor="@android:color/black"
         app:strokeWidth="1dp">
 

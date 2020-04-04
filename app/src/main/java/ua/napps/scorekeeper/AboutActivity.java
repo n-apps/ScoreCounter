@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.ColorUtil;
@@ -20,8 +21,9 @@ import ua.napps.scorekeeper.utils.Utilities;
 public class AboutActivity extends AppCompatActivity {
 
     public static void start(Activity activity) {
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
         Intent intent = new Intent(activity, AboutActivity.class);
-        activity.startActivity(intent);
+        activity.startActivity(intent, options.toBundle());
     }
 
     @Override

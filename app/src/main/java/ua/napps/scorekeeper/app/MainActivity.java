@@ -14,7 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.ashokvarma.bottomnavigation.TextBadgeItem;
-import com.google.android.material.transition.MaterialFadeThrough;
+import com.google.android.material.transition.MaterialFade;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        MaterialFadeThrough fadeThrough = MaterialFadeThrough.create(this);
+        MaterialFade fadeThrough = MaterialFade.create(this);
         currentFragment.setEnterTransition(fadeThrough);
         manager.beginTransaction()
                 .replace(R.id.container, currentFragment, tag)

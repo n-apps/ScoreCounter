@@ -18,6 +18,8 @@
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/fade</item>
 
         <item name="myIconTint">#000000</item>
         <item name="plus_picture">@drawable/empty_state_counters_light</item>
@@ -96,14 +98,6 @@
 
     <style name="InterTextViewStyle" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/inter_regular</item>
-    </style>
-
-    <style name="MyBottomSheetStyle" parent="Theme.MaterialComponents.BottomSheetDialog">
-        <item name="android:windowIsFloating">false</item> <!-- This is important -->
-        <item name="android:statusBarColor">@android:color/transparent
-        </item> <!-- And then this will be needed -->
-        <item name="android:navigationBarColor">@color/primaryBackground</item>
-        <item name="android:colorBackground">@color/primaryBackground</item>
     </style>
 
     <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">
