@@ -22,10 +22,4 @@
         android:id="@+id/menu_remove_all"
         android:title="@string/menu_delete_all_counters"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_donate"
-        android:icon="@drawable/ic_love"
-        android:title="@string/action_donate"
-        app:showAsAction="ifRoom" />
-
 </menu>

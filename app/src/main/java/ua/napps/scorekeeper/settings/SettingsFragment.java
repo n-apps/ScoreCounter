@@ -12,7 +12,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +24,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.napps.scorekeeper.AboutActivity;
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -64,7 +62,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_github).setOnClickListener(this);
         contentView.findViewById(R.id.tv_donation).setOnClickListener(this);
         contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
@@ -109,7 +106,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         switch (v.getId()) {
             case R.id.tv_request_feature:
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenFeedbackClick");
-                startEmailClient();
+                Utilities.startEmail(requireContext());
                 break;
             case R.id.tv_rate_app:
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenRateAppClick");
@@ -119,12 +116,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenDonateClick");
                 DonateDialog dialog = new DonateDialog();
                 dialog.show(getParentFragmentManager(), "donate");
-                break;
-            case R.id.tv_github:
-                AndroidFirebaseAnalytics.logEvent("SettingsScreenContributeClick");
-                Intent githubIntent =
-                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/n-apps/ScoreCounter/issues"));
-                startActivity(githubIntent);
                 break;
             case R.id.tv_privacy_policy:
                 AndroidFirebaseAnalytics.logEvent("SettingsScreenPrivacyClick");
@@ -228,16 +219,5 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
-    private void startEmailClient() {
-        final String title = getString(R.string.app_name);
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
-        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT, title);
-        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(getContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-        }
-    }
 }

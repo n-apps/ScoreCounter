@@ -5,11 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import timber.log.Timber;
+import ua.napps.scorekeeper.R;
+import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class Utilities {
@@ -31,15 +34,6 @@ public class Utilities {
             Timber.e(e);
         }
         return val;
-    }
-
-    /**
-     * Checks if the device has Lolllipop or higher version.
-     *
-     * @return <code>true</code> if device is a tablet.
-     */
-    public static boolean hasLollipop() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
     /**
@@ -92,6 +86,19 @@ public class Utilities {
             Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
+        }
+    }
+
+    public static void startEmail(Context context) {
+        final String title = context.getString(R.string.app_name);
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "scorekeeper.feedback@gmail.com", null));
+        intent.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
+            context.startActivity(intent);
+        } else {
+            Toast.makeText(context, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
         }
     }
 

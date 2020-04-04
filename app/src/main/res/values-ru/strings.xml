@@ -37,7 +37,7 @@
     <string name="settings_section_actions">Действия</string>
     <string name="settings_section_dice">Кубик</string>
     <string name="settings_section_general">Внешний вид</string>
-    <string name="settings_section_feedback">Отправить отзыв</string>
+    <string name="settings_section_feedback">Обратная связь</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать экран</string>
     <string name="settings_section_dice_sides">Количество граней</string>
@@ -47,7 +47,7 @@
     <string name="menu_log">История</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="common_counter">Счетчик</string>
-    <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему 🤓</string>
+    <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему&#160;🤓</string>
     <string name="dialog_custom_counter_hint">От 2 до 999</string>
     <string name="dialog_custom_counter_title">Вариант быстрой смены значения</string>
     <string name="dialog_confirmation_question">Рили хочешь?</string>
@@ -72,6 +72,10 @@
     <string name="counter_deleted">Счетчик удален</string>
     <string name="counter_added">Счетчик добавлено</string>
     <string name="snackbar_action_one_more">Еще один</string>
-    <string name="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <string name="about_title">Привет!!</string>
+    <string name="about_text">Привет! Меня зовут Рома. Я дизайнер и разработчик из Украины. Еще я задрот по&#160;настолкам. Работал в <a href="https://eventssion.com/">Eventssion</a>. В данный момент безработный.\n\u3030\nИдея сделать простое приложение для подсчета победных очков возникла во время игры в Звездные&#160;Империи (там прям ужасные жетоны). С тех пор развиваю его в свободное время. Радуюсь каждому отзову, письму или донату.\n\u3030\nЕсли вам есть чем поделиться или вы нашли неточности в переводе&#160;– не стесняйтесь, крутые идеи есть у каждого. Или просто расскажите, что такого считаете&#160;:) Нравится приложение? Поставьте оценку в сторе или сделайте донейшн&#160;– это помогает его улучшать. Спасибо!
+    \n\u3030\nГерои <a href="https://github.com/n-apps/ScoreCounter">Гитхаба</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+    <string name="about_donation">Сделать донейшн →</string>
+    <string name="about_rate">Поддержать в сторе →</string>
+    <string name="about_feedback">Написать мне →</string>
+    <string name="about">About</string>
 </resources>

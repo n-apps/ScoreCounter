@@ -49,7 +49,7 @@
     <string name="common_counter">Counter</string>
     <string name="dialog_custom_counter_title">Quick change option</string>
     <string name="dialog_custom_counter_hint">From 2 to 999</string>
-    <string name="settings_section_counter_buttons">Options for quickly changing the value \nYou can quickly change the counter value by long pressing on it 🤓</string>
+    <string name="settings_section_counter_buttons">Options for quickly changing the value \nYou can quickly change the counter value by long pressing on it&#160;🤓</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
@@ -72,6 +72,10 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <string name="about_title">Привет!!</string>
+    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. Also I\'m a huge board game fan. I worked at <a href="https://eventssion.com/">Eventssion</a>. At the moment I\'m unemployed. \n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:) Do you like this app? Rate it or make a donation – it helps to improve it. Thank you!
+    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+    <string name="about_donation">Make donation →</string>
+    <string name="about_rate">Support at Google Play →</string>
+    <string name="about_feedback">Contact me →</string>
+    <string name="about">Info</string>
 </resources>

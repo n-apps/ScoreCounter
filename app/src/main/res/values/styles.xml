@@ -55,12 +55,12 @@
 
     <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
         <item name="android:paddingEnd">@dimen/padding_normal</item>
-        <item name="android:textSize">@dimen/font_subheading</item>
         <item name="android:foreground">@drawable/ripple</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/font_title</item>
         <item name="android:fontFamily">@font/inter_regular</item>
         <item name="android:colorControlActivated">?android:colorPrimary</item>
     </style>
+
 
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>

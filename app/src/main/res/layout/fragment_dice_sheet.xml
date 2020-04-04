@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -8,7 +9,6 @@
 
     <TextView
         android:id="@+id/tv_dice_sides"
-        style="@style/InterTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -18,7 +18,7 @@
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
         android:text="@string/settings_section_dice_sides"
-        android:textSize="@dimen/font_subheading" />
+        android:textAppearance="?attr/textAppearanceSubtitle1" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/dice_sides_group"
@@ -35,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="6"
-            android:textSize="@dimen/font_display" />
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_2"
@@ -44,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="8"
-            android:textSize="@dimen/font_display" />
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_3"
@@ -53,7 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="20"
-            android:textSize="@dimen/font_display" />
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_4"
@@ -62,29 +65,23 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="X"
-            android:textSize="@dimen/font_display" />
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:background="@color/section_bg" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_shake_roll"
         style="@style/SwitchStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:minHeight="56dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
         android:paddingBottom="@dimen/padding_normal"
-        android:text="@string/settings_shake_to_roll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/divider2" />
+        android:text="@string/settings_shake_to_roll" />
+
+    <include layout="@layout/divider" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_sound_roll"
@@ -95,9 +92,6 @@
         android:paddingStart="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
         android:paddingBottom="@dimen/padding_normal"
-        android:text="@string/settings_sound"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sw_shake_roll" />
+        android:text="@string/settings_sound" />
 
 </LinearLayout>

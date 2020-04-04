@@ -23,6 +23,8 @@
         <item name="dice_picture">@drawable/empty_state_dice_dark</item>
         <item name="history_picture">@drawable/empty_state_history_dark</item>
         <item name="colors_scheme">@array/dark</item>
+        <item name="materialButtonStyle">@style/MyButton</item>
+        <item name="android:textViewStyle">@style/InterTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="materialButtonOutlinedStyle">@style/MaterialButtonOutlinedStyle</item>
     </style>

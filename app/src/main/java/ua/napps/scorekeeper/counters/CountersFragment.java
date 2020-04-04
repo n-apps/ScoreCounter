@@ -51,7 +51,6 @@ import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
-import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -179,12 +178,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 Intent intent = new Intent(getActivity(), LogActivity.class);
                 startActivity(intent);
                 AndroidFirebaseAnalytics.logEvent("CountersScreenMenuHistoryClick");
-                break;
-            case R.id.menu_donate:
-                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuDonateClick");
-
-                DonateDialog dialog = new DonateDialog();
-                dialog.show(getParentFragmentManager(), "donate");
                 break;
         }
         return true;

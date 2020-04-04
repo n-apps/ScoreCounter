@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:bnbElevation="1dp"
+        app:bnbElevation="0dp"
         tools:background="@color/section_bg" />
 
 </LinearLayout>

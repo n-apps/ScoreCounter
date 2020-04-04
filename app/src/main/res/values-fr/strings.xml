@@ -49,7 +49,7 @@
     <string name="common_counter">Сompteur</string>
     <string name="dialog_custom_counter_title">Option de changement rapide</string>
     <string name="dialog_custom_counter_hint">De 2 à 999</string>
-    <string name="settings_section_counter_buttons">Options pour changer rapidement la valeur \nVous pouvez changer rapidement la valeur du compteur en appuyant longuement dessus 🤓</string>
+    <string name="settings_section_counter_buttons">Options pour changer rapidement la valeur \nVous pouvez changer rapidement la valeur du compteur en appuyant longuement dessus&#160;🤓</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
@@ -72,7 +72,11 @@
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
-    <string name="about_text">То есть кто-то прошёл экстра милю: — согласовал идею — договорился о технологии — и вовлёк команду в эти экстра косты на производство (с одной стороны) С другой → удивил меня и порадовал. Это настоящий микро-момент, где ты испытываешь своё микро-WOW: коробка рассказывает тебе свою историю в категориях пользы для тебя. Дружественный, но не инфантильный tone-of-voice. Пожелание хорошего дня.</string>
-    <string name="about_title">Привет!!</string>
+    <string name="about_text">Salut! Je m\'appelle Roma. Je suis un concepteur et développeur ukrainien. Je suis aussi un grand fan de jeux de société. J\'ai travaillé chez <a href="https://eventssion.com/">Eventssion</a>. En ce moment, je suis au chômage.\n\u3030\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\u3030\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)
+        Aimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. Je vous remercie!\n\u3030\nHéros <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+    <string name="about_donation">Faire un don →</string>
+    <string name="about_rate">Évaluer l\'application sur Google Play →</string>
+    <string name="about_feedback">Contactez moi →</string>
+    <string name="about">Info</string>
 
 </resources>

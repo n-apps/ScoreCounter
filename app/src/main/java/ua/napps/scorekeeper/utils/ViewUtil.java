@@ -18,9 +18,7 @@ public class ViewUtil {
                 activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
             }
         } else {
-            if (Utilities.hasLollipop()) {
-                activity.getWindow().setStatusBarColor(Color.BLACK);
-            }
+            activity.getWindow().setStatusBarColor(Color.BLACK);
         }
     }
 

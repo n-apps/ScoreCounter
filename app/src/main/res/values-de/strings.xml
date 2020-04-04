@@ -49,7 +49,7 @@
     <string name="common_counter">Zähler</string>
     <string name="dialog_custom_counter_title">Schnellwechseloption</string>
     <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
-    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes \nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken 🤓</string>
+    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes \nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken&#160;🤓</string>
     <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
@@ -72,7 +72,10 @@
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch eins</string>
-    <string name="about_text">То есть кто-то прошёл экстра милю: — согласовал идею — договорился о технологии — и вовлёк команду в эти экстра косты на производство (с одной стороны) С другой → удивил меня и порадовал. Это настоящий микро-момент, где ты испытываешь своё микро-WOW: коробка рассказывает тебе свою историю в категориях пользы для тебя. Дружественный, но не инфантильный tone-of-voice. Пожелание хорошего дня.</string>
-    <string name="about_title">Привет!!</string>
+    <string name="about_text">Hallo! Ich heiße Roma. Ich bin ein Designer und Entwickler aus der Ukraine. Außerdem bin ich ein großer Fan von Brettspielen. Ich habe bei <a href="https://eventssion.com/">Eventssion</a> gearbeitet. Im Moment bin ich arbeitslos.\n\u3030\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\n\u3030\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:) Gefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>-Helden: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+    <string name="about_donation">Spenden Sie →</string>
+    <string name="about_rate">Unterstützung bei Google Play →</string>
+    <string name="about_feedback">Kontaktiere mich →</string>
+    <string name="about">Die Info</string>
 
 </resources>

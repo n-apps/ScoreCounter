@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        app:elevation="1dp"
+        app:liftOnScroll="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,6 +27,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_log_main"
         android:layout_width="0dp"
+        android:clipToPadding="false"
         android:layout_height="0dp"
         android:overScrollMode="ifContentScrolls"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
