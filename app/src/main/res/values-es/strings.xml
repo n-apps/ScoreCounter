@@ -55,10 +55,10 @@
     <string name="dialog_yes">Sí</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="donation_thank_you">Gracias 💜</string>
-    <string name="donation_coffee_title">Un café calmante</string>
-    <string name="donation_pizza_title">Una pizza sabrosa</string>
-    <string name="donation_coffee_description">¿Qué mantiene al desarrollador despierto por la noches? Tu café</string>
-    <string name="donation_pizza_description">Con cebolla, queso y salami por favor. ¡Y sin hongos!</string>
+    <string name="donation_coffee_title">Taza de café</string>
+    <string name="donation_coffee_description">Me mantendrá despierta por la noche</string>
+    <string name="donation_pizza_title">Pizza sabrosa</string>
+    <string name="donation_pizza_description">Con cebolla, queso doble y salami, por favor. ¡Y sin hongos!</string>
     <string name="settings_sound">Sonar</string>
     <string name="action_donate">Donar</string>
     <string name="error_message">Ocurrió un error.</string>

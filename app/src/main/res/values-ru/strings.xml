@@ -55,10 +55,10 @@
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="donation_thank_you">Спасибо 💜</string>
-    <string name="donation_coffee_title">Успокаивающий кофе</string>
-    <string name="donation_pizza_title">Одна вкусная пицца</string>
-    <string name="donation_coffee_description">Что заставляет разработчика бодрствовать ночью? Ваш кофе</string>
-    <string name="donation_pizza_description">С луком, сыром и салями, пожалуйста. Но никаких грибов!</string>
+    <string name="donation_coffee_title">Чашечку кофе</string>
+    <string name="donation_coffee_description">Поможет мне взбодриться вечером</string>
+    <string name="donation_pizza_title">Вкусную пиццу</string>
+    <string name="donation_pizza_description">С луком, двойным сыром и салями, пожалуйста. И никаких грибов!</string>
     <string name="settings_sound">Звук</string>
     <string name="action_donate">Поддержать</string>
     <string name="error_message">Произошла ошибка.</string>
