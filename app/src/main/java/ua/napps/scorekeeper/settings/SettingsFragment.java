@@ -20,11 +20,9 @@ import androidx.fragment.app.Fragment;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import ua.napps.scorekeeper.AboutActivity;
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
 
@@ -84,12 +82,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Settings", getClass().getSimpleName());
-    }
-
-    @Override
     public void onCheckedChanged(CompoundButton v, boolean isChecked) {
         switch (v.getId()) {
             case R.id.sw_keep_screen_on:
@@ -105,20 +97,16 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
-                AndroidFirebaseAnalytics.logEvent("SettingsScreenFeedbackClick");
                 Utilities.startEmail(requireContext());
                 break;
             case R.id.tv_rate_app:
-                AndroidFirebaseAnalytics.logEvent("SettingsScreenRateAppClick");
                 Utilities.rateApp(requireActivity());
                 break;
             case R.id.tv_donation:
-                AndroidFirebaseAnalytics.logEvent("SettingsScreenDonateClick");
                 DonateDialog dialog = new DonateDialog();
                 dialog.show(getParentFragmentManager(), "donate");
                 break;
             case R.id.tv_privacy_policy:
-                AndroidFirebaseAnalytics.logEvent("SettingsScreenPrivacyClick");
                 Intent viewIntent =
                         new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
                 startActivity(viewIntent);
@@ -181,9 +169,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                             setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();
-                        Bundle params = new Bundle();
-                        params.putString(FirebaseAnalytics.Param.CHARACTER, value);
-                        AndroidFirebaseAnalytics.logEvent("SettingsScreenCounterDialogValueSubmit", params);
                     }
                 })
                 .build();

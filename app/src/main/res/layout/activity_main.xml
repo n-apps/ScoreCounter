@@ -13,12 +13,13 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <com.ashokvarma.bottomnavigation.BottomNavigationBar
-        android:id="@+id/bottom_navigation_bar"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:bnbElevation="0dp"
-        tools:background="@color/section_bg" />
+        android:layout_height="56dp"
+        app:elevation="1dp"
+        app:itemBackground="@color/primaryBackground"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_navigation_menu" />
 
 </LinearLayout>

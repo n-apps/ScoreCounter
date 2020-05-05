@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -94,12 +93,6 @@ public class LogActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(this, "History", getClass().getSimpleName());
     }
 
     @Override

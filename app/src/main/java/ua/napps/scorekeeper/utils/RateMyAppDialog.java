@@ -70,7 +70,6 @@ public class RateMyAppDialog {
             dialog = null;
             dialog = createDialog(context);
             dialog.show();
-            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenAppear");
         } catch (Exception e) {
             //It prevents many Android exceptions
             //when user interactions conflicts with UI thread or Activity expired window token
@@ -112,17 +111,14 @@ public class RateMyAppDialog {
 
         contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
             Utilities.rateApp(context);
-            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenRateClick");
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
             remindMeLater();
-            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenRemindLaterClick");
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_no_thanks).setOnClickListener(v -> {
             LocalSettings.neverReminder();
-            AndroidFirebaseAnalytics.logEvent("RateMyAppScreenNoThanksClick");
             dialog.dismiss();
         });
 

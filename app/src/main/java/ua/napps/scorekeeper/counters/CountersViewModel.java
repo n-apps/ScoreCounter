@@ -1,16 +1,12 @@
 package ua.napps.scorekeeper.counters;
 
 import android.app.Application;
-import android.os.Bundle;
 import android.util.SparseIntArray;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.analytics.FirebaseAnalytics.Param;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,7 +21,6 @@ import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SnackbarMessage;
 
@@ -80,11 +75,6 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
-        if (amount != -counter.getStep()) {
-            Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterDecreased", params);
-        }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -107,11 +97,6 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
-        if (amount != counter.getStep()) {
-            Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, "" + amount);
-            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterIncreased", params);
-        }
         repository.modifyCount(counter.getId(), amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -133,11 +118,6 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void modifyName(Counter counter, @NonNull String name) {
-        if (!name.equals(counter.getName())) {
-            Bundle params = new Bundle();
-            params.putString(Param.CHARACTER, name);
-            AndroidFirebaseAnalytics.logEvent("CountersScreenCounterNewNameSubmit", params);
-        }
         repository.modifyName(counter.getId(), name)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -162,9 +142,6 @@ class CountersViewModel extends AndroidViewModel {
         if (newValue == counter.getValue()) {
             return;
         }
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + newValue);
-        AndroidFirebaseAnalytics.logEvent("CountersScreenNewValueSubmit", params);
 
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, newValue, counter.getValue()));
 
@@ -198,8 +175,6 @@ class CountersViewModel extends AndroidViewModel {
         // Counter's position starts from 1, not from 0, so we should make + 1
         int fromPosition = fromIndex + 1;
         int toPosition = toIndex + 1;
-
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterDragNDropped");
 
         int movedCounterId = counter.getId();
         final SparseIntArray positionMap = buildPositionUpdate(counterList, movedCounterId, fromPosition, toPosition);
@@ -285,8 +260,6 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void resetCounter(Counter counter) {
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterReset");
-
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RST, counter.getDefaultValue(), counter.getValue()));
 
         repository.setCount(counter.getId(), counter.getDefaultValue())

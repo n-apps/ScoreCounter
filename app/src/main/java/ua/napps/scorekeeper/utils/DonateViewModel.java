@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
 import android.app.Application;
-import android.os.Bundle;
 
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
@@ -20,7 +19,6 @@ import com.android.billingclient.api.Purchase.PurchasesResult;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,10 +95,6 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
     }
 
     void purchase(Activity activity, @IntRange(from = 0, to = 1) int donateOption) {
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + donateOption);
-        AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionSubmit", params);
-
         String sku = skuList.get(donateOption);
         SkuDetails skuDetails = findSkuDetails(sku);
         if (skuDetails == null) {
@@ -126,10 +120,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         if (billingResult.getResponseCode() == BillingResponseCode.OK && purchases != null && !purchases.isEmpty()) {
             consumePurchases(
                     purchases,
-                    () -> {
-                        eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.donation_thank_you)));
-                        AndroidFirebaseAnalytics.logEvent("DonationScreenDonateOptionPurchased");
-                    }
+                    () -> eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.donation_thank_you)))
             );
         } else {
             if (billingResult.getResponseCode() != BillingResponseCode.USER_CANCELED) {

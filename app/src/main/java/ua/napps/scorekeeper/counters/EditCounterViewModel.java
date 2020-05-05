@@ -1,13 +1,9 @@
 package ua.napps.scorekeeper.counters;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.List;
 
@@ -18,7 +14,6 @@ import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 
 class EditCounterViewModel extends ViewModel {
@@ -49,7 +44,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void deleteCounter() {
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenDeleteCounterClick");
 
         countersRepository.delete(counter)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -76,9 +70,7 @@ class EditCounterViewModel extends ViewModel {
         if (hex == null || hex.equals(counter.getColor())) {
             return;
         }
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, hex);
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewColorSelected", params);
+
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -104,9 +96,6 @@ class EditCounterViewModel extends ViewModel {
         if (defaultValue == counter.getDefaultValue()) {
             return;
         }
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + defaultValue);
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewDefaultValueSubmit", params);
 
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -133,10 +122,6 @@ class EditCounterViewModel extends ViewModel {
             return;
         }
 
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, newName);
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewNameSubmit", params);
-
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -161,9 +146,6 @@ class EditCounterViewModel extends ViewModel {
         if (step == counter.getStep()) {
             return;
         }
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + step);
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewStepSubmit", params);
 
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -190,9 +172,6 @@ class EditCounterViewModel extends ViewModel {
         if (value == counter.getValue()) {
             return;
         }
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + value);
-        AndroidFirebaseAnalytics.logEvent("EditCounterScreenNewValueSubmit", params);
 
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, value, counter.getValue()));
 

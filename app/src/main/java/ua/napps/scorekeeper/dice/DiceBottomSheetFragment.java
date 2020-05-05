@@ -22,7 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Utilities;
 
 public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
@@ -126,12 +125,6 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
 
     void setOnDismissListener(DialogInterface.OnDismissListener listener) {
         onDismissListener = listener;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        AndroidFirebaseAnalytics.logEvent("DiceBottomSheetScreenAppear");
     }
 
     private void validateAndStore(int diceMaxSide) {

@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#54FFBD</color>
+    <color name="colorPrimaryVariant">#54FFBD</color>
+    <color name="colorOnPrimary">#000</color>
+    <color name="colorSecondary">#6E008B</color>
+    <color name="colorSecondaryVariant">#6E008B</color>
+    <color name="colorOnSecondary">#ffffff</color>
+    <color name="colorError">#FF4F5E</color>
+    <color name="colorOnError">#ffffff</color>
+    <color name="textColorPrimary">#de000000</color>
+    <color name="textColorSecondary">#89000000</color>
+    <color name="textColorHint">#42000000</color>
     <color name="primaryBackground">#fff</color>
     <color name="section_bg">#E7E5E2</color>
     <color name="bottom_bar_badge_color">#6E008B</color>

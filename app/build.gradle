@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
 ext.versionMinor = 0
@@ -8,7 +9,7 @@ ext.postfix = ''
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '30.0.0 rc2'
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
@@ -55,7 +56,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
@@ -66,14 +67,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.google.firebase:firebase-core:17.2.3'
     implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
         transitive = true
     }
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
     implementation 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
     implementation 'com.android.billingclient:billing:2.2.0'
     implementation 'com.github.naz013:ColorSlider:2.0.6'
 
@@ -99,6 +98,3 @@ def generateVersionCode() {
 def generateVersionName() {
     return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}${ext.postfix}"
 }
-
-
-apply plugin: 'com.google.gms.google-services'

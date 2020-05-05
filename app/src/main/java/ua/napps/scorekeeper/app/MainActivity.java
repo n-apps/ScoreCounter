@@ -11,9 +11,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.ashokvarma.bottomnavigation.TextBadgeItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.transition.MaterialFade;
 
 import ua.napps.scorekeeper.R;
@@ -22,14 +20,13 @@ import ua.napps.scorekeeper.dice.DicesFragment;
 import ua.napps.scorekeeper.dice.OnDiceFragmentInteractionListener;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 
-public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, BottomNavigationBar.OnTabSelectedListener, OnDiceFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener, OnDiceFragmentInteractionListener {
 
     private static final String TAG_DICES_FRAGMENT = "DICES_FRAGMENT";
     private static final String TAG_COUNTERS_FRAGMENT = "COUNTERS_FRAGMENT";
@@ -41,13 +38,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private RateMyAppDialog rateMyAppDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
-    private TextBadgeItem diceNumberBadgeItem;
     private int lastSelectedBottomTab;
     private int currentDiceRoll;
     private int previousDiceRoll;
     private boolean isLightTheme;
     private boolean isKeepScreenOn;
-    private BottomNavigationBar bottomNavigationBar;
+    private BottomNavigationView bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         }
 
-
         setContentView(R.layout.activity_main);
         rateMyAppDialog = new RateMyAppDialog(this);
         manager = getSupportFragmentManager();
@@ -79,20 +74,61 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (lastSelectedBottomTab > 1) {
             lastSelectedBottomTab = 0;
         }
-        diceNumberBadgeItem = new TextBadgeItem().setHideOnSelect(true).hide(false).setBackgroundColorResource(R.color.bottom_bar_badge_color);
-        bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
-        bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_list, getString(R.string.bottom_navigation_tab_counters)))
-                .addItem(new BottomNavigationItem(R.drawable.ic_die, getString(R.string.bottom_navigation_tab_dice)).setBadgeItem(diceNumberBadgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.ic_more, getString(R.string.bottom_navigation_tab_settings)))
-                .setMode(BottomNavigationBar.MODE_FIXED_NO_TITLE)
-                .setBarBackgroundColor(R.color.primaryBackground)
-                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
-                .setFirstSelectedPosition(lastSelectedBottomTab)
-                .initialise();
-        bottomNavigationBar.setTabSelectedListener(this);
+        bottomNavigationBar = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.counters:
+                    switchFragment(TAGS[0]);
+                    lastSelectedBottomTab = 0;
+                    break;
+                case R.id.dices:
+                    switchFragment(TAGS[1]);
+                    lastSelectedBottomTab = 1;
+                    break;
+                case R.id.more:
+                    switchFragment(TAGS[2]);
+                    lastSelectedBottomTab = 2;
+                    break;
+            }
+            LocalSettings.saveLastSelectedBottomTab(lastSelectedBottomTab);
+
+            // TODO: 06-May-20 add badge
+//                if (currentDiceRoll > 0) {
+//                    diceNumberBadgeItem.setText("" + currentDiceRoll);
+//                } else {
+//                    diceNumberBadgeItem.hide(false);
+//                }
+//                if (isLightTheme) {
+//                    ViewUtil.setLightStatusBar(this);
+//                } else {
+//                    ViewUtil.clearLightStatusBar(this);
+//                }
+//                ViewUtil.setNavBarColor(this, isLightTheme);
+            return true;
+        });
+
+        bottomNavigationBar.setOnNavigationItemReselectedListener(item -> {
+            if (item.getItemId() == R.id.counters) {
+                if (currentFragment instanceof CountersFragment) {
+                    ((CountersFragment) currentFragment).scrollToTop();
+                }
+            }
+        });
 
         switchFragment(TAGS[lastSelectedBottomTab]);
+        // not selected after app restarted
+        switch (lastSelectedBottomTab) {
+            case 0:
+                bottomNavigationBar.setSelectedItemId(R.id.counters);
+                break;
+            case 1:
+                bottomNavigationBar.setSelectedItemId(R.id.dice);
+                break;
+            case 2:
+                bottomNavigationBar.setSelectedItemId(R.id.more);
+                break;
+        }
         if (isLightTheme) {
             ViewUtil.setLightStatusBar(this);
         } else {
@@ -101,16 +137,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOn();
 
-        trackAnalytics();
         Singleton.getInstance().setMainContext(this);
-    }
-
-    private void trackAnalytics() {
-        AndroidFirebaseAnalytics.setUserProperty("dark_theme_enabled", isLightTheme ? "false" : "true");
-        AndroidFirebaseAnalytics.setUserProperty("keep_screen_on_enabled", LocalSettings.isKeepScreenOnEnabled() ? "true" : "false");
-        AndroidFirebaseAnalytics.setUserProperty("shake_to_roll_enabled", LocalSettings.isShakeToRollEnabled() ? "true" : "false");
-        AndroidFirebaseAnalytics.setUserProperty("sound_enabled", LocalSettings.isSoundRollEnabled() ? "true" : "false");
-        AndroidFirebaseAnalytics.setUserProperty("dice_max_side", "" + LocalSettings.getDiceMaxSide());
     }
 
     @Override
@@ -137,38 +164,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     protected void onStop() {
         super.onStop();
         App.getTinyDB().unregisterOnSharedPreferenceChangeListener(this);
-    }
-
-    @Override
-    public void onTabSelected(int position) {
-        switchFragment(TAGS[position]);
-        lastSelectedBottomTab = position;
-        LocalSettings.saveLastSelectedBottomTab(lastSelectedBottomTab);
-        if (currentDiceRoll > 0) {
-            diceNumberBadgeItem.setText("" + currentDiceRoll);
-        } else {
-            diceNumberBadgeItem.hide(false);
-        }
-        if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this);
-        } else {
-            ViewUtil.clearLightStatusBar(this);
-        }
-        ViewUtil.setNavBarColor(this, isLightTheme);
-    }
-
-    @Override
-    public void onTabUnselected(int position) {
-
-    }
-
-    @Override
-    public void onTabReselected(int position) {
-        if (position == 0) {
-            if (currentFragment instanceof CountersFragment) {
-                ((CountersFragment) currentFragment).scrollToTop();
-            }
-        }
     }
 
     @Override
@@ -207,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        MaterialFade fadeThrough = MaterialFade.create(this);
+        MaterialFade fadeThrough = MaterialFade.create();
         currentFragment.setEnterTransition(fadeThrough);
         manager.beginTransaction()
                 .replace(R.id.container, currentFragment, tag)
@@ -227,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         if (lastSelectedBottomTab != 2) {
             super.onBackPressed();
         } else {
-            bottomNavigationBar.selectTab(0);
+            bottomNavigationBar.setSelectedItemId(R.id.counters);
         }
     }
 

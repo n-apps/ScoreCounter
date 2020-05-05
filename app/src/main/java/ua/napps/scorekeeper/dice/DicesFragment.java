@@ -24,11 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.transition.TransitionManager;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
-
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 
 public class DicesFragment extends Fragment {
 
@@ -91,13 +88,7 @@ public class DicesFragment extends Fragment {
         maxSide = LocalSettings.getDiceMaxSide();
         diceVariantInfo.setText("d" + maxSide);
 
-        root.setOnClickListener(v -> {
-            viewModel.rollDice();
-            Bundle params = new Bundle();
-            params.putString(FirebaseAnalytics.Param.CHARACTER, "by_touch");
-            params.putString(FirebaseAnalytics.Param.ITEM_VARIANT, "d" + maxSide);
-            AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
-        });
+        root.setOnClickListener(v -> viewModel.rollDice());
         root.setOnLongClickListener(v -> {
             showBottomSheet();
             return true;
@@ -157,12 +148,6 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Dice", getClass().getSimpleName());
-    }
-
     private void initSensorData() {
         accel = 0.00f;
         accelCurrent = SensorManager.GRAVITY_EARTH;
@@ -181,10 +166,6 @@ public class DicesFragment extends Fragment {
             accel = accel * 0.9f + delta; // perform low-cut filter
             if (accel > 5.0) {
                 viewModel.rollDice();
-                Bundle params = new Bundle();
-                params.putString(FirebaseAnalytics.Param.ITEM_VARIANT, "d" + maxSide);
-                params.putString(FirebaseAnalytics.Param.CHARACTER, "by_shake");
-                AndroidFirebaseAnalytics.logEvent("DiceScreenDiceRolled", params);
             }
         });
     }

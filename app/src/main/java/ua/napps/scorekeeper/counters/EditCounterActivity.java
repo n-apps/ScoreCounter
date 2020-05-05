@@ -22,7 +22,6 @@ import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -76,13 +75,6 @@ public class EditCounterActivity extends AppCompatActivity {
         ViewUtil.setNavBarColor(this, isLightTheme);
 
         subscribeToModel(id);
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(this, "Edit Counter", getClass().getSimpleName());
     }
 
     @Override

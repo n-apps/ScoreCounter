@@ -17,7 +17,7 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            app:title="ʕ•ᴥ•ʔ"
+            app:title=""
             app:titleTextColor="?android:textColorHint" />
     </com.google.android.material.appbar.AppBarLayout>
 

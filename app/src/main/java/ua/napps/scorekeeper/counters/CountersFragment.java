@@ -1,10 +1,7 @@
 package ua.napps.scorekeeper.counters;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -39,9 +36,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.analytics.FirebaseAnalytics;
-
-import java.util.Random;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
@@ -50,7 +44,6 @@ import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.AndroidFirebaseAnalytics;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -92,23 +85,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
         Toolbar toolbar = contentView.findViewById(R.id.toolbar);
 
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
-
-        toolbar.setOnClickListener(v -> {
-            String[] videoIds = {"_Qam9gmjQMA", "dRkQW-9XvBI"};
-            String id = videoIds[new Random().nextInt(2)];
-            Intent appIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.youtube.com/watch?v=" + id));
-            try {
-                startActivity(appIntent);
-            } catch (ActivityNotFoundException ex) {
-                startActivity(webIntent);
-            }
-        });
+        toolbar.setTitle("");
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
@@ -165,18 +146,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
                 break;
             case R.id.menu_remove_all:
-                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuRemoveAllClick");
                 DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
                 showDialogWithAction(dialogListenerRemove);
                 break;
             case R.id.menu_reset_all:
-                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuResetAllClick");
                 DialogPositiveClickListener dialogListenerReset = context -> viewModel.resetAll();
                 showDialogWithAction(dialogListenerReset);
                 break;
             case R.id.menu_log:
                 LogActivity.start(requireActivity());
-                AndroidFirebaseAnalytics.logEvent("CountersScreenMenuHistoryClick");
                 break;
         }
         return true;
@@ -211,7 +189,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                                 itemTouchHelper.attachToRecyclerView(recyclerView);
                             }
                     );
-                    AndroidFirebaseAnalytics.setUserProperty("counters_size", "" + size);
                 } else {
                     // TODO: 28-Mar-20 smells bad. should be better
                     if (oldListSize - 1 == size) {
@@ -239,17 +216,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        AndroidFirebaseAnalytics.trackScreen(requireActivity(), "Counters List", getClass().getSimpleName());
-    }
-
-    @Override
     public void onSingleClick(Counter counter, int position, int mode) {
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + mode);
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterSingleClick", params);
-
         if (mode == MODE_DECREASE_VALUE) {
             if (counter.getStep() == 0) {
                 return;
@@ -277,9 +244,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onLongClick(Counter counter, int position, int mode) {
-        Bundle params = new Bundle();
-        params.putString(FirebaseAnalytics.Param.CHARACTER, "" + mode);
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterLongClick", params);
         if (mode == MODE_SET_VALUE) {
             final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                     .content(counter.getName())
@@ -465,13 +429,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             });
         }
         md.show();
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterNameClick");
     }
 
     @Override
     public void onEditClick(Counter counter) {
         EditCounterActivity.start(getActivity(), counter);
-        AndroidFirebaseAnalytics.logEvent("CountersScreenCounterEditClick");
     }
 
     public void scrollToTop() {
