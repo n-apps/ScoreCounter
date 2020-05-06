@@ -43,9 +43,9 @@
                 android:layout_height="228dp"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                tools:tintMode="screen"
+                android:src="@drawable/about"
                 tools:tint="?attr/colorPrimary"
-                android:src="@drawable/about" />
+                tools:tintMode="screen" />
 
             <TextView
                 android:id="@+id/content"

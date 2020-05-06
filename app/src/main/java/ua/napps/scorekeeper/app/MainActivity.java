@@ -8,9 +8,11 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.transition.MaterialFade;
 
@@ -38,22 +40,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private RateMyAppDialog rateMyAppDialog;
     private Fragment currentFragment;
     private FragmentManager manager;
-    private int lastSelectedBottomTab;
     private int currentDiceRoll;
     private int previousDiceRoll;
-    private boolean isLightTheme;
     private boolean isKeepScreenOn;
     private BottomNavigationView bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isLightTheme = LocalSettings.isLightTheme();
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState != null) {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
+        boolean isLightTheme = LocalSettings.isLightTheme();
 
         // If android Q override night mode settings from system default
         if (Utilities.hasQ()) {
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
 
             LocalSettings.saveDarkTheme((currentNightMode == Configuration.UI_MODE_NIGHT_YES));
-            isLightTheme = LocalSettings.isLightTheme();
         } else {
             AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         }
@@ -70,41 +69,36 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         setContentView(R.layout.activity_main);
         rateMyAppDialog = new RateMyAppDialog(this);
         manager = getSupportFragmentManager();
-        lastSelectedBottomTab = LocalSettings.getLastSelectedBottomTab();
-        if (lastSelectedBottomTab > 1) {
-            lastSelectedBottomTab = 0;
-        }
+
         bottomNavigationBar = findViewById(R.id.bottom_navigation);
+        bottomNavigationBar.setSelectedItemId(R.id.counters);
 
         bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.counters:
                     switchFragment(TAGS[0]);
-                    lastSelectedBottomTab = 0;
+                    if (currentDiceRoll > 0) {
+                        BadgeDrawable badge = bottomNavigationBar.getOrCreateBadge(R.id.dices);
+                        badge.setVisible(true);
+                        int primary = ContextCompat.getColor(this, R.color.colorPrimary);
+                        int textOnPrimary = ContextCompat.getColor(this, R.color.colorOnPrimary);
+                        badge.setBackgroundColor(primary);
+                        badge.setBadgeTextColor(textOnPrimary);
+                        badge.setNumber(currentDiceRoll);
+                    } else {
+                        hideDiceBadge();
+                    }
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
-                    lastSelectedBottomTab = 1;
+                    hideDiceBadge();
                     break;
                 case R.id.more:
                     switchFragment(TAGS[2]);
-                    lastSelectedBottomTab = 2;
+                    hideDiceBadge();
                     break;
             }
-            LocalSettings.saveLastSelectedBottomTab(lastSelectedBottomTab);
 
-            // TODO: 06-May-20 add badge
-//                if (currentDiceRoll > 0) {
-//                    diceNumberBadgeItem.setText("" + currentDiceRoll);
-//                } else {
-//                    diceNumberBadgeItem.hide(false);
-//                }
-//                if (isLightTheme) {
-//                    ViewUtil.setLightStatusBar(this);
-//                } else {
-//                    ViewUtil.clearLightStatusBar(this);
-//                }
-//                ViewUtil.setNavBarColor(this, isLightTheme);
             return true;
         });
 
@@ -116,28 +110,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
-        switchFragment(TAGS[lastSelectedBottomTab]);
-        // not selected after app restarted
-        switch (lastSelectedBottomTab) {
-            case 0:
-                bottomNavigationBar.setSelectedItemId(R.id.counters);
-                break;
-            case 1:
-                bottomNavigationBar.setSelectedItemId(R.id.dice);
-                break;
-            case 2:
-                bottomNavigationBar.setSelectedItemId(R.id.more);
-                break;
-        }
+        switchFragment(TAGS[0]);
+
         if (isLightTheme) {
             ViewUtil.setLightStatusBar(this);
         } else {
             ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
-        applyKeepScreenOn();
+        applyKeepScreenOnIfNeeded();
 
         Singleton.getInstance().setMainContext(this);
+    }
+
+    private void hideDiceBadge() {
+        BadgeDrawable badge = bottomNavigationBar.getBadge(R.id.dices);
+        if (badge != null) {
+            badge.setVisible(false);
+            badge.clearNumber();
+        }
     }
 
     @Override
@@ -177,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switch (key) {
             case LocalSettings.KEEP_SCREEN_ON:
                 isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
-                applyKeepScreenOn();
+                applyKeepScreenOnIfNeeded();
                 break;
             case LocalSettings.DARK_THEME:
                 if (LocalSettings.isLightTheme()) {
@@ -185,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
+                bottomNavigationBar.setSelectedItemId(R.id.counters);
                 recreate();
                 break;
         }
@@ -209,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 .commit();
     }
 
-    private void applyKeepScreenOn() {
+    private void applyKeepScreenOnIfNeeded() {
         if (isKeepScreenOn) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
@@ -219,11 +211,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onBackPressed() {
-        if (lastSelectedBottomTab != 2) {
+        if (bottomNavigationBar.getSelectedItemId() == R.id.counters) {
             super.onBackPressed();
         } else {
             bottomNavigationBar.setSelectedItemId(R.id.counters);
         }
     }
-
 }

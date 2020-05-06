@@ -88,7 +88,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
-        toolbar.setTitle("");
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         recyclerView = contentView.findViewById(R.id.recycler_view);

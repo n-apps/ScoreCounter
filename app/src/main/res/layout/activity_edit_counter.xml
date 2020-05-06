@@ -8,7 +8,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
-        style="@style/AppBarStyle"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -182,13 +182,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_micro"
+                app:endIconDrawable="@drawable/ic_help_circle"
+                app:endIconMode="custom"
+                app:endIconTint="#959595"
                 app:helperText="@string/counter_details_value"
                 app:helperTextTextAppearance="@style/DefaultHelperTextAppearance"
                 app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
-                app:endIconDrawable="@drawable/ic_help_circle"
-                app:endIconMode="custom"
-                app:endIconTint="#959595"
                 app:layout_constraintStart_toStartOf="@+id/til_counter_name"
                 app:layout_constraintTop_toBottomOf="@id/tv_color">
 

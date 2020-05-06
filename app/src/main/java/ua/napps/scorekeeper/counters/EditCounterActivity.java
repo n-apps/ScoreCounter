@@ -122,7 +122,12 @@ public class EditCounterActivity extends AppCompatActivity {
         colorSlider = findViewById(R.id.color_slider);
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
-            counterNameLayout.setBoxStrokeColor(Color.parseColor(colorHex));
+            int boxStrokeColor = Color.parseColor(colorHex);
+            if (boxStrokeColor != Color.WHITE) {
+                counterNameLayout.setBoxStrokeColor(boxStrokeColor);
+            } else {
+                counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
+            }
             counterNameLayout.requestFocus();
         }
     }
@@ -145,7 +150,11 @@ public class EditCounterActivity extends AppCompatActivity {
                 .show());
 
         colorSlider.setListener((position, color) -> {
-            counterNameLayout.setBoxStrokeColor(color);
+            if (color != Color.WHITE) {
+                counterNameLayout.setBoxStrokeColor(color);
+            } else {
+                counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
+            }
             newCounterColorHex = ColorUtil.intColorToString(color);
         });
 

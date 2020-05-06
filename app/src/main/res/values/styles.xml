@@ -40,13 +40,6 @@
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
     </style>
 
-    <style name="AppBarStyle" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
-        <item name="android:background">@color/primaryBackground</item>
-        <item name="theme">@style/AppTheme.AppBarOverlay</item>
-    </style>
-
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
 
     <style name="TwoLinesStyle">
