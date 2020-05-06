@@ -37,6 +37,9 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.listeners.DragItemListener;
@@ -65,6 +68,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private int oldListSize;
     private boolean isLongPressTipShowed;
     private ItemTouchHelper itemTouchHelper;
+    private Toolbar toolbar;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -83,9 +87,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
-        Toolbar toolbar = contentView.findViewById(R.id.toolbar);
-
-
+        toolbar = contentView.findViewById(R.id.toolbar);
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -104,8 +106,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this, this);
-        subscribeUi();
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
+        subscribeUi();
     }
 
     @Override
@@ -163,7 +165,25 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 final int size = counters.size();
-                emptyState.setVisibility(size > 0 ? View.GONE : View.VISIBLE);
+
+                if (size > 0) {
+                    ArrayList<Counter> list = new ArrayList<>(counters);
+                    Collections.sort(list, (o1, o2) -> {
+                        if (o1.getValue() > o2.getValue()) {
+                            return -1;
+                        } else if (o1.getValue() < o2.getValue()) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+                    Counter counter = list.get(0);
+                    toolbar.setTitle("\uD83E\uDD47 " + counter.getName());
+
+                    emptyState.setVisibility(View.GONE);
+                } else {
+                    toolbar.setTitle(null);
+                    emptyState.setVisibility(View.VISIBLE);
+                }
 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
@@ -176,6 +196,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
 
                 countersAdapter.setCountersList(counters);
+
                 if (size > oldListSize && oldListSize > 0) {
                     recyclerView.smoothScrollToPosition(size);
                 }

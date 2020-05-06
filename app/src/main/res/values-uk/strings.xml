@@ -32,7 +32,7 @@
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
-    <string name="message_you_can_use_long_press">Також можна змінювати значення лічильника за допомогою довгого натискання по ньому</string>
+    <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_section_actions">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
@@ -75,4 +75,5 @@
     <string name="about_donation">Зробити донейшн →</string>
     <string name="about_rate">Підтримати в Google Play →</string>
     <string name="about_feedback">Написати мені →</string>
+    <string name="settings_about">Про мене</string>
 </resources>

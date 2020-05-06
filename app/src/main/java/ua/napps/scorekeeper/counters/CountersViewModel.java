@@ -29,15 +29,16 @@ class CountersViewModel extends AndroidViewModel {
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
+    private final String[] names;
     private SnackbarMessage snackbarMessage = new SnackbarMessage();
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        String[] arr = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
-        shuffleColors(arr);
-        colors = arr;
+        colors = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
+        names = application.getResources().getStringArray(R.array.names);
+        shuffleInitialDataArrays();
     }
 
     public LiveData<Counter> getCounterLiveData(int counterID) {
@@ -48,7 +49,7 @@ class CountersViewModel extends AndroidViewModel {
         List<Counter> value = counters.getValue();
         if (value != null) {
             int size = value.size() + 1;
-            repository.createCounter('#' + String.valueOf(size), getNextColor(size), size)
+            repository.createCounter(getNextName(size), getNextColor(size), size)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new CompletableObserver() {
@@ -215,7 +216,7 @@ class CountersViewModel extends AndroidViewModel {
                     @Override
                     public void onComplete() {
                         Singleton.getInstance().clearLogEntries();
-                        shuffleColors(colors);
+                        shuffleInitialDataArrays();
                     }
 
                     @Override
@@ -282,8 +283,9 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    private void shuffleColors(String[] arr) {
-        Collections.shuffle(Arrays.asList(arr));
+    private void shuffleInitialDataArrays() {
+        Collections.shuffle(Arrays.asList(colors));
+        Collections.shuffle(Arrays.asList(names));
     }
 
     private String getNextColor(int size) {
@@ -291,6 +293,14 @@ class CountersViewModel extends AndroidViewModel {
             return colors[size];
         } else {
             return colors[size % colors.length];
+        }
+    }
+
+    private String getNextName(int size) {
+        if (size < names.length) {
+            return names[size];
+        } else {
+            return names[size % names.length];
         }
     }
 

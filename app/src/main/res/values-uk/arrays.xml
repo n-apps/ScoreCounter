@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>муффало</item>
+        <item>бумкриса</item>
+        <item>мегаскарабей</item>
+        <item>олень</item>
+        <item>кобра</item>
+        <item>борів</item>
+        <item>білка</item>
+        <item>ігуана</item>
+        <item>мурахоїд</item>
+        <item>альбатрос</item>
+        <item>алігатор</item>
+        <item>альпака</item>
+        <item>мураха</item>
+        <item>мурахоїд</item>
+        <item>антилопа</item>
+        <item>мавпа</item>
+        <item>броненосець</item>
+        <item>віслюк</item>
+        <item>бабуїн</item>
+        <item>борсук</item>
+        <item>баракуда</item>
+        <item>летюча миша</item>
+        <item>ведмідь</item>
+        <item>бобер</item>
+        <item>бджола</item>
+        <item>бізон</item>
+        <item>буйвол</item>
+        <item>метелик</item>
+        <item>верблюд</item>
+        <item>карибу</item>
+        <item>кішка</item>
+        <item>гусениця</item>
+        <item>корова</item>
+        <item>гепард</item>
+        <item>курча</item>
+        <item>шимпанзе</item>
+        <item>шиншила</item>
+        <item>клушица</item>
+        <item>молюск</item>
+        <item>тарган</item>
+        <item>тріска</item>
+        <item>кондор</item>
+        <item>баклан</item>
+        <item>койот</item>
+        <item>краб</item>
+        <item>журавель</item>
+        <item>крокодил</item>
+        <item>Гава</item>
+        <item>динозавр</item>
+        <item>собака</item>
+        <item>дельфін</item>
+        <item>віслюк</item>
+        <item>голуб</item>
+        <item>бабка</item>
+        <item>орел</item>
+        <item>єхидна</item>
+        <item>вугор</item>
+        <item>антилопа канна</item>
+        <item>слон</item>
+        <item>морський слон</item>
+        <item>лось</item>
+        <item>страус ему</item>
+        <item>сокіл</item>
+        <item>тхір</item>
+        <item>зяблик</item>
+        <item>риба</item>
+        <item>фламінго</item>
+        <item>муха</item>
+        <item>лисиця</item>
+        <item>жаба</item>
+        <item>газель</item>
+        <item>песчанка</item>
+        <item>панда</item>
+        <item>жираф</item>
+        <item>комар</item>
+        <item>гну</item>
+        <item>коза</item>
+        <item>гусак</item>
+        <item>золота рибка</item>
+        <item>горила</item>
+        <item>яструб великий</item>
+        <item>коник</item>
+        <item>шотландська куріпка</item>
+        <item>гуанако</item>
+        <item>морська свинка</item>
+        <item>Чайка</item>
+        <item>хом\'як</item>
+        <item>заєць</item>
+        <item>яструб</item>
+        <item>їжак</item>
+        <item>чапля</item>
+        <item>оселедець</item>
+        <item>гіпопотам</item>
+        <item>шершень</item>
+        <item>кінь</item>
+        <item>людина</item>
+        <item>колібрі</item>
+        <item>гієна</item>
+        <item>ібіс</item>
+        <item>шакал</item>
+        <item>ягуар</item>
+        <item>сойка</item>
+        <item>блакитна сойка</item>
+        <item>медуза</item>
+        <item>кенгуру</item>
+        <item>коала</item>
+        <item>варан</item>
+        <item>жайворонок</item>
+        <item>лемур</item>
+        <item>леопард</item>
+        <item>лев</item>
+        <item>лама</item>
+        <item>омар</item>
+        <item>сарана</item>
+        <item>воша</item>
+        <item>лірохвіст</item>
+        <item>сорока</item>
+        <item>кряква</item>
+        <item>качка</item>
+        <item>ламантін</item>
+        <item>мандрил</item>
+        <item>богомол</item>
+        <item>сурікат</item>
+        <item>норка</item>
+        <item>моль</item>
+        <item>мангуст</item>
+        <item>мавпа</item>
+        <item>лось</item>
+        <item>миша</item>
+        <item>москіт</item>
+        <item>мул</item>
+        <item>нарвав</item>
+        <item>тритон</item>
+        <item>соловей</item>
+        <item>восьминіг</item>
+        <item>окапі</item>
+        <item>опосум</item>
+        <item>страус</item>
+        <item>видра</item>
+        <item>сова</item>
+        <item>віл</item>
+        <item>устриця</item>
+        <item>пантера</item>
+        <item>папуга</item>
+        <item>куріпка</item>
+        <item>пелікан</item>
+        <item>пінгвін</item>
+        <item>фазан</item>
+        <item>свиня</item>
+        <item>голуб</item>
+        <item>білий ведмідь</item>
+        <item>поні</item>
+        <item>дикобраз</item>
+        <item>морська свинка</item>
+        <item>лугова собачка</item>
+        <item>перепел</item>
+        <item>кролик</item>
+        <item>єнот</item>
+        <item>поршень</item>
+        <item>щур</item>
+        <item>ворон</item>
+        <item>північний олень</item>
+        <item>носоріг</item>
+        <item>саламандра</item>
+        <item>лосось</item>
+        <item>сардина</item>
+        <item>скорпіон</item>
+        <item>морський лев</item>
+        <item>морський їжак</item>
+        <item>морський коник</item>
+        <item>печатка</item>
+        <item>акула</item>
+        <item>вівця</item>
+        <item>землерийка</item>
+        <item>скунс</item>
+        <item>равлик</item>
+        <item>змія</item>
+        <item>горобець</item>
+        <item>павук</item>
+        <item>кальмар</item>
+        <item>шпак</item>
+        <item>скат</item>
+        <item>жук-вонючка</item>
+        <item>лелека</item>
+        <item>ластівка</item>
+        <item>лебідь</item>
+        <item>тапір</item>
+        <item>долгопят</item>
+        <item>терміт</item>
+        <item>тигр</item>
+        <item>ропуха</item>
+        <item>форель</item>
+        <item>індичка</item>
+        <item>черепаха</item>
+        <item>гадюка</item>
+        <item>полівка</item>
+        <item>стерв\'ятник</item>
+        <item>кенгуру-валлабі</item>
+        <item>морж</item>
+        <item>оса</item>
+        <item>тхір</item>
+        <item>кит</item>
+        <item>вовк</item>
+        <item>росомаха</item>
+        <item>вомбат</item>
+        <item>дятел</item>
+        <item>черв\'як</item>
+        <item>як</item>
+        <item>зебра</item>
+    </string-array>
+</resources>

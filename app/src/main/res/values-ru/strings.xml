@@ -32,7 +32,7 @@
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_delete_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
-    <string name="message_you_can_use_long_press">Также можно менять значение счетчика с помощью долгого нажатия по нему</string>
+    <string name="message_you_can_use_long_press">Попробуйте зажать палец на + или -</string>
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_section_actions">Действия</string>
     <string name="settings_section_dice">Кубик</string>
@@ -76,4 +76,5 @@
     <string name="about_donation">Сделать донейшн →</string>
     <string name="about_rate">Поддержать в Google Play →</string>
     <string name="about_feedback">Написать мне →</string>
+    <string name="settings_about">Немного обо мне</string>
 </resources>

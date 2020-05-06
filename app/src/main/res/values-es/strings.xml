@@ -32,7 +32,7 @@
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Quitar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
-    <string name="message_you_can_use_long_press">También puede cambiar el valor del contador presionándolo prolongadamente</string>
+    <string name="message_you_can_use_long_press">Intenta presionar prolongadamente + o -</string>
     <string name="settings_dark_theme">Tema oscuro</string>
     <string name="settings_section_actions">Acciones</string>
     <string name="settings_section_dice">Dado</string>
@@ -75,4 +75,5 @@
     <string name="about_donation">Hacer donación →</string>
     <string name="about_rate">Soporte en Google Play →</string>
     <string name="about_feedback">Contáctame →</string>
+    <string name="settings_about">sobre mí</string>
 </resources>
