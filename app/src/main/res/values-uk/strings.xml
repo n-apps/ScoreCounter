@@ -32,6 +32,7 @@
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
+    <string name="message_reset_all_counters">Скинути всі?</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_section_actions">Інформація</string>
@@ -76,4 +77,6 @@
     <string name="about_rate">Підтримати в Google Play →</string>
     <string name="about_feedback">Написати мені →</string>
     <string name="settings_about">Про мене</string>
+    <string name="easter_wave">👋</string>
+    <string name="setting_help_translate">Допомогти з перекладом</string>
 </resources>

@@ -57,6 +57,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         keepScreenOn.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
@@ -97,6 +98,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_request_feature:
+            case R.id.tv_help_translate:
                 Utilities.startEmail(requireContext());
                 break;
             case R.id.tv_rate_app:

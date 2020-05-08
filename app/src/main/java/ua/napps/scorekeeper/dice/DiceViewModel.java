@@ -8,6 +8,8 @@ import androidx.annotation.IntRange;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import ua.napps.scorekeeper.utils.LiveSensor;
+
 class DiceViewModel extends ViewModel {
 
     private final DiceLiveData diceResult = new DiceLiveData();

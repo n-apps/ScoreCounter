@@ -32,12 +32,13 @@
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Quitar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
+    <string name="message_reset_all_counters">Resetear todo?</string>
     <string name="message_you_can_use_long_press">Intenta presionar prolongadamente + o -</string>
     <string name="settings_dark_theme">Tema oscuro</string>
     <string name="settings_section_actions">Acciones</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
-    <string name="settings_feedback">Comentarios, informe de errores, solicitud de funciones</string>
+    <string name="settings_feedback">Feedback</string>
     <string name="settings_shake_to_roll">Agita para tirar</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de lados</string>
@@ -76,4 +77,6 @@
     <string name="about_rate">Soporte en Google Play →</string>
     <string name="about_feedback">Contáctame →</string>
     <string name="settings_about">sobre mí</string>
+    <string name="easter_wave">👋</string>
+    <string name="setting_help_translate">Ayúdanos a traducir</string>
 </resources>

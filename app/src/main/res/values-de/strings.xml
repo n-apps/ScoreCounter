@@ -32,12 +32,13 @@
     <string name="menu_add_new_counter">Counter hinzufügen</string>
     <string name="menu_delete_all_counters">Alle entfernen</string>
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
+    <string name="message_reset_all_counters">Alle zurücksetzen?</string>
     <string name="message_you_can_use_long_press">Versuchen Sie es lange mit + oder -</string>
     <string name="settings_dark_theme">Dunkles Theme</string>
     <string name="settings_section_actions">Aktionen</string>
     <string name="settings_section_dice">Würfel</string>
     <string name="settings_section_general">Aussehen</string>
-    <string name="settings_feedback">Feedback, fehlerreport, wünsche</string>
+    <string name="settings_feedback">Feedback</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
     <string name="settings_section_dice_sides">Anzahl der Seiten</string>
@@ -76,4 +77,6 @@
     <string name="about_rate">Unterstützung bei Google Play →</string>
     <string name="about_feedback">Kontaktiere mich →</string>
     <string name="settings_about">Über mich</string>
+    <string name="easter_wave">👋</string>
+    <string name="setting_help_translate">Hilf beim Übersetzen</string>
 </resources>

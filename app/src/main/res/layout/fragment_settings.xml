@@ -216,6 +216,18 @@
         <include layout="@layout/divider" />
 
         <TextView
+            android:id="@+id/tv_help_translate"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/setting_help_translate"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+        <include layout="@layout/divider" />
+
+        <TextView
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"

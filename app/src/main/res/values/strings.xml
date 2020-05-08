@@ -32,6 +32,7 @@
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all</string>
     <string name="menu_reset_all_counters">Reset all</string>
+    <string name="message_reset_all_counters">Reset all?</string>
     <string name="message_you_can_use_long_press">Try a long press on + or -</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_section_actions">Actions</string>
@@ -77,4 +78,6 @@
     <string name="about_rate">Support at Google Play →</string>
     <string name="about_feedback">Contact me →</string>
     <string name="settings_about">About me</string>
+    <string name="easter_wave">👋</string>
+    <string name="setting_help_translate">>Help translate</string>
 </resources>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +41,7 @@ public class EditCounterActivity extends AppCompatActivity {
     private TextInputEditText counterValue;
     private Button btnSave;
     private EditCounterViewModel viewModel;
-    private String newCounterColorHex;
+    private String newCounterColor;
     private ColorSlider colorSlider;
 
     public static void start(Activity activity, Counter counter) {
@@ -155,20 +156,39 @@ public class EditCounterActivity extends AppCompatActivity {
             } else {
                 counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
             }
-            newCounterColorHex = ColorUtil.intColorToString(color);
+            newCounterColor = ColorUtil.intColorToString(color);
         });
 
         btnSave.setOnClickListener(v -> validateAndSave());
     }
 
     private void validateAndSave() {
-        int newValue = Utilities.parseInt(counterValue.getText().toString());
 
-        viewModel.updateName(counterName.getText().toString());
-        viewModel.updateColor(newCounterColorHex);
-        viewModel.updateValue(newValue);
-        viewModel.updateDefaultValue(Utilities.parseInt(counterDefaultValue.getText().toString()));
-        viewModel.updateStep(Utilities.parseInt(counterStep.getText().toString()));
+        String newName = counterName.getText().toString();
+        if (!counter.getName().equals(newName)) {
+            viewModel.updateName(newName);
+
+            if (newName.toLowerCase().equals("roman") |
+                    newName.toLowerCase().equals("роман") |
+                    newName.toLowerCase().equals("рома")) {
+                Toast.makeText(getApplicationContext(), R.string.easter_wave, Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (!counter.getColor().equals(newCounterColor) && newCounterColor != null) {
+            viewModel.updateColor(newCounterColor);
+        }
+        int newValue = Utilities.parseInt(counterValue.getText().toString());
+        if (counter.getValue() != newValue) {
+            viewModel.updateValue(newValue);
+        }
+        int defaultValue = Utilities.parseInt(counterDefaultValue.getText().toString());
+        if (counter.getDefaultValue() != defaultValue) {
+            viewModel.updateDefaultValue(defaultValue);
+        }
+        int step = Utilities.parseInt(counterStep.getText().toString());
+        if (counter.getStep() != step) {
+            viewModel.updateStep(step);
+        }
 
         supportFinishAfterTransition();
     }

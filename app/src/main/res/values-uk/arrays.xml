@@ -48,7 +48,7 @@
         <item>краб</item>
         <item>журавель</item>
         <item>крокодил</item>
-        <item>Гава</item>
+        <item>гава</item>
         <item>динозавр</item>
         <item>собака</item>
         <item>дельфін</item>
@@ -86,7 +86,7 @@
         <item>шотландська куріпка</item>
         <item>гуанако</item>
         <item>морська свинка</item>
-        <item>Чайка</item>
+        <item>чайка</item>
         <item>хом\'як</item>
         <item>заєць</item>
         <item>яструб</item>
@@ -210,5 +210,27 @@
         <item>черв\'як</item>
         <item>як</item>
         <item>зебра</item>
+        <item>Вінні Пух</item>
+        <item>Кінг Конг</item>
+        <item>пудель</item>
+        <item>єдиноріг</item>
+        <item>дракон</item>
+        <item>зомбі</item>
+        <item>фея</item>
+        <item>доббі</item>
+        <item>чебурашка</item>
+        <item>домовик</item>
+        <item>Скубі Ду</item>
+        <item>Рапунцель</item>
+        <item>король Лев</item>
+        <item>Губка Боб</item>
+        <item>чупакабра</item>
+        <item>Кракен</item>
+        <item>лорі</item>
+        <item>нян кіт</item>
+        <item>качконіс</item>
+        <item>пітон</item>
+        <item>квагга</item>
+        <item>квока</item>
     </string-array>
 </resources>

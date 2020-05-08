@@ -67,10 +67,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateColor(@Nullable String hex) {
-        if (hex == null || hex.equals(counter.getColor())) {
-            return;
-        }
-
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -93,10 +89,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateDefaultValue(int defaultValue) {
-        if (defaultValue == counter.getDefaultValue()) {
-            return;
-        }
-
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -118,10 +110,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateName(@NonNull String newName) {
-        if (newName.equals(counter.getName())) {
-            return;
-        }
-
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -143,10 +131,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateStep(int step) {
-        if (step == counter.getStep()) {
-            return;
-        }
-
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
@@ -169,10 +153,6 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void updateValue(int value) {
-        if (value == counter.getValue()) {
-            return;
-        }
-
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.SET, value, counter.getValue()));
 
         countersRepository.setCount(id, value)

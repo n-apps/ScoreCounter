@@ -1,6 +1,9 @@
 package ua.napps.scorekeeper.counters;
 
 import android.app.Application;
+import android.content.Context;
+import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
 import android.util.SparseIntArray;
 
 import androidx.annotation.IntRange;
@@ -21,6 +24,7 @@ import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.LiveSensor;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SnackbarMessage;
 
@@ -31,6 +35,7 @@ class CountersViewModel extends AndroidViewModel {
     private final String[] colors;
     private final String[] names;
     private SnackbarMessage snackbarMessage = new SnackbarMessage();
+    private LiveSensor sensorLiveData;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -118,8 +123,14 @@ class CountersViewModel extends AndroidViewModel {
                 });
     }
 
-    void modifyName(Counter counter, @NonNull String name) {
-        repository.modifyName(counter.getId(), name)
+    void modifyName(Counter counter, @NonNull String newName) {
+
+        if (newName.toLowerCase().equals("roman") |
+                newName.toLowerCase().equals("роман") |
+                newName.toLowerCase().equals("рома")) {
+            showSnackbarMessage(R.string.easter_wave);
+        }
+        repository.modifyName(counter.getId(), newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
@@ -298,9 +309,9 @@ class CountersViewModel extends AndroidViewModel {
 
     private String getNextName(int size) {
         if (size < names.length) {
-            return names[size];
+            return names[size].toLowerCase();
         } else {
-            return names[size % names.length];
+            return names[size % names.length].toLowerCase();
         }
     }
 
@@ -311,4 +322,15 @@ class CountersViewModel extends AndroidViewModel {
     private void showSnackbarMessage(int value) {
         snackbarMessage.setValue(value);
     }
+
+    public LiveData<SensorEvent> getSensorLiveData(Context context) {
+        if (sensorLiveData == null) {
+            SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+            if (sensorManager != null) {
+                sensorLiveData = new LiveSensor(sensorManager);
+            }
+        }
+        return sensorLiveData;
+    }
+
 }

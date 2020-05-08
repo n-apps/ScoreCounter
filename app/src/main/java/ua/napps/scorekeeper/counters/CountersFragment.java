@@ -1,7 +1,10 @@
 package ua.napps.scorekeeper.counters;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
@@ -59,6 +62,9 @@ import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
 
 public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
+    private float accel;
+    private float accelCurrent;
+    private float accelLast;
     private RecyclerView recyclerView;
     private CountersAdapter countersAdapter;
     private View emptyState;
@@ -69,6 +75,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private boolean isLongPressTipShowed;
     private ItemTouchHelper itemTouchHelper;
     private Toolbar toolbar;
+    private TextView toolbarTitle;
+    private int previousTopCounterId;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -92,6 +100,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            View view = toolbar.getChildAt(i);
+            if (view instanceof TextView) {
+                toolbarTitle = (TextView) view;
+                break;
+            }
+        }
+
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         emptyState = contentView.findViewById(R.id.empty_state);
@@ -108,6 +124,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         subscribeUi();
+        initSensorData();
     }
 
     @Override
@@ -176,9 +193,21 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         }
                         return 0;
                     });
-                    Counter counter = list.get(0);
-                    toolbar.setTitle("\uD83E\uDD47 " + counter.getName());
-
+                    Counter c = list.get(0);
+                    if (c.getValue() > 0) {
+                        toolbar.setTitle("\uD83E\uDD47 " + c.getName());
+                        int counterId = c.getId();
+                        if (previousTopCounterId != counterId) {
+                            if (toolbarTitle != null) {
+                                ObjectAnimator animator =
+                                        ObjectAnimator.ofPropertyValuesHolder(toolbarTitle,
+                                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.5f, 1.0f),
+                                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.5f, 1.0f));
+                                animator.start();
+                            }
+                            previousTopCounterId = counterId;
+                        }
+                    }
                     emptyState.setVisibility(View.GONE);
                 } else {
                     toolbar.setTitle(null);
@@ -221,8 +250,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         });
         viewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), (Observer<Integer>) resourceId -> {
-            Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
-                    .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter()).show();
+            if (resourceId == R.string.counter_added) {
+                Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
+                        .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter()).show();
+            } else {
+                Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -472,4 +505,29 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.modifyPosition(counter, fromIndex, toIndex);
     }
 
+    private void initSensorData() {
+        accel = 0.00f;
+        accelCurrent = SensorManager.GRAVITY_EARTH;
+        accelLast = SensorManager.GRAVITY_EARTH;
+        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
+            if (se == null) {
+                return;
+            }
+
+            float x = se.values[0];
+            float y = se.values[1];
+            float z = se.values[2];
+            accelLast = accelCurrent;
+            accelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
+            float delta = accelCurrent - accelLast;
+            accel = accel * 0.9f + delta; // perform low-cut filter
+            if (accel > 8.0 && countersAdapter.getItemCount() > 0) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+                builder.setMessage(R.string.message_reset_all_counters)
+                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.resetAll())
+                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss());
+                builder.create().show();
+            }
+        });
+    }
 }
