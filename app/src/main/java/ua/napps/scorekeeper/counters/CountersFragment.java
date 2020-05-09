@@ -124,7 +124,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         subscribeUi();
-        initSensorData();
+        // TODO: 09-May-20 tweak trigger threshold
+//        initSensorData();
     }
 
     @Override
