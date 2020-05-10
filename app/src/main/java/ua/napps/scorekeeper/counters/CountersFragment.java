@@ -42,6 +42,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
@@ -184,20 +185,19 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (counters != null) {
                 final int size = counters.size();
 
-                if (size > 0) {
-                    ArrayList<Counter> list = new ArrayList<>(counters);
-                    Collections.sort(list, (o1, o2) -> {
-                        if (o1.getValue() > o2.getValue()) {
-                            return -1;
-                        } else if (o1.getValue() < o2.getValue()) {
-                            return 1;
-                        }
-                        return 0;
-                    });
-                    Counter c = list.get(0);
-                    if (c.getValue() > 0) {
-                        toolbar.setTitle("\uD83E\uDD47 " + c.getName());
-                        int counterId = c.getId();
+                if (size == 0) {
+                    toolbar.setTitle(null);
+                    emptyState.setVisibility(View.VISIBLE);
+                } else if (size == 1) {
+                    toolbar.setTitle(null);
+                    emptyState.setVisibility(View.GONE);
+                } else { // size >= 2
+                    List<Counter> topCounters = findTopCounters(counters);
+                    int topSize = topCounters.size();
+                    if (topSize == 1) {
+                        Counter top = topCounters.get(0);
+                        toolbar.setTitle("\uD83E\uDD47 " + top.getName());
+                        int counterId = top.getId();
                         if (previousTopCounterId != counterId) {
                             if (toolbarTitle != null) {
                                 ObjectAnimator animator =
@@ -208,11 +208,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             }
                             previousTopCounterId = counterId;
                         }
+                    } else { // At least the first and the second counters have the same value.
+                        boolean isAllCountersTheSame = topSize == counters.size();
+                        toolbar.setTitle(isAllCountersTheSame ? null : topSize + " \uD83E\uDD47");
+                        previousTopCounterId = 0;
                     }
                     emptyState.setVisibility(View.GONE);
-                } else {
-                    toolbar.setTitle(null);
-                    emptyState.setVisibility(View.VISIBLE);
                 }
 
                 if (oldListSize != size) {
@@ -258,6 +259,26 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @NonNull
+    private List<Counter> findTopCounters(List<Counter> counters) {
+        if (counters == null || counters.size() < 2) return Collections.emptyList();
+
+        int topValue = Integer.MIN_VALUE;
+        List<Counter> top = new ArrayList<>();
+
+        for (Counter counter : counters) {
+            int value = counter.getValue();
+            if (topValue < value) {
+                topValue = value;
+                top.clear();
+                top.add(counter);
+            } else if (topValue == value) {
+                top.add(counter);
+            }
+        }
+        return top;
     }
 
     private void showLongPressHint() {
