@@ -3,12 +3,14 @@ package ua.napps.scorekeeper.counters;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -45,7 +47,6 @@ import java.util.Collections;
 import java.util.List;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.listeners.DialogPositiveClickListener;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
@@ -63,9 +64,6 @@ import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
 
 public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
-    private float accel;
-    private float accelCurrent;
-    private float accelLast;
     private RecyclerView recyclerView;
     private CountersAdapter countersAdapter;
     private View emptyState;
@@ -145,14 +143,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.counters_menu, menu);
-    }
 
-    private void showDialogWithAction(final DialogPositiveClickListener listener) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-        builder.setMessage(R.string.dialog_confirmation_question)
-                .setPositiveButton(R.string.dialog_yes, (dialog, id) -> listener.onPositiveButtonClicked(getActivity()))
-                .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss());
-        builder.create().show();
+        MenuItem item = menu.getItem(3);
+        SpannableString s = new SpannableString(item.getTitle().toString());
+        s.setSpan(new ForegroundColorSpan(Color.argb(255, 255, 79, 94)), 0, s.length(), 0);
+        item.setTitle(s);
     }
 
     @Override
@@ -166,12 +161,18 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
                 break;
             case R.id.menu_remove_all:
-                DialogPositiveClickListener dialogListenerRemove = context -> viewModel.removeAll();
-                showDialogWithAction(dialogListenerRemove);
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+                builder.setMessage(R.string.dialog_confirmation_question)
+                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.removeAll())
+                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss())
+                        .create().show();
                 break;
             case R.id.menu_reset_all:
-                DialogPositiveClickListener dialogListenerReset = context -> viewModel.resetAll();
-                showDialogWithAction(dialogListenerReset);
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(requireActivity());
+                builder2.setMessage(R.string.dialog_confirmation_question)
+                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.resetAll())
+                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss())
+                        .create().show();
                 break;
             case R.id.menu_log:
                 LogActivity.start(requireActivity());
@@ -525,31 +526,5 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void afterDrag(Counter counter, int fromIndex, int toIndex) {
         viewModel.modifyPosition(counter, fromIndex, toIndex);
-    }
-
-    private void initSensorData() {
-        accel = 0.00f;
-        accelCurrent = SensorManager.GRAVITY_EARTH;
-        accelLast = SensorManager.GRAVITY_EARTH;
-        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
-            if (se == null) {
-                return;
-            }
-
-            float x = se.values[0];
-            float y = se.values[1];
-            float z = se.values[2];
-            accelLast = accelCurrent;
-            accelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
-            float delta = accelCurrent - accelLast;
-            accel = accel * 0.9f + delta; // perform low-cut filter
-            if (accel > 8.0 && countersAdapter.getItemCount() > 0) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-                builder.setMessage(R.string.message_reset_all_counters)
-                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.resetAll())
-                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss());
-                builder.create().show();
-            }
-        });
     }
 }
