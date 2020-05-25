@@ -132,7 +132,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:lineSpacingMultiplier="1.2"
-        android:padding="@dimen/padding_normal"
+        android:paddingHorizontal="@dimen/padding_large"
         android:text="@string/dice_empty_state"
         android:textColor="?android:attr/textColorHint"
         android:textSize="@dimen/font_body"

@@ -79,5 +79,5 @@
     <string name="about_feedback">Contact me →</string>
     <string name="settings_about">About me</string>
     <string name="easter_wave">👋</string>
-    <string name="setting_help_translate">>Help translate</string>
+    <string name="setting_help_translate">Help translate</string>
 </resources>
