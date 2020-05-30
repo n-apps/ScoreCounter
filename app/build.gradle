@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
 ext.versionMinor = 0
-ext.versionPatch = 8
+ext.versionPatch = 9
 ext.postfix = ''
 
 android {
@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de", "es"
+        resConfigs "en", "ru", "uk", "fr", "de", "es", "ro"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
@@ -56,7 +56,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.2.0-alpha06'
+    implementation 'com.google.android.material:material:1.2.0-beta01'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
@@ -73,7 +73,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
     implementation 'com.jakewharton.timber:timber:4.7.1'
-    implementation 'com.android.billingclient:billing:2.2.0'
+    implementation 'com.android.billingclient:billing:2.2.1'
     implementation 'com.github.naz013:ColorSlider:2.0.6'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.2.0'

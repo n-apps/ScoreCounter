@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="app_name">Compteur de Points</string>
+    <string name="app_name">Score Counter</string>
     <string name="bottom_navigation_tab_counters">Compteurs</string>
     <string name="bottom_navigation_tab_dice">Dés</string>
     <string name="bottom_navigation_tab_settings">Paramètres</string>
@@ -73,7 +73,7 @@
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
     <string name="about_text">Salut! Je m\'appelle Roma. Je suis un concepteur et développeur ukrainien. Me gusta jugar a los juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\u3030\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\u3030\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)
-        Aimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. Je vous remercie!\n\u3030\nHéros <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+        Aimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. Je vous remercie!\n\u3030\nHéros <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraduction en roumain - merci à Andrei Jacob</string>
     <string name="about_donation">Faire un don →</string>
     <string name="about_rate">Évaluer l\'application sur Google Play →</string>
     <string name="about_feedback">Contactez moi →</string>

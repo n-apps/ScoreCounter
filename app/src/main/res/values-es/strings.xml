@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Contador de puntos</string>
+    <string name="app_name">Score Counter</string>
     <string name="bottom_navigation_tab_counters">Contadores</string>
     <string name="bottom_navigation_tab_dice">Dado</string>
     <string name="bottom_navigation_tab_settings">Ajustes</string>
@@ -72,7 +72,7 @@
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>
     <string name="snackbar_action_one_more">Uno mas</string>
-    <string name="about_text">¡Hola! Mi nombre es roma Soy un diseñador y desarrollador de Ucrania. Me gusta jugar a los juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\u3030\nLa idea de hacer una aplicación para contar puntos de victoria se me ocurrió durante el juego en Stars&#160;Realms (tiene unas fichas terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Estoy feliz con cada nueva reseña, correo electrónico o donación.\n\u3030\nSi tiene algo para compartir o encontró una traducción desordenada, no dude en ponerse en contacto, todos tienen ideas geniales. O solo dime lo que estás contando&#160;:) ¿Te gusta la aplicación? Califíquelo o haga una donación: ayuda a mejorarlo.\n\u3030\n¡Gracias! Héroes <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi</string>
+    <string name="about_text">¡Hola! Mi nombre es roma Soy un diseñador y desarrollador de Ucrania. Me gusta jugar a los juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\u3030\nLa idea de hacer una aplicación para contar puntos de victoria se me ocurrió durante el juego en Stars&#160;Realms (tiene unas fichas terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Estoy feliz con cada nueva reseña, correo electrónico o donación.\n\u3030\nSi tiene algo para compartir o encontró una traducción desordenada, no dude en ponerse en contacto, todos tienen ideas geniales. O solo dime lo que estás contando&#160;:) ¿Te gusta la aplicación? Califíquelo o haga una donación: ayuda a mejorarlo.\n\u3030\n¡Gracias! Héroes <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraducción rumana - gracias a Andrei Jacob</string>
     <string name="about_donation">Hacer donación →</string>
     <string name="about_rate">Soporte en Google Play →</string>
     <string name="about_feedback">Contáctame →</string>

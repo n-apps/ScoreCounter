@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        MaterialFade fadeThrough = MaterialFade.create();
+        MaterialFade fadeThrough = new MaterialFade();
         currentFragment.setEnterTransition(fadeThrough);
         manager.beginTransaction()
                 .replace(R.id.container, currentFragment, tag)
