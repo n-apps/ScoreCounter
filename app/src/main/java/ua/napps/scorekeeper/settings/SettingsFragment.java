@@ -21,7 +21,6 @@ import androidx.fragment.app.Fragment;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import ua.napps.scorekeeper.AboutActivity;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;

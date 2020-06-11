@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
-    tools:context=".AboutActivity">
+    tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -80,6 +80,20 @@
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="?attr/colorSecondary"
                 tools:ignore="UnusedAttribute" />
+
+            <TextView
+                android:id="@+id/tv_mypage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/ripple"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/list_single_line_min_height"
+                android:text="@string/about_mypage"
+                android:textAllCaps="false"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="?attr/colorSecondary"
+                tools:ignore="UnusedAttribute" />
+
 
             <TextView
                 android:id="@+id/tv_rate_app"

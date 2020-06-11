@@ -40,7 +40,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".settings.AboutActivity" />
         <activity android:name=".log.LogActivity" />
 
         <meta-data

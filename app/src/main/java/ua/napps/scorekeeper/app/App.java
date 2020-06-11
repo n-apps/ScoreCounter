@@ -1,17 +1,15 @@
 package ua.napps.scorekeeper.app;
 
 import android.app.Application;
-import android.content.Context;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import org.jetbrains.annotations.Nullable;
 
-import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 import ua.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.storage.DatabaseHolder;
@@ -38,7 +36,7 @@ public class App extends Application {
         super.onCreate();
         App.instance = this;
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new CrashlyticsTree(this));
+        Timber.plant(BuildConfig.DEBUG ? new Timber.DebugTree() : new CrashlyticsTree());
         DatabaseHolder.init(this);
     }
 
@@ -48,10 +46,6 @@ public class App extends Application {
         private static final String CRASHLYTICS_KEY_TAG = "tag";
         private static final String CRASHLYTICS_KEY_MESSAGE = "message";
 
-        CrashlyticsTree(Context context) {
-            Fabric.with(context, new Crashlytics());
-        }
-
         @Override
         protected boolean isLoggable(@Nullable String tag, int priority) {
             return priority >= Log.WARN;
@@ -59,14 +53,15 @@ public class App extends Application {
 
         @Override
         protected void log(int priority, String tag, @NonNull String message, @Nullable Throwable t) {
-            Crashlytics.setInt(CRASHLYTICS_KEY_PRIORITY, priority);
-            Crashlytics.setString(CRASHLYTICS_KEY_TAG, tag);
-            Crashlytics.setString(CRASHLYTICS_KEY_MESSAGE, message);
+            FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
+            crashlytics.setCustomKey(CRASHLYTICS_KEY_PRIORITY, priority);
+            crashlytics.setCustomKey(CRASHLYTICS_KEY_TAG, tag);
+            crashlytics.setCustomKey(CRASHLYTICS_KEY_MESSAGE, message);
 
             if (t != null) {
-                Crashlytics.logException(t);
+                crashlytics.recordException(t);
             } else {
-                Crashlytics.logException(new RuntimeException(message));
+                crashlytics.recordException(new RuntimeException(message));
             }
         }
     }

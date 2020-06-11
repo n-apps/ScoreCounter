@@ -72,7 +72,7 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:) Do you like this app? Rate it or make a donation – it helps to improve it. Thank you!
+    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\u3030\nDo you like this app? Rate it or make a donation – it helps to improve it. Thank you!
     \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\Romanian translation - thanks to Andrei Iacob</string>
     <string name="about_donation">Make donation →</string>
     <string name="about_rate">Support at Google Play →</string>
@@ -80,4 +80,6 @@
     <string name="settings_about">About me</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Help translate</string>
+    <string name="about_mypage">My page →</string>
+    <string name="donate_tile">Buy me a…</string>
 </resources>

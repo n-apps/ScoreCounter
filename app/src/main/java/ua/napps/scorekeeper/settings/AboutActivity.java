@@ -1,8 +1,9 @@
-package ua.napps.scorekeeper;
+package ua.napps.scorekeeper.settings;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
@@ -13,7 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
-import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -69,11 +70,13 @@ public class AboutActivity extends AppCompatActivity {
             DonateDialog dialog = new DonateDialog();
             dialog.show(getSupportFragmentManager(), "donate");
         });
-        findViewById(R.id.tv_feedback).setOnClickListener(v -> {
-            Utilities.startEmail(this);
+        findViewById(R.id.tv_feedback).setOnClickListener(v -> Utilities.startEmail(this));
+        findViewById(R.id.tv_mypage).setOnClickListener(v -> {
+            Intent viewIntent =
+                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://n-apps.github.io/"));
+            startActivity(viewIntent);
         });
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
