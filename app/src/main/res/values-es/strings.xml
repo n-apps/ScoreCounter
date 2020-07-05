@@ -67,7 +67,7 @@
     <string name="common_more">Más</string>
     <string name="reset">Reiniciar contador</string>
     <string name="setting_share">Recomendar a un amigo</string>
-    <string name="share_snippet">¡Hola! Contador de puntuaciones + 🎲 te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">¡Hola! Contador de puntuaciones te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>

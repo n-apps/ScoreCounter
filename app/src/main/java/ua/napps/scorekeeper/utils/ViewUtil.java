@@ -33,7 +33,6 @@ public class ViewUtil {
             }
             activity.getWindow().setStatusBarColor(activity.getColor(R.color.primaryBackground));
         }
-
     }
 
     public static void setNavBarColor(Activity activity, boolean isLight) {

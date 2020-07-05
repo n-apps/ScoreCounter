@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
 ext.versionMinor = 1
-ext.versionPatch = 0
+ext.versionPatch = 1
 ext.postfix = ''
 
 android {
@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de", "es", "ro"
+        resConfigs "en", "ru", "uk", "fr", "de", "es", "ro", "pl"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
@@ -64,15 +64,15 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.room:room-runtime:2.2.5'
     implementation "androidx.room:room-rxjava2:2.2.5"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta6'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta7'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+    implementation 'com.google.firebase:firebase-crashlytics:17.1.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.android.billingclient:billing:3.0.0'
-    implementation 'com.github.naz013:ColorSlider:2.0.6'
+    implementation 'com.github.naz013:ColorSlider:2.0.7'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'

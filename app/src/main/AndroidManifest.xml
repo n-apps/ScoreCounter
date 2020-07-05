@@ -3,12 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="ua.napps.scorekeeper">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="false" />
 
     <application
@@ -40,8 +50,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
-        <activity android:name=".settings.AboutActivity" />
-        <activity android:name=".log.LogActivity" />
+        <activity
+            android:name=".settings.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".log.LogActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"

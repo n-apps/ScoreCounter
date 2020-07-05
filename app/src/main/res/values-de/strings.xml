@@ -67,7 +67,7 @@
     <string name="common_more">Mehr</string>
     <string name="reset">Zähler Zurücksetzen</string>
     <string name="setting_share">Einem Freund empfehlen</string>
-    <string name="share_snippet">Hallo! Klickzähler + 🎲 wird Ihnen helfen, die Punktzahl in allen Spielen leicht zu halten oder andere Aktivitäten. Holen Sie sich die kostenlose Android App hier:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Hallo! Klickzähler wird Ihnen helfen, die Punktzahl in allen Spielen leicht zu halten oder andere Aktivitäten. Holen Sie sich die kostenlose Android App hier:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Bearbeiten</string>
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>

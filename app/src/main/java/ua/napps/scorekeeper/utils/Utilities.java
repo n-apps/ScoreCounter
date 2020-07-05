@@ -91,7 +91,7 @@ public class Utilities {
 
     public static void startEmail(Context context) {
         String mailTo = "mailto:scorekeeper.feedback@gmail.com" + "?subject=" +
-                Uri.encode(context.getString(R.string.app_name) + " (" + context.getString(R.string.settings_feedback)) + ")";
+                Uri.encode(context.getString(R.string.app_name));
 
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mailTo));
         if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {

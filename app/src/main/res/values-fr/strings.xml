@@ -67,7 +67,7 @@
     <string name="common_more">Plus</string>
     <string name="reset">Réinitialiser</string>
     <string name="setting_share">Recommander à un ami</string>
-    <string name="share_snippet">Salut! Compteur de Points + 🎲 vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Salut! Compteur de Points vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Modifier</string>
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Compteur ajouté</string>
