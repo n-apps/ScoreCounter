@@ -128,12 +128,9 @@
       android:fillColor="#00000000"
       android:strokeColor="#ffffff"/>
   <path
-      android:pathData="M0,0h108v66.02h-108z"
+      android:pathData="M0,0h108v108h-108z"
       android:fillColor="#54FFBD"/>
   <path
-      android:pathData="M0,38h70v70h-70z"
+      android:pathData="M0,40h67v68h-67z"
       android:fillColor="#ffffff"/>
-  <path
-      android:pathData="M70,51.983h38v56.017h-38z"
-      android:fillColor="#54FFBD"/>
 </vector>
