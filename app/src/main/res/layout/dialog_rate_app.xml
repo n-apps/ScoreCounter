@@ -21,13 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/padding_normal"
-        android:gravity="center"
         android:lineSpacingMultiplier="1.2"
+        android:paddingHorizontal="@dimen/padding_normal"
         android:text="@string/erd_message"
         android:textColor="?android:attr/textColorSecondary" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_rate_it"
+        android:id="@+id/btn_donate_it"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,9 +37,26 @@
         android:insetBottom="0dp"
         android:minWidth="64dp"
         android:minHeight="56dp"
-        android:text="@string/erd_rate_now"
+        android:text="@string/action_donate"
         android:textAllCaps="false"
         android:textSize="@dimen/font_subheading" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_rate_it"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:fontFamily="@font/inter_bold"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="64dp"
+        android:minHeight="56dp"
+        android:text="@string/erd_rate_now"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorSecondary"
+        android:textSize="@dimen/font_subheading" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +68,7 @@
             android:id="@+id/btn_no_thanks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
+            android:background="?selectableItemBackground"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
@@ -68,7 +85,7 @@
             android:id="@+id/btn_remind_later"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
+            android:background="?selectableItemBackground"
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"

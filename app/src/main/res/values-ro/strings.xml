@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
-    <string name="erd_message">Daca iti place Score Counter, te rog sa adaugi o recenzie. Dureaza mai putin de 1 minut.\\nMultumesc pentru ajutorul acordat!</string>
+    <string name="erd_message">Dacă vă place Score Counter, vă rugăm să o evaluați sau să-mi cumpărați o cafea "virtuală" - mă ajută să îmbunătățesc aplicația și mă face mai fericită. Mulțumesc!</string>
     <string name="erd_no_thanks">Nu, multumesc</string>
-    <string name="erd_rate_now">Evalueaza Score Counter</string>
+    <string name="erd_rate_now">Evalueaza aceasta aplicatie</string>
     <string name="erd_remind_me_later">Adu-mi aminte mai tarziu</string>
-    <string name="erd_title">Evalueaza Score Counter</string>
+    <string name="erd_title">Contor de Score Counter</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="hint_enter_number">sau introdu un numar…</string>
     <string name="menu_add_new_counter">Adauga contor</string>

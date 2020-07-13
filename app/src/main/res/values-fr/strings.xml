@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Nombre de côtés</string>
     <string name="dice_empty_state">Appuyez partout sur ou secouer l\'appareil pour lancer les dés</string>
     <string name="dice_previous_result_label">Résultat précédent:</string>
-    <string name="erd_message">Vous aimez notre application, voulez-vous prendre un moment pour l\'évaluer? Cela ne vous prendra pas plus d\'une minute. \nMerci de votre soutien!</string>
+    <string name="erd_message">Si vous aimez Score Counter, veuillez le noter ou m\'acheter un café "virtuel" - cela m\'aide à améliorer l\'application et me rend plus heureux. Je vous remercie !</string>
     <string name="erd_no_thanks">Non, merci</string>
-    <string name="erd_rate_now">Évaluer Compteur de Points</string>
+    <string name="erd_rate_now">Évaluer cette application</string>
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
-    <string name="erd_title">Évaluer Compteur de Points</string>
+    <string name="erd_title">Soutenir le Score Counter</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
     <string name="hint_enter_number">entrez un nombre…</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
@@ -67,7 +67,7 @@
     <string name="common_more">Plus</string>
     <string name="reset">Réinitialiser</string>
     <string name="setting_share">Recommander à un ami</string>
-    <string name="share_snippet">Salut! Compteur de Points vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Salut! Score Counter vous aidera à conserver facilement le score dans tous les jeux ou autres activités. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Modifier</string>
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Compteur ajouté</string>

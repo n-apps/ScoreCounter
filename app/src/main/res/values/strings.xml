@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like Score Counter, please rate my app. It will take less than a minute.\nThanks for your support!</string>
+    <string name="erd_message">If you like Score Counter, please rate&#160;it or buy me a "virtual" coffee – it&#160;helps me to improve the app and makes me happier. Thank you!</string>
     <string name="erd_no_thanks">No, thanks</string>
-    <string name="erd_rate_now">Rate Score Counter</string>
+    <string name="erd_rate_now">Rate this app</string>
     <string name="erd_remind_me_later">Remind me later</string>
-    <string name="erd_title">Rate Score Counter</string>
+    <string name="erd_title">Support Score Counter</string>
     <string name="error_no_email_client">No email app on your device :(</string>
     <string name="hint_enter_number">or enter a number…</string>
     <string name="menu_add_new_counter">Add counter</string>
@@ -72,8 +72,8 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\u3030\nDo you like this app? Rate it or make a donation – it helps to improve it. Thank you!
-    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\Romanian translation - thanks to Andrei Iacob</string>
+    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!
+    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRomanian translation - thanks to Andrei Iacob</string>
     <string name="about_donation">Make donation →</string>
     <string name="about_rate">Support at Google Play →</string>
     <string name="about_feedback">Contact me →</string>

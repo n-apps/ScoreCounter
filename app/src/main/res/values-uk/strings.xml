@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Кількість граней</string>
     <string name="dice_empty_state">Натисніть в будь-якому місці або потрясіть пристрій, щоб кинути кубик</string>
     <string name="dice_previous_result_label">Попередній кидок:</string>
-    <string name="erd_message">Якщо вам подобається Лічильник Очок, будь ласка, оцініть мій додаток. Це займе не більше хвилини.\nДякую за вашу підтримку!</string>
+    <string name="erd_message">Якщо вам подобається Лічильник Очок, будь ласка, оцініть його або пригостите мене "віртуальною" кавою - це допомагає мені покращувати додаток і робить мене щасливішим. Дякую!</string>
     <string name="erd_no_thanks">Ні, дякую</string>
-    <string name="erd_rate_now">Оцінити Лічильник Очок</string>
+    <string name="erd_rate_now">Оцінити цей застосунок</string>
     <string name="erd_remind_me_later">Нагадати пізніше</string>
-    <string name="erd_title">Оцініти Лічильник Очок</string>
+    <string name="erd_title">Підтримати Лічильник Очок</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
     <string name="hint_enter_number">або введіть число…</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
@@ -67,7 +67,7 @@
     <string name="common_more">Більше</string>
     <string name="reset">Скинути</string>
     <string name="setting_share">Рекомендувати другу</string>
-    <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай додаток для Android тут:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай застосунок для Android тут:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Редагувати</string>
     <string name="counter_deleted">Лічильник видалено</string>
     <string name="counter_added">Лічильник додано</string>

@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
     <string name="dice_previous_result_label">Letzter Wurf:</string>
-    <string name="erd_message">Wenn dir die App gefällt kannst du sie gerne bewerten! Es dauert nicht lange. \nDanke für deine Unterstützung!</string>
+    <string name="erd_message">Wenn Ihnen der Score Counter gefällt, bewerten Sie ihn bitte oder kaufen Sie mir einen virtuellen Kaffee - er hilft mir, die App zu verbessern und macht mich glücklicher. Ich danke Ihnen!</string>
     <string name="erd_no_thanks">Nein, Danke</string>
-    <string name="erd_rate_now">Punktezähler Bewerten</string>
+    <string name="erd_rate_now">Bewerten Sie diese App</string>
     <string name="erd_remind_me_later">Frag mich später</string>
-    <string name="erd_title">Punktezähler Bewerten</string>
+    <string name="erd_title">Unterstützen Sie Score Counter</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="hint_enter_number">Gebe eine Nummer ein…</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>

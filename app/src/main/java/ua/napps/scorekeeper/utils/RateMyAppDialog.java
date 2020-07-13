@@ -1,11 +1,11 @@
 package ua.napps.scorekeeper.utils;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
 
 import java.util.Date;
 
@@ -19,10 +19,10 @@ public class RateMyAppDialog {
     private static final String KEY_FIRST_HIT_DATE = "KEY_FIRST_HIT_DATE";
     private static final String KEY_LAUNCH_TIMES = "KEY_LAUNCH_TIMES";
 
-    private final Context context;
+    private final FragmentActivity context;
     private Dialog dialog;
 
-    public RateMyAppDialog(Context context) {
+    public RateMyAppDialog(FragmentActivity context) {
         this.context = context;
     }
 
@@ -62,7 +62,7 @@ public class RateMyAppDialog {
         return LocalSettings.didNeverReminder();
     }
 
-    private void tryShow(Context context) {
+    public void tryShow(FragmentActivity context) {
         if (isShowing())
             return;
 
@@ -101,7 +101,7 @@ public class RateMyAppDialog {
         return (lastDate - firstDate) / (1000 * 60 * 60 * 24);
     }
 
-    private Dialog createDialog(Context context) {
+    private Dialog createDialog(FragmentActivity context) {
         final View contentView = LayoutInflater.from(context).inflate(R.layout.dialog_rate_app, null, false);
 
         final AlertDialog dialog = new AlertDialog.Builder(context)
@@ -111,6 +111,12 @@ public class RateMyAppDialog {
 
         contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
             Utilities.rateApp(context);
+            dialog.dismiss();
+        });
+        contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
+            DonateDialog donateDialog = new DonateDialog();
+            donateDialog.show(context.getSupportFragmentManager(), "donate");
+            LocalSettings.markRateApp();
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {

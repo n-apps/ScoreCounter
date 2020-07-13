@@ -99,6 +99,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         SkuDetails skuDetails = findSkuDetails(sku);
         if (skuDetails == null) {
             Timber.e(new BillingStateException("skuDetails not found :("));
+            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.error_message)));
             return;
         }
         billingClient.launchBillingFlow(activity, BillingFlowParams.newBuilder()

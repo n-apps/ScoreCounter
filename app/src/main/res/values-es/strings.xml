@@ -22,11 +22,11 @@
     <string name="dialog_custom_dice_title">Caras del dado propias</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar, o agita tu dispositivo para tirar el dado</string>
     <string name="dice_previous_result_label">Anterior tirada:</string>
-    <string name="erd_message">Si te gusta esta app, ¿te importaría evaluarla en un momentito? No será más de un minuto. \n¡Gracias por tu apoyo!</string>
+    <string name="erd_message">Si te gusta el Score Counter, por favor califícalo o cómprame un café "virtual" - me ayuda a mejorar la aplicación y me hace más feliz. ¡Gracias!</string>
     <string name="erd_no_thanks">No, gracias</string>
-    <string name="erd_rate_now">Evalúa Contador de puntos</string>
+    <string name="erd_rate_now">Evalúae esta aplicación</string>
     <string name="erd_remind_me_later">Recuérdamelo después</string>
-    <string name="erd_title">Evalúa Contador de puntos</string>
+    <string name="erd_title">Apoya el Score Counter</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
     <string name="hint_enter_number">introduce un número…</string>
     <string name="menu_add_new_counter">Añadir contador</string>
@@ -67,7 +67,7 @@
     <string name="common_more">Más</string>
     <string name="reset">Reiniciar contador</string>
     <string name="setting_share">Recomendar a un amigo</string>
-    <string name="share_snippet">¡Hola! Contador de puntuaciones te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">¡Hola! Score Counter te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>
