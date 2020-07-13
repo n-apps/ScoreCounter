@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onResume() {
         super.onResume();
-        rateMyAppDialog.tryShow(this);
+        rateMyAppDialog.showIfNeeded();
     }
 
     @Override

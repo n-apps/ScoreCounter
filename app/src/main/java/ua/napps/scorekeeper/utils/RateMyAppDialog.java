@@ -62,7 +62,7 @@ public class RateMyAppDialog {
         return LocalSettings.didNeverReminder();
     }
 
-    public void tryShow(FragmentActivity context) {
+    private void tryShow(FragmentActivity context) {
         if (isShowing())
             return;
 
