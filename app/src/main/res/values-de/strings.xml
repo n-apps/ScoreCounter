@@ -22,7 +22,7 @@
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
     <string name="dice_previous_result_label">Letzter Wurf:</string>
-    <string name="erd_message">Wenn Ihnen der Score Counter gefällt, bewerten Sie ihn bitte oder kaufen Sie mir einen virtuellen Kaffee - er hilft mir, die App zu verbessern und macht mich glücklicher. Ich danke Ihnen!</string>
+    <string name="erd_message">Wenn Ihnen der Score Counter gefällt, bewerten Sie ihn bitte oder kaufen Sie mir einen virtuellen Kaffee - er hilft mir, die App zu verbessern und macht mich glücklicher&#160;:) Ich danke Ihnen!</string>
     <string name="erd_no_thanks">Nein, Danke</string>
     <string name="erd_rate_now">Bewerten Sie diese App</string>
     <string name="erd_remind_me_later">Frag mich später</string>
@@ -72,13 +72,13 @@
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch eins</string>
-    <string name="about_text">Hallo! Ich heiße Roma. Ich bin ein Designer und Entwickler aus der Ukraine. Ich spiele gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\u3030\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\n\u3030\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\n\u3030\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>-Helden: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRumänische Übersetzung - danke an Andrei Jacob.</string>
+    <string name="about_text">HHallo! Ich bin Roma. Ich bin ein 27-jähriger Designer und Entwickler, der in der Ukraine lebt. Ich spiele auch gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\u3030\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\n\u3030\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\n\u3030\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>-Helden: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRumänische Übersetzung - Dank an Andrei Jacob \u2022 Polnische Übersetzung - Dank an maiky \u2022 Spanische Übersetzung - Dank an ZVirus.</string>
     <string name="about_donation">Spenden Sie →</string>
     <string name="about_rate">Unterstützung bei Google Play →</string>
     <string name="about_feedback">Kontaktiere mich →</string>
     <string name="settings_about">Über mich</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Hilf beim Übersetzen</string>
-    <string name="about_mypage">Meine Webseite →</string>
+    <string name="about_my_webpage">Meine Webseite →</string>
     <string name="donate_tile">Kaufen Sie mir ein…</string>
 </resources>

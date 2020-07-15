@@ -22,7 +22,7 @@ public class DonateDialog extends DialogFragment {
         Object intent = event.getValueAndConsume();
         if (intent instanceof MessageIntent) {
             int messageResId = ((MessageIntent) intent).messageResId;
-            Toast.makeText(requireContext(), messageResId, Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
         } else if (intent instanceof CloseScreenIntent) {
             int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
             Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();

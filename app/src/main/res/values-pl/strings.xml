@@ -22,7 +22,7 @@
     <string name="dialog_custom_dice_title">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>
-    <string name="erd_message">Jeśli podoba Ci się Score Counter, możesz go ocenić lub kupić mi "wirtualną" kawę - pomoże mi to poprawić aplikację i sprawi, że będę szczęśliwszy. Dziękuję!</string>
+    <string name="erd_message">Jeśli podoba Ci się Score Counter, możesz go ocenić lub kupić mi "wirtualną" kawę - pomoże mi to poprawić aplikację i sprawi, że będę szczęśliwszy&#160;:) Dziękuję!</string>
     <string name="erd_no_thanks">Nie, dzięki</string>
     <string name="erd_rate_now">Oceń tę aplikację</string>
     <string name="erd_remind_me_later">Przypomnij mi później</string>
@@ -78,7 +78,11 @@
     <string name="settings_about">O mnie</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_mypage">Moja strona →</string>
+    <string name="about_my_webpage">Moja strona →</string>
     <string name="donate_tile">Kup mi…</string>
-    <string name="about_text">Witam! Nazywam się Roma. Jestem projektantem i deweloperem z Ukrainy. Lubię grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.  Pomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.  Jeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)  Podoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!\n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>  Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\ntłumaczenie na język rumuński - dzięki Andreiowi Iacobowi  \u2022 tłumaczenie na język polski - dzięki maiky</string>
+    <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.
+        \n\u3030\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
+        \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
+        \n\u3030\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!
+        \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>  Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\ntłumaczenie na język rumuński - dzięki Andrei&#160;Iacob \u2022 tłumaczenie na język polski - dzięki maiky \u2022 tłumaczenie na język hiszpański - dzięki ZVirus</string>
 </resources>

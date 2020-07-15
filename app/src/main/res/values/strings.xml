@@ -11,18 +11,18 @@
     <string name="common_select">Select</string>
     <string name="common_set">Set</string>
     <string name="counter_details_color_picker_title">Counter color</string>
-    <string name="counter_details_default_value">Value after reset</string>
+    <string name="counter_details_default_value">Reset value</string>
     <string name="delete">Delete</string>
     <string name="counter_details_name">Counter name</string>
-    <string name="counter_details_step">Step (-/+)</string>
-    <string name="counter_details_value">Current value</string>
+    <string name="counter_details_step">Incrementation (-/+)</string>
+    <string name="counter_details_value">Value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
     <string name="dialog_current_value_title">Current value</string>
     <string name="dialog_custom_dice_hint">From 2 to 100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like Score Counter, please rate&#160;it or buy me a "virtual" coffee – it&#160;helps me to improve the app and makes me happier. Thank you!</string>
+    <string name="erd_message">If you like Score Counter, please rate&#160;it or buy me a "virtual" coffee – it&#160;helps me to improve the app and makes me happier :)&#160;Thank you!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_rate_now">Rate this app</string>
     <string name="erd_remind_me_later">Remind me later</string>
@@ -67,19 +67,22 @@
     <string name="common_more">More</string>
     <string name="reset">Reset</string>
     <string name="setting_share">Recommend to a friend</string>
-    <string name="share_snippet">Hi there! Score Counter will help you easily keep score in any games, sports or other activities. Get the free Android app here:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Hi there! Score Counter will help you easily keep score in any games, sports or other activities. Get the free Android app here:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Edit</string>
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! My name is Roma. I\'m a designer and  developer from Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.\n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!
-    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRomanian translation - thanks to Andrei Iacob</string>
+    <string name="about_text">Hi! I am Roma. I\'m a 27-year-old designer and  developer living in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.
+        \n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.
+        \n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)
+        \n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!
+    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRomanian translation - thanks to Andrei&#160;Iacob \u2022 Polish transation - thanks to maiky \u2022 Spanish translation - thanks to ZVirus</string>
     <string name="about_donation">Make donation →</string>
     <string name="about_rate">Support at Google Play →</string>
     <string name="about_feedback">Contact me →</string>
     <string name="settings_about">About me</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Help translate</string>
-    <string name="about_mypage">My page →</string>
+    <string name="about_my_webpage">My web page →</string>
     <string name="donate_tile">Buy me a…</string>
 </resources>

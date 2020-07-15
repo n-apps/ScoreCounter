@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">Score Counter</string>
+    <string name="app_name">Contador para juegos de mesa</string>
     <string name="bottom_navigation_tab_counters">Contadores</string>
     <string name="bottom_navigation_tab_dice">Dado</string>
     <string name="bottom_navigation_tab_settings">Ajustes</string>
@@ -16,69 +16,74 @@
     <string name="counter_details_name">Nombre del contador</string>
     <string name="counter_details_step">Paso (-/+)</string>
     <string name="counter_details_value">Valor actual</string>
-    <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador, o usar el botón + de la esquina superior derecha</string>
+    <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador o usa el botón + ubicado en la esquina superior derecha</string>
     <string name="dialog_current_value_title">Valor actual</string>
-    <string name="dialog_custom_dice_hint">De 2 a 100</string>
-    <string name="dialog_custom_dice_title">Caras del dado propias</string>
-    <string name="dice_empty_state">Pulsa en cualquier lugar, o agita tu dispositivo para tirar el dado</string>
-    <string name="dice_previous_result_label">Anterior tirada:</string>
-    <string name="erd_message">Si te gusta el Score Counter, por favor califícalo o cómprame un café "virtual" - me ayuda a mejorar la aplicación y me hace más feliz. ¡Gracias!</string>
+    <string name="dialog_custom_dice_hint">Desde 2 hasta 100</string>
+    <string name="dialog_custom_dice_title">Caras personalizadas</string>
+    <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
+    <string name="dice_previous_result_label">Tirada anterior:</string>
+    <string name="erd_message">Si te gusta la aplicación, por favor califícala o regálame un "café virtual", esto me ayuda a mejorar la aplicación y me hace más feliz, lo que es bueno para todos&#160;:) ¡Gracias!</string>
     <string name="erd_no_thanks">No, gracias</string>
-    <string name="erd_rate_now">Evalúae esta aplicación</string>
-    <string name="erd_remind_me_later">Recuérdamelo después</string>
-    <string name="erd_title">Apoya el Score Counter</string>
-    <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :(</string>
-    <string name="hint_enter_number">introduce un número…</string>
+    <string name="erd_rate_now">Puntúa esta aplicación</string>
+    <string name="erd_remind_me_later">Recuérdamelo luego</string>
+    <string name="erd_title">Apoya la aplicación.</string>
+    <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
+    <string name="hint_enter_number">o introduce un número…</string>
     <string name="menu_add_new_counter">Añadir contador</string>
-    <string name="menu_delete_all_counters">Quitar todo</string>
+    <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
-    <string name="message_reset_all_counters">Resetear todo?</string>
-    <string name="message_you_can_use_long_press">Intenta presionar prolongadamente + o -</string>
+    <string name="message_reset_all_counters">Estás seguro de querer borrar TODO?</string>
+    <string name="message_you_can_use_long_press">Intenta presionar durante más tiempo + o -</string>
     <string name="settings_dark_theme">Tema oscuro</string>
     <string name="settings_section_actions">Acciones</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
     <string name="settings_feedback">Feedback</string>
-    <string name="settings_shake_to_roll">Agita para tirar</string>
+    <string name="settings_shake_to_roll">Agita para lanzar un dado</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de lados</string>
-    <string name="dialog_step_info_content">Cómo cambia el contador cuando lo modificas: La mitad izquierda disminuye y la derecha aumenta. También puede cambiar el valor del contador presionándolo prolongadamente.</string>
-    <string name="dialog_default_info_content">El valor del contador, será creado de nuevo después de este reseteo, usando el menú \"Resetear todo"\ (en la pantalla principal).</string>
+    <string name="dialog_step_info_content">Cuanto quieres que sume o reste con cada toque, la mitad izquierda disminuye y la derecha aumenta. También puedes cambiar el valor del contador presionándolo prolongadamente.</string>
+    <string name="dialog_default_info_content">El valor del contador, que se establecerá después de su reinicio, usando la opción "Resetear todo" en el menú (en la pantalla principal)</string>
     <string name="common_got_it">Entendido</string>
     <string name="menu_log">Historial</string>
     <string name="history_empty_message">No hay historial aún</string>
     <string name="common_counter">Contador</string>
-    <string name="dialog_custom_counter_title">Valor de contador personalizado</string>
+    <string name="dialog_custom_counter_title">Opción de cambio rápido</string>
     <string name="dialog_custom_counter_hint">De 2 a 999.</string>
-    <string name="settings_section_counter_buttons">Establezca el valor de los botones en un cuadro de diálogo de contador (presionando prolongadamente)</string>
+    <string name="settings_section_counter_buttons">Establece el valor de los contadores presionando prolongadamente en ellos.</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>
     <string name="privacy_policy">Política de privacidad</string>
     <string name="donation_thank_you">Gracias 💜</string>
     <string name="donation_coffee_title">Taza de café</string>
-    <string name="donation_coffee_description">Me mantendrá despierta por la noche</string>
+    <string name="donation_coffee_description">¡Me mantendrá despierto por la noche!</string>
     <string name="donation_pizza_title">Pizza sabrosa</string>
     <string name="donation_pizza_description">Con cebolla, queso doble y salami, por favor. ¡Y sin hongos!</string>
     <string name="settings_sound">Sonar</string>
     <string name="action_donate">Donar</string>
-    <string name="error_message">Ocurrió un error.</string>
+    <string name="error_message">Parece que hubo algún error.</string>
     <string name="save">Guardar</string>
     <string name="common_more">Más</string>
     <string name="reset">Reiniciar contador</string>
     <string name="setting_share">Recomendar a un amigo</string>
-    <string name="share_snippet">¡Hola! Score Counter te ayudará a mantener fácilmente la puntuación en cualquier juego u otras actividades. Obtenga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">¡Hola! Esta aplicación te ayudará a mantener fácilmente la puntuación en cualquier juego o actividad. Descarga la aplicación gratuita de Android aquí: %link%:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>
     <string name="snackbar_action_one_more">Uno mas</string>
-    <string name="about_text">¡Hola! Mi nombre es roma Soy un diseñador y desarrollador de Ucrania. Me gusta jugar a los juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\u3030\nLa idea de hacer una aplicación para contar puntos de victoria se me ocurrió durante el juego en Stars&#160;Realms (tiene unas fichas terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Estoy feliz con cada nueva reseña, correo electrónico o donación.\n\u3030\nSi tiene algo para compartir o encontró una traducción desordenada, no dude en ponerse en contacto, todos tienen ideas geniales. O solo dime lo que estás contando&#160;:)\n\u3030\n¿Te gusta la aplicación? Califíquelo o haga una donación: ayuda a mejorarlo.\n\u3030\n¡Gracias! Héroes <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraducción rumana - gracias a Andrei Jacob.</string>
+    <string name="about_text">¡Hola! Soy Roma. Soy un diseñador y desarrollador de 27 años que vive en Ucrania. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.
+        \n\u3030\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.
+\n\u3030\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)
+\n\u3030\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.
+\n\u3030\n¡Gracias! Héroes <a href="https://github.com/n-apps/ScoreCounter">Github</a>: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi
+\n\u3030\nTraducción al español - gracias a ZVirus \u2022 Traducción rumana - gracias a Andrei&#160;Jacob \u2022 Traducción Polaca - gracias a maiky.</string>
     <string name="about_donation">Hacer donación →</string>
     <string name="about_rate">Soporte en Google Play →</string>
     <string name="about_feedback">Contáctame →</string>
-    <string name="settings_about">sobre mí</string>
+    <string name="settings_about">Sobre mí</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Ayúdanos a traducir</string>
-    <string name="about_mypage">Mi sitio web →</string>
+    <string name="about_my_webpage">Mi sitio web →</string>
     <string name="donate_tile">Cómprame un…</string>
 </resources>

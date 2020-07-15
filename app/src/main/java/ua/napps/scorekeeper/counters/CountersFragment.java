@@ -285,7 +285,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private void showLongPressHint() {
         if (!isLongPressTipShowed) {
             Handler handler = new Handler();
-            handler.postDelayed(() -> Toast.makeText(requireContext(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show(), 500);
+            handler.postDelayed(() -> Toast.makeText(getActivity(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show(), 500);
             LocalSettings.setLongPressTipShowed();
             isLongPressTipShowed = true;
         }
@@ -477,9 +477,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         editText.post(() -> {
             editText.requestFocus();
 
-            InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (inputMethodManager != null) {
-                inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, 0);
+            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (null != inputMethodManager) {
+                inputMethodManager.showSoftInput(editText, 0);
             }
         });
     }

@@ -163,7 +163,6 @@ public class EditCounterActivity extends AppCompatActivity {
     }
 
     private void validateAndSave() {
-
         String newName = counterName.getText().toString();
         if (!counter.getName().equals(newName)) {
             viewModel.updateName(newName);
@@ -212,8 +211,6 @@ public class EditCounterActivity extends AppCompatActivity {
                 counter = null;
                 finish();
             }
-        });
-        viewModel.getCounters().observe(this, c -> {
         });
     }
 

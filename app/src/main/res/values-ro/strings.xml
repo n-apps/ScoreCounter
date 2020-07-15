@@ -22,7 +22,7 @@
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
-    <string name="erd_message">Dacă vă place Score Counter, vă rugăm să o evaluați sau să-mi cumpărați o cafea "virtuală" - mă ajută să îmbunătățesc aplicația și mă face mai fericită. Mulțumesc!</string>
+    <string name="erd_message">Dacă vă place Score Counter, vă rugăm să o evaluați sau să-mi cumpărați o cafea "virtuală" - mă ajută să îmbunătățesc aplicația și mă face mai fericită&#160;:) Mulțumesc!</string>
     <string name="erd_no_thanks">Nu, multumesc</string>
     <string name="erd_rate_now">Evalueaza aceasta aplicatie</string>
     <string name="erd_remind_me_later">Adu-mi aminte mai tarziu</string>
@@ -78,8 +78,9 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
     <string name="about_donation">Doneaza →</string>
-    <string name="about_text">Salut! Ma numesc Roma si sunt un designer si programator din Ucraina. Imi plac jocurile de societate. Preferatele mele sunt Dead of Winter si Terraforming Mars.\n\u3030\nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\n\u3030\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\n\u3030\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc. Multumesc!
-    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraducere românească - mulțumită lui Andrei Jacob.</string>
-    <string name="about_mypage">Site-ul meu →</string>
+    <string name="about_text">Bună! Sunt rom. Sunt un designer și dezvoltator de 27 de ani, care locuiește în Ucraina. De asemenea, îmi place să joc jocuri de masă. Dead of Winter și Terraforming Mars sunt două dintre preferatele mele.
+        \n\u3030\nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\n\u3030\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\n\u3030\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc. Multumesc!
+    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraducere spaniolă - grație ZVirus \u2022 Traducere românească - mulțumiri lui Andrei&#160;Jacob \u2022 Traducere poloneză - mulțumită maiky.</string>
+    <string name="about_my_webpage">Site-ul meu →</string>
     <string name="donate_tile">Cumpără-mi un…</string>
 </resources>

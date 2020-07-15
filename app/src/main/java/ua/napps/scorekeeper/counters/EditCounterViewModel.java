@@ -5,8 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.util.List;
-
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -19,7 +17,6 @@ import ua.napps.scorekeeper.utils.Singleton;
 class EditCounterViewModel extends ViewModel {
 
     private final CountersRepository countersRepository;
-    private final LiveData<List<Counter>> countersLiveData;
     private final LiveData<Counter> counterLiveData;
     private final int id;
     private Counter counter;
@@ -28,15 +25,10 @@ class EditCounterViewModel extends ViewModel {
         id = counterId;
         countersRepository = repository;
         counterLiveData = repository.loadCounter(counterId);
-        countersLiveData = countersRepository.getCounters();
     }
 
     LiveData<Counter> getCounterLiveData() {
         return counterLiveData;
-    }
-
-    LiveData<List<Counter>> getCounters() {
-        return countersLiveData;
     }
 
     public void setCounter(@NonNull Counter c) {
