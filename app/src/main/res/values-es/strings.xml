@@ -19,7 +19,7 @@
     <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador o usa el botón + ubicado en la esquina superior derecha</string>
     <string name="dialog_current_value_title">Valor actual</string>
     <string name="dialog_custom_dice_hint">Desde 2 hasta 100</string>
-    <string name="dialog_custom_dice_title">Caras personalizadas</string>
+    <string name="dialog_custom_dice_title">Número de caras</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
     <string name="dice_previous_result_label">Tirada anterior:</string>
     <string name="erd_message">Si te gusta la aplicación, por favor califícala o regálame un "café virtual", esto me ayuda a mejorar la aplicación y me hace más feliz, lo que es bueno para todos&#160;:) ¡Gracias!</string>
@@ -43,14 +43,14 @@
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_section_dice_sides">Número de lados</string>
     <string name="dialog_step_info_content">Cuanto quieres que sume o reste con cada toque, la mitad izquierda disminuye y la derecha aumenta. También puedes cambiar el valor del contador presionándolo prolongadamente.</string>
-    <string name="dialog_default_info_content">El valor del contador, que se establecerá después de su reinicio, usando la opción "Resetear todo" en el menú (en la pantalla principal)</string>
+    <string name="dialog_default_info_content">El valor que tendrá el contador después de reiniciarlo mediante la opción de resetear todo del menú de la pantalla principal. </string>
     <string name="common_got_it">Entendido</string>
     <string name="menu_log">Historial</string>
     <string name="history_empty_message">No hay historial aún</string>
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Opción de cambio rápido</string>
     <string name="dialog_custom_counter_hint">De 2 a 999.</string>
-    <string name="settings_section_counter_buttons">Establece el valor de los contadores presionando prolongadamente en ellos.</string>
+    <string name="settings_section_counter_buttons">Puedes cambiar rápidamente el valor de los contadorescon una presión prolongada en ellos.</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>

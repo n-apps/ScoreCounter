@@ -2,14 +2,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="names">
         <item>muffalo</item>
-        <item>boomrat</item>
-        <item>megascarab</item>
+        <item>rata</item>
+        <item>Mega escarabajo</item>
         <item>cobra</item>
         <item>ciervo</item>
         <item>Jabali</item>
         <item>ardilla</item>
         <item>iguana</item>
-        <item>cerdo hormiguero</item>
+        <item>Cerdo hormiguero</item>
         <item>albatros</item>
         <item>caimán</item>
         <item>alpaca</item>
@@ -33,7 +33,7 @@
         <item>caribú</item>
         <item>gato</item>
         <item>oruga</item>
-        <item>vacas</item>
+        <item>vaca</item>
         <item>leopardo</item>
         <item>pollo</item>
         <item>chimpancé</item>
@@ -68,7 +68,7 @@
         <item>pinzón</item>
         <item>pez</item>
         <item>flamenco</item>
-        <item>volar</item>
+        <item>mosca</item>
         <item>zorro</item>
         <item>rana</item>
         <item>gacela</item>
@@ -83,7 +83,7 @@
         <item>gorila</item>
         <item>azor</item>
         <item>saltamontes</item>
-        <item>queja</item>
+        <item>Pájaro</item>
         <item>guanaco</item>
         <item>conejillo de indias</item>
         <item>gaviota</item>
@@ -106,17 +106,17 @@
         <item>arrendajo azul</item>
         <item>Medusa</item>
         <item>canguro</item>
-        <item>coala</item>
-        <item>komodo</item>
+        <item>Koala</item>
+        <item>Dragón de komodo</item>
         <item>alondra</item>
         <item>lémur</item>
         <item>leopardo</item>
         <item>león</item>
         <item>llama</item>
         <item>langosta</item>
-        <item>langosta</item>
+        <item>langosta terrestre</item>
         <item>piojo</item>
-        <item>ave lira</item>
+        <item>Pájaro lira</item>
         <item>urraca</item>
         <item>pato real</item>
         <item>Pato</item>
@@ -159,7 +159,7 @@
         <item>codorniz</item>
         <item>Conejo</item>
         <item>mapache</item>
-        <item>RAM</item>
+        <item>Carnero</item>
         <item>rata</item>
         <item>cuervo</item>
         <item>reno</item>
@@ -171,7 +171,7 @@
         <item>León marino</item>
         <item>erizo de mar</item>
         <item>caballo de mar</item>
-        <item>sello</item>
+        <item>foca</item>
         <item>tiburón</item>
         <item>oveja</item>
         <item>musaraña</item>
@@ -182,7 +182,7 @@
         <item>araña</item>
         <item>calamar</item>
         <item>estornino</item>
-        <item>mantarraya</item>
+        <item>manta raya</item>
         <item>chinche</item>
         <item>cigüeña</item>
         <item>golondrina</item>
@@ -193,7 +193,7 @@
         <item>Tigre</item>
         <item>sapo</item>
         <item>trucha</item>
-        <item>Turquía</item>
+        <item>Pavo</item>
         <item>Tortuga</item>
         <item>víbora</item>
         <item>campañol</item>
@@ -204,8 +204,8 @@
         <item>comadreja</item>
         <item>ballena</item>
         <item>lobo</item>
-        <item>glotón</item>
-        <item>wombat</item>
+        <item>Lobezno</item>
+        <item>uómbats</item>
         <item>pájaro carpintero</item>
         <item>gusano</item>
         <item>yak</item>
@@ -214,7 +214,7 @@
         <item>King Kong</item>
         <item>caniche</item>
         <item>unicornio</item>
-        <item>continuar</item>
+        <item>Dragón</item>
         <item>zombie</item>
         <item>hada</item>
         <item>dobby</item>
