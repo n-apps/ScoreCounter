@@ -28,14 +28,14 @@
     <string name="erd_remind_me_later">Recuérdamelo luego</string>
     <string name="erd_title">Apoya la aplicación.</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
-    <string name="hint_enter_number">o introduce un número…</string>
+    <string name="hint_enter_number">otro valor</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
     <string name="message_reset_all_counters">Estás seguro de querer borrar TODO?</string>
     <string name="message_you_can_use_long_press">Intenta presionar durante más tiempo + o -</string>
     <string name="settings_dark_theme">Tema oscuro</string>
-    <string name="settings_section_actions">Acciones</string>
+    <string name="settings_section_actions">Soporte</string>
     <string name="settings_section_dice">Dado</string>
     <string name="settings_section_general">Apariencia</string>
     <string name="settings_feedback">Feedback</string>
@@ -50,7 +50,7 @@
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Opción de cambio rápido</string>
     <string name="dialog_custom_counter_hint">De 2 a 999.</string>
-    <string name="settings_section_counter_buttons">Puedes cambiar rápidamente el valor de los contadorescon una presión prolongada en ellos.</string>
+    <string name="settings_section_counter_buttons">Puedes cambiar rápidamente el valor de los contadores con una presión prolongada en ellos.</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>
@@ -59,7 +59,7 @@
     <string name="donation_coffee_title">Taza de café</string>
     <string name="donation_coffee_description">¡Me mantendrá despierto por la noche!</string>
     <string name="donation_pizza_title">Pizza sabrosa</string>
-    <string name="donation_pizza_description">Con cebolla, queso doble y salami, por favor. ¡Y sin hongos!</string>
+    <string name="donation_pizza_description">Con cebolla, queso doble y salami, por favor. ¡Y sin piña!</string>
     <string name="settings_sound">Sonar</string>
     <string name="action_donate">Donar</string>
     <string name="error_message">Parece que hubo algún error.</string>
