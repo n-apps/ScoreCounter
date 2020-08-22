@@ -22,8 +22,8 @@ public class RateMyAppDialog {
     private final FragmentActivity context;
     private Dialog dialog;
 
-    public RateMyAppDialog(FragmentActivity context) {
-        this.context = context;
+    public RateMyAppDialog(FragmentActivity activity) {
+        this.context = activity;
     }
 
     public void onStart() {
@@ -62,13 +62,13 @@ public class RateMyAppDialog {
         return LocalSettings.didNeverReminder();
     }
 
-    private void tryShow(FragmentActivity context) {
+    private void tryShow(FragmentActivity activity) {
         if (isShowing())
             return;
 
         try {
             dialog = null;
-            dialog = createDialog(context);
+            dialog = createDialog(activity);
             dialog.show();
         } catch (Exception e) {
             //It prevents many Android exceptions

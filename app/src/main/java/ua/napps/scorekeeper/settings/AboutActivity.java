@@ -37,7 +37,7 @@ public class AboutActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
 
-        ImageView cover = (ImageView) findViewById(R.id.cover);
+        ImageView cover = findViewById(R.id.cover);
         cover.setOnClickListener(v -> Toast.makeText(getApplicationContext(), R.string.easter_wave, Toast.LENGTH_SHORT).show());
 
         findViewById(R.id.tv_rate_app).setOnClickListener(v -> {
