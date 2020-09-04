@@ -9,6 +9,7 @@ public class LocalSettings {
     private static final String LONG_PRESS_TIP_SHOWED = "long_click_tip_showed";
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
     private static final String DICE_MAX_SIDE = "dice_max_side";
+    private static final String DICE_COUNT = "dice_count";
     private static final String SOUND_ROLL = "sound_roll";
     private static final String KEY_WAS_RATED = "KEY_WAS_RATED";
     private static final String KEY_NEVER_REMINDER = "KEY_NEVER_REMINDER";
@@ -115,5 +116,13 @@ public class LocalSettings {
         if (!save_id.equals("")) {
             App.getTinyDB().putInt(save_id, counterValue);
         }
+    }
+
+    public static int getDiceCount() {
+        return App.getTinyDB().getInt(DICE_COUNT, 1);
+    }
+
+    public static void saveDiceCount(int diceCount) {
+        App.getTinyDB().putInt(DICE_COUNT, diceCount);
     }
 }

@@ -5,61 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:paddingTop="@dimen/spacing_large"
     android:paddingBottom="@dimen/spacing_xlarge">
 
-    <TextView
-        android:id="@+id/tv_dice_sides"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:gravity="center"
-        android:minHeight="@dimen/list_single_line_min_height"
-        android:paddingStart="@dimen/padding_normal"
-        android:paddingEnd="@dimen/padding_normal"
-        android:text="@string/settings_section_dice_sides"
-        android:textAppearance="?attr/textAppearanceSubtitle1" />
-
     <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/dice_sides_group"
+        android:id="@+id/dice_count_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_large"
         app:selectionRequired="true"
-        app:singleSelection="true">
+        app:singleSelection="true"
+        tools:background="@color/section_bg"
+        tools:layout_height="48dp">
 
         <Button
-            android:id="@+id/btn_1"
+            android:id="@+id/btn_x1"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="6"
+            android:text="1"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/btn_2"
+            android:id="@+id/btn_x2"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="8"
+            android:text="2"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/btn_3"
+            android:id="@+id/btn_x3"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="20"
+            android:text="4"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/btn_4"
+            android:id="@+id/btn_x4"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,12 +59,78 @@
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
+    <TextView
+        android:id="@+id/tv_dice_sides"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:minHeight="@dimen/list_single_line_min_height"
+        android:paddingStart="@dimen/padding_normal"
+        android:paddingEnd="@dimen/padding_normal"
+        android:text="X"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textColor="?attr/colorSecondary"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/dice_sides_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_large"
+        app:selectionRequired="true"
+        app:singleSelection="true"
+        tools:background="@color/section_bg"
+        tools:layout_height="48dp">
+
+        <Button
+            android:id="@+id/btn_1"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d6"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_2"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d8"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_3"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d20"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_4"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="dX"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_shake_roll"
         style="@style/SwitchStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_large"
         android:minHeight="56dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"

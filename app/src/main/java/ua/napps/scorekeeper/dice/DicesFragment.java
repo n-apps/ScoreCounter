@@ -49,6 +49,7 @@ public class DicesFragment extends Fragment {
     private MediaPlayer mp;
     private boolean soundRollEnabled;
     private int maxSide;
+    private int diceCount;
     private TextView diceHintTextView;
 
     public DicesFragment() {
@@ -86,7 +87,8 @@ public class DicesFragment extends Fragment {
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
 
         maxSide = LocalSettings.getDiceMaxSide();
-        diceVariantInfo.setText("d" + maxSide);
+        diceCount = LocalSettings.getDiceCount();
+        diceVariantInfo.setText(diceCount + "d" + maxSide);
 
         root.setOnClickListener(v -> viewModel.rollDice());
         root.setOnLongClickListener(v -> {
@@ -112,9 +114,31 @@ public class DicesFragment extends Fragment {
     }
 
     private void updateOnDismiss() {
-        maxSide = LocalSettings.getDiceMaxSide();
-        diceVariantInfo.setText("d" + maxSide);
-        viewModel.setDiceVariant(maxSide);
+        int ms = LocalSettings.getDiceMaxSide();
+        int dc = LocalSettings.getDiceCount();
+
+        if (diceCount != dc) {
+            ObjectAnimator bounceAnimate =
+                    ObjectAnimator.ofPropertyValuesHolder(diceVariantInfo,
+                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+            bounceAnimate.setStartDelay(100);
+            bounceAnimate.start();
+            diceCount = dc;
+            viewModel.setDiceCount(diceCount);
+            diceVariantInfo.setText(diceCount + "d" + maxSide);
+        }
+        if (maxSide != ms) {
+            ObjectAnimator bounceAnimate =
+                    ObjectAnimator.ofPropertyValuesHolder(diceVariantInfo,
+                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
+                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
+            bounceAnimate.setStartDelay(100);
+            bounceAnimate.start();
+            maxSide = ms;
+            viewModel.setDiceMaxSide(maxSide);
+            diceVariantInfo.setText(diceCount + "d" + maxSide);
+        }
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
         if (!LocalSettings.isShakeToRollEnabled()) {
             viewModel.getSensorLiveData(getActivity()).removeObservers(getViewLifecycleOwner());
@@ -220,7 +244,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void subscribeUI() {
-        DiceViewModelFactory factory = new DiceViewModelFactory(LocalSettings.getDiceMaxSide());
+        DiceViewModelFactory factory = new DiceViewModelFactory(maxSide,diceCount);
         viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {

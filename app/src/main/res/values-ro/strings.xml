@@ -41,7 +41,6 @@
     <string name="settings_feedback">Trimite feedback</string>
     <string name="settings_shake_to_roll">Scutura pentru a da cu zarul</string>
     <string name="settings_stay_awake">Pastreaza ecranul aprins</string>
-    <string name="settings_section_dice_sides">Numar de fete</string>
     <string name="dialog_step_info_content">Cat de mult se modifica contorul cand apesi pe el. Jumatatea stanga scade, jumatatea dreapta creste. Deasemenea poti modifica contorul apasand lung pe el.</string>
     <string name="dialog_default_info_content">Valoarea setata a contorului dupa ce va fi resetat, folosind meniul \\\"Reseteaza toate valorile\\\" (din ecranul principal)</string>
     <string name="common_got_it">Am inteles</string>

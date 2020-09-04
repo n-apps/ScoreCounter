@@ -41,7 +41,6 @@
     <string name="settings_feedback">Зворотній зв\'язок</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
-    <string name="settings_section_dice_sides">Кількість граней</string>
     <string name="dialog_step_info_content">Наскільки зміниться значення лічильника після натискання по ньому. Ліва половина відповідає за зменшення, права - за збільшення. Також можна змінювати значення лічильника за допомогою довгого натискання по ньому.</string>
     <string name="dialog_default_info_content">Значення лічильника яке буде встановлено після його скидання за допомогою меню \"Скинути все значення\" (три точки на головному екрані)</string>
     <string name="common_got_it">Зрозуміло</string>

@@ -1,11 +1,12 @@
 package ua.napps.scorekeeper.dice;
 
-import androidx.lifecycle.LiveData;
 import androidx.annotation.IntRange;
+import androidx.lifecycle.LiveData;
 
 class DiceLiveData extends LiveData<Integer> {
 
-    private int diceVariant;
+    private int diceSides;
+    private int diceCount;
 
     DiceLiveData() {
         setValue(0);
@@ -20,10 +21,19 @@ class DiceLiveData extends LiveData<Integer> {
     }
 
     void rollDice() {
-        setValue(((int) (Math.random() * diceVariant)) + 1);
+        int total = 0;
+        for (int i = 0; i < diceCount; i++) {
+            int roll = ((int) (Math.random() * diceSides)) + 1;
+            total += roll;
+        }
+        setValue(total);
     }
 
-    public void setDiceVariant(@IntRange(from = 1, to = 100) int diceVariant) {
-        this.diceVariant = diceVariant;
+    public void setDiceSides(@IntRange(from = 1, to = 100) int diceSides) {
+        this.diceSides = diceSides;
+    }
+
+    public void setDiceCount(@IntRange(from = 1, to = 100) int diceCount) {
+        this.diceCount = diceCount;
     }
 }

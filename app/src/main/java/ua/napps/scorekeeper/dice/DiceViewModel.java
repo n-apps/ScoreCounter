@@ -15,12 +15,17 @@ class DiceViewModel extends ViewModel {
     private final DiceLiveData diceResult = new DiceLiveData();
     private LiveSensor sensorLiveData;
 
-    DiceViewModel(@IntRange(from = 1, to = 100) int diceVariant) {
-        setDiceVariant(diceVariant);
+    DiceViewModel(@IntRange(from = 1, to = 100) int diceVariant, @IntRange(from = 1, to = 100) int diceCount) {
+        setDiceMaxSide(diceVariant);
+        setDiceCount(diceCount);
     }
 
-    public void setDiceVariant(@IntRange(from = 1, to = 100) int diceVariant) {
-        diceResult.setDiceVariant(diceVariant);
+    public void setDiceMaxSide(@IntRange(from = 1, to = 100) int diceVariant) {
+        diceResult.setDiceSides(diceVariant);
+    }
+
+    public void setDiceCount(@IntRange(from = 1, to = 100) int diceCount) {
+        diceResult.setDiceCount(diceCount);
     }
 
     public LiveData<SensorEvent> getSensorLiveData(Context context) {
