@@ -80,4 +80,6 @@
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="about_my_webpage">Мій веб-сайт →</string>
     <string name="donate_tile">Пригостити мене…</string>
+    <string name="switch_top_logic">Перемагає низький бал</string>
+    <string name="lowest_wins_hint">Ви можете поміняти логіку в настройках</string>
 </resources>

@@ -81,4 +81,6 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Помочь с переводом</string>
     <string name="donate_tile">Угостить меня…</string>
+    <string name="switch_top_logic">Побеждает низкий балл</string>
+    <string name="lowest_wins_hint">Вы можете поменять логику в настройках</string>
 </resources>

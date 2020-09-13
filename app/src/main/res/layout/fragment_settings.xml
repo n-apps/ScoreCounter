@@ -136,6 +136,17 @@
 
         </LinearLayout>
 
+        <include layout="@layout/divider" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_switch_lowest_wins"
+            style="@style/SwitchStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/switch_top_logic" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

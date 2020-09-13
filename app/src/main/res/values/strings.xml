@@ -84,4 +84,6 @@
     <string name="setting_help_translate">Help translate</string>
     <string name="about_my_webpage">My web page →</string>
     <string name="donate_tile">Buy me a…</string>
+    <string name="switch_top_logic">Low score - wins</string>
+    <string name="lowest_wins_hint">You can swap logic in the settings</string>
 </resources>

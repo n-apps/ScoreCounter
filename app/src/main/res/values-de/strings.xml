@@ -80,4 +80,6 @@
     <string name="setting_help_translate">Hilf beim Übersetzen</string>
     <string name="about_my_webpage">Meine Webseite →</string>
     <string name="donate_tile">Kaufen Sie mir ein…</string>
+    <string name="switch_top_logic">Niedrige Punktzahl - Siege</string>
+    <string name="lowest_wins_hint">Sie können die Logik in den Einstellungen vertauschen</string>
 </resources>

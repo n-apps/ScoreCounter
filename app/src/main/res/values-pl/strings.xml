@@ -84,4 +84,6 @@
         \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
         \n\u3030\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!
         \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>  Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\ntłumaczenie na język rumuński - dzięki Andrei&#160;Iacob \u2022 tłumaczenie na język polski - dzięki maiky \u2022 tłumaczenie na język hiszpański - dzięki ZVirus</string>
+    <string name="switch_top_logic">Niski wynik - wygrywa</string>
+    <string name="lowest_wins_hint">Możesz zamienić się logiką w ustawieniach</string>
 </resources>

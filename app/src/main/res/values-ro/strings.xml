@@ -82,4 +82,6 @@
     \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nTraducere spaniolă - grație ZVirus \u2022 Traducere românească - mulțumiri lui Andrei&#160;Jacob \u2022 Traducere poloneză - mulțumită maiky.</string>
     <string name="about_my_webpage">Site-ul meu →</string>
     <string name="donate_tile">Cumpără-mi un…</string>
+    <string name="switch_top_logic">Scor scăzut - câștigă</string>
+    <string name="lowest_wins_hint">Puteți schimba logica în setări</string>
 </resources>

@@ -44,6 +44,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
+        SwitchCompat lowestWins = contentView.findViewById(R.id.sw_switch_lowest_wins);
 
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
@@ -52,9 +53,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(!LocalSettings.isLightTheme());
+        lowestWins.setChecked(LocalSettings.isLowestScoreWins());
 
         keepScreenOn.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
+        lowestWins.setOnCheckedChangeListener(this);
+
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
@@ -82,13 +86,16 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+    public void onCheckedChanged(CompoundButton v, boolean enabled) {
         switch (v.getId()) {
             case R.id.sw_keep_screen_on:
-                LocalSettings.saveKeepScreenOn(isChecked);
+                LocalSettings.saveKeepScreenOn(enabled);
                 break;
             case R.id.sw_dark_theme:
-                LocalSettings.saveDarkTheme(isChecked);
+                LocalSettings.saveDarkTheme(enabled);
+                break;
+            case R.id.sw_switch_lowest_wins:
+                LocalSettings.saveLowestScoreWins(enabled);
                 break;
         }
     }
@@ -129,7 +136,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .content(R.string.settings_section_counter_buttons)
                         .positiveText(R.string.common_got_it)
                         .show();
-
                 break;
 
             case R.id.tv_share:

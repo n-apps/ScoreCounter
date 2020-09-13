@@ -76,6 +76,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private Toolbar toolbar;
     private TextView toolbarTitle;
     private int previousTopCounterId;
+    private boolean isLowestScoreWins;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -98,6 +99,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show();
+            }
+        });
 
         for (int i = 0; i < toolbar.getChildCount(); i++) {
             View view = toolbar.getChildAt(i);
@@ -122,6 +129,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
+        isLowestScoreWins = LocalSettings.isLowestScoreWins();
         subscribeUi();
         // TODO: 09-May-20 tweak trigger threshold
 //        initSensorData();
@@ -211,7 +219,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         }
                     } else { // At least the first and the second counters have the same value.
                         boolean isAllCountersTheSame = topSize == counters.size();
-                        toolbar.setTitle(isAllCountersTheSame ? null : topSize + " \uD83E\uDD47");
+                        toolbar.setTitle(isAllCountersTheSame ? null : topSize + "\ud83c\udfc5");
                         previousTopCounterId = 0;
                     }
                     emptyState.setVisibility(View.GONE);
@@ -266,12 +274,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private List<Counter> findTopCounters(List<Counter> counters) {
         if (counters == null || counters.size() < 2) return Collections.emptyList();
 
-        int topValue = Integer.MIN_VALUE;
+        int topValue = !isLowestScoreWins ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         List<Counter> top = new ArrayList<>();
 
         for (Counter counter : counters) {
             int value = counter.getValue();
-            if (topValue < value) {
+            if ((!isLowestScoreWins && (value > topValue)) || (isLowestScoreWins && (value < topValue))) {
                 topValue = value;
                 top.clear();
                 top.add(counter);
@@ -526,5 +534,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void afterDrag(Counter counter, int fromIndex, int toIndex) {
         viewModel.modifyPosition(counter, fromIndex, toIndex);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isLowestScoreWins = LocalSettings.isLowestScoreWins();
     }
 }
