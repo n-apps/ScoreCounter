@@ -14,6 +14,7 @@ public class LocalSettings {
     private static final String KEY_WAS_RATED = "KEY_WAS_RATED";
     private static final String KEY_NEVER_REMINDER = "KEY_NEVER_REMINDER";
     private static final String IS_LOWEST_SCORE_WINS = "is_lowest_score_wins";
+    private static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
     private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
@@ -132,5 +133,13 @@ public class LocalSettings {
 
     public static void saveLowestScoreWins(boolean enabled) {
         App.getTinyDB().putBoolean(IS_LOWEST_SCORE_WINS, enabled);
+    }
+
+    public static boolean isCountersVibrate() {
+        return App.getTinyDB().getBoolean(IS_COUNTERS_VIBRATE, true);
+    }
+
+    public static void saveCountersVibrate(boolean enabled) {
+        App.getTinyDB().putBoolean(IS_COUNTERS_VIBRATE, enabled);
     }
 }
