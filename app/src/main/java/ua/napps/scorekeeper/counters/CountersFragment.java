@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -45,6 +46,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DragItemListener;
@@ -301,12 +303,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onSingleClick(Counter counter, int position, int mode) {
+
+
         if (mode == MODE_DECREASE_VALUE) {
             if (counter.getStep() == 0) {
                 return;
             }
             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
 
+            vibrate();
             viewModel.decreaseCounter(counter, -counter.getStep());
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
@@ -317,6 +322,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
 
+            vibrate();
             viewModel.increaseCounter(counter, counter.getStep());
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
@@ -346,6 +352,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             viewModel.modifyCurrentValue(counter, value);
                             countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                             dialog.dismiss();
+                            vibrate();
                         }
                     })
                     .build();
@@ -362,6 +369,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             md.show();
         } else {
             showCounterStepDialog(counter, position, mode);
+        }
+    }
+
+    private void vibrate(){
+        if (LocalSettings.isCountersVibrate()){
+            Vibrator v = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
+            Objects.requireNonNull(v).vibrate(70);
         }
     }
 
@@ -392,12 +406,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
                 viewModel.increaseCounter(counter, value);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+
             } else {
                 Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
             }
+
+            vibrate();
             longClickDialog.dismiss();
         });
 
@@ -415,6 +432,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
+
+            vibrate();
             longClickDialog.dismiss();
         });
 
@@ -432,6 +451,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
+
+            vibrate();
             longClickDialog.dismiss();
         });
 
@@ -450,6 +471,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 viewModel.decreaseCounter(counter, -value);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
+
+            vibrate();
             longClickDialog.dismiss();
         });
 
@@ -472,6 +495,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                     }
                 }
+
+                vibrate();
                 longClickDialog.dismiss();
             }
             return false;

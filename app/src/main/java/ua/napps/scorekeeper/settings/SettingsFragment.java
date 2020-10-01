@@ -45,6 +45,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         SwitchCompat lowestWins = contentView.findViewById(R.id.sw_switch_lowest_wins);
+        SwitchCompat vibrate = contentView.findViewById(R.id.sw_switch_vibrate);
 
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
@@ -54,10 +55,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(!LocalSettings.isLightTheme());
         lowestWins.setChecked(LocalSettings.isLowestScoreWins());
+        vibrate.setChecked(LocalSettings.isCountersVibrate());
 
         keepScreenOn.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
         lowestWins.setOnCheckedChangeListener(this);
+        vibrate.setOnCheckedChangeListener(this);
 
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
@@ -96,6 +99,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.sw_switch_lowest_wins:
                 LocalSettings.saveLowestScoreWins(enabled);
+                break;
+            case R.id.sw_switch_vibrate:
+                LocalSettings.saveCountersVibrate(enabled);
                 break;
         }
     }

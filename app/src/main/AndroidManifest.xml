@@ -21,6 +21,7 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:name=".app.App"
         android:allowBackup="true"
