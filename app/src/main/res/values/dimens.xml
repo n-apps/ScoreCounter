@@ -18,7 +18,8 @@
     <dimen name="padding_normal">16dp</dimen>
     <dimen name="spacing_huge">64dp</dimen>
     <dimen name="spacing_large">32dp</dimen>
-    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_big">16dp</dimen>
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_xlarge">48dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
 </resources>

@@ -87,4 +87,5 @@
     <string name="switch_top_logic">Low score - wins</string>
     <string name="lowest_wins_hint">You can swap logic in the settings</string>
     <string name="common_composition">composition</string>
+    <string name="common_vibrate">Vibrate</string>
 </resources>
