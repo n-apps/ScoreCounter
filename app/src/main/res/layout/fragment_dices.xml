@@ -99,12 +99,12 @@
         android:includeFontPadding="false"
         android:text="@string/dice_previous_result_label"
         android:textSize="@dimen/font_subheading"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/tv_previous_roll"
-        app:layout_constraintTop_toBottomOf="@id/dice"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice_composition"
         tools:visibility="visible" />
 
     <TextView
@@ -112,19 +112,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/inter_bold"
         android:gravity="center"
         android:includeFontPadding="false"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
-        android:text="@string/common_composition"
-        android:textSize="@dimen/font_subheading"
-        android:textStyle="italic"
+        android:textSize="@dimen/font_body"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
+        app:layout_constraintBottom_toTopOf="@id/tv_previous_roll"
         tools:visibility="visible" />
 
     <TextView
@@ -141,25 +139,6 @@
         app:layout_constraintLeft_toRightOf="@id/tv_previous_roll_label"
         app:layout_constraintRight_toRightOf="parent"
         tools:text="18"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/tv_dice_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_large"
-        android:fontFamily="@font/inter_regular"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:lineSpacingMultiplier="1.2"
-        android:paddingHorizontal="@dimen/padding_large"
-        android:text="@string/dice_empty_state"
-        android:textColor="?android:attr/textColorHint"
-        android:textSize="@dimen/font_body"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

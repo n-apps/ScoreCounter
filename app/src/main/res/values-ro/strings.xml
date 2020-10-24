@@ -84,4 +84,5 @@
     <string name="donate_tile">Cumpără-mi un…</string>
     <string name="switch_top_logic">Scor scăzut - câștigă</string>
     <string name="lowest_wins_hint">Puteți schimba logica în setări</string>
+    <string name="common_vibrate">Vibrație</string>
 </resources>

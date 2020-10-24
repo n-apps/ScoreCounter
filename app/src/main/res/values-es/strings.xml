@@ -87,4 +87,5 @@
     <string name="donate_tile">Cómprame un…</string>
     <string name="switch_top_logic">Puntuación baja - gana</string>
     <string name="lowest_wins_hint">Puedes intercambiar la lógica en los ajustes</string>
+    <string name="common_vibrate">Vibración</string>
 </resources>

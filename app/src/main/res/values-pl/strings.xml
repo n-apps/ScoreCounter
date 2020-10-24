@@ -33,7 +33,7 @@
     <string name="menu_delete_all_counters">Usuń wszystko</string>
     <string name="menu_reset_all_counters">Zresetuj wszystko</string>
     <string name="message_reset_all_counters">Zresetować wszystko?</string>
-    <string name="message_you_can_use_long_press">Spróbój przytrzymać + lub -</string>
+    <string name="message_you_can_use_long_press">Spróbuj przytrzymać + lub -</string>
     <string name="settings_dark_theme">Ciemny motyw</string>
     <string name="settings_section_actions">Działania</string>
     <string name="settings_section_general">Wygląd</string>
@@ -83,7 +83,8 @@
         \n\u3030\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
         \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
         \n\u3030\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!
-        \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>  Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\ntłumaczenie na język rumuński - dzięki Andrei&#160;Iacob \u2022 tłumaczenie na język polski - dzięki maiky \u2022 tłumaczenie na język hiszpański - dzięki ZVirus</string>
+        \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a>  Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\ntłumaczenie na język rumuński - dzięki Andrei&#160;Iacob \u2022 tłumaczenie na język polski - dzięki maiky, Osmine Retro \u2022 tłumaczenie na język hiszpański - dzięki ZVirus</string>
     <string name="switch_top_logic">Niski wynik - wygrywa</string>
     <string name="lowest_wins_hint">Możesz zamienić się logiką w ustawieniach</string>
+    <string name="common_vibrate">Wibracje</string>
 </resources>

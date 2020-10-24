@@ -46,7 +46,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DragItemListener;
@@ -303,8 +302,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onSingleClick(Counter counter, int position, int mode) {
-
-
         if (mode == MODE_DECREASE_VALUE) {
             if (counter.getStep() == 0) {
                 return;
@@ -375,7 +372,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private void vibrate(){
         if (LocalSettings.isCountersVibrate()){
             Vibrator v = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
-            Objects.requireNonNull(v).vibrate(70);
+            if (v != null) {
+                v.vibrate(70);
+            }
         }
     }
 
