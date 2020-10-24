@@ -24,6 +24,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.transition.TransitionManager;
 
+import java.util.ArrayList;
+
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
@@ -42,6 +44,7 @@ public class DicesFragment extends Fragment {
     private TextView previousRollTextViewLabel;
     private Group emptyStateGroup;
     private TextView diceTextView;
+    private TextView diceCompositionTextView;
     private SpringForce springForce;
     private DiceViewModel viewModel;
     private ConstraintLayout root;
@@ -82,6 +85,7 @@ public class DicesFragment extends Fragment {
         diceVariantInfo = contentView.findViewById(R.id.tv_dice_variant_info);
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
+        diceCompositionTextView = contentView.findViewById(R.id.tv_dice_composition);
         diceHintTextView = contentView.findViewById(R.id.tv_dice_hint);
         root = contentView.findViewById(R.id.container);
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
@@ -194,7 +198,7 @@ public class DicesFragment extends Fragment {
         });
     }
 
-    private void rollDice(@IntRange(from = 1, to = 100) int roll) {
+    private void rollDice(@IntRange(from = 1, to = 100) int roll, ArrayList<Integer> rolls) {
         if (soundRollEnabled && mp != null) {
             mp.start();
         }
@@ -223,6 +227,21 @@ public class DicesFragment extends Fragment {
 
         diceTextView.setText("" + roll);
 
+        if (rolls.size() > 1) {
+            diceCompositionTextView.setVisibility(View.VISIBLE);
+            StringBuilder composition = new StringBuilder();
+            for (int i = 0; i < rolls.size(); i++){
+                composition.append(rolls.get(i));
+                if (i < (rolls.size() -1 )) {
+                    composition.append(" + ");
+                }
+            }
+
+            diceCompositionTextView.setText(composition.toString());
+        } else {
+            diceCompositionTextView.setVisibility(View.GONE);
+        }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -249,7 +268,7 @@ public class DicesFragment extends Fragment {
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {
-                rollDice(roll);
+                rollDice(roll, diceLiveData.getRolls());
             } else if (currentRoll > 0) {
                 updateLastRollLabel();
                 diceTextView.setText("" + currentRoll);

@@ -108,6 +108,26 @@
         tools:visibility="visible" />
 
     <TextView
+        android:id="@+id/tv_dice_composition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:paddingStart="@dimen/padding_normal"
+        android:paddingEnd="@dimen/padding_normal"
+        android:text="@string/common_composition"
+        android:textSize="@dimen/font_subheading"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice"
+        tools:visibility="visible" />
+
+    <TextView
         android:id="@+id/tv_previous_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
