@@ -55,8 +55,8 @@
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="donation_thank_you">Спасибо 💜</string>
-    <string name="donation_coffee_title">Чашечкой кофе</string>
-    <string name="donation_coffee_description">Поможет бороться с загонами Гугла :)</string>
+    <string name="donation_coffee_title">Пиво</string>
+    <string name="donation_coffee_description">Холодное пиво, для увеличения моей производительности и профилактики ОРВИ!</string>
     <string name="donation_pizza_title">Вкусной пиццей</string>
     <string name="donation_pizza_description">С двойным сыром, маринованными огурчиками и острым салями, пожалуйста. И чтобы никаких грибов!</string>
     <string name="settings_sound">Звук</string>
@@ -80,7 +80,7 @@
     <string name="settings_about">Немного обо мне</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Помочь с переводом</string>
-    <string name="donate_tile">Угостить меня…</string>
+    <string name="donate_tile">Хо-хо-хо! 🎅</string>
     <string name="switch_top_logic">Побеждает низкий балл</string>
     <string name="lowest_wins_hint">Вы можете поменять логику в настройках</string>
     <string name="common_vibrate">Вибрация</string>

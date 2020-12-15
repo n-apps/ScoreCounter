@@ -302,25 +302,26 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onSingleClick(Counter counter, int position, int mode) {
+        int step = counter.getStep();
         if (mode == MODE_DECREASE_VALUE) {
-            if (counter.getStep() == 0) {
+            if (step == 0) {
                 return;
             }
-            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, 1, counter.getValue()));
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, step, counter.getValue()));
 
             vibrate();
-            viewModel.decreaseCounter(counter, -counter.getStep());
+            viewModel.decreaseCounter(counter, -step);
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
             }
         } else if (mode == MODE_INCREASE_VALUE) {
-            if (counter.getStep() == 0) {
+            if (step == 0) {
                 return;
             }
-            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, 1, counter.getValue()));
+            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, step, counter.getValue()));
 
             vibrate();
-            viewModel.increaseCounter(counter, counter.getStep());
+            viewModel.increaseCounter(counter, step);
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
             }

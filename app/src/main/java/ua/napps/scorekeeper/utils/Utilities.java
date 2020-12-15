@@ -1,16 +1,11 @@
 package ua.napps.scorekeeper.utils;
 
-import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.widget.Toast;
-
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
-import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.tasks.Task;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,6 +13,7 @@ import java.util.regex.Pattern;
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.app.App;
+import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class Utilities {
 
@@ -76,19 +72,23 @@ public class Utilities {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
     }
 
-    public static void rateApp(Activity activity) {
-            final ReviewManager manager = ReviewManagerFactory.create(activity);
-            Task<ReviewInfo> request = manager.requestReviewFlow();
-            request.addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    ReviewInfo reviewInfo = task.getResult();
-                    Task<Void> flow = manager.launchReviewFlow(activity, reviewInfo);
-                    flow.addOnCompleteListener(task2 -> {
-                        // do nothing
-                    });
-                }
-            });
+    public static void rateApp(Context context) {
+        Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        LocalSettings.markRateApp();
+
+        try {
+            context.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName());
+            Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
     }
+
 
     public static void startEmail(Context context) {
         String mailTo = "mailto:scorekeeper.feedback@gmail.com" + "?subject=" +

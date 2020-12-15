@@ -67,7 +67,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_donation).setOnClickListener(this);
+        contentView.findViewById(R.id.iv_donate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
 
@@ -116,7 +116,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_rate_app:
                 Utilities.rateApp(requireActivity());
                 break;
-            case R.id.tv_donation:
+            case R.id.iv_donate:
                 DonateDialog dialog = new DonateDialog();
                 dialog.show(getParentFragmentManager(), "donate");
                 break;

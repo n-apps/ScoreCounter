@@ -1,11 +1,17 @@
 package ua.napps.scorekeeper.utils;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
+
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
 
 import java.util.Date;
 
@@ -110,7 +116,7 @@ public class RateMyAppDialog {
                 .create();
 
         contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
-            Utilities.rateApp(context);
+            rateApp(context);
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
@@ -129,5 +135,27 @@ public class RateMyAppDialog {
         });
 
         return dialog;
+    }
+
+    private void rateApp(Activity activity) {
+        final ReviewManager reviewManager = ReviewManagerFactory.create(activity);
+        Task<ReviewInfo> request = reviewManager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                // We can get the ReviewInfo object
+                ReviewInfo reviewInfo = task.getResult();
+
+                Task<Void> flow = reviewManager.launchReviewFlow(activity, reviewInfo);
+                flow.addOnCompleteListener(task1 -> {
+                    // The flow has finished. The API does not indicate whether the user
+                    // reviewed or not, or even whether the review dialog was shown. Thus, no
+                    // matter the result, we continue our app flow.
+                });
+            } else {
+                // There was some problem, continue regardless of the result.
+                // show native rate app dialog on error
+                Utilities.rateApp(activity);
+            }
+        });
     }
 }
