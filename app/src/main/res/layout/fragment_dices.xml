@@ -17,6 +17,7 @@
         android:minHeight="48dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
+        android:textColor="?android:textColorPrimary"
         android:textSize="@dimen/font_display"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
