@@ -55,8 +55,8 @@
     <string name="dialog_no">No</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="donation_thank_you">Thank you 💜</string>
-    <string name="donation_coffee_title">Beer</string>
-    <string name="donation_coffee_description">A cold beer to boost my productivity!</string>
+    <string name="donation_coffee_title">Good, hot, black, coffee</string>
+    <string name="donation_coffee_description">Damned fine coffee… And Hot!</string>
     <string name="donation_pizza_title">Tasty pizza</string>
     <string name="donation_pizza_description">With onions, double cheese and salami, please. And no mushrooms!</string>
     <string name="settings_sound">Sound</string>
@@ -83,7 +83,6 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Help translate</string>
     <string name="about_my_webpage">My web page →</string>
-    <string name="donate_tile">ho ho ho 🎅‍</string>
     <string name="switch_top_logic">Low score - wins</string>
     <string name="lowest_wins_hint">You can swap logic in the settings</string>
     <string name="common_vibrate">Vibrate</string>

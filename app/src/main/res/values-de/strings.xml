@@ -55,8 +55,8 @@
     <string name="dialog_no">Nein</string>
     <string name="privacy_policy">Datenschutzerklärung</string>
     <string name="donation_thank_you">Vielen Dank 💜</string>
-    <string name="donation_coffee_title">Bier</string>
-    <string name="donation_coffee_description">Ein kaltes Bier um meine Produktivität zu steigern!</string>
+    <string name="donation_coffee_title">Tasse Kaffee</string>
+    <string name="donation_coffee_description">Das wird mich abends wach halten</string>
     <string name="donation_pizza_title">Leckere Pizza</string>
     <string name="donation_pizza_description">Mit Zwiebeln, Doppelkäse und Salami bitte. Und keine Pilze!</string>
     <string name="settings_sound">Klingen</string>
@@ -79,7 +79,6 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Hilf beim Übersetzen</string>
     <string name="about_my_webpage">Meine Webseite →</string>
-    <string name="donate_tile">Ho-ho-hos 🎅</string>
     <string name="switch_top_logic">Niedrige Punktzahl - Siege</string>
     <string name="lowest_wins_hint">Sie können die Logik in den Einstellungen vertauschen</string>
     <string name="common_vibrate">Vibrieren</string>

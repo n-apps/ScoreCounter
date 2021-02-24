@@ -55,8 +55,8 @@
     <string name="dialog_no">Ні</string>
     <string name="privacy_policy">Політика конфіденційності</string>
     <string name="donation_thank_you">Дякую 💜</string>
-    <string name="donation_coffee_title">Пиво</string>
-    <string name="donation_coffee_description">Холодне пиво, для збільшення моєї продуктивності і профілактики ГРВІ!</string>
+    <string name="donation_coffee_title">Хороша, гаряча, чорна кава</string>
+    <string name="donation_coffee_description">Страшенно хороша кава!… і гаряча!</string>
     <string name="donation_pizza_title">Смачною піцою</string>
     <string name="donation_pizza_description">З подвійним сиром, маринованими огірками та гострим салямі, будь ласка. І щоб ніяких грибів!</string>
     <string name="settings_sound">Звук</string>
@@ -79,7 +79,6 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="about_my_webpage">Мій веб-сайт →</string>
-    <string name="donate_tile">Хо-хо-хо! 🎅</string>
     <string name="switch_top_logic">Перемагає низький бал</string>
     <string name="lowest_wins_hint">Ви можете поміняти логіку в налаштуваннях</string>
     <string name="common_vibrate">Вібрація</string>

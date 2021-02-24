@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("\uD83D\uDC4B");
 
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,28 +12,12 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/spacing_xlarge">
 
-        <FrameLayout
+        <ImageView
+            android:id="@+id/iv_donate"
             android:layout_width="match_parent"
-            android:layout_height="112dp">
-
-            <ImageView
-                android:id="@+id/iv_donate"
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/support" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:layout_marginEnd="72dp"
-                android:fontFamily="@font/inter_bold"
-                android:padding="@dimen/padding_normal"
-                android:text="@string/donate_tile"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/font_title" />
-        </FrameLayout>
+            android:layout_height="172dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/support" />
 
         <TextView
             android:id="@+id/tv_general"
@@ -64,18 +49,41 @@
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_dark_theme" />
 
+        <include layout="@layout/divider" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_switch_vibrate"
+            style="@style/SwitchStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/common_vibrate" />
+
+        <include layout="@layout/divider" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_switch_lowest_wins"
+            style="@style/SwitchStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/switch_top_logic" />
+
+
         <TextView
             android:id="@+id/tv_counter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@color/section_bg"
-            android:drawableEnd="@drawable/ic_help_circle"
-            android:drawableTint="@android:color/white"
             android:gravity="start|center_vertical"
             android:minHeight="@dimen/button_min_height"
             android:paddingHorizontal="@dimen/padding_large"
             android:text="@string/common_counter"
+            app:drawableEndCompat="@drawable/ic_help_circle"
+            app:drawableTint="@android:color/white"
             tools:ignore="UnusedAttribute" />
 
         <LinearLayout
@@ -159,27 +167,6 @@
 
         </LinearLayout>
 
-        <include layout="@layout/divider" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_switch_lowest_wins"
-            style="@style/SwitchStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/switch_top_logic" />
-
-        <include layout="@layout/divider" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_switch_vibrate"
-            style="@style/SwitchStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/common_vibrate" />
 
         <TextView
             android:layout_width="match_parent"
@@ -196,10 +183,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_feedback"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <include layout="@layout/divider" />
 
@@ -208,10 +195,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/setting_share"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <include layout="@layout/divider" />
 
@@ -220,10 +207,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/erd_title"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
             android:layout_width="match_parent"
@@ -240,10 +227,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_about"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <include layout="@layout/divider" />
 
@@ -252,10 +239,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_arrow_right"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/setting_help_translate"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <include layout="@layout/divider" />
 
@@ -264,10 +251,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_external_link"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/privacy_policy"
-            android:textAppearance="?attr/textAppearanceHeadline6" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_external_link" />
 
         <TextView
             android:layout_width="wrap_content"

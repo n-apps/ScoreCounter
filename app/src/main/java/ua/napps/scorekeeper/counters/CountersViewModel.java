@@ -1,9 +1,6 @@
 package ua.napps.scorekeeper.counters;
 
 import android.app.Application;
-import android.content.Context;
-import android.hardware.SensorEvent;
-import android.hardware.SensorManager;
 import android.util.SparseIntArray;
 
 import androidx.annotation.IntRange;
@@ -24,7 +21,6 @@ import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
-import ua.napps.scorekeeper.utils.LiveSensor;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SnackbarMessage;
 
@@ -35,7 +31,6 @@ class CountersViewModel extends AndroidViewModel {
     private final String[] colors;
     private final String[] names;
     private SnackbarMessage snackbarMessage = new SnackbarMessage();
-    private LiveSensor sensorLiveData;
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -323,14 +318,22 @@ class CountersViewModel extends AndroidViewModel {
         snackbarMessage.setValue(value);
     }
 
-    public LiveData<SensorEvent> getSensorLiveData(Context context) {
-        if (sensorLiveData == null) {
-            SensorManager sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
-            if (sensorManager != null) {
-                sensorLiveData = new LiveSensor(sensorManager);
-            }
-        }
-        return sensorLiveData;
-    }
+    public void updatePositions() {
+        List<Counter> counterList = counters.getValue();
+        if (counterList == null) return;
 
+        final SparseIntArray positionMap = new SparseIntArray();
+
+        for (int i = 0; i < counterList.size(); i++) {
+                int id = counterList.get(i).getId();
+                positionMap.append(id, i+1);
+        }
+
+        repository.modifyPositionBatch(positionMap)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .doOnError(e -> Timber.e(e, "modifyPosition counter"))
+                .onErrorComplete()
+                .subscribe();
+    }
 }
