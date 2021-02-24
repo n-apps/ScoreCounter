@@ -78,7 +78,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
-    private long lastClickTime;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -236,17 +235,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
                     }
                 }
-                long time = System.currentTimeMillis();
-                if (time - lastClickTime > 500) {
-                    Collections.sort(counters, (o1, o2) -> {
-                        if (o1.getValue() < o2.getValue())
-                            return 1;
-                        else if (o1.getValue() > o2.getValue()) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                }
 
                 countersAdapter.setCountersList(counters);
 
@@ -328,7 +316,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
             }
-            lastClickTime = System.currentTimeMillis();
         } else if (mode == MODE_INCREASE_VALUE) {
             if (step == 0) {
                 return;
