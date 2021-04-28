@@ -40,9 +40,12 @@
                     android:fontFamily="@font/inter_regular"
                     android:gravity="center_vertical"
                     android:maxLines="1"
+                    app:autoSizeMaxTextSize="@dimen/font_display"
+                    app:autoSizeMinTextSize="@dimen/font_body"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
                     android:paddingStart="@dimen/padding_normal"
                     android:paddingEnd="@dimen/padding_normal"
-                    android:textSize="@dimen/font_display"
                     tools:text="@tools:sample/first_names" />
 
                 <ImageView

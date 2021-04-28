@@ -19,8 +19,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -479,6 +479,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
 
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
+        editText.requestFocus();
         editText.setOnEditorActionListener((textView, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId
                     == EditorInfo.IME_ACTION_DONE)) {
@@ -507,16 +508,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         builder.title(R.string.dialog_current_value_title);
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
+        longClickDialog.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         longClickDialog.show();
-
-        editText.post(() -> {
-            editText.requestFocus();
-
-            InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (null != inputMethodManager) {
-                inputMethodManager.showSoftInput(editText, 0);
-            }
-        });
     }
 
     @Override
