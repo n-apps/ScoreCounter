@@ -19,9 +19,9 @@ I 🖤 board games and appreciate your feedback. I regularly use this applicatio
 If you have something to share (feedback, problems or requests), feel free to write at scorekeeper.feedback@gmail.com. If you like this app, please leave a feedback. Thank you!
 
 ## Screenshots
-[<img src="https://lh3.googleusercontent.com/tDkEGMIeRW4RuB7kSQ-AfzBJoeLgNbW83T_yCDyxNbe858iXxXrUzXdQqvWadDOHfA=s0" width=250>]()
-[<img src="https://lh3.googleusercontent.com/ub7thddKYikRWs0kHEF2e_8Co5s0UWOoQqmj5sT6yu0AbBQwcGWv51abYOtxBnMWTBsR=s0" width=250>]()
-[<img src="https://lh3.googleusercontent.com/ZQ2VODaugmz-0Nw7cSlxJ-3tkjEJDKVZ-jG0jMbGVgt7OYSRpBHmJTj6UhL2Yj01VzY=s0" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/-c6poIiT4woTCVokyKfWDXUVZHT12u2FklX8eBgGTtvgOwGZnMD6dIe6aYtZKUKXkd4=w2560-h1366" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/8fpVNssUE9MeB0anY8cwgR1XIf6EVIVvBiTuKiA-VrpzV6NwBRWfh-3O2rC1vmCdsVzE=w2560-h1366" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/gHTMet5RwXLLUJkGjvxixr343wdsk4GdxojdNRDoxhUxkSALXlhiOxzvRguM2YqvCvHu=w2560-h1366" width=250>]()
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
