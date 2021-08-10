@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class Utilities {
@@ -91,14 +90,16 @@ public class Utilities {
 
 
     public static void startEmail(Context context) {
-        String mailTo = "mailto:scorekeeper.feedback@gmail.com" + "?subject=" +
-                Uri.encode(context.getString(R.string.app_name));
+        Intent s = new Intent(Intent.ACTION_SENDTO);
+        s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
+        s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        s.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
 
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(mailTo));
-        if (intent.resolveActivity(App.getInstance().getPackageManager()) != null) {
-            context.startActivity(intent);
-        } else {
+       try {
+            context.startActivity(s);
+        } catch (Exception e){
             Toast.makeText(context, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+            Timber.e(e,"Launch email intent");
         }
     }
 
