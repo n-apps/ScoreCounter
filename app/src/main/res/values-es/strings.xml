@@ -28,7 +28,7 @@
     <string name="erd_remind_me_later">Recuérdamelo luego</string>
     <string name="erd_title">Apoya la aplicación.</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
-    <string name="hint_enter_number">otro valor</string>
+    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>

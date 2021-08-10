@@ -26,6 +26,7 @@ import androidx.transition.TransitionManager;
 
 import java.util.ArrayList;
 
+import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
@@ -202,6 +203,10 @@ public class DicesFragment extends Fragment {
         }
 
         updateLastRollLabel();
+        Timber.d("-------------");
+        Timber.d("previous Roll = %d", previousRoll);
+        Timber.d("current Roll = %d", previousRoll);
+        Timber.d("new Roll = %d", roll);
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);

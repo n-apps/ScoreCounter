@@ -28,7 +28,7 @@
     <string name="erd_remind_me_later">Adu-mi aminte mai tarziu</string>
     <string name="erd_title">Contor de Score Counter</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
-    <string name="hint_enter_number">sau introdu un numar…</string>
+    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
     <string name="menu_reset_all_counters">Reseteaza tot</string>

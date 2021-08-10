@@ -93,30 +93,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="+"
-            android:textSize="@dimen/font_display" />
+            android:paddingHorizontal="@dimen/padding_normal"
+            android:textAppearance="?attr/textAppearanceHeadline4"/>
 
-        <EditText
-            android:id="@+id/et_add_custom_value"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            android:focusable="true"
-            android:layout_weight="1"
-            android:hint="@string/hint_enter_number"
-            android:importantForAutofill="no"
-            android:inputType="number|numberSigned"
-            android:maxLength="8"
-            android:maxLines="1"
-            android:textSize="@dimen/font_display" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_add_custom_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:imeOptions="actionDone"
+                android:inputType="numberSigned"
+                android:minWidth="140dp"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                tools:text="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
     </LinearLayout>
 
 

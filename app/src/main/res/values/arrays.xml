@@ -18,19 +18,19 @@
         <item>#000000</item>
     </string-array>
     <string-array name="dark">
-        <item>#212529</item>
-        <item>#c92a2a</item>
-        <item>#a61e4d</item>
-        <item>#862e9c</item>
-        <item>#5f3dc4</item>
-        <item>#364fc7</item>
-        <item>#1864ab</item>
-        <item>#0b7285</item>
-        <item>#087f5b</item>
-        <item>#2b8a3e</item>
-        <item>#5c940d</item>
-        <item>#e67700</item>
-        <item>#d9480f</item>
+        <item>#adb5bd</item>
+        <item>#ff6b6b</item>
+        <item>#f06595</item>
+        <item>#cc5de8</item>
+        <item>#845ef7</item>
+        <item>#5c7cfa</item>
+        <item>#339af0</item>
+        <item>#22b8cf</item>
+        <item>#20c997</item>
+        <item>#51cf66</item>
+        <item>#94d82d</item>
+        <item>#fcc419</item>
+        <item>#ff922b</item>
     </string-array>
     <string-array name="names">
         <item>muffalo</item>

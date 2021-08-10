@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/iv_donate"
             android:layout_width="match_parent"
-            android:layout_height="172dp"
+            android:layout_height="404px"
             android:scaleType="centerCrop"
             android:src="@drawable/support" />
 
@@ -70,7 +70,6 @@
             android:minHeight="@dimen/list_two_lines_min_height"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/switch_top_logic" />
-
 
         <TextView
             android:id="@+id/tv_counter"

@@ -45,11 +45,11 @@ public class DonateAdapter extends BaseAdapter {
         if (position == 0) { // coffee
             title.setText(context.getString(R.string.donation_coffee_title));
             description.setText(context.getString(R.string.donation_coffee_description));
-            emoji.setText("\u2615");
+            emoji.setText("\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615");
         } else { // pizza
             title.setText(context.getString(R.string.donation_pizza_title));
             description.setText(context.getString(R.string.donation_pizza_description));
-            emoji.setText("\uD83C\uDF55");
+            emoji.setText("\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55");
         }
 
         return (v);

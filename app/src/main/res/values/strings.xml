@@ -22,13 +22,13 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like Score Counter, please rate&#160;it or buy me a "virtual" coffee – it&#160;helps me to improve the app and makes me happier :)&#160;Thank you!</string>
+    <string name="erd_message">If you like Score Counter, please rate&#160;it or buy me a \"virtual\" coffee – it&#160;helps me to improve the app and makes me happier :)&#160;Thank you!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_rate_now">Rate this app</string>
     <string name="erd_remind_me_later">Remind me later</string>
     <string name="erd_title">Support Score Counter</string>
     <string name="error_no_email_client">No email app on your device :(</string>
-    <string name="hint_enter_number">or enter a number…</string>
+    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all</string>
     <string name="menu_reset_all_counters">Reset all</string>

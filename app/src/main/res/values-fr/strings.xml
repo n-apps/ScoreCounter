@@ -28,7 +28,7 @@
     <string name="erd_remind_me_later">Me rappeler plus tard</string>
     <string name="erd_title">Soutenir le Score Counter</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
-    <string name="hint_enter_number">entrez un nombre…</string>
+    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_delete_all_counters">Supprimer tout</string>
     <string name="menu_reset_all_counters">Réinitialiser tous</string>

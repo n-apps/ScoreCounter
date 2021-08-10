@@ -28,7 +28,7 @@
     <string name="erd_remind_me_later">Przypomnij mi później</string>
     <string name="erd_title">Wspierać Licznik Punktów</string>
     <string name="error_no_email_client">Brak aplikacji email na twoim urządzeniu :(</string>
-    <string name="hint_enter_number">albo wprowadź cyfrę…</string>
+    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
     <string name="menu_delete_all_counters">Usuń wszystko</string>
     <string name="menu_reset_all_counters">Zresetuj wszystko</string>
