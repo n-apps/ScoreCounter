@@ -1,5 +1,11 @@
 package ua.napps.scorekeeper.counters;
 
+import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
+import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_DECREASE_VALUE;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_INCREASE_VALUE;
+import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
+
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
@@ -12,6 +18,7 @@ import android.text.InputType;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,12 +63,6 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
-
-import static ua.napps.scorekeeper.counters.CountersAdapter.DECREASE_VALUE_CLICK;
-import static ua.napps.scorekeeper.counters.CountersAdapter.INCREASE_VALUE_CLICK;
-import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_DECREASE_VALUE;
-import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_INCREASE_VALUE;
-import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
 
 public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
@@ -339,12 +340,25 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .content(counter.getName())
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
-                    .neutralText(R.string.reset)
+                    .neutralText(R.string.common_cancel)
                     .alwaysCallInputCallback()
                     .input("" + counter.getValue(), null, false, (dialog, input) -> {
 
                     })
-                    .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
+                    .showListener(dialogInterface -> {
+                        TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                        if (titleTextView != null) {
+                            titleTextView.setLines(1);
+                            titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                            titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                        }
+                        EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                        if (inputEditText != null) {
+                            inputEditText.requestFocus();
+                            inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                        }
+                    })
+                    .onNeutral((dialog, which) -> dialog.dismiss())
                     .onPositive((dialog, which) -> {
                         EditText editText = dialog.getInputEditText();
                         if (editText != null) {
@@ -367,6 +381,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 });
             }
             md.show();
+            md.getWindow().setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         } else {
             showCounterStepDialog(counter, position, mode);
         }
@@ -520,6 +536,19 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
+                .showListener(dialogInterface -> {
+                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                    if (titleTextView != null) {
+                        titleTextView.setLines(1);
+                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                    }
+                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                    if (inputEditText != null) {
+                        inputEditText.requestFocus();
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
+                    }
+                })
                 .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
                 .onNeutral((dialog, which) -> onEditClick(counter))
                 .build();
@@ -534,6 +563,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             });
         }
         md.show();
+        md.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
     @Override

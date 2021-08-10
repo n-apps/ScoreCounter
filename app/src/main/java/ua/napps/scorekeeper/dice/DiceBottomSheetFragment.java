@@ -3,13 +3,17 @@ package ua.napps.scorekeeper.dice;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SwitchCompat;
@@ -149,7 +153,20 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
                                 .alwaysCallInputCallback()
-                                .input(getString(R.string.dialog_custom_dice_hint), null, false,
+                                .showListener(dialogInterface -> {
+                                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                                    if (titleTextView != null) {
+                                        titleTextView.setLines(1);
+                                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                                    }
+                                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                                    if (inputEditText != null) {
+                                        inputEditText.requestFocus();
+                                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                                    }
+                                })
+                                .input(getString(R.string.hint_enter_number), null, false,
                                         (dialog, input) -> {
                                             int parseInt = Utilities.parseInt(input.toString());
                                             if (parseInt <= 100 && parseInt > 1) {
@@ -181,6 +198,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                             });
                         }
                         md.show();
+                        md.getWindow().setSoftInputMode(
+                                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                         break;
                 }
             } else if (-1 == group.getCheckedButtonId()) {

@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -126,16 +129,16 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 startActivity(viewIntent);
                 break;
             case R.id.btn_1_text:
-                openCustomCounterDialog(1);
+                openCustomCounterDialog(1, ((TextView) v).getText());
                 break;
             case R.id.btn_2_text:
-                openCustomCounterDialog(2);
+                openCustomCounterDialog(2, ((TextView) v).getText());
                 break;
             case R.id.btn_3_text:
-                openCustomCounterDialog(3);
+                openCustomCounterDialog(3, ((TextView) v).getText());
                 break;
             case R.id.btn_4_text:
-                openCustomCounterDialog(4);
+                openCustomCounterDialog(4, ((TextView) v).getText());
                 break;
             case R.id.tv_counter:
                 new MaterialDialog.Builder(requireActivity())
@@ -158,13 +161,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
-    private void openCustomCounterDialog(final int id) {
-        final MaterialDialog customCounterDialog = new MaterialDialog.Builder(requireActivity())
+    private void openCustomCounterDialog(final int id, CharSequence oldValue) {
+        final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .alwaysCallInputCallback()
-                .input(getString(R.string.dialog_custom_counter_hint), null, false,
+                .input(oldValue, null, false,
                         (dialog, input) -> {
                             int parseInt = Utilities.parseInt(input.toString());
                             if (parseInt <= 999 && parseInt > 1) {
@@ -173,6 +176,19 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
                             }
                         })
+                .showListener(dialogInterface -> {
+                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                    if (titleTextView != null) {
+                        titleTextView.setLines(1);
+                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                    }
+                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                    if (inputEditText != null) {
+                        inputEditText.requestFocus();
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
+                    }
+                })
                 .onPositive((dialog, which) -> {
                     EditText editText = dialog.getInputEditText();
                     if (editText != null) {
@@ -186,17 +202,19 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 })
                 .build();
 
-        EditText editText = customCounterDialog.getInputEditText();
+        EditText editText = md.getInputEditText();
         if (editText != null) {
             editText.setOnEditorActionListener((textView, actionId, event) -> {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    View positiveButton = customCounterDialog.getActionButton(DialogAction.POSITIVE);
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
                     positiveButton.callOnClick();
                 }
                 return false;
             });
         }
-        customCounterDialog.show();
+        md.show();
+        md.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
     private void setCustomCounter(int id, int value) {
