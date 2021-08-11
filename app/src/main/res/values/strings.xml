@@ -74,8 +74,7 @@
     <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.
         \n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.
         \n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)
-        \n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!
-    \n\u3030\n<a href="https://github.com/n-apps/ScoreCounter">Github</a> Heroes: vabene1111 \u2022 PeterCeresnik \u2022 10matej15 \u2022 drstranges \u2022 janethavi \n\u3030\nRomanian translation - thanks to Andrei&#160;Iacob \u2022 Polish transation - thanks to maiky, Osmine Retro \u2022 Spanish translation - thanks to ZVirus</string>
+        \n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!</string>
     <string name="about_donation">Make donation →</string>
     <string name="about_rate">Support at Google Play →</string>
     <string name="about_feedback">Contact me →</string>
@@ -86,4 +85,6 @@
     <string name="switch_top_logic">Low score - wins</string>
     <string name="lowest_wins_hint">You can swap logic in the settings</string>
     <string name="common_vibrate">Vibrate</string>
+    <string name="credits" translatable="false">Github\n☆ vabene1111\n☆ PeterCeresnik\n☆ 10matej15\n☆ drstranges\n☆ janethavi</string>
+    <string name="translators">Translation\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
 </resources>

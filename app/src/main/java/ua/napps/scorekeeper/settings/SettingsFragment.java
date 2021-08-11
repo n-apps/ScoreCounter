@@ -27,6 +27,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
@@ -105,6 +106,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.sw_switch_vibrate:
                 LocalSettings.saveCountersVibrate(enabled);
+                if (enabled) {
+                    ViewUtil.shakeView(v,2,0);
+                }
                 break;
         }
     }
@@ -146,7 +150,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                         .positiveText(R.string.common_got_it)
                         .show();
                 break;
-
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -222,15 +225,19 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         switch (id) {
             case 1:
                 btn_c_1.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_1,4,0);
                 break;
             case 2:
                 btn_c_2.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_2,4,0);
                 break;
             case 3:
                 btn_c_3.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_3,4,0);
                 break;
             case 4:
                 btn_c_4.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_4,4,0);
                 break;
         }
     }

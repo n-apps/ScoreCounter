@@ -51,6 +51,10 @@ public class RateMyAppDialog {
         }
     }
 
+    public void showAnyway() {
+        tryShow(context);
+    }
+
     private void remindMeLater() {
         registerHitCount(0);
         registerDate();

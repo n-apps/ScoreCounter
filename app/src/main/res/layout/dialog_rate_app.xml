@@ -8,6 +8,14 @@
     android:paddingRight="@dimen/padding_large"
     android:paddingBottom="@dimen/padding_normal">
 
+    <ImageView
+        android:id="@+id/hero_image"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/cat" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,7 +23,7 @@
         android:layout_marginTop="@dimen/padding_normal"
         android:lineSpacingMultiplier="1.2"
         android:text="@string/erd_message"
-        android:textAppearance="?attr/textAppearanceBody1"/>
+        android:textAppearance="?attr/textAppearanceBody1" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_donate_it"
@@ -63,8 +71,9 @@
             android:gravity="center"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
+            android:foreground="?selectableItemBackground"
             android:text="@string/erd_no_thanks"
-            android:textAppearance="?attr/textAppearanceBody2"/>
+            android:textAppearance="?attr/textAppearanceBody2" />
 
         <Space
             android:layout_width="0dp"
@@ -77,6 +86,7 @@
             android:layout_height="wrap_content"
             android:background="?selectableItemBackground"
             android:gravity="center"
+            android:foreground="@drawable/ripple"
             android:minHeight="@dimen/button_min_height"
             android:padding="@dimen/padding_normal"
             android:text="@string/erd_remind_me_later"

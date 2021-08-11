@@ -1,5 +1,9 @@
 package ua.napps.scorekeeper.utils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.graphics.Color;
 import android.view.View;
@@ -51,4 +55,25 @@ public class ViewUtil {
             }
         }
     }
+    public static void shakeView(final View view, final float x, final int num) {
+        if (view == null) {
+            return;
+        }
+        if (num == 6) {
+            view.setTranslationX(0);
+            return;
+        }
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(ObjectAnimator.ofFloat(view, "translationX", x));
+        animatorSet.setDuration(50);
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                shakeView(view, num == 5 ? 0 : -x, num + 1);
+            }
+        });
+        animatorSet.start();
+    }
+
+
 }

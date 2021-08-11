@@ -5,11 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 
 import ua.napps.scorekeeper.R;
@@ -18,6 +19,8 @@ import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class AboutActivity extends AppCompatActivity {
+
+    private TextView toolbarTitle;
 
     public static void start(Activity activity) {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
@@ -30,15 +33,27 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        setSupportActionBar(findViewById(R.id.toolbar));
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("\uD83D\uDC4B");
 
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            View view = toolbar.getChildAt(i);
+            if (view instanceof TextView) {
+                toolbarTitle = (TextView) view;
+                break;
+            }
+        }
+
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
 
         ImageView cover = findViewById(R.id.cover);
-        cover.setOnClickListener(v -> Toast.makeText(getApplicationContext(), R.string.easter_wave, Toast.LENGTH_SHORT).show());
+        ImageView hero = findViewById(R.id.hero_image);
+        toolbar.setOnClickListener(v -> ViewUtil.shakeView(toolbarTitle,8,0));
+        cover.setOnClickListener(v -> ViewUtil.shakeView(toolbarTitle,8,0));
+        hero.setOnClickListener(v -> ViewUtil.shakeView(v,24, 2 ));
 
         findViewById(R.id.tv_rate_app).setOnClickListener(v -> {
             Utilities.rateApp(this);

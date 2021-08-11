@@ -261,8 +261,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:text="◇   ◇   ◇   ◇   ◇"
-            android:textAppearance="?attr/textAppearanceCaption"
+            android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?attr/colorSecondary"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>
