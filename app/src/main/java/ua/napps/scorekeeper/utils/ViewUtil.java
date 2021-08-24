@@ -55,6 +55,7 @@ public class ViewUtil {
             }
         }
     }
+
     public static void shakeView(final View view, final float x, final int num) {
         if (view == null) {
             return;
@@ -74,6 +75,5 @@ public class ViewUtil {
         });
         animatorSet.start();
     }
-
 
 }

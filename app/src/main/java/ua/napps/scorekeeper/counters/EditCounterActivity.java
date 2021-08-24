@@ -15,6 +15,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.util.DialogUtils;
 import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -126,15 +127,21 @@ public class EditCounterActivity extends AppCompatActivity {
             int boxStrokeColor = Color.parseColor(colorHex);
             if (boxStrokeColor != Color.WHITE) {
                 counterNameLayout.setBoxStrokeColor(boxStrokeColor);
+                if (ColorUtil.isDarkBackground(boxStrokeColor)){
+                    btnSave.setTextColor(0xDEFFFFFF);
+                } else {
+                    btnSave.setTextColor(0xDE000000);
+                }
+                btnSave.setBackgroundColor(boxStrokeColor);
             } else {
                 counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
+                btnSave.setBackgroundColor(DialogUtils.getColor(this,R.color.colorPrimary));
             }
             counterNameLayout.requestFocus();
         }
     }
 
     private void setOnClickListeners() {
-
         ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
                 .content(R.string.dialog_step_info_content)
                 .positiveText(R.string.common_got_it)
@@ -153,8 +160,15 @@ public class EditCounterActivity extends AppCompatActivity {
         colorSlider.setListener((position, color) -> {
             if (color != Color.WHITE) {
                 counterNameLayout.setBoxStrokeColor(color);
+                if (ColorUtil.isDarkBackground(color)){
+                    btnSave.setTextColor(0xDEFFFFFF);
+                } else {
+                    btnSave.setTextColor(0xDE000000);
+                }
+                btnSave.setBackgroundColor(color);
             } else {
                 counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
+                btnSave.setBackgroundColor(DialogUtils.getColor(this,R.color.colorPrimary));
             }
             newCounterColor = ColorUtil.intColorToString(color);
         });
@@ -167,9 +181,9 @@ public class EditCounterActivity extends AppCompatActivity {
         if (!counter.getName().equals(newName)) {
             viewModel.updateName(newName);
 
-            if (newName.toLowerCase().equals("roman") |
-                    newName.toLowerCase().equals("роман") |
-                    newName.toLowerCase().equals("рома")) {
+            if (newName.equalsIgnoreCase("roman") |
+                    newName.equalsIgnoreCase("роман") |
+                    newName.equalsIgnoreCase("рома")) {
                 Toast.makeText(getApplicationContext(), R.string.easter_wave, Toast.LENGTH_SHORT).show();
             }
         }

@@ -79,9 +79,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
-            int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
+            int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
-            holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
+            holder.counterValue.setTextColor(tintColor);
 
             Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
             Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
@@ -96,9 +96,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
-            int tintColor = darkBackground ? 0xDEFFFFFF : 0xDE000000;
+            int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
-            holder.counterValue.setTextColor(darkBackground ? Color.WHITE : 0xDE000000);
+            holder.counterValue.setTextColor(tintColor);
 
             Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
             Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());

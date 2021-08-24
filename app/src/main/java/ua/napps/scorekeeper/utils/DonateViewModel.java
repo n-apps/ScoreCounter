@@ -1,9 +1,12 @@
 package ua.napps.scorekeeper.utils;
 
+import static com.android.billingclient.api.BillingClient.BillingResponseCode;
+import static com.android.billingclient.api.BillingClient.SkuType;
+import static com.android.billingclient.api.BillingClient.newBuilder;
+
 import android.app.Activity;
 import android.app.Application;
 
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
@@ -32,10 +35,6 @@ import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
 import ua.napps.scorekeeper.utils.livedata.MessageIntent;
 import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
 
-import static com.android.billingclient.api.BillingClient.BillingResponseCode;
-import static com.android.billingclient.api.BillingClient.SkuType;
-import static com.android.billingclient.api.BillingClient.newBuilder;
-
 public class DonateViewModel extends AndroidViewModel implements PurchasesUpdatedListener {
 
     public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
@@ -44,8 +43,8 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
 
     private final List<SkuDetails> skuDetailsList = new ArrayList<>();
     private final List<String> skuList = BuildConfig.DEBUG
-            ? Arrays.asList("android.test.purchased", "android.test.canceled")
-            : Arrays.asList("buy_me_a_coffee", "buy_me_a_pizza");
+            ? Arrays.asList("android.test.purchased", "android.test.purchased", "android.test.canceled")
+            : Arrays.asList("buy_me_a_coffee", "buy_me_a_pizza", "buy_me_a_xwing");
 
     public DonateViewModel(@NonNull Application application) {
         super(application);
@@ -94,7 +93,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         }
     }
 
-    void purchase(Activity activity, @IntRange(from = 0, to = 1) int donateOption) {
+    void purchase(Activity activity, int donateOption) {
         String sku = skuList.get(donateOption);
         SkuDetails skuDetails = findSkuDetails(sku);
         if (skuDetails == null) {

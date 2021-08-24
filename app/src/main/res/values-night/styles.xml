@@ -9,10 +9,10 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
 
         <item name="myIconTint">@color/section_bg</item>
-        <item name="plus_picture">@drawable/empty_state_counters_dark</item>
-        <item name="dice_picture">@drawable/empty_state_dice_dark</item>
-        <item name="history_picture">@drawable/empty_state_history_dark</item>
-        <item name="colors_scheme">@array/dark</item>
+        <item name="plus_picture">@drawable/empty_add_night</item>
+        <item name="dice_picture">@drawable/empty_dice_night</item>
+        <item name="history_picture">@drawable/empty_history_night</item>
+        <item name="colors_scheme">@array/default_color_list</item>
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/InterTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>

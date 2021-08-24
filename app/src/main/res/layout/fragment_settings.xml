@@ -253,7 +253,7 @@
             android:paddingStart="@dimen/padding_large"
             android:text="@string/privacy_policy"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_external_link" />
+            app:drawableEndCompat="@drawable/ic_planet" />
 
         <TextView
             android:layout_width="wrap_content"

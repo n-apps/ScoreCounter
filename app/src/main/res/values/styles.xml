@@ -22,10 +22,10 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
 
         <item name="myIconTint">@color/colorOnPrimary</item>
-        <item name="plus_picture">@drawable/empty_state_counters_light</item>
-        <item name="dice_picture">@drawable/empty_state_dice_light</item>
-        <item name="history_picture">@drawable/empty_state_history_light</item>
-        <item name="colors_scheme">@array/light</item>
+        <item name="plus_picture">@drawable/empty_add_day</item>
+        <item name="dice_picture">@drawable/empty_dice_day</item>
+        <item name="history_picture">@drawable/empty_history_day</item>
+        <item name="colors_scheme">@array/default_color_list</item>
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/InterTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>

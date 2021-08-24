@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="@dimen/padding_large">
@@ -17,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
-            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:drawableEndCompat="@drawable/ic_arrow_right"
+            android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="@string/donation_coffee_title" />
 
         <TextView
@@ -34,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
             android:gravity="center"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:textAppearance="?attr/textAppearanceCaption"
             tools:text="☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕" />
     </LinearLayout>
 </FrameLayout>

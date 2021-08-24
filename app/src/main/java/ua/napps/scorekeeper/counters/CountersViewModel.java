@@ -20,7 +20,6 @@ import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
-import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SnackbarMessage;
 
@@ -36,7 +35,7 @@ class CountersViewModel extends AndroidViewModel {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        colors = application.getResources().getStringArray(LocalSettings.isLightTheme() ? R.array.light : R.array.dark);
+        colors = application.getResources().getStringArray(R.array.default_color_list);
         names = application.getResources().getStringArray(R.array.names);
         shuffleInitialDataArrays();
     }

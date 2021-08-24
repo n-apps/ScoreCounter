@@ -4,16 +4,7 @@
     android:tint="?myIconTint"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M5,12H19"
-        android:strokeWidth="2"
-        android:strokeColor="#000000"
-        android:strokeLineJoin="miter" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M12,5L19,12L12,19"
-        android:strokeWidth="2"
-        android:strokeColor="#000000"
-        android:strokeLineJoin="miter" />
+  <path
+      android:pathData="M22.0606,12L14,20.0607L12.9393,19L19.1893,12.75H2.25V11.25H19.1893L12.9393,5L14,3.9394L22.0606,12Z"
+      android:fillColor="#000000"/>
 </vector>

@@ -83,5 +83,7 @@
     <string name="lowest_wins_hint">Вы можете поменять логику в настройках</string>
     <string name="common_vibrate">Вибрация</string>
     <string name="translators">Перевод\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
+    <string name="donation_xwing_title">Star Wars: X-Wing Игра с миниатюрами</string>
+    <string name="donation_xwing_description">Новые корабли и схемы раскраски</string>
 
 </resources>

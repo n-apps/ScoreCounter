@@ -48,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.util.DialogUtils;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -120,7 +121,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
-
         return contentView;
     }
 
@@ -340,10 +340,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .content(counter.getName())
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
-                    .neutralText(R.string.common_cancel)
+                    .neutralText(R.string.reset)
+                    .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
                     .alwaysCallInputCallback()
                     .input("" + counter.getValue(), null, false, (dialog, input) -> {
-
                     })
                     .showListener(dialogInterface -> {
                         TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
@@ -358,7 +358,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                         }
                     })
-                    .onNeutral((dialog, which) -> dialog.dismiss())
+                    .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
                     .onPositive((dialog, which) -> {
                         EditText editText = dialog.getInputEditText();
                         if (editText != null) {
@@ -536,6 +536,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
+                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                     if (titleTextView != null) {

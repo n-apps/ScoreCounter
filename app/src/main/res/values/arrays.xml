@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string-array name="light">
-        <item>#adb5bd</item>
-        <item>#ff6b6b</item>
-        <item>#f783ac</item>
-        <item>#da77f2</item>
-        <item>#9775fa</item>
-        <item>#748ffc</item>
-        <item>#4dabf7</item>
-        <item>#3bc9db</item>
-        <item>#38d9a9</item>
-        <item>#69db7c</item>
-        <item>#a9e34b</item>
-        <item>#ffd43b</item>
-        <item>#ffa94d</item>
-        <item>#ffffff</item>
-        <item>#000000</item>
-    </string-array>
-    <string-array name="dark">
-        <item>#adb5bd</item>
-        <item>#ff6b6b</item>
-        <item>#f06595</item>
-        <item>#cc5de8</item>
-        <item>#845ef7</item>
-        <item>#5c7cfa</item>
-        <item>#339af0</item>
-        <item>#22b8cf</item>
-        <item>#20c997</item>
-        <item>#51cf66</item>
-        <item>#94d82d</item>
-        <item>#fcc419</item>
-        <item>#ff922b</item>
+    <string-array name="default_color_list">
+        <item>#5992F8</item>
+        <item>#FFD966</item>
+        <item>#52B8D2</item>
+        <item>#F18181</item>
+        <item>#6CBE5E</item>
+        <item>#B79A8F</item>
+        <item>#A0BB31</item>
+        <item>#A4AFC7</item>
+        <item>#F2B04B</item>
+        <item>#FFFFFF</item>
+        <item>#ED70A5</item>
+        <item>#222222</item>
+        <item>#EC6666</item>
+        <item>#DDE358</item>
+        <item>#CF66F7</item>
+        <item>#6FE9BE</item>
+        <item>#9842EB</item>
+        <item>#733338</item>
     </string-array>
     <string-array name="names">
         <item>muffalo</item>

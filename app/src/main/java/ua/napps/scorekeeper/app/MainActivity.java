@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.transition.Transition;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.transition.MaterialFade;
+import com.google.android.material.transition.MaterialSharedAxis;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
@@ -197,8 +198,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 currentFragment = SettingsFragment.newInstance();
                 break;
         }
-        MaterialFade fadeThrough = new MaterialFade();
-        currentFragment.setEnterTransition(fadeThrough);
+        Transition enterTrans = new MaterialSharedAxis(MaterialSharedAxis.X, true);
+        currentFragment.setEnterTransition(enterTrans);
         manager.beginTransaction()
                 .replace(R.id.container, currentFragment, tag)
                 .commit();

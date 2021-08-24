@@ -20,7 +20,7 @@ public class DonateAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Override
@@ -42,14 +42,23 @@ public class DonateAdapter extends BaseAdapter {
         TextView title = v.findViewById(R.id.title);
         TextView description = v.findViewById(R.id.description);
         TextView emoji = v.findViewById(R.id.emoji);
-        if (position == 0) { // coffee
-            title.setText(context.getString(R.string.donation_coffee_title));
-            description.setText(context.getString(R.string.donation_coffee_description));
-            emoji.setText("\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615\u2615");
-        } else { // pizza
-            title.setText(context.getString(R.string.donation_pizza_title));
-            description.setText(context.getString(R.string.donation_pizza_description));
-            emoji.setText("\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55\uD83C\uDF55");
+        switch (position) {
+            default:
+            case 0:  // coffee
+                title.setText(context.getString(R.string.donation_coffee_title));
+                description.setText(context.getString(R.string.donation_coffee_description));
+                emoji.setText("\u2615 \u2615 \u2615 \u2615 \u2615 \u2615 \u2615 \u2615 \u2615");
+                break;
+            case 1: // pizza
+                title.setText(context.getString(R.string.donation_pizza_title));
+                description.setText(context.getString(R.string.donation_pizza_description));
+                emoji.setText("\uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 \uD83C\uDF55 ");
+                break;
+            case 2:
+                title.setText(context.getString(R.string.donation_xwing_title));
+                description.setText(context.getString(R.string.donation_xwing_description));
+                emoji.setText("\uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80");
+                break;
         }
 
         return (v);

@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.util.DialogUtils;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
@@ -169,6 +170,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
+                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
                 .alwaysCallInputCallback()
                 .input(oldValue, null, false,
                         (dialog, input) -> {

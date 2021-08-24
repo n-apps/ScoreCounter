@@ -20,6 +20,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.util.DialogUtils;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
@@ -97,6 +98,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .content(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
+                                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
                                 .alwaysCallInputCallback()
                                 .input(getString(R.string.dialog_custom_dice_hint), null, false,
                                         (dialog, input) -> {
