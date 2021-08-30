@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -101,25 +102,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="+"
             android:paddingHorizontal="@dimen/padding_normal"
-            android:textAppearance="?attr/textAppearanceHeadline4"/>
+            android:text="+"
+            android:textAppearance="?attr/textAppearanceHeadline4" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_height="wrap_content">
+            app:boxStrokeColor="@color/colorSecondary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_add_custom_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
                 android:imeOptions="actionDone"
                 android:inputType="numberSigned"
-                android:minWidth="140dp"
                 android:maxLines="1"
+                android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 tools:text="1" />

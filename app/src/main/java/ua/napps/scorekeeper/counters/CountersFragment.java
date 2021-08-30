@@ -229,11 +229,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
                 if (oldListSize != size) {
                     countersAdapter.notifyDataSetChanged();
-                    if (size > 4) {
-                        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-                    } else {
+                    if (size < 6) {
                         recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
+                    } else {
+                        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
                     }
                 }
 

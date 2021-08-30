@@ -9,5 +9,5 @@
     <solid android:color="@color/overlay" />
     <stroke
         android:width="2dp"
-        android:color="?colorPrimary" />
+        android:color="?colorSecondary" />
 </shape>

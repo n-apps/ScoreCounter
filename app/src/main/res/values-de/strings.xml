@@ -40,7 +40,7 @@
     <string name="settings_section_general">Aussehen</string>
     <string name="settings_feedback">Feedback</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
-    <string name="settings_stay_awake">Bildschrim angeschaltet lassen</string>
+    <string name="settings_stay_awake">Bildschirm eingeschaltet lassen</string>
     <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Sie können den Zählerwert auch ändern, indem Sie lange darauf drücken.</string>
     <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
     <string name="common_got_it">Verstanden</string>
@@ -83,6 +83,6 @@
     <string name="lowest_wins_hint">Sie können die Logik in den Einstellungen vertauschen</string>
     <string name="common_vibrate">Vibrieren</string>
     <string name="translators">Übersetzung\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
-    <string name="donation_xwing_title">Star Wars: X-Wing Miniaturen-Spiel – Grundspiel</string>
+    <string name="donation_xwing_title">Star Wars: X-Wing Miniaturen-Spiel</string>
     <string name="donation_xwing_description">Neue Miniaturen</string>
 </resources>

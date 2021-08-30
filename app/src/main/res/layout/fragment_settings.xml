@@ -82,7 +82,7 @@
             android:paddingHorizontal="@dimen/padding_large"
             android:text="@string/common_counter"
             app:drawableEndCompat="@drawable/ic_help_circle"
-            app:drawableTint="@android:color/white"
+            app:drawableTint="?colorOnBackground"
             tools:ignore="UnusedAttribute" />
 
         <LinearLayout

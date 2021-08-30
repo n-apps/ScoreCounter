@@ -59,8 +59,8 @@
     <string name="donation_coffee_description">Damned fine coffee… and hot!</string>
     <string name="donation_pizza_title">Tasty pizza</string>
     <string name="donation_pizza_description">With onions, double cheese and salami, please. And no mushrooms!</string>
-    <string name="donation_xwing_title">Star Wars: X-Wing Miniatures</string>
-    <string name="donation_xwing_description">New miniatures and new paint schemes</string>
+    <string name="donation_xwing_title">Star Wars Miniatures</string>
+    <string name="donation_xwing_description">New X-Wing miniatures and new paint schemes</string>
     <string name="settings_sound">Sound</string>
     <string name="action_donate">Donate</string>
     <string name="error_message">Sorry, there seems to have been an error.</string>

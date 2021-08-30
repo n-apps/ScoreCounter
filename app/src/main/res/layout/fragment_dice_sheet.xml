@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="1"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="2"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -45,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="4"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -55,6 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="X"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -91,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="d6"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -101,6 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="d8"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -111,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="d20"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
 
@@ -121,6 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="dX"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>

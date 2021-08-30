@@ -58,9 +58,9 @@
     <string name="donation_coffee_title">Хорошим горячим черным кофе</string>
     <string name="donation_coffee_description">Чертовски горячим!</string>
     <string name="donation_pizza_title">Вкусной пиццей</string>
-    <string name="donation_pizza_description">С двойным сыром, маринованными огурчиками, пожалуйста. И чтобы никаких грибов!</string>
+    <string name="donation_pizza_description">Томатный соус, двойная порция ветчины, сосиски, лук репчатый и сыр.</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Поддержать автора  \ud83c\udf55</string>
+    <string name="action_donate">Поддержать автора</string>
     <string name="error_message">Произошла ошибка.</string>
     <string name="save">Сохранить</string>
     <string name="common_more">Больше</string>
@@ -83,7 +83,6 @@
     <string name="lowest_wins_hint">Вы можете поменять логику в настройках</string>
     <string name="common_vibrate">Вибрация</string>
     <string name="translators">Перевод\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
-    <string name="donation_xwing_title">Star Wars: X-Wing Игра с миниатюрами</string>
+    <string name="donation_xwing_title">Star Wars: X-Wing игра</string>
     <string name="donation_xwing_description">Новые корабли и схемы раскраски</string>
-
 </resources>

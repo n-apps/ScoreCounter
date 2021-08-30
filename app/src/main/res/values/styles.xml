@@ -45,6 +45,7 @@
     <style name="TwoLinesStyle">
         <item name="android:foreground">@drawable/ripple</item>
         <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/btk_med</item>
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
         <item name="android:paddingEnd">@dimen/padding_normal</item>
     </style>
@@ -53,7 +54,7 @@
         <item name="android:paddingEnd">@dimen/padding_normal</item>
         <item name="android:foreground">@drawable/ripple</item>
         <item name="android:textSize">@dimen/font_title</item>
-        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/btk_med</item>
         <item name="android:colorControlActivated">?android:colorPrimary</item>
     </style>
 
@@ -64,7 +65,7 @@
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:layout_marginTop">@dimen/spacing_large</item>
-        <item name="fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/btk_med</item>
         <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
@@ -74,6 +75,7 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
+        <item name="android:fontFamily">@font/btk_med</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="autoSizeMaxTextSize">@dimen/font_display</item>
         <item name="autoSizeMinTextSize">@dimen/font_body</item>
@@ -82,16 +84,16 @@
     </style>
 
     <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-        <item name="fontFamily">@font/inter_bold</item>
+        <item name="fontFamily">@font/btk_med</item>
     </style>
 
     <style name="DefaultHelperTextAppearance" parent="TextAppearance.Design.Hint">
         <item name="android:textStyle">normal</item>
-        <item name="fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/btk_reg</item>
     </style>
 
     <style name="InterTextViewStyle" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="android:fontFamily">@font/btk_reg</item>
     </style>
 
     <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Light.Dialog.Alert">

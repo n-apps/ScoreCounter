@@ -28,7 +28,7 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="UseCompoundDrawables"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
@@ -48,10 +48,10 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="@dimen/spacing_normal"
+        android:layout_marginTop="@dimen/spacing_normal"
         app:layoutManager=".utils.SpanningLinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/item_counter_compact"
-        tools:visibility="gone" />
+        tools:listitem="@layout/item_counter_full"
+        tools:visibility="visible" />
 
 </LinearLayout>

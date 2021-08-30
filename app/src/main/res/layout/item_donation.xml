@@ -17,8 +17,8 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/inter_bold"
             app:drawableEndCompat="@drawable/ic_arrow_right"
+            android:fontFamily="@font/btk_med"
             android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="@string/donation_coffee_title" />
 

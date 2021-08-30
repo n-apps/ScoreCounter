@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:targetApi="o">
     <font
-        android:font="@font/inter_regular"
+        android:font="@font/btk_reg"
         android:fontStyle="normal"
         android:fontWeight="400"
-        app:font="@font/inter_regular"
+        app:font="@font/btk_reg"
         app:fontStyle="normal"
         app:fontWeight="400"/>
     <font
-        android:font="@font/inter_bold"
+        android:font="@font/btk_med"
         android:fontStyle="normal"
-        android:fontWeight="700"
-        app:font="@font/inter_bold"
+        android:fontWeight="500"
+        app:font="@font/btk_med"
         app:fontStyle="normal"
-        app:fontWeight="700"
+        app:fontWeight="500"
         />
 </font-family>

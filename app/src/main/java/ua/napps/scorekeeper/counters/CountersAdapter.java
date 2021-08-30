@@ -109,7 +109,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() < 5) {
+        if (getItemCount() < 6) {
             return TYPE_FULL;
         } else {
             return TYPE_COMPACT;

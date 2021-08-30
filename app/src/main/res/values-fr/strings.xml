@@ -55,10 +55,10 @@
     <string name="dialog_no">Non</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="donation_thank_you">Merci 💜</string>
-    <string name="donation_coffee_title">Un bon café noir bien chaud</string>
-    <string name="donation_coffee_description">Vraiment bon ce café… et chaud à souhait!</string>
-    <string name="donation_pizza_title">Délicieuse pizza</string>
-    <string name="donation_pizza_description">Avec oignons, double fromage et salami, s\'il vous plaît. Et pas de champignons!</string>
+    <string name="donation_coffee_title">Un café italien</string>
+    <string name="donation_coffee_description">Le caffè corretto est un espresso agrémenté d’une dose de liqueur, comme la grappa.</string>
+    <string name="donation_pizza_title">Pizza Hawaïenne</string>
+    <string name="donation_pizza_description">Certains la détestent, d’autre l’adorent.</string>
     <string name="settings_sound">Son</string>
     <string name="action_donate">Faire un don</string>
     <string name="error_message">Désolé, il semblerait qu\'il y ait eu une erreur.</string>

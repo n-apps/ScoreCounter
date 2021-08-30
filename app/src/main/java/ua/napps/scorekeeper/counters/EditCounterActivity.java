@@ -171,6 +171,7 @@ public class EditCounterActivity extends AppCompatActivity {
                 btnSave.setBackgroundColor(DialogUtils.getColor(this,R.color.colorPrimary));
             }
             newCounterColor = ColorUtil.intColorToString(color);
+            counterName.requestFocus();
         });
 
         btnSave.setOnClickListener(v -> validateAndSave());

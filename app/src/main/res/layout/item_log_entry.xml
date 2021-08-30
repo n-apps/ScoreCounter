@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:id="@+id/fl_item_log_color"
-        android:layout_width="4dp"
+        android:layout_width="8dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,23 +19,21 @@
         android:id="@+id/tv_item_log_counter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:paddingVertical="4dp"
         android:gravity="start"
-        android:textSize="@dimen/font_body"
-        android:textStyle="bold"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
         app:layout_constraintStart_toStartOf="@+id/gl_keyline"
         app:layout_constraintTop_toTopOf="@+id/fl_item_log_color"
-        tools:text="#1" />
+        tools:text="dog" />
 
     <TextView
         android:id="@+id/tv_item_log_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textSize="@dimen/font_subheading"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:paddingVertical="@dimen/spacing_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
         app:layout_constraintStart_toStartOf="@+id/gl_keyline"
@@ -44,10 +42,9 @@
     <TextView
         android:id="@+id/tv_item_log_time"
         android:layout_width="wrap_content"
-        android:layout_height="17dp"
-        android:layout_marginEnd="4dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-        android:textColor="?android:attr/textColorHint"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="?attr/textAppearanceCaption"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/tv_item_log_info"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,5 +56,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="32dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
