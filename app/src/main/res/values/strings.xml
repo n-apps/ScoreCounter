@@ -73,10 +73,7 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.
-        \n\u3030\nIdea to make an app for counting victory points came to my head during the Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy to every new review, email or donation.
-        \n\u3030\nIf you have something to share or found messy translation – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)
-        \n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n        \n\\u3030\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m happy for every new review, email or donation.\n        \n\\u3030\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \n\\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!</string>
     <string name="about_donation">Make donation →</string>
     <string name="about_rate">Support at Google Play →</string>
     <string name="about_feedback">Contact me →</string>
