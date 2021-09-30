@@ -33,7 +33,7 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4, btn_num_full_counters;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -56,6 +56,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
         btn_c_3 = contentView.findViewById(R.id.btn_3_text);
         btn_c_4 = contentView.findViewById(R.id.btn_4_text);
+
+        btn_num_full_counters = contentView.findViewById(R.id.btn_full_counters);
 
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(!LocalSettings.isLightTheme());
@@ -80,6 +82,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         btn_c_2.setOnClickListener(this);
         btn_c_3.setOnClickListener(this);
         btn_c_4.setOnClickListener(this);
+
+        btn_num_full_counters.setOnClickListener(this);
 
         btn_c_1.setText(String.valueOf(LocalSettings.getCustomCounter(1)));
         btn_c_2.setText(String.valueOf(LocalSettings.getCustomCounter(2)));
@@ -108,7 +112,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.sw_switch_vibrate:
                 LocalSettings.saveCountersVibrate(enabled);
                 if (enabled) {
-                    ViewUtil.shakeView(v,2,0);
+                    ViewUtil.shakeView(v, 2, 0);
                 }
                 break;
         }
@@ -134,22 +138,25 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 startActivity(viewIntent);
                 break;
             case R.id.btn_1_text:
-                openCustomCounterDialog(1, ((TextView) v).getText());
+                openNumberInputDialog("counter_btn_1", ((TextView) v).getText(), 1, 999);
                 break;
             case R.id.btn_2_text:
-                openCustomCounterDialog(2, ((TextView) v).getText());
+                openNumberInputDialog("counter_btn_2", ((TextView) v).getText(), 1, 999);
                 break;
             case R.id.btn_3_text:
-                openCustomCounterDialog(3, ((TextView) v).getText());
+                openNumberInputDialog("counter_btn_3", ((TextView) v).getText(), 1, 999);
                 break;
             case R.id.btn_4_text:
-                openCustomCounterDialog(4, ((TextView) v).getText());
+                openNumberInputDialog("counter_btn_4", ((TextView) v).getText(), 1, 999);
                 break;
             case R.id.tv_counter:
                 new MaterialDialog.Builder(requireActivity())
                         .content(R.string.settings_section_counter_buttons)
                         .positiveText(R.string.common_got_it)
                         .show();
+                break;
+            case R.id.btn_full_counters:
+                openNumberInputDialog("btn_num_full_counters", Integer.toString(LocalSettings.getNumberOfFullCounters()), 1, 15);
                 break;
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -165,17 +172,17 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         }
     }
 
-    private void openCustomCounterDialog(final int id, CharSequence oldValue) {
+    private void openNumberInputDialog(final String setting, CharSequence oldValue, int minValue, int maxValue) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
+                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .alwaysCallInputCallback()
                 .input(oldValue, null, false,
                         (dialog, input) -> {
                             int parseInt = Utilities.parseInt(input.toString());
-                            if (parseInt <= 999 && parseInt > 1) {
+                            if (parseInt <= maxValue && parseInt > minValue) {
                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                             } else {
                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
@@ -199,8 +206,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     if (editText != null) {
                         String value = editText.getText().toString();
                         Integer parseInt = Utilities.parseInt(value);
-                        if (parseInt <= 999 && parseInt > 1) {
-                            setCustomCounter(id, parseInt);
+                        if (parseInt <= maxValue && parseInt > minValue) {
+                            updateInputDialogSetting(setting, parseInt);
                         }
                         dialog.dismiss();
                     }
@@ -222,26 +229,33 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
-    private void setCustomCounter(int id, int value) {
-        LocalSettings.saveCustomCounter(id, value);
+    private void updateInputDialogSetting(String id, int value) {
         switch (id) {
-            case 1:
+            case "counter_btn_1":
                 btn_c_1.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_1,4,0);
+                ViewUtil.shakeView(btn_c_1, 4, 0);
+                LocalSettings.saveCustomCounter(1, value);
                 break;
-            case 2:
+            case "counter_btn_2":
                 btn_c_2.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_2,4,0);
+                ViewUtil.shakeView(btn_c_2, 4, 0);
+                LocalSettings.saveCustomCounter(2, value);
                 break;
-            case 3:
+            case "counter_btn_3":
                 btn_c_3.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_3,4,0);
+                ViewUtil.shakeView(btn_c_3, 4, 0);
+                LocalSettings.saveCustomCounter(3, value);
                 break;
-            case 4:
+            case "counter_btn_4":
                 btn_c_4.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_4,4,0);
+                ViewUtil.shakeView(btn_c_4, 4, 0);
+                LocalSettings.saveCustomCounter(4, value);
+                break;
+            case "btn_num_full_counters":
+                LocalSettings.saveNumberOfFullCounters(value);
                 break;
         }
+
     }
 
 

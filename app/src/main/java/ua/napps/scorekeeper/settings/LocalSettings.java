@@ -15,6 +15,7 @@ public class LocalSettings {
     private static final String KEY_NEVER_REMINDER = "KEY_NEVER_REMINDER";
     private static final String IS_LOWEST_SCORE_WINS = "is_lowest_score_wins";
     private static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
+    private static final String NUMBER_OF_FULL_COUNTERS = "number_of_full_counters";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
     private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
@@ -141,5 +142,13 @@ public class LocalSettings {
 
     public static void saveCountersVibrate(boolean enabled) {
         App.getTinyDB().putBoolean(IS_COUNTERS_VIBRATE, enabled);
+    }
+
+    public static int getNumberOfFullCounters() {
+        return App.getTinyDB().getInt(NUMBER_OF_FULL_COUNTERS, 5);
+    }
+
+    public static void saveNumberOfFullCounters(int numberOfFullCounters) {
+        App.getTinyDB().putInt(NUMBER_OF_FULL_COUNTERS, numberOfFullCounters);
     }
 }
