@@ -85,4 +85,5 @@
     <string name="translators">Übersetzung\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Miniaturen-Spiel</string>
     <string name="donation_xwing_description">Neue Miniaturen</string>
+    <string name="settings_num_full_counters">Anzahl großer Zähler</string>
 </resources>

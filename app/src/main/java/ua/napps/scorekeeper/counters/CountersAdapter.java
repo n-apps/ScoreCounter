@@ -29,6 +29,7 @@ import java.util.TimerTask;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DragItemListener;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.ColorUtil;
 
 public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements ItemDragAdapter {
@@ -109,7 +110,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() < 6) {
+        if (getItemCount() <= LocalSettings.getNumberOfFullCounters()) {
             return TYPE_FULL;
         } else {
             return TYPE_COMPACT;

@@ -166,6 +166,17 @@
 
         </LinearLayout>
 
+        <include layout="@layout/divider" />
+
+        <TextView
+            android:id="@+id/btn_full_counters"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/settings_num_full_counters"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
 
         <TextView
             android:layout_width="match_parent"
