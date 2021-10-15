@@ -146,18 +146,29 @@
                     tools:text="@string/app_name" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <ImageView
+                android:id="@+id/btn_more_colors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/ripple"
+                android:layout_marginStart="@dimen/spacing_normal"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_name"
+                app:layout_constraintBottom_toTopOf="@id/til_counter_value"
+                app:layout_constraintStart_toEndOf="@id/color_slider"
+                app:layout_constraintEnd_toEndOf="@id/til_counter_name"
+                android:src="@drawable/ic_more_colors" />
+
             <com.github.naz013.colorslider.ColorSlider
                 android:id="@+id/color_slider"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginVertical="@dimen/spacing_micro"
-                android:layout_marginStart="@dimen/spacing_large"
-                android:layout_marginEnd="@dimen/spacing_large"
                 app:cs_hex_colors="?colors_scheme"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
-                app:layout_constraintEnd_toEndOf="@id/til_counter_name"
                 app:layout_constraintStart_toStartOf="@id/til_counter_name"
+                app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
                 app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_value"

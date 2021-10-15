@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -51,8 +52,14 @@ public class AboutActivity extends AppCompatActivity {
 
         ImageView cover = findViewById(R.id.cover);
         ImageView hero = findViewById(R.id.hero_image);
-        toolbar.setOnClickListener(v -> ViewUtil.shakeView(toolbarTitle,8,0));
-        cover.setOnClickListener(v -> ViewUtil.shakeView(toolbarTitle,8,0));
+        toolbar.setOnClickListener(v -> {
+            Toast.makeText(this, "Привіт З України!", Toast.LENGTH_SHORT).show();
+            ViewUtil.shakeView(toolbarTitle, 8, 0);
+        });
+        cover.setOnClickListener(v -> {
+            Toast.makeText(this, "Привіт З України!", Toast.LENGTH_SHORT).show();
+            ViewUtil.shakeView(toolbarTitle, 8, 0);
+        });
         hero.setOnClickListener(v -> ViewUtil.shakeView(v,24, 2 ));
 
         findViewById(R.id.tv_rate_app).setOnClickListener(v -> {
