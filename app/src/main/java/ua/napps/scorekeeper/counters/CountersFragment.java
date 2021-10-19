@@ -33,7 +33,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -121,20 +120,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
-        return contentView;
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
-        viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isLowestScoreWins = LocalSettings.isLowestScoreWins();
-        subscribeUi();
-        // TODO: 09-May-20 tweak trigger threshold
-//        initSensorData();
+
+        observeData();
+        return contentView;
     }
 
     @Override
@@ -164,11 +156,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_add_counter:
-                if (viewModel.getCounters().getValue() != null) {
-                    viewModel.addCounter();
-                } else {
-                    subscribeUi();
-                }
+                viewModel.addCounter();
                 break;
             case R.id.menu_remove_all:
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
@@ -191,7 +179,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         return true;
     }
 
-    private void subscribeUi() {
+    private void observeData() {
+        CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
+        viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 final int size = counters.size();
@@ -340,7 +330,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .neutralText(R.string.reset)
-                    .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
+                    .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                     .alwaysCallInputCallback()
                     .input("" + counter.getValue(), null, false, (dialog, input) -> {
                     })
@@ -535,7 +525,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
-                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
+                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                     if (titleTextView != null) {

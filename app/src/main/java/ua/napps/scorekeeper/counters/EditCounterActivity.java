@@ -172,11 +172,11 @@ public class EditCounterActivity extends AppCompatActivity {
             colors.add("#FF1744");
             colors.add("#00E676");
             colors.add("#FFEA00");
-            colors.add("#2979FF");
+            colors.add("#3783FF");
             colors.add("#D500F9");
             colors.add("#00E5FF");
             colors.add("#FF4081");
-            colors.add("#FF6E40");
+            colors.add("#FF8C00");
             colors.add("#000000");
 
             colorPicker.setColors(colors);

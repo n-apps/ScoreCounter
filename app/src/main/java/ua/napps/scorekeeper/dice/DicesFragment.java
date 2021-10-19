@@ -106,7 +106,15 @@ public class DicesFragment extends Fragment {
             mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
         }
 
+        springForce = new SpringForce()
+                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+                .setStiffness(SpringForce.STIFFNESS_VERY_LOW)
+                .setFinalPosition(1);
 
+        observeData();
+        if (LocalSettings.isShakeToRollEnabled()) {
+            initSensorData();
+        }
         return contentView;
     }
 
@@ -152,18 +160,6 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        springForce = new SpringForce()
-                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
-                .setStiffness(SpringForce.STIFFNESS_VERY_LOW)
-                .setFinalPosition(1);
-        subscribeUI();
-        if (LocalSettings.isShakeToRollEnabled()) {
-            initSensorData();
-        }
-    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -264,7 +260,7 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    private void subscribeUI() {
+    private void observeData() {
         DiceViewModelFactory factory = new DiceViewModelFactory(maxSide,diceCount);
         viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
