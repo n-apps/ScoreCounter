@@ -33,11 +33,12 @@
         android:layout_marginTop="@dimen/spacing_large"
         android:insetTop="0dp"
         android:insetBottom="0dp"
+        android:fontFamily="@font/btk_med"
+        android:textSize="@dimen/font_title"
         android:minWidth="64dp"
         android:minHeight="56dp"
         android:text="@string/action_donate"
-        android:textAllCaps="false"
-        android:textSize="@dimen/font_subheading" />
+        android:textAllCaps="false" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_rate_it"
@@ -60,34 +61,34 @@
         android:layout_marginTop="@dimen/spacing_large"
         android:orientation="horizontal">
 
-        <TextView
+        <Button
             android:id="@+id/btn_no_thanks"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?selectableItemBackground"
-            android:gravity="center"
-            android:minHeight="@dimen/button_min_height"
-            android:padding="@dimen/padding_normal"
-            android:foreground="?selectableItemBackground"
+            android:minWidth="64dp"
+            android:paddingHorizontal="@dimen/padding_normal"
+            android:minHeight="56dp"
             android:text="@string/erd_no_thanks"
-            android:textAppearance="?attr/textAppearanceBody2" />
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorPrimary" />
 
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <TextView
+        <Button
             android:id="@+id/btn_remind_later"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:paddingHorizontal="@dimen/padding_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?selectableItemBackground"
-            android:gravity="center"
-            android:foreground="@drawable/ripple"
-            android:minHeight="@dimen/button_min_height"
-            android:padding="@dimen/padding_normal"
+            android:minWidth="64dp"
+            android:minHeight="56dp"
             android:text="@string/erd_remind_me_later"
-            android:textAppearance="?attr/textAppearanceBody2" />
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorPrimary" />
     </LinearLayout>
 
 </LinearLayout>

@@ -18,7 +18,7 @@
     <string name="counter_details_value">Valor actual</string>
     <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador o usa el botón + ubicado en la esquina superior derecha</string>
     <string name="dialog_current_value_title">Valor actual</string>
-    <string name="dialog_custom_dice_hint">Desde 2 hasta 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Número de caras</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
     <string name="dice_previous_result_label">Tirada anterior:</string>

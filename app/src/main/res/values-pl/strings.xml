@@ -18,7 +18,7 @@
     <string name="counter_details_value">Obecna wartość</string>
     <string name="counters_empty_message">Stuknij gdziekolwiek, aby dodać pierwszy licznik lub użyj przycisku + w prawym górnym rogu</string>
     <string name="dialog_current_value_title">Obecna wartość</string>
-    <string name="dialog_custom_dice_hint">Od 2 do 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>

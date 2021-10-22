@@ -18,7 +18,7 @@
     <string name="counter_details_value">Valoare curenta</string>
     <string name="counters_empty_message">Atinge oriunde pentru a adauga primul contor sau foloseste butonul + din coltul din dreapta sus</string>
     <string name="dialog_current_value_title">Valoare curenta</string>
-    <string name="dialog_custom_dice_hint">De la 2 la 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>

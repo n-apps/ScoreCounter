@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
 ext.versionMinor = 6
-ext.versionPatch = 2
+ext.versionPatch = 3
 ext.postfix = ''
 
 android {
@@ -64,7 +64,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.room:room-runtime:2.3.0'
     implementation "androidx.room:room-rxjava2:2.3.0"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
     implementation 'com.google.firebase:firebase-crashlytics:18.2.3'

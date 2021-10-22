@@ -18,7 +18,7 @@
     <string name="counter_details_value">Aktueller Wert</string>
     <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutze den + Knopf oben rechts</string>
     <string name="dialog_current_value_title">Aktueller Wert</string>
-    <string name="dialog_custom_dice_hint">Von 2 bis 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
     <string name="dice_previous_result_label">Letzter Wurf:</string>

@@ -48,6 +48,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class CountersFragment extends Fragment implements CounterActionCallback, DragItemListener {
 
@@ -79,6 +81,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
+    private int counterStepDialogMode;
+    private int counterStep1;
+    private int counterStep2;
+    private int counterStep3;
+    private int counterStep4;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -302,7 +309,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, step, counter.getValue()));
 
             vibrate();
-            viewModel.decreaseCounter(counter, -step);
+            viewModel.decreaseCounter(counter, step);
             if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
                 showLongPressHint();
             }
@@ -318,7 +325,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 showLongPressHint();
             }
         } else if (mode == MODE_SET_VALUE) {
-            showCounterStepDialog(counter, position, mode);
+            showCounterStepDialog(counter, position, MODE_INCREASE_VALUE);
         }
     }
 
@@ -326,7 +333,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onLongClick(Counter counter, int position, int mode) {
         if (mode == MODE_SET_VALUE) {
             final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                    .content(counter.getName())
+                    .content(counter.getName() + " | " + counter.getValue())
                     .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                     .positiveText(R.string.common_set)
                     .neutralText(R.string.reset)
@@ -390,34 +397,51 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
         final Observer<Counter> counterObserver = c -> {
             if (longClickDialog != null && c != null) {
-                longClickDialog.getTitleView().setText(c.getName());
+                longClickDialog.getTitleView().setText(c.getName() + " | " + c.getValue());
             }
         };
-        boolean isIncrease = mode != MODE_DECREASE_VALUE;
+        counterStepDialogMode = mode;
         final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
         liveData.observe(this, counterObserver);
 
-        int layoutId = isIncrease ? R.layout.dialog_counter_step_increase : R.layout.dialog_counter_step_decrease;
-        final View contentView = LayoutInflater.from(requireActivity()).inflate(layoutId, null, false);
+        final View contentView = LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_counter_step, null, false);
 
-        String btnSign = "-";
-        if (isIncrease) {
-            btnSign = "+";
+        MaterialButtonToggleGroup signBtnGroup = contentView.findViewById(R.id.sign_btn_group);
+        if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+            signBtnGroup.check(R.id.btn_add);
+        } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+            signBtnGroup.check(R.id.btn_dec);
         }
 
-        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(btnSign + LocalSettings.getCustomCounter(1));
+        signBtnGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+            if (isChecked) {
+                switch (checkedId) {
+                    case R.id.btn_add:
+                        counterStepDialogMode = MODE_INCREASE_VALUE;
+                        ViewUtil.shakeView(contentView,1,2);
+                        updateButtonLabels(contentView);
+                        break;
+                    case R.id.btn_dec:
+                        counterStepDialogMode = MODE_DECREASE_VALUE;
+                        ViewUtil.shakeView(contentView,2,2);
+                        updateButtonLabels(contentView);
+                        break;
+                }
+            }
+        });
+
+        updateButtonLabels(contentView);
+
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(1);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep1, counter.getValue()));
 
-                viewModel.increaseCounter(counter, value);
+                viewModel.increaseCounter(counter, counterStep1);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep1, counter.getValue()));
 
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, -value, counter.getValue()));
-
-                viewModel.decreaseCounter(counter, -value);
+                viewModel.decreaseCounter(counter, counterStep1);
                 countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
             }
 
@@ -425,18 +449,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(btnSign + LocalSettings.getCustomCounter(2));
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(2);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep2, counter.getValue()));
 
-                viewModel.increaseCounter(counter, value);
+                viewModel.increaseCounter(counter, counterStep2);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep2, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -value);
+                viewModel.decreaseCounter(counter, counterStep2);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
 
@@ -444,18 +466,17 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(btnSign + LocalSettings.getCustomCounter(3));
+
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(3);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep3, counter.getValue()));
 
-                viewModel.increaseCounter(counter, value);
+                viewModel.increaseCounter(counter, counterStep3);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep3, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -value);
+                viewModel.decreaseCounter(counter, counterStep3);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
 
@@ -463,19 +484,18 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(btnSign + LocalSettings.getCustomCounter(4));
-        contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
-            int value = LocalSettings.getCustomCounter(4);
-            if (isIncrease) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, value, counter.getValue()));
 
-                viewModel.increaseCounter(counter, value);
+        contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep4, counter.getValue()));
+
+                viewModel.increaseCounter(counter, counterStep4);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
 
-            } else {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, value, counter.getValue()));
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep4, counter.getValue()));
 
-                viewModel.decreaseCounter(counter, -value);
+                viewModel.decreaseCounter(counter, counterStep4);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
 
@@ -491,15 +511,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 final String value = editText.getText().toString();
                 if (!TextUtils.isEmpty(value)) {
                     int intValue = Utilities.parseInt(value);
-                    if (isIncrease) {
+                    if (counterStepDialogMode == MODE_INCREASE_VALUE) {
                         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
                         viewModel.increaseCounter(counter, intValue);
                         countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                    } else {
+                    } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
                         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
 
-                        viewModel.decreaseCounter(counter, -intValue);
+                        viewModel.decreaseCounter(counter, intValue);
                         countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                     }
                 }
@@ -516,6 +536,21 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         longClickDialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         longClickDialog.show();
+    }
+
+    private void updateButtonLabels(View contentView) {
+        String sign = "";
+
+        if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+            sign = "+";
+        } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+            sign = "-";
+        }
+
+        ((TextView) contentView.findViewById(R.id.btn_one_text)).setText(sign + counterStep1);
+        ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(sign + counterStep2);
+        ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(sign + counterStep3);
+        ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(sign + counterStep4);
     }
 
     @Override
@@ -582,5 +617,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onResume() {
         super.onResume();
         isLowestScoreWins = LocalSettings.isLowestScoreWins();
+        counterStep1 = LocalSettings.getCustomCounter(1);
+        counterStep2 = LocalSettings.getCustomCounter(2);
+        counterStep3 = LocalSettings.getCustomCounter(3);
+        counterStep4 = LocalSettings.getCustomCounter(4);
     }
 }

@@ -212,7 +212,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
                 counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
             });
-            counterValue.setOnClickListener(v12 -> counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_SET_VALUE));
+            counterValue.setOnClickListener(v3 -> counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE));
 
             increaseImageView.setOnLongClickListener(v1 -> {
                 counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);

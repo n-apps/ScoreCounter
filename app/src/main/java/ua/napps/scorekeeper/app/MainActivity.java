@@ -17,6 +17,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.transition.MaterialSharedAxis;
 
+import ua.napps.scorekeeper.BuildConfig;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
 import ua.napps.scorekeeper.dice.DicesFragment;
@@ -190,9 +191,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 break;
             case TAG_DICES_FRAGMENT:
                 currentFragment = DicesFragment.newInstance(currentDiceRoll, previousDiceRoll);
-//                if (BuildConfig.DEBUG) {
-//                    rateMyAppDialog.showAnyway();
-//                }
+                if (BuildConfig.DEBUG) {
+                    rateMyAppDialog.showAnyway();
+                }
                 break;
             case TAG_SETTINGS_FRAGMENT:
                 currentFragment = SettingsFragment.newInstance();

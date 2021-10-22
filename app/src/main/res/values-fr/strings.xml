@@ -18,7 +18,7 @@
     <string name="counter_details_value">Valeur</string>
     <string name="counters_empty_message">Tapper n\\\'importe où pour ajouter un premier compteur puis utilisez le bouton + dans le coin supérieur droit pour ajouter des compteurs supplémentaires</string>
     <string name="dialog_current_value_title">Valeur courrante</string>
-    <string name="dialog_custom_dice_hint">De 2 à 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\\\'importe où ou secouer l\\\'appareil pour lancer le dé</string>
     <string name="dice_previous_result_label">Lancé précédent:</string>

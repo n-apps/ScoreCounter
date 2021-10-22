@@ -59,28 +59,28 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
         switch (logEntry.type){
             case INC:
             case INC_C:
-                info = "\u2795 ";
+                info = "\u2795  ";
                 break;
             case DEC:
             case DEC_C:
-                info = "\u2796 ";
+                info = "\u2796  ";
                 break;
             case SET:
-                info = "\uD83D\uDD8A " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format( logEntry.value) + "]";
+                info = "\uD83D\uDD8A  " + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u279d " + decimalFormat.format( logEntry.value) + "]";
                 break;
             case RMV:
-                info = "\uD83D\uDDD1 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 \u2620️ ]";
+                info = "\uD83D\uDDD1  [" + decimalFormat.format(logEntry.prevValue) + " \u279d \u2620️ ]";
                 break;
             case RST:
-                info = "\uD83D\uDD04 [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 0]";
+                info = "\uD83D\uDD04  [" + decimalFormat.format(logEntry.prevValue) + " \u279d 0]";
                 break;
         }
 
         if(logEntry.type == LogType.INC ||  logEntry.type == LogType.INC_C ){
-            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue + logEntry.value) + "]";
+            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u279d " + decimalFormat.format(logEntry.prevValue + logEntry.value) + "]";
         }
         if(logEntry.type == LogType.DEC_C || logEntry.type == LogType.DEC){
-            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u27A1 " + decimalFormat.format(logEntry.prevValue - logEntry.value) + "]";
+            info = info + decimalFormat.format(logEntry.value) + " [" + decimalFormat.format(logEntry.prevValue) + " \u279d " + decimalFormat.format(logEntry.prevValue - logEntry.value) + "]";
         }
 
         holder.tv_info.setText(info);

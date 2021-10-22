@@ -74,8 +74,8 @@ class CountersViewModel extends AndroidViewModel {
         return counters;
     }
 
-    void decreaseCounter(Counter counter, @IntRange(from = Integer.MIN_VALUE, to = 0) int amount) {
-        repository.modifyCount(counter.getId(), amount)
+    void decreaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
+        repository.modifyCount(counter.getId(), -amount)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {

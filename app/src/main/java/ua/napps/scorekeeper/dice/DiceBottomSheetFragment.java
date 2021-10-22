@@ -100,6 +100,19 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .positiveText(R.string.common_set)
                                 .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
                                 .alwaysCallInputCallback()
+                                .showListener(dialogInterface -> {
+                                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                                    if (titleTextView != null) {
+                                        titleTextView.setLines(1);
+                                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                                    }
+                                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                                    if (inputEditText != null) {
+                                        inputEditText.requestFocus();
+                                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                                    }
+                                })
                                 .input(getString(R.string.dialog_custom_dice_hint), null, false,
                                         (dialog, input) -> {
                                             int parseInt = Utilities.parseInt(input.toString());

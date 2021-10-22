@@ -31,7 +31,6 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+5"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -49,7 +48,6 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+10"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -67,7 +65,6 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+15"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -84,7 +81,6 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="+30"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
     </LinearLayout>
@@ -98,13 +94,39 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/padding_normal"
-            android:text="+"
-            android:textAppearance="?attr/textAppearanceHeadline4" />
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/sign_btn_group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/spacing_big"
+            android:layout_weight="1"
+            app:selectionRequired="true"
+            app:singleSelection="true"
+            tools:background="@color/section_bg"
+            tools:layout_height="48dp">
+
+            <Button
+                android:id="@+id/btn_dec"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/colorSecondary"
+                android:text="-"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                tools:ignore="HardcodedText" />
+
+            <Button
+                android:id="@+id/btn_add"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="+"
+                android:textColor="@color/colorSecondary"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -127,6 +149,4 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
-
-
 </LinearLayout>

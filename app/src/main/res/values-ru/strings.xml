@@ -18,7 +18,7 @@
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или используйте + в правом верхнем углу</string>
     <string name="dialog_current_value_title">Текущее значение</string>
-    <string name="dialog_custom_dice_hint">От 2 до 100</string>
+    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dice_empty_state">Нажмите в любом месте или встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок:</string>
