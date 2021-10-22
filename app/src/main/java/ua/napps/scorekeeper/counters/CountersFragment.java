@@ -204,7 +204,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     int topSize = topCounters.size();
                     if (topSize == 1) {
                         Counter top = topCounters.get(0);
-                        toolbar.setTitle("\uD83E\uDD47 " + top.getName());
+//                        toolbar.setTitle("\uD83E\uDD47 " + top.getName());
+//                        easter for autumn
+                        toolbar.setTitle("\uD83C\uDF83 " + top.getName());
                         int counterId = top.getId();
                         if (previousTopCounterId != counterId) {
                             if (toolbarTitle != null) {
