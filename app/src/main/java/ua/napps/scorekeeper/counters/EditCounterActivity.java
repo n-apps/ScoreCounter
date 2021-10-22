@@ -21,8 +21,6 @@ import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.ArrayList;
-
 import petrov.kristiyan.colorpicker.ColorPicker;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
@@ -168,19 +166,7 @@ public class EditCounterActivity extends AppCompatActivity {
         moreColorsButton.setOnClickListener(view -> {
             ColorPicker colorPicker = new ColorPicker(EditCounterActivity.this);
             colorPicker.disableDefaultButtons(true);
-            ArrayList<String> colors = new ArrayList<>();
-            colors.add("#FF1744");
-            colors.add("#00E676");
-            colors.add("#FFEA00");
-            colors.add("#3783FF");
-            colors.add("#D500F9");
-            colors.add("#00E5FF");
-            colors.add("#FF4081");
-            colors.add("#FF8C00");
-            colors.add("#000000");
-
-            colorPicker.setColors(colors);
-
+            colorPicker.setColors(R.array.bright_palette);
             colorPicker.setTitle(null);
             colorPicker.setColorButtonSize(72, 72);
             colorPicker.setColumns(3);
