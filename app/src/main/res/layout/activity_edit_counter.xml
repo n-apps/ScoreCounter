@@ -83,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
+                    android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -113,6 +114,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
+                    android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -141,6 +143,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
+                    android:maxLength="24"
                     android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     tools:text="@string/app_name" />
@@ -150,13 +153,13 @@
                 android:id="@+id/btn_more_colors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:foreground="@drawable/ripple"
                 android:layout_marginStart="@dimen/spacing_normal"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_name"
+                android:foreground="@drawable/ripple"
+                android:src="@drawable/ic_more_colors"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
-                app:layout_constraintStart_toEndOf="@id/color_slider"
                 app:layout_constraintEnd_toEndOf="@id/til_counter_name"
-                android:src="@drawable/ic_more_colors" />
+                app:layout_constraintStart_toEndOf="@id/color_slider"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
 
             <com.github.naz013.colorslider.ColorSlider
                 android:id="@+id/color_slider"
@@ -165,8 +168,8 @@
                 android:layout_marginVertical="@dimen/spacing_micro"
                 app:cs_hex_colors="?colors_scheme"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
-                app:layout_constraintStart_toStartOf="@id/til_counter_name"
                 app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
+                app:layout_constraintStart_toStartOf="@id/til_counter_name"
                 app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
 
 
@@ -194,6 +197,7 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
+                    android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"

@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -108,12 +109,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show();
-            }
-        });
+        toolbar.setOnClickListener(v -> Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show());
 
         for (int i = 0; i < toolbar.getChildCount(); i++) {
             View view = toolbar.getChildAt(i);
@@ -353,6 +349,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                         if (inputEditText != null) {
                             inputEditText.requestFocus();
+                            inputEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(9)});
                             inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                         }
                     })
@@ -360,7 +357,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     .onPositive((dialog, which) -> {
                         EditText editText = dialog.getInputEditText();
                         if (editText != null) {
-                            Integer value = Utilities.parseInt(editText.getText().toString());
+                            Integer value = Utilities.parseInt(editText.getText().toString(), counter.getValue());
                             viewModel.modifyCurrentValue(counter, value);
                             countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                             dialog.dismiss();
@@ -512,7 +509,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     == EditorInfo.IME_ACTION_DONE)) {
                 final String value = editText.getText().toString();
                 if (!TextUtils.isEmpty(value)) {
-                    int intValue = Utilities.parseInt(value);
+                    int intValue = Utilities.parseInt(value, 0);
                     if (counterStepDialogMode == MODE_INCREASE_VALUE) {
                         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
 
@@ -573,6 +570,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
+                        inputEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(24)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })

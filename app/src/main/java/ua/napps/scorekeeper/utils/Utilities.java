@@ -18,21 +18,21 @@ public class Utilities {
 
     public static final Pattern pattern = Pattern.compile("[\\-0-9]+");
 
-    public static Integer parseInt(String value) {
+    public static Integer parseInt(String value, int defValue) {
+        int i = defValue;
         if (value == null) {
-            return 0;
+            return i;
         }
-        int val = 0;
         try {
             Matcher matcher = pattern.matcher(value);
             if (matcher.find()) {
                 String num = matcher.group(0);
-                val = Integer.parseInt(num);
+                i = Integer.parseInt(num);
             }
         } catch (Exception e) {
             Timber.e(e);
         }
-        return val;
+        return i;
     }
 
     /**

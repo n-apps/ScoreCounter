@@ -48,7 +48,6 @@
     <string name="history_empty_message">Поки немає історії</string>
     <string name="common_counter">Лічильник</string>
     <string name="dialog_custom_counter_title">Варіант швидкої зміни значення</string>
-    <string name="dialog_custom_counter_hint">Від 2 до 999</string>
     <string name="settings_section_counter_buttons">Варіанти швидкої зміни значення \nВи можете швидко змінювати значення лічильника за допомогою довгого тапу по ньому&#160;🤓</string>
     <string name="dialog_confirmation_question">Рілі хочеш?</string>
     <string name="dialog_yes">Так</string>

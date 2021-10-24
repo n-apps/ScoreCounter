@@ -28,7 +28,6 @@
     <string name="erd_remind_me_later">Przypomnij mi później</string>
     <string name="erd_title">Wspierać Licznik Punktów</string>
     <string name="error_no_email_client">Brak aplikacji email na twoim urządzeniu :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
     <string name="menu_delete_all_counters">Usuń wszystko</string>
     <string name="menu_reset_all_counters">Zresetuj wszystko</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">Brak historii</string>
     <string name="common_counter">Licznik</string>
     <string name="dialog_custom_counter_title">Opcja szybkiej zmiany</string>
-    <string name="dialog_custom_counter_hint">Od 2 do 999</string>
     <string name="settings_section_counter_buttons">Opcje do szybkiej zmiany wartości. Możesz szybko zmienić wartość licznika przytrzymując go 🤓</string>
     <string name="dialog_confirmation_question">Jesteś pewny/a?</string>
     <string name="dialog_yes">Tak</string>

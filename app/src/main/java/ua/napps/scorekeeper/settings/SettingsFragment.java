@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.settings;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -108,7 +109,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.sw_switch_vibrate:
                 LocalSettings.saveCountersVibrate(enabled);
                 if (enabled) {
-                    ViewUtil.shakeView(v,2,0);
+                    ViewUtil.shakeView(v, 2, 0);
                 }
                 break;
         }
@@ -170,17 +171,10 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .content(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
+                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .alwaysCallInputCallback()
-                .input(oldValue, null, false,
-                        (dialog, input) -> {
-                            int parseInt = Utilities.parseInt(input.toString());
-                            if (parseInt <= 999 && parseInt > 1) {
-                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
-                            } else {
-                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
-                            }
-                        })
+                .input(oldValue, null, false, (dialog, input) -> {
+                })
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                     if (titleTextView != null) {
@@ -191,6 +185,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
+                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
@@ -198,7 +193,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     EditText editText = dialog.getInputEditText();
                     if (editText != null) {
                         String value = editText.getText().toString();
-                        Integer parseInt = Utilities.parseInt(value);
+                        Integer parseInt = Utilities.parseInt(value, 0);
                         if (parseInt <= 999 && parseInt > 1) {
                             setCustomCounter(id, parseInt);
                         }
@@ -227,19 +222,19 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         switch (id) {
             case 1:
                 btn_c_1.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_1,4,0);
+                ViewUtil.shakeView(btn_c_1, 4, 0);
                 break;
             case 2:
                 btn_c_2.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_2,4,0);
+                ViewUtil.shakeView(btn_c_2, 4, 0);
                 break;
             case 3:
                 btn_c_3.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_3,4,0);
+                ViewUtil.shakeView(btn_c_3, 4, 0);
                 break;
             case 4:
                 btn_c_4.setText(String.valueOf(value));
-                ViewUtil.shakeView(btn_c_4,4,0);
+                ViewUtil.shakeView(btn_c_4, 4, 0);
                 break;
         }
     }

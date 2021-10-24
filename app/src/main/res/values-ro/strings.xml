@@ -28,7 +28,6 @@
     <string name="erd_remind_me_later">Adu-mi aminte mai tarziu</string>
     <string name="erd_title">Contor de Score Counter</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
     <string name="menu_reset_all_counters">Reseteaza tot</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">Niciun istoric momentan</string>
     <string name="common_counter">Contor</string>
     <string name="dialog_custom_counter_title">Optiune de modificare rapida</string>
-    <string name="dialog_custom_counter_hint">De la 2 la 999</string>
     <string name="settings_section_counter_buttons">Optiuni pentru modificarea rapida a valorii \\nApasand lung pe el, poti modifica rapid valoarea contorului 🤓</string>
     <string name="dialog_confirmation_question">Esti sigur?</string>
     <string name="dialog_yes">Da</string>

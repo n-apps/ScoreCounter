@@ -28,7 +28,6 @@
     <string name="erd_remind_me_later">Frag mich später</string>
     <string name="erd_title">Unterstützen Sie Score Counter</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
     <string name="menu_delete_all_counters">Alle entfernen</string>
     <string name="menu_reset_all_counters">Alle zurücksetzen</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">Keine Geschichte</string>
     <string name="common_counter">Zähler</string>
     <string name="dialog_custom_counter_title">Schnellwechseloption</string>
-    <string name="dialog_custom_counter_hint">Von 2 bis 999</string>
     <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes \nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken&#160;🤓</string>
     <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>

@@ -28,7 +28,6 @@
     <string name="erd_remind_me_later">Напомнить позже</string>
     <string name="erd_title">Поддержать Счетчик Очков</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_delete_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">Пока нет истории</string>
     <string name="common_counter">Счетчик</string>
     <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему&#160;🤓</string>
-    <string name="dialog_custom_counter_hint">От 2 до 999</string>
     <string name="dialog_custom_counter_title">Вариант быстрой смены значения</string>
     <string name="dialog_confirmation_question">Рили хочешь?</string>
     <string name="dialog_yes">Да</string>

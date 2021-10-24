@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.dice;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -98,7 +99,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .content(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
-                                .contentColor(DialogUtils.getColor(requireContext(),R.color.textColorPrimary))
+                                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                                 .alwaysCallInputCallback()
                                 .showListener(dialogInterface -> {
                                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
@@ -110,13 +111,14 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                                     if (inputEditText != null) {
                                         inputEditText.requestFocus();
+                                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
                                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                                     }
                                 })
-                                .input(getString(R.string.dialog_custom_dice_hint), null, false,
+                                .input("2-99", null, false,
                                         (dialog, input) -> {
-                                            int parseInt = Utilities.parseInt(input.toString());
-                                            if (parseInt <= 100 && parseInt > 1) {
+                                            int parseInt = Utilities.parseInt(input.toString(), diceMaxSide);
+                                            if (parseInt < 100 && parseInt > 1) {
                                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                                             } else {
                                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
@@ -125,7 +127,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .onPositive((dialog, which) -> {
                                     EditText editText = dialog.getInputEditText();
                                     if (editText != null) {
-                                        Integer side = Utilities.parseInt(editText.getText().toString());
+                                        Integer side = Utilities.parseInt(editText.getText().toString(), diceMaxSide);
                                         if (side > 0) {
                                             validateAndStoreDiceSide(side);
                                         }
@@ -178,12 +180,13 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                                     if (inputEditText != null) {
                                         inputEditText.requestFocus();
+                                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
                                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                                     }
                                 })
-                                .input(getString(R.string.hint_enter_number), null, false,
+                                .input("1-99", null, false,
                                         (dialog, input) -> {
-                                            int parseInt = Utilities.parseInt(input.toString());
+                                            int parseInt = Utilities.parseInt(input.toString(), diceCount);
                                             if (parseInt <= 100 && parseInt > 1) {
                                                 dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
                                             } else {
@@ -193,7 +196,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .onPositive((dialog, which) -> {
                                     EditText editText = dialog.getInputEditText();
                                     if (editText != null) {
-                                        Integer side = Utilities.parseInt(editText.getText().toString());
+                                        Integer side = Utilities.parseInt(editText.getText().toString(), diceCount);
                                         if (side > 0) {
                                             validateAndStoreDiceCount(side);
                                             ((Button) diceCountGroup.findViewById(R.id.btn_x4)).setText("" + side);

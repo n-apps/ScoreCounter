@@ -28,7 +28,6 @@
     <string name="erd_remind_me_later">Recuérdamelo luego</string>
     <string name="erd_title">Apoya la aplicación.</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">No hay historial aún</string>
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Opción de cambio rápido</string>
-    <string name="dialog_custom_counter_hint">De 2 a 999.</string>
     <string name="settings_section_counter_buttons">Puedes cambiar rápidamente el valor de los contadores con una presión prolongada en ellos.</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>

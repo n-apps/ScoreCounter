@@ -28,12 +28,11 @@
     <string name="erd_remind_me_later">Remind me later</string>
     <string name="erd_title">Support Score Counter</string>
     <string name="error_no_email_client">No email app on your device :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all</string>
     <string name="menu_reset_all_counters">Reset all</string>
     <string name="message_reset_all_counters">Reset all?</string>
-    <string name="message_you_can_use_long_press">Try a long press on + or -</string>
+    <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dice</string>
@@ -48,7 +47,6 @@
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
     <string name="dialog_custom_counter_title">Quick change option</string>
-    <string name="dialog_custom_counter_hint">From 2 to 999</string>
     <string name="settings_section_counter_buttons">Options for quickly changing the value \nYou can quickly change the counter value by long pressing on it&#160;🤓</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_yes">Yes</string>

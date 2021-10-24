@@ -142,6 +142,7 @@
                 android:imeOptions="actionDone"
                 android:inputType="numberSigned"
                 android:maxLines="1"
+                android:maxLength="9"
                 android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"

@@ -37,11 +37,11 @@ public class EditCounterActivity extends AppCompatActivity {
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
 
     private Counter counter;
-    private TextInputEditText counterStep;
     private TextInputLayout counterNameLayout;
-    private TextInputEditText counterName;
-    private TextInputEditText counterDefaultValue;
-    private TextInputEditText counterValue;
+    private TextInputEditText counterStepEditText;
+    private TextInputEditText counterNameEditText;
+    private TextInputEditText counterDefaultValueEditText;
+    private TextInputEditText counterValueEditText;
     private Button btnSave;
     private View moreColorsButton;
     private EditCounterViewModel viewModel;
@@ -118,15 +118,14 @@ public class EditCounterActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("");
 
-        counterName = findViewById(R.id.et_counter_name);
-        counterStep = findViewById(R.id.et_counter_step);
-        counterDefaultValue = findViewById(R.id.et_counter_default_value);
-        counterValue = findViewById(R.id.et_counter_value);
+        counterNameEditText = findViewById(R.id.et_counter_name);
+        counterStepEditText = findViewById(R.id.et_counter_step);
+        counterDefaultValueEditText = findViewById(R.id.et_counter_default_value);
+        counterValueEditText = findViewById(R.id.et_counter_value);
         counterNameLayout = findViewById(R.id.til_counter_name);
         btnSave = findViewById(R.id.btn_save);
         colorSlider = findViewById(R.id.color_slider);
         moreColorsButton = findViewById(R.id.btn_more_colors);
-
 
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
@@ -206,11 +205,11 @@ public class EditCounterActivity extends AppCompatActivity {
             btnSave.setTextColor(0xDE000000);
         }
         newCounterColor = ColorUtil.intColorToString(color);
-        counterName.requestFocus();
+        counterNameEditText.requestFocus();
     }
 
     private void validateAndSave() {
-        String newName = counterName.getText().toString();
+        String newName = counterNameEditText.getText().toString();
         if (!counter.getName().equals(newName)) {
             viewModel.updateName(newName);
 
@@ -223,16 +222,19 @@ public class EditCounterActivity extends AppCompatActivity {
         if (!counter.getColor().equals(newCounterColor) && newCounterColor != null) {
             viewModel.updateColor(newCounterColor);
         }
-        int newValue = Utilities.parseInt(counterValue.getText().toString());
-        if (counter.getValue() != newValue) {
+        int counterValue = counter.getValue();
+        int newValue = Utilities.parseInt(counterValueEditText.getText().toString(), counterValue);
+        if (counterValue != newValue) {
             viewModel.updateValue(newValue);
         }
-        int defaultValue = Utilities.parseInt(counterDefaultValue.getText().toString());
-        if (counter.getDefaultValue() != defaultValue) {
+        int counterDefValue = counter.getDefaultValue();
+        int defaultValue = Utilities.parseInt(counterDefaultValueEditText.getText().toString(), counterDefValue);
+        if (counterDefValue != defaultValue) {
             viewModel.updateDefaultValue(defaultValue);
         }
-        int step = Utilities.parseInt(counterStep.getText().toString());
-        if (counter.getStep() != step) {
+        int counterStep = counter.getStep();
+        int step = Utilities.parseInt(counterStepEditText.getText().toString(), counterStep);
+        if (counterStep != step) {
             viewModel.updateStep(step);
         }
 
@@ -246,12 +248,12 @@ public class EditCounterActivity extends AppCompatActivity {
             if (c != null) {
                 counter = c;
                 viewModel.setCounter(c);
-                counterValue.setText(String.valueOf(c.getValue()));
-                counterStep.setText(String.valueOf(c.getStep()));
-                counterDefaultValue.setText(String.valueOf(c.getDefaultValue()));
-                if (!c.getName().equals(counterName.getText().toString())) {
-                    counterName.setText(c.getName());
-                    counterName.setSelection(c.getName().length());
+                counterValueEditText.setText(String.valueOf(c.getValue()));
+                counterStepEditText.setText(String.valueOf(c.getStep()));
+                counterDefaultValueEditText.setText(String.valueOf(c.getDefaultValue()));
+                if (!c.getName().equals(counterNameEditText.getText().toString())) {
+                    counterNameEditText.setText(c.getName());
+                    counterNameEditText.setSelection(c.getName().length());
                 }
                 colorSlider.selectColor(Color.parseColor(c.getColor()));
             } else {
