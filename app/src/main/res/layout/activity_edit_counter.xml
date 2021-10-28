@@ -143,7 +143,6 @@
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
-                    android:maxLength="24"
                     android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     tools:text="@string/app_name" />

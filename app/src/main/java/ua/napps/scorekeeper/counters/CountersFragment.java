@@ -570,7 +570,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
-                        inputEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(24)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
