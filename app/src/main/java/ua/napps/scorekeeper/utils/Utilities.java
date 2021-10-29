@@ -88,7 +88,6 @@ public class Utilities {
         }
     }
 
-
     public static void startEmail(Context context) {
         Intent s = new Intent(Intent.ACTION_SENDTO);
         s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
@@ -101,6 +100,11 @@ public class Utilities {
             Toast.makeText(context, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
             Timber.e(e,"Launch email intent");
         }
+    }
+
+    public static int dip2px(float dpValue, Context context) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 
 }

@@ -5,12 +5,9 @@
     <string name="bottom_navigation_tab_dice">Dado</string>
     <string name="bottom_navigation_tab_settings">Ajustes</string>
     <string name="common_back">Atrás</string>
-    <string name="common_cancel">Cancelar</string>
     <string name="common_decrease">Reducir</string>
     <string name="common_increase">Aumentar</string>
-    <string name="common_select">Seleccionar</string>
     <string name="common_set">Fijar</string>
-    <string name="counter_details_color_picker_title">Сolor del contador</string>
     <string name="counter_details_default_value">Valor después de resetear</string>
     <string name="delete">Eliminar</string>
     <string name="counter_details_name">Nombre del contador</string>
@@ -18,7 +15,6 @@
     <string name="counter_details_value">Valor actual</string>
     <string name="counters_empty_message">Pulsa en cualquier lugar para añadir el primer contador o usa el botón + ubicado en la esquina superior derecha</string>
     <string name="dialog_current_value_title">Valor actual</string>
-    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Número de caras</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
     <string name="dice_previous_result_label">Tirada anterior:</string>
@@ -31,7 +27,6 @@
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_reset_all_counters">Resetear todo</string>
-    <string name="message_reset_all_counters">Estás seguro de querer borrar TODO?</string>
     <string name="message_you_can_use_long_press">Intenta presionar durante más tiempo + o -</string>
     <string name="settings_dark_theme">Tema oscuro</string>
     <string name="settings_section_actions">Soporte</string>

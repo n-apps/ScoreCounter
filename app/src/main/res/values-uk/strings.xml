@@ -5,12 +5,9 @@
     <string name="bottom_navigation_tab_dice">Кубик</string>
     <string name="bottom_navigation_tab_settings">Налаштування</string>
     <string name="common_back">Назад</string>
-    <string name="common_cancel">Скасувати</string>
     <string name="common_decrease">Зменшити</string>
     <string name="common_increase">Збільшити</string>
-    <string name="common_select">Вибрати</string>
     <string name="common_set">Встановити</string>
-    <string name="counter_details_color_picker_title">Колір лічильника</string>
     <string name="counter_details_default_value">Значення після скиду</string>
     <string name="delete">Видалити</string>
     <string name="counter_details_name">Назва лічильника</string>
@@ -18,7 +15,6 @@
     <string name="counter_details_value">Поточне значення</string>
     <string name="counters_empty_message">Натисніть в будь-якому місці, щоб додати лічильник або використовуйте + в правому верхньому кутку</string>
     <string name="dialog_current_value_title">Поточне значення</string>
-    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Кількість граней</string>
     <string name="dice_empty_state">Натисніть в будь-якому місці або потрясіть пристрій, щоб кинути кубик</string>
     <string name="dice_previous_result_label">Попередній кидок:</string>
@@ -28,11 +24,9 @@
     <string name="erd_remind_me_later">Нагадати пізніше</string>
     <string name="erd_title">Підтримати Лічильник Очок</string>
     <string name="error_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
-    <string name="hint_enter_number">XXX</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
-    <string name="message_reset_all_counters">Скинути всі?</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_section_actions">Інформація</string>

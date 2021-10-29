@@ -7,6 +7,7 @@
         <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/fade</item>
+        <item name="android:forceDarkAllowed">false</item>
 
         <item name="myIconTint">@color/section_bg</item>
         <item name="plus_picture">@drawable/empty_add_night</item>
@@ -28,11 +29,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
-
-    <style name="AppBarStyle" parent="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
-        <item name="android:background">@color/primaryBackground</item>
-        <item name="theme">@style/AppTheme.AppBarOverlay</item>
-    </style>
 
     <style name="AlertDialogTheme" parent="Theme.MaterialComponents.Dialog.Alert">
         <item name="buttonBarButtonStyle">@style/ButtonBarTheme</item>

@@ -20,6 +20,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/fade</item>
+        <item name="android:forceDarkAllowed">false</item>
 
         <item name="myIconTint">@color/colorOnPrimary</item>
         <item name="plus_picture">@drawable/empty_add_day</item>

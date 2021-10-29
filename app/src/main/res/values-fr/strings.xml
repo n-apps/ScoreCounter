@@ -5,12 +5,9 @@
     <string name="bottom_navigation_tab_dice">Dé</string>
     <string name="bottom_navigation_tab_settings">Paramètres</string>
     <string name="common_back">Retour</string>
-    <string name="common_cancel">Annuler</string>
     <string name="common_decrease">Diminuer</string>
     <string name="common_increase">Augmenter</string>
-    <string name="common_select">Choisir</string>
     <string name="common_set">Définir</string>
-    <string name="counter_details_color_picker_title">Couleur du compteur</string>
     <string name="counter_details_default_value">Réinitialiser la valeur</string>
     <string name="delete">Supprimer</string>
     <string name="counter_details_name">Nom du compteur</string>
@@ -18,7 +15,6 @@
     <string name="counter_details_value">Valeur</string>
     <string name="counters_empty_message">Tapper n\\\'importe où pour ajouter un premier compteur puis utilisez le bouton + dans le coin supérieur droit pour ajouter des compteurs supplémentaires</string>
     <string name="dialog_current_value_title">Valeur courrante</string>
-    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\\\'importe où ou secouer l\\\'appareil pour lancer le dé</string>
     <string name="dice_previous_result_label">Lancé précédent:</string>
@@ -31,7 +27,6 @@
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_delete_all_counters">Tout supprimer</string>
     <string name="menu_reset_all_counters">Tout réinitialiser</string>
-    <string name="message_reset_all_counters">Réinitialiser tous les compteurs?</string>
     <string name="message_you_can_use_long_press">Essayez d\'appuyer longuement sur + ou -</string>
     <string name="settings_dark_theme">Thème sombre</string>
     <string name="settings_section_actions">Actions</string>

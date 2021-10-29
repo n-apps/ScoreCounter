@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.counters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -21,7 +24,6 @@ import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import petrov.kristiyan.colorpicker.ColorPicker;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
@@ -30,6 +32,7 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
+import ua.napps.scorekeeper.utils.colorpicker.ColorPicker;
 
 public class EditCounterActivity extends AppCompatActivity {
 
@@ -131,8 +134,13 @@ public class EditCounterActivity extends AppCompatActivity {
         if (colorHex != null) {
             int boxStrokeColor = Color.parseColor(colorHex);
             if (boxStrokeColor != Color.WHITE) {
+                ColorStateList colorStateList = ContextCompat.getColorStateList(this, R.color.box_stroke_selector);
+                if (colorStateList != null) {
+                    counterNameLayout.setBoxStrokeColorStateList(colorStateList);
+                }
                 counterNameLayout.setBoxStrokeColor(boxStrokeColor);
-                if (ColorUtil.isDarkBackground(boxStrokeColor)){
+                counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(boxStrokeColor, 20));
+                if (ColorUtil.isDarkBackground(boxStrokeColor)) {
                     btnSave.setTextColor(0xDEFFFFFF);
                 } else {
                     btnSave.setTextColor(0xDE000000);
@@ -140,7 +148,8 @@ public class EditCounterActivity extends AppCompatActivity {
                 btnSave.setBackgroundColor(boxStrokeColor);
             } else {
                 counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
-                btnSave.setBackgroundColor(DialogUtils.getColor(this,R.color.colorPrimary));
+                counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(Color.LTGRAY, 20));
+                btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             }
             counterNameLayout.requestFocus();
         }
@@ -164,11 +173,9 @@ public class EditCounterActivity extends AppCompatActivity {
 
         moreColorsButton.setOnClickListener(view -> {
             ColorPicker colorPicker = new ColorPicker(EditCounterActivity.this);
-            colorPicker.disableDefaultButtons(true);
-            colorPicker.setColors(R.array.bright_palette);
-            colorPicker.setTitle(null);
             colorPicker.setColorButtonSize(72, 72);
             colorPicker.setColumns(3);
+            colorPicker.setColors(R.array.bright_palette);
             colorPicker.setOnFastChooseColorListener(new ColorPicker.OnFastChooseColorListener() {
                 @Override
                 public void setOnFastChooseColorListener(int position, int color) {
@@ -193,7 +200,8 @@ public class EditCounterActivity extends AppCompatActivity {
     private void applyNewColor(int color) {
         if (color != Color.WHITE) {
             counterNameLayout.setBoxStrokeColor(color);
-            if (ColorUtil.isDarkBackground(color)){
+            counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(color, 20));
+            if (ColorUtil.isDarkBackground(color)) {
                 btnSave.setTextColor(0xDEFFFFFF);
             } else {
                 btnSave.setTextColor(0xDE000000);
@@ -201,7 +209,8 @@ public class EditCounterActivity extends AppCompatActivity {
             btnSave.setBackgroundColor(color);
         } else {
             counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
-            btnSave.setBackgroundColor(DialogUtils.getColor(this,R.color.colorPrimary));
+            counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(Color.LTGRAY, 20));
+            btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             btnSave.setTextColor(0xDE000000);
         }
         newCounterColor = ColorUtil.intColorToString(color);

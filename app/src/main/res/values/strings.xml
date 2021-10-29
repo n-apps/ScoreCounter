@@ -5,12 +5,9 @@
     <string name="bottom_navigation_tab_dice">Dice</string>
     <string name="bottom_navigation_tab_settings">Settings</string>
     <string name="common_back">Back</string>
-    <string name="common_cancel">Cancel</string>
     <string name="common_decrease">Decrease</string>
     <string name="common_increase">Increase</string>
-    <string name="common_select">Select</string>
     <string name="common_set">Set</string>
-    <string name="counter_details_color_picker_title">Counter color</string>
     <string name="counter_details_default_value">Reset value</string>
     <string name="delete">Delete</string>
     <string name="counter_details_name">Counter name</string>
@@ -18,7 +15,6 @@
     <string name="counter_details_value">Value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
     <string name="dialog_current_value_title">Current value</string>
-    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
@@ -31,7 +27,6 @@
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all</string>
     <string name="menu_reset_all_counters">Reset all</string>
-    <string name="message_reset_all_counters">Reset all?</string>
     <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>
     <string name="settings_dark_theme">Dark theme</string>
     <string name="settings_section_actions">Actions</string>

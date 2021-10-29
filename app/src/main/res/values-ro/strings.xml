@@ -5,12 +5,9 @@
     <string name="bottom_navigation_tab_dice">Zar</string>
     <string name="bottom_navigation_tab_settings">Setari</string>
     <string name="common_back">Inapoi</string>
-    <string name="common_cancel">Anuleaza</string>
     <string name="common_decrease">Scade</string>
     <string name="common_increase">Creste</string>
-    <string name="common_select">Selecteaza</string>
     <string name="common_set">Seteaza</string>
-    <string name="counter_details_color_picker_title">Culoarea contorului</string>
     <string name="counter_details_default_value">Valoare dupa resetare</string>
     <string name="delete">Sterge</string>
     <string name="counter_details_name">Numele contorului</string>
@@ -18,7 +15,6 @@
     <string name="counter_details_value">Valoare curenta</string>
     <string name="counters_empty_message">Atinge oriunde pentru a adauga primul contor sau foloseste butonul + din coltul din dreapta sus</string>
     <string name="dialog_current_value_title">Valoare curenta</string>
-    <string name="dialog_custom_dice_hint">2..100</string>
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
@@ -31,7 +27,6 @@
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
     <string name="menu_reset_all_counters">Reseteaza tot</string>
-    <string name="message_reset_all_counters">Reseteaza tot?</string>
     <string name="message_you_can_use_long_press">Incearca sa apesi lung pe + sau -</string>
     <string name="settings_dark_theme">Tema intunecata</string>
     <string name="settings_section_actions">Actiuni</string>

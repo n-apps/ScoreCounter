@@ -20,7 +20,7 @@
         <item>#9842EB</item>
         <item>#733338</item>
     </string-array>
-    <array name="bright_palette">
+    <string-array name="bright_palette">
         <item>#FF1744</item>
         <item>#00E676</item>
         <item>#FFEA00</item>
@@ -28,9 +28,9 @@
         <item>#D500F9</item>
         <item>#00E5FF</item>
         <item>#FF4081</item>
-        <item>#FF8C00</item>
         <item>#000000</item>
-    </array>
+        <item>#FF8C00</item>
+    </string-array>
     <string-array name="names">
         <item>muffalo</item>
         <item>boomrat</item>

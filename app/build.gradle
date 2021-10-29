@@ -4,7 +4,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
 ext.versionMinor = 6
-ext.versionPatch = 4
+ext.versionPatch = 5
 ext.postfix = ''
 
 android {
@@ -73,7 +73,6 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:5.0.1'
     implementation 'com.android.billingclient:billing:4.0.0'
     implementation 'com.github.naz013:ColorSlider:2.0.7'
-    implementation 'petrov.kristiyan:colorpicker-library:1.1.10'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.3.1'
     annotationProcessor 'androidx.room:room-compiler:2.3.0'
