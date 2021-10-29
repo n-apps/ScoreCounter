@@ -85,13 +85,27 @@
                         android:text="@string/credits"
                         android:textAppearance="?attr/textAppearanceBody2" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:lineSpacingMultiplier="1.26"
-                        android:text="@string/translators"
-                        android:textAppearance="?attr/textAppearanceBody2" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.26"
+                            android:text="@string/translators"
+                            android:textAppearance="?attr/textAppearanceBody2" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:lineSpacingMultiplier="1.26"
+                            android:text="@string/testers"
+                            android:textAppearance="?attr/textAppearanceBody2" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <TextView
@@ -126,9 +140,9 @@
                     android:id="@+id/tv_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
                     android:foreground="@drawable/ripple"
                     android:gravity="center_vertical"
-                    android:layout_marginTop="@dimen/spacing_normal"
                     android:minHeight="@dimen/list_single_line_min_height"
                     android:text="@string/about_feedback"
                     android:textAllCaps="false"
