@@ -68,13 +68,13 @@
 \n\u3030\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)
 \n\u3030\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.
 \n\u3030\n¡Gracias!</string>
-    <string name="about_donation">Hacer donación →</string>
-    <string name="about_rate">Soporte en Google Play →</string>
-    <string name="about_feedback">Contáctame →</string>
+    <string name="about_donation">Hacer donación</string>
+    <string name="about_rate">Soporte \u2605\u2605\u2605\u2605\u2605</string>
+    <string name="about_feedback">Contáctame</string>
     <string name="settings_about">Sobre mí</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Ayúdanos a traducir</string>
-    <string name="about_my_webpage">Mi sitio web →</string>
+    <string name="about_my_webpage">Mi sitio web</string>
     <string name="switch_top_logic">Puntuación baja - gana</string>
     <string name="lowest_wins_hint">Puedes intercambiar la lógica en los ajustes</string>
     <string name="common_vibrate">Vibración</string>

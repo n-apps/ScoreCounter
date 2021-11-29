@@ -61,7 +61,7 @@
             android:lines="1"
             android:minEms="2"
             android:textColor="?android:attr/textColorPrimary"
-            android:textSize="32sp"
+            android:textAppearance="?attr/textAppearanceHeadline3"
             tools:ignore="MissingPrefix"
             tools:text="42" />
 

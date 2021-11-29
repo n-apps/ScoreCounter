@@ -64,15 +64,15 @@
     <string name="counter_deleted">Contor sters</string>
     <string name="counter_added">Contor adaugat</string>
     <string name="snackbar_action_one_more">Inca unul</string>
-    <string name="about_rate">Sustine-ma pe Google Play →</string>
+    <string name="about_rate">Sustine-ma \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contacteaza-ma</string>
     <string name="settings_about">Despre mine</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
-    <string name="about_donation">Doneaza →</string>
+    <string name="about_donation">Doneaza</string>
     <string name="about_text">Bună! Sunt rom. Sunt un designer și dezvoltator de 27 de ani, care locuiește în Ucraina. De asemenea, îmi place să joc jocuri de masă. Dead of Winter și Terraforming Mars sunt două dintre preferatele mele.
         \n\u3030\nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\n\u3030\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\n\u3030\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc. Multumesc!</string>
-    <string name="about_my_webpage">Site-ul meu →</string>
+    <string name="about_my_webpage">Site-ul meu</string>
     <string name="switch_top_logic">Scor scăzut - câștigă</string>
     <string name="lowest_wins_hint">Puteți schimba logica în setări</string>
     <string name="common_vibrate">Vibrație</string>

@@ -64,13 +64,13 @@
     <string name="counter_deleted">Usunięto licznik</string>
     <string name="counter_added">Dodano licznik</string>
     <string name="snackbar_action_one_more">Jeszcze jeden</string>
-    <string name="about_donation">Wyślij donate →</string>
-    <string name="about_rate">Wesprzyj na Google Play →</string>
-    <string name="about_feedback">Skontaktuj się ze mną →</string>
+    <string name="about_donation">Wyślij donate</string>
+    <string name="about_rate">Wesprzyj \u2605\u2605\u2605\u2605\u2605</string>
+    <string name="about_feedback">Skontaktuj się ze mną</string>
     <string name="settings_about">O mnie</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_my_webpage">Moja strona →</string>
+    <string name="about_my_webpage">Moja strona</string>
     <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.
         \n\u3030\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
         \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
