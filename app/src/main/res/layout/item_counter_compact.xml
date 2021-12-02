@@ -56,6 +56,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/ripple"
+            android:includeFontPadding="false"
             android:fontFamily="@font/btk_med"
             android:gravity="center"
             android:lines="1"

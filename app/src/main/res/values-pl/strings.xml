@@ -18,11 +18,10 @@
     <string name="dialog_custom_dice_title">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>
-    <string name="erd_message">Jeśli podoba Ci się Score Counter, możesz go ocenić lub kupić mi "wirtualną" kawę - pomoże mi to poprawić aplikację i sprawi, że będę szczęśliwszy&#160;:) Dziękuję!</string>
+    <string name="erd_message">Jeżeli podoba ci się licznik wyników, proszę oceń go lub kup mi kawę.\n\nTo pomoże mi ulepszyć aplikację i podniesie mnie na duchu&#160;:)
+\n\nDzięki!</string>
     <string name="erd_no_thanks">Nie, dzięki</string>
-    <string name="erd_rate_now">Oceń tę aplikację</string>
-    <string name="erd_remind_me_later">Przypomnij mi później</string>
-    <string name="erd_title">Wspierać Licznik Punktów</string>
+    <string name="erd_remind_me_later">Nie teraz</string>
     <string name="error_no_email_client">Brak aplikacji email na twoim urządzeniu :(</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
     <string name="menu_delete_all_counters">Usuń wszystko</string>
@@ -35,8 +34,6 @@
     <string name="settings_feedback">"Wyślij opinię "</string>
     <string name="settings_shake_to_roll">Potrząśnij aby rzucić</string>
     <string name="settings_stay_awake">Pozostaw ekran włączony</string>
-    <string name="dialog_step_info_content">O ile licznik się zmienia kiedy go naciśniesz. Lewa połowa odejmuje, prawa dodaje. Możesz również zmienić wartość licznika przytrzymując go</string>
-    <string name="dialog_default_info_content">Wartość licznika, która będzie ustawiona po jego zresetowaniu, używając menu \"Zresetuj wszystkie wartości\" (na głownym ekranie)</string>
     <string name="common_got_it">Zrozumiałem</string>
     <string name="menu_log">Historia</string>
     <string name="history_empty_message">Brak historii</string>

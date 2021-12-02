@@ -18,11 +18,10 @@
     <string name="dialog_custom_dice_title">Número de caras</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
     <string name="dice_previous_result_label">Tirada anterior:</string>
-    <string name="erd_message">Si te gusta la aplicación, por favor califícala o regálame un "café virtual", esto me ayuda a mejorar la aplicación y me hace más feliz, lo que es bueno para todos&#160;:) ¡Gracias!</string>
+    <string name="erd_message">Si te gusta el contador de puntuaciones, por favor valóralo o invítame a un café.\n\nMe ayuda a mejorar la aplicación y me levanta el ánimo&#160;:)\n\n
+¡Gracias!</string>
     <string name="erd_no_thanks">No, gracias</string>
-    <string name="erd_rate_now">Puntúa esta aplicación</string>
-    <string name="erd_remind_me_later">Recuérdamelo luego</string>
-    <string name="erd_title">Apoya la aplicación.</string>
+    <string name="erd_remind_me_later">Ahora no</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
@@ -35,8 +34,6 @@
     <string name="settings_feedback">Feedback</string>
     <string name="settings_shake_to_roll">Agita para lanzar un dado</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
-    <string name="dialog_step_info_content">Cuanto quieres que sume o reste con cada toque, la mitad izquierda disminuye y la derecha aumenta. También puedes cambiar el valor del contador presionándolo prolongadamente.</string>
-    <string name="dialog_default_info_content">El valor que tendrá el contador después de reiniciarlo mediante la opción de resetear todo del menú de la pantalla principal. </string>
     <string name="common_got_it">Entendido</string>
     <string name="menu_log">Historial</string>
     <string name="history_empty_message">No hay historial aún</string>

@@ -18,11 +18,9 @@
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
-    <string name="erd_message">Dacă vă place Score Counter, vă rugăm să o evaluați sau să-mi cumpărați o cafea "virtuală" - mă ajută să îmbunătățesc aplicația și mă face mai fericită&#160;:) Mulțumesc!</string>
+    <string name="erd_message">Dacă vă place Score Counter, vă rog să îl evaluați sau să îmi cumpărați o cafea.\n\nMă ajută să îmbunătățesc aplicația și îmi ridică moralul&#160;:)\n\nMulțumesc!</string>
     <string name="erd_no_thanks">Nu, multumesc</string>
-    <string name="erd_rate_now">Evalueaza aceasta aplicatie</string>
-    <string name="erd_remind_me_later">Adu-mi aminte mai tarziu</string>
-    <string name="erd_title">Contor de Score Counter</string>
+    <string name="erd_remind_me_later">Nu acum</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
@@ -35,14 +33,12 @@
     <string name="settings_feedback">Trimite feedback</string>
     <string name="settings_shake_to_roll">Scutura pentru a da cu zarul</string>
     <string name="settings_stay_awake">Pastreaza ecranul aprins</string>
-    <string name="dialog_step_info_content">Cat de mult se modifica contorul cand apesi pe el. Jumatatea stanga scade, jumatatea dreapta creste. Deasemenea poti modifica contorul apasand lung pe el.</string>
-    <string name="dialog_default_info_content">Valoarea setata a contorului dupa ce va fi resetat, folosind meniul \\\"Reseteaza toate valorile\\\" (din ecranul principal)</string>
     <string name="common_got_it">Am inteles</string>
     <string name="menu_log">Istoric</string>
     <string name="history_empty_message">Niciun istoric momentan</string>
     <string name="common_counter">Contor</string>
     <string name="dialog_custom_counter_title">Optiune de modificare rapida</string>
-    <string name="settings_section_counter_buttons">Optiuni pentru modificarea rapida a valorii \\nApasand lung pe el, poti modifica rapid valoarea contorului 🤓</string>
+    <string name="settings_section_counter_buttons">Optiuni pentru modificarea rapida a valorii.\n\nApasand lung pe el, poti modifica rapid valoarea contorului 🤓</string>
     <string name="dialog_confirmation_question">Esti sigur?</string>
     <string name="dialog_yes">Da</string>
     <string name="dialog_no">Nu</string>
@@ -59,7 +55,7 @@
     <string name="common_more">Mai multe</string>
     <string name="reset">Reseteaza</string>
     <string name="setting_share">Recomanda unui prieten</string>
-    <string name="share_snippet">Salut! Score Counter te ajuta sa tii scorul in orice joc, sport sau activitate. Descarca gratuit aplicatia pentru Android :\\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Salut! Score Counter te ajuta sa tii scorul in orice joc, sport sau activitate. Descarca gratuit aplicatia pentru Android :\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editeaza</string>
     <string name="counter_deleted">Contor sters</string>
     <string name="counter_added">Contor adaugat</string>

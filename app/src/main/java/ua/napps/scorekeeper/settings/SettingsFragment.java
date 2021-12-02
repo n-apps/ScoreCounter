@@ -28,6 +28,7 @@ import com.afollestad.materialdialogs.util.DialogUtils;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
+import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -76,6 +77,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         contentView.findViewById(R.id.iv_donate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_easter).setOnClickListener(this);
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
@@ -149,6 +151,12 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.tv_counter:
                 new MaterialDialog.Builder(requireActivity())
                         .content(R.string.settings_section_counter_buttons)
+                        .showListener(dialog1 -> {
+                            TextView titleTextView = ((MaterialDialog) dialog1).getContentView();
+                            if (titleTextView != null) {
+                                titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                            }
+                        })
                         .positiveText(R.string.common_got_it)
                         .show();
                 break;
@@ -162,6 +170,9 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.tv_about:
                 AboutActivity.start(requireActivity());
+                break;
+            case R.id.tv_easter:
+                new RateMyAppDialog(requireActivity()).showAnyway();
                 break;
         }
     }

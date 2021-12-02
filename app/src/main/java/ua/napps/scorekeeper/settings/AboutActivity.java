@@ -53,11 +53,11 @@ public class AboutActivity extends AppCompatActivity {
         ImageView cover = findViewById(R.id.cover);
         ImageView hero = findViewById(R.id.hero_image);
         toolbar.setOnClickListener(v -> {
-            Toast.makeText(this, "Привіт З України!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Привіт з України", Toast.LENGTH_SHORT).show();
             ViewUtil.shakeView(toolbarTitle, 8, 0);
         });
         cover.setOnClickListener(v -> {
-            Toast.makeText(this, "Привіт З України!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Привіт з України", Toast.LENGTH_SHORT).show();
             ViewUtil.shakeView(toolbarTitle, 8, 0);
         });
         hero.setOnClickListener(v -> ViewUtil.shakeView(v,24, 2 ));

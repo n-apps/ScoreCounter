@@ -43,7 +43,7 @@ public class DonateDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.erd_title)
+                .setTitle(R.string.action_donate)
                 .setAdapter(adapter, null)
                 .create();
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.purchase(requireActivity(), donateOption));

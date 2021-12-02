@@ -190,9 +190,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 break;
             case TAG_DICES_FRAGMENT:
                 currentFragment = DicesFragment.newInstance(currentDiceRoll, previousDiceRoll);
-//                if (BuildConfig.DEBUG) {
-//                    rateMyAppDialog.showAnyway();
-//                }
                 break;
             case TAG_SETTINGS_FRAGMENT:
                 currentFragment = SettingsFragment.newInstance();

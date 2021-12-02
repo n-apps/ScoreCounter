@@ -123,6 +123,12 @@ public class RateMyAppDialog {
             rateApp(context);
             dialog.dismiss();
         });
+        contentView.findViewById(R.id.iv_donate).setOnClickListener(v -> {
+            DonateDialog donateDialog = new DonateDialog();
+            donateDialog.show(context.getSupportFragmentManager(), "donate");
+            LocalSettings.markRateApp();
+            dialog.dismiss();
+        });
         contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
             DonateDialog donateDialog = new DonateDialog();
             donateDialog.show(context.getSupportFragmentManager(), "donate");

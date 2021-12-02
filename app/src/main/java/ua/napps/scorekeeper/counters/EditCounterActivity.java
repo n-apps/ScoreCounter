@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
@@ -18,7 +19,6 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.util.DialogUtils;
 import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
@@ -41,6 +41,9 @@ public class EditCounterActivity extends AppCompatActivity {
 
     private Counter counter;
     private TextInputLayout counterNameLayout;
+    private TextInputLayout counterStepLayout;
+    private TextInputLayout counterValueLayout;
+    private TextInputLayout counterDefaultValueLayout;
     private TextInputEditText counterStepEditText;
     private TextInputEditText counterNameEditText;
     private TextInputEditText counterDefaultValueEditText;
@@ -83,12 +86,29 @@ public class EditCounterActivity extends AppCompatActivity {
         ViewUtil.setNavBarColor(this, isLightTheme);
 
         subscribeToModel(id);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        setOnClickListeners();
+        moreColorsButton.setOnClickListener(view -> {
+            ColorPicker colorPicker = new ColorPicker(EditCounterActivity.this);
+            colorPicker.setColorButtonSize(72, 72);
+            colorPicker.setColumns(3);
+            colorPicker.setColors(R.array.bright_palette);
+            colorPicker.setOnFastChooseColorListener(new ColorPicker.OnFastChooseColorListener() {
+                @Override
+                public void setOnFastChooseColorListener(int position, int color) {
+                    applyNewColor(color);
+                }
+
+                @Override
+                public void onCancel() {
+                    // put code
+                }
+            });
+            colorPicker.show();
+        });
+
+        colorSlider.setListener((position, color) -> applyNewColor(color));
+
+        btnSave.setOnClickListener(v -> validateAndSave());
     }
 
     @Override
@@ -126,6 +146,9 @@ public class EditCounterActivity extends AppCompatActivity {
         counterDefaultValueEditText = findViewById(R.id.et_counter_default_value);
         counterValueEditText = findViewById(R.id.et_counter_value);
         counterNameLayout = findViewById(R.id.til_counter_name);
+        counterValueLayout = findViewById(R.id.til_counter_value);
+        counterDefaultValueLayout = findViewById(R.id.til_counter_default_value);
+        counterStepLayout = findViewById(R.id.til_counter_step);
         btnSave = findViewById(R.id.btn_save);
         colorSlider = findViewById(R.id.color_slider);
         moreColorsButton = findViewById(R.id.btn_more_colors);
@@ -134,86 +157,56 @@ public class EditCounterActivity extends AppCompatActivity {
         if (colorHex != null) {
             int boxStrokeColor = Color.parseColor(colorHex);
             if (boxStrokeColor != Color.WHITE) {
-                ColorStateList colorStateList = ContextCompat.getColorStateList(this, R.color.box_stroke_selector);
-                if (colorStateList != null) {
-                    counterNameLayout.setBoxStrokeColorStateList(colorStateList);
-                }
-                counterNameLayout.setBoxStrokeColor(boxStrokeColor);
-                counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(boxStrokeColor, 20));
-                if (ColorUtil.isDarkBackground(boxStrokeColor)) {
-                    btnSave.setTextColor(0xDEFFFFFF);
-                } else {
-                    btnSave.setTextColor(0xDE000000);
-                }
-                btnSave.setBackgroundColor(boxStrokeColor);
+                setInputsColorStateDefault();
+                updateInputsColors(boxStrokeColor);
+                updateButtonColors(boxStrokeColor);
             } else {
-                counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
-                counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(Color.LTGRAY, 20));
+                updateInputsColors(Color.LTGRAY);
                 btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             }
             counterNameLayout.requestFocus();
         }
     }
 
-    private void setOnClickListeners() {
-        ((TextInputLayout) findViewById(R.id.til_counter_step)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content(R.string.dialog_step_info_content)
-                .positiveText(R.string.common_got_it)
-                .show());
-
-        ((TextInputLayout) findViewById(R.id.til_counter_default_value)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content(R.string.dialog_default_info_content)
-                .positiveText(R.string.common_got_it)
-                .show());
-
-        ((TextInputLayout) findViewById(R.id.til_counter_value)).setEndIconOnClickListener(v -> new MaterialDialog.Builder(EditCounterActivity.this)
-                .content(R.string.message_you_can_use_long_press)
-                .positiveText(R.string.common_got_it)
-                .show());
-
-        moreColorsButton.setOnClickListener(view -> {
-            ColorPicker colorPicker = new ColorPicker(EditCounterActivity.this);
-            colorPicker.setColorButtonSize(72, 72);
-            colorPicker.setColumns(3);
-            colorPicker.setColors(R.array.bright_palette);
-            colorPicker.setOnFastChooseColorListener(new ColorPicker.OnFastChooseColorListener() {
-                @Override
-                public void setOnFastChooseColorListener(int position, int color) {
-                    applyNewColor(color);
-                }
-
-                @Override
-                public void onCancel() {
-                    // put code
-                }
-            });
-            colorPicker.show();
-        });
-
-        colorSlider.setListener((position, color) -> {
-            applyNewColor(color);
-        });
-
-        btnSave.setOnClickListener(v -> validateAndSave());
-    }
-
-    private void applyNewColor(int color) {
-        if (color != Color.WHITE) {
-            counterNameLayout.setBoxStrokeColor(color);
-            counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(color, 20));
-            if (ColorUtil.isDarkBackground(color)) {
-                btnSave.setTextColor(0xDEFFFFFF);
-            } else {
-                btnSave.setTextColor(0xDE000000);
-            }
-            btnSave.setBackgroundColor(color);
+    private void updateButtonColors(int boxStrokeColor) {
+        if (ColorUtil.isDarkBackground(boxStrokeColor)) {
+            btnSave.setTextColor(0xDEFFFFFF);
         } else {
-            counterNameLayout.setBoxStrokeColor(Color.LTGRAY);
-            counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(Color.LTGRAY, 20));
-            btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             btnSave.setTextColor(0xDE000000);
         }
-        newCounterColor = ColorUtil.intColorToString(color);
+        btnSave.setBackgroundColor(boxStrokeColor);
+    }
+
+    private void setInputsColorStateDefault() {
+        ColorStateList colorStateList = ContextCompat.getColorStateList(this, R.color.box_stroke_selector);
+        if (colorStateList != null) {
+            counterNameLayout.setBoxStrokeColorStateList(colorStateList);
+            counterValueLayout.setBoxStrokeColorStateList(colorStateList);
+            counterDefaultValueLayout.setBoxStrokeColorStateList(colorStateList);
+            counterStepLayout.setBoxStrokeColorStateList(colorStateList);
+        }
+    }
+
+    private void updateInputsColors(@ColorInt int fillColor) {
+        counterNameLayout.setBoxStrokeColor(fillColor);
+        counterValueLayout.setBoxStrokeColor(fillColor);
+        counterDefaultValueLayout.setBoxStrokeColor(fillColor);
+        counterStepLayout.setBoxStrokeColor(fillColor);
+        counterNameLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(fillColor, 20));
+        counterValueLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(fillColor, 20));
+        counterDefaultValueLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(fillColor, 20));
+        counterStepLayout.setBoxBackgroundColor(ColorUtils.setAlphaComponent(fillColor, 20));
+    }
+
+    private void applyNewColor(@ColorInt int newColor) {
+        if (newColor != Color.WHITE) {
+            updateInputsColors(newColor);
+            updateButtonColors(newColor);
+        } else {
+            updateInputsColors(Color.LTGRAY);
+            updateButtonColors(Color.LTGRAY);
+        }
+        newCounterColor = ColorUtil.intColorToString(newColor);
         counterNameEditText.requestFocus();
     }
 

@@ -256,6 +256,7 @@
             app:drawableEndCompat="@drawable/ic_planet" />
 
         <TextView
+            android:id="@+id/tv_easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

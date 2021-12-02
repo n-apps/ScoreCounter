@@ -18,11 +18,9 @@
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
     <string name="dice_previous_result_label">Letzter Wurf:</string>
-    <string name="erd_message">Wenn Ihnen der Score Counter gefällt, bewerten Sie ihn bitte oder kaufen Sie mir einen virtuellen Kaffee - er hilft mir, die App zu verbessern und macht mich glücklicher&#160;:) Ich danke Ihnen!</string>
+    <string name="erd_message">Wenn dir Score Counter gefällt, bewerte es bitte oder kaufe mir einen Kaffee.\n\nEs hilft mir, die App zu verbessern und hebt meine Laune&#160;:)\n\nDanke!</string>
     <string name="erd_no_thanks">Nein, Danke</string>
-    <string name="erd_rate_now">Bewerten Sie diese App</string>
-    <string name="erd_remind_me_later">Frag mich später</string>
-    <string name="erd_title">Unterstützen Sie Score Counter</string>
+    <string name="erd_remind_me_later">Nicht jetzt</string>
     <string name="error_no_email_client">Es wurde keine Email app gefunden :(</string>
     <string name="menu_add_new_counter">Counter hinzufügen</string>
     <string name="menu_delete_all_counters">Alle entfernen</string>
@@ -35,8 +33,6 @@
     <string name="settings_feedback">Feedback</string>
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschirm eingeschaltet lassen</string>
-    <string name="dialog_step_info_content">Wie viel der Zähler sich ändert wenn du ihn anklickst. Die linke hälfte verringert, die rechte erhöht den Zähler. Sie können den Zählerwert auch ändern, indem Sie lange darauf drücken.</string>
-    <string name="dialog_default_info_content">Der Wert des Zählers nachdem er zurückgesetzt wurde (durch den \"Alle Zurücksetzen\" Knopf im Hauptmenü)</string>
     <string name="common_got_it">Verstanden</string>
     <string name="menu_log">Geschichte</string>
     <string name="history_empty_message">Keine Geschichte</string>
