@@ -384,6 +384,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void vibrate() {
+        if (!isAdded()) {
+            return;
+        }
         if (LocalSettings.isCountersVibrate()) {
             Vibrator v = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
             if (v != null) {

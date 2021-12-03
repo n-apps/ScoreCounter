@@ -126,6 +126,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
             case R.id.tv_rate_app:
                 Utilities.rateApp(requireActivity());
+                LocalSettings.markRateApp();
                 break;
             case R.id.iv_donate:
                 DonateDialog dialog = new DonateDialog();

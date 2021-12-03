@@ -207,7 +207,6 @@ public class EditCounterActivity extends AppCompatActivity {
             updateButtonColors(Color.LTGRAY);
         }
         newCounterColor = ColorUtil.intColorToString(newColor);
-        counterNameEditText.requestFocus();
     }
 
     private void validateAndSave() {

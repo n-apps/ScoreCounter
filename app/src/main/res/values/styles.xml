@@ -94,11 +94,6 @@
         <item name="textAllCaps">false</item>
     </style>
 
-    <style name="DefaultHelperTextAppearance" parent="TextAppearance.Design.Hint">
-        <item name="android:textStyle">normal</item>
-        <item name="fontFamily">@font/btk_reg</item>
-    </style>
-
     <style name="InterTextViewStyle" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/btk_reg</item>
     </style>

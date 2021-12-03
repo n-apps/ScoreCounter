@@ -226,17 +226,19 @@ public class DicesFragment extends Fragment {
 
         diceTextView.setText("" + roll);
 
+        if (diceCompositionTextView == null) {
+            return;
+        }
         if (rolls.size() > 1) {
-            diceCompositionTextView.setVisibility(View.VISIBLE);
             StringBuilder composition = new StringBuilder();
-            for (int i = 0; i < rolls.size(); i++){
+            for (int i = 0; i < rolls.size(); i++) {
                 composition.append(rolls.get(i));
-                if (i < (rolls.size() -1 )) {
+                if (i < (rolls.size() - 1)) {
                     composition.append(" + ");
                 }
             }
-
             diceCompositionTextView.setText(composition.toString());
+            diceCompositionTextView.setVisibility(View.VISIBLE);
         } else {
             diceCompositionTextView.setVisibility(View.GONE);
         }
@@ -261,7 +263,7 @@ public class DicesFragment extends Fragment {
     }
 
     private void observeData() {
-        DiceViewModelFactory factory = new DiceViewModelFactory(maxSide,diceCount);
+        DiceViewModelFactory factory = new DiceViewModelFactory(maxSide, diceCount);
         viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {

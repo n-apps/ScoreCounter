@@ -115,7 +115,7 @@
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
         android:textSize="@dimen/font_body"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
