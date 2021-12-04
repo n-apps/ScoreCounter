@@ -14,6 +14,4 @@
     <color name="primaryBackground">#fff</color>
     <color name="section_bg">#E7E5E2</color>
     <color name="overlay">#0D000000</color>
-    <color name="box_fill_color">#2654FFBD</color>
-
 </resources>

@@ -53,7 +53,7 @@
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/ripple"
             android:includeFontPadding="false"
@@ -63,7 +63,6 @@
             android:minEms="2"
             android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="?attr/textAppearanceHeadline3"
-            tools:ignore="MissingPrefix"
             tools:text="42" />
 
         <ImageView

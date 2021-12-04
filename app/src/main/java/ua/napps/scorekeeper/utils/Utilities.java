@@ -8,11 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.widget.Toast;
 
-import com.google.android.play.core.review.ReviewInfo;
-import com.google.android.play.core.review.ReviewManager;
-import com.google.android.play.core.review.ReviewManagerFactory;
-import com.google.android.play.core.tasks.Task;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,75 +35,31 @@ public class Utilities {
         return i;
     }
 
-    /**
-     * Checks if the device has Marshmallow or higher version.
-     *
-     * @return <code>true</code> if device is a tablet.
-     */
     public static boolean hasMarshmallow() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 
-    /**
-     * Checks if the device has Nougat or higher version.
-     *
-     * @return <code>true</code> if device is a tablet.
-     */
-    public static boolean hasNougat() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
-    }
-
-    /**
-     * Checks if the device has Oreo or higher version.
-     *
-     * @return <code>true</code> if device is a tablet.
-     */
     public static boolean hasOreo() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
     }
 
-    /**
-     * Checks if the device has Q or higher version.
-     *
-     * @return <code>true</code> if device is a tablet.
-     */
     public static boolean hasQ() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
     }
 
-    public static void rateApp(Activity context) {
-        if (context == null || context.isFinishing()) {
-            return;
+    public static void rateApp(Activity activity) {
+        String packageName = activity.getPackageName();
+        try {
+            Uri uri = Uri.parse("market://details?id=" + packageName);
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+            goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            activity.startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + packageName);
+            Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            activity.startActivity(intent);
         }
-
-        final ReviewManager reviewManager = ReviewManagerFactory.create(context);
-        Task<ReviewInfo> request = reviewManager.requestReviewFlow();
-
-        request.addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                ReviewInfo reviewInfo = request.getResult();
-
-                Task<Void> flow = reviewManager.launchReviewFlow(context, reviewInfo);
-                flow.addOnCompleteListener(task1 -> {
-                    // The flow has finished. The API does not indicate whether the user
-                    // reviewed or not, or even whether the review dialog was shown. Thus, no
-                    // matter the result, we continue our app flow.
-                });
-            } else {
-                Uri uri = Uri.parse("market://details?id=" + context.getPackageName());
-                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                try {
-                    context.startActivity(goToMarket);
-                } catch (ActivityNotFoundException e) {
-                    Uri playStoreUri = Uri.parse("http://play.google.com/store/apps/details?id=" + context.getPackageName());
-                    Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                }
-            }
-        });
     }
 
     public static void startEmail(Context context) {

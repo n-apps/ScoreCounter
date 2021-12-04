@@ -14,9 +14,8 @@
         android:layout_marginEnd="@dimen/padding_normal"
         android:layout_marginBottom="@dimen/spacing_normal"
         app:cardCornerRadius="2dp"
-        app:cardElevation="0dp"
-        app:strokeColor="@android:color/black"
-        app:strokeWidth="1dp">
+        app:cardElevation="1dp"
+        tools:cardBackgroundColor="#F2B04B">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/overlay"
+                android:background="#0A000000"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:orientation="horizontal">
 
@@ -37,15 +36,15 @@
                     android:layout_weight="1"
                     android:background="@drawable/ripple"
                     android:ellipsize="end"
-                    android:textColor="?android:attr/textColorPrimary"
                     android:gravity="center_vertical"
                     android:maxLines="1"
+                    android:paddingStart="@dimen/padding_normal"
+                    android:paddingEnd="@dimen/padding_normal"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:autoSizeMaxTextSize="@dimen/font_display"
                     app:autoSizeMinTextSize="@dimen/font_body"
                     app:autoSizeStepGranularity="1sp"
                     app:autoSizeTextType="uniform"
-                    android:paddingStart="@dimen/padding_normal"
-                    android:paddingEnd="@dimen/padding_normal"
                     tools:text="@tools:sample/first_names" />
 
                 <ImageView
@@ -76,13 +75,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:textColor="?android:attr/textColorPrimary"
                     android:clickable="false"
                     android:fontFamily="@font/btk_med"
                     android:gravity="center"
                     android:lines="1"
                     android:paddingStart="40dp"
                     android:paddingEnd="40dp"
+                    android:textColor="?android:attr/textColorPrimary"
                     app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
                     app:autoSizeMinTextSize="@dimen/counter_min_text_size"
                     app:autoSizeStepGranularity="2sp"
