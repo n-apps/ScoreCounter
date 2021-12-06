@@ -1,27 +1,30 @@
-# Score Counter + 🎲 Android App
+# Score Counter Android App
 
-Having troubles to find a pen and paper at your fingertips when playing? Score Counter + 🎲 will help you easily keep score in any games.
+Having troubles to find a pen and paper at your fingertips at your game night? Score Counter will help you easily keep score in any games, sports or other activities. Useful for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night! 
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="float: left; padding-right: 10px;" height="88">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 ## Key features
 * Easy to use
-* Modern and simple design
-* Suitable for any game. Multiple counters on one screen
-* You can change the name, initial value, step and even color for any counter
-* Can't find a dice? There are d6, d8, d20, and even d88 :)
-* Shake to roll
+* Great for on the fly score counting
+* Intuitive and simple design
+* Quickly adding any amount of points
+* Suitable for any game
+* You can define your own value for increment buttons
+* Can't find a die? There are d6, d8, d20, and even d88 :)
 * Dark theme will save your eyes in the evening :)
 * No ads at all. NEVER
+* Open sourced
 
-I 🖤 board games and appreciate your feedback. I regularly use this application for Carcassone, Star Realms or even UNO :)
 
-If you have something to share (feedback, problems or requests), feel free to write at scorekeeper.feedback@gmail.com. If you like this app, please leave a feedback. Thank you!
+I 💜 board games and appreciate your feedback. I regularly use my app for D&D, Carcassonne, Star Realms, Scrabble or even UNO :)
+
+If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. If you like this app, please leave feedback or make a donation – this will help improve it. Thank you!
 
 ## Screenshots
-[<img src="https://play-lh.googleusercontent.com/-c6poIiT4woTCVokyKfWDXUVZHT12u2FklX8eBgGTtvgOwGZnMD6dIe6aYtZKUKXkd4=w2560-h1366" width=250>]()
-[<img src="https://play-lh.googleusercontent.com/8fpVNssUE9MeB0anY8cwgR1XIf6EVIVvBiTuKiA-VrpzV6NwBRWfh-3O2rC1vmCdsVzE=w2560-h1366" width=250>]()
-[<img src="https://play-lh.googleusercontent.com/gHTMet5RwXLLUJkGjvxixr343wdsk4GdxojdNRDoxhUxkSALXlhiOxzvRguM2YqvCvHu=w2560-h1366" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/22qjCfwppjUYUqcOmaYw0T3WEthlYYYJnCPgaqdvZVGzUI0ggd3iyvTmlWk2UL-EcA=w4096-h2134" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/do8VnBuMdzCRs4pbG_FY11WHbkSR_c1H2BcNknU3Be2q3KABXInQmwTqMTSlz0DiJq1c=w4096-h2134" width=250>]()
+[<img src="https://play-lh.googleusercontent.com/NA85YCtSkVvbdh0OYv-k9SQwdSm3dCZHqM_Fvs_xIoDt4tOvZ044p-hSbLzeEGKg_HA=w4096-h2134" width=250>]()
 
 ## Contribution
 If you have any ideas or feature requests, don't hesitate to reach out to me. Every contribution is welcome 😉
