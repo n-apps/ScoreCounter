@@ -72,11 +72,12 @@
         \n\u3030\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
         \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
         \n\u3030\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!</string>
-    <string name="switch_top_logic">Niski wynik - wygrywa</string>
-    <string name="lowest_wins_hint">Możesz zamienić się logiką w ustawieniach</string>
+    <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
+    <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>
     <string name="translators">Tłumaczenie\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Gra Figurkowa</string>
     <string name="donation_xwing_description">Z oszałamiająco szczegółowymi i malowanymi miniaturami</string>
     <string name="testers">Testerzy aplikacji\n\u2690 bleeerr</string>
+    <string name="predefined_steps_hint">Wartości te można edytować w ustawieniach</string>
 </resources>

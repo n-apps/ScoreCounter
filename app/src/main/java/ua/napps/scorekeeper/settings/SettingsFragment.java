@@ -51,8 +51,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
         SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
-        SwitchCompat lowestWins = contentView.findViewById(R.id.sw_switch_lowest_wins);
         SwitchCompat vibrate = contentView.findViewById(R.id.sw_switch_vibrate);
+        SwitchCompat pressLogic = contentView.findViewById(R.id.sw_swap_press);
 
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
@@ -61,13 +61,13 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
         darkTheme.setChecked(!LocalSettings.isLightTheme());
-        lowestWins.setChecked(LocalSettings.isLowestScoreWins());
         vibrate.setChecked(LocalSettings.isCountersVibrate());
+        pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled());
 
         keepScreenOn.setOnCheckedChangeListener(this);
         darkTheme.setOnCheckedChangeListener(this);
-        lowestWins.setOnCheckedChangeListener(this);
         vibrate.setOnCheckedChangeListener(this);
+        pressLogic.setOnCheckedChangeListener(this);
 
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
@@ -105,8 +105,8 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
             case R.id.sw_dark_theme:
                 LocalSettings.saveDarkTheme(enabled);
                 break;
-            case R.id.sw_switch_lowest_wins:
-                LocalSettings.saveLowestScoreWins(enabled);
+            case R.id.sw_swap_press:
+                LocalSettings.saveSwapPressLogic(enabled);
                 break;
             case R.id.sw_switch_vibrate:
                 LocalSettings.saveCountersVibrate(enabled);

@@ -68,11 +68,12 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Aider à traduire</string>
     <string name="about_my_webpage">Mon site internet</string>
-    <string name="switch_top_logic">Le score le plus bas l\'emporte</string>
-    <string name="lowest_wins_hint">Vous pouvez inverser la logique dans les paramètres</string>
+    <string name="switch_press_logic">Échanger appui court et appui long</string>
+    <string name="lowest_wins_hint">La logique a changé</string>
     <string name="common_vibrate">Vibrer</string>
     <string name="translators">Traduction\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
     <string name="donation_xwing_title">Star Wars: Le Jeu de Figurines</string>
     <string name="donation_xwing_description">Nouveaux personnages et vaisseaux pour vivre des aventures palpitantes dans une Galaxie très lointaine… </string>
     <string name="testers">Testeurs occasionnels\n\u2690 bleeerr</string>
+    <string name="predefined_steps_hint">Vous pouvez modifier ces valeurs dans les paramètres</string>
 </resources>

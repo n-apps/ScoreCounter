@@ -82,6 +82,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
+    private boolean isSwapPressLogicEnabled;
     private int counterStepDialogMode;
     private int counterStep1;
     private int counterStep2;
@@ -109,7 +110,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setOnClickListener(v -> Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show());
+        toolbar.setOnClickListener(v -> switchTopLogic());
 
         for (int i = 0; i < toolbar.getChildCount(); i++) {
             View view = toolbar.getChildAt(i);
@@ -120,16 +121,23 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         }
 
         recyclerView = contentView.findViewById(R.id.recycler_view);
-        recyclerView.setItemAnimator(new ChangeCounterValueAnimator());
+        recyclerView.setItemAnimator(null);
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
         countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
-        isLowestScoreWins = LocalSettings.isLowestScoreWins();
+        isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
         observeData();
         return contentView;
+    }
+
+    private void switchTopLogic() {
+        isLowestScoreWins = !isLowestScoreWins;
+        List<Counter> counters = viewModel.getCounters().getValue();
+        findAndUpdateTopCounterView(counters);
+        Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
@@ -196,29 +204,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     toolbar.setTitle(null);
                     emptyState.setVisibility(View.GONE);
                 } else { // size >= 2
-                    List<Counter> topCounters = findTopCounters(counters);
-                    int topSize = topCounters.size();
-                    if (topSize == 1) {
-                        Counter top = topCounters.get(0);
-//                        toolbar.setTitle("\uD83E\uDD47 " + top.getName());
-//                        easter for autumn
-                        toolbar.setTitle("\uD83C\uDF84 " + top.getName());
-                        int counterId = top.getId();
-                        if (previousTopCounterId != counterId) {
-                            if (toolbarTitle != null) {
-                                ObjectAnimator animator =
-                                        ObjectAnimator.ofPropertyValuesHolder(toolbarTitle,
-                                                PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.5f, 1.0f),
-                                                PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.5f, 1.0f));
-                                animator.start();
-                            }
-                            previousTopCounterId = counterId;
-                        }
-                    } else { // At least the first and the second counters have the same value.
-                        boolean isAllCountersTheSame = topSize == counters.size();
-                        toolbar.setTitle(isAllCountersTheSame ? null : topSize + "\ud83c\udfc5");
-                        previousTopCounterId = 0;
-                    }
+                    findAndUpdateTopCounterView(counters);
                     emptyState.setVisibility(View.GONE);
                 }
 
@@ -268,6 +254,32 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
     }
 
+    private void findAndUpdateTopCounterView(List<Counter> counters) {
+        List<Counter> topCounters = findTopCounters(counters);
+        int topSize = topCounters.size();
+        if (topSize == 1) {
+            Counter top = topCounters.get(0);
+            toolbar.setTitle("\uD83E\uDD47 " + top.getName());
+            int counterId = top.getId();
+            if (previousTopCounterId != counterId) {
+                if (toolbarTitle != null) {
+                    ObjectAnimator animator =
+                            ObjectAnimator.ofPropertyValuesHolder(toolbarTitle,
+                                    PropertyValuesHolder.ofFloat("alpha", 1f, 0f, 1f),
+                                    PropertyValuesHolder.ofFloat("rotation", 0f, 360f));
+                    animator.setDuration(500);
+                    animator.start();
+                }
+                previousTopCounterId = counterId;
+            }
+        } else { // At least the first and the second counters have the same value.
+            boolean isAllCountersTheSame = topSize == counters.size();
+            toolbar.setTitle(isAllCountersTheSame ? null : topSize + "\uD83E\uDDE6");
+            ViewUtil.shakeView(toolbarTitle, 2, 2);
+            previousTopCounterId = 0;
+        }
+    }
+
     @NonNull
     private List<Counter> findTopCounters(List<Counter> counters) {
         if (counters == null || counters.size() < 2) return Collections.emptyList();
@@ -299,88 +311,116 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void onSingleClick(Counter counter, int position, int mode) {
+        if (mode == MODE_SET_VALUE) {
+            showCounterStepDialog(counter, position, MODE_INCREASE_VALUE);
+            return;
+        }
+        if (!isSwapPressLogicEnabled) {
+            handleSingleStep(counter, mode);
+            countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+        } else {
+            showCounterStepDialog(counter, position, mode);
+        }
+    }
+
+    private void handleSingleStep(Counter counter, int mode) {
         int step = counter.getStep();
         if (mode == MODE_DECREASE_VALUE) {
-            if (step == 0) {
-                return;
-            }
-            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, step, counter.getValue()));
-
-            vibrate();
-            viewModel.decreaseCounter(counter, step);
-            if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
-                showLongPressHint();
-            }
+            decreaseValue(counter, step);
         } else if (mode == MODE_INCREASE_VALUE) {
-            if (step == 0) {
-                return;
-            }
-            Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, step, counter.getValue()));
+            increaseValue(counter, step);
+        }
+    }
 
-            vibrate();
-            viewModel.increaseCounter(counter, step);
-            if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
-                showLongPressHint();
-            }
-        } else if (mode == MODE_SET_VALUE) {
-            showCounterStepDialog(counter, position, MODE_INCREASE_VALUE);
+    private void increaseValue(Counter counter, int step) {
+        if (step == 0) {
+            return;
+        }
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, step, counter.getValue()));
+
+        vibrate();
+        viewModel.increaseCounter(counter, step);
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+            showLongPressHint();
+        }
+    }
+
+    private void decreaseValue(Counter counter, int step) {
+        if (step == 0) {
+            return;
+        }
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC, step, counter.getValue()));
+
+        vibrate();
+        viewModel.decreaseCounter(counter, step);
+
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+            showLongPressHint();
         }
     }
 
     @Override
     public void onLongClick(Counter counter, int position, int mode) {
         if (mode == MODE_SET_VALUE) {
-            final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                    .content(counter.getName() + " | " + counter.getValue())
-                    .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
-                    .positiveText(R.string.common_set)
-                    .neutralText(R.string.reset)
-                    .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
-                    .alwaysCallInputCallback()
-                    .input("" + counter.getValue(), null, false, (dialog, input) -> {
-                    })
-                    .showListener(dialogInterface -> {
-                        TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
-                        if (titleTextView != null) {
-                            titleTextView.setLines(1);
-                            titleTextView.setEllipsize(TextUtils.TruncateAt.END);
-                            titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-                        }
-                        EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
-                        if (inputEditText != null) {
-                            inputEditText.requestFocus();
-                            inputEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(9)});
-                            inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
-                        }
-                    })
-                    .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
-                    .onPositive((dialog, which) -> {
-                        EditText editText = dialog.getInputEditText();
-                        if (editText != null) {
-                            Integer value = Utilities.parseInt(editText.getText().toString(), counter.getValue());
-                            viewModel.modifyCurrentValue(counter, value);
-                            countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                            dialog.dismiss();
-                            vibrate();
-                        }
-                    })
-                    .build();
-            EditText editText = md.getInputEditText();
-            if (editText != null) {
-                editText.setOnEditorActionListener((textView, actionId, event) -> {
-                    if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                        View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                        positiveButton.callOnClick();
-                    }
-                    return false;
-                });
-            }
-            md.show();
-            md.getWindow().setSoftInputMode(
-                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            showSetValueDialog(counter, position);
         } else {
-            showCounterStepDialog(counter, position, mode);
+            if (!isSwapPressLogicEnabled) {
+                showCounterStepDialog(counter, position, mode);
+            } else {
+                handleSingleStep(counter, mode);
+            }
         }
+    }
+
+    private void showSetValueDialog(Counter counter, int position) {
+        final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
+                .content(counter.getName() + " | " + counter.getValue())
+                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                .positiveText(R.string.common_set)
+                .neutralText(R.string.reset)
+                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
+                .alwaysCallInputCallback()
+                .input("" + counter.getValue(), null, false, (dialog, input) -> {
+                })
+                .showListener(dialogInterface -> {
+                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                    if (titleTextView != null) {
+                        titleTextView.setLines(1);
+                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                    }
+                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                    if (inputEditText != null) {
+                        inputEditText.requestFocus();
+                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(9)});
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                    }
+                })
+                .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
+                .onPositive((dialog, which) -> {
+                    EditText editText = dialog.getInputEditText();
+                    if (editText != null) {
+                        Integer value = Utilities.parseInt(editText.getText().toString(), counter.getValue());
+                        viewModel.modifyCurrentValue(counter, value);
+                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                        dialog.dismiss();
+                        vibrate();
+                    }
+                })
+                .build();
+        EditText editText = md.getInputEditText();
+        if (editText != null) {
+            editText.setOnEditorActionListener((textView, actionId, event) -> {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                    positiveButton.callOnClick();
+                }
+                return false;
+            });
+        }
+        md.show();
+        md.getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
     private void vibrate() {
@@ -420,12 +460,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 switch (checkedId) {
                     case R.id.btn_add:
                         counterStepDialogMode = MODE_INCREASE_VALUE;
-                        ViewUtil.shakeView(contentView,1,2);
+                        ViewUtil.shakeView(contentView, 1, 2);
                         updateButtonLabels(contentView);
                         break;
                     case R.id.btn_dec:
                         counterStepDialogMode = MODE_DECREASE_VALUE;
-                        ViewUtil.shakeView(contentView,2,2);
+                        ViewUtil.shakeView(contentView, 2, 2);
                         updateButtonLabels(contentView);
                         break;
                 }
@@ -618,7 +658,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void onResume() {
         super.onResume();
-        isLowestScoreWins = LocalSettings.isLowestScoreWins();
+        isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
         counterStep1 = LocalSettings.getCustomCounter(1);
         counterStep2 = LocalSettings.getCustomCounter(2);
         counterStep3 = LocalSettings.getCustomCounter(3);

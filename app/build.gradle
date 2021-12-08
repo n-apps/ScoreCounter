@@ -3,7 +3,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 6
-ext.versionMinor = 7
+ext.versionMinor = 8
 ext.versionPatch = 0
 ext.postfix = ''
 

@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/padding_normal">
+        android:orientation="horizontal">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_one"
@@ -85,6 +84,20 @@
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/spacing_normal"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/predefined_steps_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:autoSizeMaxTextSize="12sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform" />
+
     <include layout="@layout/divider" />
 
     <LinearLayout
@@ -111,9 +124,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textColor="@color/colorSecondary"
                 android:text="-"
                 android:textAppearance="?attr/textAppearanceHeadline4"
+                android:textColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
 
             <Button
@@ -123,8 +136,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="+"
-                android:textColor="@color/colorSecondary"
                 android:textAppearance="?attr/textAppearanceHeadline4"
+                android:textColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -141,8 +154,8 @@
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="numberSigned"
-                android:maxLines="1"
                 android:maxLength="9"
+                android:maxLines="1"
                 android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"

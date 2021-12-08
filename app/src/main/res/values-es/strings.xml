@@ -72,11 +72,12 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Ayúdanos a traducir</string>
     <string name="about_my_webpage">Mi sitio web</string>
-    <string name="switch_top_logic">Puntuación baja - gana</string>
-    <string name="lowest_wins_hint">Puedes intercambiar la lógica en los ajustes</string>
+    <string name="switch_press_logic">Cambiar pulsación corta y larga</string>
+    <string name="lowest_wins_hint">La lógica cambió</string>
     <string name="common_vibrate">Vibración</string>
     <string name="translators">Traducción\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
     <string name="donation_xwing_title">Star Wars X-Wing: El juego de miniaturas</string>
         <string name="donation_xwing_description">Nuevas miniaturas con esquemas de pintura alternos</string>
     <string name="testers">Probadores ocasionales\n\u2690 bleeerr</string>
+    <string name="predefined_steps_hint">Puede editar estos valores en la configuración</string>
 </resources>

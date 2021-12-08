@@ -68,11 +68,12 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Hilf beim Übersetzen</string>
     <string name="about_my_webpage">Meine Webseite</string>
-    <string name="switch_top_logic">Niedrige Punktzahl - Siege</string>
-    <string name="lowest_wins_hint">Sie können die Logik in den Einstellungen vertauschen</string>
+    <string name="switch_press_logic">Kurzes und langes Drücken vertauschen</string>
+    <string name="lowest_wins_hint">Die Logik hat sich geändert</string>
     <string name="common_vibrate">Vibrieren</string>
     <string name="translators">Übersetzung\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Miniaturen-Spiel</string>
     <string name="donation_xwing_description">Neue Miniaturen</string>
     <string name="testers">Gelegentliche Tester\n\u2690 bleeerr</string>
+    <string name="predefined_steps_hint">Sie können diese Werte in den Einstellungen bearbeiten</string>
 </resources>
