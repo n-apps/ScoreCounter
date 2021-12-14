@@ -34,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -137,7 +138,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLowestScoreWins = !isLowestScoreWins;
         List<Counter> counters = viewModel.getCounters().getValue();
         findAndUpdateTopCounterView(counters);
-        Snackbar.make(recyclerView, R.string.lowest_wins_hint, Snackbar.LENGTH_SHORT).show();
+        showSnack(R.string.lowest_wins_hint);
+    }
+
+    private void showSnack(@StringRes Integer messageId) {
+        Snackbar snack = Snackbar.make(recyclerView, messageId, Snackbar.LENGTH_SHORT);
+        snack.setAnchorView(R.id.bottom_navigation);
+        snack.show();
     }
 
     @Override
@@ -234,7 +241,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 } else {
                     // TODO: 28-Mar-20 smells bad. should be better
                     if (oldListSize - 1 == size) {
-                        Snackbar.make(recyclerView, getString(R.string.counter_deleted), Snackbar.LENGTH_SHORT).show();
+                        showSnack(R.string.counter_deleted);
                         viewModel.updatePositions();
                     }
 
@@ -247,9 +254,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), (Observer<Integer>) resourceId -> {
             if (resourceId == R.string.counter_added) {
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter()).show();
+                        .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter())
+                .setAnchorView(R.id.bottom_navigation)
+                .show();
             } else {
-                Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT).show();
+                showSnack(resourceId);
             }
         });
     }
