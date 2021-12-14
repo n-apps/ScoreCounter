@@ -29,7 +29,7 @@ class CountersViewModel extends AndroidViewModel {
     private final LiveData<List<Counter>> counters;
     private final String[] colors;
     private final String[] names;
-    private SnackbarMessage snackbarMessage = new SnackbarMessage();
+    private final SnackbarMessage snackbarMessage = new SnackbarMessage();
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
@@ -58,12 +58,12 @@ class CountersViewModel extends AndroidViewModel {
                         }
 
                         @Override
-                        public void onError(Throwable e) {
+                        public void onError(@NonNull Throwable e) {
                             Timber.e(e, "create counter");
                         }
 
                         @Override
-                        public void onSubscribe(Disposable d) {
+                        public void onSubscribe(@NonNull Disposable d) {
 
                         }
                     });
@@ -85,12 +85,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -106,12 +106,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e, "modifyCount counter");
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -119,9 +119,9 @@ class CountersViewModel extends AndroidViewModel {
 
     void modifyName(Counter counter, @NonNull String newName) {
 
-        if (newName.toLowerCase().equals("roman") |
-                newName.toLowerCase().equals("роман") |
-                newName.toLowerCase().equals("рома")) {
+        if ((newName.equalsIgnoreCase("roman") |
+                newName.equalsIgnoreCase("роман") |
+                newName.equalsIgnoreCase("рома"))) {
             showSnackbarMessage(R.string.easter_wave);
         }
         repository.modifyName(counter.getId(), newName)
@@ -133,12 +133,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e, "modifyName counter");
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -160,12 +160,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -225,12 +225,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e, "remove all");
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -254,12 +254,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e, "resetAll");
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -277,12 +277,12 @@ class CountersViewModel extends AndroidViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -324,8 +324,8 @@ class CountersViewModel extends AndroidViewModel {
         final SparseIntArray positionMap = new SparseIntArray();
 
         for (int i = 0; i < counterList.size(); i++) {
-                int id = counterList.get(i).getId();
-                positionMap.append(id, i+1);
+            int id = counterList.get(i).getId();
+            positionMap.append(id, i + 1);
         }
 
         repository.modifyPositionBatch(positionMap)

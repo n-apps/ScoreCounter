@@ -120,6 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
+        tools:text="2 + 4 + 5 + 7"
         tools:visibility="visible" />
 
     <TextView

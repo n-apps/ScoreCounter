@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import ua.napps.scorekeeper.R;
+import ua.napps.scorekeeper.counters.colorpicker.ColorPicker;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
@@ -32,7 +33,6 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
-import ua.napps.scorekeeper.utils.colorpicker.ColorPicker;
 
 public class EditCounterActivity extends AppCompatActivity {
 
@@ -92,17 +92,8 @@ public class EditCounterActivity extends AppCompatActivity {
             colorPicker.setColorButtonSize(72, 72);
             colorPicker.setColumns(3);
             colorPicker.setColors(R.array.bright_palette);
-            colorPicker.setOnFastChooseColorListener(new ColorPicker.OnFastChooseColorListener() {
-                @Override
-                public void setOnFastChooseColorListener(int position, int color) {
-                    applyNewColor(color);
-                }
-
-                @Override
-                public void onCancel() {
-                    // put code
-                }
-            });
+            colorPicker.setOnFastChooseColorListener((position, color) -> applyNewColor(color));
+            colorPicker.setDefaultColor(Color.parseColor(counter.getColor()));
             colorPicker.show();
         });
 

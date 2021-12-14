@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.Singleton;
 
 public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
     private final ArrayList<LogEntry> logEntries;
@@ -53,7 +52,7 @@ public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHo
 
         holder.tv_counter.setText(logEntry.counter.getName());
 
-        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance(Singleton.getInstance().getMainContext().getResources().getConfiguration().locale);
+        DecimalFormat decimalFormat = (DecimalFormat)DecimalFormat.getNumberInstance();
 
         String info = "";
         switch (logEntry.type){

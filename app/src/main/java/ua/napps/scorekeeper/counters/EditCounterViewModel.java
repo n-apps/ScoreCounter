@@ -47,12 +47,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -69,12 +69,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -90,12 +90,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -111,12 +111,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -133,12 +133,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });
@@ -156,12 +156,12 @@ class EditCounterViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Timber.e(e);
                     }
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
                 });

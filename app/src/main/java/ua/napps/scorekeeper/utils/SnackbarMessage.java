@@ -1,10 +1,8 @@
 package ua.napps.scorekeeper.utils;
 
 
-import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 
 /**
  * A SingleLiveEvent used for Snackbar messages. Like a {@link SingleLiveEvent} but also prevents
@@ -15,14 +13,11 @@ import androidx.lifecycle.Observer;
 public class SnackbarMessage extends SingleLiveEvent<Integer> {
 
     public void observe(LifecycleOwner owner, final SnackbarObserver observer) {
-        super.observe(owner, new Observer<Integer>() {
-            @Override
-            public void onChanged(@Nullable Integer t) {
-                if (t == null) {
-                    return;
-                }
-                observer.onNewMessage(t);
+        super.observe(owner, t -> {
+            if (t == null) {
+                return;
             }
+            observer.onNewMessage(t);
         });
     }
 

@@ -1,8 +1,6 @@
-package ua.napps.scorekeeper.utils.colorpicker;
+package ua.napps.scorekeeper.counters.colorpicker;
 
 import android.app.Dialog;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,23 +21,19 @@ public class ColorViewAdapter extends RecyclerView.Adapter<ColorViewAdapter.View
     private ColorPicker.OnFastChooseColorListener onFastChooseColorListener;
     private final int[] mColors;
     private int colorPosition = -1;
-    private int tickColor = Color.WHITE;
     private int marginButtonLeft = 0, marginButtonRight = 0, marginButtonTop = 3, marginButtonBottom = 3;
     private int buttonWidth = -1, buttonHeight = -1;
-    private int buttonDrawable;
     private WeakReference<CustomDialog> mDialog;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements OnClickListener {
 
-        public AppCompatButton colorItem;
+        public final AppCompatButton colorItem;
 
         public ViewHolder(View v) {
             super(v);
             //buttons settings
             colorItem = v.findViewById(R.id.color);
-            colorItem.setTextColor(tickColor);
-            colorItem.setBackgroundResource(buttonDrawable);
             colorItem.setOnClickListener(this);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) colorItem.getLayoutParams();
             layoutParams.setMargins(marginButtonLeft, marginButtonTop, marginButtonRight, marginButtonBottom);
@@ -96,12 +90,7 @@ public class ColorViewAdapter extends RecyclerView.Adapter<ColorViewAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int color = mColors[position];
-
-        if (buttonDrawable != 0) {
-            holder.colorItem.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
-        } else {
-            holder.colorItem.setBackgroundColor(color);
-        }
+        holder.colorItem.setBackgroundColor(color);
         holder.colorItem.setTag(color);
     }
 
@@ -119,10 +108,6 @@ public class ColorViewAdapter extends RecyclerView.Adapter<ColorViewAdapter.View
         }
     }
 
-    public void setTickColor(int color) {
-        this.tickColor = color;
-    }
-
     public void setColorButtonMargin(int left, int top, int right, int bottom) {
         this.marginButtonLeft = left;
         this.marginButtonRight = right;
@@ -133,10 +118,6 @@ public class ColorViewAdapter extends RecyclerView.Adapter<ColorViewAdapter.View
     public void setColorButtonSize(int width, int height) {
         this.buttonWidth = width;
         this.buttonHeight = height;
-    }
-
-    public void setColorButtonDrawable(int drawable) {
-        this.buttonDrawable = drawable;
     }
 
 }

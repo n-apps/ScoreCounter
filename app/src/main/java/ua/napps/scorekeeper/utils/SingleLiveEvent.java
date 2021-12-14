@@ -19,12 +19,9 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
     public void observe(@NonNull LifecycleOwner owner, @NonNull final Observer<? super T> observer) {
 
         // Observe the internal MutableLiveData
-        super.observe(owner, new Observer<T>() {
-            @Override
-            public void onChanged(T t) {
-                if (mPending.compareAndSet(true, false)) {
-                    observer.onChanged(t);
-                }
+        super.observe(owner, t -> {
+            if (mPending.compareAndSet(true, false)) {
+                observer.onChanged(t);
             }
         });
     }

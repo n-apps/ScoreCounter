@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="@dimen/padding_large">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:fontFamily="@font/btk_med"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        tools:text="@string/donation_coffee_title" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:drawableEndCompat="@drawable/ic_arrow_right"
-            android:fontFamily="@font/btk_med"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            tools:text="@string/donation_coffee_title" />
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_micro"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        tools:text="@string/donation_coffee_description" />
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_micro"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            tools:text="@string/donation_coffee_description" />
-
-        <TextView
-            android:id="@+id/emoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:gravity="center"
-            android:textAppearance="?attr/textAppearanceCaption"
-            tools:text="☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕" />
-    </LinearLayout>
-</FrameLayout>
+    <TextView
+        android:id="@+id/emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        tools:text="☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕☕" />
+</LinearLayout>

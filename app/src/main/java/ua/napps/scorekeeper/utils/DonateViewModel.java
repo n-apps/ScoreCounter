@@ -18,7 +18,6 @@ import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
 import com.android.billingclient.api.Purchase;
-import com.android.billingclient.api.Purchase.PurchasesResult;
 import com.android.billingclient.api.PurchasesUpdatedListener;
 import com.android.billingclient.api.SkuDetails;
 import com.android.billingclient.api.SkuDetailsParams;
@@ -51,7 +50,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         billingClient = newBuilder(application).setListener(this).enablePendingPurchases().build();
         billingClient.startConnection(new BillingClientStateListener() {
             @Override
-            public void onBillingSetupFinished(BillingResult billingResult) {
+            public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingResponseCode.OK) {
                     SkuDetailsParams.Builder params = SkuDetailsParams.newBuilder();
                     params.setSkusList(skuList).setType(SkuType.INAPP);
@@ -85,12 +84,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
     }
 
     private void handleUnconsumedPurchases() {
-        PurchasesResult purchasesResult = billingClient.queryPurchases(SkuType.INAPP);
-        List<Purchase> purchases = purchasesResult.getPurchasesList();
-        if (purchases != null && !purchases.isEmpty()) {
-            Timber.d("Found [%s] unconsumed purchases", purchases.size());
-            consumePurchases(purchases, null);
-        }
+        billingClient.queryPurchasesAsync(SkuType.INAPP, (billingResult, list) -> consumePurchases(list, null));
     }
 
     void purchase(Activity activity, int donateOption) {

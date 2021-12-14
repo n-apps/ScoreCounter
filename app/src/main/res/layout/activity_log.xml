@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     tools:context="ua.napps.scorekeeper.log.LogActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -78,6 +79,8 @@
         android:insetBottom="0dp"
         android:minWidth="128dp"
         android:minHeight="72dp"
+        android:textColor="?attr/colorSecondary"
+        app:rippleColor="@color/mtrl_on_surface_ripple_color"
         android:text="@string/common_back"
         android:textAllCaps="false"
         android:textSize="@dimen/font_title"

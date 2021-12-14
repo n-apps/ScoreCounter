@@ -118,11 +118,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .input("2-99", null, false,
                                         (dialog, input) -> {
                                             int parseInt = Utilities.parseInt(input.toString(), diceMaxSide);
-                                            if (parseInt < 100 && parseInt > 1) {
-                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
-                                            } else {
-                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
-                                            }
+                                            dialog.getActionButton(DialogAction.POSITIVE).setEnabled(parseInt < 100 && parseInt > 1);
                                         })
                                 .onPositive((dialog, which) -> {
                                     EditText editText = dialog.getInputEditText();
@@ -187,11 +183,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                 .input("1-99", null, false,
                                         (dialog, input) -> {
                                             int parseInt = Utilities.parseInt(input.toString(), diceCount);
-                                            if (parseInt <= 100 && parseInt > 1) {
-                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(true);
-                                            } else {
-                                                dialog.getActionButton(DialogAction.POSITIVE).setEnabled(false);
-                                            }
+                                            dialog.getActionButton(DialogAction.POSITIVE).setEnabled(parseInt <= 100 && parseInt > 1);
                                         })
                                 .onPositive((dialog, which) -> {
                                     EditText editText = dialog.getInputEditText();

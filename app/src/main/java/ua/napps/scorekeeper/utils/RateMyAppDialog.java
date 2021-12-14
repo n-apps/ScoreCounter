@@ -93,7 +93,7 @@ public class RateMyAppDialog {
     }
 
     private void registerHitCount(int hitCount) {
-        App.getTinyDB().putInt(KEY_LAUNCH_TIMES, Math.min(hitCount, Integer.MAX_VALUE));
+        App.getTinyDB().putInt(KEY_LAUNCH_TIMES, hitCount);
     }
 
     private void registerDate() {

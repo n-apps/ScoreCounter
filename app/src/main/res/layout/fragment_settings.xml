@@ -16,6 +16,7 @@
             android:id="@+id/iv_donate"
             android:layout_width="match_parent"
             android:layout_height="404px"
+            android:contentDescription="@string/action_donate"
             android:scaleType="centerCrop"
             android:src="@drawable/support" />
 

@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.log;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 import ua.napps.scorekeeper.counters.Counter;
@@ -36,6 +38,7 @@ public class LogEntry {
      * Custom toString for easy debugging
      * @return string representation of {@link LogEntry} Object
      */
+    @NonNull
     @Override
     public String toString(){
         return type.toString() + " - " + prevValue + " -> " + value;

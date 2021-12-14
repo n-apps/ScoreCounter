@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/colorSurface"
     tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -27,7 +28,7 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
@@ -50,6 +51,6 @@
         android:layout_marginTop="@dimen/spacing_normal"
         app:layoutManager=".utils.SpanningLinearLayoutManager"
         tools:listitem="@layout/item_counter_full"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 </LinearLayout>

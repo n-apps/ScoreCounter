@@ -24,7 +24,6 @@ import ua.napps.scorekeeper.dice.OnDiceFragmentInteractionListener;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.settings.SettingsFragment;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
-import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         bottomNavigationBar = findViewById(R.id.bottom_navigation);
         bottomNavigationBar.setSelectedItemId(R.id.counters);
 
-        bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
+        bottomNavigationBar.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.counters:
                     switchFragment(TAGS[0]);
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             return true;
         });
 
-        bottomNavigationBar.setOnNavigationItemReselectedListener(item -> {
+        bottomNavigationBar.setOnItemReselectedListener(item -> {
             if (item.getItemId() == R.id.counters) {
                 if (currentFragment instanceof CountersFragment) {
                     ((CountersFragment) currentFragment).scrollToTop();
@@ -120,8 +119,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOnIfNeeded();
-
-        Singleton.getInstance().setMainContext(this);
     }
 
     private void hideDiceBadge() {
