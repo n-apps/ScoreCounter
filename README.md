@@ -3,7 +3,7 @@
 Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
 
 [<img src="https://user-images.githubusercontent.com/16646251/146037816-289a53f0-2374-4adc-8177-37b0b67b6764.png" style="float: left; padding-right: 10
-px;" height="500px">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
+px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 
 #### Key features
