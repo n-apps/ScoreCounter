@@ -121,12 +121,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         }
 
+        countersAdapter = new CountersAdapter(this, this);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setItemAnimator(null);
+        recyclerView.setAdapter(countersAdapter);
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
-        countersAdapter = new CountersAdapter(this, this);
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
