@@ -102,7 +102,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="@dimen/spacing_large"
         android:gravity="center"
         android:orientation="horizontal">
@@ -111,14 +111,14 @@
             android:id="@+id/sign_btn_group"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="@dimen/spacing_big"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             app:selectionRequired="true"
             app:singleSelection="true"
-            tools:background="@color/section_bg"
-            tools:layout_height="48dp">
+            tools:background="@color/overlay">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_dec"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="0dp"
@@ -126,10 +126,10 @@
                 android:layout_weight="1"
                 android:text="-"
                 android:textAppearance="?attr/textAppearanceHeadline4"
-                android:textColor="@color/colorSecondary"
+                android:textColor="?android:attr/textColorPrimary"
                 tools:ignore="HardcodedText" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_add"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="0dp"
@@ -137,7 +137,7 @@
                 android:layout_weight="1"
                 android:text="+"
                 android:textAppearance="?attr/textAppearanceHeadline4"
-                android:textColor="@color/colorSecondary"
+                android:textColor="?android:textColorPrimary"
                 tools:ignore="HardcodedText" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -145,8 +145,9 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            app:boxStrokeColor="@color/colorSecondary">
+            android:layout_marginTop="-2dp"
+            app:boxBackgroundColor="@color/mtrl_btn_text_btn_bg_color_selector"
+            app:boxStrokeColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_add_custom_value"

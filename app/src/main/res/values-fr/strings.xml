@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Réinitialiser la valeur</string>
     <string name="delete">Supprimer</string>
     <string name="counter_details_name">Nom du compteur</string>
-    <string name="counter_details_step">Incrément par défaut (-/+)</string>
+    <string name="counter_details_step">Incrémenter</string>
     <string name="counter_details_value">Valeur</string>
     <string name="counters_empty_message">Tapper n\'importe où pour ajouter un premier compteur puis utilisez le bouton + dans le coin supérieur droit pour ajouter des compteurs supplémentaires</string>
     <string name="dialog_current_value_title">Valeur courrante</string>

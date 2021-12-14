@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Wert nach reset</string>
     <string name="delete">Zähler</string>
     <string name="counter_details_name">Zähler Name</string>
-    <string name="counter_details_step">Schritte (-/+)</string>
+    <string name="counter_details_step">Inkrement</string>
     <string name="counter_details_value">Aktueller Wert</string>
     <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutze den + Knopf oben rechts</string>
     <string name="dialog_current_value_title">Aktueller Wert</string>

@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Wartość po zresetowaniu</string>
     <string name="delete">Usuń</string>
     <string name="counter_details_name">Nazwa licznika</string>
-    <string name="counter_details_step">Krok (-/+)</string>
+    <string name="counter_details_step">Increment</string>
     <string name="counter_details_value">Obecna wartość</string>
     <string name="counters_empty_message">Stuknij gdziekolwiek, aby dodać pierwszy licznik lub użyj przycisku + w prawym górnym rogu</string>
     <string name="dialog_current_value_title">Obecna wartość</string>

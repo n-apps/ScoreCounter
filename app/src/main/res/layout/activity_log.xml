@@ -80,7 +80,6 @@
         android:minHeight="72dp"
         android:text="@string/common_back"
         android:textAllCaps="false"
-        android:textColor="?colorSecondary"
         android:textSize="@dimen/font_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

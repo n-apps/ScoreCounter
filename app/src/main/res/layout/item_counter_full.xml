@@ -38,6 +38,7 @@
                     android:ellipsize="end"
                     android:gravity="center_vertical"
                     android:maxLines="1"
+                    android:contentDescription="@string/counter_details_name"
                     android:paddingStart="@dimen/padding_normal"
                     android:paddingEnd="@dimen/padding_normal"
                     android:textColor="?android:attr/textColorPrimary"
@@ -80,6 +81,7 @@
                     android:gravity="center"
                     android:lines="1"
                     android:paddingStart="40dp"
+                    android:contentDescription="@string/counter_details_value"
                     android:paddingEnd="40dp"
                     android:textColor="?android:attr/textColorPrimary"
                     app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
@@ -95,10 +97,10 @@
                     android:layout_width="@dimen/button_icon_size"
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="start|center_vertical"
-                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginStart="@dimen/padding_normal"
                     android:alpha="0.54"
                     android:clickable="false"
-                    android:contentDescription="@string/common_increase"
+                    android:contentDescription="@string/common_decrease"
                     android:src="@drawable/ic_minus" />
 
                 <ImageView
@@ -106,7 +108,7 @@
                     android:layout_width="@dimen/button_icon_size"
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="end|center_vertical"
-                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:layout_marginEnd="@dimen/padding_normal"
                     android:alpha="0.54"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"

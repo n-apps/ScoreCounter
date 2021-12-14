@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Reset value</string>
     <string name="delete">Delete</string>
     <string name="counter_details_name">Counter name</string>
-    <string name="counter_details_step">Incrementation (-/+)</string>
+    <string name="counter_details_step">Increment</string>
     <string name="counter_details_value">Value</string>
     <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
     <string name="dialog_current_value_title">Current value</string>

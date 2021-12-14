@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Значение после сброса</string>
     <string name="delete">Удалить</string>
     <string name="counter_details_name">Название счетчика</string>
-    <string name="counter_details_step">Шаг (-/+)</string>
+    <string name="counter_details_step">Приращение</string>
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или&#160;используйте + в правом верхнем углу</string>
     <string name="dialog_current_value_title">Текущее значение</string>
