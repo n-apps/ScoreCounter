@@ -10,7 +10,10 @@ import androidx.lifecycle.LiveData;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 import io.reactivex.CompletableObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -27,16 +30,18 @@ class CountersViewModel extends AndroidViewModel {
 
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
-    private final String[] colors;
-    private final String[] names;
+    private final String[] initialColors;
+    private final String[] initialNames;
+    private final Set<String> colorSet = new HashSet<>();
+    private final Set<String> namesSet = new HashSet<>();
     private final SnackbarMessage snackbarMessage = new SnackbarMessage();
 
     CountersViewModel(Application application, CountersRepository countersRepository) {
         super(application);
         repository = countersRepository;
         counters = countersRepository.getCounters();
-        colors = application.getResources().getStringArray(R.array.default_color_list);
-        names = application.getResources().getStringArray(R.array.names);
+        initialColors = application.getResources().getStringArray(R.array.default_color_list);
+        initialNames = application.getResources().getStringArray(R.array.names);
         shuffleInitialDataArrays();
     }
 
@@ -48,13 +53,16 @@ class CountersViewModel extends AndroidViewModel {
         List<Counter> value = counters.getValue();
         if (value != null) {
             int size = value.size() + 1;
-            repository.createCounter(getNextName(size), getNextColor(size), size)
+            String nextName = getNextName();
+            String nextColor = getNextColor();
+            repository.createCounter(nextName, nextColor, size)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe(new CompletableObserver() {
                         @Override
                         public void onComplete() {
                             showSnackbarMessage(R.string.counter_added);
+                            Timber.d("");
                         }
 
                         @Override
@@ -289,24 +297,50 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     private void shuffleInitialDataArrays() {
-        Collections.shuffle(Arrays.asList(colors));
-        Collections.shuffle(Arrays.asList(names));
+        Collections.shuffle(Arrays.asList(initialColors));
+        Collections.shuffle(Arrays.asList(initialNames));
+
+        colorSet.addAll(Arrays.asList(initialColors));
+        namesSet.addAll(Arrays.asList(initialNames));
     }
 
-    private String getNextColor(int size) {
-        if (size < colors.length) {
-            return colors[size];
-        } else {
-            return colors[size % colors.length];
+    private String getNextColor() {
+        if (colorSet.isEmpty()) {
+            Collections.shuffle(Arrays.asList(initialColors));
+            colorSet.addAll(Arrays.asList(initialColors));
         }
+
+        String[] array = colorSet.toArray(new String[0]);
+
+        Random rndm = new Random();
+        int rndmNumber = rndm.nextInt(colorSet.size());
+        String value = array[rndmNumber];
+        colorSet.remove(value);
+
+        Timber.d("set size -> %d", array.length);
+        Timber.d("new color -> %s", value);
+        Timber.d("----------------");
+        return value;
     }
 
-    private String getNextName(int size) {
-        if (size < names.length) {
-            return names[size].toLowerCase();
-        } else {
-            return names[size % names.length].toLowerCase();
+    private String getNextName() {
+        if (namesSet.isEmpty()) {
+            Collections.shuffle(Arrays.asList(initialNames));
+            namesSet.addAll(Arrays.asList(initialNames));
         }
+
+        String[] array = namesSet.toArray(new String[0]);
+
+        Random rndm = new Random();
+        int rndmNumber = rndm.nextInt(namesSet.size());
+        String value = array[rndmNumber];
+        namesSet.remove(value);
+
+        Timber.d("names size -> %d", array.length);
+        Timber.d("new name -> %s", value);
+        Timber.d("----------------");
+
+        return value;
     }
 
     public SnackbarMessage getSnackbarMessage() {

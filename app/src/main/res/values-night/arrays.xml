@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="default_color_list">
+        <item>#073ea0</item>
+        <item>#bb8d00</item>
+        <item>#195261</item>
+        <item>#b41414</item>
+        <item>#285121</item>
+        <item>#5f463d</item>
+        <item>#2d340e</item>
+        <item>#4a5878</item>
+        <item>#89570a</item>
+        <item>#aaaaaa</item>
+        <item>#9f144f</item>
+        <item>#191919</item>
+        <item>#961313</item>
+        <item>#787c15</item>
+        <item>#7e09aa</item>
+        <item>#17976a</item>
+        <item>#430d77</item>
+        <item>#38191b</item>
+    </string-array>
+    <string-array name="bright_palette">
+        <item>#e3002c</item>
+        <item>#00c465</item>
+        <item>#ddcb00</item>
+        <item>#3783FF</item>
+        <item>#b800d7</item>
+        <item>#00c6dd</item>
+        <item>#ea0050</item>
+        <item>#080808</item>
+        <item>#cc7000</item>
+    </string-array>
+</resources>

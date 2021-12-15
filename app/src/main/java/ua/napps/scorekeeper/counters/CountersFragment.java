@@ -89,6 +89,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private int counterStep2;
     private int counterStep3;
     private int counterStep4;
+    private SpanningLinearLayoutManager spanningLinearLayoutManager;
+    private LinearLayoutManager linearLayoutManager;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -121,10 +123,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         }
 
+        spanningLinearLayoutManager = new SpanningLinearLayoutManager(requireContext());
+        linearLayoutManager = new LinearLayoutManager(requireContext());
+
         countersAdapter = new CountersAdapter(this, this);
         recyclerView = contentView.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(spanningLinearLayoutManager);
         recyclerView.setItemAnimator(null);
         recyclerView.setAdapter(countersAdapter);
+
         emptyState = contentView.findViewById(R.id.empty_state);
         emptyState.setOnClickListener(view -> viewModel.addCounter());
 
@@ -217,11 +224,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
 
                 if (oldListSize != size) {
-                    countersAdapter.notifyDataSetChanged();
+//                    countersAdapter.notifyDataSetChanged();
                     if (size < 6) {
-                        recyclerView.setLayoutManager(new SpanningLinearLayoutManager(requireContext()));
+                        if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
+                            recyclerView.setLayoutManager(spanningLinearLayoutManager);
+                        }
                     } else {
-                        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                        if (recyclerView.getLayoutManager().equals(spanningLinearLayoutManager)) {
+                            recyclerView.setLayoutManager(linearLayoutManager);
+                        }
                     }
                 }
 
@@ -256,8 +267,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (resourceId == R.string.counter_added) {
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
                         .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter())
-                .setAnchorView(R.id.bottom_navigation)
-                .show();
+                        .setAnchorView(R.id.bottom_navigation)
+                        .show();
             } else {
                 showSnack(resourceId);
             }
