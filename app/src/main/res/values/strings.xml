@@ -13,12 +13,12 @@
     <string name="counter_details_name">Counter name</string>
     <string name="counter_details_step">Increment</string>
     <string name="counter_details_value">Value</string>
-    <string name="counters_empty_message">Tap anywhere to add first counter or use + button in the top-right corner</string>
+    <string name="counters_empty_message">Tap on the "+" button in the top right corner to add a new counter</string>
     <string name="dialog_current_value_title">Current value</string>
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like the Score Counter, please rate&#160;it or&#160;buy me a&#160;coffee.\n\nThis helps me improve the app and&#160;lifts my spirits&#160;:)\n\nThanks!</string>
+    <string name="erd_message">If you like this app, please leave a&#160;review or make a&#160;donation – it cheers me up and helps me improve the app.\n\nThanks!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_remind_me_later">Not now</string>
     <string name="error_no_email_client">No email app on your device :(</string>
@@ -34,7 +34,7 @@
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="common_got_it">Got it</string>
-    <string name="menu_log">History</string>
+    <string name="menu_log">History (session-only)</string>
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
     <string name="dialog_custom_counter_title">Quick change option</string>
@@ -62,7 +62,7 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n        \n\u3030\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \n\u3030\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \n\u3030\nDo you like this app? Rate it or make a donation – it helps me to improve it. Thank you!</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n        \n\u3030\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \n\u3030\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \n\u3030\nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app. Thank you!</string>
     <string name="about_donation">Make donation</string>
     <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contact me</string>

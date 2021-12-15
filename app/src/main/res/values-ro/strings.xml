@@ -13,7 +13,7 @@
     <string name="counter_details_name">Numele contorului</string>
     <string name="counter_details_step">Creștere</string>
     <string name="counter_details_value">Valoare curenta</string>
-    <string name="counters_empty_message">Atinge oriunde pentru a adauga primul contor sau foloseste butonul + din coltul din dreapta sus</string>
+    <string name="counters_empty_message">Atingeți "+" în colțul din dreapta sus pentru a adăuga un nou contor</string>
     <string name="dialog_current_value_title">Valoare curenta</string>
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>

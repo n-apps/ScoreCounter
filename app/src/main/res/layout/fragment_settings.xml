@@ -40,7 +40,6 @@
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_stay_awake" />
 
-        <include layout="@layout/divider" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_dark_theme"
@@ -51,7 +50,6 @@
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_dark_theme" />
 
-        <include layout="@layout/divider" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_switch_vibrate"
@@ -149,7 +147,6 @@
             </ua.napps.scorekeeper.utils.SquareFrameLayout>
         </LinearLayout>
 
-        <include layout="@layout/divider" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/sw_swap_press"
@@ -180,7 +177,25 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
-        <include layout="@layout/divider" />
+        <TextView
+            android:id="@+id/tv_rate_app"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/about_rate"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
+
+        <TextView
+            android:id="@+id/tv_help_translate"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_large"
+            android:text="@string/setting_help_translate"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
             android:id="@+id/tv_share"
@@ -189,18 +204,6 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/setting_share"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <include layout="@layout/divider" />
-
-        <TextView
-            android:id="@+id/tv_rate_app"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
@@ -224,19 +227,6 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
-        <include layout="@layout/divider" />
-
-        <TextView
-            android:id="@+id/tv_help_translate"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/setting_help_translate"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <include layout="@layout/divider" />
 
         <TextView
             android:id="@+id/tv_privacy_policy"

@@ -13,7 +13,7 @@
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Incrémenter</string>
     <string name="counter_details_value">Valeur</string>
-    <string name="counters_empty_message">Tapper n\'importe où pour ajouter un premier compteur puis utilisez le bouton + dans le coin supérieur droit pour ajouter des compteurs supplémentaires</string>
+    <string name="counters_empty_message">Tapez sur le "+" dans le coin supérieur droit pour ajouter un nouveau compteur</string>
     <string name="dialog_current_value_title">Valeur courrante</string>
     <string name="dialog_custom_dice_title">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>

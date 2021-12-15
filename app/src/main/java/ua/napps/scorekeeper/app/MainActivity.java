@@ -88,14 +88,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     } else {
                         hideDiceBadge();
                     }
+                    bottomNavigationBar.setElevation(0);
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
                     hideDiceBadge();
+                    bottomNavigationBar.setElevation(0);
                     break;
                 case R.id.more:
                     switchFragment(TAGS[2]);
                     hideDiceBadge();
+                    bottomNavigationBar.setElevation(20);
                     break;
             }
 

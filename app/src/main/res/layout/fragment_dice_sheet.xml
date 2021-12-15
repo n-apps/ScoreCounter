@@ -145,8 +145,6 @@
         android:paddingBottom="@dimen/padding_normal"
         android:text="@string/settings_shake_to_roll" />
 
-    <include layout="@layout/divider" />
-
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/sw_sound_roll"
         style="@style/SwitchStyle"

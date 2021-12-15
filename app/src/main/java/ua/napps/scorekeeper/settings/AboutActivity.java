@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.settings;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -51,7 +50,6 @@ public class AboutActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
 
         ImageView cover = findViewById(R.id.cover);
-        ImageView hero = findViewById(R.id.hero_image);
         toolbar.setOnClickListener(v -> {
             Toast.makeText(this, "Привіт з України", Toast.LENGTH_SHORT).show();
             ViewUtil.shakeView(toolbarTitle, 8, 0);
@@ -60,21 +58,18 @@ public class AboutActivity extends AppCompatActivity {
             Toast.makeText(this, "Привіт з України", Toast.LENGTH_SHORT).show();
             ViewUtil.shakeView(toolbarTitle, 8, 0);
         });
-        hero.setOnClickListener(v -> ViewUtil.shakeView(v,24, 2 ));
 
-        findViewById(R.id.tv_rate_app).setOnClickListener(v -> {
+        findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
             Utilities.rateApp(this);
             LocalSettings.markRateApp();
         });
-        findViewById(R.id.tv_donation).setOnClickListener(v -> {
+        findViewById(R.id.hero_image).setOnClickListener(v -> {
             DonateDialog dialog = new DonateDialog();
             dialog.show(getSupportFragmentManager(), "donate");
         });
-        findViewById(R.id.tv_feedback).setOnClickListener(v -> Utilities.startEmail(this));
-        findViewById(R.id.tv_mypage).setOnClickListener(v -> {
-            Intent viewIntent =
-                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://n-apps.github.io/"));
-            startActivity(viewIntent);
+        findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
+            DonateDialog dialog = new DonateDialog();
+            dialog.show(getSupportFragmentManager(), "donate");
         });
 
         boolean isLightTheme = LocalSettings.isLightTheme();

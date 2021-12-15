@@ -56,7 +56,7 @@
             android:minHeight="56dp"
             android:text="@string/about_rate"
             android:textAllCaps="false"
-            android:textColor="?attr/colorOnBackground"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="@dimen/font_subheading" />
 
         <LinearLayout

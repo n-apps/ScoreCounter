@@ -13,7 +13,7 @@
     <string name="counter_details_name">Название счетчика</string>
     <string name="counter_details_step">Приращение</string>
     <string name="counter_details_value">Текущее значение</string>
-    <string name="counters_empty_message">Нажмите в любом месте, чтобы добавить счетчик или&#160;используйте + в правом верхнем углу</string>
+    <string name="counters_empty_message">Нажмите на "+" в правом верхнем углу, чтобы добавить новый счетчик</string>
     <string name="dialog_current_value_title">Текущее значение</string>
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dice_empty_state">Нажмите в любом месте или&#160;встряхните устройство, чтобы бросить кубик</string>
@@ -34,7 +34,7 @@
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать подсветку</string>
     <string name="common_got_it">Понятно</string>
-    <string name="menu_log">История</string>
+    <string name="menu_log">История (только эта сессия)</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="common_counter">Счетчик</string>
     <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему&#160;🤓</string>

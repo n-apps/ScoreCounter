@@ -13,7 +13,7 @@
     <string name="counter_details_name">Zähler Name</string>
     <string name="counter_details_step">Inkrement</string>
     <string name="counter_details_value">Aktueller Wert</string>
-    <string name="counters_empty_message">Klicke irgendwo um den ersten Zähler einzufügen oder nutze den + Knopf oben rechts</string>
+    <string name="counters_empty_message">Tippen Sie auf das "+" in der oberen rechten Ecke, um einen neuen Zähler hinzuzufügen</string>
     <string name="dialog_current_value_title">Aktueller Wert</string>
     <string name="dialog_custom_dice_title">Eigene Würfel Werte</string>
     <string name="dice_empty_state">Klicke irgendwo oder schüttel dein Gerät zum Würfeln</string>
@@ -34,7 +34,7 @@
     <string name="settings_shake_to_roll">Schütteln zum Würfeln</string>
     <string name="settings_stay_awake">Bildschirm eingeschaltet lassen</string>
     <string name="common_got_it">Verstanden</string>
-    <string name="menu_log">Geschichte</string>
+    <string name="menu_log">Geschichte (nur für diese Sitzung)</string>
     <string name="history_empty_message">Keine Geschichte</string>
     <string name="common_counter">Zähler</string>
     <string name="dialog_custom_counter_title">Schnellwechseloption</string>
