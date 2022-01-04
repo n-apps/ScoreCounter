@@ -145,6 +145,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             && Objects.equals(newCounter.getName(), oldCounter.getName())
                             && Objects.equals(newCounter.getColor(), oldCounter.getColor())
                             && Objects.equals(newCounter.getStep(), oldCounter.getStep())
+                            && Objects.equals(newCounter.getDefaultValue(), oldCounter.getDefaultValue())
                             && newCounter.getValue() == oldCounter.getValue();
                     // We don`t want to check position, because during dragging items were moved only within adapter.
                     // Position in database was changed only after the end of dragging event.
