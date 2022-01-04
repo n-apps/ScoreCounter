@@ -18,7 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs "en", "ru", "uk", "fr", "de", "es", "ro", "pl"
+        resConfigs "en", "ru", "uk", "fr", "de", "es", "ro", "pl", "pt"
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false

@@ -180,7 +180,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .content(R.string.dialog_custom_counter_title)
+                .title(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
