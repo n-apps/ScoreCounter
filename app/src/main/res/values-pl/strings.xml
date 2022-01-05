@@ -75,9 +75,10 @@
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>
-    <string name="translators">Tłumaczenie\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
+    <string name="translators">Tłumaczenie\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Gra Figurkowa</string>
     <string name="donation_xwing_description">Z oszałamiająco szczegółowymi i malowanymi miniaturami</string>
     <string name="testers">Testerzy aplikacji\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Wartości te można edytować w ustawieniach</string>
+    <string name="menu_log_subtitle">tylko ta sesja</string>
 </resources>

@@ -11,7 +11,7 @@
     <string name="counter_details_default_value">Значение после сброса</string>
     <string name="delete">Удалить</string>
     <string name="counter_details_name">Название счетчика</string>
-    <string name="counter_details_step">Приращение</string>
+    <string name="counter_details_step">Инкремент</string>
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите на "+" в правом верхнем углу, чтобы добавить новый счетчик</string>
     <string name="dialog_current_value_title">Текущее значение</string>
@@ -34,7 +34,7 @@
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать подсветку</string>
     <string name="common_got_it">Понятно</string>
-    <string name="menu_log">История (только эта сессия)</string>
+    <string name="menu_log">История</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="common_counter">Счетчик</string>
     <string name="settings_section_counter_buttons">Варианты быстрой смены значения \nВы можете быстро менять значение счетчика с помощью долгого нажатия по нему&#160;🤓</string>
@@ -44,10 +44,10 @@
     <string name="dialog_no">Нет</string>
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="donation_thank_you">Спасибо 💜</string>
-    <string name="donation_coffee_title">Хорошим горячим черным кофе</string>
-    <string name="donation_coffee_description">Чертовски горячим!</string>
+    <string name="donation_coffee_title">Хорошим черным кофе</string>
+    <string name="donation_coffee_description">И чертовски горячим!</string>
     <string name="donation_pizza_title">Вкусной пиццей</string>
-    <string name="donation_pizza_description">Томатный соус, двойная порция ветчины, сосиски, лук репчатый и сыр.</string>
+    <string name="donation_pizza_description">Томатный соус, каперсы, двойная порция ветчины и сыра</string>
     <string name="settings_sound">Звук</string>
     <string name="action_donate">Поддержать автора</string>
     <string name="error_message">Произошла ошибка.</string>
@@ -71,9 +71,10 @@
     <string name="switch_press_logic">Поменять короткое и&#160;долгое нажатие</string>
     <string name="lowest_wins_hint">Логика изменилась</string>
     <string name="common_vibrate">Вибрировать</string>
-    <string name="translators">Перевод\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
-    <string name="donation_xwing_title">Star Wars: X-Wing игра</string>
-    <string name="donation_xwing_description">Новые корабли и схемы раскраски</string>
+    <string name="translators">Перевод\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo</string>
+    <string name="donation_xwing_title">Игрой Star Wars: X-Wing</string>
+    <string name="donation_xwing_description">С новыми кораблями и схемами раскраски</string>
     <string name="testers">Тестирование\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Вы можете изменить эти значения в настройках</string>
+    <string name="menu_log_subtitle">только эта сессия</string>
 </resources>

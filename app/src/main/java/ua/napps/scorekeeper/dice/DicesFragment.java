@@ -1,7 +1,5 @@
 package ua.napps.scorekeeper.dice;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.SensorManager;
@@ -26,9 +24,9 @@ import androidx.transition.TransitionManager;
 
 import java.util.ArrayList;
 
-import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class DicesFragment extends Fragment {
 
@@ -107,7 +105,7 @@ public class DicesFragment extends Fragment {
         }
 
         springForce = new SpringForce()
-                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
+                .setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_VERY_LOW)
                 .setFinalPosition(1);
 
@@ -129,23 +127,13 @@ public class DicesFragment extends Fragment {
         int dc = LocalSettings.getDiceCount();
 
         if (diceCount != dc) {
-            ObjectAnimator bounceAnimate =
-                    ObjectAnimator.ofPropertyValuesHolder(diceVariantInfo,
-                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
-                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
-            bounceAnimate.setStartDelay(100);
-            bounceAnimate.start();
+            ViewUtil.shakeView(diceVariantInfo, 4,0);
             diceCount = dc;
             viewModel.setDiceCount(diceCount);
             diceVariantInfo.setText(diceCount + "d" + maxSide);
         }
         if (maxSide != ms) {
-            ObjectAnimator bounceAnimate =
-                    ObjectAnimator.ofPropertyValuesHolder(diceVariantInfo,
-                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
-                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
-            bounceAnimate.setStartDelay(100);
-            bounceAnimate.start();
+            ViewUtil.shakeView(diceVariantInfo, 4,0);
             maxSide = ms;
             viewModel.setDiceMaxSide(maxSide);
             diceVariantInfo.setText(diceCount + "d" + maxSide);
@@ -197,52 +185,54 @@ public class DicesFragment extends Fragment {
         if (soundRollEnabled && mp != null) {
             mp.start();
         }
-
+        if (diceCompositionTextView != null) {
+            diceCompositionTextView.setText("...");
+        }
+        diceTextView.setText("");
         updateLastRollLabel();
-        Timber.d("-------------");
-        Timber.d("previous Roll = %d", previousRoll);
-        Timber.d("current Roll = %d", previousRoll);
-        Timber.d("new Roll = %d", roll);
+
         previousRoll = roll;
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
+
         new SpringAnimation(diceTextView, DynamicAnimation.ROTATION)
                 .setSpring(springForce)
-                .setStartValue(1000f)
-                .setStartVelocity(1000)
+                .setStartValue(200f)
+                .setStartVelocity(500f)
                 .start();
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_X)
-                .setStartValue(0.5f)
-                .setSpring(springForce)
-                .start();
-        new SpringAnimation(diceTextView, DynamicAnimation.ALPHA)
-                .setStartValue(0.1f)
+                .setStartValue(-1.0f)
+                .setStartVelocity(10f)
                 .setSpring(springForce)
                 .start();
         new SpringAnimation(diceTextView, DynamicAnimation.SCALE_Y)
-                .setStartValue(0.5f)
+                .setStartValue(-1.0f)
+                .setStartVelocity(10f)
                 .setSpring(springForce)
+                .addEndListener((animation, canceled, value, velocity) -> {
+                    diceTextView.setText("" + roll);
+                    if (diceCompositionTextView == null) {
+                        return;
+                    }
+                    if (rolls.size() > 1) {
+                        StringBuilder composition = new StringBuilder();
+                        for (int i = 0; i < rolls.size(); i++) {
+                            composition.append(rolls.get(i));
+                            if (i < (rolls.size() - 1)) {
+                                composition.append(" + ");
+                            }
+                        }
+                        diceCompositionTextView.setVisibility(View.VISIBLE);
+                        diceCompositionTextView.setText(composition.toString());
+                        new SpringAnimation(diceCompositionTextView, DynamicAnimation.SCALE_X)
+                                .setStartValue(0f)
+                                .setSpring(springForce)
+                                .start();
+                    } else {
+                        diceCompositionTextView.setVisibility(View.GONE);
+                    }
+                })
                 .start();
-
-        diceTextView.setText("" + roll);
-
-        if (diceCompositionTextView == null) {
-            return;
-        }
-        if (rolls.size() > 1) {
-            StringBuilder composition = new StringBuilder();
-            for (int i = 0; i < rolls.size(); i++) {
-                composition.append(rolls.get(i));
-                if (i < (rolls.size() - 1)) {
-                    composition.append(" + ");
-                }
-            }
-            diceCompositionTextView.setText(composition.toString());
-            diceCompositionTextView.setVisibility(View.VISIBLE);
-        } else {
-            diceCompositionTextView.setVisibility(View.GONE);
-        }
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -254,11 +244,7 @@ public class DicesFragment extends Fragment {
             previousRollTextViewLabel.setVisibility(View.VISIBLE);
             previousRollTextView.setVisibility(View.VISIBLE);
             previousRollTextView.setText("" + previousRoll);
-            ObjectAnimator scaleArrowAnimator =
-                    ObjectAnimator.ofPropertyValuesHolder(previousRollTextView,
-                            PropertyValuesHolder.ofFloat("scaleX", 1.0f, 1.54f, 1.0f),
-                            PropertyValuesHolder.ofFloat("scaleY", 1.0f, 1.54f, 1.0f));
-            scaleArrowAnimator.start();
+            ViewUtil.shakeView(previousRollTextView, 4,0);
         }
     }
 

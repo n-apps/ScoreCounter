@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?attr/textAppearanceHeadline5"
         android:paddingVertical="@dimen/spacing_normal"
+        android:fontFamily="@font/icm400"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tv_item_log_time"
         app:layout_constraintStart_toStartOf="@+id/gl_keyline"
@@ -45,8 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:textAppearance="?attr/textAppearanceCaption"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_item_log_info"
+        android:fontFamily="@font/icm400"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_item_log_counter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_item_log_counter"
         tools:text="23:14:12" />

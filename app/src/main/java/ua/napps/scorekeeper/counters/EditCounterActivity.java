@@ -155,7 +155,6 @@ public class EditCounterActivity extends AppCompatActivity {
                 updateInputsColors(Color.LTGRAY);
                 btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             }
-            counterNameLayout.requestFocus();
         }
     }
 
@@ -245,7 +244,6 @@ public class EditCounterActivity extends AppCompatActivity {
                 counterDefaultValueEditText.setText(String.valueOf(c.getDefaultValue()));
                 if (!c.getName().equals(counterNameEditText.getText().toString())) {
                     counterNameEditText.setText(c.getName());
-                    counterNameEditText.setSelection(counterNameEditText.length());
                 }
                 colorSlider.selectColor(Color.parseColor(c.getColor()));
             } else {

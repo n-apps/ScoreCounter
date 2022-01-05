@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?attr/colorBackgroundFloating"
     android:paddingBottom="@dimen/padding_normal">
 
     <ImageView
@@ -35,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_large"
-            android:fontFamily="@font/btk_med"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minWidth="64dp"

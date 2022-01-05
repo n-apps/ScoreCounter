@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -188,12 +187,6 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 .input(oldValue, null, false, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {
-                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
-                    if (titleTextView != null) {
-                        titleTextView.setLines(1);
-                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
-                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-                    }
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();

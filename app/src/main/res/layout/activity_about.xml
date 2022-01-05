@@ -72,22 +72,24 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:lineSpacingMultiplier="1.26"
-                        android:paddingEnd="@dimen/padding_normal"
-                        android:text="@string/credits"
+                        android:text="@string/translators"
                         android:textAppearance="?attr/textAppearanceBody2" />
 
+
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
                             android:lineSpacingMultiplier="1.26"
-                            android:text="@string/translators"
+                            android:paddingEnd="@dimen/padding_normal"
+                            android:text="@string/credits"
                             android:textAppearance="?attr/textAppearanceBody2" />
+
 
                         <TextView
                             android:layout_width="match_parent"
@@ -116,7 +118,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
-                    android:fontFamily="@font/btk_med"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
                     android:minWidth="64dp"

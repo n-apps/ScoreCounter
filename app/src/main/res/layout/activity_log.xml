@@ -22,6 +22,7 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
+            app:subtitle="@string/menu_log_subtitle"
             app:title="@string/menu_log" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -79,12 +80,12 @@
         android:insetBottom="0dp"
         android:minWidth="128dp"
         android:minHeight="72dp"
-        android:textColor="?attr/colorSecondary"
-        app:rippleColor="@color/mtrl_on_surface_ripple_color"
         android:text="@string/common_back"
         android:textAllCaps="false"
+        android:textColor="?attr/colorSecondary"
         android:textSize="@dimen/font_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/mtrl_on_surface_ripple_color" />
 </androidx.constraintlayout.widget.ConstraintLayout>

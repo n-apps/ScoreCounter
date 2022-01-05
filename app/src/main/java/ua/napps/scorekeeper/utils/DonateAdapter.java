@@ -52,7 +52,7 @@ public class DonateAdapter extends BaseAdapter {
                 description.setText(context.getString(R.string.donation_pizza_description));
                 break;
             case 2:
-                title.setText("\uD83D\uDE80 " +context.getString(R.string.donation_xwing_title));
+                    title.setText("\uD83D\uDE80 " +context.getString(R.string.donation_xwing_title));
                 description.setText(context.getString(R.string.donation_xwing_description));
                 break;
         }

@@ -27,7 +27,7 @@
         <item name="history_picture">@drawable/empty_history_dark</item>
         <item name="colors_scheme">@array/default_color_list</item>
         <item name="materialButtonStyle">@style/MyButton</item>
-        <item name="android:textViewStyle">@style/InterTextViewStyle</item>
+        <item name="android:textViewStyle">@style/MyTextViewStyle</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
         <item name="materialButtonOutlinedStyle">@style/MaterialButtonOutlinedStyle</item>
     </style>

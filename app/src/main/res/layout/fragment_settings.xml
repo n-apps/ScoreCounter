@@ -23,12 +23,10 @@
 
         <TextView
             android:id="@+id/tv_general"
+            style="@style/SettingsSectionHeader"
+            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/section_bg"
-            android:gravity="start"
-            android:paddingHorizontal="@dimen/padding_large"
-            android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/settings_section_general" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -60,16 +58,11 @@
             android:paddingStart="@dimen/padding_large"
             android:text="@string/common_vibrate" />
 
-
         <TextView
             android:id="@+id/tv_counter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:background="@color/section_bg"
-            android:gravity="start|center_vertical"
-            android:minHeight="@dimen/button_min_height"
-            android:paddingHorizontal="@dimen/padding_large"
+            style="@style/SettingsSectionHeader"
             android:text="@string/common_counter"
             app:drawableEndCompat="@drawable/ic_help_circle"
             app:drawableTint="?colorOnBackground"
@@ -160,11 +153,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:background="@color/section_bg"
-            android:gravity="start"
-            android:paddingHorizontal="@dimen/padding_large"
-            android:paddingVertical="@dimen/spacing_normal"
+            style="@style/SettingsSectionHeader"
             android:text="@string/settings_section_actions" />
 
         <TextView
@@ -174,7 +163,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_feedback"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
@@ -184,7 +173,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/about_rate"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
@@ -194,7 +183,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/setting_help_translate"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
@@ -204,17 +193,13 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/setting_share"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
         <TextView
+            style="@style/SettingsSectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:background="@color/section_bg"
-            android:gravity="start"
-            android:paddingHorizontal="@dimen/padding_large"
-            android:paddingVertical="@dimen/spacing_normal"
             android:text="@string/app_name" />
 
         <TextView
@@ -224,7 +209,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/settings_about"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
 
@@ -235,7 +220,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/padding_large"
             android:text="@string/privacy_policy"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_planet" />
 
         <TextView
@@ -243,8 +228,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacing_large"
-            android:layout_marginBottom="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
             android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
             android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="?attr/colorSecondary"

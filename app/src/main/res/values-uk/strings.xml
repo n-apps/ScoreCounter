@@ -47,7 +47,7 @@
     <string name="donation_coffee_title">Хороша, гаряча, чорна кава</string>
     <string name="donation_coffee_description">Страшенно хороша кава!… і гаряча!</string>
     <string name="donation_pizza_title">Смачною піцою</string>
-    <string name="donation_pizza_description">З подвійним сиром, маринованими огірками та гострим салямі, будь ласка. І щоб ніяких грибів!</string>
+    <string name="donation_pizza_description">З подвійним сиром, огірками та гострим салямі. І щоб ніяких грибів!</string>
     <string name="settings_sound">Звук</string>
     <string name="action_donate">Підтримати автора</string>
     <string name="error_message">Виникла помилка.</string>
@@ -71,10 +71,11 @@
     <string name="switch_press_logic">Змінити коротке та довге натискання</string>
     <string name="lowest_wins_hint">Логіка змінилася</string>
     <string name="common_vibrate">Вібрувати</string>
-    <string name="translators">Переклад\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar</string>
+    <string name="translators">Переклад\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo</string>
     <string name="donation_xwing_title">Star Wars: гра з мініатюрами</string>
     <string name="donation_xwing_description">Новий комплект мініатюр</string>
     <string name="testers">Випадкові тестери\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Ви можете змінити ці значення у налаштуваннях</string>
+    <string name="menu_log_subtitle">тільки ця сесія</string>
 
 </resources>
