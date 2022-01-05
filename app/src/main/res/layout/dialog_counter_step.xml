@@ -124,6 +124,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="@color/btn_text_btn_bg_color_selector"
                 android:text="-"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:attr/textColorPrimary"
@@ -135,6 +136,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="@color/btn_text_btn_bg_color_selector"
                 android:text="+"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:textColorPrimary"
@@ -146,8 +148,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
-            app:boxBackgroundColor="@color/mtrl_btn_text_btn_bg_color_selector"
-            app:boxStrokeColor="@color/colorPrimary">
+            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            app:boxBackgroundColor="@color/btn_text_btn_bg_color_selector"
+            app:boxStrokeColor="@color/colorSecondary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_add_custom_value"
@@ -157,6 +160,7 @@
                 android:inputType="numberSigned"
                 android:maxLength="9"
                 android:maxLines="1"
+                android:fontFamily="@font/icm400"
                 android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"

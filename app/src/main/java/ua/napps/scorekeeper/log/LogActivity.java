@@ -2,12 +2,14 @@ package ua.napps.scorekeeper.log;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
@@ -15,6 +17,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
@@ -81,15 +85,30 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_delete) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(R.string.dialog_confirmation_question)
-                    .setPositiveButton(R.string.dialog_yes, (dialog, which) -> {
+            Typeface medium = null;
+            Typeface regular = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                medium = getResources().getFont(R.font.ptm700);
+                regular = getResources().getFont(R.font.ptm400);
+            }
+            new MaterialDialog.Builder(this)
+                    .content(R.string.dialog_confirmation_question)
+                    .onPositive((dialog, which) -> {
                         Singleton.getInstance().clearLogEntries();
                         mAdapter.notifyDataSetChanged();
                         emptyState.setVisibility(View.VISIBLE);
                     })
-                    .setNegativeButton(R.string.dialog_no, (dialog, which) -> dialog.dismiss());
-            builder.create().show();
+                    .onNegative((dialog, which) -> dialog.dismiss())
+                    .showListener(dialog1 -> {
+                        TextView content = ((MaterialDialog) dialog1).getContentView();
+                        if (content != null) {
+                            content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                        }
+                    })
+                    .typeface(medium, regular)
+                    .positiveText(R.string.dialog_yes)
+                    .negativeText(R.string.dialog_no)
+                    .show();
         }
 
         return super.onOptionsItemSelected(item);

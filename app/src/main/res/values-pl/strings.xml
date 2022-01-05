@@ -39,7 +39,7 @@
     <string name="history_empty_message">Brak historii</string>
     <string name="common_counter">Licznik</string>
     <string name="dialog_custom_counter_title">Opcja szybkiej zmiany</string>
-    <string name="settings_section_counter_buttons">Opcje do szybkiej zmiany wartości. Możesz szybko zmienić wartość licznika przytrzymując go 🤓</string>
+    <string name="settings_section_counter_buttons">Opcje do szybkiej zmiany wartości. Możesz szybko zmienić wartość licznika przytrzymując go.</string>
     <string name="dialog_confirmation_question">Jesteś pewny/a?</string>
     <string name="dialog_yes">Tak</string>
     <string name="dialog_no">Nie</string>

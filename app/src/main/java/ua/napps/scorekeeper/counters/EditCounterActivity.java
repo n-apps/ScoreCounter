@@ -4,21 +4,24 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.util.DialogUtils;
 import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
@@ -112,15 +115,29 @@ public class EditCounterActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_delete) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage(R.string.dialog_confirmation_question)
-                    .setPositiveButton(R.string.dialog_yes, (dialog, l1) -> {
+            Typeface medium = null;
+            Typeface regular = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                medium = getResources().getFont(R.font.ptm700);
+                regular = getResources().getFont(R.font.ptm400);
+            }
+            new MaterialDialog.Builder(this)
+                    .content(R.string.dialog_confirmation_question)
+                    .onPositive((dialog, which) -> {
                         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
                         viewModel.deleteCounter();
                     })
-                    .setNegativeButton(R.string.dialog_no, (dialog, l2) -> dialog.dismiss());
-            builder.create().show();
-
+                    .onNegative((dialog, which) -> dialog.dismiss())
+                    .showListener(dialog1 -> {
+                        TextView content = ((MaterialDialog) dialog1).getContentView();
+                        if (content != null) {
+                            content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                        }
+                    })
+                    .typeface(medium, regular)
+                    .positiveText(R.string.dialog_yes)
+                    .negativeText(R.string.dialog_no)
+                    .show();
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.dice;
 
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -95,12 +96,20 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                         validateAndStoreDiceSide(20);
                         break;
                     case R.id.btn_4:
+                        Typeface medium = null;
+                        Typeface regular = null;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            medium = getResources().getFont(R.font.ptm700);
+                            regular = getResources().getFont(R.font.ptm400);
+                        }
+
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .content(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
                                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                                 .alwaysCallInputCallback()
+                                .typeface(medium, regular)
                                 .showListener(dialogInterface -> {
                                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                                     if (titleTextView != null) {
@@ -142,6 +151,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                             });
                         }
                         md.show();
+                        md.getWindow().setSoftInputMode(
+                                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                         break;
                 }
             } else if (-1 == group.getCheckedButtonId()) {
@@ -161,11 +172,18 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                         validateAndStoreDiceCount(4);
                         break;
                     case R.id.btn_x4:
+                        Typeface medium = null;
+                        Typeface regular = null;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            medium = getResources().getFont(R.font.ptm700);
+                            regular = getResources().getFont(R.font.ptm400);
+                        }
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .content(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
                                 .alwaysCallInputCallback()
+                                .typeface(medium, regular)
                                 .showListener(dialogInterface -> {
                                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                                     if (titleTextView != null) {

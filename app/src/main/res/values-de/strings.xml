@@ -38,7 +38,7 @@
     <string name="history_empty_message">Keine Geschichte</string>
     <string name="common_counter">Zähler</string>
     <string name="dialog_custom_counter_title">Schnellwechseloption</string>
-    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes \nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken&#160;🤓</string>
+    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes.\nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken.</string>
     <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>

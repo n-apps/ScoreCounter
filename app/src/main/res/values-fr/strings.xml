@@ -38,7 +38,7 @@
     <string name="history_empty_message">Pas encore d\'historique</string>
     <string name="common_counter">Сompteur</string>
     <string name="dialog_custom_counter_title">Options d\'incrément rapide</string>
-    <string name="settings_section_counter_buttons">Option pour définir une liste d\'incréments pré-définis.\n\nVous pouvez mettre à jour un compteur en choisissant un incrément parmis cette liste en tappant au centre du compteur. Vous pouvez aussi changer le compteur librement en maintenant appuyé sur celui-ci 🤓</string>
+    <string name="settings_section_counter_buttons">Options permettant de modifier rapidement la valeur. Vous pouvez modifier rapidement la valeur du compteur en appuyant longuement dessus.</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>

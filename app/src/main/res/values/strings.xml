@@ -38,7 +38,7 @@
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
     <string name="dialog_custom_counter_title">Quick change option</string>
-    <string name="settings_section_counter_buttons">Options for quickly changing the value.\n\nYou can quickly change the counter value by long pressing on it.&#160;\ud83e\udd13</string>
+    <string name="settings_section_counter_buttons">Options for quickly changing the value.\n\nYou can quickly change the counter value by long pressing on it.</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>

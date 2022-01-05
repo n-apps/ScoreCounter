@@ -38,7 +38,7 @@
     <string name="history_empty_message">Niciun istoric momentan</string>
     <string name="common_counter">Contor</string>
     <string name="dialog_custom_counter_title">Optiune de modificare rapida</string>
-    <string name="settings_section_counter_buttons">Optiuni pentru modificarea rapida a valorii.\n\nApasand lung pe el, poti modifica rapid valoarea contorului 🤓</string>
+    <string name="settings_section_counter_buttons">Optiuni pentru modificarea rapida a valorii.\n\nApasand lung pe el, poti modifica rapid valoarea contorului</string>
     <string name="dialog_confirmation_question">Esti sigur?</string>
     <string name="dialog_yes">Da</string>
     <string name="dialog_no">Nu</string>

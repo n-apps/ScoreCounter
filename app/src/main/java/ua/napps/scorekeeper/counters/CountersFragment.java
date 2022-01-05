@@ -10,7 +10,9 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -35,7 +37,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -91,6 +92,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private int counterStep4;
     private SpanningLinearLayoutManager spanningLinearLayoutManager;
     private LinearLayoutManager linearLayoutManager;
+    private Typeface medium;
+    private Typeface regular;
 
     public CountersFragment() {
         // Required empty public constructor
@@ -137,6 +140,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            medium = getResources().getFont(R.font.ptm700);
+            regular = getResources().getFont(R.font.ptm400);
+        }
 
         observeData();
         return contentView;
@@ -185,18 +193,36 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 viewModel.addCounter();
                 break;
             case R.id.menu_remove_all:
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-                builder.setMessage(R.string.dialog_confirmation_question)
-                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.removeAll())
-                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss())
-                        .create().show();
+                new MaterialDialog.Builder(requireActivity())
+                        .content(R.string.dialog_confirmation_question)
+                        .onPositive((dialog, which) -> viewModel.removeAll())
+                        .onNegative((dialog, which) -> dialog.dismiss())
+                        .showListener(dialog1 -> {
+                            TextView content = ((MaterialDialog) dialog1).getContentView();
+                            if (content != null) {
+                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                            }
+                        })
+                        .typeface(medium, regular)
+                        .positiveText(R.string.dialog_yes)
+                        .negativeText(R.string.dialog_no)
+                        .show();
                 break;
             case R.id.menu_reset_all:
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(requireActivity());
-                builder2.setMessage(R.string.dialog_confirmation_question)
-                        .setPositiveButton(R.string.dialog_yes, (dialog, id) -> viewModel.resetAll())
-                        .setNegativeButton(R.string.dialog_no, (dialog, id) -> dialog.dismiss())
-                        .create().show();
+                new MaterialDialog.Builder(requireActivity())
+                        .content(R.string.dialog_confirmation_question)
+                        .onPositive((dialog, which) -> viewModel.resetAll())
+                        .onNegative((dialog, which) -> dialog.dismiss())
+                        .showListener(dialog1 -> {
+                            TextView content = ((MaterialDialog) dialog1).getContentView();
+                            if (content != null) {
+                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                            }
+                        })
+                        .typeface(medium, regular)
+                        .positiveText(R.string.dialog_yes)
+                        .negativeText(R.string.dialog_no)
+                        .show();
                 break;
             case R.id.menu_log:
                 LogActivity.start(requireActivity());
@@ -399,6 +425,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.reset)
+                .typeface(medium, regular)
                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .alwaysCallInputCallback()
                 .input("" + counter.getValue(), null, false, (dialog, input) -> {
@@ -529,7 +556,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
                 Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep3, counter.getValue()));
@@ -546,7 +572,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             vibrate();
             longClickDialog.dismiss();
         });
-
 
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
@@ -594,6 +619,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         builder.customView(contentView, false);
         builder.title(R.string.dialog_current_value_title);
+        builder.typeface(medium, regular);
         builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.getWindow().setSoftInputMode(
@@ -623,6 +649,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
+                .typeface(medium, regular)
                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();

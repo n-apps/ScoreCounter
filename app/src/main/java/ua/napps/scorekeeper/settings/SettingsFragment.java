@@ -1,6 +1,7 @@
 package ua.napps.scorekeeper.settings;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -149,14 +150,22 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 openCustomCounterDialog(4, ((TextView) v).getText());
                 break;
             case R.id.tv_counter:
+                Typeface medium = null;
+                Typeface regular = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    medium = getResources().getFont(R.font.ptm700);
+                    regular = getResources().getFont(R.font.ptm400);
+                }
+
                 new MaterialDialog.Builder(requireActivity())
                         .content(R.string.settings_section_counter_buttons)
                         .showListener(dialog1 -> {
                             TextView titleTextView = ((MaterialDialog) dialog1).getContentView();
                             if (titleTextView != null) {
-                                titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                                titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                             }
                         })
+                        .typeface(medium, regular)
                         .positiveText(R.string.common_got_it)
                         .show();
                 break;
@@ -178,12 +187,20 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
+        Typeface medium = null;
+                Typeface regular = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                    medium = getResources().getFont(R.font.ptm700);
+                    regular = getResources().getFont(R.font.icm400);
+                }
+
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.dialog_custom_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .alwaysCallInputCallback()
+                .typeface(medium, regular)
                 .input(oldValue, null, false, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {
@@ -243,6 +260,4 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                 break;
         }
     }
-
-
 }
