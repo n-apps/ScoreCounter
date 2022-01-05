@@ -41,7 +41,7 @@
         android:fontFamily="@font/icm400"
         android:gravity="center"
         android:lines="1"
-        android:paddingVertical="@dimen/spacing_xlarge"
+        android:paddingVertical="72dp"
         android:textColor="?android:textColorPrimary"
         android:textSize="80sp"
         android:visibility="invisible"
@@ -50,7 +50,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
-        tools:text="20"
+        tools:text="9999"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
@@ -109,6 +109,8 @@
         android:gravity="center"
         android:padding="@dimen/padding_normal"
         android:visibility="invisible"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:fontFamily="@font/icm400"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll"
