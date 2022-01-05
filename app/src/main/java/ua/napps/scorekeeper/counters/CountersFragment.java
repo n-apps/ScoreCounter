@@ -194,7 +194,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_remove_all:
                 new MaterialDialog.Builder(requireActivity())
-                        .content(R.string.dialog_confirmation_question)
+                        .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .showListener(dialog1 -> {
@@ -210,7 +210,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_reset_all:
                 new MaterialDialog.Builder(requireActivity())
-                        .content(R.string.dialog_confirmation_question)
+                        .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.resetAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .showListener(dialog1 -> {

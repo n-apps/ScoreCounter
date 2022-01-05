@@ -92,7 +92,7 @@ public class LogActivity extends AppCompatActivity {
                 regular = getResources().getFont(R.font.ptm400);
             }
             new MaterialDialog.Builder(this)
-                    .content(R.string.dialog_confirmation_question)
+                    .title(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
                         Singleton.getInstance().clearLogEntries();
                         mAdapter.notifyDataSetChanged();
