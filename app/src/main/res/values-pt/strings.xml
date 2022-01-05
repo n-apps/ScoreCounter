@@ -73,7 +73,6 @@
     <string name="switch_press_logic">Inverter toques curtos e longos</string>
     <string name="lowest_wins_hint">Lógica modificada</string>
     <string name="common_vibrate">Vibrar</string>
-    <string name="credits" translatable="false">Github\n☆ vabene1111\n☆ PeterCeresnik\n☆ 10matej15\n☆ drstranges\n☆ janethavi</string>
     <string name="translators">Traduções\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\udde7\ud83c\uddf7 Gustavo Araújo</string>
     <string name="testers">Testers ocasionais\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Você pode editar esses valores nas configurações</string>
