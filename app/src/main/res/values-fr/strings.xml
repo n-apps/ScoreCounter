@@ -37,8 +37,8 @@
     <string name="menu_log">Historique</string>
     <string name="history_empty_message">Pas encore d\'historique</string>
     <string name="common_counter">Сompteur</string>
-    <string name="dialog_custom_counter_title">Options d\'incrément rapide</string>
-    <string name="settings_section_counter_buttons">Options permettant de modifier rapidement la valeur. Vous pouvez modifier rapidement la valeur du compteur en appuyant longuement dessus.</string>
+    <string name="dialog_custom_counter_title">Incréments de score personnalisés</string>
+    <string name="settings_section_counter_buttons">Appuyez et maintenez une zone +/- pour utiliser un incrément de score.</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr?</string>
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
@@ -60,7 +60,7 @@
     <string name="counter_deleted">Compteur supprimé</string>
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
-    <string name="about_text">Salut ! Je suis Roma. Je suis un designer et développeur de 27 ans qui vit en Ukraine. J\'aime aussi jouer à des jeux de société. Dead of Winter et Terraforming Mars sont deux de mes préférés.\n\u3030\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\u3030\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)\n\u3030\nAimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. Je vous remercie!</string>
+    <string name="about_text">Salut ! Je suis Roma. Je suis un designer et développeur de 27 ans qui vit en Ukraine. J\'aime aussi jouer à des jeux de société. Dead of Winter et Terraforming Mars sont deux de mes préférés.\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)\nAimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. Je vous remercie!</string>
     <string name="about_donation">Faire un don</string>
     <string name="about_rate">Évaluer \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contactez moi</string>

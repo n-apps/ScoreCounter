@@ -592,6 +592,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
 
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
+        editText.setTransformationMethod(null);
         editText.requestFocus();
         editText.setOnEditorActionListener((textView, actionId, event) -> {
             if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId

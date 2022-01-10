@@ -196,7 +196,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.dialog_custom_counter_title)
-                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                 .positiveText(R.string.common_set)
                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                 .alwaysCallInputCallback()
@@ -207,6 +207,7 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
+                        inputEditText.setTransformationMethod(null);
                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }

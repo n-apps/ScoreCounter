@@ -105,7 +105,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .content(R.string.dialog_custom_dice_title)
-                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
                                 .alwaysCallInputCallback()
@@ -120,6 +120,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                                     if (inputEditText != null) {
                                         inputEditText.requestFocus();
+                                        inputEditText.setTransformationMethod(null);
                                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
                                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                                     }
@@ -180,7 +181,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                         }
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .content(R.string.dialog_custom_dice_title)
-                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .alwaysCallInputCallback()
                                 .typeface(medium, regular)
@@ -194,6 +195,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                                     if (inputEditText != null) {
                                         inputEditText.requestFocus();
+                                        inputEditText.setTransformationMethod(null);
                                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
                                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                                     }

@@ -56,28 +56,53 @@
                     android:id="@+id/content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.26"
+                    android:lineSpacingMultiplier="1.33"
                     android:text="@string/about_text"
-                    android:textAppearance="?attr/textAppearanceBody1" />
+                    android:textAppearance="?attr/textAppearanceBody2" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:layout_marginBottom="@dimen/spacing_xlarge"
+                    android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?attr/colorSecondary"
+                    tools:ignore="HardcodedText" />
                 <!--                Credits-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/spacing_large"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="0dp"
+                        android:orientation="vertical"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:lineSpacingMultiplier="1.26"
-                        android:text="@string/translators"
-                        android:textAppearance="?attr/textAppearanceBody2" />
+                        android:layout_weight="1">
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.26"
+                            android:text="@string/translators"
+                            android:textAppearance="?attr/textAppearanceBody2" />
+
+                        <ImageView
+                            android:id="@+id/hero_image"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_margin="@dimen/spacing_large"
+                            android:layout_gravity="center_horizontal"
+                            android:contentDescription="@string/app_name"
+                            android:src="@drawable/ic_hero"
+                            android:tintMode="src_in" />
+                    </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
@@ -94,7 +119,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_large"
                             android:lineSpacingMultiplier="1.26"
                             android:text="@string/testers"
                             android:textAppearance="?attr/textAppearanceBody2" />
@@ -103,14 +128,6 @@
 
                 <!--                Donate-->
 
-                <ImageView
-                    android:id="@+id/hero_image"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_hero"
-                    android:tintMode="src_in" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_donate_it"
@@ -142,6 +159,17 @@
                     android:textSize="@dimen/font_subheading" />
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:layout_marginBottom="@dimen/spacing_xlarge"
+                android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?attr/colorSecondary"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

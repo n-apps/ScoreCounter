@@ -38,8 +38,8 @@
     <string name="menu_log">Historia</string>
     <string name="history_empty_message">Brak historii</string>
     <string name="common_counter">Licznik</string>
-    <string name="dialog_custom_counter_title">Opcja szybkiej zmiany</string>
-    <string name="settings_section_counter_buttons">Opcje do szybkiej zmiany wartości. Możesz szybko zmienić wartość licznika przytrzymując go.</string>
+    <string name="dialog_custom_counter_title">Niestandardowe przyrosty punktów</string>
+    <string name="settings_section_counter_buttons">Naciśnij i przytrzymaj obszar +/-, aby użyć przyrostu punktów.</string>
     <string name="dialog_confirmation_question">Jesteś pewny/a?</string>
     <string name="dialog_yes">Tak</string>
     <string name="dialog_no">Nie</string>
@@ -69,9 +69,9 @@
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
     <string name="about_my_webpage">Moja strona</string>
     <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.
-        \n\u3030\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
-        \n\u3030\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
-        \n\u3030\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!</string>
+        \nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
+        \nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
+        \nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!</string>
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>

@@ -149,18 +149,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-2dp"
             android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
-            app:boxBackgroundColor="@color/btn_text_btn_bg_color_selector"
             app:boxStrokeColor="@color/colorSecondary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_add_custom_value"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:digits="1234567890"
+                android:fontFamily="@font/icm400"
                 android:imeOptions="actionDone"
-                android:inputType="numberSigned"
+                android:inputType="numberPassword"
                 android:maxLength="9"
                 android:maxLines="1"
-                android:fontFamily="@font/icm400"
                 android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"

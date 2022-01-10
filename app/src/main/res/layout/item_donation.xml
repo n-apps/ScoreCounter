@@ -15,6 +15,7 @@
         android:fontFamily="@font/ptm700"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableTint="?attr/colorPrimary"
         tools:text="@string/donation_pizza_title" />
 
     <TextView

@@ -38,8 +38,8 @@
     <string name="menu_log">Historial</string>
     <string name="history_empty_message">No hay historial aún</string>
     <string name="common_counter">Contador</string>
-    <string name="dialog_custom_counter_title">Opción de cambio rápido</string>
-    <string name="settings_section_counter_buttons">Puedes cambiar rápidamente el valor de los contadores con una presión prolongada en ellos.</string>
+    <string name="dialog_custom_counter_title">Incrementos de puntuación personalizados</string>
+    <string name="settings_section_counter_buttons">Mantenga pulsado un área +/- para utilizar un incremento de puntuación</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>
@@ -61,10 +61,10 @@
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>
     <string name="snackbar_action_one_more">Uno mas</string>
-    <string name="about_text">¡Hola! Soy Roma. Soy un diseñador y desarrollador de 27 años que vive en Ucrania. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\u3030\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.
-\n\u3030\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)
-\n\u3030\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.
-\n\u3030\n¡Gracias!</string>
+    <string name="about_text">¡Hola! Soy Roma. Soy un diseñador y desarrollador de 27 años que vive en Ucrania. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.
+\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)
+\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.
+\n¡Gracias!</string>
     <string name="about_donation">Hacer donación</string>
     <string name="about_rate">Soporte \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contáctame</string>

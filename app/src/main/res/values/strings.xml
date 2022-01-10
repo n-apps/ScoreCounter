@@ -37,14 +37,14 @@
     <string name="menu_log">History</string>
     <string name="history_empty_message">No history yet</string>
     <string name="common_counter">Counter</string>
-    <string name="dialog_custom_counter_title">Quick change option</string>
-    <string name="settings_section_counter_buttons">Options for quickly changing the value.\n\nYou can quickly change the counter value by long pressing on it.</string>
+    <string name="dialog_custom_counter_title">Custom score increments</string>
+    <string name="settings_section_counter_buttons">Press and hold a +/- area to use a score increments</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="donation_thank_you">Thank you 💜</string>
-    <string name="donation_coffee_title">Good, hot, black, coffee</string>
+    <string name="donation_coffee_title">Good black coffee</string>
     <string name="donation_coffee_description">Damned fine coffee… and hot!</string>
     <string name="donation_pizza_title">Tasty pizza</string>
     <string name="donation_pizza_description">With onions, double cheese and salami, please. And no mushrooms!</string>
@@ -62,7 +62,7 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n        \n\u3030\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has a terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \n\u3030\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \n\u3030\nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app. Thank you!</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app. Thank you!</string>
     <string name="about_donation">Make donation</string>
     <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contact me</string>

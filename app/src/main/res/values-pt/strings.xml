@@ -38,7 +38,7 @@
     <string name="history_empty_message">Nenhum histórico ainda</string>
     <string name="common_counter">Contador</string>
     <string name="dialog_custom_counter_title">Opção troca rápida</string>
-    <string name="settings_section_counter_buttons">Opções para rapidamente mudar o valor.\n\nVocê pode rapidamente mudar o valor de um contador pressionando-o.</string>
+    <string name="settings_section_counter_buttons">Pressione e segure uma área +/- para usar um aumento de pontuação</string>
     <string name="dialog_confirmation_question">Tem certeza?</string>
     <string name="dialog_yes">Sim</string>
     <string name="dialog_no">Não</string>
@@ -62,7 +62,7 @@
     <string name="counter_deleted">Contador removido</string>
     <string name="counter_added">Contador adicionado</string>
     <string name="snackbar_action_one_more">Mais um</string>MA
-    <string name="about_text">Oi! Meu nome é Roma, designer e desenvolvedor vivendo na Ucrânia. Eu também gosto de jogar jogos de tabuleiro. Dead of Winter e Terraforming Mars são dois dos meus preferidos\n        \n\u3030\nA ideia de criar um aplicativo para contar pontos de vitória veio à minha mente enquanto jogava Stars&#160;Realms (que tem fichas horríveis). Desde então eu venho desenvolvendo este aplicativo no meu tempo livre. Eu fico muito grato com cada nova avaliação, email ou doação\n        \n\u3030\nSe você quiser compartilhar qualquer coisa ou uma tradução equivocada, sinta-se à vontade para entrar em contato. Todo mundo tem ideias legais. Ou só me diga o que você está contando.&#160;:)\n        \n\u3030\nSe você gostou do app, por favor deixe sua avaliação&#160;ou faça uma doação isso&#160;me anima e me ajuda a melhorar o app.\n\nObrigado!</string>
+    <string name="about_text">Oi! Meu nome é Roma, designer e desenvolvedor vivendo na Ucrânia. Eu também gosto de jogar jogos de tabuleiro. Dead of Winter e Terraforming Mars são dois dos meus preferidos\n        \nA ideia de criar um aplicativo para contar pontos de vitória veio à minha mente enquanto jogava Stars&#160;Realms (que tem fichas horríveis). Desde então eu venho desenvolvendo este aplicativo no meu tempo livre. Eu fico muito grato com cada nova avaliação, email ou doação\n        \nSe você quiser compartilhar qualquer coisa ou uma tradução equivocada, sinta-se à vontade para entrar em contato. Todo mundo tem ideias legais. Ou só me diga o que você está contando.&#160;:)\n        \nSe você gostou do app, por favor deixe sua avaliação&#160;ou faça uma doação isso&#160;me anima e me ajuda a melhorar o app.\n\nObrigado!</string>
     <string name="about_donation">Faça uma doação</string>
     <string name="about_rate">Avalie \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Entre em contato</string>

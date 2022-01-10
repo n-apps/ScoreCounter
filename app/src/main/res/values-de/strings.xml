@@ -37,8 +37,8 @@
     <string name="menu_log">Geschichte</string>
     <string name="history_empty_message">Keine Geschichte</string>
     <string name="common_counter">Zähler</string>
-    <string name="dialog_custom_counter_title">Schnellwechseloption</string>
-    <string name="settings_section_counter_buttons">Optionen zur schnellen Änderung des Wertes.\nSie können den Zählerwert schnell ändern, indem Sie ihn lange drücken.</string>
+    <string name="dialog_custom_counter_title">Benutzerdefinierte Punktestufen</string>
+    <string name="settings_section_counter_buttons">Drücken und halten Sie einen +/- Bereich, um eine Punktzahlerhöhung zu verwenden</string>
     <string name="dialog_confirmation_question">Bist du sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
@@ -60,7 +60,7 @@
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch eins</string>
-    <string name="about_text">Hallo! Ich bin Roma, ein Designer und Entwickler aus der Ukraine. Ich spiele auch gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\u3030\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\n\u3030\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\n\u3030\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\nSorry für schlechtes Deutsch \ud83d\ude2c</string>
+    <string name="about_text">Hallo! Ich bin Roma, ein Designer und Entwickler aus der Ukraine. Ich spiele auch gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\nSorry für schlechtes Deutsch \ud83d\ude2c</string>
     <string name="about_donation">Spenden Sie</string>
     <string name="about_rate">Unterstützung \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Kontaktiere mich</string>
