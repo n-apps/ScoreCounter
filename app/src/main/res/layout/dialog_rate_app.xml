@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="?attr/colorBackgroundFloating"
     android:paddingBottom="@dimen/padding_normal">
@@ -32,16 +33,15 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_donate_it"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_large"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:minWidth="64dp"
             android:minHeight="56dp"
+            app:strokeColor="@color/colorPrimary"
             android:text="@string/about_donation"
-            android:textAllCaps="false"
             android:textSize="@dimen/font_title" />
 
         <com.google.android.material.button.MaterialButton
@@ -52,11 +52,9 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:minWidth="64dp"
             android:minHeight="56dp"
             android:text="@string/about_rate"
-            android:textAllCaps="false"
-            android:textColor="?attr/colorOnSurface"
+            android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_subheading" />
 
         <LinearLayout
@@ -77,7 +75,7 @@
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorPrimary" />
 
-            <Space
+            <android.widget.Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />

@@ -15,12 +15,11 @@
         android:layout_marginHorizontal="@dimen/spacing_big"
         app:selectionRequired="true"
         app:singleSelection="true"
-        tools:background="@color/section_bg"
         tools:layout_height="48dp">
 
         <Button
             android:id="@+id/btn_x1"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -32,7 +31,7 @@
 
         <Button
             android:id="@+id/btn_x2"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -44,7 +43,7 @@
 
         <Button
             android:id="@+id/btn_x3"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,13 +55,13 @@
 
         <Button
             android:id="@+id/btn_x4"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/ptm700"
             android:text="X"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="?colorSecondary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -90,12 +89,11 @@
         android:layout_marginHorizontal="@dimen/spacing_big"
         app:selectionRequired="true"
         app:singleSelection="true"
-        tools:background="@color/section_bg"
         tools:layout_height="48dp">
 
         <Button
             android:id="@+id/btn_1"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -107,7 +105,7 @@
 
         <Button
             android:id="@+id/btn_2"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -119,7 +117,7 @@
 
         <Button
             android:id="@+id/btn_3"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -131,40 +129,81 @@
 
         <Button
             android:id="@+id/btn_4"
-            style="?attr/materialButtonOutlinedStyle"
+            style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/ptm700"
             android:text="dX"
-            android:textColor="?android:textColorPrimary"
+            android:textColor="?colorSecondary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/sw_shake_roll"
-        style="@style/SwitchStyle"
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:fontFamily="@font/ptm700"
-        android:minHeight="56dp"
-        android:paddingStart="@dimen/padding_normal"
-        android:paddingTop="@dimen/padding_normal"
-        android:paddingBottom="@dimen/padding_normal"
-        android:text="@string/settings_shake_to_roll" />
+        android:layout_marginTop="@dimen/spacing_large" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/sw_sound_roll"
-        style="@style/SwitchStyle"
+    <RelativeLayout
+        android:id="@+id/settings_shake"
+        style="@style/TwoLinesStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/ptm700"
-        android:minHeight="56dp"
-        android:paddingStart="@dimen/padding_normal"
-        android:paddingTop="@dimen/padding_normal"
-        android:paddingBottom="@dimen/padding_normal"
-        android:text="@string/settings_sound" />
+        android:layout_marginTop="@dimen/spacing_large">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_shake_to_roll"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_shake_to_roll"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_shake_to_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimaryVariant" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_sound"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_sound"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_sound"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimaryVariant" />
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <dimen name="button_icon_size">24dp</dimen>
-    <dimen name="button_min_height">36dp</dimen>
     <dimen name="counter_max_text_size">164sp</dimen>
     <dimen name="counter_min_text_size">12sp</dimen>
     <dimen name="empty_state_max_width">256dp</dimen>
     <dimen name="empty_state_icon_size">180dp</dimen>
     <dimen name="font_body">14sp</dimen>
-    <dimen name="font_button">15sp</dimen>
     <dimen name="font_display">24sp</dimen>
     <dimen name="font_subheading">17sp</dimen>
     <dimen name="font_title">20sp</dimen>

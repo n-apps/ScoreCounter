@@ -18,11 +18,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.bitvale.switcher.SwitcherX;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
@@ -31,22 +31,28 @@ import org.jetbrains.annotations.NotNull;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Utilities;
+import ua.napps.scorekeeper.utils.ViewUtil;
 
-public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
+public class DiceBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
     private DialogInterface.OnDismissListener onDismissListener;
+    private SwitcherX shakeToRoll;
+    private SwitcherX soundRoll;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View contentView = inflater.inflate(R.layout.fragment_dice_sheet, container, false);
-        SwitchCompat shakeToRoll = contentView.findViewById(R.id.sw_shake_roll);
-        shakeToRoll.setOnCheckedChangeListener((b, isChecked) -> LocalSettings.saveShakeToRoll(isChecked));
-        shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled());
+        shakeToRoll = contentView.findViewById(R.id.sw_shake_to_roll);
+        shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled(), false);
+        shakeToRoll.setClickable(false);
 
-        SwitchCompat soundRoll = contentView.findViewById(R.id.sw_sound_roll);
-        soundRoll.setOnCheckedChangeListener((b, isChecked) -> LocalSettings.saveSoundRoll(isChecked));
-        soundRoll.setChecked(LocalSettings.isSoundRollEnabled());
+        soundRoll = contentView.findViewById(R.id.sw_sound);
+        soundRoll.setChecked(LocalSettings.isSoundRollEnabled(), false);
+        soundRoll.setClickable(false);
+
+        contentView.findViewById(R.id.settings_sound).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_shake).setOnClickListener(this);
 
         MaterialButtonToggleGroup diceSidesGroup = contentView.findViewById(R.id.dice_sides_group);
         MaterialButtonToggleGroup diceCountGroup = contentView.findViewById(R.id.dice_count_group);
@@ -104,7 +110,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                         }
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                .content(R.string.dialog_custom_dice_title)
+                                .title(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
@@ -137,6 +143,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                         if (side > 0) {
                                             validateAndStoreDiceSide(side);
                                         }
+                                        ((Button)group.findViewById(checkedId)).setText("D" + side);
                                         dialog.dismiss();
                                     }
                                 })
@@ -180,7 +187,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                             regular = getResources().getFont(R.font.ptm400);
                         }
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                .content(R.string.dialog_custom_dice_title)
+                                .title(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .alwaysCallInputCallback()
@@ -211,7 +218,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
                                         Integer side = Utilities.parseInt(editText.getText().toString(), diceCount);
                                         if (side > 0) {
                                             validateAndStoreDiceCount(side);
-                                            ((Button) diceCountGroup.findViewById(R.id.btn_x4)).setText("" + side);
+                                            ((Button)group.findViewById(checkedId)).setText("" + side);
                                         }
                                         dialog.dismiss();
                                     }
@@ -261,6 +268,25 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment {
     private void validateAndStoreDiceCount(int diceCount) {
         if (diceCount <= 100) {
             LocalSettings.saveDiceCount(diceCount);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.settings_sound:
+                boolean newStateSound = !soundRoll.isChecked();
+                LocalSettings.saveSoundRoll(newStateSound);
+                soundRoll.setChecked(newStateSound, true);
+                break;
+            case R.id.settings_shake:
+                boolean newStateShake = !shakeToRoll.isChecked();
+                LocalSettings.saveSoundRoll(newStateShake);
+                shakeToRoll.setChecked(newStateShake, true);
+                if (newStateShake) {
+                    ViewUtil.shakeView(v, 2, 0);
+                }
+                break;
         }
     }
 }

@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.lifecycle.ViewModelProvider;
@@ -58,11 +57,10 @@ public class EditCounterActivity extends AppCompatActivity {
     private ColorSlider colorSlider;
 
     public static void start(Activity activity, Counter counter) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
         Intent intent = new Intent(activity, EditCounterActivity.class);
         intent.putExtra(ARGUMENT_COUNTER_ID, counter.getId());
         intent.putExtra(ARGUMENT_COUNTER_COLOR, counter.getColor());
-        activity.startActivity(intent, options.toBundle());
+        activity.startActivity(intent);
     }
 
     @Override

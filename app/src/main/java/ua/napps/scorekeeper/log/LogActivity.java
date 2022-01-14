@@ -13,7 +13,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,9 +30,8 @@ public class LogActivity extends AppCompatActivity {
     private Group emptyState;
 
     public static void start(Activity activity) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
         Intent intent = new Intent(activity, LogActivity.class);
-        activity.startActivity(intent, options.toBundle());
+        activity.startActivity(intent);
     }
 
     @Override

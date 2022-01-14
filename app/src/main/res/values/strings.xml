@@ -62,14 +62,13 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app. Thank you!</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app.\n\nThank you!</string>
     <string name="about_donation">Make donation</string>
     <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contact me</string>
     <string name="settings_about">About me</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Help translate</string>
-    <string name="about_my_webpage">My web page</string>
     <string name="switch_press_logic">Swap short and long press</string>
     <string name="lowest_wins_hint">Logic changed</string>
     <string name="common_vibrate">Vibrate</string>

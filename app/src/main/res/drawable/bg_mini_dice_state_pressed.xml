@@ -6,7 +6,7 @@
         android:bottomRightRadius="2dp"
         android:topLeftRadius="2dp"
         android:topRightRadius="2dp" />
-    <solid android:color="@color/overlay" />
+    <solid android:color="@color/btn_text_btn_bg_color_selector" />
     <stroke
         android:width="2dp"
         android:color="?colorSecondary" />

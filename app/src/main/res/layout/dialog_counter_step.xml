@@ -98,7 +98,9 @@
         app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform" />
 
-    <include layout="@layout/divider" />
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -128,6 +130,7 @@
                 android:text="-"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:attr/textColorPrimary"
+                app:rippleColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
 
             <com.google.android.material.button.MaterialButton
@@ -140,6 +143,7 @@
                 android:text="+"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:textColorPrimary"
+                app:rippleColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
 

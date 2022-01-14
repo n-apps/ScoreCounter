@@ -11,6 +11,7 @@
         <item name="colorError">@color/colorError</item>
         <item name="colorOnError">@color/colorOnError</item>
         <item name="colorSurface">@color/primaryBackground</item>
+        <item name="rippleColor">@color/rippleColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
@@ -21,7 +22,7 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
         <item name="android:forceDarkAllowed">false</item>
 
-        <item name="myIconTint">@color/section_bg</item>
+        <item name="myIconTint">@color/textColorSecondary</item>
         <item name="plus_picture">@drawable/empty_counters_dark</item>
         <item name="dice_picture">@drawable/empty_dice_dark</item>
         <item name="history_picture">@drawable/empty_history_dark</item>
@@ -31,6 +32,11 @@
         <item name="materialButtonOutlinedStyle">@style/MaterialButtonOutlinedStyle</item>
 
         <item name="md_content_color">@color/textColorPrimary</item>
+        <item name="md_widget_color">@color/colorPrimary</item>
+        <item name="md_negative_color">@color/colorPrimary</item>
+        <item name="md_positive_color">@color/colorPrimary</item>
+        <item name="md_neutral_color">@color/colorSecondary</item>
+        <item name="md_btn_ripple_color">@color/rippleColor</item>
     </style>
 
     <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
@@ -42,5 +48,6 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
+
 
 </resources>

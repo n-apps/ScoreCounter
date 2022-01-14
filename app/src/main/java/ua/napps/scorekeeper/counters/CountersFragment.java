@@ -421,7 +421,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSetValueDialog(Counter counter, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .content(counter.getName() + " | " + counter.getValue())
+                .title(counter.getName() + " | " + counter.getValue())
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.reset)
@@ -646,7 +646,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void onNameClick(Counter counter) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .content(R.string.counter_details_name)
+                .title(R.string.counter_details_name)
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)

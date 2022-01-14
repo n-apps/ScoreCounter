@@ -82,10 +82,8 @@
         android:minHeight="72dp"
         android:text="@string/common_back"
         android:textAllCaps="false"
-        android:textColor="?attr/colorSecondary"
         android:textSize="@dimen/font_title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:rippleColor="@color/mtrl_on_surface_ripple_color" />
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

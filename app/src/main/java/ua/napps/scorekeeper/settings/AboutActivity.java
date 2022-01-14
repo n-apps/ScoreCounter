@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityOptionsCompat;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
@@ -23,9 +22,8 @@ public class AboutActivity extends AppCompatActivity {
     private TextView toolbarTitle;
 
     public static void start(Activity activity) {
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity);
         Intent intent = new Intent(activity, AboutActivity.class);
-        activity.startActivity(intent, options.toBundle());
+        activity.startActivity(intent);
     }
 
     @Override

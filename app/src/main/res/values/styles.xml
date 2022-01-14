@@ -11,6 +11,7 @@
         <item name="colorError">@color/colorError</item>
         <item name="colorOnError">@color/colorOnError</item>
         <item name="colorSurface">@color/primaryBackground</item>
+        <item name="rippleColor">@color/rippleColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
@@ -33,6 +34,11 @@
         <item name="bottomNavigationStyle">@style/BottomNavigationStyle</item>
 
         <item name="md_content_color">@color/textColorPrimary</item>
+        <item name="md_widget_color">@color/colorPrimary</item>
+        <item name="md_negative_color">@color/colorPrimary</item>
+        <item name="md_positive_color">@color/colorPrimary</item>
+        <item name="md_neutral_color">@color/colorSecondary</item>
+        <item name="md_btn_ripple_color">@color/rippleColor</item>
     </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
@@ -47,9 +53,9 @@
     <style name="TwoLinesStyle">
         <item name="android:foreground">@drawable/ripple</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:fontFamily">@font/ptm400</item>
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
-        <item name="android:paddingEnd">@dimen/padding_normal</item>
+        <item name="android:paddingStart">@dimen/padding_large</item>
+        <item name="android:paddingEnd">@dimen/padding_large</item>
     </style>
 
     <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
@@ -104,12 +110,12 @@
     </style>
 
     <style name="MaterialButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">?colorSecondary</item>
+        <item name="strokeColor">?colorPrimary</item>
         <item name="strokeWidth">2dp</item>
         <item name="android:padding">@dimen/padding_normal</item>
-        <item name="android:textColor">?colorSecondary</item>
+        <item name="android:textColor">?colorPrimary</item>
         <item name="backgroundTint">@color/outline_button_selector</item>
-        <item name="rippleColor">@color/overlay</item>
+        <item name="rippleColor">@color/rippleColor</item>
         <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
@@ -124,17 +130,29 @@
 
     <style name="SettingsSectionHeader">
         <item name="android:layout_marginTop">@dimen/spacing_normal</item>
-        <item name="android:background">@color/section_bg</item>
+        <item name="android:background">@color/sectionHeader</item>
         <item name="android:fontFamily">@font/ptm700</item>
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:paddingStart">@dimen/padding_large</item>
         <item name="android:paddingEnd">@dimen/padding_large</item>
-        <item name="android:paddingTop">@dimen/spacing_normal</item>
-        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+        <item name="android:minHeight">@dimen/list_single_line_min_height</item>
     </style>
 
     <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
         <item name="colorControlActivated">@color/colorSecondary</item>
+    </style>
+
+    <style name="BottomNavThem" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+    </style>
+
+    <style name="DiceButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">?colorSecondary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:padding">@dimen/padding_normal</item>
+        <item name="android:textColor">?colorSecondary</item>
+        <item name="backgroundTint">@color/outline_button_selector</item>
+        <item name="rippleColor">@color/btn_text_btn_bg_color_selector</item>
     </style>
 
 </resources>

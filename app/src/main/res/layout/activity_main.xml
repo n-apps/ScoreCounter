@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:elevation="0dp"
-        app:itemBackground="?attr/colorSurface"
-        app:itemRippleColor="@color/btn_text_btn_bg_color_selector"
+        android:theme="@style/BottomNavThem"
+        app:itemRippleColor="@color/rippleColor"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_navigation_menu" />
 

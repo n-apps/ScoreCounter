@@ -13,18 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.util.DialogUtils;
+import com.bitvale.switcher.SwitcherX;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
@@ -33,9 +32,13 @@ import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 
-public class SettingsFragment extends Fragment implements CompoundButton.OnCheckedChangeListener, View.OnClickListener {
+public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private SwitcherX keepScreenOn;
+    private SwitcherX darkTheme;
+    private SwitcherX vibrate;
+    private SwitcherX pressLogic;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -49,35 +52,37 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
-        SwitchCompat keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
-        SwitchCompat darkTheme = contentView.findViewById(R.id.sw_dark_theme);
-        SwitchCompat vibrate = contentView.findViewById(R.id.sw_switch_vibrate);
-        SwitchCompat pressLogic = contentView.findViewById(R.id.sw_swap_press);
-
+        keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
+        darkTheme = contentView.findViewById(R.id.sw_dark_theme);
+        vibrate = contentView.findViewById(R.id.sw_vibrate);
+        pressLogic = contentView.findViewById(R.id.sw_swap_press);
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
         btn_c_3 = contentView.findViewById(R.id.btn_3_text);
         btn_c_4 = contentView.findViewById(R.id.btn_4_text);
 
-        keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled());
-        darkTheme.setChecked(!LocalSettings.isLightTheme());
-        vibrate.setChecked(LocalSettings.isCountersVibrate());
-        pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled());
-
-        keepScreenOn.setOnCheckedChangeListener(this);
-        darkTheme.setOnCheckedChangeListener(this);
-        vibrate.setOnCheckedChangeListener(this);
-        pressLogic.setOnCheckedChangeListener(this);
-
+        contentView.findViewById(R.id.iv_donate).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_keep_screen_on).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_dark_theme).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_swap_press).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_vibrate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
-        contentView.findViewById(R.id.iv_donate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_counter).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
         contentView.findViewById(R.id.tv_easter).setOnClickListener(this);
+
+        keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled(), false);
+        keepScreenOn.setClickable(false);
+        darkTheme.setChecked(!LocalSettings.isLightTheme(), false);
+        darkTheme.setClickable(false);
+        vibrate.setChecked(LocalSettings.isCountersVibrate(), false);
+        vibrate.setClickable(false);
+        pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled(), false);
+        pressLogic.setClickable(false);
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
@@ -90,36 +95,38 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
         btn_c_4.setText(String.valueOf(LocalSettings.getCustomCounter(4)));
 
         if (Utilities.hasQ()) {
-            darkTheme.setVisibility(View.GONE);
+            contentView.findViewById(R.id.settings_dark_theme).setVisibility(View.GONE);
         }
 
         return contentView;
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton v, boolean enabled) {
+    public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.sw_keep_screen_on:
-                LocalSettings.saveKeepScreenOn(enabled);
+            case R.id.settings_keep_screen_on:
+                boolean newStateKeepScreenOn = !keepScreenOn.isChecked();
+                LocalSettings.saveKeepScreenOn(newStateKeepScreenOn);
+                keepScreenOn.setChecked(newStateKeepScreenOn, true);
                 break;
-            case R.id.sw_dark_theme:
-                LocalSettings.saveDarkTheme(enabled);
+            case R.id.settings_dark_theme:
+                boolean newStateDarkTheme = !darkTheme.isChecked();
+                LocalSettings.saveDarkTheme(newStateDarkTheme);
+                darkTheme.setChecked(newStateDarkTheme, true);
                 break;
-            case R.id.sw_swap_press:
-                LocalSettings.saveSwapPressLogic(enabled);
-                break;
-            case R.id.sw_switch_vibrate:
-                LocalSettings.saveCountersVibrate(enabled);
-                if (enabled) {
+            case R.id.settings_vibrate:
+                boolean newStateVibrate = !vibrate.isChecked();
+                LocalSettings.saveCountersVibrate(newStateVibrate);
+                vibrate.setChecked(newStateVibrate, true);
+                if (newStateVibrate) {
                     ViewUtil.shakeView(v, 2, 0);
                 }
                 break;
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+            case R.id.settings_swap_press:
+                boolean newStateSwapPress = !pressLogic.isChecked();
+                LocalSettings.saveSwapPressLogic(newStateSwapPress);
+                pressLogic.setChecked(newStateSwapPress, true);
+                break;
             case R.id.tv_request_feature:
             case R.id.tv_help_translate:
                 Utilities.startEmail(requireContext());
@@ -188,11 +195,11 @@ public class SettingsFragment extends Fragment implements CompoundButton.OnCheck
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
         Typeface medium = null;
-                Typeface regular = null;
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    medium = getResources().getFont(R.font.ptm700);
-                    regular = getResources().getFont(R.font.icm400);
-                }
+        Typeface regular = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            medium = getResources().getFont(R.font.ptm700);
+            regular = getResources().getFont(R.font.icm400);
+        }
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.dialog_custom_counter_title)

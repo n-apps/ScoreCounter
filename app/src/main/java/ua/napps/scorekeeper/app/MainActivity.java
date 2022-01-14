@@ -80,10 +80,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     if (currentDiceRoll > 0) {
                         BadgeDrawable badge = bottomNavigationBar.getOrCreateBadge(R.id.dices);
                         badge.setVisible(true);
-                        int primary = ContextCompat.getColor(this, R.color.colorPrimary);
-                        int textOnPrimary = ContextCompat.getColor(this, R.color.colorOnPrimary);
+                        int primary = ContextCompat.getColor(this, R.color.colorSecondary);
                         badge.setBackgroundColor(primary);
-                        badge.setBadgeTextColor(textOnPrimary);
                         badge.setNumber(currentDiceRoll);
                     } else {
                         hideDiceBadge();

@@ -24,45 +24,110 @@
         <TextView
             android:id="@+id/tv_general"
             style="@style/SettingsSectionHeader"
-            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
             android:text="@string/settings_section_general" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_keep_screen_on"
-            style="@style/SwitchStyle"
+        <RelativeLayout
+            android:id="@+id/settings_keep_screen_on"
+            style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/settings_stay_awake" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/list_two_lines_min_height"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/sw_keep_screen_on"
+                android:fontFamily="@font/ptm700"
+                android:gravity="center_vertical"
+                android:text="@string/settings_stay_awake"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <com.bitvale.switcher.SwitcherX
+                android:id="@+id/sw_keep_screen_on"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:focusable="false"
+                app:elevation="0dp"
+                app:switcher_icon_color="?attr/colorOnSecondary"
+                app:switcher_off_color="?android:textColorHint"
+                app:switcher_on_color="?attr/colorPrimaryVariant"
+                tools:checked="false" />
+
+        </RelativeLayout>
 
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_dark_theme"
-            style="@style/SwitchStyle"
+        <RelativeLayout
+            android:id="@+id/settings_dark_theme"
+            style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/settings_dark_theme" />
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:minHeight="@dimen/list_two_lines_min_height"
+                android:layout_toStartOf="@+id/sw_dark_theme"
+                android:fontFamily="@font/ptm700"
+                android:gravity="center_vertical"
+                android:text="@string/settings_dark_theme"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_switch_vibrate"
-            style="@style/SwitchStyle"
+            <com.bitvale.switcher.SwitcherX
+                android:id="@+id/sw_dark_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:elevation="0dp"
+                app:switcher_icon_color="?attr/colorOnSecondary"
+                app:switcher_off_color="?android:textColorHint"
+                app:switcher_on_color="?attr/colorPrimaryVariant" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_vibrate"
+            style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/common_vibrate" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/sw_vibrate"
+                android:fontFamily="@font/ptm700"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/list_two_lines_min_height"
+                android:text="@string/common_vibrate"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <com.bitvale.switcher.SwitcherX
+                android:id="@+id/sw_vibrate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:elevation="0dp"
+                app:switcher_icon_color="?attr/colorOnSecondary"
+                app:switcher_off_color="?android:textColorHint"
+                app:switcher_on_color="?attr/colorPrimaryVariant" />
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_counter"
+            style="@style/SettingsSectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/SettingsSectionHeader"
             android:text="@string/common_counter"
             app:drawableEndCompat="@drawable/ic_help_circle"
             app:drawableTint="?colorOnBackground"
@@ -81,7 +146,8 @@
                 android:layout_marginEnd="@dimen/spacing_large"
                 android:layout_weight="1"
                 android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toggle">
+                android:background="@drawable/bg_selector_mini_dice_toggle"
+                android:foreground="@drawable/ripple">
 
                 <TextView
                     android:id="@+id/btn_1_text"
@@ -140,28 +206,50 @@
             </ua.napps.scorekeeper.utils.SquareFrameLayout>
         </LinearLayout>
 
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/sw_swap_press"
-            style="@style/SwitchStyle"
+        <RelativeLayout
+            android:id="@+id/settings_swap_press"
+            style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingStart="@dimen/padding_large"
-            android:text="@string/switch_press_logic" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/sw_swap_press"
+                android:minHeight="@dimen/list_two_lines_min_height"
+
+                android:fontFamily="@font/ptm700"
+                android:gravity="center_vertical"
+                android:text="@string/switch_press_logic"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <com.bitvale.switcher.SwitcherX
+                android:id="@+id/sw_swap_press"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:elevation="0dp"
+                app:switcher_icon_color="?attr/colorOnSecondary"
+                app:switcher_off_color="?android:textColorHint"
+                app:switcher_on_color="?attr/colorPrimaryVariant" />
+
+        </RelativeLayout>
 
         <TextView
+            style="@style/SettingsSectionHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/SettingsSectionHeader"
             android:text="@string/settings_section_actions" />
 
         <TextView
             android:id="@+id/tv_request_feature"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
+            android:fontFamily="@font/ptm700"
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -171,7 +259,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:fontFamily="@font/ptm700"
             android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -181,7 +270,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:fontFamily="@font/ptm700"
             android:text="@string/setting_help_translate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -191,7 +281,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/setting_share"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -207,7 +298,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_about"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -217,10 +309,10 @@
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/padding_large"
             android:text="@string/privacy_policy"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
             app:drawableEndCompat="@drawable/ic_planet" />
 
         <TextView
@@ -231,8 +323,8 @@
             android:layout_marginTop="@dimen/spacing_xlarge"
             android:layout_marginBottom="@dimen/spacing_xlarge"
             android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?attr/colorSecondary"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="?attr/colorPrimaryVariant"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

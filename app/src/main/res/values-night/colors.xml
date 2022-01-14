@@ -12,5 +12,6 @@
     <color name="textColorSecondary">#DEFFFFFF</color>
     <color name="textColorHint">#89FFFFFF</color>
     <color name="primaryBackground">#121212</color>
-    <color name="section_bg">#959595</color>
+    <color name="rippleColor">#0D08A396</color>
+    <color name="sectionHeader">#aaa</color>
 </resources>

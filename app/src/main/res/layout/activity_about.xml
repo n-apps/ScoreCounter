@@ -67,20 +67,22 @@
                     android:layout_marginTop="@dimen/spacing_xlarge"
                     android:layout_marginBottom="@dimen/spacing_xlarge"
                     android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?attr/colorSecondary"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="?attr/colorPrimaryVariant"
                     tools:ignore="HardcodedText" />
+
                 <!--                Credits-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:orientation="vertical"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -93,8 +95,8 @@
                             android:id="@+id/hero_image"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:layout_margin="@dimen/spacing_large"
                             android:layout_gravity="center_horizontal"
+                            android:layout_margin="@dimen/spacing_large"
                             android:contentDescription="@string/app_name"
                             android:src="@drawable/ic_hero"
                             android:tintMode="src_in" />
@@ -102,8 +104,8 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
@@ -131,14 +133,14 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_donate_it"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
-                    android:minWidth="64dp"
                     android:minHeight="56dp"
+                    app:strokeColor="@color/colorPrimary"
                     android:text="@string/about_donation"
                     android:textAllCaps="false"
                     android:textSize="@dimen/font_title" />
@@ -151,7 +153,6 @@
                     android:layout_marginTop="@dimen/spacing_large"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
-                    android:minWidth="64dp"
                     android:minHeight="56dp"
                     android:text="@string/about_rate"
                     android:textAllCaps="false"
@@ -167,8 +168,8 @@
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
                 android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?attr/colorSecondary"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorPrimaryVariant"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
