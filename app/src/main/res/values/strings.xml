@@ -18,7 +18,8 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">If you like this app, please leave a&#160;review or make a&#160;donation – it cheers me up and helps me improve the app.\n\nThanks!</string>
+    <string name="erd_message">I decided to let this app 100% free and without ads. If you’d like to support,
+        please consider making a small donation.\n\nThanks!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_remind_me_later">Not now</string>
     <string name="error_no_email_client">No email app on your device :(</string>
@@ -43,7 +44,7 @@
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
     <string name="privacy_policy">Privacy policy</string>
-    <string name="donation_thank_you">Thank you 💜</string>
+    <string name="donation_thank_you">Thank you very much for your support \u2665</string>
     <string name="donation_coffee_title">Good black coffee</string>
     <string name="donation_coffee_description">Damned fine coffee… and hot!</string>
     <string name="donation_pizza_title">Tasty pizza</string>
@@ -51,7 +52,7 @@
     <string name="donation_xwing_title">Star Wars Miniatures</string>
     <string name="donation_xwing_description">New X-Wing miniatures and new paint schemes</string>
     <string name="settings_sound">Sound</string>
-    <string name="action_donate">Donate</string>
+    <string name="action_donate">Help me keep app ad-free</string>
     <string name="error_message">Sorry, there seems to have been an error.</string>
     <string name="save">Save</string>
     <string name="common_more">More</string>
@@ -62,8 +63,9 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I also like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create an app for counting victory points came to my head during a Stars&#160;Realms game (it has terrible tokens). Since then I\'ve been developing this app in my spare time. I\'m very happy for every new review, email or donation.\n        \nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n        \nIf you like this app, please leave a review or&#160;make a donation - it&#160;cheers me up and helps me improve the app.\n\nThank you!</string>
-    <string name="about_donation">Make donation</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create this app came to my head during a Stars&#160;Realms games (it has terrible tokens). I then decided to develop this mobile app on my free time. Every new review, email or donation makes me happy.\n\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\nI decided to let this app 100% free and without ads. If you’d like to support,
+        please consider making a small donation via button below. Thanks!</string>
+    <string name="about_donation">Buy me a coffee</string>
     <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contact me</string>
     <string name="settings_about">About me</string>

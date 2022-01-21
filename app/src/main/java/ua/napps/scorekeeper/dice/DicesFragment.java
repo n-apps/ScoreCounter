@@ -105,7 +105,7 @@ public class DicesFragment extends Fragment {
         }
 
         springForce = new SpringForce()
-                .setDampingRatio(SpringForce.DAMPING_RATIO_HIGH_BOUNCY)
+                .setDampingRatio(SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY)
                 .setStiffness(SpringForce.STIFFNESS_VERY_LOW)
                 .setFinalPosition(1);
 
@@ -224,10 +224,6 @@ public class DicesFragment extends Fragment {
                         }
                         diceCompositionTextView.setVisibility(View.VISIBLE);
                         diceCompositionTextView.setText(composition.toString());
-                        new SpringAnimation(diceCompositionTextView, DynamicAnimation.SCALE_X)
-                                .setStartValue(0f)
-                                .setSpring(springForce)
-                                .start();
                     } else {
                         diceCompositionTextView.setVisibility(View.GONE);
                     }
