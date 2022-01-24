@@ -11,13 +11,12 @@ import java.util.Date;
 
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.app.App;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class RateMyAppDialog {
 
-    private static final String KEY_FIRST_HIT_DATE = "KEY_FIRST_HIT_DATE";
-    private static final String KEY_LAUNCH_TIMES = "KEY_LAUNCH_TIMES";
+    public static final int MIM_LAUNCH_TIMES = 5;
+    public static final int MIN_DAYS = 5;
 
     private final FragmentActivity context;
     private Dialog dialog;
@@ -29,8 +28,8 @@ public class RateMyAppDialog {
     public void onStart() {
         if (didRate() || didNeverReminder()) return;
 
-        int launchTimes = App.getTinyDB().getInt(KEY_LAUNCH_TIMES, 0);
-        long firstDate = App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, -1L);
+        int launchTimes = LocalSettings.getAppLaunchTimes();
+        long firstDate = LocalSettings.getFirstHitDate();
 
         if (firstDate == -1L) {
             registerDate();
@@ -85,20 +84,20 @@ public class RateMyAppDialog {
     private boolean shouldShow() {
         if (didRate() || didNeverReminder()) return false;
 
-        int launchTimes = App.getTinyDB().getInt(KEY_LAUNCH_TIMES, 0);
-        long firstDate = App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, 0L);
+        int launchTimes = LocalSettings.getAppLaunchTimes();
+        long firstDate = LocalSettings.getFirstHitDate();
         long today = new Date().getTime();
 
-        return daysBetween(firstDate, today) > 14 || launchTimes > 18;
+        return daysBetween(firstDate, today) > MIN_DAYS || launchTimes > MIM_LAUNCH_TIMES;
     }
 
     private void registerHitCount(int hitCount) {
-        App.getTinyDB().putInt(KEY_LAUNCH_TIMES, hitCount);
+        LocalSettings.saveAppLaunchTimes(hitCount);
     }
 
     private void registerDate() {
         Date today = new Date();
-        App.getTinyDB().putLong(KEY_FIRST_HIT_DATE, today.getTime());
+       LocalSettings.saveFirstHitDate(today.getTime());
     }
 
     private long daysBetween(long firstDate, long lastDate) {

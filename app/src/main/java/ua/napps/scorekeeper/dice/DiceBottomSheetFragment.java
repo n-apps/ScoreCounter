@@ -281,7 +281,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 break;
             case R.id.settings_shake:
                 boolean newStateShake = !shakeToRoll.isChecked();
-                LocalSettings.saveSoundRoll(newStateShake);
+                LocalSettings.saveShakeToRoll(newStateShake);
                 shakeToRoll.setChecked(newStateShake, true);
                 if (newStateShake) {
                     ViewUtil.shakeView(v, 2, 0);

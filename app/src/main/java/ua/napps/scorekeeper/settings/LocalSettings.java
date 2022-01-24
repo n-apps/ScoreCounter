@@ -11,10 +11,14 @@ public class LocalSettings {
     private static final String DICE_MAX_SIDE = "dice_max_side";
     private static final String DICE_COUNT = "dice_count";
     private static final String SOUND_ROLL = "sound_roll";
-    private static final String KEY_WAS_RATED = "KEY_WAS_RATED";
-    private static final String KEY_NEVER_REMINDER = "KEY_NEVER_REMINDER";
+
     private static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
     private static final String IS_SWAP_PRESS_LOGIC = "is_swap_press_logic";
+
+    private static final String KEY_FIRST_HIT_DATE = "key_first_hit_date";
+    private static final String KEY_LAUNCH_TIMES = "key_launch_times";
+    private static final String KEY_WAS_RATED = "key_was_rated";
+    private static final String KEY_NEVER_REMINDER = "key_never_reminder";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
     private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
@@ -77,6 +81,22 @@ public class LocalSettings {
         return App.getTinyDB().getBoolean(KEY_WAS_RATED, false);
     }
 
+    public static int getAppLaunchTimes() {
+        return App.getTinyDB().getInt(KEY_LAUNCH_TIMES, 0);
+    }
+
+    public static void saveAppLaunchTimes(int hitCount) {
+        App.getTinyDB().putInt(KEY_LAUNCH_TIMES, hitCount);
+    }
+
+    public static long getFirstHitDate() {
+        return App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, -1L);
+    }
+
+    public static void saveFirstHitDate(long hitCount) {
+        App.getTinyDB().putLong(KEY_FIRST_HIT_DATE, hitCount);
+    }
+
     public static boolean didNeverReminder() {
         return App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false);
     }
@@ -136,7 +156,7 @@ public class LocalSettings {
     }
 
     public static void saveSwapPressLogic(boolean incrementByOneTap) {
-         App.getTinyDB().putBoolean(IS_SWAP_PRESS_LOGIC, incrementByOneTap);
+        App.getTinyDB().putBoolean(IS_SWAP_PRESS_LOGIC, incrementByOneTap);
     }
 
     public static boolean isSwapPressLogicEnabled() {
