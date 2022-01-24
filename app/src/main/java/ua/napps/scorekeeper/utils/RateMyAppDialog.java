@@ -88,7 +88,7 @@ public class RateMyAppDialog {
         long firstDate = LocalSettings.getFirstHitDate();
         long today = new Date().getTime();
 
-        return daysBetween(firstDate, today) > MIN_DAYS || launchTimes > MIM_LAUNCH_TIMES;
+        return daysBetween(firstDate, today) > MIN_DAYS && launchTimes > MIM_LAUNCH_TIMES;
     }
 
     private void registerHitCount(int hitCount) {
@@ -97,7 +97,7 @@ public class RateMyAppDialog {
 
     private void registerDate() {
         Date today = new Date();
-       LocalSettings.saveFirstHitDate(today.getTime());
+        LocalSettings.saveFirstHitDate(today.getTime());
     }
 
     private long daysBetween(long firstDate, long lastDate) {
