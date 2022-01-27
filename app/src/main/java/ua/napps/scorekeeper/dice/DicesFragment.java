@@ -127,13 +127,17 @@ public class DicesFragment extends Fragment {
         int dc = LocalSettings.getDiceCount();
 
         if (diceCount != dc) {
-            ViewUtil.shakeView(diceVariantInfo, 4,0);
+            ViewUtil.shakeView(diceVariantInfo, 4, 0);
             diceCount = dc;
             viewModel.setDiceCount(diceCount);
             diceVariantInfo.setText(diceCount + "d" + maxSide);
+
+            if (diceCount < 2) {
+                diceCompositionTextView.setVisibility(View.INVISIBLE);
+            }
         }
         if (maxSide != ms) {
-            ViewUtil.shakeView(diceVariantInfo, 4,0);
+            ViewUtil.shakeView(diceVariantInfo, 4, 0);
             maxSide = ms;
             viewModel.setDiceMaxSide(maxSide);
             diceVariantInfo.setText(diceCount + "d" + maxSide);
@@ -147,7 +151,6 @@ public class DicesFragment extends Fragment {
             }
         }
     }
-
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -185,13 +188,9 @@ public class DicesFragment extends Fragment {
         if (soundRollEnabled && mp != null) {
             mp.start();
         }
-        if (diceCompositionTextView != null) {
-            diceCompositionTextView.setText("...");
-        }
+        updateCompositionLabel(rolls, true);
         diceTextView.setText("");
-        updateLastRollLabel();
-
-        previousRoll = roll;
+        updateLastRoll(roll);
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
 
@@ -211,28 +210,31 @@ public class DicesFragment extends Fragment {
                 .setSpring(springForce)
                 .addEndListener((animation, canceled, value, velocity) -> {
                     diceTextView.setText("" + roll);
-                    if (diceCompositionTextView == null) {
-                        return;
-                    }
-                    if (rolls.size() > 1) {
-                        StringBuilder composition = new StringBuilder();
-                        for (int i = 0; i < rolls.size(); i++) {
-                            composition.append(rolls.get(i));
-                            if (i < (rolls.size() - 1)) {
-                                composition.append(" + ");
-                            }
-                        }
-                        diceCompositionTextView.setVisibility(View.VISIBLE);
-                        diceCompositionTextView.setText(composition.toString());
-                    } else {
-                        diceCompositionTextView.setVisibility(View.GONE);
-                    }
+                    updateCompositionLabel(rolls, false);
                 })
                 .start();
     }
 
+    private void updateCompositionLabel(ArrayList<Integer> rolls, boolean rollInProgress) {
+        if (rolls.size() > 1) {
+            StringBuilder composition = new StringBuilder();
+            for (int i = 0; i < rolls.size(); i++) {
+                composition.append(rollInProgress ? "\u274f" : rolls.get(i));
+                if (i < (rolls.size() - 1)) {
+                    composition.append(" + ");
+                }
+            }
+            diceCompositionTextView.setText(composition);
+            diceCompositionTextView.setVisibility(View.VISIBLE);
+        } else {
+            diceCompositionTextView.setText("");
+            diceCompositionTextView.setVisibility(View.INVISIBLE);
+        }
+    }
+
     @SuppressLint("SetTextI18n")
-    private void updateLastRollLabel() {
+    private void updateLastRoll(int newLastRoll) {
+
         TransitionManager.beginDelayedTransition(root);
         emptyStateGroup.setVisibility(View.GONE);
         diceTextView.setVisibility(View.VISIBLE);
@@ -240,8 +242,10 @@ public class DicesFragment extends Fragment {
             previousRollTextViewLabel.setVisibility(View.VISIBLE);
             previousRollTextView.setVisibility(View.VISIBLE);
             previousRollTextView.setText("" + previousRoll);
-            ViewUtil.shakeView(previousRollTextView, 4,0);
+            ViewUtil.shakeView(previousRollTextView, 4, 0);
         }
+
+        previousRoll = newLastRoll;
     }
 
     private void observeData() {
@@ -252,7 +256,7 @@ public class DicesFragment extends Fragment {
             if (roll != null && roll > 0) {
                 rollDice(roll, diceLiveData.getRolls());
             } else if (currentRoll > 0) {
-                updateLastRollLabel();
+                updateLastRoll(currentRoll);
                 diceTextView.setText("" + currentRoll);
             }
         });

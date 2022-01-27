@@ -45,10 +45,10 @@
     <string name="dialog_no">No</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="donation_thank_you">Thank you very much for your support \u2665</string>
-    <string name="donation_coffee_title">Good black coffee</string>
+    <string name="donation_coffee_title">Good Black Coffee</string>
     <string name="donation_coffee_description">Damned fine coffee… and hot!</string>
-    <string name="donation_pizza_title">Tasty pizza</string>
-    <string name="donation_pizza_description">With onions, double cheese and salami, please. And no mushrooms!</string>
+    <string name="donation_pizza_title">Best Pizza Near Me</string>
+    <string name="donation_pizza_description">A sweet and spicy taste bud adventure.</string>
     <string name="donation_xwing_title">Star Wars Miniatures</string>
     <string name="donation_xwing_description">New X-Wing miniatures and new paint schemes</string>
     <string name="settings_sound">Sound</string>
