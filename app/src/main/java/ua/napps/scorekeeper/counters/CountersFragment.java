@@ -9,9 +9,11 @@ import static ua.napps.scorekeeper.counters.CountersAdapter.MODE_SET_VALUE;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -180,7 +182,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.counters_menu, menu);
 
-        MenuItem item = menu.getItem(3);
+        MenuItem item = menu.getItem(4);
         SpannableString s = new SpannableString(item.getTitle().toString());
         s.setSpan(new ForegroundColorSpan(Color.argb(255, 255, 79, 94)), 0, s.length(), 0);
         item.setTitle(s);
@@ -226,6 +228,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_log:
                 LogActivity.start(requireActivity());
+                break;
+            case R.id.menu_elektu:
+                Intent viewIntent =
+                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://jbellue.github.io/elektu/"));
+                startActivity(viewIntent);
                 break;
         }
         return true;

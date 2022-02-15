@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    tools:ignore="TouchTargetSizeCheck"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
 
     <LinearLayout
@@ -12,14 +13,24 @@
         android:orientation="vertical"
         android:paddingBottom="@dimen/spacing_xlarge">
 
-        <ImageView
-            android:id="@+id/iv_donate"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="404px"
-            android:alpha=".9"
-            android:contentDescription="@string/action_donate"
-            android:scaleType="centerCrop"
-            android:src="@drawable/support" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_donate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:contentDescription="@string/action_donate"
+                android:scaleType="centerCrop"
+                android:src="@drawable/support"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1024:408"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_general"
@@ -38,11 +49,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/list_two_lines_min_height"
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/sw_keep_screen_on"
                 android:fontFamily="@font/ptm700"
                 android:gravity="center_vertical"
+                android:minHeight="@dimen/list_two_lines_min_height"
                 android:text="@string/settings_stay_awake"
                 android:textAppearance="?attr/textAppearanceSubtitle1" />
 
@@ -73,10 +84,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:minHeight="@dimen/list_two_lines_min_height"
                 android:layout_toStartOf="@+id/sw_dark_theme"
                 android:fontFamily="@font/ptm700"
                 android:gravity="center_vertical"
+                android:minHeight="@dimen/list_two_lines_min_height"
                 android:text="@string/settings_dark_theme"
                 android:textAppearance="?attr/textAppearanceSubtitle1" />
 
@@ -217,10 +228,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/sw_swap_press"
-                android:minHeight="@dimen/list_two_lines_min_height"
-
                 android:fontFamily="@font/ptm700"
+
                 android:gravity="center_vertical"
+                android:minHeight="@dimen/list_two_lines_min_height"
                 android:text="@string/switch_press_logic"
                 android:textAppearance="?attr/textAppearanceSubtitle1" />
 
@@ -247,9 +258,9 @@
             android:id="@+id/tv_request_feature"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -259,8 +270,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -270,8 +281,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/setting_help_translate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
@@ -309,8 +320,8 @@
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/privacy_policy"
             android:textAppearance="?attr/textAppearanceSubtitle2"
             app:drawableEndCompat="@drawable/ic_planet" />

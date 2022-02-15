@@ -66,8 +66,7 @@
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
     <string name="about_donation">Doneaza</string>
-    <string name="about_text">Bună! Sunt rom. Sunt un designer și dezvoltator de 27 de ani, care locuiește în Ucraina. De asemenea, îmi place să joc jocuri de masă. Dead of Winter și Terraforming Mars sunt două dintre preferatele mele.
-        \nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc. Multumesc!</string>
+    <string name="about_text">Bună! Sunt rom. Sunt un designer și dezvoltator de 27 de ani, care locuiește în Ucraina&#160;\ud83c\uddfa\ud83c\udde6. De asemenea, îmi place să joc jocuri de masă. Dead of Winter și Terraforming Mars sunt două dintre preferatele mele.\n\nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\n\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\n\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc.\n\nMultumesc!</string>
     <string name="switch_press_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="lowest_wins_hint">Logica a fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
@@ -77,4 +76,5 @@
     <string name="testers">Testeri\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Puteți edita aceste valori în setările</string>
     <string name="menu_log_subtitle">doar această sesiune</string>
+    <string name="menu_elektu">Cine începe?</string>
 </resources>

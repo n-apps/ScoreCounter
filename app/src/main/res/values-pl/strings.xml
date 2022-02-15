@@ -67,10 +67,7 @@
     <string name="settings_about">O mnie</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.
-        \nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.
-        \nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)
-        \nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. Dziękuję!</string>
+    <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie&#160;\ud83c\uddfa\ud83c\udde6. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.\n\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.\n\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)\n\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. \n\nDziękuję!</string>
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>
@@ -80,4 +77,5 @@
     <string name="testers">Testerzy aplikacji\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Wartości te można edytować w ustawieniach</string>
     <string name="menu_log_subtitle">tylko ta sesja</string>
+    <string name="menu_elektu">Kto pierwszy?</string>
 </resources>

@@ -63,8 +63,7 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create this app came to my head during a Stars&#160;Realms games (it has terrible tokens). I then decided to develop this mobile app on my free time. Every new review, email or donation makes me happy.\n\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\nI decided to let this app 100% free and without ads. If you’d like to support,
-        please consider making a small donation via button below. Thanks!</string>
+    <string name="about_text">Hi! I am Roma, designer and developer based in Ukraine&#160;\ud83c\uddfa\ud83c\udde6. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create this app came to my head during a Stars&#160;Realms games (it has terrible tokens). I then decided to develop this mobile app on my free time. Every new review, email or donation makes me happy.\n\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\nI decided to let this app 100% free and without ads. If you’d like to support, please consider making a small donation via button below.\n\nThanks!</string>
     <string name="about_donation">Buy me a coffee</string>
     <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contact me</string>
@@ -79,4 +78,5 @@
     <string name="testers">Occasional testers\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">You can edit these values in the settings</string>
     <string name="menu_log_subtitle">session-only</string>
+    <string name="menu_elektu">Who goes first?</string>
 </resources>

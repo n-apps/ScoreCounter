@@ -58,6 +58,7 @@
         <activity
             android:name=".settings.AboutActivity"
             android:forceDarkAllowed="false"
+            android:theme="@style/AppTheme.NoActionAndStatusBar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".log.LogActivity"

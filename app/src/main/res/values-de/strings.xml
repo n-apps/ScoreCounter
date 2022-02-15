@@ -60,7 +60,7 @@
     <string name="counter_deleted">Zähler gelöscht</string>
     <string name="counter_added">Hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch eins</string>
-    <string name="about_text">Hallo! Ich bin Roma, ein Designer und Entwickler aus der Ukraine. Ich spiele auch gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\nSorry für schlechtes Deutsch \ud83d\ude2c</string>
+    <string name="about_text">Hallo! Ich bin Roma, ein Designer und Entwickler aus der Ukraine&#160;\ud83c\uddfa\ud83c\udde6. Ich spiele auch gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\nDie Idee, eine App zum Zählen von Siegpunkten zu erstellen, kam mir während des Spiels in Stars&#160;Realms in den Sinn (es hat schreckliche Token). Seitdem habe ich diese App in meiner Freizeit entwickelt. Ich freue mich über jede neue Bewertung, E-Mail oder Spende.\n\nWenn Sie etwas zu teilen haben oder eine unordentliche Übersetzung gefunden haben, können Sie sich gerne an uns wenden. Jeder hat coole Ideen. Oder sag mir einfach was du zählst&#160;:)\nGefällt dir die app Bewerten Sie es oder spenden Sie - es hilft, es zu verbessern. Vielen Dank!\n\nSorry für schlechtes Deutsch \ud83d\ude2c</string>
     <string name="about_donation">Spenden Sie</string>
     <string name="about_rate">Unterstützung \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Kontaktiere mich</string>
@@ -76,4 +76,5 @@
     <string name="testers">Gelegentliche Tester\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Sie können diese Werte in den Einstellungen bearbeiten</string>
     <string name="menu_log_subtitle">nur für diese Sitzung</string>
+    <string name="menu_elektu">Wer ist zuerst dran?</string>
 </resources>
