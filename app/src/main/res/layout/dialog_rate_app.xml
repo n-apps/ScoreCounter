@@ -7,18 +7,30 @@
     android:background="?attr/colorBackgroundFloating"
     android:paddingBottom="@dimen/padding_normal">
 
-    <ImageView
-        android:id="@+id/iv_donate"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="156dp"
-        android:scaleType="fitStart"
-        android:contentDescription="@string/action_donate"
-        android:src="@drawable/support" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_donate"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="@string/action_donate"
+            android:scaleType="centerCrop"
+            android:src="@drawable/support"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1024:408"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="@dimen/padding_normal"
         android:paddingLeft="@dimen/padding_large"
         android:paddingRight="@dimen/padding_large">
 
