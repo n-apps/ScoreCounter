@@ -315,7 +315,6 @@
             android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_arrow_right" />
 
-
         <TextView
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
