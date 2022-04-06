@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#12A373</color>
-    <color name="colorPrimaryVariant">#005E5E</color>
+    <color name="colorPrimary">#17B5A0</color>
+    <color name="colorPrimaryVariant">#118878</color>
     <color name="colorOnPrimary">#fff</color>
-    <color name="colorSecondary">#8C7CF0</color>
-    <color name="colorSecondaryVariant">#9842EB</color>
+    <color name="colorSecondary">#AF83E2</color>
+    <color name="colorSecondaryVariant">#9559D9</color>
     <color name="colorOnSecondary">#fff</color>
     <color name="colorError">#FF4F5E</color>
     <color name="colorOnError">#ffffff</color>
@@ -13,5 +13,5 @@
     <color name="textColorHint">#89FFFFFF</color>
     <color name="primaryBackground">#121212</color>
     <color name="rippleColor">#0D08A396</color>
-    <color name="sectionHeader">#aaa</color>
+    <color name="sectionHeader">#6B6B6B</color>
 </resources>

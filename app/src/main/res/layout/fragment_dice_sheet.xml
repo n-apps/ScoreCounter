@@ -172,7 +172,7 @@
             app:elevation="0dp"
             app:switcher_icon_color="?attr/colorOnSecondary"
             app:switcher_off_color="?android:textColorHint"
-            app:switcher_on_color="?attr/colorPrimaryVariant" />
+            app:switcher_on_color="?attr/colorPrimary" />
 
     </RelativeLayout>
 
@@ -202,7 +202,7 @@
             app:elevation="0dp"
             app:switcher_icon_color="?attr/colorOnSecondary"
             app:switcher_off_color="?android:textColorHint"
-            app:switcher_on_color="?attr/colorPrimaryVariant" />
+            app:switcher_on_color="?attr/colorPrimary" />
 
     </RelativeLayout>
 
