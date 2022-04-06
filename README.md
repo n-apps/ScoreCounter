@@ -18,10 +18,10 @@ px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 *  Works for big numbers
 *  Open sourced
 
-[<img src="https://user-images.githubusercontent.com/16646251/162061121-57e1b490-0593-4cfd-821e-42897e2a9b79.jpg" width=240>]()
-[<img src="https://user-images.githubusercontent.com/16646251/162061126-c957679f-df54-42b7-a83a-1680f1293c4a.jpg" width=240>]()
-[<img src="https://user-images.githubusercontent.com/16646251/162061129-eb9cdb6f-e4c1-4259-ac9d-b2c36eac3456.jpg" width=240>]()
-[<img src="https://user-images.githubusercontent.com/16646251/162061422-0506fdc9-2287-4d51-8b46-9fa47df24b08.jpg" width=240>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061121-57e1b490-0593-4cfd-821e-42897e2a9b79.jpg" width=250>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061126-c957679f-df54-42b7-a83a-1680f1293c4a.jpg" width=250>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061129-eb9cdb6f-e4c1-4259-ac9d-b2c36eac3456.jpg" width=250>]()
+
 
 If you like this app, please leave feedback or make a donation – this will boost my mood and will help improve the app. If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. Thank you! #StandWithUkraine
 
@@ -51,3 +51,6 @@ With Android Studio open any of the `string.xml` files in the `res\values` direc
 **Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
 
 If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/app/src/main/res/values/strings.xml) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
+
+
+[<img src="https://user-images.githubusercontent.com/16646251/162062124-cf86c14d-7a15-4565-8f6f-81d011861c05.jpg" width=250>]()
