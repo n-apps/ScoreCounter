@@ -2,7 +2,7 @@
 #### About
 Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
 
-[<img width=760 src="https://user-images.githubusercontent.com/16646251/146039858-865f614a-a773-4c89-b967-7262d1126dc6.png" style="float: left; padding-right: 10
+[<img width=760 src="https://user-images.githubusercontent.com/16646251/162060725-1378c29f-4ce6-4467-ae7c-59315c1ecd27.jpg" style="float: left; padding-right: 10
 px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 #### Key features
@@ -18,15 +18,17 @@ px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 *  Works for big numbers
 *  Open sourced
 
-[<img src="https://play-lh.googleusercontent.com/22qjCfwppjUYUqcOmaYw0T3WEthlYYYJnCPgaqdvZVGzUI0ggd3iyvTmlWk2UL-EcA=w4096-h2134" width=250>]()
-[<img src="https://play-lh.googleusercontent.com/do8VnBuMdzCRs4pbG_FY11WHbkSR_c1H2BcNknU3Be2q3KABXInQmwTqMTSlz0DiJq1c=w4096-h2134" width=250>]()
-[<img src="https://play-lh.googleusercontent.com/NA85YCtSkVvbdh0OYv-k9SQwdSm3dCZHqM_Fvs_xIoDt4tOvZ044p-hSbLzeEGKg_HA=w4096-h2134" width=250>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061121-57e1b490-0593-4cfd-821e-42897e2a9b79.jpg" width=240>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061126-c957679f-df54-42b7-a83a-1680f1293c4a.jpg" width=240>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061129-eb9cdb6f-e4c1-4259-ac9d-b2c36eac3456.jpg" width=240>]()
+[<img src="https://user-images.githubusercontent.com/16646251/162061422-0506fdc9-2287-4d51-8b46-9fa47df24b08.jpg" width=240>]()
 
+If you like this app, please leave feedback or make a donation – this will boost my mood and will help improve the app. If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. Thank you! #StandWithUkraine
 
-If you like this app, please leave feedback or make a donation – this will boost my mood and will help improve the app. If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. Thank you!
 
 ## Contribution
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
+
 
 #### Development
 
