@@ -18,9 +18,11 @@ bin/
 gen/
 out/
 
+
 # Gradle files
 .gradle/
 build/
+android/.gradle/
 
 # Local configuration file (sdk path, etc)
 local.properties
