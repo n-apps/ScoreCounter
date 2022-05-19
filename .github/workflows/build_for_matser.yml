@@ -25,7 +25,9 @@ jobs:
       run: chmod +x ./gradlew
 
     - name: Build debug apk
-      run: ./gradlew clean assembleDebug
+      run: |
+          echo -e "storeFile=\"storeFile\"\nstorePassword=\"storePassword\"\nkeyAlias=\"keyAlias\"\nkeyPassword=\"keyPassword\"" > keystore.properties
+          bash ./gradlew detektDebugUnitTest testDebugUnitTest --stacktrace
 
     - name: Create release and upload apk
       uses: underwindfall/create-release-with-debugapk@v2.0.0
