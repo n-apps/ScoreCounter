@@ -4,69 +4,135 @@
 
 import 'package:flutter/material.dart';
 
-class _Colors {
-  static const colorPrimary = Color(0xFF17B5A0);
-  static const colorPrimaryVariant = Color(0xFF118878);
-  static const colorOnPrimary = Color(0xFF000000);
-  static const colorSecondary = Color(0xFF9559D9);
-  static const colorSecondaryVariant = Color(0xFF6B2AB5);
-  static const colorOnSecondary = Color(0xFFffffff);
-  static const colorError = Color(0xFFFF4F5E);
-  static const colorOnError = Color(0xFFffffff);
-  static const textColorPrimary = Color(0xde000000);
-  static const textColorSecondary = Color(0x89000000);
-  static const textColorHint = Color(0x42000000);
-  static const primaryBackground = Color(0xffffffff);
-  static const rippleColor = Color(0x0D08A396);
-  static const sectionHeader = Color(0xffdddddd);
+//@formatter:off
+abstract class _Colors {
+  Color get colorPrimary;
+  Color get colorPrimaryVariant;
+  Color get colorOnPrimary;
+  Color get colorSecondary;
+  Color get colorSecondaryVariant;
+  Color get colorOnSecondary;
+  Color get colorError;
+  Color get colorOnError;
+  Color get textColorPrimary;
+  Color get textColorSecondary;
+  Color get textColorHint;
+  Color get primaryBackground;
+  Color get rippleColor;
+  Color get sectionHeader;
+}
+//@formatter:on
+
+class _ColorsDay extends _Colors {
+  @override
+  final colorPrimary = const Color(0xFF17B5A0);
+  @override
+  final colorPrimaryVariant = const Color(0xFF118878);
+  @override
+  final colorOnPrimary = const Color(0xFF000000);
+  @override
+  final colorSecondary = const Color(0xFF9559D9);
+  @override
+  final colorSecondaryVariant = const Color(0xFF6B2AB5);
+  @override
+  final colorOnSecondary = const Color(0xFFffffff);
+  @override
+  final colorError = const Color(0xFFFF4F5E);
+  @override
+  final colorOnError = const Color(0xFFffffff);
+  @override
+  final textColorPrimary = const Color(0xde000000);
+  @override
+  final textColorSecondary = const Color(0x89000000);
+  @override
+  final textColorHint = const Color(0x42000000);
+  @override
+  final primaryBackground = const Color(0xffffffff);
+  @override
+  final rippleColor = const Color(0x0D08A396);
+  @override
+  final sectionHeader = const Color(0xffdddddd);
 }
 
-class _ColorsNight {
-  static const colorPrimary = Color(0xFF17B5A0);
-  static const colorPrimaryVariant = Color(0xFF118878);
-  static const colorOnPrimary = Color(0xFFffffff);
-  static const colorSecondary = Color(0xFFAF83E2);
-  static const colorSecondaryVariant = Color(0xFF9559D9);
-  static const colorOnSecondary = Color(0xFFffffff);
-  static const colorError = Color(0xFFFF4F5E);
-  static const colorOnError = Color(0xFFffffff);
-  static const textColorPrimary = Color(0xFFFFFFFF);
-  static const textColorSecondary = Color(0xDEFFFFFF);
-  static const textColorHint = Color(0x89FFFFFF);
-  static const primaryBackground = Color(0xff121212);
-  static const rippleColor = Color(0x0D08A396);
-  static const sectionHeader = Color(0xff6B6B6B);
+class _ColorsNight extends _Colors {
+  @override
+  final colorPrimary = const Color(0xFF17B5A0);
+  @override
+  final colorPrimaryVariant = const Color(0xFF118878);
+  @override
+  final colorOnPrimary = const Color(0xFFffffff);
+  @override
+  final colorSecondary = const Color(0xFFAF83E2);
+  @override
+  final colorSecondaryVariant = const Color(0xFF9559D9);
+  @override
+  final colorOnSecondary = const Color(0xFFffffff);
+  @override
+  final colorError = const Color(0xFFFF4F5E);
+  @override
+  final colorOnError = const Color(0xFFffffff);
+  @override
+  final textColorPrimary = const Color(0xFFFFFFFF);
+  @override
+  final textColorSecondary = const Color(0xDEFFFFFF);
+  @override
+  final textColorHint = const Color(0x89FFFFFF);
+  @override
+  final primaryBackground = const Color(0xff121212);
+  @override
+  final rippleColor = const Color(0x0D08A396);
+  @override
+  final sectionHeader = const Color(0xff6B6B6B);
 }
 
 class AppTheme {
-  static final themeLight = ThemeData(
-    useMaterial3: true,
-    brightness: Brightness.light,
-    primaryColor: _Colors.colorPrimary,
-    errorColor: _Colors.colorError,
-    splashColor: _Colors.rippleColor,
-    textTheme: const TextTheme(),
-  );
 
-  static final _brandThemeLight = BrandThemeData(
-    text: BrandTextThemeData(_Colors.textColorPrimary),
-  );
+  static ThemeData? theme;
+  static BrandThemeData? brandTheme;
 
-  static final themeDark = ThemeData(
-    useMaterial3: true,
-    brightness: Brightness.dark,
-    primaryColor: _ColorsNight.colorPrimary,
-  );
+  static ThemeData getTheme(Brightness brightness) {
+    if (theme?.brightness != brightness) {
+      final colors = brightness == Brightness.light
+          ? _ColorsDay()
+          : _ColorsNight();
+      theme = ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: colors.primaryBackground,
+        primaryColor: colors.colorPrimary,
+        errorColor: colors.colorError,
+        splashColor: colors.rippleColor,
+        textTheme: const TextTheme(),
+      );
+    }
+    return theme!;
+  }
 
-  static final _brandThemeDark = BrandThemeData(
-    text: BrandTextThemeData(_ColorsNight.textColorPrimary),
-  );
+  static BrandThemeData getBrandTheme(Brightness brightness) {
+    if (brandTheme?.brightness != brightness) {
+      final colors = brightness == Brightness.light
+          ? _ColorsDay()
+          : _ColorsNight();
+      brandTheme = BrandThemeData(
+        brightness: brightness,
+        text: BrandTextThemeData(colors.textColorPrimary),
+      );
+    }
+    return brandTheme!;
+  }
+}
+
+
+extension BrandThemeDataExt on ThemeData {
+  BrandThemeData get brand => AppTheme.getBrandTheme(brightness);
 }
 
 class BrandThemeData {
+  final Brightness brightness;
   final BrandTextThemeData text;
 
   const BrandThemeData({
+    required this.brightness,
     required this.text,
   });
 }
@@ -83,11 +149,11 @@ class BrandTextThemeData {
 
   BrandTextThemeData(Color textPrimaryColor)
       : h1 = TextStyle(
-          color: textPrimaryColor,
-          fontSize: 30,
-          fontWeight: FontWeight.w700,
-          height: 1.3,
-        ),
+    color: textPrimaryColor,
+    fontSize: 30,
+    fontWeight: FontWeight.w700,
+    height: 1.3,
+  ),
         h2 = TextStyle(
           color: textPrimaryColor,
           fontSize: 24,
@@ -130,10 +196,4 @@ class BrandTextThemeData {
           fontWeight: FontWeight.w400,
           height: 1.3,
         );
-}
-
-extension BrandThemeDataExt on ThemeData {
-  BrandThemeData get brand => brightness == Brightness.light
-      ? AppTheme._brandThemeLight
-      : AppTheme._brandThemeDark;
 }
