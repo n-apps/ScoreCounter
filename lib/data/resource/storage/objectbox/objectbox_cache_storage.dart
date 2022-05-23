@@ -8,8 +8,8 @@ import 'dart:convert';
 import 'package:score_counter/data/service/logger.dart';
 import 'package:score_counter/data/resource/cache_storage.dart';
 import 'package:objectbox/objectbox.dart';
-import 'package:score_counter/objectbox.g.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:score_counter/generated/objectbox.g.dart';
 import 'package:synchronized/synchronized.dart';
 import 'package:worker_manager/worker_manager.dart';
 

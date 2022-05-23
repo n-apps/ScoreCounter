@@ -13,7 +13,7 @@ import 'package:objectbox/internal.dart'; // generated code can access "internal
 import 'package:objectbox/objectbox.dart';
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'data/resource/storage/objectbox/objectbox_cache_storage.dart';
+import '../data/resource/storage/objectbox/objectbox_cache_storage.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -21,33 +21,33 @@ final _entities = <ModelEntity>[
   ModelEntity(
       id: const IdUid(1, 1),
       name: 'CacheBoxEntry',
-      lastPropertyId: const IdUid(5, 8884924884664961127),
+      lastPropertyId: const IdUid(5, 4597571619792632583),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 1000326271532183489),
+            id: const IdUid(1, 1254877733750943490),
             name: 'internalId',
             type: 6,
             flags: 1),
         ModelProperty(
-            id: const IdUid(2, 4812466632391363691),
+            id: const IdUid(2, 1812707814616399531),
             name: 'name',
             type: 9,
             flags: 2048,
-            indexId: const IdUid(1, 2696362343776240695)),
+            indexId: const IdUid(1, 4020499524657199367)),
         ModelProperty(
-            id: const IdUid(3, 286921383575578893),
+            id: const IdUid(3, 6284664218312150138),
             name: 'key',
             type: 9,
             flags: 2048,
-            indexId: const IdUid(2, 5291728147893685677)),
+            indexId: const IdUid(2, 7313867108977908261)),
         ModelProperty(
-            id: const IdUid(4, 7862367031055365087),
+            id: const IdUid(4, 1076035858446179103),
             name: 'data',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(5, 8884924884664961127),
+            id: const IdUid(5, 4597571619792632583),
             name: 'storeTime',
             type: 6,
             flags: 0)
@@ -77,7 +77,7 @@ ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
       lastEntityId: const IdUid(1, 1),
-      lastIndexId: const IdUid(2, 5291728147893685677),
+      lastIndexId: const IdUid(2, 7313867108977908261),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
       retiredEntityUids: const [],
