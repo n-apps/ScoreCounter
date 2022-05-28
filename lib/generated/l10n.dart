@@ -49,6 +49,36 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Counters`
+  String get tabCounters {
+    return Intl.message(
+      'Counters',
+      name: 'tabCounters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dice`
+  String get tabDice {
+    return Intl.message(
+      'Dice',
+      name: 'tabDice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get tabSettings {
+    return Intl.message(
+      'Settings',
+      name: 'tabSettings',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

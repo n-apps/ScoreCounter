@@ -46,7 +46,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "ua.napps.scorekeeper"
+        applicationId "ua.napps.scorekeeper.flutter"
         minSdkVersion 24
         targetSdkVersion 32
         versionCode flutterVersionCode.toInteger()

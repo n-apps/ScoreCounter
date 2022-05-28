@@ -1,4 +1,4 @@
-package ua.napps.scorekeeper.score_counter
+package ua.napps.scorekeeper
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -2,10 +2,12 @@
  * Copyright (c) 2022 Score Counter
  */
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:score_counter/feature/main_screen/bloc.dart';
+import 'package:score_counter/generated/assets.gen.dart';
+import 'package:score_counter/generated/l10n.dart';
 
 enum NavigationTab {
   counters,
@@ -13,7 +15,7 @@ enum NavigationTab {
   more,
 }
 
-class MainScreenPage extends StatelessWidget {
+class MainScreenPage extends StatefulWidget {
   static Widget buildRoute(BuildContext _, GoRouterState __) =>
       BlocProvider<MainScreenBloc>(
         create: (context) => MainScreenBloc(),
@@ -23,39 +25,48 @@ class MainScreenPage extends StatelessWidget {
   const MainScreenPage({Key? key}) : super(key: key);
 
   @override
+  State<MainScreenPage> createState() => _MainScreenPageState();
+}
+
+class _MainScreenPageState extends State<MainScreenPage> {
+  int _currentTab = 0;
+
+  @override
   Widget build(BuildContext context) {
-    // final bloc = context.read<MainScreenBloc>();
-    // final theme = CupertinoTheme.of(context);
-    // final tabColor = theme.brand.colorNotGray;
-    // final tabColorActive = theme.brand.colorNotBlackBlack;
-    // final icons = Assets.images.icons;
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
+    final theme = Theme.of(context);
+    Color resolveIconColor(int index) =>
+        _currentTab == index
+            ? theme.bottomNavigationBarTheme.selectedItemColor!
+            : theme.bottomNavigationBarTheme.unselectedItemColor!;
+    final strings = S.of(context);
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentTab,
+        elevation: _currentTab == 2 ? 20 : 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: [
-          // BottomNavigationBarItem(
-          //   icon: icons.icDashboard.svg(color: tabColor, width: 24, height: 24),
-          //   activeIcon: icons.icDashboard.svg(color: tabColorActive),
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: icons.icMyFood.svg(color: tabColor),
-          //   activeIcon: icons.icMyFood.svg(color: tabColorActive),
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: icons.icChat.svg(color: tabColor),
-          //   activeIcon: icons.icChat.svg(color: tabColorActive),
-          // ),
+          BottomNavigationBarItem(
+            icon: Assets.images.icons.icList.svg(color: resolveIconColor(0)),
+            label: strings.tabCounters,
+          ),
+          BottomNavigationBarItem(
+            icon: Assets.images.icons.icDie.svg(color: resolveIconColor(1)),
+            label: strings.tabDice,
+          ),
+          BottomNavigationBarItem(
+            icon: Assets.images.icons.icMore.svg(color: resolveIconColor(2)),
+            label: strings.tabSettings,
+          ),
         ],
+        onTap: (index) {
+          setState(() => _currentTab = index);
+        },
       ),
-      tabBuilder: (context, index) {
-        switch (index) {
-          case 0:
-            // return DashboardPage(bloc: bloc.dashboardBloc);
-          default:
-            return Center(
-              child: Text('Tab $index'),
-            );
-        }
-      },
+      body: Center(
+        child: Text('$_currentTab'),
+      ),
     );
   }
 }

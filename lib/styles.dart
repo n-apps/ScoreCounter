@@ -3,6 +3,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 //@formatter:off
 abstract class _Colors {
@@ -86,23 +87,44 @@ class _ColorsNight extends _Colors {
 }
 
 class AppTheme {
-
   static ThemeData? theme;
   static BrandThemeData? brandTheme;
 
   static ThemeData getTheme(Brightness brightness) {
-    if (theme?.brightness != brightness) {
-      final colors = brightness == Brightness.light
-          ? _ColorsDay()
-          : _ColorsNight();
+    if (theme?.brightness != brightness || true) {
+      final colors =
+      brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
       theme = ThemeData(
         useMaterial3: true,
-        brightness: Brightness.light,
+        brightness: brightness,
+        fontFamily: 'PTMono',
         scaffoldBackgroundColor: colors.primaryBackground,
-        primaryColor: colors.colorPrimary,
-        errorColor: colors.colorError,
-        splashColor: colors.rippleColor,
-        textTheme: const TextTheme(),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: colors.colorPrimary,
+          brightness: brightness,
+          error: colors.colorError,
+          background: colors.primaryBackground,
+          surfaceTint: colors.colorPrimary,
+          primary: colors.colorPrimary,
+          secondary: colors.colorSecondary,
+          onPrimary: colors.colorOnPrimary,
+          onSecondary: colors.colorOnSecondary,
+          tertiary: colors.colorSecondaryVariant,
+        ),
+        appBarTheme: AppBarTheme(
+            systemOverlayStyle: (brightness == Brightness.light
+                ? SystemUiOverlayStyle.light
+                : SystemUiOverlayStyle.dark)
+                .copyWith(systemNavigationBarColor: Colors.transparent)),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: colors.rippleColor,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedItemColor: colors.colorPrimary,
+          unselectedItemColor: brightness == Brightness.light ? colors
+              .textColorSecondary : colors.textColorHint,
+        ),
+        // textTheme: const TextTheme(),
       );
     }
     return theme!;
@@ -110,9 +132,8 @@ class AppTheme {
 
   static BrandThemeData getBrandTheme(Brightness brightness) {
     if (brandTheme?.brightness != brightness) {
-      final colors = brightness == Brightness.light
-          ? _ColorsDay()
-          : _ColorsNight();
+      final colors =
+      brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
       brandTheme = BrandThemeData(
         brightness: brightness,
         text: BrandTextThemeData(colors.textColorPrimary),
@@ -121,7 +142,6 @@ class AppTheme {
     return brandTheme!;
   }
 }
-
 
 extension BrandThemeDataExt on ThemeData {
   BrandThemeData get brand => AppTheme.getBrandTheme(brightness);
