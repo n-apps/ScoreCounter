@@ -1,28 +1,40 @@
 name: Build & Publish Debug APK
 
 on:
- push:
-  branches:
-   - master
-   
+  push:
+    branches: 
+      - master
+
 jobs:
+
   build:
-    runs-on: ubuntu-latest
+
+    runs-on: ubuntu-18.04
+
+
     steps:
-    - uses: actions/checkout@v1
-    - name: set up JDK 1.8
+
+    - uses: actions/checkout@v2
+      
+    - name: set up JDK 11
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
-    - name: Make Gradle executable
+          java-version: 11
+          
+    - name: Make gradlew executable
       run: chmod +x ./gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
-    - name: Build Debug APK
-      run: ./gradlew assembleDebug
-    - name: Releasing using Hub
-      uses: ShaunLWM/action-release-debugapk@master
+
+    - name: Build debug apk
+      run: |
+          echo -e "storeFile=\"storeFile\"\nstorePassword=\"storePassword\"\nkeyAlias=\"keyAlias\"\nkeyPassword=\"keyPassword\"" > keystore.properties
+          bash ./gradlew detektDebug assembleDebug --stacktrace
+
+    - name: Create release and upload apk
+      uses: underwindfall/create-release-with-debugapk@v2.0.0
       env:
-       GITHUB_TOKEN: ${{ secrets.ACTION }}
-       APP_FOLDER: app
-       RELEASE_TITLE: New Build
+          GITHUB_TOKEN: ${{ secrets.ACTION }}
+      with:
+        tag_name: v1.0.0
+        asset_path: app/build/outputs/apk/debug/app-debug.apk
+        asset_name: build.apk
+        asset_content_type: application/zip
