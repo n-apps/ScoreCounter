@@ -14,8 +14,6 @@ Future<void> initialize() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent));
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 

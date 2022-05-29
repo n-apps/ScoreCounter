@@ -91,9 +91,9 @@ class AppTheme {
   static BrandThemeData? brandTheme;
 
   static ThemeData getTheme(Brightness brightness) {
-    if (theme?.brightness != brightness || true) {
+    if (theme?.brightness != brightness) {
       final colors =
-      brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
+          brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
       theme = ThemeData(
         useMaterial3: true,
         brightness: brightness,
@@ -113,16 +113,20 @@ class AppTheme {
         ),
         appBarTheme: AppBarTheme(
             systemOverlayStyle: (brightness == Brightness.light
-                ? SystemUiOverlayStyle.light
-                : SystemUiOverlayStyle.dark)
-                .copyWith(systemNavigationBarColor: Colors.transparent)),
+                    ? SystemUiOverlayStyle.dark
+                    : SystemUiOverlayStyle.light)
+                .copyWith(
+          systemNavigationBarColor: Colors.transparent,
+          statusBarColor: Colors.transparent,
+        )),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: colors.rippleColor,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           selectedItemColor: colors.colorPrimary,
-          unselectedItemColor: brightness == Brightness.light ? colors
-              .textColorSecondary : colors.textColorHint,
+          unselectedItemColor: brightness == Brightness.light
+              ? colors.textColorSecondary
+              : colors.textColorHint,
         ),
         // textTheme: const TextTheme(),
       );
@@ -133,7 +137,7 @@ class AppTheme {
   static BrandThemeData getBrandTheme(Brightness brightness) {
     if (brandTheme?.brightness != brightness) {
       final colors =
-      brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
+          brightness == Brightness.light ? _ColorsDay() : _ColorsNight();
       brandTheme = BrandThemeData(
         brightness: brightness,
         text: BrandTextThemeData(colors.textColorPrimary),
@@ -169,11 +173,11 @@ class BrandTextThemeData {
 
   BrandTextThemeData(Color textPrimaryColor)
       : h1 = TextStyle(
-    color: textPrimaryColor,
-    fontSize: 30,
-    fontWeight: FontWeight.w700,
-    height: 1.3,
-  ),
+          color: textPrimaryColor,
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          height: 1.3,
+        ),
         h2 = TextStyle(
           color: textPrimaryColor,
           fontSize: 24,

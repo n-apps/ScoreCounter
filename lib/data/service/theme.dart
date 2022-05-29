@@ -2,7 +2,8 @@
  * Copyright (c) 2022 Score Counter
  */
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:score_counter/dependencies.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:collection/collection.dart';
@@ -29,6 +30,15 @@ class ThemeService extends ValueNotifier<Brightness> {
     _prefs.getThemeBrightness().then((b) {
       value = b ?? brightness;
     });
+    final window = WidgetsBinding.instance.window;
+    window.onPlatformBrightnessChanged = () {
+      final brightness = window.platformBrightness;
+      _prefs.getThemeBrightness().then((b) {
+        if (b == null) {
+          value = brightness; // not overridden by the user, apply system theme
+        }
+      });
+    };
   }
 
   Future<void> setThemeBrightness(Brightness brightness) =>

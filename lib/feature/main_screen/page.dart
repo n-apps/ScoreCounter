@@ -3,6 +3,7 @@
  */
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:score_counter/feature/counter/bloc.dart';
@@ -53,38 +54,41 @@ class _MainScreenPageState extends State<MainScreenPage> {
         ? theme.bottomNavigationBarTheme.selectedItemColor!
         : theme.bottomNavigationBarTheme.unselectedItemColor!;
     final strings = S.of(context);
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentTab.position,
-        elevation: _currentTab == NavigationTab.more ? 20 : 0,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(
-            icon: Assets.images.icons.icList.svg(color: resolveIconColor(0)),
-            label: strings.tabCounters,
-          ),
-          BottomNavigationBarItem(
-            icon: Assets.images.icons.icDie.svg(color: resolveIconColor(1)),
-            label: strings.tabDice,
-          ),
-          BottomNavigationBarItem(
-            icon: Assets.images.icons.icMore.svg(color: resolveIconColor(2)),
-            label: strings.tabSettings,
-          ),
-        ],
-        onTap: (index) {
-          setState(() => _currentTab = NavigationTab.byPosition(index));
-        },
-      ),
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => CountersBloc()),
-          BlocProvider(create: (_) => DiceBloc()),
-          BlocProvider(create: (_) => MoreBloc()),
-        ],
-        child: _currentTab.widget,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: theme.appBarTheme.systemOverlayStyle!,
+      child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentTab.position,
+          elevation: _currentTab == NavigationTab.more ? 20 : 0,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(
+              icon: Assets.images.icons.icList.svg(color: resolveIconColor(0)),
+              label: strings.tabCounters,
+            ),
+            BottomNavigationBarItem(
+              icon: Assets.images.icons.icDie.svg(color: resolveIconColor(1)),
+              label: strings.tabDice,
+            ),
+            BottomNavigationBarItem(
+              icon: Assets.images.icons.icMore.svg(color: resolveIconColor(2)),
+              label: strings.tabSettings,
+            ),
+          ],
+          onTap: (index) {
+            setState(() => _currentTab = NavigationTab.byPosition(index));
+          },
+        ),
+        body: MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => CountersBloc()),
+            BlocProvider(create: (_) => DiceBloc()),
+            BlocProvider(create: (_) => MoreBloc()),
+          ],
+          child: _currentTab.widget,
+        ),
       ),
     );
   }
