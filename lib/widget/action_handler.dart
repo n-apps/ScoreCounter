@@ -6,10 +6,11 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Adds actions functionality
-mixin ActionAware {
+mixin ActionAware on Closable {
   final Subject<ActionEvent> _actions = BehaviorSubject<ActionEvent>();
 
   /// Listen to the events of this stream
@@ -25,9 +26,11 @@ mixin ActionAware {
   void sendActionError([dynamic payload]) => sendAction(ActionEvent.actionShowError, payload);
 
   /// Dispose resources
+  @override
   @mustCallSuper
   Future<void> close() async {
     await _actions.close();
+    super.close();
   }
 }
 

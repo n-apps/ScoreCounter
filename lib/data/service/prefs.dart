@@ -5,7 +5,8 @@
 import 'package:score_counter/dependencies.dart';
 
 class PrefsService {
-  factory PrefsService.get() => getIt<PrefsService>();
 
   PrefsService();
+
+  factory PrefsService.get() => getIt<PrefsService>();
 }

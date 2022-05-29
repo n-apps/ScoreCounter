@@ -5,17 +5,11 @@
 import 'package:bloc/bloc.dart';
 
 class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
-  // final DashboardBloc dashboardBloc;
-
-  MainScreenBloc() : super(MainScreenState());
-
-  @override
-  Future<void> close() async {
-    // dashboardBloc.dispose();
-    await super.close();
-  }
+  MainScreenBloc() : super(const MainScreenState());
 }
 
-class MainScreenState {}
+class MainScreenState {
+  const MainScreenState();
+}
 
 abstract class MainScreenEvent {}
