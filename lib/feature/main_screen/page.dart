@@ -11,85 +11,61 @@ import 'package:score_counter/feature/counter/page.dart';
 import 'package:score_counter/feature/dice/bloc.dart';
 import 'package:score_counter/feature/dice/page.dart';
 import 'package:score_counter/feature/main_screen/bloc.dart';
+import 'package:score_counter/feature/main_screen/state.dart';
 import 'package:score_counter/feature/more/bloc.dart';
 import 'package:score_counter/feature/more/page.dart';
 import 'package:score_counter/generated/assets.gen.dart';
 import 'package:score_counter/generated/l10n.dart';
 
-enum NavigationTab {
-  counters(0, CountersWidget()),
-  dice(1, DiceWidget()),
-  more(2, MoreWidget());
+part 'page.bottom_bar.dart';
 
-  final int position;
-  final Widget widget;
-
-  const NavigationTab(this.position, this.widget);
-
-  static NavigationTab byPosition(int position) =>
-      values.firstWhere((tab) => tab.position == position);
-}
-
-class MainScreenPage extends StatefulWidget {
+class MainScreenPage extends StatelessWidget {
   static Widget buildRoute(BuildContext _, GoRouterState __) =>
-      BlocProvider<MainScreenBloc>(
-        create: (context) => MainScreenBloc(),
+      MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => MainScreenBloc()),
+          BlocProvider(create: (_) => CountersBloc()),
+          BlocProvider(create: (_) => DiceBloc()),
+          BlocProvider(create: (_) => MoreBloc()),
+        ],
         child: const MainScreenPage(),
       );
 
   const MainScreenPage({Key? key}) : super(key: key);
 
   @override
-  State<MainScreenPage> createState() => _MainScreenPageState();
-}
+  Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
+        value: Theme.of(context).appBarTheme.systemOverlayStyle!,
+        child: BlocBuilder<MainScreenBloc, MainScreenState>(
+            builder: (context, state) => Scaffold(
+                  bottomNavigationBar: _AppNavigationBar(
+                    currentTab: state.currentTab,
+                    diceValue: 0,
+                  ),
+                  body: WillPopScope(
+                    onWillPop: () {
+                      if (state.currentTab != NavigationTab.counters) {
+                        context.read<MainScreenBloc>().add(
+                              ChangeNavigationTabEvent(NavigationTab.counters),
+                            );
+                        return Future.value(false);
+                      } else {
+                        return Future.value(true);
+                      }
+                    },
+                    child: _getWidgetForTab(state.currentTab),
+                  ),
+                )),
+      );
 
-class _MainScreenPageState extends State<MainScreenPage> {
-  NavigationTab _currentTab = NavigationTab.counters;
-  final Map<NavigationTab, Widget> _tabsCache = {};
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    Color resolveIconColor(int index) => _currentTab.position == index
-        ? theme.bottomNavigationBarTheme.selectedItemColor!
-        : theme.bottomNavigationBarTheme.unselectedItemColor!;
-    final strings = S.of(context);
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: theme.appBarTheme.systemOverlayStyle!,
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentTab.position,
-          elevation: _currentTab == NavigationTab.more ? 20 : 0,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon: Assets.images.icons.icList.svg(color: resolveIconColor(0)),
-              label: strings.tabCounters,
-            ),
-            BottomNavigationBarItem(
-              icon: Assets.images.icons.icDie.svg(color: resolveIconColor(1)),
-              label: strings.tabDice,
-            ),
-            BottomNavigationBarItem(
-              icon: Assets.images.icons.icMore.svg(color: resolveIconColor(2)),
-              label: strings.tabSettings,
-            ),
-          ],
-          onTap: (index) {
-            setState(() => _currentTab = NavigationTab.byPosition(index));
-          },
-        ),
-        body: MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (_) => CountersBloc()),
-            BlocProvider(create: (_) => DiceBloc()),
-            BlocProvider(create: (_) => MoreBloc()),
-          ],
-          child: _currentTab.widget,
-        ),
-      ),
-    );
+  Widget _getWidgetForTab(NavigationTab tab) {
+    switch (tab) {
+      case NavigationTab.counters:
+        return const CountersWidget();
+      case NavigationTab.dice:
+        return const DiceWidget();
+      case NavigationTab.more:
+        return const MoreWidget();
+    }
   }
 }

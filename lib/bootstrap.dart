@@ -2,6 +2,8 @@
  * Copyright (c) 2022 Score Counter
  */
 
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ import 'package:worker_manager/worker_manager.dart';
 Future<void> initialize() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  unawaited(SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge));
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
