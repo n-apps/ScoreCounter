@@ -29,15 +29,9 @@ If you like this app, please leave feedback or make a donation – this will boo
 ## Contribution
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
 
-#### Dart Code Analysis
-
-Analyze: `flutter pub run dart_code_metrics:metrics analyze lib`
-Check unused localization strings: `flutter pub run dart_code_metrics:metrics check-unused-l10n lib`
-More info https://dartcodemetrics.dev/
-
 #### Development
 
-To start working on the app yourself, you have to follow these steps:
+##### To start working on the app yourself, you have to follow these steps:
 
 1. Clone the repository (or a fork of it). Follow the instructions [here](http://help.github.com/fork-a-repo/)
 2. The app uses Google Firebase, to be able to build it you need to:
@@ -50,6 +44,12 @@ To start working on the app yourself, you have to follow these steps:
 5. Install following plugin for localization https://plugins.jetbrains.com/plugin/13666-flutter-intl or run `flutter --no-color pub global run intl_utils:generate` after changes in`lib/l10n/`.
 6. Run command to generate json models and assets resources: `flutter pub run build_runner build --delete-conflicting-outputs`. You also can use script for this action in `tools/` directory.
 7. Send me a "pull request" from your repo - see instructions [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
+
+##### Dart Code Analysis
+
+Analyze: `flutter pub run dart_code_metrics:metrics analyze lib`
+Check unused localization strings: `flutter pub run dart_code_metrics:metrics check-unused-l10n lib`
+More info https://dartcodemetrics.dev/
 
 #### Helping Translate
 
