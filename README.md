@@ -55,7 +55,7 @@ To start working on the app yourself, you have to follow these steps:
 
 If you want to help translate the App you can do this in multiple ways.
 
-With Android Studio open any of the `intl.arb` files in the `lib/l10n/` directory and add a new locale using the translation editor.
+With Android Studio open any of the `intl.arb` files in the `lib/l10n/` directory and add a new locale using the editor.
 
 If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/lib/l10n/intl_en.arb) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
 
