@@ -57,7 +57,7 @@ If you want to help translate the App you can do this in multiple ways.
 
 With Android Studio open any of the `intl.arb` files in the `lib/l10n/` directory and add a new locale using the editor.
 
-If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/lib/l10n/intl_en.arb) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
+If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/flutter/lib/l10n/intl_en.arb) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
 
 
 [<img src="https://user-images.githubusercontent.com/16646251/162062124-cf86c14d-7a15-4565-8f6f-81d011861c05.jpg" width=250>]()
