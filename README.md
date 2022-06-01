@@ -29,6 +29,24 @@ If you like this app, please leave feedback or make a donation – this will boo
 ## Contribution
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
 
+#### Build
+
+Install Flutter and Flutterfire CLI https://firebase.google.com/docs/flutter/setup
+Run `flutterrfire configure` after checkout or after changing firebase dependencies.
+
+Run following plugin for localization
+https://plugins.jetbrains.com/plugin/13666-flutter-intl
+or run `flutter --no-color pub global run intl_utils:generate`
+
+And command below to generate json models and assets resources:
+`flutter pub run build_runner build --delete-conflicting-outputs`
+You also can use script for this action in `tools/` directory.
+
+#### Dart Code Analysis
+
+Analyze: `flutter pub run dart_code_metrics:metrics analyze lib`
+Check unused localization strings: `flutter pub run dart_code_metrics:metrics check-unused-l10n lib`
+More info https://dartcodemetrics.dev/
 
 #### Development
 
@@ -47,10 +65,9 @@ To start working on the app yourself, you have to follow these steps:
 
 If you want to help translate the App you can do this in multiple ways.
 
-With Android Studio open any of the `string.xml` files in the `res\values` directory and add a new locale using the translation editor. 
-**Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
+With Android Studio open any of the `intl.arb` files in the `lib/l10n/` directory and add a new locale using the translation editor.
 
-If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/app/src/main/res/values/strings.xml) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
+If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/lib/l10n/intl_en.arb) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
 
 
 [<img src="https://user-images.githubusercontent.com/16646251/162062124-cf86c14d-7a15-4565-8f6f-81d011861c05.jpg" width=250>]()
