@@ -44,7 +44,7 @@ To start working on the app yourself, you have to follow these steps:
    1. Create a Project on https://console.firebase.google.com/ 
    2. Install Firebase CLI https://firebase.google.com/docs/cli and execute `firebase login`
    3. Install Flutter and Flutterfire CLI https://firebase.google.com/docs/flutter/setup
-   4. Run `flutterrfire configure` after checkout or after changing firebase dependencies.
+   4. Run `flutterfire configure` after checkout or after changing firebase dependencies.
 3. If you get an error related to signingConfigs go to your `app\build.gradle` and remove all settings related to `signingConfigs` since you do need to build signed releses of the app (alternatively create appropriate configs).
 4. Open the project in Android Studio an start working.
 5. Install following plugin for localization https://plugins.jetbrains.com/plugin/13666-flutter-intl or run `flutter --no-color pub global run intl_utils:generate` after changes in`lib/l10n/`.
