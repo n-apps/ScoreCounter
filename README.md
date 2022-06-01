@@ -29,19 +29,6 @@ If you like this app, please leave feedback or make a donation – this will boo
 ## Contribution
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
 
-#### Build
-
-Install Flutter and Flutterfire CLI https://firebase.google.com/docs/flutter/setup
-Run `flutterrfire configure` after checkout or after changing firebase dependencies.
-
-Run following plugin for localization
-https://plugins.jetbrains.com/plugin/13666-flutter-intl
-or run `flutter --no-color pub global run intl_utils:generate`
-
-And command below to generate json models and assets resources:
-`flutter pub run build_runner build --delete-conflicting-outputs`
-You also can use script for this action in `tools/` directory.
-
 #### Dart Code Analysis
 
 Analyze: `flutter pub run dart_code_metrics:metrics analyze lib`
@@ -55,11 +42,14 @@ To start working on the app yourself, you have to follow these steps:
 1. Clone the repository (or a fork of it). Follow the instructions [here](http://help.github.com/fork-a-repo/)
 2. The app uses Google Firebase, to be able to build it you need to:
    1. Create a Project on https://console.firebase.google.com/ 
-   2. Download the `google-services.json`
-   3. Place it in the projects `app` directory as shown on the firebase page
+   2. Install Firebase CLI https://firebase.google.com/docs/cli and execute `firebase login`
+   3. Install Flutter and Flutterfire CLI https://firebase.google.com/docs/flutter/setup
+   4. Run `flutterrfire configure` after checkout or after changing firebase dependencies.
 3. If you get an error related to signingConfigs go to your `app\build.gradle` and remove all settings related to `signingConfigs` since you do need to build signed releses of the app (alternatively create appropriate configs).
-4. Open the project in Android Studio an start working
-5. Send me a "pull request" from your repo - see instructions [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
+4. Open the project in Android Studio an start working.
+5. Install following plugin for localization https://plugins.jetbrains.com/plugin/13666-flutter-intl or run `flutter --no-color pub global run intl_utils:generate` after changes in`lib/l10n/`.
+6. Run command to generate json models and assets resources: `flutter pub run build_runner build --delete-conflicting-outputs`. You also can use script for this action in `tools/` directory.
+7. Send me a "pull request" from your repo - see instructions [here](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 #### Helping Translate
 
