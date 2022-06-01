@@ -1,5 +1,7 @@
 {
   "tabCounters": "Counters",
   "tabDice": "Dice",
-  "tabSettings": "Settings"
+  "tabSettings": "Settings",
+  "counterAdded": "Counter added",
+  "snackbarActionOneMore": "One more"
 }

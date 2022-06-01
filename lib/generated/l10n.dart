@@ -79,6 +79,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Counter added`
+  String get counterAdded {
+    return Intl.message(
+      'Counter added',
+      name: 'counterAdded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `One more`
+  String get snackbarActionOneMore {
+    return Intl.message(
+      'One more',
+      name: 'snackbarActionOneMore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

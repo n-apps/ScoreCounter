@@ -11,6 +11,7 @@ import 'package:score_counter/feature/counter/page.dart';
 import 'package:score_counter/feature/dice/bloc.dart';
 import 'package:score_counter/feature/dice/page.dart';
 import 'package:score_counter/feature/main_screen/bloc.dart';
+import 'package:score_counter/feature/main_screen/events.dart';
 import 'package:score_counter/feature/main_screen/state.dart';
 import 'package:score_counter/feature/more/bloc.dart';
 import 'package:score_counter/feature/more/page.dart';
@@ -31,7 +32,7 @@ class MainScreenPage extends StatelessWidget {
         child: const MainScreenPage(),
       );
 
-  const MainScreenPage({Key? key}) : super(key: key);
+  const MainScreenPage({super.key});
 
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
@@ -53,7 +54,7 @@ class MainScreenPage extends StatelessWidget {
                         return Future.value(true);
                       }
                     },
-                    child: _getWidgetForTab(state.currentTab),
+                    child: SafeArea(child: _getWidgetForTab(state.currentTab)),
                   ),
                 )),
       );

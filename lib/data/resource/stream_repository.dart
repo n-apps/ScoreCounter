@@ -9,7 +9,7 @@ import 'package:score_counter/data/resource/cache_storage.dart';
 import 'package:score_counter/data/resource/resource.dart';
 import 'package:score_counter/data/resource/storage/hive_cache_storage.dart';
 import 'package:score_counter/data/resource/storage/objectbox/objectbox_cache_storage_stub.dart'
-    if (dart.library.io) 'package:score_counter/data/service/resource/storage/objectbox/objectbox_cache_storage.dart';
+    if (dart.library.io) 'package:score_counter/data/resource/storage/objectbox/objectbox_cache_storage.dart';
 import 'package:score_counter/data/resource/stream_resource.dart';
 import 'package:flutter/foundation.dart';
 import 'package:rxdart/rxdart.dart';
@@ -97,8 +97,14 @@ class StreamRepository<K, V> {
 
   Future<void> clear([K? key]) => _lock.synchronized(() async {
         if (key != null) {
-          await _resources[key]?.close();
-          _resources.remove(key);
+          final resource = _resources[key];
+          if (resource != null) {
+            await resource.close();
+            _resources.remove(key);
+          } else {
+            await storage.ensureInitialized();
+            await storage.delete(key);
+          }
         } else {
           _resources.clear();
           await storage.clear();

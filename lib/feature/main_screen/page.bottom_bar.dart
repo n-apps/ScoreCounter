@@ -10,8 +10,8 @@ class _AppNavigationBar extends StatelessWidget {
   const _AppNavigationBar({
     required this.currentTab,
     required this.diceValue,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -3,6 +3,7 @@
  */
 
 import 'package:bloc/bloc.dart';
+import 'package:score_counter/feature/main_screen/events.dart';
 import 'package:score_counter/feature/main_screen/state.dart';
 
 class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
@@ -14,12 +15,4 @@ class MainScreenBloc extends Bloc<MainScreenEvent, MainScreenState> {
       (event, emit) => emit(state.copyWith(currentTab: event.tab)),
     );
   }
-}
-
-abstract class MainScreenEvent {}
-
-class ChangeNavigationTabEvent extends MainScreenEvent {
-  final NavigationTab tab;
-
-  ChangeNavigationTabEvent(this.tab);
 }

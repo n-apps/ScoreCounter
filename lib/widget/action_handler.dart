@@ -84,8 +84,8 @@ class ActionHandler extends StatefulWidget {
     required this.handler,
     required this.actions,
     this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State createState() => _ActionHandlerState();

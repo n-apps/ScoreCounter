@@ -22,6 +22,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "counterAdded": MessageLookupByLibrary.simpleMessage("Counter added"),
+        "snackbarActionOneMore":
+            MessageLookupByLibrary.simpleMessage("One more"),
         "tabCounters": MessageLookupByLibrary.simpleMessage("Counters"),
         "tabDice": MessageLookupByLibrary.simpleMessage("Dice"),
         "tabSettings": MessageLookupByLibrary.simpleMessage("Settings")

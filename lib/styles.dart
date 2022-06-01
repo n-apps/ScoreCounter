@@ -128,6 +128,9 @@ class AppTheme {
               ? colors.textColorSecondary
               : colors.textColorHint,
         ),
+        snackBarTheme: SnackBarThemeData(
+          actionTextColor: colors.colorSecondary,
+        ),
         // textTheme: const TextTheme(),
       );
     }
