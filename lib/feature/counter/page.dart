@@ -23,16 +23,26 @@ class CountersWidget extends StatefulWidget {
 
 class _CountersWidgetState extends State<CountersWidget> {
   final _scrollController = ScrollController();
+  late CountersBloc _bloc;
+  late ScaffoldMessengerState _scaffoldMessenger;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _scaffoldMessenger = ScaffoldMessenger.of(context);
+    _bloc = context.read();
+  }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _scaffoldMessenger.clearSnackBars();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => ActionHandler(
-        actions: context.watch<CountersBloc>().actions,
+        actions: _bloc.actions,
         handler: (context, action) {
           if (action.actionIdentical(CountersBloc.actionOnAddedCounter)) {
             _handleCounterAdded(context);
@@ -56,7 +66,9 @@ class _CountersWidgetState extends State<CountersWidget> {
 
   void _handleCounterAdded(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 240)).then((_) {
-      if (!mounted || _scrollController.position.maxScrollExtent == 0) return;
+      if (!mounted ||
+          !_scrollController.hasClients ||
+          _scrollController.position.maxScrollExtent == 0) return;
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
         duration: kThemeAnimationDuration,
@@ -64,14 +76,13 @@ class _CountersWidgetState extends State<CountersWidget> {
       );
     });
     final strings = S.of(context);
-    ScaffoldMessenger.of(context)
+    _scaffoldMessenger
       ..clearSnackBars()
       ..showSnackBar(SnackBar(
         content: Text(strings.counterAdded),
         action: SnackBarAction(
             label: strings.snackbarActionOneMore,
-            onPressed: () =>
-                context.read<CountersBloc>().add(AddCounterEvent())),
+            onPressed: () => _bloc.add(AddCounterEvent())),
       ));
   }
 }
