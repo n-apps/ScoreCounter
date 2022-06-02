@@ -55,6 +55,7 @@ dependencies:
   intl: ^0.17.0
   collection: ^1.16.0
   json_annotation: ^4.5.0
+  resource_repository: ^0.0.2
 
 dev_dependencies:
   flutter_test:

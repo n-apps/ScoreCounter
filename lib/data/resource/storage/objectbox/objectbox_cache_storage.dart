@@ -5,8 +5,8 @@
 
 import 'dart:convert';
 
+import 'package:resource_repository/resource_repository.dart';
 import 'package:score_counter/data/service/logger.dart';
-import 'package:score_counter/data/resource/cache_storage.dart';
 import 'package:objectbox/objectbox.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:score_counter/generated/objectbox.g.dart';

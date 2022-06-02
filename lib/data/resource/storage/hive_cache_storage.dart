@@ -5,8 +5,8 @@
 
 import 'dart:convert';
 
+import 'package:resource_repository/resource_repository.dart';
 import 'package:score_counter/data/service/logger.dart';
-import 'package:score_counter/data/resource/cache_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:synchronized/synchronized.dart';
