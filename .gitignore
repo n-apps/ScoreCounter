@@ -6,6 +6,7 @@
 *.apk
 *.aab
 *.ap_
+output*.json
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -49,7 +50,7 @@ captures/
 .externalNativeBuild
 
 # Google Services (e.g. APIs or Firebase)
-google-services.json
+app/google-services.json
 
 # Freeline
 freeline.py
@@ -65,6 +66,9 @@ fastlane/readme.md
 
 ### Android Patch ###
 gen-external-apklibs
+
+# Android Profiling
+*.hprof
 
 
 # End of https://www.gitignore.io/api/android
