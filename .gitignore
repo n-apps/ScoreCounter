@@ -17,12 +17,22 @@
 bin/
 gen/
 out/
+lib/firebase_options.dart
+lib/generated_plugin_registrant.dart
 
 
 # Gradle files
 .gradle/
 build/
 android/.gradle/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+
 
 # Local configuration file (sdk path, etc)
 local.properties
