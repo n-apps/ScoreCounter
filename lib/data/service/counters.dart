@@ -3,11 +3,10 @@
  */
 import 'package:flutter/foundation.dart';
 import 'package:resource_repository/resource_repository.dart';
+import 'package:resource_repository_hive/resource_repository_hive.dart';
+import 'package:resource_repository_objectbox/resource_repository_objectbox.dart';
 import 'package:score_counter/data/dto.dart';
-import 'package:score_counter/data/resource/storage/hive_cache_storage.dart';
 import 'package:score_counter/dependencies.dart';
-import 'package:score_counter/data/resource/storage/objectbox/objectbox_cache_storage_stub.dart'
-    if (dart.library.io) 'package:score_counter/data/resource/storage/objectbox/objectbox_cache_storage.dart';
 
 class CountersService {
   final StreamRepository<String, CounterDto> _repository;
@@ -17,7 +16,7 @@ class CountersService {
             storage: kIsWeb
                 ? HiveCacheStorage('counters',
                     decode: (json) => CounterDto.fromJson(json))
-                : createObjectBoxCacheStorage(
+                : ObjectBoxCacheStorage(
                     'counters',
                     decode: (json) => CounterDto.fromJson(json),
                   ));

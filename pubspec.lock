@@ -374,26 +374,19 @@ packages:
     source: hosted
     version: "2.1.0"
   hive:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.1"
   hive_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: hive_flutter
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
-  hive_generator:
-    dependency: "direct dev"
-    description:
-      name: hive_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.3"
   html:
     dependency: transitive
     description:
@@ -500,23 +493,16 @@ packages:
     source: hosted
     version: "1.0.0"
   objectbox:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: objectbox
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0"
   objectbox_flutter_libs:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: objectbox_flutter_libs
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.5.0"
-  objectbox_generator:
-    dependency: "direct dev"
-    description:
-      name: objectbox_generator
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.0"
@@ -659,14 +645,28 @@ packages:
       name: resource_repository
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.2+2"
+  resource_repository_hive:
+    dependency: "direct main"
+    description:
+      name: resource_repository_hive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
+  resource_repository_objectbox:
+    dependency: "direct main"
+    description:
+      name: resource_repository_objectbox
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1"
   resource_repository_storage:
     dependency: transitive
     description:
       name: resource_repository_storage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.2"
+    version: "0.0.2+1"
   rxdart:
     dependency: "direct main"
     description:
