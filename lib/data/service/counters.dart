@@ -13,12 +13,10 @@ import 'package:score_counter/data/dto.dart';
 import 'package:score_counter/data/service/theme.dart';
 import 'package:score_counter/dependencies.dart';
 import 'package:score_counter/styles.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class CountersService {
   final StreamRepository<String, CounterDto> _repository;
-  final _changeLock = Lock();
   final _random = Random();
   Set<String>? _names;
 
@@ -32,39 +30,37 @@ class CountersService {
   Stream<List<CounterDto>> counters() =>
       _repository.watch().map(_prepareCounters);
 
-  Future<bool> add() => _changeLock.synchronized(() async {
-        final counters = await _repository.getAll().then(_prepareCounters);
-        final usedNames = counters.map((c) => c.name);
-        final availableNames = await getNames().then((names) => names.toList()
-          ..removeWhere(
-            (name) => usedNames.contains(name),
-          ));
-        if (availableNames.isEmpty) return false;
+  Future<bool> add() async {
+    final counters = await _repository.getAll().then(_prepareCounters);
+    final usedNames = counters.map((c) => c.name);
+    final availableNames = await getNames().then((names) => names.toList()
+      ..removeWhere(
+        (name) => usedNames.contains(name),
+      ));
+    if (availableNames.isEmpty) return false;
 
-        final colors = AppTheme.getBrandTheme(ThemeService.get().brightness)
-            .counterColors
-            .toList()
-          ..shuffle(_random);
+    final colors = AppTheme.getBrandTheme(ThemeService.get().brightness)
+        .counterColors
+        .toList()
+      ..shuffle(_random);
 
-        final lastPosition = counters.lastOrNull?.position ?? -1;
-        final counter = CounterDto(
-          name: availableNames.toList()[_random.nextInt(availableNames.length)],
-          color: colors.first,
-          position: lastPosition + 1,
-          score: 0,
-        );
-        await _repository.putValue(counter.name, counter);
-        return true;
-      });
+    final lastPosition = counters.lastOrNull?.position ?? -1;
+    final counter = CounterDto(
+      name: availableNames.toList()[_random.nextInt(availableNames.length)],
+      color: colors.first,
+      position: lastPosition + 1,
+      score: 0,
+    );
+    await _repository.putValue(counter.name, counter);
+    return true;
+  }
 
-  Future<void> update(CounterDto counter) => _changeLock.synchronized(
-      () async => await _repository.putValue(counter.name, counter));
+  Future<void> update(CounterDto counter) =>
+      _repository.putValue(counter.name, counter);
 
-  Future<void> delete(CounterDto counter) => _changeLock
-      .synchronized(() async => await _repository.clear(counter.name));
+  Future<void> delete(CounterDto counter) => _repository.clear(counter.name);
 
-  Future<void> clear() =>
-      _changeLock.synchronized(() async => await _repository.clear());
+  Future<void> clear() => _repository.clear();
 
   @protected
   Future<Set<String>> getNames() async {
