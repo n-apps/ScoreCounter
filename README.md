@@ -1,4 +1,7 @@
 # Score Counter Android App
+
+[![Build Status](https://github.com/NaikSoftware/ScoreCounter/workflows/flutter_test/badge.svg?branch=flutter)](https://github.com/NaikSoftware/ScoreCounter/actions?query=workflow%3A"flutter_test"+branch%3Aflutter)
+
 #### About
 Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
 

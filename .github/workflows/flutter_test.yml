@@ -2,9 +2,9 @@ name: flutter_test
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ flutter ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main, master, flutter ]
 
 jobs:
   tests:
