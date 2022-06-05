@@ -106,7 +106,7 @@ class _CounterCompact extends StatelessWidget {
               borderRadius: BorderRadius.circular(2),
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text(counter.name,
+                child: Text('${counter.position} -> ${counter.name}',
                     style: const TextStyle(color: Colors.white)),
               ),
             ),

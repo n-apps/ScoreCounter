@@ -21,6 +21,7 @@ abstract class _Colors {
   Color get primaryBackground;
   Color get rippleColor;
   Color get sectionHeader;
+  List<int> get counterColors;
 }
 //@formatter:on
 
@@ -53,6 +54,27 @@ class _ColorsDay extends _Colors {
   final rippleColor = const Color(0x0D08A396);
   @override
   final sectionHeader = const Color(0xffdddddd);
+  @override
+  final counterColors = const <int>[
+    0xFF5992F8,
+    0xFFFFD966,
+    0xFF52B8D2,
+    0xFFF18181,
+    0xFF6CBE5E,
+    0xFFB79A8F,
+    0xFFA0BB31,
+    0xFFA4AFC7,
+    0xFFF2B04B,
+    0xFFf7f7f7,
+    0xFFED70A5,
+    0xFF222222,
+    0xFFEC6666,
+    0xFFDDE358,
+    0xFFCF66F7,
+    0xFF6FE9BE,
+    0xFF9842EB,
+    0xFF733338,
+  ];
 }
 
 class _ColorsNight extends _Colors {
@@ -84,6 +106,27 @@ class _ColorsNight extends _Colors {
   final rippleColor = const Color(0x0D08A396);
   @override
   final sectionHeader = const Color(0xff6B6B6B);
+  @override
+  final counterColors = const <int>[
+    0xFF073ea0,
+    0xFFbb8d00,
+    0xFF195261,
+    0xFFb41414,
+    0xFF285121,
+    0xFF5f463d,
+    0xFF2d340e,
+    0xFF4a5878,
+    0xFF89570a,
+    0xFFaaaaaa,
+    0xFF9f144f,
+    0xFF191919,
+    0xFF961313,
+    0xFF787c15,
+    0xFF7e09aa,
+    0xFF17976a,
+    0xFF430d77,
+    0xFF38191b,
+  ];
 }
 
 class AppTheme {
@@ -144,6 +187,7 @@ class AppTheme {
       brandTheme = BrandThemeData(
         brightness: brightness,
         text: BrandTextThemeData(colors.textColorPrimary),
+        counterColors: colors.counterColors,
       );
     }
     return brandTheme!;
@@ -157,10 +201,12 @@ extension BrandThemeDataExt on ThemeData {
 class BrandThemeData {
   final Brightness brightness;
   final BrandTextThemeData text;
+  final List<int> counterColors;
 
   const BrandThemeData({
     required this.brightness,
     required this.text,
+    required this.counterColors,
   });
 }
 
