@@ -5,10 +5,10 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:resource_repository/resource_repository.dart';
-import 'package:resource_repository_hive/resource_repository_hive.dart';
 import 'package:score_counter/data/dto.dart';
 import 'package:score_counter/data/service/theme.dart';
 import 'package:score_counter/dependencies.dart';
@@ -24,8 +24,8 @@ class CountersService {
 
   CountersService()
       : _repository = StreamRepository<String, CounterDto>.local(
-            storage: HiveCacheStorage('counters',
-                decode: (json) => CounterDto.fromJson(json)));
+          storage: Dependencies.get<CacheStorage<String, CounterDto>>(),
+        );
 
   factory CountersService.get() => getIt.get();
 
@@ -35,7 +35,7 @@ class CountersService {
   Future<bool> add() => _changeLock.synchronized(() async {
         final counters = await _repository.getAll().then(_prepareCounters);
         final usedNames = counters.map((c) => c.name);
-        final availableNames = await _getNames().then((names) => names.toList()
+        final availableNames = await getNames().then((names) => names.toList()
           ..removeWhere(
             (name) => usedNames.contains(name),
           ));
@@ -66,7 +66,8 @@ class CountersService {
   Future<void> clear() =>
       _changeLock.synchronized(() async => await _repository.clear());
 
-  Future<Set<String>> _getNames() async {
+  @protected
+  Future<Set<String>> getNames() async {
     if (_names == null) {
       String data;
       try {

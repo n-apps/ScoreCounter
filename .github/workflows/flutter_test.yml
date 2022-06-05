@@ -14,7 +14,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: Create firebase_options.dart
+      - name: Prepare test environment
         run: tools/generate-test-env.sh
 
       - name: Install and set Flutter version
