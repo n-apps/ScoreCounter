@@ -14,6 +14,9 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
+      - name: Create firebase_options.dart
+        run: touch lib/firebase_options.dart
+
       - name: Install and set Flutter version
         uses: subosito/flutter-action@v2
         with:
