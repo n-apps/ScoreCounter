@@ -36,7 +36,7 @@ class CountersBloc extends Bloc<CountersEvent, CountersState>
           .map((c) => c.copyWith(score: 0))
           .forEach(_countersService.update),
     );
-    autoClose(_countersService.counters().listen((counters) {;
+    autoClose(_countersService.counters().listen((counters) {
       add(UpdateCountersEvent(counters));
       _detectWinner(counters);
     }));
