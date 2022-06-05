@@ -5,8 +5,7 @@
 #### About
 Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
 
-[<img width=760 src="https://user-images.githubusercontent.com/16646251/162060725-1378c29f-4ce6-4467-ae7c-59315c1ecd27.jpg" style="float: left; padding-right: 10
-px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
+[<img width=760 src="https://user-images.githubusercontent.com/16646251/162060725-1378c29f-4ce6-4467-ae7c-59315c1ecd27.jpg" style="float: left; padding-right: 10 px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 #### Key features
 * Easy to use
@@ -63,4 +62,4 @@ With Android Studio open any of the `intl.arb` files in the `lib/l10n/` director
 If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/flutter/lib/l10n/intl_en.arb) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
 
 
-[<img src="https://user-images.githubusercontent.com/16646251/162062124-cf86c14d-7a15-4565-8f6f-81d011861c05.jpg" width=250>]()
+[<a target="_blank" href="https://www.standwithukraine.how/"><img src="https://user-images.githubusercontent.com/16646251/162062124-cf86c14d-7a15-4565-8f6f-81d011861c05.jpg" width=250></a>]()
