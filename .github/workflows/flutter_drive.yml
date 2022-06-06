@@ -27,7 +27,7 @@ jobs:
     # Contains a sequence of tasks.
     steps:
       - name: "Start Simulator"
-        run: xcrun simctl boot "${matrix.device}"
+        run: xcrun simctl boot matrix.device
       # The branch or tag ref that triggered the workflow will be
       # checked out.
       # https://github.com/actions/checkout
