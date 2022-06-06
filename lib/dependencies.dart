@@ -22,17 +22,14 @@ class Dependencies {
 
     getIt.registerFactoryParam<Logger, String, void>((tag, _) => Logger(tag));
     getIt.registerLazySingleton<CacheStorage<String, CounterDto>>(
-      () => HiveCacheStorage(
-        'counters',
-        decode: (json) => CounterDto.fromJson(json),
-      ),
+      () => HiveCacheStorage('counters', decode: CounterDto.fromJson),
     );
-    getIt.registerLazySingleton<GoRouter>(() => AppRouter.create());
+    getIt.registerLazySingleton<GoRouter>(AppRouter.create);
     getIt.registerLazySingleton<ThemeService>(
       () => ThemeService(WidgetsBinding.instance.window.platformBrightness),
     );
-    getIt.registerLazySingleton<PrefsService>(() => PrefsService());
-    getIt.registerLazySingleton<CountersService>(() => CountersService());
+    getIt.registerLazySingleton<PrefsService>(PrefsService.new);
+    getIt.registerLazySingleton<CountersService>(CountersService.new);
   }
 
   static T get<T extends Object>() => getIt();

@@ -11,7 +11,7 @@ import 'package:score_counter/widget/action_handler.dart';
 
 class CountersBloc extends Bloc<CountersEvent, CountersState>
     with SubscriptionsManagerMixin, ActionAware {
-  static const String actionOnAddedCounter = "on_added_counter";
+  static const String actionOnAddedCounter = 'on_added_counter';
   final CountersService _countersService = CountersService.get();
 
   CountersBloc() : super(const CountersState()) {
@@ -26,7 +26,8 @@ class CountersBloc extends Bloc<CountersEvent, CountersState>
     );
     on<ChangeScoreCounterEvent>(
       (event, emit) => _countersService.update(
-          event.counter.copyWith(score: event.counter.score + event.scoreDiff)),
+        event.counter.copyWith(score: event.counter.score + event.scoreDiff),
+      ),
     );
     on<DeleteAllCountersEvent>(
       (event, emit) => _countersService.clear(),
@@ -36,11 +37,14 @@ class CountersBloc extends Bloc<CountersEvent, CountersState>
           .map((c) => c.copyWith(score: 0))
           .forEach(_countersService.update),
     );
-    autoClose(_countersService.counters().listen((counters) {
-      add(UpdateCountersEvent(counters));
-      _detectWinner(counters);
-    }));
+    _listenChanges();
   }
+
+  void _listenChanges() =>
+      autoClose(_countersService.counters().listen((counters) {
+        add(UpdateCountersEvent(counters));
+        _detectWinner(counters);
+      }));
 
   Future<void> _addNewCounter() async {
     if (await _countersService.add()) {
@@ -48,5 +52,7 @@ class CountersBloc extends Bloc<CountersEvent, CountersState>
     }
   }
 
-  void _detectWinner(List<CounterDto> counters) {}
+  void _detectWinner(List<CounterDto> _) {
+    // TODO: Implement.
+  }
 }

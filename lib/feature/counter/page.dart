@@ -22,6 +22,7 @@ class CountersWidget extends StatefulWidget {
 }
 
 class _CountersWidgetState extends State<CountersWidget> {
+  static const int _maxExpandedCounters = 5;
   final _scrollController = ScrollController();
   late CountersBloc _bloc;
   late ScaffoldMessengerState _scaffoldMessenger;
@@ -43,32 +44,37 @@ class _CountersWidgetState extends State<CountersWidget> {
   @override
   Widget build(BuildContext context) => ActionHandler(
         actions: _bloc.actions,
-        handler: (context, action) {
-          if (action.actionIdentical(CountersBloc.actionOnAddedCounter)) {
-            _handleCounterAdded(context);
-          }
-        },
+        handler: _handleAction,
         child: BlocBuilder<CountersBloc, CountersState>(
           builder: (context, state) => Column(
             children: [
               _CountersToolbar(winners: state.winners),
               Expanded(
-                  child: state.counters.length > 5
-                      ? _CountersScrollableList(
-                          counters: state.counters,
-                          scrollController: _scrollController,
-                        )
-                      : _CountersExpandedList(counters: state.counters)),
+                child: state.counters.length > _maxExpandedCounters
+                    ? _CountersScrollableList(
+                        counters: state.counters,
+                        scrollController: _scrollController,
+                      )
+                    : _CountersExpandedList(counters: state.counters),
+              ),
             ],
           ),
         ),
       );
 
+  void _handleAction(BuildContext context, ActionEvent action) {
+    if (action.actionIdentical(CountersBloc.actionOnAddedCounter)) {
+      _handleCounterAdded(context);
+    }
+  }
+
   void _handleCounterAdded(BuildContext context) {
     Future.delayed(const Duration(milliseconds: 240)).then((_) {
       if (!mounted ||
           !_scrollController.hasClients ||
-          _scrollController.position.maxScrollExtent == 0) return;
+          _scrollController.position.maxScrollExtent == 0) {
+        return;
+      }
       _scrollController.animateTo(
         _scrollController.position.maxScrollExtent,
         duration: kThemeAnimationDuration,
@@ -81,8 +87,9 @@ class _CountersWidgetState extends State<CountersWidget> {
       ..showSnackBar(SnackBar(
         content: Text(strings.counterAdded),
         action: SnackBarAction(
-            label: strings.snackbarActionOneMore,
-            onPressed: () => _bloc.add(AddCounterEvent())),
+          label: strings.snackbarActionOneMore,
+          onPressed: () => _bloc.add(AddCounterEvent()),
+        ),
       ));
   }
 }
@@ -92,7 +99,6 @@ class _CountersToolbar extends StatelessWidget {
 
   const _CountersToolbar({
     required this.winners,
-    super.key,
   });
 
   @override
@@ -115,7 +121,6 @@ class _WinnerState extends StatelessWidget {
 
   const _WinnerState({
     required this.winners,
-    super.key,
   });
 
   @override

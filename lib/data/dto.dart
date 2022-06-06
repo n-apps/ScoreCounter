@@ -1,7 +1,10 @@
 /*
  * Copyright (c) 2022 Score Counter
  */
+
 import 'package:json_annotation/json_annotation.dart';
+
+//ignore_for_file: member-ordering
 
 part 'dto.g.dart';
 
@@ -46,7 +49,7 @@ class CounterDto {
   int get hashCode =>
       name.hashCode ^ score.hashCode ^ color.hashCode ^ position.hashCode;
 
-  factory CounterDto.fromJson(Map<String, dynamic> json) =>
+  factory CounterDto.fromJson(dynamic json) =>
       _$CounterDtoFromJson(json);
 
   Map<String, dynamic> toJson() => _$CounterDtoToJson(this);

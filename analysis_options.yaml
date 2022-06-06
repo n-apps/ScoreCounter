@@ -22,8 +22,116 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    - avoid_print
+    - prefer_single_quotes
+    - always_declare_return_types
+    - cancel_subscriptions
+    - close_sinks
+    - only_throw_errors
+    - prefer_final_in_for_each
+    - avoid_dynamic_calls
+    - avoid_relative_lib_imports
+    - hash_and_equals
+    - invariant_booleans
+    - literal_only_boolean_expressions
+    - no_logic_in_create_state
+    - unnecessary_statements
+    - use_build_context_synchronously
+    - use_key_in_widget_constructors
+    - always_put_control_body_on_new_line
+    - always_put_required_named_parameters_first
+    - omit_local_variable_types
+    - one_member_abstracts
+    - parameter_assignments
+    - prefer_adjacent_string_concatenation
+    - prefer_collection_literals
+    - use_to_and_as_if_applicable
+    - use_super_parameters
+    - use_setters_to_change_properties
+    - use_raw_strings
+    - use_named_constants
+    - use_late_for_private_fields_and_variables
+    - use_decorated_box
+    - use_colored_box
+    - unnecessary_null_checks
+    - unnecessary_lambdas
+    - prefer_final_locals
+    - prefer_constructors_over_static_methods
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+# Additional rules
+# https://dartcodemetrics.dev/docs/getting-started/configuration
+analyzer:
+  exclude: ["lib/generated/**"]
+  plugins:
+    - dart_code_metrics
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    maximum-nesting-level: 5
+    number-of-parameters: 4
+    number-of-methods: 10
+    source-lines-of-code: 50
+    halstead-volume: 550
+    maintainability-index: 50
+  metrics-exclude:
+    - "test/**"
+    - "**/*.g.dart"
+    - "lib/generated/**"
+    - "lib/firebase_options.dart"
+    - "lib/dependencies.dart"
+    - "lib/routes.dart"
+    - "lib/styles.dart"
+    - "lib/**/state.dart"
+    - "lib/**/events.dart"
+  rules:
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-trailing-comma:
+        break-on: 5
+    - prefer-conditional-expressions
+    - no-equal-then-else
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-global-state
+    - avoid-nested-conditional-expressions:
+        acceptable-level: 2
+    - avoid-non-null-assertion
+    - avoid-throw-in-catch-block
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unused-parameters
+    - binary-expression-operand-order
+    - format-comment
+    - member-ordering
+    - no-equal-arguments:
+        ignored-parameters:
+          - height
+          - width
+    - prefer-conditional-expressions
+    - prefer-correct-type-name
+    - prefer-immediate-return
+    - no-magic-number:
+        allowed: [ 0, 1, -1, 2 ]
+    - tag-name:
+        var-names: [ _tag, tag, logTag, _logTag ]
+        strip-prefix: _
+        strip-postfix: State
+    - always-remove-listener
+    - avoid-returning-widgets
+    - avoid-unnecessary-setstate
+    - avoid-wrapping-in-padding
+    - prefer-const-border-radius
+    - prefer-extracting-callbacks
+    - avoid-missing-enum-constant-in-map
+    - prefer-single-widget-per-file:
+        ignore-private-widgets: true
+  rules-exclude:
+    - "test/**"
+    - "**/*.g.dart"
+    - "lib/generated/**"

@@ -22,7 +22,7 @@ Future<void> initialize() async {
   // Pass all uncaught errors from the framework to Crashlytics.
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
-  // Prepare isolates pool (threads pool)
+  // Prepare isolates pool (threads pool).
   await Executor().warmUp();
 
   Dependencies.register();

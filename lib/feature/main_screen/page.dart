@@ -21,6 +21,8 @@ import 'package:score_counter/generated/l10n.dart';
 part 'page.bottom_bar.dart';
 
 class MainScreenPage extends StatelessWidget {
+  const MainScreenPage({super.key});
+
   static Widget buildRoute(BuildContext _, GoRouterState __) =>
       MultiBlocProvider(
         providers: [
@@ -32,41 +34,38 @@ class MainScreenPage extends StatelessWidget {
         child: const MainScreenPage(),
       );
 
-  const MainScreenPage({super.key});
-
   @override
   Widget build(BuildContext context) => AnnotatedRegion<SystemUiOverlayStyle>(
+        // ignore: avoid-non-null-assertion, appBarTheme defined in app theme
         value: Theme.of(context).appBarTheme.systemOverlayStyle!,
         child: BlocBuilder<MainScreenBloc, MainScreenState>(
-            builder: (context, state) => Scaffold(
-                  bottomNavigationBar: _AppNavigationBar(
-                    currentTab: state.currentTab,
-                    diceValue: 0,
-                  ),
-                  body: WillPopScope(
-                    onWillPop: () {
-                      if (state.currentTab != NavigationTab.counters) {
-                        context.read<MainScreenBloc>().add(
-                              ChangeNavigationTabEvent(NavigationTab.counters),
-                            );
-                        return Future.value(false);
-                      } else {
-                        return Future.value(true);
-                      }
-                    },
-                    child: SafeArea(child: _getWidgetForTab(state.currentTab)),
-                  ),
-                )),
+          builder: (context, state) => Scaffold(
+            bottomNavigationBar: _AppNavigationBar(
+              currentTab: state.currentTab,
+              diceValue: 0,
+            ),
+            body: WillPopScope(
+              onWillPop: () => _onWillPop(context, state),
+              child: SafeArea(
+                child: const {
+                  NavigationTab.counters: CountersWidget(),
+                  NavigationTab.dice: DiceWidget(),
+                  NavigationTab.more: MoreWidget(),
+                }[state.currentTab]!,
+              ),
+            ),
+          ),
+        ),
       );
 
-  Widget _getWidgetForTab(NavigationTab tab) {
-    switch (tab) {
-      case NavigationTab.counters:
-        return const CountersWidget();
-      case NavigationTab.dice:
-        return const DiceWidget();
-      case NavigationTab.more:
-        return const MoreWidget();
+  Future<bool> _onWillPop(BuildContext context, MainScreenState state) {
+    if (state.currentTab != NavigationTab.counters) {
+      context.read<MainScreenBloc>().add(
+            ChangeNavigationTabEvent(NavigationTab.counters),
+          );
+      return Future.value(false);
+    } else {
+      return Future.value(true);
     }
   }
 }

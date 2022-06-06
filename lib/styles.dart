@@ -5,6 +5,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// ignore_for_file: no-equal-arguments, format-comment, avoid-global-state
+// ignore_for_file: avoid-non-null-assertion, no-magic-number
+
 //@formatter:off
 abstract class _Colors {
   Color get colorPrimary;
@@ -155,13 +158,14 @@ class AppTheme {
           tertiary: colors.colorSecondaryVariant,
         ),
         appBarTheme: AppBarTheme(
-            systemOverlayStyle: (brightness == Brightness.light
-                    ? SystemUiOverlayStyle.dark
-                    : SystemUiOverlayStyle.light)
-                .copyWith(
-          systemNavigationBarColor: Colors.transparent,
-          statusBarColor: Colors.transparent,
-        )),
+          systemOverlayStyle: (brightness == Brightness.light
+                  ? SystemUiOverlayStyle.dark
+                  : SystemUiOverlayStyle.light)
+              .copyWith(
+            systemNavigationBarColor: Colors.transparent,
+            statusBarColor: Colors.transparent,
+          ),
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: colors.rippleColor,
           showSelectedLabels: false,

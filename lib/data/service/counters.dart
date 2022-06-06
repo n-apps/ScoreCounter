@@ -33,18 +33,16 @@ class CountersService {
   Future<bool> add() async {
     final counters = await _repository.getAll().then(_prepareCounters);
     final usedNames = counters.map((c) => c.name);
-    final availableNames = await getNames().then((names) => names.toList()
-      ..removeWhere(
-        (name) => usedNames.contains(name),
-      ));
-    if (availableNames.isEmpty) return false;
-
+    final availableNames = await getNames()
+        .then((names) => names.toList()..removeWhere(usedNames.contains));
+    if (availableNames.isEmpty) {
+      return false;
+    }
+    final lastPosition = counters.lastOrNull?.position ?? -1;
     final colors = AppTheme.getBrandTheme(ThemeService.get().brightness)
         .counterColors
         .toList()
       ..shuffle(_random);
-
-    final lastPosition = counters.lastOrNull?.position ?? -1;
     final counter = CounterDto(
       name: availableNames.toList()[_random.nextInt(availableNames.length)],
       color: colors.first,
@@ -64,7 +62,8 @@ class CountersService {
 
   @protected
   Future<Set<String>> getNames() async {
-    if (_names == null) {
+    var names = _names;
+    if (names == null) {
       String data;
       try {
         data = await rootBundle
@@ -72,9 +71,15 @@ class CountersService {
       } on Exception {
         data = await rootBundle.loadString('assets/names/en.json');
       }
-      _names = await Executor().execute(arg1: data, fun1: _decodeNames);
+      names = await Executor().execute<String, void, void, void, Set<String>>(
+        arg1: data,
+        fun1: _decodeNames,
+      );
+      _names = names;
+      return names;
+    } else {
+      return names;
     }
-    return _names!;
   }
 
   List<CounterDto> _prepareCounters(List<CounterDto> counters) {
@@ -84,5 +89,6 @@ class CountersService {
   }
 }
 
-Set<String> _decodeNames(String data) =>
-    json.decode(data).map<String>((value) => value.toString()).toSet();
+Set<String> _decodeNames(String data) => (json.decode(data) as List<dynamic>)
+    .map<String>((value) => value.toString())
+    .toSet();

@@ -6,6 +6,9 @@ import 'package:equatable/equatable.dart';
 class MainScreenState extends Equatable {
   final NavigationTab currentTab;
 
+  @override
+  List<Object?> get props => [currentTab];
+
   const MainScreenState({
     required this.currentTab,
   });
@@ -16,9 +19,6 @@ class MainScreenState extends Equatable {
       MainScreenState(
         currentTab: currentTab ?? this.currentTab,
       );
-
-  @override
-  List<Object?> get props => [currentTab];
 }
 
 enum NavigationTab {

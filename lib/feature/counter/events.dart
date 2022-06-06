@@ -22,7 +22,7 @@ class DeleteCounterEvent extends CountersEvent {
 }
 
 class ChangeScoreCounterEvent extends CountersEvent {
-  /// Can be positive or negative
+  /// Can be positive or negative.
   final int scoreDiff;
   final CounterDto counter;
 

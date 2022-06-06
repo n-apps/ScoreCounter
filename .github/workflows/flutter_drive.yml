@@ -42,11 +42,12 @@ jobs:
       # The branch or tag ref that triggered the workflow will be
       # checked out.
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       # Sets up a flutter environment.
       # https://github.com/marketplace/actions/flutter-action
-      - uses: subosito/flutter-action@v1
+      - uses: subosito/flutter-action@v2
         with:
-          channel: 'stable' # or: 'dev' or 'beta'
+          flutter-version: '3.0.1'
+          channel: 'stable'
       - name: "Run Flutter Driver tests"
         run: "flutter drive --target=test_driver/app.dart"
