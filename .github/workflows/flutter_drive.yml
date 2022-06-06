@@ -3,9 +3,9 @@ name: flutter_drive
 # Trigger the workflow on push or pull request.
 on:
   push:
-    branches: [main, master]
+    branches: [flutter]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, flutter]
 # A workflow run is made up of one or more jobs.
 jobs:
   # id of job, a string that is unique to the "jobs" node above.
@@ -43,6 +43,8 @@ jobs:
       # checked out.
       # https://github.com/actions/checkout
       - uses: actions/checkout@v3
+      - name: Prepare test environment
+        run: tools/generate-test-env.sh
       # Sets up a flutter environment.
       # https://github.com/marketplace/actions/flutter-action
       - uses: subosito/flutter-action@v2
@@ -50,4 +52,4 @@ jobs:
           flutter-version: '3.0.1'
           channel: 'stable'
       - name: "Run Flutter Driver tests"
-        run: "flutter drive --target=test_driver/app.dart"
+        run: tools/run-integration-tests.sh

@@ -19,6 +19,7 @@ gen/
 out/
 lib/firebase_options.dart
 lib/generated_plugin_registrant.dart
+screenshots/
 
 
 # Gradle files

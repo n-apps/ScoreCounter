@@ -17,6 +17,7 @@ class _CountersExpandedList extends StatelessWidget {
           constraints,
         ) =>
             Column(
+          key: const ObjectKey('expanded_counters'),
           children: counters
               .map((c) => _CounterLarge(
                     key: ValueKey(c.name),
@@ -63,29 +64,29 @@ class _CounterLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const verticalPadding = 8.0;
-    // ignore: avoid-wrapping-in-padding, ink padding can't be used as container's padding
+    // ignore: avoid-wrapping-in-padding, Ink padding can't be used as container's padding
     return Padding(
-        padding: const EdgeInsets.fromLTRB(8, 0, 8, verticalPadding),
-        child: Ink(
-          decoration: BoxDecoration(
-            color: Color(counter.color),
-            borderRadius: const BorderRadius.all(Radius.circular(2)),
-          ),
-          child: InkWell(
-            onLongPress: () =>
-                context.read<CountersBloc>().add(DeleteCounterEvent(counter)),
-            borderRadius: const BorderRadius.all(Radius.circular(2)),
-            child: SizedBox(
-              height: height - verticalPadding,
-              width: double.infinity,
-              child: Text(
-                counter.name,
-                style: const TextStyle(color: Colors.white),
-              ),
+      padding: const EdgeInsets.fromLTRB(8, 0, 8, verticalPadding),
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Color(counter.color),
+          borderRadius: const BorderRadius.all(Radius.circular(2)),
+        ),
+        child: InkWell(
+          onLongPress: () =>
+              context.read<CountersBloc>().add(DeleteCounterEvent(counter)),
+          borderRadius: const BorderRadius.all(Radius.circular(2)),
+          child: SizedBox(
+            height: height - verticalPadding,
+            width: double.infinity,
+            child: Text(
+              counter.name,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }
 

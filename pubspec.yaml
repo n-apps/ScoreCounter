@@ -57,11 +57,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
   flutter_lints: ^2.0.1
   dart_code_metrics: ^4.15.2
   build_runner: ^2.1.11
   json_serializable: ^6.2.0
   flutter_gen_runner: ^4.2.1
+  bloc_test: ^9.0.3
 
 dependency_overrides:
   async: ^2.9.0

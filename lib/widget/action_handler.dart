@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2022 Score Counter
  */
-
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';

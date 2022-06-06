@@ -1,5 +1,6 @@
-
-
+/*
+ * Copyright (c) 2022 Score Counter
+ */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:score_counter/bootstrap.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     final router = AppRouter.get();
     return ValueListenableBuilder<Brightness>(
       valueListenable: ThemeService.get(),
-      builder:(_, brightness, __) => MaterialApp.router(
+      builder: (_, brightness, __) => MaterialApp.router(
         theme: AppTheme.getTheme(brightness),
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,
