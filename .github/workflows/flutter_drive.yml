@@ -17,7 +17,7 @@ jobs:
       - name: "List all simulators"
         run: xcrun simctl list
       - name: "Start Simulator"
-        run: xcrun simctl boot "iPhone 11 Pro Max (13.1)"
+        run: xcrun simctl boot "iPhone 13 Pro Max"
       # The branch or tag ref that triggered the workflow will be
       # checked out.
       # https://github.com/actions/checkout
