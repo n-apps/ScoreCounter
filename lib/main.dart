@@ -1,5 +1,6 @@
-
-
+/*
+ * Copyright (c) 2022 Score Counter
+ */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:score_counter/bootstrap.dart';
@@ -11,14 +12,14 @@ import 'package:score_counter/styles.dart';
 void main() => initialize().then((_) => runApp(const MyApp()));
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     final router = AppRouter.get();
     return ValueListenableBuilder<Brightness>(
       valueListenable: ThemeService.get(),
-      builder:(_, brightness, __) => MaterialApp.router(
+      builder: (_, brightness, __) => MaterialApp.router(
         theme: AppTheme.getTheme(brightness),
         routeInformationParser: router.routeInformationParser,
         routerDelegate: router.routerDelegate,

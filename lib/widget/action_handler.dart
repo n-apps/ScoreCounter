@@ -1,7 +1,6 @@
 /*
  * Copyright (c) 2022 Score Counter
  */
-
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
@@ -9,23 +8,28 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
-/// Adds actions functionality
+/// Adds actions functionality.
 mixin ActionAware on Closable {
   final Subject<ActionEvent> _actions = BehaviorSubject<ActionEvent>();
 
-  /// Listen to the events of this stream
-  Stream<ActionEvent> get actions => _actions.where((event) => !event.handled).doOnData((event) => event.consume());
+  /// Listen to the events of this stream.
+  Stream<ActionEvent> get actions => _actions
+      .where((event) => !event.handled)
+      .doOnData((event) => event.consume());
 
-  /// Send action to subscribers
+  /// Send action to subscribers.
   void sendAction(String action, [dynamic payload]) {
-    if (_actions.isClosed) return;
+    if (_actions.isClosed) {
+      return;
+    }
     _actions.add(ActionEvent(action, payload: payload));
   }
 
-  /// Send predefined [ActionEvent.actionShowError]
-  void sendActionError([dynamic payload]) => sendAction(ActionEvent.actionShowError, payload);
+  /// Send predefined [ActionEvent.actionShowError].
+  void sendActionError([dynamic payload]) =>
+      sendAction(ActionEvent.actionShowError, payload);
 
-  /// Dispose resources
+  /// Dispose resources.
   @override
   @mustCallSuper
   Future<void> close() async {
@@ -34,31 +38,22 @@ mixin ActionAware on Closable {
   }
 }
 
-/// Action event
+/// Action event.
 //ignore: must_be_immutable
 class ActionEvent extends Equatable {
-  /// Predefined common action
+  /// Predefined common action.
   static const actionShowError = 'error';
 
-  /// Action name
+  /// Action name.
   final String action;
 
-  /// Optional payload
+  /// Optional payload.
   final dynamic payload;
 
-  /// Whether or not the action was consumed
+  /// Whether or not the action was consumed.
   bool handled = false;
 
-  /// Create action
-  ActionEvent(this.action, {this.payload});
-
-  /// Check action
-  bool actionIdentical(String action) => identical(this.action, action);
-
-  /// Mark as handled
-  void consume() => handled = true;
-
-  /// Helper for common check on error
+  /// Helper for common check on error.
   bool get isShowErrorAction => identical(action, actionShowError);
 
   @override
@@ -66,20 +61,35 @@ class ActionEvent extends Equatable {
 
   @override
   bool? get stringify => true;
+
+  /// Create action.
+  ActionEvent(this.action, {this.payload});
+
+  /// Check action.
+  bool actionIdentical(String action) => identical(this.action, action);
+
+  /// Mark as handled.
+  void consume() => handled = true;
 }
 
-/// The widget for handling sent actions
+/// Called when the action has been fired.
+typedef HandlerCallback = void Function(
+  BuildContext context,
+  ActionEvent event,
+);
+
+/// The widget for handling sent actions.
 class ActionHandler extends StatefulWidget {
-  /// Optional child widget
+  /// Optional child widget.
   final Widget? child;
 
-  /// Actions handler
-  final void Function(BuildContext context, ActionEvent event) handler;
+  /// Actions handler callback.
+  final HandlerCallback handler;
 
-  /// Stream to listen
+  /// Stream to listen.
   final Stream<ActionEvent> actions;
 
-  /// Create handler
+  /// Create handler.
   const ActionHandler({
     required this.handler,
     required this.actions,

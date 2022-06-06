@@ -1,0 +1,34 @@
+# Name of your workflow.
+name: flutter_drive
+# Trigger the workflow on push or pull request.
+on:
+  push:
+    branches: [flutter]
+  pull_request:
+    branches: [main, master, flutter]
+# A workflow run is made up of one or more jobs.
+jobs:
+  # id of job, a string that is unique to the "jobs" node above.
+  drive:
+    # The type of machine to run the job on.
+    runs-on: macOS-latest
+    # Contains a sequence of tasks.
+    steps:
+      - name: "List all simulators"
+        run: xcrun simctl list
+      - name: "Start Simulator"
+        run: xcrun simctl boot "iPhone 13 Pro Max"
+      # The branch or tag ref that triggered the workflow will be
+      # checked out.
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v3
+      - name: Prepare test environment
+        run: tools/generate-test-env.sh
+      # Sets up a flutter environment.
+      # https://github.com/marketplace/actions/flutter-action
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.1'
+          channel: 'stable'
+      - name: "Run Flutter Driver tests"
+        run: tools/run-integration-tests.sh

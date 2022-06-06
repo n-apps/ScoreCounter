@@ -35,7 +35,7 @@ class ThemeService extends ValueNotifier<Brightness> {
       final brightness = window.platformBrightness;
       _prefs.getThemeBrightness().then((b) {
         if (b == null) {
-          value = brightness; // not overridden by the user, apply system theme
+          value = brightness; // Not overridden by the user, apply system theme.
         }
       });
     };
@@ -45,13 +45,12 @@ class ThemeService extends ValueNotifier<Brightness> {
       _prefs.setThemeBrightness(brightness).then((_) => value = brightness);
 
   Future<void> toggleThemeBrightness() => setThemeBrightness(
-      value == Brightness.dark ? Brightness.light : Brightness.dark);
+        value == Brightness.dark ? Brightness.light : Brightness.dark,
+      );
 }
 
 class _ThemePrefs {
   static const keyThemeBrightness = 'keyThemePrefsBrightness';
-
-  Future<SharedPreferences> _prefs() => SharedPreferences.getInstance();
 
   Future<void> setThemeBrightness(Brightness brightness) => _prefs()
       .then((prefs) => prefs.setInt(keyThemeBrightness, brightness.intValue));
@@ -61,4 +60,6 @@ class _ThemePrefs {
         return Brightness.values
             .firstWhereOrNull((it) => it.intValue == brightnessInt);
       });
+
+  Future<SharedPreferences> _prefs() => SharedPreferences.getInstance();
 }

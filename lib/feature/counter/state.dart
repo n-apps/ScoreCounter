@@ -9,6 +9,9 @@ class CountersState extends Equatable {
   final List<CounterDto> counters;
   final List<CounterDto> winners;
 
+  @override
+  List<Object> get props => [counters, winners];
+
   const CountersState({
     this.counters = const [],
     this.winners = const [],
@@ -22,7 +25,4 @@ class CountersState extends Equatable {
         counters: counters ?? this.counters,
         winners: winners ?? this.winners,
       );
-
-  @override
-  List<Object> get props => [counters, winners];
 }

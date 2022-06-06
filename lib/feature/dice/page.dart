@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:score_counter/feature/dice/bloc.dart';
+import 'package:score_counter/feature/dice/state.dart';
 
 class DiceWidget extends StatefulWidget {
   const DiceWidget({super.key});

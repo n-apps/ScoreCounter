@@ -8,12 +8,16 @@ class _CountersExpandedList extends StatelessWidget {
 
   const _CountersExpandedList({
     required this.counters,
-    super.key,
   });
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-        builder: (context, constraints) => Column(
+        builder: (
+          context,
+          constraints,
+        ) =>
+            Column(
+          key: const ObjectKey('expanded_counters'),
           children: counters
               .map((c) => _CounterLarge(
                     key: ValueKey(c.name),
@@ -32,7 +36,6 @@ class _CountersScrollableList extends StatelessWidget {
   const _CountersScrollableList({
     required this.counters,
     required this.scrollController,
-    super.key,
   });
 
   @override
@@ -59,27 +62,32 @@ class _CounterLarge extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-        child: Ink(
-          decoration: BoxDecoration(
-            color: Color(counter.color),
-            borderRadius: BorderRadius.circular(2),
-          ),
-          child: InkWell(
-            onLongPress: () {
-              context.read<CountersBloc>().add(DeleteCounterEvent(counter));
-            },
-            borderRadius: BorderRadius.circular(2),
-            child: SizedBox(
-              height: height - 8,
-              width: double.infinity,
-              child: Text(counter.name,
-                  style: const TextStyle(color: Colors.white)),
+  Widget build(BuildContext context) {
+    const verticalPadding = 8.0;
+    // ignore: avoid-wrapping-in-padding, Ink padding can't be used as container's padding
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(8, 0, 8, verticalPadding),
+      child: Ink(
+        decoration: BoxDecoration(
+          color: Color(counter.color),
+          borderRadius: const BorderRadius.all(Radius.circular(2)),
+        ),
+        child: InkWell(
+          onLongPress: () =>
+              context.read<CountersBloc>().add(DeleteCounterEvent(counter)),
+          borderRadius: const BorderRadius.all(Radius.circular(2)),
+          child: SizedBox(
+            height: height - verticalPadding,
+            width: double.infinity,
+            child: Text(
+              counter.name,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         ),
-      );
+      ),
+    );
+  }
 }
 
 class _CounterCompact extends StatelessWidget {
@@ -97,17 +105,18 @@ class _CounterCompact extends StatelessWidget {
           child: Ink(
             decoration: BoxDecoration(
               color: Color(counter.color),
-              borderRadius: BorderRadius.circular(2),
+              borderRadius: const BorderRadius.all(Radius.circular(2)),
             ),
             child: InkWell(
-              onLongPress: () {
-                context.read<CountersBloc>().add(DeleteCounterEvent(counter));
-              },
-              borderRadius: BorderRadius.circular(2),
+              onLongPress: () =>
+                  context.read<CountersBloc>().add(DeleteCounterEvent(counter)),
+              borderRadius: const BorderRadius.all(Radius.circular(2)),
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text(counter.name,
-                    style: const TextStyle(color: Colors.white)),
+                child: Text(
+                  '${counter.position} -> ${counter.name}',
+                  style: const TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),

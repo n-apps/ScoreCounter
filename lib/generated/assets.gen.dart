@@ -17,6 +17,13 @@ class $AssetsImagesGen {
   $AssetsImagesIconsGen get icons => const $AssetsImagesIconsGen();
 }
 
+class $AssetsNamesGen {
+  const $AssetsNamesGen();
+
+  /// File path: assets/names/en.json
+  String get en => 'assets/names/en.json';
+}
+
 class $AssetsSoundsGen {
   const $AssetsSoundsGen();
 
@@ -43,6 +50,7 @@ class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsNamesGen names = $AssetsNamesGen();
   static const $AssetsSoundsGen sounds = $AssetsSoundsGen();
 }
 

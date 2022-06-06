@@ -6,37 +6,34 @@ part of 'page.dart';
 class _AppNavigationBar extends StatelessWidget {
   final NavigationTab currentTab;
   final int diceValue;
+  static const double _navigationElevation = 20;
 
   const _AppNavigationBar({
     required this.currentTab,
     required this.diceValue,
-    super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     final strings = S.of(context);
     final theme = Theme.of(context);
-    Color resolveIconColor(int index) => currentTab.position == index
-        ? theme.bottomNavigationBarTheme.selectedItemColor!
-        : theme.bottomNavigationBarTheme.unselectedItemColor!;
+    final barTheme = theme.bottomNavigationBarTheme;
+
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: currentTab.position,
-      elevation: currentTab == NavigationTab.more ? 20 : 0,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
+      elevation: currentTab == NavigationTab.more ? _navigationElevation : 0,
       items: [
         BottomNavigationBarItem(
-          icon: Assets.images.icons.icList.svg(color: resolveIconColor(0)),
+          icon: Assets.images.icons.icList.svg(color: _iconColor(0, barTheme)),
           label: strings.tabCounters,
         ),
         BottomNavigationBarItem(
-          icon: Assets.images.icons.icDie.svg(color: resolveIconColor(1)),
+          icon: Assets.images.icons.icDie.svg(color: _iconColor(1, barTheme)),
           label: strings.tabDice,
         ),
         BottomNavigationBarItem(
-          icon: Assets.images.icons.icMore.svg(color: resolveIconColor(2)),
+          icon: Assets.images.icons.icMore.svg(color: _iconColor(2, barTheme)),
           label: strings.tabSettings,
         ),
       ],
@@ -44,5 +41,13 @@ class _AppNavigationBar extends StatelessWidget {
             ChangeNavigationTabEvent(NavigationTab.byPosition(index)),
           ),
     );
+  }
+
+  Color _iconColor(int index, BottomNavigationBarThemeData barTheme) {
+    return currentTab.position == index
+        // ignore: avoid-non-null-assertion, defined in app theme
+        ? barTheme.selectedItemColor!
+        // ignore: avoid-non-null-assertion, defined in app theme
+        : barTheme.unselectedItemColor!;
   }
 }

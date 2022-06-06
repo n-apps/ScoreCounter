@@ -1,0 +1,33 @@
+name: flutter_test
+
+on:
+  push:
+    branches: [ flutter ]
+  pull_request:
+    branches: [ main, master, flutter ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: Prepare test environment
+        run: tools/generate-test-env.sh
+
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.0.1'
+          channel: 'stable'
+
+      - name: Restore packages
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos
+
+      - name: Run tests
+        run: flutter test --coverage
