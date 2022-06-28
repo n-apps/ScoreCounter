@@ -228,7 +228,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_toStartOf="@+id/sw_swap_press"
                 android:fontFamily="@font/ptm700"
-
                 android:gravity="center_vertical"
                 android:minHeight="@dimen/list_two_lines_min_height"
                 android:text="@string/switch_press_logic"
@@ -321,7 +320,8 @@
             android:layout_height="wrap_content"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/privacy_policy"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
+            android:fontFamily="@font/ptm700"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:drawableEndCompat="@drawable/ic_planet" />
 
         <TextView

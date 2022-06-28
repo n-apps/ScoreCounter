@@ -45,14 +45,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_donate_it"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_large"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minHeight="56dp"
-            app:strokeColor="@color/colorPrimary"
             android:text="@string/about_donation"
             android:textSize="@dimen/font_title" />
 

@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
 ext.versionMinor = 0
-ext.versionPatch = 8
+ext.versionPatch = 9
 ext.postfix = ''
 
 android {
@@ -62,8 +62,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.room:room-runtime:2.4.2'

@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="default_color_list">
-        <item>#5992F8</item>
-        <item>#FFD966</item>
-        <item>#52B8D2</item>
-        <item>#F18181</item>
-        <item>#6CBE5E</item>
-        <item>#B79A8F</item>
-        <item>#A0BB31</item>
-        <item>#A4AFC7</item>
-        <item>#F2B04B</item>
-        <item>#f7f7f7</item>
-        <item>#ED70A5</item>
-        <item>#222222</item>
-        <item>#EC6666</item>
-        <item>#DDE358</item>
-        <item>#CF66F7</item>
-        <item>#6FE9BE</item>
-        <item>#9842EB</item>
-        <item>#733338</item>
+        <item>#17C37B</item>
+        <item>#E75153</item>
+        <item>#0BBCD6</item>
+        <item>#F8DA1B</item>
+        <item>#9B8FFF</item>
+        <item>#FBA30C</item>
+        <item>#3B465C</item>
+        <item>#B6CAC0</item>
     </string-array>
     <string-array name="bright_palette">
         <item>#FF1744</item>
         <item>#00E676</item>
-        <item>#FFEA00</item>
+        <item>#FDF06F</item>
         <item>#3783FF</item>
         <item>#D500F9</item>
         <item>#00E5FF</item>

@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
-    <string name="erd_message">Dacă vă place Score Counter, vă rog să îl evaluați sau să îmi cumpărați o cafea.\n\nMă ajută să îmbunătățesc aplicația și îmi ridică moralul&#160;:)\n\nMulțumesc!</string>
+    <string name="erd_message">Bună, numele meu este Roma și sunt din Kremenchuk, Ucraina. Mi-am pierdut locul de muncă din cauza războiului din țara mea, dar am decis să las această aplicație 100% gratuită și fără reclame. Dacă doriți să mă sprijiniți, vă rog să luați în considerare posibilitatea de a face o mică donație.\n\nMulțumesc!</string>
     <string name="erd_no_thanks">Nu, multumesc</string>
     <string name="erd_remind_me_later">Nu acum</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>

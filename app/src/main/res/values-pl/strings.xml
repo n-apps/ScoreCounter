@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>
-    <string name="erd_message">Jeżeli podoba ci się licznik wyników, proszę oceń go lub kup mi kawę.\n\nTo pomoże mi ulepszyć aplikację i podniesie mnie na duchu&#160;:)
+    <string name="erd_message">Cześć, mam na imię Roma i pochodzę z Kremenczuka na Ukrainie. Straciłam pracę z powodu wojny w moim kraju, ale zdecydowałam się udostępnić tę aplikację w 100% za darmo i bez reklam. Jeśli chciałbyś mnie wesprzeć, rozważ proszę przekazanie niewielkiej darowizny.
 \n\nDzięki!</string>
     <string name="erd_no_thanks">Nie, dzięki</string>
     <string name="erd_remind_me_later">Nie teraz</string>
@@ -67,7 +67,7 @@
     <string name="settings_about">O mnie</string>
     <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_text">Cześć! Jestem Roma. Jestem 27-letnim projektantem i deweloperem mieszkającym na Ukrainie&#160;\ud83c\uddfa\ud83c\udde6. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.\n\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.\n\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)\n\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. \n\nDziękuję!</string>
+    <string name="about_text">Cześć, mam na imię Roma i pochodzę z Kremenczuka na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.\n\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.\n\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)\n\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. \n\nDziękuję!</string>
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>

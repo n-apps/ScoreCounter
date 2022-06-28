@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Quantidade de lados</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
     <string name="dice_previous_result_label">Valor anterior:</string>
-    <string name="erd_message">Se você gostou deste app, por favor&#160;avalie ou faça&#160;uma doação – isso me anima e me ajuda a melhorar o app.\n\nObrigado!</string>
+    <string name="erd_message">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Perdi o meu emprego devido à guerra no meu país, mas decidi deixar esta aplicação 100% gratuita e sem anúncios. Se quiserem apoiar-me, por favor considerem fazer uma pequena doação.\n\nObrigado!</string>
     <string name="erd_no_thanks">Não, obrigado</string>
     <string name="erd_remind_me_later">Agora não</string>
     <string name="error_no_email_client">Nenhum aplicativo de email no seu dispositivo :(</string>
@@ -62,7 +62,7 @@
     <string name="counter_deleted">Contador removido</string>
     <string name="counter_added">Contador adicionado</string>
     <string name="snackbar_action_one_more">Mais um</string>MA
-    <string name="about_text">Oi! Meu nome é Roma, designer e desenvolvedor vivendo na Ucrânia&#160;\ud83c\uddfa\ud83c\udde6. Eu também gosto de jogar jogos de tabuleiro. Dead of Winter e Terraforming Mars são dois dos meus preferidos\n\nA ideia de criar um aplicativo para contar pontos de vitória veio à minha mente enquanto jogava Stars&#160;Realms (que tem fichas horríveis). Desde então eu venho desenvolvendo este aplicativo no meu tempo livre. Eu fico muito grato com cada nova avaliação, email ou doação\n\nSe você quiser compartilhar qualquer coisa ou uma tradução equivocada, sinta-se à vontade para entrar em contato. Todo mundo tem ideias legais. Ou só me diga o que você está contando.&#160;:)\n\nSe você gostou do app, por favor deixe sua avaliação&#160;ou faça uma doação isso&#160;me anima e me ajuda a melhorar o app.\n\nObrigado!</string>
+    <string name="about_text">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Eu também gosto de jogar jogos de tabuleiro. Dead of Winter e Terraforming Mars são dois dos meus preferidos\n\nA ideia de criar um aplicativo para contar pontos de vitória veio à minha mente enquanto jogava Stars&#160;Realms (que tem fichas horríveis). Desde então eu venho desenvolvendo este aplicativo no meu tempo livre. Eu fico muito grato com cada nova avaliação, email ou doação\n\nSe você quiser compartilhar qualquer coisa ou uma tradução equivocada, sinta-se à vontade para entrar em contato. Todo mundo tem ideias legais. Ou só me diga o que você está contando.&#160;:)\n\nSe você gostou do app, por favor deixe sua avaliação&#160;ou faça uma doação isso&#160;me anima e me ajuda a melhorar o app.\n\nObrigado!</string>
     <string name="about_donation">Faça uma doação</string>
     <string name="about_rate">Avalie \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Entre em contato</string>

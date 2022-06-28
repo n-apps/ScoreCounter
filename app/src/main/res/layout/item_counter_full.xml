@@ -45,6 +45,7 @@
                     app:autoSizeMaxTextSize="@dimen/font_display"
                     app:autoSizeMinTextSize="@dimen/font_body"
                     app:autoSizeStepGranularity="1sp"
+                    android:fontFamily="@font/ptm700"
                     app:autoSizeTextType="uniform"
                     tools:text="@tools:sample/first_names" />
 
@@ -54,10 +55,11 @@
                     android:layout_height="@dimen/list_single_line_min_height"
                     android:background="@drawable/ripple"
                     android:contentDescription="@string/common_edit"
+                    android:alpha="0.87"
                     android:gravity="end"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
-                    android:src="@drawable/ic_more" />
+                    android:src="@drawable/ic_arrow_right" />
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
@@ -98,7 +100,7 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginStart="@dimen/padding_normal"
-                    android:alpha="0.54"
+                    android:alpha="0.87"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
                     android:src="@drawable/ic_minus" />
@@ -109,7 +111,7 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="@dimen/padding_normal"
-                    android:alpha="0.54"
+                    android:alpha="0.87"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
                     android:src="@drawable/ic_add" />

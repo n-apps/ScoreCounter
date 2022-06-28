@@ -118,7 +118,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        toolbar.setOnClickListener(v -> switchTopLogic());
 
         for (int i = 0; i < toolbar.getChildCount(); i++) {
             View view = toolbar.getChildAt(i);
@@ -127,6 +126,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             }
         }
+        toolbarTitle.setOnClickListener(v -> switchTopLogic());
 
         spanningLinearLayoutManager = new SpanningLinearLayoutManager(requireContext());
         linearLayoutManager = new LinearLayoutManager(requireContext());

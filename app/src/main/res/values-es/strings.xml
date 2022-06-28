@@ -18,8 +18,7 @@
     <string name="dialog_custom_dice_title">Número de caras</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
     <string name="dice_previous_result_label">Tirada anterior:</string>
-    <string name="erd_message">Si te gusta el contador de puntuaciones, por favor valóralo o invítame a un café.\n\nMe ayuda a mejorar la aplicación y me levanta el ánimo&#160;:)\n\n
-¡Gracias!</string>
+    <string name="erd_message">Hola, me llamo Roma y soy de Kremenchuk, Ucrania. Perdí mi trabajo debido a la guerra en mi país, pero decidí dejar esta aplicación 100% gratuita y sin anuncios. Si quieres apoyarme, por favor considera hacer una pequeña donación.\n\n¡Gracias!</string>
     <string name="erd_no_thanks">No, gracias</string>
     <string name="erd_remind_me_later">Ahora no</string>
     <string name="error_no_email_client">No tienes aplicación de email en tu dispositivo :( prueba instalando una.</string>
@@ -61,7 +60,7 @@
     <string name="counter_deleted">Contador eliminado</string>
     <string name="counter_added">Contador agregado</string>
     <string name="snackbar_action_one_more">Uno mas</string>
-    <string name="about_text">¡Hola! Soy Roma. Soy un diseñador y desarrollador de 27 años que vive en Ucrania&#160;\ud83c\uddfa\ud83c\udde6. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.\n\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)\n\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.\n\n¡Gracias!</string>
+    <string name="about_text">Hola, me llamo Roma y soy de Kremenchuk, Ucrania. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.\n\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)\n\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.\n\n¡Gracias!</string>
     <string name="about_donation">Hacer donación</string>
     <string name="about_rate">Soporte \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contáctame</string>

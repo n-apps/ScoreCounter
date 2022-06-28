@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Количество граней</string>
     <string name="dice_empty_state">Нажмите в любом месте или&#160;встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок:</string>
-    <string name="erd_message">Понравилось приложение? Вы можете угостить автора чашечкой ароматного кофе и оставить ему доброе пожелание :-)\n\nСпасибо!</string>
+    <string name="erd_message">Привет, меня зовут Рома и я из Кременчуга, Украина. Я потерял работу из-за войны в моей стране, но я решил сделать это приложение 100% бесплатным и без рекламы. Если вы хотите поддержать меня, пожалуйста, сделайте небольшой донат ниже.\n\nСпасибо!</string>
     <string name="erd_no_thanks">Нет, спасибо</string>
     <string name="erd_remind_me_later">Не сейчас</string>
     <string name="error_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>

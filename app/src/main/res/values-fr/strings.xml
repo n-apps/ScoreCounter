@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>
     <string name="dice_previous_result_label">Lancé précédent:</string>
-    <string name="erd_message">Si vous aimez Score Counter, merci de le noter ou de m\'offrir un café.\n\nCela m\'aide à améliorer l\'application et me remonte le moral&#160;:)\n\nMerci !</string>
+    <string name="erd_message">Bonjour, je m\'appelle Roman et je suis originaire de Kremenchuk, en Ukraine. J\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de laisser cette application 100% gratuite et sans publicité. Si vous souhaitez me soutenir, vous pouvez faire un petit don.\n\nMerci !</string>
     <string name="erd_no_thanks">Non, merci</string>
     <string name="erd_remind_me_later">Pas maintenant</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
@@ -60,7 +60,7 @@
     <string name="counter_deleted">Compteur supprimé</string>
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
-    <string name="about_text">Salut ! Je suis Roma. Je suis un designer et développeur de 27 ans qui vit en Ukraine&#160;\ud83c\uddfa\ud83c\udde6. J\'aime aussi jouer à des jeux de société. Dead of Winter et Terraforming Mars sont deux de mes préférés.\n\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)\nAimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer. \n\nJe vous remercie!</string>
+    <string name="about_text">Bonjour, je m\'appelle Roman et je suis originaire de Kremenchuk, en Ukraine. J\'aime aussi jouer à des jeux de société. Dead of Winter et Terraforming Mars sont deux de mes préférés.\n\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)\nAimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer.\n\nJe vous remercie!</string>
     <string name="about_donation">Faire un don</string>
     <string name="about_rate">Évaluer \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Contactez moi</string>

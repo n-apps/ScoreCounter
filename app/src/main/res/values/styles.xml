@@ -97,6 +97,7 @@
         <item name="android:insetLeft">0dp</item>
         <item name="android:insetRight">0dp</item>
         <item name="textAllCaps">false</item>
+        <item name="android:letterSpacing">0.02</item>
     </style>
 
     <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
