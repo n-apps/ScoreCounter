@@ -23,7 +23,6 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
         <item name="android:forceDarkAllowed">false</item>
 
-        <item name="myIconTint">@color/colorOnPrimary</item>
         <item name="plus_picture">@drawable/empty_counters_light</item>
         <item name="dice_picture">@drawable/empty_dice_light</item>
         <item name="history_picture">@drawable/empty_history_light</item>
@@ -45,6 +44,7 @@
         <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:background">@null</item>
         <item name="android:elevation">0dp</item>
+        <item name="titleTextAppearance">@style/EmptyStateMessage</item>
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
     </style>
 
@@ -72,9 +72,7 @@
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:maxWidth">@dimen/empty_state_max_width</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:layout_marginTop">@dimen/spacing_large</item>
-        <item name="fontFamily">@font/ptm400</item>
-        <item name="android:textSize">@dimen/font_subheading</item>
+        <item name="fontFamily">@font/ptm700</item>
     </style>
 
     <style name="MiniDiceStyle">

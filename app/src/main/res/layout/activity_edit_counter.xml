@@ -148,16 +148,19 @@
                     tools:text="@string/app_name" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btn_more_colors"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:src="@drawable/ic_more_colors"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="@dimen/padding_normal"
+                android:background="@color/rippleColor"
+                android:src="@drawable/ic_pallete"
+                app:contentPadding="@dimen/spacing_normal"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
                 app:layout_constraintEnd_toEndOf="@id/til_counter_name"
                 app:layout_constraintStart_toEndOf="@id/color_slider"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
+                app:layout_constraintTop_toBottomOf="@id/til_counter_name"
+                app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 
             <com.github.naz013.colorslider.ColorSlider
                 android:id="@+id/color_slider"

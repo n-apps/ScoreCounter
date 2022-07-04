@@ -5,12 +5,13 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -25,9 +27,11 @@ import com.afollestad.materialdialogs.util.DialogUtils;
 import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.kunzisoft.androidclearchroma.ChromaDialog;
+import com.kunzisoft.androidclearchroma.colormode.ColorMode;
+import com.kunzisoft.androidclearchroma.listener.OnColorSelectedListener;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.counters.colorpicker.ColorPicker;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
@@ -36,7 +40,7 @@ import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
-public class EditCounterActivity extends AppCompatActivity {
+public class EditCounterActivity extends AppCompatActivity implements OnColorSelectedListener {
 
     private static final String ARGUMENT_COUNTER_ID = "ARGUMENT_COUNTER_ID";
     private static final String ARGUMENT_COUNTER_COLOR = "ARGUMENT_COUNTER_COLOR";
@@ -51,10 +55,11 @@ public class EditCounterActivity extends AppCompatActivity {
     private TextInputEditText counterDefaultValueEditText;
     private TextInputEditText counterValueEditText;
     private Button btnSave;
-    private View moreColorsButton;
+    private ImageView moreColorsButton;
     private EditCounterViewModel viewModel;
     private String newCounterColor;
     private ColorSlider colorSlider;
+    private int selectedColor;
 
     public static void start(Activity activity, Counter counter) {
         Intent intent = new Intent(activity, EditCounterActivity.class);
@@ -87,20 +92,6 @@ public class EditCounterActivity extends AppCompatActivity {
         ViewUtil.setNavBarColor(this, isLightTheme);
 
         subscribeToModel(id);
-
-        moreColorsButton.setOnClickListener(view -> {
-            ColorPicker colorPicker = new ColorPicker(EditCounterActivity.this);
-            colorPicker.setColorButtonSize(72, 72);
-            colorPicker.setColumns(3);
-            colorPicker.setColors(R.array.bright_palette);
-            colorPicker.setOnFastChooseColorListener((position, color) -> applyNewColor(color));
-            colorPicker.setDefaultColor(Color.parseColor(counter.getColor()));
-            colorPicker.show();
-        });
-
-        colorSlider.setListener((position, color) -> applyNewColor(color));
-
-        btnSave.setOnClickListener(v -> validateAndSave());
     }
 
     @Override
@@ -161,25 +152,40 @@ public class EditCounterActivity extends AppCompatActivity {
 
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
-            int boxStrokeColor = Color.parseColor(colorHex);
-            if (boxStrokeColor != Color.WHITE) {
+            selectedColor = Color.parseColor(colorHex);
+
+            if (selectedColor != Color.WHITE) {
                 setInputsColorStateDefault();
-                updateInputsColors(boxStrokeColor);
-                updateButtonColors(boxStrokeColor);
+                updateInputsColors(selectedColor);
+                updateButtonColors(selectedColor);
             } else {
                 updateInputsColors(Color.LTGRAY);
                 btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
             }
         }
+
+        moreColorsButton.setOnClickListener(v -> new ChromaDialog.Builder()
+                .initialColor(selectedColor)
+                .colorMode(ColorMode.HSL)
+                .create()
+                .show(getSupportFragmentManager(), "ChromaDialog"));
+
+        colorSlider.setListener((position, color) -> applyNewColor(color));
+
+        btnSave.setOnClickListener(v -> validateAndSave());
     }
 
-    private void updateButtonColors(int boxStrokeColor) {
-        if (ColorUtil.isDarkBackground(boxStrokeColor)) {
+    private void updateButtonColors(int newcolor) {
+        Drawable drawable = DrawableCompat.wrap(moreColorsButton.getDrawable().mutate());
+        if (ColorUtil.isDarkBackground(newcolor)) {
             btnSave.setTextColor(0xDEFFFFFF);
+            DrawableCompat.setTint(drawable, 0xDEFFFFFF);
         } else {
             btnSave.setTextColor(0xDE000000);
+            DrawableCompat.setTint(drawable, 0xDE000000);
         }
-        btnSave.setBackgroundColor(boxStrokeColor);
+        moreColorsButton.setBackgroundColor(newcolor);
+        btnSave.setBackgroundColor(newcolor);
     }
 
     private void setInputsColorStateDefault() {
@@ -193,6 +199,8 @@ public class EditCounterActivity extends AppCompatActivity {
     }
 
     private void updateInputsColors(@ColorInt int fillColor) {
+        selectedColor = fillColor;
+
         counterNameLayout.setBoxStrokeColor(fillColor);
         counterValueLayout.setBoxStrokeColor(fillColor);
         counterDefaultValueLayout.setBoxStrokeColor(fillColor);
@@ -243,7 +251,6 @@ public class EditCounterActivity extends AppCompatActivity {
         if (counterStep != step) {
             viewModel.updateStep(step);
         }
-
         supportFinishAfterTransition();
     }
 
@@ -272,5 +279,15 @@ public class EditCounterActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onPositiveButtonClick(int color) {
+        applyNewColor(color);
+    }
+
+    @Override
+    public void onNegativeButtonClick(int i) {
+
     }
 }

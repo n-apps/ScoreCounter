@@ -22,7 +22,6 @@
         <item name="android:windowEnterTransition">@transition/fade</item>
         <item name="android:forceDarkAllowed">false</item>
 
-        <item name="myIconTint">@color/textColorSecondary</item>
         <item name="plus_picture">@drawable/empty_counters_dark</item>
         <item name="dice_picture">@drawable/empty_dice_dark</item>
         <item name="history_picture">@drawable/empty_history_dark</item>

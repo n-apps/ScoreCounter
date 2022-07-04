@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/tv_dice_variant_info"
+        style="@style/EmptyStateMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_normal"
@@ -16,7 +17,6 @@
         android:minHeight="48dp"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
-        android:textAppearance="?attr/textAppearanceHeadline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="d6" />
@@ -31,7 +31,7 @@
         android:src="@drawable/ic_more"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="?myIconTint" />
+        app:tint="?attr/colorControlNormal" />
 
     <TextView
         android:id="@+id/dice"
@@ -93,7 +93,7 @@
         android:layout_marginBottom="@dimen/spacing_normal"
         android:gravity="center"
         android:text="@string/dice_previous_result_label"
-        android:textAppearance="?attr/textAppearanceSubtitle2"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -106,13 +106,13 @@
         android:id="@+id/tv_dice_composition"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/padding_normal"
-        android:visibility="invisible"
-        android:maxLines="1"
         android:ellipsize="end"
         android:fontFamily="@font/icm400"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="@dimen/padding_normal"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,11 +124,11 @@
         android:id="@+id/tv_previous_roll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:visibility="invisible"
-        android:minEms="2"
         android:fontFamily="@font/icm400"
         android:gravity="center_horizontal"
+        android:minEms="2"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@id/tv_previous_roll_label"
         app:layout_constraintLeft_toRightOf="@id/tv_previous_roll_label"
         app:layout_constraintRight_toRightOf="parent"

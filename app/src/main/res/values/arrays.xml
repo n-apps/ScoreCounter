@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="default_color_list">
-        <item>#17C37B</item>
+        <item>#C0C2CE</item>
         <item>#E75153</item>
-        <item>#0BBCD6</item>
-        <item>#F8DA1B</item>
-        <item>#9B8FFF</item>
         <item>#FBA30C</item>
+        <item>#F8DA1B</item>
+        <item>#17C37B</item>
+        <item>#178E96</item>
+        <item>#19AAD1</item>
+        <item>#7DE0E6</item>
+        <item>#005397</item>
+        <item>#9B8FFF</item>
+        <item>#EEC0DB</item>
+        <item>#C73E99</item>
+        <item>#FF8FA4</item>
         <item>#3B465C</item>
-        <item>#B6CAC0</item>
-    </string-array>
-    <string-array name="bright_palette">
-        <item>#FF1744</item>
-        <item>#00E676</item>
-        <item>#FDF06F</item>
-        <item>#3783FF</item>
-        <item>#D500F9</item>
-        <item>#00E5FF</item>
-        <item>#FF4081</item>
-        <item>#000000</item>
-        <item>#FF8C00</item>
     </string-array>
     <string-array name="names">
         <item>muffalo</item>

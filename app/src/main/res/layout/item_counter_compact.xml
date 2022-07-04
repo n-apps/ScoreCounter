@@ -10,15 +10,16 @@
     android:layout_marginEnd="@dimen/padding_normal"
     android:layout_marginBottom="@dimen/spacing_normal"
     app:cardCornerRadius="2dp"
-    app:cardElevation="1dp">
+    app:cardElevation="1dp"
+    tools:backgroundTint="#7DE0E6">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingVertical="8dp"
         android:minHeight="@dimen/list_two_lines_min_height"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
 
         <TextView
             android:id="@+id/tv_counter_name"
@@ -27,10 +28,10 @@
             android:layout_weight="1"
             android:background="@drawable/ripple"
             android:ellipsize="end"
+            android:fontFamily="@font/ptm700"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:paddingStart="@dimen/padding_normal"
-            android:fontFamily="@font/ptm700"
             android:textAppearance="?attr/textAppearanceSubtitle2"
             app:autoSizeMaxTextSize="@dimen/font_display"
             app:autoSizeMinTextSize="@dimen/font_body"
@@ -55,13 +56,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:fontFamily="@font/icm400"
             android:background="@drawable/ripple"
+            android:fontFamily="@font/icm400"
             android:gravity="center"
             android:lines="1"
             android:minEms="2"
-            android:textColor="?android:attr/textColorPrimary"
             android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="?android:attr/textColorPrimary"
             tools:text="42" />
 
         <ImageView

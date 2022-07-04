@@ -11,18 +11,18 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
-ext.versionMinor = 0
-ext.versionPatch = 9
+ext.versionMinor = 1
+ext.versionPatch = 0
 ext.postfix = ''
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion '32.0.0'
+    compileSdkVersion 33
+    buildToolsVersion '33.0.0'
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
         minSdkVersion 24
-        targetSdkVersion 32
+        targetSdkVersion 33
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
@@ -78,9 +78,9 @@ dependencies {
     implementation 'com.android.billingclient:billing:4.1.0'
     implementation 'com.github.naz013:ColorSlider:2.0.7'
     implementation 'io.github.bitvale:switcher:1.1.2'
+    implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'
 
-
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.4.1'
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.5.0'
     annotationProcessor 'androidx.room:room-compiler:2.4.2'
 }
 
