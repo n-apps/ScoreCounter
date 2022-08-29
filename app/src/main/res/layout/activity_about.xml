@@ -112,6 +112,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lineSpacingMultiplier="1.26"
+                            android:text="@string/translators_title"
+                            android:textAppearance="?attr/textAppearanceBody2" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingMultiplier="1.26"
                             android:text="@string/translators"
                             android:textAppearance="?attr/textAppearanceBody2" />
 

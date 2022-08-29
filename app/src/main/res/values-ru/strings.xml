@@ -65,16 +65,15 @@
     <string name="about_rate">Поддержать \u2605\u2605\u2605\u2605\u2605</string>
     <string name="about_feedback">Написать мне</string>
     <string name="settings_about">Об авторе</string>
-    <string name="easter_wave">👋</string>
     <string name="setting_help_translate">Помочь с переводом</string>
     <string name="switch_press_logic">Поменять короткое и&#160;долгое нажатие</string>
     <string name="lowest_wins_hint">Логика изменилась</string>
     <string name="common_vibrate">Вибрировать</string>
-    <string name="translators">Перевод\n\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo</string>
     <string name="donation_xwing_title">Игрой Star Wars</string>
     <string name="donation_xwing_description">С новыми кораблями и схемами раскраски</string>
     <string name="testers">Тестирование\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Вы можете изменить эти значения в настройках</string>
     <string name="menu_log_subtitle">только эта сессия</string>
     <string name="menu_elektu">Кто ходит первым?</string>
+    <string name="translators_title">Перевод</string>
 </resources>

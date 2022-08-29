@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>muffalo</item>
+        <item>boomrat</item>
+        <item>megascarab</item>
+        <item>kobra</item>
+        <item>jelen</item>
+        <item>kanec</item>
+        <item>veverka</item>
+        <item>leguán</item>
+        <item>aardvark</item>
+        <item>albatros</item>
+        <item>aligátor</item>
+        <item>alpaka</item>
+        <item>mravenec</item>
+        <item>mravenečník</item>
+        <item>antilopa</item>
+        <item>opice</item>
+        <item>pásovec</item>
+        <item>osel</item>
+        <item>pavián</item>
+        <item>jezevec</item>
+        <item>barakuda</item>
+        <item>netopýr</item>
+        <item>medvěd</item>
+        <item>bobr</item>
+        <item>včela</item>
+        <item>bizon</item>
+        <item>buvol</item>
+        <item>motýl</item>
+        <item>velbloud</item>
+        <item>karibu</item>
+        <item>kočka</item>
+        <item>housenka</item>
+        <item>skot</item>
+        <item>gepard</item>
+        <item>kuře</item>
+        <item>šimpanz</item>
+        <item>činčila</item>
+        <item>kachna</item>
+        <item>škeble</item>
+        <item>šváb</item>
+        <item>treska</item>
+        <item>kondor</item>
+        <item>kormorán</item>
+        <item>kojot</item>
+        <item>krab</item>
+        <item>jeřáb</item>
+        <item>krokodýl</item>
+        <item>vrána</item>
+        <item>dinosaurus</item>
+        <item>pes</item>
+        <item>delfín</item>
+        <item>osel</item>
+        <item>holubice</item>
+        <item>vážka</item>
+        <item>orel</item>
+        <item>ježura</item>
+        <item>úhoř</item>
+        <item>antilopa losí</item>
+        <item>slon</item>
+        <item>rypouš</item>
+        <item>los</item>
+        <item>emu</item>
+        <item>sokol</item>
+        <item>fretka</item>
+        <item>pěnkava</item>
+        <item>ryba</item>
+        <item>plameňák</item>
+        <item>moucha</item>
+        <item>liška</item>
+        <item>žába</item>
+        <item>gazela</item>
+        <item>pískomil</item>
+        <item>panda</item>
+        <item>žirafa</item>
+        <item>komár</item>
+        <item>pakůň</item>
+        <item>koza</item>
+        <item>husa</item>
+        <item>zlatá rybka</item>
+        <item>gorila</item>
+        <item>jestřáb lesní</item>
+        <item>kobylka</item>
+        <item>tetřev</item>
+        <item>guanako</item>
+        <item>morče</item>
+        <item>racek</item>
+        <item>křeček</item>
+        <item>zajíc</item>
+        <item>jestřáb</item>
+        <item>ježek</item>
+        <item>volavka</item>
+        <item>sleď</item>
+        <item>hroch</item>
+        <item>sršeň</item>
+        <item>kůň</item>
+        <item>člověk</item>
+        <item>kolibřík</item>
+        <item>hyena</item>
+        <item>ibis</item>
+        <item>šakal</item>
+        <item>jaguár</item>
+        <item>sojka obecná</item>
+        <item>sojka modrá</item>
+        <item>medúza</item>
+        <item>klokan</item>
+        <item>koala</item>
+        <item>komodo</item>
+        <item>skřivan</item>
+        <item>lemur</item>
+        <item>leopard</item>
+        <item>lev</item>
+        <item>lama</item>
+        <item>humr</item>
+        <item>saranče</item>
+        <item>veš</item>
+        <item>lyrochvost</item>
+        <item>straka</item>
+        <item>kachna divoká</item>
+        <item>kachna domácí</item>
+        <item>kapustňák</item>
+        <item>mandril</item>
+        <item>kudlanka</item>
+        <item>surikata</item>
+        <item>norek</item>
+        <item>krtek</item>
+        <item>mangusta</item>
+        <item>opice</item>
+        <item>los</item>
+        <item>myš</item>
+        <item>komár</item>
+        <item>mula</item>
+        <item>narval</item>
+        <item>mlok</item>
+        <item>slavík</item>
+        <item>chobotnice</item>
+        <item>okapi</item>
+        <item>vačice</item>
+        <item>pštros</item>
+        <item>vydra</item>
+        <item>sova</item>
+        <item>tur domácí</item>
+        <item>ústřice</item>
+        <item>panter</item>
+        <item>papoušek</item>
+        <item>koroptev</item>
+        <item>pelikán</item>
+        <item>tučňák</item>
+        <item>bažant</item>
+        <item>prase</item>
+        <item>holub</item>
+        <item>lední medvěd</item>
+        <item>poník</item>
+        <item>dikobraz</item>
+        <item>sviňucha</item>
+        <item>psoun prériový</item>
+        <item>křepelka</item>
+        <item>králík</item>
+        <item>mýval</item>
+        <item>beran</item>
+        <item>krysa</item>
+        <item>havran</item>
+        <item>sob</item>
+        <item>nosorožec</item>
+        <item>mlok skvrnitý</item>
+        <item>losos</item>
+        <item>sardinka</item>
+        <item>štír</item>
+        <item>lachtan</item>
+        <item>mořský ježek</item>
+        <item>mořský koník</item>
+        <item>tuleň</item>
+        <item>žralok</item>
+        <item>ovce</item>
+        <item>rejsek</item>
+        <item>skunk</item>
+        <item>hlemýžď</item>
+        <item>had</item>
+        <item>vrabec</item>
+        <item>pavouk</item>
+        <item>krakatice</item>
+        <item>špaček</item>
+        <item>rejnok</item>
+        <item>kněžice</item>
+        <item>čáp</item>
+        <item>vlaštovka</item>
+        <item>labuť</item>
+        <item>tapír</item>
+        <item>tarbík</item>
+        <item>termit</item>
+        <item>tygr</item>
+        <item>ropucha obecná</item>
+        <item>pstruh</item>
+        <item>krocan</item>
+        <item>želva</item>
+        <item>zmije</item>
+        <item>hraboš</item>
+        <item>sup</item>
+        <item>valach</item>
+        <item>mrož</item>
+        <item>vosa</item>
+        <item>lasička</item>
+        <item>velryba</item>
+        <item>vlk</item>
+        <item>rosomák</item>
+        <item>vombat</item>
+        <item>datel</item>
+        <item>červ</item>
+        <item>jak</item>
+        <item>zebra</item>
+        <item>Medvídek Pú</item>
+        <item>King Kong</item>
+        <item>pudl</item>
+        <item>jednorožec</item>
+        <item>drak</item>
+        <item>zombie</item>
+        <item>víla</item>
+        <item>Dobby</item>
+        <item>cheburashka</item>
+        <item>brownie</item>
+        <item>Scooby Doo</item>
+        <item>Locika</item>
+        <item>lví král</item>
+        <item>spongebob</item>
+        <item>čupakabra</item>
+        <item>kraken</item>
+        <item>outloň</item>
+        <item>nyan kočka</item>
+        <item>ptakopysk</item>
+        <item>krajta</item>
+        <item>kvaga</item>
+        <item>quokka</item>
+    </string-array>
+</resources>
