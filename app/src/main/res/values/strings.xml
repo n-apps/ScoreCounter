@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Custom dice sides</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
-    <string name="erd_message">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. I lost my job due to the war in my country, but I decided to let this app 100% free and without ads. If you’d like to support me, please consider making a small donation.\n\nThanks!</string>
+    <string name="erd_message">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. I lost my job due to the war in my country, but I decided to let this app remain free without ads with all functionality. If you’d like to support an indie developer (me), please consider making a small donation once or multiple times inside the app.\n\nThanks!</string>
     <string name="erd_no_thanks">No, thanks</string>
     <string name="erd_remind_me_later">Not now</string>
     <string name="error_no_email_client">No email app on your device :(</string>
@@ -62,9 +62,9 @@
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_added">Counter added</string>
     <string name="snackbar_action_one_more">One more</string>
-    <string name="about_text">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create this app came to my head during a Stars&#160;Realms games (it has terrible tokens). I then decided to develop this mobile app on my free time. Every new review, email or donation makes me happy.\n\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\nI lost my job due to the war in my country, but I decided to let this app 100% free and without ads. If you’d like to support me, please consider making a small donation via the button below.\n\nThanks!</string>
+    <string name="about_text">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. I like playing board games. Dead of Winter and Terraforming Mars are two of my favorites.\n\nThe idea to create this app came to my head during a Stars&#160;Realms games (it has terrible tokens). I then decided to develop this mobile app on my free time. Every new review, email or donation makes me happy.\n\nIf you have something to share or found messy translations – feel free to get in touch, everyone has cool ideas. Or just tell me what you counting&#160;:)\n\nI lost my job due to the war in my country, but I decided to let this app remain free without ads with all functionality. If you’d like to support an indie developer (me), please consider making a small donation once or multiple times inside the app.\n\nThanks!</string>
     <string name="about_donation">Buy me a coffee</string>
-    <string name="about_rate">Support \u2605\u2605\u2605\u2605\u2605</string>
+    <string name="about_rate">Rate my app</string>
     <string name="about_feedback">Contact me</string>
     <string name="settings_about">About me</string>
     <string name="easter_wave" translatable="false">👋</string>

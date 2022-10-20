@@ -62,7 +62,7 @@
     <string name="snackbar_action_one_more">Noch einer</string>
     <string name="about_text">Hallo, ich bin Roma und komme aus Kremenchuk, Ukraine. Ich spiele gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\nDie Idee, diese App zu erstellen, kam mir während eines Spiels von Stars Realms (das schreckliche Token hat). Ich habe mich dann entschieden, diese mobile App in meiner Freizeit zu machen. Jede neue Bewertung, E-Mail oder Spende macht mich sehr glücklich!\n\nMöchtest du etwas teilen, verbessern oder unordentliche, schlechte Übersetzungen sehen - melde dich gerne, jeder hat tolle Ideen. Oder lassen Sie mich einfach wissen, was Sie \"zählen\" :)\n\nIch habe meinen Job aufgrund des Krieges in meinem Land verloren, aber entschieden, die App 100 % kostenlos und ohne Werbung zu halten. Wenn Sie mich unterstützen möchten, erwägen Sie bitte eine Spende über die Schaltfläche unten.\n\nVielen Dank!!</string>
     <string name="about_donation">Kauf mier eine Tasse Kaffee</string>
-    <string name="about_rate">Unterstützung \u2605\u2605\u2605\u2605\u2605</string>
+    <string name="about_rate">Meine App bewerten</string>
     <string name="about_feedback">Kontaktiere mich</string>
     <string name="settings_about">Über mich</string>
     <string name="setting_help_translate">Hilfe bei der Übersetzung</string>

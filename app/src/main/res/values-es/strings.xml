@@ -62,7 +62,7 @@
     <string name="snackbar_action_one_more">Uno mas</string>
     <string name="about_text">Hola, me llamo Roma y soy de Kremenchuk, Ucrania. También me gusta jugar a juegos de mesa. Dead of Winter y Terraforming Mars son dos de mis favoritos.\n\nLa idea de hacer una aplicación para contar puntos se me ocurrió durante una partida a Stars&#160;Realms (tiene unas fichas de conteo terribles). Desde entonces he estado desarrollando esta aplicación en mi tiempo libre. Me encanta cada nueva reseña, correo electrónico o donación.\n\nSi tienes algo para compartir o encuentras una traducción que no te cuadra, no dudes en ponerte en contacto, todos teneis ideas geniales, que me encantaría implementar en la aplicación. También simplente puedes decirme lo que estás contando&#160;:)\n\n¿Te gusta la aplicación? puntúala o haz una donación, ya que esto ayuda a mejorarla.\n\n¡Gracias!</string>
     <string name="about_donation">Hacer donación</string>
-    <string name="about_rate">Soporte \u2605\u2605\u2605\u2605\u2605</string>
+    <string name="about_rate">Valora mi aplicación</string>
     <string name="about_feedback">Contáctame</string>
     <string name="settings_about">Sobre mí</string>
     <string name="setting_help_translate">Ayúdanos a traducir</string>
