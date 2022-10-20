@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:ignore="TouchTargetSizeCheck"
-    tools:context="ua.napps.scorekeeper.settings.SettingsFragment">
+    tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
+    tools:ignore="TouchTargetSizeCheck">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,275 +32,16 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tv_general"
-            style="@style/SettingsSectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:text="@string/settings_section_general" />
-
-        <RelativeLayout
-            android:id="@+id/settings_keep_screen_on"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/sw_keep_screen_on"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center_vertical"
-                android:minHeight="@dimen/list_two_lines_min_height"
-                android:text="@string/settings_stay_awake"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <com.bitvale.switcher.SwitcherX
-                android:id="@+id/sw_keep_screen_on"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:clickable="false"
-                android:focusable="false"
-                app:elevation="0dp"
-                app:switcher_icon_color="?attr/colorOnSecondary"
-                app:switcher_off_color="?android:textColorHint"
-                app:switcher_on_color="?attr/colorPrimary"
-                tools:checked="false" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/settings_dark_theme"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/sw_dark_theme"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center_vertical"
-                android:minHeight="@dimen/list_two_lines_min_height"
-                android:text="@string/settings_dark_theme"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <com.bitvale.switcher.SwitcherX
-                android:id="@+id/sw_dark_theme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                app:elevation="0dp"
-                app:switcher_icon_color="?attr/colorOnSecondary"
-                app:switcher_off_color="?android:textColorHint"
-                app:switcher_on_color="?attr/colorPrimary" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_vibrate"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/sw_vibrate"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center_vertical"
-                android:minHeight="@dimen/list_two_lines_min_height"
-                android:text="@string/common_vibrate"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <com.bitvale.switcher.SwitcherX
-                android:id="@+id/sw_vibrate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                app:elevation="0dp"
-                app:switcher_icon_color="?attr/colorOnSecondary"
-                app:switcher_off_color="?android:textColorHint"
-                app:switcher_on_color="?attr/colorPrimary" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tv_counter"
-            style="@style/SettingsSectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/common_counter"
-            app:drawableEndCompat="@drawable/ic_help_circle"
-            app:drawableTint="?colorOnBackground"
-            tools:ignore="UnusedAttribute" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_normal">
-
-            <ua.napps.scorekeeper.utils.SquareFrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/spacing_large"
-                android:layout_weight="1"
-                android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toggle"
-                android:foreground="@drawable/ripple">
-
-                <TextView
-                    android:id="@+id/btn_1_text"
-                    style="@style/MiniDiceStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:text="+5" />
-            </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-            <ua.napps.scorekeeper.utils.SquareFrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/spacing_large"
-                android:layout_weight="1"
-                android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toggle">
-
-                <TextView
-                    android:id="@+id/btn_2_text"
-                    style="@style/MiniDiceStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:text="+5" />
-            </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-            <ua.napps.scorekeeper.utils.SquareFrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/spacing_large"
-                android:layout_weight="1"
-                android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toggle">
-
-                <TextView
-                    android:id="@+id/btn_3_text"
-                    style="@style/MiniDiceStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:text="+5" />
-            </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-            <ua.napps.scorekeeper.utils.SquareFrameLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="@dimen/spacing_normal"
-                android:layout_weight="1"
-                android:addStatesFromChildren="true"
-                android:background="@drawable/bg_selector_mini_dice_toggle">
-
-                <TextView
-                    android:id="@+id/btn_4_text"
-                    style="@style/MiniDiceStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:text="+5" />
-            </ua.napps.scorekeeper.utils.SquareFrameLayout>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_swap_press"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/sw_swap_press"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center_vertical"
-                android:minHeight="@dimen/list_two_lines_min_height"
-                android:text="@string/switch_press_logic"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <com.bitvale.switcher.SwitcherX
-                android:id="@+id/sw_swap_press"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                app:elevation="0dp"
-                app:switcher_icon_color="?attr/colorOnSecondary"
-                app:switcher_off_color="?android:textColorHint"
-                app:switcher_on_color="?attr/colorPrimary" />
-
-        </RelativeLayout>
-
-        <TextView
-            style="@style/SettingsSectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_section_actions" />
-
-        <TextView
-            android:id="@+id/tv_request_feature"
+            android:id="@+id/tv_open_settings"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/settings_feedback"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <TextView
-            android:id="@+id/tv_rate_app"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptm700"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/about_rate"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <TextView
-            android:id="@+id/tv_help_translate"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptm700"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/setting_help_translate"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <TextView
-            android:id="@+id/tv_share"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptm700"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/setting_share"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
-
-        <TextView
-            style="@style/SettingsSectionHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name" />
+            android:text="@string/bottom_navigation_tab_settings"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right"
+            app:drawableTint="@color/material_dynamic_primary50" />
 
         <TextView
             android:id="@+id/tv_about"
@@ -310,26 +51,76 @@
             android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_about"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_arrow_right" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right"
+            app:drawableTint="@color/material_dynamic_primary50" />
+
+        <TextView
+            android:id="@+id/tv_request_feature"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_feedback"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_chat"
+            app:drawableTint="@color/material_dynamic_primary30" />
+
+        <TextView
+            android:id="@+id/tv_rate_app"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/about_rate"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_asterisk"
+            app:drawableTint="@color/material_dynamic_primary30" />
+
+        <TextView
+            android:id="@+id/tv_help_translate"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/setting_help_translate"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_translator"
+            app:drawableTint="@color/material_dynamic_primary30" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/setting_share"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_share"
+            app:drawableTint="@color/material_dynamic_primary30" />
 
         <TextView
             android:id="@+id/tv_privacy_policy"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/privacy_policy"
-            android:fontFamily="@font/ptm700"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_planet" />
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_earth"
+            app:drawableTint="@color/material_dynamic_neutral_variant20" />
 
         <TextView
             android:id="@+id/tv_easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacing_xlarge"
             android:layout_marginBottom="@dimen/spacing_xlarge"
             android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
             android:textAppearance="?attr/textAppearanceCaption"

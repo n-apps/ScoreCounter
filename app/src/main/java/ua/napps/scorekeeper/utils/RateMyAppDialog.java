@@ -58,7 +58,7 @@ public class RateMyAppDialog {
     }
 
     private boolean didRate() {
-        return LocalSettings.didRate();
+        return LocalSettings.didDonate();
     }
 
     private boolean didNeverReminder() {
@@ -112,21 +112,14 @@ public class RateMyAppDialog {
                 .setView(contentView)
                 .create();
 
-        contentView.findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
-            Utilities.rateApp(context);
-            LocalSettings.markRateApp();
-            dialog.dismiss();
-        });
         contentView.findViewById(R.id.iv_donate).setOnClickListener(v -> {
             DonateDialog donateDialog = new DonateDialog();
             donateDialog.show(context.getSupportFragmentManager(), "donate");
-            LocalSettings.markRateApp();
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
             DonateDialog donateDialog = new DonateDialog();
             donateDialog.show(context.getSupportFragmentManager(), "donate");
-            LocalSettings.markRateApp();
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {

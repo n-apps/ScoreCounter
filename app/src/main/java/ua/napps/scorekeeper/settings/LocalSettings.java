@@ -17,7 +17,7 @@ public class LocalSettings {
 
     private static final String KEY_FIRST_HIT_DATE = "key_first_hit_date";
     private static final String KEY_LAUNCH_TIMES = "key_launch_times";
-    private static final String KEY_WAS_RATED = "key_was_rated";
+    private static final String KEY_DONATED = "key_donated";
     private static final String KEY_NEVER_REMINDER = "key_never_reminder";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
@@ -73,12 +73,12 @@ public class LocalSettings {
         App.getTinyDB().putBoolean(LONG_PRESS_TIP_SHOWED, true);
     }
 
-    public static void markRateApp() {
-        App.getTinyDB().putBoolean(KEY_WAS_RATED, true);
+    public static void markDonated() {
+        App.getTinyDB().putBoolean(KEY_DONATED, true);
     }
 
-    public static boolean didRate() {
-        return App.getTinyDB().getBoolean(KEY_WAS_RATED, false);
+    public static boolean didDonate() {
+        return App.getTinyDB().getBoolean(KEY_DONATED, false);
     }
 
     public static int getAppLaunchTimes() {

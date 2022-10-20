@@ -36,9 +36,7 @@
     <string name="common_got_it">Verstanden</string>
     <string name="menu_log">Historie</string>
     <string name="history_empty_message">Keine Historie vorhanden</string>
-    <string name="common_counter">Zähler</string>
-    <string name="dialog_custom_counter_title">Eigene Punkteerhöhung</string>
-    <string name="settings_section_counter_buttons">Halten einen +/- Bereich gedrückt, um Punktzahl Erhöhen zu machen</string>
+    <string name="settings_counter_title">Zähler (Eigene Punkteerhöhung)</string>
     <string name="dialog_confirmation_question">Bist du dir sicher?</string>
     <string name="dialog_yes">Ja</string>
     <string name="dialog_no">Nein</string>
@@ -71,7 +69,7 @@
     <string name="common_vibrate">Vibrieren</string>
     <string name="translators_title">Übersetzung</string>
     <string name="donation_xwing_title">Star Wars Miniaturen</string>
-    <string name="donation_xwing_description">Neue X-Wing Miniaturen und neue Farbvarianten</string>
+    <string name="donation_xwing_description">Neue X-Wing Miniaturen und neue Farbvarianten.</string>
     <string name="testers">Gelegenheitstester\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Du kannst diese Werte in den Einstellungen anpassen</string>
     <string name="menu_log_subtitle">Nur diese Sitzung</string>

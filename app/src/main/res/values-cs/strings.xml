@@ -10,7 +10,7 @@
     <string name="bottom_navigation_tab_dice">Kostky</string>
     <string name="bottom_navigation_tab_settings">Nastavení</string>
     <string name="common_back">Zpět</string>
-    <string name="common_counter">Počítadlo</string>
+    <string name="settings_counter_title">Počítadlo (přírůstky skóre)</string>
     <string name="common_decrease">Snížit</string>
     <string name="common_edit">Upravit</string>
     <string name="common_got_it">Mám to</string>
@@ -28,7 +28,6 @@
     <string name="delete">Odstranit</string>
     <string name="dialog_confirmation_question">Jste si jisti?</string>
     <string name="dialog_current_value_title">Aktuální hodnota</string>
-    <string name="dialog_custom_counter_title">Vlastní přírůstky skóre</string>
     <string name="dialog_custom_dice_title">Vlastní strany kostky</string>
     <string name="dialog_no">Ne</string>
     <string name="dialog_yes">Ano</string>
@@ -39,7 +38,7 @@
     <string name="donation_pizza_description">Sladké a kořeněné dobrodružství chuťových pohárků.</string>
     <string name="donation_pizza_title">Nejlepší pizza v mém okolí</string>
     <string name="donation_thank_you">Děkujeme za Vaši podporu \u2665</string>
-    <string name="donation_xwing_description">Nové X-Wing miniatury a nová barevná schémata</string>
+    <string name="donation_xwing_description">Nové X-Wing miniatury a nová barevná schémata.</string>
     <string name="donation_xwing_title">Miniatury Star Wars</string>
     <string name="erd_message">Ahoj, jmenuji se Roma a jsem z ukrajinského Kremenčuku. Kvůli válce v mé zemi jsem přišel o práci, ale rozhodl jsem se ponechat tuto aplikaci 100% zdarma a bez reklam. Pokud byste mě chtěli podpořit, zvažte prosím malý příspěvek.\n\nDíky moc!</string>
     <string name="erd_no_thanks">Ne, díky</string>
@@ -65,7 +64,6 @@
     <string name="settings_dark_theme">Tmavý režim</string>
     <string name="settings_feedback">Poslat zpětnou vazbu</string>
     <string name="settings_section_actions">Akce</string>
-    <string name="settings_section_counter_buttons">Stisknutím a podržením oblasti +/- můžete použít přírůstky skóre.</string>
     <string name="settings_section_dice">Kostky</string>
     <string name="settings_section_general">Vzhled</string>
     <string name="settings_shake_to_roll">Hodit zatřesením</string>

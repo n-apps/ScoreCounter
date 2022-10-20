@@ -115,7 +115,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_counters, container, false);
         toolbar = contentView.findViewById(R.id.toolbar);
-        Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vert);
+        Drawable drawable = ContextCompat.getDrawable(requireContext(), R.drawable.ic_more_vertical);
         toolbar.setOverflowIcon(drawable);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
@@ -240,7 +240,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void observeData() {
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
-        viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
+        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(CountersViewModel.class);
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 final int size = counters.size();
@@ -328,7 +328,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         } else { // At least the first and the second counters have the same value.
             boolean isAllCountersTheSame = topSize == counters.size();
-            toolbar.setTitle(isAllCountersTheSame ? null : topSize + "\uD83D\uDC38");
+            toolbar.setTitle(isAllCountersTheSame ? null : topSize + " \uD83D\uDC38");
             ViewUtil.shakeView(toolbarTitle, 2, 2);
             previousTopCounterId = 0;
         }

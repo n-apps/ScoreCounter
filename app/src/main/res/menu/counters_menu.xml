@@ -10,7 +10,7 @@
         tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/menu_log"
-        android:icon="@drawable/ic_history"
+        android:icon="@drawable/ic_recently_viewed"
         android:title="@string/menu_log"
         app:showAsAction="always" />
     <item

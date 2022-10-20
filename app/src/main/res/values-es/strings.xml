@@ -36,9 +36,7 @@
     <string name="common_got_it">Entendido</string>
     <string name="menu_log">Historial</string>
     <string name="history_empty_message">No hay historial aún</string>
-    <string name="common_counter">Contador</string>
-    <string name="dialog_custom_counter_title">Incrementos de puntuación personalizados</string>
-    <string name="settings_section_counter_buttons">Mantenga pulsado un área +/- para utilizar un incremento de puntuación</string>
+    <string name="settings_counter_title">Contador (Incrementos de puntuación)</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_yes">Sí</string>
@@ -70,7 +68,7 @@
     <string name="lowest_wins_hint">La lógica cambió</string>
     <string name="common_vibrate">Vibración</string>
     <string name="donation_xwing_title">Star Wars X-Wing: El juego de miniaturas</string>
-    <string name="donation_xwing_description">Nuevas miniaturas con esquemas de pintura alternos</string>
+    <string name="donation_xwing_description">Nuevas miniaturas con esquemas de pintura alternos.</string>
     <string name="testers">Probadores ocasionales\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Puede editar estos valores en la configuración</string>
     <string name="menu_log_subtitle">sólo para la sesión</string>

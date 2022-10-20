@@ -36,9 +36,7 @@
     <string name="common_got_it">Am inteles</string>
     <string name="menu_log">Istoric</string>
     <string name="history_empty_message">Niciun istoric momentan</string>
-    <string name="common_counter">Contor</string>
-    <string name="dialog_custom_counter_title">Optiune de modificare rapida</string>
-    <string name="settings_section_counter_buttons">Apăsați și mențineți apăsată o zonă +/- pentru a utiliza o creștere a scorului</string>
+    <string name="settings_counter_title">Contor (modificare rapida)</string>
     <string name="dialog_confirmation_question">Esti sigur?</string>
     <string name="dialog_yes">Da</string>
     <string name="dialog_no">Nu</string>
@@ -70,7 +68,7 @@
     <string name="lowest_wins_hint">Logica a fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Miniatures</string>
-    <string name="donation_xwing_description">Noi miniaturi și noi scheme de vopsea</string>
+    <string name="donation_xwing_description">Noi miniaturi și noi scheme de vopsea.</string>
     <string name="testers">Testeri\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Puteți edita aceste valori în setările</string>
     <string name="menu_log_subtitle">doar această sesiune</string>

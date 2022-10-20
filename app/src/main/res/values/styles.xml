@@ -128,13 +128,13 @@
     </style>
 
     <style name="SettingsSectionHeader">
-        <item name="android:layout_marginTop">@dimen/spacing_normal</item>
-        <item name="android:background">@color/sectionHeader</item>
         <item name="android:fontFamily">@font/ptm700</item>
+        <item name="android:textAppearance">@style/EmptyStateMessage</item>
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:paddingStart">@dimen/padding_large</item>
         <item name="android:paddingEnd">@dimen/padding_large</item>
-        <item name="android:minHeight">@dimen/list_single_line_min_height</item>
+        <item name="android:paddingTop">@dimen/padding_large</item>
+        <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
     </style>
 
     <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">

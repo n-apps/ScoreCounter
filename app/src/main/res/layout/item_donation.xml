@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/ptm700"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
+        android:textAppearance="?attr/textAppearanceHeadline6"
         app:drawableEndCompat="@drawable/ic_arrow_right"
         app:drawableTint="?attr/colorPrimary"
         tools:text="@string/donation_pizza_title" />

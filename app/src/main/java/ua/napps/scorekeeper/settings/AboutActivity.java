@@ -38,7 +38,6 @@ public class AboutActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
             Utilities.rateApp(this);
-            LocalSettings.markRateApp();
         });
         findViewById(R.id.hero_image).setOnClickListener(v -> {
             DonateDialog dialog = new DonateDialog();

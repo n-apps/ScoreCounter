@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/spacing_xlarge">
+
+    <TextView
+        android:id="@+id/tv_general"
+        style="@style/SettingsSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
+        android:text="@string/settings_section_general" />
+
+    <RelativeLayout
+        android:id="@+id/settings_keep_screen_on"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_keep_screen_on"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_stay_awake"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_keep_screen_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary"
+            tools:checked="false" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/settings_dark_theme"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_dark_theme"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_dark_theme"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_dark_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_vibrate"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_vibrate"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/common_vibrate"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_vibrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+    </RelativeLayout>
+
+
+    <TextView
+        style="@style/SettingsSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_counter_title"
+        app:drawableTint="?colorOnBackground"
+        tools:ignore="UnusedAttribute" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_normal">
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:addStatesFromChildren="true"
+            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:foreground="@drawable/ripple">
+
+            <TextView
+                android:id="@+id/btn_1_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:addStatesFromChildren="true"
+            android:background="@drawable/bg_selector_mini_dice_toggle">
+
+            <TextView
+                android:id="@+id/btn_2_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:addStatesFromChildren="true"
+            android:background="@drawable/bg_selector_mini_dice_toggle">
+
+            <TextView
+                android:id="@+id/btn_3_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:addStatesFromChildren="true"
+            android:background="@drawable/bg_selector_mini_dice_toggle">
+
+            <TextView
+                android:id="@+id/btn_4_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_swap_press"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_swap_press"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/switch_press_logic"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_swap_press"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/spacing_xlarge"
+        android:contentDescription="@string/common_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+</LinearLayout>

@@ -163,7 +163,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_donate_it"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_large"
@@ -172,14 +172,14 @@
                     android:minHeight="56dp"
                     android:text="@string/about_donation"
                     android:textAllCaps="false"
-                    android:textSize="@dimen/font_title"
-                    app:strokeColor="@color/colorPrimary" />
+                    android:textSize="@dimen/font_title" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_rate_it"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:strokeColor="@color/colorPrimary"
                     android:layout_marginTop="@dimen/spacing_large"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"

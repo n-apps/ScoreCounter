@@ -36,9 +36,7 @@
     <string name="common_got_it">Зрозуміло</string>
     <string name="menu_log">Історія</string>
     <string name="history_empty_message">Поки немає історії</string>
-    <string name="common_counter">Лічильник</string>
-    <string name="dialog_custom_counter_title">Варіант швидкої зміни значення</string>
-    <string name="settings_section_counter_buttons">Натисніть і утримуйте область +/-, щоб використати збільшення значень</string>
+    <string name="settings_counter_title">Лічильник (зміни значення)</string>
     <string name="dialog_confirmation_question">Дiйсно хочеш?</string>
     <string name="dialog_yes">Так</string>
     <string name="dialog_no">Ні</string>
@@ -70,7 +68,7 @@
     <string name="lowest_wins_hint">Логіка змінилася</string>
     <string name="common_vibrate">Вібрувати</string>
     <string name="donation_xwing_title">Star Wars: гра з мініатюрами</string>
-    <string name="donation_xwing_description">Новий комплект мініатюр</string>
+    <string name="donation_xwing_description">Новий комплект кораблів.</string>
     <string name="testers">Випадкові тестери\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">Ви можете змінити ці значення у налаштуваннях</string>
     <string name="menu_log_subtitle">тільки ця сесія</string>

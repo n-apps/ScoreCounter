@@ -9,8 +9,8 @@
     <dimen name="font_display">24sp</dimen>
     <dimen name="font_subheading">17sp</dimen>
     <dimen name="font_title">20sp</dimen>
-    <dimen name="list_single_line_min_height">48dp</dimen>
-    <dimen name="list_two_lines_min_height">56dp</dimen>
+    <dimen name="list_single_line_min_height">56dp</dimen>
+    <dimen name="list_two_lines_min_height">72dp</dimen>
     <dimen name="padding_large">24dp</dimen>
     <dimen name="padding_normal">16dp</dimen>
     <dimen name="spacing_large">32dp</dimen>

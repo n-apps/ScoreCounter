@@ -36,9 +36,7 @@
     <string name="common_got_it">Entendi</string>
     <string name="menu_log">Histórico</string>
     <string name="history_empty_message">Nenhum histórico ainda</string>
-    <string name="common_counter">Contador</string>
-    <string name="dialog_custom_counter_title">Opção troca rápida</string>
-    <string name="settings_section_counter_buttons">Pressione e segure uma área +/- para usar um aumento de pontuação</string>
+    <string name="settings_counter_title">Contador (Opção troca rápida)</string>
     <string name="dialog_confirmation_question">Tem certeza?</string>
     <string name="dialog_yes">Sim</string>
     <string name="dialog_no">Não</string>
@@ -49,7 +47,7 @@
     <string name="donation_pizza_title">Pizza saborosa</string>
     <string name="donation_pizza_description">Com cebola, dobro de queijo e salame, por favor. E sem champignon!</string>
     <string name="donation_xwing_title">Miniaturas de Star Wars</string>
-    <string name="donation_xwing_description">Nova miniatura do X-Wing e com novas cores</string>
+    <string name="donation_xwing_description">Nova miniatura do X-Wing e com novas cores.</string>
     <string name="settings_sound">Som</string>
     <string name="action_donate">Doar</string>
     <string name="error_message">Desculpe, parece que ocorreu um erro.</string>

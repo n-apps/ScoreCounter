@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import ua.napps.scorekeeper.R;
+import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
 import ua.napps.scorekeeper.utils.livedata.MessageIntent;
 import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
@@ -46,7 +47,10 @@ public class DonateDialog extends DialogFragment {
                 .setTitle(R.string.action_donate)
                 .setAdapter(adapter, null)
                 .create();
-        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.purchase(requireActivity(), donateOption));
+        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> {
+            viewModel.purchase(requireActivity(), donateOption);
+            LocalSettings.markDonated();
+        });
         return alertDialog;
     }
 

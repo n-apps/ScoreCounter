@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:id="@+id/menu_delete"
-        android:icon="@drawable/ic_trash_red"
+        android:icon="@drawable/ic_trash_can"
         android:title="@string/delete"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />

@@ -216,19 +216,23 @@ public class DicesFragment extends Fragment {
     }
 
     private void updateCompositionLabel(ArrayList<Integer> rolls, boolean rollInProgress) {
-        if (rolls.size() > 1) {
+        int rollsize = rolls.size();
+        if (rollsize == 1) {
+            diceCompositionTextView.setText("");
+            diceCompositionTextView.setVisibility(View.INVISIBLE);
+        } else if (rollsize >= 9) {
+            diceCompositionTextView.setText("\uD83E\uDD2F \uD83E\uDD2F \uD83E\uDD2F");
+            diceCompositionTextView.setVisibility(View.VISIBLE);
+        } else {
             StringBuilder composition = new StringBuilder();
-            for (int i = 0; i < rolls.size(); i++) {
+            for (int i = 0; i < rollsize; i++) {
                 composition.append(rollInProgress ? "\u274f" : rolls.get(i));
-                if (i < (rolls.size() - 1)) {
+                if (i < (rollsize - 1)) {
                     composition.append(" + ");
                 }
             }
             diceCompositionTextView.setText(composition);
             diceCompositionTextView.setVisibility(View.VISIBLE);
-        } else {
-            diceCompositionTextView.setText("");
-            diceCompositionTextView.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -250,7 +254,7 @@ public class DicesFragment extends Fragment {
 
     private void observeData() {
         DiceViewModelFactory factory = new DiceViewModelFactory(maxSide, diceCount);
-        viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
+        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {

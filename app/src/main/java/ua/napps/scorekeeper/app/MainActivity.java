@@ -111,6 +111,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
+        bottomNavigationBar.findViewById(R.id.dices).setOnLongClickListener(v -> {
+            hideDiceBadge();
+            return false;
+        });
+
         switchFragment(TAGS[0]);
 
         if (isLightTheme) {

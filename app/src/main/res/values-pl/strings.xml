@@ -37,9 +37,7 @@
     <string name="common_got_it">Zrozumiałem</string>
     <string name="menu_log">Historia</string>
     <string name="history_empty_message">Brak historii</string>
-    <string name="common_counter">Licznik</string>
-    <string name="dialog_custom_counter_title">Niestandardowe przyrosty punktów</string>
-    <string name="settings_section_counter_buttons">Naciśnij i przytrzymaj obszar +/-, aby użyć przyrostu punktów.</string>
+    <string name="settings_counter_title">Licznik (przyrosty punktów)</string>
     <string name="dialog_confirmation_question">Jesteś pewny/a?</string>
     <string name="dialog_yes">Tak</string>
     <string name="dialog_no">Nie</string>

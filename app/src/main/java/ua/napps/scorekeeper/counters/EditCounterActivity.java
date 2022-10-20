@@ -136,7 +136,6 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("");
 
         counterNameEditText = findViewById(R.id.et_counter_name);
         counterStepEditText = findViewById(R.id.et_counter_step);
@@ -256,7 +255,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
 
     private void subscribeToModel(int id) {
         EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id);
-        viewModel = new ViewModelProvider(this, factory).get(EditCounterViewModel.class);
+        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
                 counter = c;

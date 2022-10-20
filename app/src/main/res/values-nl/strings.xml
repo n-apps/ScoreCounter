@@ -10,7 +10,7 @@
     <string name="bottom_navigation_tab_dice">Dobbelstenen</string>
     <string name="bottom_navigation_tab_settings">Instellingen</string>
     <string name="common_back">Terug</string>
-    <string name="common_counter">Teller</string>
+    <string name="settings_counter_title">Teller (score toename)</string>
     <string name="common_decrease">Verlagen</string>
     <string name="common_edit">Wijzigen</string>
     <string name="common_got_it">Oké</string>
@@ -28,7 +28,6 @@
     <string name="delete">Verwijderen</string>
     <string name="dialog_confirmation_question">Weet je het zeker?</string>
     <string name="dialog_current_value_title">Huidige waarde</string>
-    <string name="dialog_custom_counter_title">Eigen score toename</string>
     <string name="dialog_custom_dice_title">Eigen dobbelsteen zijden</string>
     <string name="dialog_no">Nee</string>
     <string name="dialog_yes">Ja</string>
@@ -39,7 +38,7 @@
     <string name="donation_pizza_description">Met ui, dubbele kaas en salami graag. En geen ananas!</string>
     <string name="donation_pizza_title">Lekkerste pizza in de buurt</string>
     <string name="donation_thank_you">Hartelijk dank voor je steun \u2665</string>
-    <string name="donation_xwing_description">Nieuwe X-Wing miniaturen en nieuwe kleurstellingen</string>
+    <string name="donation_xwing_description">Nieuwe X-Wing miniaturen en nieuwe kleurstellingen.</string>
     <string name="donation_xwing_title">Hoi, ik ben Roma en ik kom uit Krementsjoek, Oekraïne. Ik heb mijn baan verloren door de oorlog in mijn land maar heb toch besloten de app 100% gratis te houden zonder reclame. Als je me wilt ondersteunen, overweeg dan een donatie te doen via onderstaande knop.\n\nSuper bedankt!!</string>
     <string name="erd_message">Hoi, ik ben Roma en ik kom uit Krementsjoek, Oekraïne. Ik heb mijn baan verloren door de oorlog in mijn land maar heb toch besloten de app 100% gratis te houden zonder reclame. Als je me wilt ondersteunen, overweeg dan een donatie te doen via onderstaande knop.\n\nSuper bedankt!!</string>
     <string name="erd_no_thanks">Nee, bedankt</string>
@@ -65,7 +64,6 @@
     <string name="settings_dark_theme">Donker thema</string>
     <string name="settings_feedback">Terugkoppeling verzenden</string>
     <string name="settings_section_actions">Acties</string>
-    <string name="settings_section_counter_buttons">Houd een +/- gebied ingedrukt om een scoretoename te doen</string>
     <string name="settings_section_dice">Dobbelstenen</string>
     <string name="testers">Incidentele testers\n\u2690 bleeerr</string>
     <string name="switch_press_logic">Wissel lang en kort drukken</string>

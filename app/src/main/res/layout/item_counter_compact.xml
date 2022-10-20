@@ -49,7 +49,7 @@
             android:background="@drawable/ripple"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
-            android:src="@drawable/ic_minus" />
+            android:src="@drawable/ic_subtract" />
 
         <TextView
             android:id="@+id/tv_counter_value"
