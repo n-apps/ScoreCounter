@@ -41,7 +41,7 @@
             android:text="@string/bottom_navigation_tab_settings"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="@color/material_dynamic_primary50" />
+            app:drawableTint="?attr/colorPrimary" />
 
         <TextView
             android:id="@+id/tv_about"
@@ -53,7 +53,7 @@
             android:text="@string/settings_about"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="@color/material_dynamic_primary50" />
+            app:drawableTint="?attr/colorPrimary" />
 
         <TextView
             android:id="@+id/tv_request_feature"
@@ -65,7 +65,7 @@
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_chat"
-            app:drawableTint="@color/material_dynamic_primary30" />
+            app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_rate_app"
@@ -77,7 +77,7 @@
             android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_asterisk"
-            app:drawableTint="@color/material_dynamic_primary30" />
+            app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_help_translate"
@@ -89,7 +89,7 @@
             android:text="@string/setting_help_translate"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_translator"
-            app:drawableTint="@color/material_dynamic_primary30" />
+            app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_share"
@@ -101,7 +101,7 @@
             android:text="@string/setting_share"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_share"
-            app:drawableTint="@color/material_dynamic_primary30" />
+            app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_privacy_policy"
@@ -113,7 +113,7 @@
             android:text="@string/privacy_policy"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_earth"
-            app:drawableTint="@color/material_dynamic_neutral_variant20" />
+            app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_easter"
