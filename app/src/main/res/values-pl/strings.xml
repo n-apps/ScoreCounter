@@ -31,7 +31,7 @@
     <string name="settings_section_actions">Działania</string>
     <string name="settings_section_general">Wygląd</string>
     <string name="settings_section_dice">Kostka</string>
-    <string name="settings_feedback">"Wyślij opinię "</string>
+    <string name="settings_feedback">Wyślij opinię</string>
     <string name="settings_shake_to_roll">Potrząśnij aby rzucić</string>
     <string name="settings_stay_awake">Pozostaw ekran włączony</string>
     <string name="common_got_it">Zrozumiałem</string>

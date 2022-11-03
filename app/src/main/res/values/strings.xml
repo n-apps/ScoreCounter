@@ -72,7 +72,7 @@
     <string name="common_vibrate">Vibrate</string>
     <string name="credits" translatable="false">Github\n☆ vabene1111\n☆ PeterCeresnik\n☆ 10matej15\n☆ drstranges\n☆ janethavi\n☆ GustavoHGAraujo</string>
     <string name="translators_title">Translation</string>
-    <string name="translators" translatable="false">\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo\n\ud83c\udde8\ud83c\uddff Adam Novák\n\ud83c\uddf3\ud83c\uddf1 Link Hogthrob (JvD NL)\n\ud83c\udde9\ud83c\uddea Link Hogthrob (JvD NL)</string>
+    <string name="translators" translatable="false">\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo\n\ud83c\udde8\ud83c\uddff Adam Novák\n\ud83c\uddf3\ud83c\uddf1 Link Hogthrob (JvD NL)\n\ud83c\udde9\ud83c\uddea Link Hogthrob (JvD NL)\n\ud83c\uddee\ud83c\uddf9 Silvia Avvertenza</string>
     <string name="testers">Occasional testers\n\u2690 bleeerr</string>
     <string name="predefined_steps_hint">You can edit these values in the settings</string>
     <string name="menu_log_subtitle">session-only</string>

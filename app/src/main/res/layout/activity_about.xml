@@ -51,8 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@null"
-                app:title="@string/app_name"
-                app:layout_collapseMode="parallax" />
+                app:layout_collapseMode="parallax"
+                app:title="@string/app_name" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -68,128 +68,105 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/padding_large">
+            android:padding="@dimen/padding_large">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptm700"
+                android:lineSpacingMultiplier="1.33"
+                android:text="@string/about_text"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <ImageView
+                android:id="@+id/hero_image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/spacing_large"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_hero"
+                android:tintMode="src_in" />
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/padding_large">
+                android:fontFamily="@font/ptm700"
+                android:lineSpacingMultiplier="1.26"
+                android:text="@string/translators_title"
+                android:textAppearance="?attr/textAppearanceBody1" />
 
-                <TextView
-                    android:id="@+id/content"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.33"
-                    android:text="@string/about_text"
-                    android:textAppearance="?attr/textAppearanceBody1" />
+            <TextView
+                android:layout_width="match_parent"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/spacing_xlarge"
-                    android:layout_marginBottom="@dimen/spacing_xlarge"
-                    android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
-                    android:textAppearance="?attr/textAppearanceCaption"
-                    android:textColor="?attr/colorPrimaryVariant"
-                    tools:ignore="HardcodedText" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:fontFamily="@font/ptm700"
+                android:lineSpacingMultiplier="1.26"
+                android:text="@string/translators"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
 
-                <!--                Credits-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingMultiplier="1.26"
-                            android:text="@string/translators_title"
-                            android:textAppearance="?attr/textAppearanceBody2" />
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingMultiplier="1.26"
-                            android:text="@string/translators"
-                            android:textAppearance="?attr/textAppearanceBody2" />
-
-                        <ImageView
-                            android:id="@+id/hero_image"
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/spacing_large"
-                            android:contentDescription="@string/app_name"
-                            android:src="@drawable/ic_hero"
-                            android:tintMode="src_in" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:lineSpacingMultiplier="1.26"
-                            android:paddingEnd="@dimen/padding_normal"
-                            android:text="@string/credits"
-                            android:textAppearance="?attr/textAppearanceBody2" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big"
+                android:fontFamily="@font/ptm700"
+                android:lineSpacingMultiplier="1.26"
+                android:paddingEnd="@dimen/padding_normal"
+                android:text="@string/credits"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
 
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/spacing_large"
-                            android:lineSpacingMultiplier="1.26"
-                            android:text="@string/testers"
-                            android:textAppearance="?attr/textAppearanceBody2" />
-                    </LinearLayout>
-                </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big"
+                android:fontFamily="@font/ptm700"
+                android:lineSpacingMultiplier="1.26"
+                android:text="@string/testers"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
 
-                <!--                Donate-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:layout_marginBottom="@dimen/spacing_xlarge"
+                android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorPrimaryVariant"
+                tools:ignore="HardcodedText" />
+
+            <!--                Donate-->
 
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_donate_it"
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:minHeight="56dp"
-                    android:text="@string/about_donation"
-                    android:textAllCaps="false"
-                    android:textSize="@dimen/font_title" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_donate_it"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="56dp"
+                android:text="@string/about_donation"
+                android:textAllCaps="false"
+                android:textSize="@dimen/font_title" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_rate_it"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:strokeColor="@color/colorPrimary"
-                    android:layout_marginTop="@dimen/spacing_large"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:minHeight="56dp"
-                    android:text="@string/about_rate"
-                    android:textAllCaps="false"
-                    android:textColor="?attr/colorOnBackground"
-                    android:textSize="@dimen/font_subheading" />
-
-            </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_rate_it"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="56dp"
+                android:text="@string/about_rate"
+                android:textAllCaps="false"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="@dimen/font_subheading"
+                app:strokeColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"

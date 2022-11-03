@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>muffalo</item>
+        <item>Ratto nero</item>
+        <item>megascarabeo</item>
+        <item>cobra</item>
+        <item>cervo</item>
+        <item>cinghiale</item>
+        <item>scoiattolo</item>
+        <item>iguana</item>
+        <item>oritteropo</item>
+        <item>albatros</item>
+        <item>alligatore</item>
+        <item>alpaca</item>
+        <item>formica</item>
+        <item>formichiere</item>
+        <item>antilope</item>
+        <item>scimmia</item>
+        <item>armadillo</item>
+        <item>asino</item>
+        <item>babbuino</item>
+        <item>tasso</item>
+        <item>barracuda</item>
+        <item>pipistrello</item>
+        <item>orso</item>
+        <item>castoro</item>
+        <item>ape</item>
+        <item>bisonte</item>
+        <item>bufalo</item>
+        <item>farfalla</item>
+        <item>cammello</item>
+        <item>caribù</item>
+        <item>gatto</item>
+        <item>bruco</item>
+        <item>bovino</item>
+        <item>ghepardo</item>
+        <item>gallina</item>
+        <item>scimpanzé</item>
+        <item>cincillà</item>
+        <item>gracchio</item>
+        <item>vongola</item>
+        <item>scarafaggio</item>
+        <item>merluzzo</item>
+        <item>condor</item>
+        <item>cormorano</item>
+        <item>coiote</item>
+        <item>granchio</item>
+        <item>gru</item>
+        <item>coccodrillo</item>
+        <item>corvo</item>
+        <item>dinosauro</item>
+        <item>cane</item>
+        <item>delfino</item>
+        <item>asino</item>
+        <item>colomba</item>
+        <item>libellula</item>
+        <item>aquila</item>
+        <item>echidna</item>
+        <item>anguilla</item>
+        <item>eland</item>
+        <item>elefante</item>
+        <item>foca elefante</item>
+        <item>alce</item>
+        <item>emu эму</item>
+        <item>falco</item>
+        <item>furetto</item>
+        <item>fringuello</item>
+        <item>pesce</item>
+        <item>fenicottero</item>
+        <item>mosca</item>
+        <item>volpe</item>
+        <item>rana</item>
+        <item>gazzella</item>
+        <item>gerbillo</item>
+        <item>panda</item>
+        <item>giraffa</item>
+        <item>moscerino</item>
+        <item>gnu</item>
+        <item>capra</item>
+        <item>oca</item>
+        <item>pesce ross</item>
+        <item>gorilla</item>
+        <item>astore</item>
+        <item>cavalletta</item>
+        <item>gallo cedrone</item>
+        <item>guanaco</item>
+        <item>porcellino d\'india</item>
+        <item>gabbiano</item>
+        <item>criceto</item>
+        <item>lepre</item>
+        <item>falco</item>
+        <item>riccio</item>
+        <item>airone</item>
+        <item>aringa</item>
+        <item>ippopotamo</item>
+        <item>calabrone</item>
+        <item>cavallo</item>
+        <item>umano</item>
+        <item>colibrì</item>
+        <item>iena</item>
+        <item>ibis</item>
+        <item>sciacallo</item>
+        <item>giaguaro</item>
+        <item>ghiandaia</item>
+        <item>ghiandaia azzurra</item>
+        <item>medusa</item>
+        <item>canguro</item>
+        <item>koala</item>
+        <item>komodo</item>
+        <item>allodola</item>
+        <item>lemure</item>
+        <item>leopardo</item>
+        <item>leone</item>
+        <item>lama</item>
+        <item>aragosta</item>
+        <item>locusta</item>
+        <item>pidocchio</item>
+        <item>uccello lira</item>
+        <item>gazza</item>
+        <item>germano reale</item>
+        <item>anatra</item>
+        <item>lamantino</item>
+        <item>mandrillo</item>
+        <item>mantide</item>
+        <item>suricato</item>
+        <item>visone</item>
+        <item>talpa</item>
+        <item>mangusta</item>
+        <item>scimmia</item>
+        <item>alce</item>
+        <item>topo</item>
+        <item>zanzara</item>
+        <item>mulo</item>
+        <item>narvalo</item>
+        <item>tritone</item>
+        <item>usignolo</item>
+        <item>polpo</item>
+        <item>okapi</item>
+        <item>opossum</item>
+        <item>struzzo</item>
+        <item>lontra</item>
+        <item>gufo</item>
+        <item>bue</item>
+        <item>ostrica</item>
+        <item>pantera</item>
+        <item>pappagallo</item>
+        <item>pernice</item>
+        <item>pellicano</item>
+        <item>pinguino</item>
+        <item>fagiano</item>
+        <item>maiale</item>
+        <item>piccione</item>
+        <item>orso polare</item>
+        <item>pony</item>
+        <item>istrice</item>
+        <item>focena свинья</item>
+        <item>cane della prateria</item>
+        <item>quaglia</item>
+        <item>coniglio</item>
+        <item>procione</item>
+        <item>montone</item>
+        <item>ratto</item>
+        <item>Corvo imperiale</item>
+        <item>renna олень</item>
+        <item>rinoceronte</item>
+        <item>salamandra</item>
+        <item>salmone</item>
+        <item>sardina</item>
+        <item>scorpione</item>
+        <item>leone marino</item>
+        <item>riccio di mare</item>
+        <item>cavalluccio marino</item>
+        <item>foca</item>
+        <item>squalo</item>
+        <item>pecora</item>
+        <item>toporagno</item>
+        <item>puzzola</item>
+        <item>lumaca</item>
+        <item>serpente</item>
+        <item>passero</item>
+        <item>ragno</item>
+        <item>calamaro</item>
+        <item>storno</item>
+        <item>pastinaca</item>
+        <item>cimice</item>
+        <item>cicogna</item>
+        <item>rondine</item>
+        <item>cigno</item>
+        <item>tapiro</item>
+        <item>tarsio</item>
+        <item>termite</item>
+        <item>tigre</item>
+        <item>rospo</item>
+        <item>trota</item>
+        <item>tacchino</item>
+        <item>tartaruga</item>
+        <item>vipera</item>
+        <item>arvicola</item>
+        <item>avvoltoio</item>
+        <item>wallaby</item>
+        <item>tricheco</item>
+        <item>vespa</item>
+        <item>donnola</item>
+        <item>balena</item>
+        <item>lupo</item>
+        <item>ghiottone</item>
+        <item>vombato</item>
+        <item>picchio</item>
+        <item>verme</item>
+        <item>yak</item>
+        <item>zebra</item>
+        <item>winnie the pooh</item>
+        <item>re kong</item>
+        <item>barboncino</item>
+        <item>unicorno</item>
+        <item>drago</item>
+        <item>zombie</item>
+        <item>fata</item>
+        <item>dobby</item>
+        <item>cheburashka</item>
+        <item>brownie</item>
+        <item>scooby doo</item>
+        <item>Raperonzolo</item>
+        <item>re leone</item>
+        <item>spongebob</item>
+        <item>chupacabra</item>
+        <item>kraken</item>
+        <item>loris</item>
+        <item>gatto nano</item>
+        <item>ornitorinco</item>
+        <item>pitone</item>
+        <item>quagga</item>
+        <item>quokka</item>
+    </string-array>
+</resources>
