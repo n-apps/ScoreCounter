@@ -1,7 +1,7 @@
 # Score Counter Android App
 Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
 
-[<img width=760 src="https://user-images.githubusercontent.com/16646251/203298387-a1767323-1fa4-4785-9025-335660d3e7b5.jpg" style="float: left; padding-right: 10
+[<img width=760 src="https://user-images.githubusercontent.com/16646251/203299126-d94e5310-8caa-4b46-ade7-198769dca20d.jpg" style="float: left; padding-right: 10
 px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 #### Key features
