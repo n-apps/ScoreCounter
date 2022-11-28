@@ -25,9 +25,8 @@ px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
 
 If you like this app, please leave feedback or make a donation – this will boost my mood and will help improve the app. If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. Thank you! 
 
-## Contribution
+## Contribution 
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
-
 
 #### Development
 To start working on the app yourself, you have to follow these steps:
@@ -54,5 +53,8 @@ If you've never used git and not familiar with Android development, download [th
 [<a target="_blank" href="https://www.standwithukraine.how/"><img src="https://user-images.githubusercontent.com/16646251/176420453-e24a0d68-72cc-4c71-8b28-f040a623ed1e.jpg" width=400></a>]()
 
 
+## Donate
+<a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="56"></a>  
+If you enjoyed this project — or just feeling generous, consider buying me a coffee/borsch. Cheers! :beers:
 
 
