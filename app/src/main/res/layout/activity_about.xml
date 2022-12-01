@@ -132,7 +132,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
-                android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+                android:text="\u2744    \u2744    \u2744    \u2744    \u2744"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorPrimaryVariant"
                 tools:ignore="HardcodedText" />
@@ -174,7 +174,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
-                android:text="\u274f   \u274f   \u274f   \u274f   \u274f"
+                android:text="\u2744    \u2744    \u2744    \u2744    \u2744"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?attr/colorPrimaryVariant"
                 tools:ignore="HardcodedText" />
