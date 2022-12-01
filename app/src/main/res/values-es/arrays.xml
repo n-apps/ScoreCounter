@@ -3,13 +3,13 @@
     <string-array name="names">
         <item>muffalo</item>
         <item>rata</item>
-        <item>Mega escarabajo</item>
+        <item>mega escarabajo</item>
         <item>cobra</item>
         <item>ciervo</item>
         <item>Jabali</item>
         <item>ardilla</item>
         <item>iguana</item>
-        <item>Cerdo hormiguero</item>
+        <item>cerdo hormiguero</item>
         <item>albatros</item>
         <item>caimán</item>
         <item>alpaca</item>
@@ -18,7 +18,7 @@
         <item>antílope</item>
         <item>mono</item>
         <item>armadillo</item>
-        <item>Burro</item>
+        <item>burro</item>
         <item>babuino</item>
         <item>tejón</item>
         <item>barracuda</item>
@@ -34,11 +34,11 @@
         <item>gato</item>
         <item>oruga</item>
         <item>vaca</item>
-        <item>leopardo</item>
+        <item>guepardo</item>
         <item>pollo</item>
         <item>chimpancé</item>
         <item>chinchilla</item>
-        <item>toser</item>
+        <item>chova</item>
         <item>almeja</item>
         <item>cucaracha</item>
         <item>bacalao</item>
@@ -46,18 +46,18 @@
         <item>cormorán</item>
         <item>coyote</item>
         <item>cangrejo</item>
-        <item>grua</item>
+        <item>grulla</item>
         <item>cocodrilo</item>
         <item>cuervo</item>
         <item>dinosaurio</item>
         <item>perro</item>
         <item>delfín</item>
-        <item>Burro</item>
+        <item>burro</item>
         <item>paloma</item>
         <item>libélula</item>
         <item>águila</item>
         <item>equidna</item>
-        <item>Anguila</item>
+        <item>anguila</item>
         <item>elando</item>
         <item>elefante</item>
         <item>elefante marino</item>
@@ -79,11 +79,11 @@
         <item>ñu</item>
         <item>cabra</item>
         <item>ganso</item>
-        <item>pez de colores</item>
+        <item>pez dorado</item>
         <item>gorila</item>
         <item>azor</item>
         <item>saltamontes</item>
-        <item>Pájaro</item>
+        <item>urogallo</item>
         <item>guanaco</item>
         <item>conejillo de indias</item>
         <item>gaviota</item>
@@ -104,10 +104,10 @@
         <item>jaguar</item>
         <item>arrendajo</item>
         <item>arrendajo azul</item>
-        <item>Medusa</item>
+        <item>medusa</item>
         <item>canguro</item>
         <item>Koala</item>
-        <item>Dragón de komodo</item>
+        <item>dragón de komodo</item>
         <item>alondra</item>
         <item>lémur</item>
         <item>leopardo</item>
@@ -116,16 +116,16 @@
         <item>langosta</item>
         <item>langosta terrestre</item>
         <item>piojo</item>
-        <item>Pájaro lira</item>
+        <item>ave lira</item>
         <item>urraca</item>
         <item>pato real</item>
-        <item>Pato</item>
+        <item>pato</item>
         <item>manatí</item>
         <item>mandril</item>
         <item>mantis</item>
         <item>suricata</item>
         <item>visón</item>
-        <item>Topo</item>
+        <item>topo</item>
         <item>mangosta</item>
         <item>mono</item>
         <item>alce</item>
@@ -148,18 +148,18 @@
         <item>perdiz</item>
         <item>pelícano</item>
         <item>pingüino</item>
-        <item>Faisán</item>
+        <item>faisán</item>
         <item>cerdo</item>
-        <item>Paloma</item>
+        <item>paloma</item>
         <item>oso polar</item>
         <item>poni</item>
         <item>puerco espín</item>
         <item>marsopa</item>
-        <item>Perrito de las praderas</item>
+        <item>perrito de las praderas</item>
         <item>codorniz</item>
-        <item>Conejo</item>
+        <item>conejo</item>
         <item>mapache</item>
-        <item>Carnero</item>
+        <item>carnero</item>
         <item>rata</item>
         <item>cuervo</item>
         <item>reno</item>
@@ -168,7 +168,7 @@
         <item>salmón</item>
         <item>sardina</item>
         <item>escorpión</item>
-        <item>León marino</item>
+        <item>león marino</item>
         <item>erizo de mar</item>
         <item>caballo de mar</item>
         <item>foca</item>
@@ -190,39 +190,39 @@
         <item>tapir</item>
         <item>tarsero</item>
         <item>termita</item>
-        <item>Tigre</item>
+        <item>tigre</item>
         <item>sapo</item>
         <item>trucha</item>
-        <item>Pavo</item>
-        <item>Tortuga</item>
+        <item>pavo</item>
+        <item>tortuga</item>
         <item>víbora</item>
         <item>campañol</item>
         <item>buitre</item>
-        <item>Wallaby</item>
+        <item>ualabí</item>
         <item>morsa</item>
         <item>avispa</item>
         <item>comadreja</item>
         <item>ballena</item>
         <item>lobo</item>
-        <item>Lobezno</item>
-        <item>uómbats</item>
+        <item>glotón</item>
+        <item>wombat</item>
         <item>pájaro carpintero</item>
         <item>gusano</item>
         <item>yak</item>
         <item>cebra</item>
-        <item>Winnie the Pooh</item>
-        <item>King Kong</item>
+        <item>winnie the pooh</item>
+        <item>king kong</item>
         <item>caniche</item>
         <item>unicornio</item>
-        <item>Dragón</item>
+        <item>dragón</item>
         <item>zombie</item>
         <item>hada</item>
         <item>dobby</item>
         <item>cheburashka</item>
         <item>duende</item>
-        <item>Scooby Doo</item>
+        <item>scooby doo</item>
         <item>rapunzel</item>
-        <item>Rey Leon</item>
+        <item>rey león</item>
         <item>bob esponja</item>
         <item>chupacabras</item>
         <item>kraken</item>
@@ -230,7 +230,7 @@
         <item>gato nyan</item>
         <item>ornitorrinco</item>
         <item>pitón</item>
-        <item>quagga</item>
+        <item>cuaga</item>
         <item>quokka</item>
     </string-array>
 </resources>
