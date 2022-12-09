@@ -44,7 +44,7 @@
     <string name="donation_thank_you">Thank you very much for your support \u2665</string>
     <string name="donation_coffee_title">Good Black Coffee</string>
     <string name="donation_coffee_description">Fine coffee… and hot!</string>
-    <string name="donation_pizza_title">Best Doner kebab Near Me</string>
+    <string name="donation_pizza_title">Best Doner Near Me</string>
     <string name="donation_pizza_description">Hmm… Or even borscht.</string>
     <string name="donation_xwing_title">Star Wars Miniatures</string>
     <string name="donation_xwing_description">New ships and paint schemes.</string>
@@ -65,7 +65,7 @@
     <string name="about_rate">Rate my app</string>
     <string name="about_feedback">Contact me</string>
     <string name="settings_about">About app</string>
-    <string name="easter_wave" translatable="false">👋</string>
+    <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
     <string name="setting_help_translate">Help translate</string>
     <string name="switch_press_logic">Swap short and long press</string>
     <string name="lowest_wins_hint">Logic changed</string>

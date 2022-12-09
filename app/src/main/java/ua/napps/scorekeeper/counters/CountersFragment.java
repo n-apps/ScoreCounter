@@ -672,7 +672,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
-                .input(counter.getName(), null, false, (dialog, input) -> viewModel.modifyName(counter, input.toString()))
+                .input(counter.getName(), null, false, (dialog, input) -> {
+                    String value = input.toString().trim();
+                    viewModel.modifyName(counter, value);
+                })
                 .onNeutral((dialog, which) -> onEditClick(counter))
                 .build();
         EditText editText = md.getInputEditText();

@@ -126,8 +126,9 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void modifyName(Counter counter, @NonNull String newName) {
-
+        
         if ((newName.equalsIgnoreCase("roman") |
+                newName.equalsIgnoreCase("roma") |
                 newName.equalsIgnoreCase("роман") |
                 newName.equalsIgnoreCase("рома"))) {
             showSnackbarMessage(R.string.easter_wave);

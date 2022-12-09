@@ -222,11 +222,12 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     }
 
     private void validateAndSave() {
-        String newName = counterNameEditText.getText().toString();
+        String newName = counterNameEditText.getText().toString().trim();
         if (!counter.getName().equals(newName)) {
             viewModel.updateName(newName);
 
             if (newName.equalsIgnoreCase("roman") |
+                    newName.equalsIgnoreCase("roma") |
                     newName.equalsIgnoreCase("роман") |
                     newName.equalsIgnoreCase("рома")) {
                 Toast.makeText(getApplicationContext(), R.string.easter_wave, Toast.LENGTH_SHORT).show();

@@ -35,29 +35,6 @@ class EditCounterViewModel extends ViewModel {
         counter = c;
     }
 
-    void deleteCounter() {
-
-        countersRepository.delete(counter)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
-    }
-
     void updateColor(@Nullable String hex) {
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -153,6 +130,29 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Timber.e(e);
+                    }
+
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+                });
+    }
+
+    void deleteCounter() {
+
+        countersRepository.delete(counter)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onComplete() {
+
                     }
 
                     @Override
