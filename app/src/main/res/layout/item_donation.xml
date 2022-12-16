@@ -12,9 +12,10 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fontFamily="@font/ptm700"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:gravity="center_vertical"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableEndCompat="@drawable/ic_arrow_right"
         app:drawableTint="?attr/colorPrimary"
         tools:text="@string/donation_pizza_title" />

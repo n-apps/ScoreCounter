@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>muffalo</item>
+        <item>boomrat</item>
+        <item>megascarab</item>
+        <item>kobra</item>
+        <item>geyik</item>
+        <item>yaban domuzu</item>
+        <item>sincap</item>
+        <item>iguana</item>
+        <item>yer domuzu</item>
+        <item>albatros</item>
+        <item>timsah</item>
+        <item>alpaka</item>
+        <item>karınca</item>
+        <item>karıncayiyen</item>
+        <item>antilop</item>
+        <item>maymun</item>
+        <item>armadillo</item>
+        <item>eşek</item>
+        <item>babun</item>
+        <item>porsuk</item>
+        <item>barakuda</item>
+        <item>yarasa</item>
+        <item>ayı</item>
+        <item>kunduz</item>
+        <item>arı</item>
+        <item>bizon</item>
+        <item>bufalo</item>
+        <item>kelebek</item>
+        <item>deve</item>
+        <item>karibu</item>
+        <item>kedi</item>
+        <item>tırtıl</item>
+        <item>sığır</item>
+        <item>çita</item>
+        <item>tavuk</item>
+        <item>şempanze</item>
+        <item>çinçilla</item>
+        <item>dağ kargası</item>
+        <item>istiridye</item>
+        <item>hamamböceği</item>
+        <item>morina</item>
+        <item>akbaba</item>
+        <item>karabatak</item>
+        <item>çakal</item>
+        <item>yengeç</item>
+        <item>turna</item>
+        <item>timsah</item>
+        <item>karga</item>
+        <item>dinozor</item>
+        <item>köpek</item>
+        <item>yunus</item>
+        <item>eşek</item>
+        <item>güvercin</item>
+        <item>yusufçuk</item>
+        <item>kartal</item>
+        <item>dikenli karıncayiyen</item>
+        <item>yılan balığı</item>
+        <item>eland</item>
+        <item>fil</item>
+        <item>fil foku</item>
+        <item>geyik</item>
+        <item>emu</item>
+        <item>şahin</item>
+        <item>gelincik</item>
+        <item>finch</item>
+        <item>balık</item>
+        <item>flamingo</item>
+        <item>sinek</item>
+        <item>tilki</item>
+        <item>kurbağa</item>
+        <item>ceylan</item>
+        <item>çöl faresi</item>
+        <item>panda</item>
+        <item>zürafa</item>
+        <item>sivrisinek</item>
+        <item>afrika antilobu</item>
+        <item>keçi</item>
+        <item>kaz</item>
+        <item>japon balığı</item>
+        <item>goril</item>
+        <item>doğan</item>
+        <item>çekirge</item>
+        <item>orman tavuğu</item>
+        <item>guanaco</item>
+        <item>gine domuzu</item>
+        <item>martı</item>
+        <item>hamster</item>
+        <item>tavşan</item>
+        <item>şahin</item>
+        <item>kirpi</item>
+        <item>balıkçıl</item>
+        <item>ringa balığı</item>
+        <item>su aygırı</item>
+        <item>hornet</item>
+        <item>at</item>
+        <item>insan</item>
+        <item>sinekkuşu</item>
+        <item>sırtlan</item>
+        <item>ibis</item>
+        <item>çakal</item>
+        <item>jaguar</item>
+        <item>alakarga</item>
+        <item>mavi kestanekargası</item>
+        <item>denizanası</item>
+        <item>kanguru</item>
+        <item>koala</item>
+        <item>komodo</item>
+        <item>tarlakuşu </item>
+        <item>lemur</item>
+        <item>leopar</item>
+        <item>aslan</item>
+        <item>lama</item>
+        <item>ıstakoz</item>
+        <item>çekirge</item>
+        <item>bit</item>
+        <item>lir kuşu</item>
+        <item>saksağan</item>
+        <item>yaban ördeği</item>
+        <item>ördek</item>
+        <item>manati</item>
+        <item>mandril</item>
+        <item>peygamberdevesi</item>
+        <item>mirket</item>
+        <item>vizon</item>
+        <item>köstebek</item>
+        <item>firavunfaresi</item>
+        <item>maymun</item>
+        <item>geyik</item>
+        <item>fare</item>
+        <item>sivrisinek</item>
+        <item>katır</item>
+        <item>narval</item>
+        <item>semender</item>
+        <item>bülbül</item>
+        <item>ahtapot</item>
+        <item>okapi</item>
+        <item>opossum</item>
+        <item>devekuşu</item>
+        <item>su samuru</item>
+        <item>baykuş</item>
+        <item>öküz</item>
+        <item>istiridye</item>
+        <item>panter</item>
+        <item>papağan</item>
+        <item>keklik</item>
+        <item>pelikan</item>
+        <item>penguen</item>
+        <item>sülün</item>
+        <item>domuz</item>
+        <item>güvercin</item>
+        <item>kutup ayısı</item>
+        <item>midilli</item>
+        <item>kirpi</item>
+        <item>liman yunusu</item>
+        <item>çayır köpeği</item>
+        <item>bıldırcın</item>
+        <item>tavşan</item>
+        <item>rakun</item>
+        <item>koç</item>
+        <item>sıçan</item>
+        <item>kuzgun</item>
+        <item>ren geyiği</item>
+        <item>gergedan</item>
+        <item>semender</item>
+        <item>somon</item>
+        <item>sardalya</item>
+        <item>akrep</item>
+        <item>deniz aslanı</item>
+        <item>deniz kestanesi</item>
+        <item>denizatı</item>
+        <item>fok</item>
+        <item>köpekbalığı</item>
+        <item>koyun</item>
+        <item>kır faresi</item>
+        <item>kokarca</item>
+        <item>salyangoz</item>
+        <item>yılan</item>
+        <item>serçe</item>
+        <item>örümcek</item>
+        <item>kalamar</item>
+        <item>sığırcık</item>
+        <item>vatoz</item>
+        <item>süne</item>
+        <item>leylek</item>
+        <item>kırlangıç</item>
+        <item>kuğu</item>
+        <item>tapir</item>
+        <item>cadı maki</item>
+        <item>termit</item>
+        <item>kaplan</item>
+        <item>kurbağa</item>
+        <item>alabalık</item>
+        <item>hindi</item>
+        <item>kaplumbağa</item>
+        <item>engerek</item>
+        <item>tarla faresi</item>
+        <item>akbaba</item>
+        <item>valabi</item>
+        <item>mors</item>
+        <item>eşek arısı</item>
+        <item>gelincik</item>
+        <item>balina</item>
+        <item>kurt</item>
+        <item>kutup porsuğu</item>
+        <item>vombat</item>
+        <item>ağaçkakan</item>
+        <item>solucan</item>
+        <item>yak</item>
+        <item>zebra</item>
+        <item>winnie the pooh</item>
+        <item>king kong</item>
+        <item>kaniş</item>
+        <item>tek boynuzlu at</item>
+        <item>ejderha</item>
+        <item>zombiler</item>
+        <item>peri</item>
+        <item>dobby</item>
+        <item>çiburaşka</item>
+        <item>brownie</item>
+        <item>scooby doo</item>
+        <item>rapunzel</item>
+        <item>aslan kral</item>
+        <item>süngerbob</item>
+        <item>chupacabra</item>
+        <item>kraken</item>
+        <item>loris</item>
+        <item>nyan cat</item>
+        <item>ornitorenk</item>
+        <item>piton</item>
+        <item>quagga</item>
+        <item>quokka</item>
+    </string-array>
+</resources>
