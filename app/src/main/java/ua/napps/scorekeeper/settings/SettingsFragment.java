@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.marcoscg.xmassnow.XmasSnow;
-
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
@@ -45,14 +43,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
         contentView.findViewById(R.id.tv_easter).setOnClickListener(this);
-
-
-        XmasSnow.on(requireActivity())
-                .belowActionBar(false)
-                .belowStatusBar(false) // Always true if belowActionBar() is set to true
-                .onlyOnChristmas(false) // Only the 25th of december
-                .setInterval("12/20/2022", "1/15/2023") // 25th of december to 7th of january (not included). Date format: MM/dd/yyyy
-                .start();
 
         return contentView;
     }

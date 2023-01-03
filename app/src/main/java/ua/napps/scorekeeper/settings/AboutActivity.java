@@ -10,8 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.marcoscg.xmassnow.XmasSnow;
-
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -57,13 +55,6 @@ public class AboutActivity extends AppCompatActivity {
             ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
-
-        XmasSnow.on(this)
-                .belowActionBar(true)
-                .belowStatusBar(true) // Always true if belowActionBar() is set to true
-                .onlyOnChristmas(false) // Only the 25th of december
-                .setInterval("12/20/2022", "1/15/2023") // 25th of december to 7th of january (not included). Date format: MM/dd/yyyy
-                .start();
     }
 
     @Override

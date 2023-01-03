@@ -182,8 +182,4 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-    <com.marcoscg.xmassnow.SnowView
-        android:id="@+id/snowview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
