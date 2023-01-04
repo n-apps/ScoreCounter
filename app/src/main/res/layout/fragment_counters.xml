@@ -28,7 +28,7 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
@@ -48,8 +48,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/spacing_normal"
-        tools:listitem="@layout/item_counter_full"
-        tools:visibility="gone" />
+        tools:listitem="@layout/item_counter_compact"
+        tools:visibility="visible" />
 
 </LinearLayout>

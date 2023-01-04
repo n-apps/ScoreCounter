@@ -10,9 +10,9 @@
     android:layout_marginEnd="@dimen/padding_normal"
     android:layout_marginBottom="@dimen/spacing_micro"
     android:layout_marginTop="@dimen/spacing_micro"
-    app:cardCornerRadius="2dp"
+    app:cardCornerRadius="4dp"
     app:cardElevation="1dp"
-    tools:backgroundTint="#7DE0E6">
+    tools:backgroundTint="#9B8FFF">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,14 +30,14 @@
             android:ellipsize="end"
             android:fontFamily="@font/ptm700"
             android:gravity="center_vertical"
-            android:maxLines="1"
+            android:maxLines="2"
             android:paddingStart="@dimen/padding_normal"
             android:textAppearance="?attr/textAppearanceSubtitle2"
             app:autoSizeMaxTextSize="@dimen/font_display"
-            app:autoSizeMinTextSize="@dimen/font_body"
+            app:autoSizeMinTextSize="10sp"
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
-            tools:text="@tools:sample/first_names" />
+            tools:text="@tools:sample/full_names" />
 
         <ImageView
             android:id="@+id/iv_decrease"
@@ -46,7 +46,7 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.54"
-            android:background="@drawable/ripple"
+            android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/common_increase"
             android:scaleType="center"
             android:src="@drawable/ic_subtract" />
@@ -60,10 +60,13 @@
             android:fontFamily="@font/icm400"
             android:gravity="center"
             android:lines="1"
-            android:minWidth="@dimen/list_two_lines_min_height"
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="?android:attr/textColorPrimary"
-            tools:text="42" />
+            app:autoSizeMaxTextSize="34sp"
+            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            tools:text="@tools:sample/us_zipcodes" />
 
         <ImageView
             android:id="@+id/iv_increase"
@@ -71,7 +74,7 @@
             android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.54"
-            android:background="@drawable/ripple"
+            android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/common_decrease"
             android:scaleType="center"
             android:src="@drawable/ic_add" />

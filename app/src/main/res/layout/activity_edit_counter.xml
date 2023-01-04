@@ -22,16 +22,16 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            app:title="@string/common_edit"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="@string/common_edit" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
+        android:paddingTop="@dimen/padding_normal"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingTop="@dimen/spacing_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
@@ -67,8 +67,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginVertical="@dimen/spacing_normal"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_step"
@@ -76,7 +75,9 @@
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@+id/til_counter_name"
-                app:layout_constraintTop_toBottomOf="@+id/til_counter_value">
+
+                app:layout_constraintTop_toBottomOf="@+id/til_counter_value"
+                tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_step"
@@ -106,7 +107,8 @@
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_value"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/til_counter_step"
-                app:layout_constraintTop_toTopOf="@+id/til_counter_step">
+                app:layout_constraintTop_toTopOf="@+id/til_counter_step"
+                tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_default_value"
@@ -133,10 +135,15 @@
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
                 app:boxStrokeWidth="2dp"
                 app:boxStrokeWidthFocused="4dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/color_slider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_name"
@@ -169,7 +176,7 @@
                 android:id="@+id/color_slider"
                 android:layout_width="0dp"
                 android:layout_height="56dp"
-                android:layout_marginVertical="@dimen/spacing_large"
+                android:layout_marginVertical="@dimen/spacing_normal"
                 app:cs_hex_colors="?colors_scheme"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_value"
                 app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
@@ -191,7 +198,9 @@
                 app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
                 app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
                 app:layout_constraintStart_toStartOf="@+id/til_counter_name"
-                app:layout_constraintTop_toBottomOf="@id/color_slider">
+                app:layout_constraintTop_toBottomOf="@id/color_slider"
+
+                tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_counter_value"
