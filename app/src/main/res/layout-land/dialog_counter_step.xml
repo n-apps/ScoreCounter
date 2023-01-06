@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingStart="@dimen/padding_large"
-    android:paddingTop="@dimen/padding_large"
+    android:paddingTop="@dimen/spacing_normal"
     android:paddingEnd="@dimen/padding_large"
     android:paddingBottom="@dimen/spacing_large"
     tools:ignore="HardcodedText">
@@ -18,27 +18,24 @@
         android:layout_height="match_parent"
         android:layout_marginVertical="@dimen/spacing_normal"
         app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
+        app:cardElevation="1dp"
         tools:cardBackgroundColor="#F2B04B">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:gravity="center"
             android:minHeight="@dimen/list_single_line_min_height"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding_normal">
+            android:padding="@dimen/padding_normal">
 
             <TextView
                 android:id="@+id/counter_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:fontFamily="@font/icm400"
                 android:gravity="center"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textAppearance="?attr/textAppearanceHeadline2"
                 android:textColor="?android:attr/textColorPrimary"
                 tools:text="435" />
 
@@ -46,23 +43,19 @@
                 android:id="@+id/counter_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/spacing_large"
                 android:ellipsize="end"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center"
-                android:includeFontPadding="false"
                 android:maxLines="1"
-                android:text="Jessica — Jessica"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                tools:textColor="?attr/colorOnSurface" />
+                android:text="JessicaJessicaJessica — Jessica"
+                android:textAppearance="?attr/textAppearanceHeadline3"
+                android:textColor="?android:attr/textColorPrimary" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -138,16 +131,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="@dimen/spacing_normal"
+        android:gravity="center"
         android:maxLines="1"
         android:text="@string/predefined_steps_hint"
-        android:textAppearance="?attr/textAppearanceCaption" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:autoSizeMaxTextSize="12sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
-        android:baselineAligned="false"
         android:gravity="center"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButtonToggleGroup
@@ -157,22 +155,20 @@
             android:layout_gravity="bottom"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:paddingVertical="4dp"
             app:selectionRequired="true"
             app:singleSelection="true">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_dec"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+                android:text="-"
                 android:gravity="center"
-                android:includeFontPadding="false"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="-"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:attr/textColorPrimary"
                 app:rippleColor="@color/colorSecondary"
@@ -185,9 +181,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+                android:text="+"
+                android:gravity="center"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="+"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:textColorPrimary"
                 app:rippleColor="@color/colorSecondary"
@@ -208,7 +205,6 @@
                 android:layout_height="match_parent"
                 android:digits="1234567890"
                 android:fontFamily="@font/icm400"
-                android:gravity="center_vertical"
                 android:imeOptions="actionDone"
                 android:inputType="numberPassword"
                 android:maxLength="9"
@@ -216,7 +212,7 @@
                 android:minWidth="140dp"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"
-                tools:text="231" />
+                tools:text="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>

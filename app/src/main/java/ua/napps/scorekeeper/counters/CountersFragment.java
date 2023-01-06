@@ -41,9 +41,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -66,6 +66,7 @@ import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
 import ua.napps.scorekeeper.utils.Utilities;
@@ -492,14 +493,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showCounterStepDialog(Counter counter, int position, int mode) {
         final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
-        final Observer<Counter> counterObserver = c -> {
-            if (longClickDialog != null && c != null) {
-                longClickDialog.getTitleView().setText(c.getName() + " | " + c.getValue());
-            }
-        };
+
         counterStepDialogMode = mode;
-        final LiveData<Counter> liveData = viewModel.getCounterLiveData(counter.getId());
-        liveData.observe(this, counterObserver);
 
         final View contentView = LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_counter_step, null, false);
 
@@ -528,6 +523,16 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
 
         updateButtonLabels(contentView);
+        int color = Color.parseColor(counter.getColor());
+        final boolean darkBackground = ColorUtil.isDarkBackground(color);
+        int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
+
+        ((TextView) contentView.findViewById(R.id.counter_value)).setText("" + counter.getValue());
+        ((TextView) contentView.findViewById(R.id.counter_name)).setText(counter.getName());
+        ((CardView)contentView.findViewById(R.id.counter_info_header)).setCardBackgroundColor(color);
+        ((TextView) contentView.findViewById(R.id.counter_value)).setTextColor(tintColor);
+        ((TextView) contentView.findViewById(R.id.counter_name)).setTextColor(tintColor);
+
 
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
@@ -626,9 +631,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             return false;
         });
         builder.customView(contentView, false);
-        builder.title(R.string.dialog_current_value_title);
-        builder.typeface(medium, regular);
-        builder.dismissListener(dialogInterface -> liveData.removeObserver(counterObserver));
         longClickDialog = builder.build();
         longClickDialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
