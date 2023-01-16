@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="@dimen/list_two_lines_min_height">
+    android:layout_height="wrap_content">
 
     <FrameLayout
         android:id="@+id/fl_item_log_color"
-        android:layout_width="8dp"
+        android:layout_width="12dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +18,8 @@
         android:id="@+id/tv_item_log_counter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingVertical="4dp"
+        android:paddingTop="@dimen/spacing_micro"
+        android:fontFamily="@font/ptm700"
         android:gravity="start"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"
@@ -32,7 +32,7 @@
         android:id="@+id/tv_item_log_info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         android:paddingVertical="@dimen/spacing_normal"
         android:fontFamily="@font/icm400"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
         android:id="@+id/tv_item_log_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="@dimen/spacing_normal"
         android:textAppearance="?attr/textAppearanceCaption"
         android:fontFamily="@font/icm400"
         app:layout_constraintBottom_toBottomOf="@+id/tv_item_log_counter"

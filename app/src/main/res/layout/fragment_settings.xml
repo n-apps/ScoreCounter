@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/spacing_xlarge">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -123,8 +122,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_large"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="@dimen/spacing_xlarge"
-            android:text="\u2744    \u2744    \u2744    \u2744    \u2744"
+            android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
             android:textAppearance="?attr/textAppearanceCaption"
             android:textColor="?attr/colorPrimaryVariant"
             tools:ignore="HardcodedText" />
