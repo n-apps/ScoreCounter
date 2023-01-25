@@ -35,10 +35,6 @@ public class Utilities {
         return i;
     }
 
-    public static boolean hasOreo() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
-    }
-
     public static boolean hasQ() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
     }

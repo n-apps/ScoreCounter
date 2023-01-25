@@ -83,12 +83,8 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_delete) {
-            Typeface medium = null;
-            Typeface regular = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                medium = getResources().getFont(R.font.ptm700);
-                regular = getResources().getFont(R.font.ptm400);
-            }
+            Typeface medium = getResources().getFont(R.font.ptm700);
+            Typeface regular = getResources().getFont(R.font.ptm400);
             new MaterialDialog.Builder(this)
                     .title(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {

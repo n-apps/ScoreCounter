@@ -28,7 +28,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/ScoreCounter"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning"
@@ -38,7 +37,6 @@
             android:name=".app.MainActivity"
             android:exported="true"
             android:forceDarkAllowed="false"
-            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan">

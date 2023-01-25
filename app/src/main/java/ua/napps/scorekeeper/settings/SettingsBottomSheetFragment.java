@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.util.DialogUtils;
 import com.bitvale.switcher.SwitcherX;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
@@ -127,18 +126,17 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
-        Typeface medium = null;
-        Typeface regular = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            medium = getResources().getFont(R.font.ptm700);
-            regular = getResources().getFont(R.font.icm400);
-        }
+        Typeface medium = getResources().getFont(R.font.ptm700);
+        Typeface regular = getResources().getFont(R.font.icm400);
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.settings_counter_title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                 .positiveText(R.string.common_set)
-                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
+                .contentColorRes(R.color.textColorPrimary)
+                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                .widgetColorRes(R.color.colorSecondary)
+                .positiveColorRes(R.color.colorSecondary)
                 .alwaysCallInputCallback()
                 .typeface(medium, regular)
                 .input(oldValue, null, false, (dialog, input) -> {

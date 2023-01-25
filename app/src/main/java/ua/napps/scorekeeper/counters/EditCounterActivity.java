@@ -23,7 +23,6 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.util.DialogUtils;
 import com.github.naz013.colorslider.ColorSlider;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -104,12 +103,8 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_delete) {
-            Typeface medium = null;
-            Typeface regular = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                medium = getResources().getFont(R.font.ptm700);
-                regular = getResources().getFont(R.font.ptm400);
-            }
+            Typeface medium = getResources().getFont(R.font.ptm700);
+            Typeface regular = getResources().getFont(R.font.ptm400);
             new MaterialDialog.Builder(this)
                     .title(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
@@ -153,13 +148,13 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         if (colorHex != null) {
             selectedColor = Color.parseColor(colorHex);
 
-            if (selectedColor != Color.WHITE) {
+            if (ColorUtils.calculateLuminance(selectedColor) < 0.9) {
                 setInputsColorStateDefault();
                 updateInputsColors(selectedColor);
                 updateButtonColors(selectedColor);
             } else {
                 updateInputsColors(Color.LTGRAY);
-                btnSave.setBackgroundColor(DialogUtils.getColor(this, R.color.colorPrimary));
+                updateButtonColors(Color.LTGRAY);
             }
         }
 
@@ -211,7 +206,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     }
 
     private void applyNewColor(@ColorInt int newColor) {
-        if (newColor != Color.WHITE) {
+        if (ColorUtils.calculateLuminance(newColor) < 0.9) {
             updateInputsColors(newColor);
             updateButtonColors(newColor);
         } else {

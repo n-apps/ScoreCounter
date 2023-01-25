@@ -14,7 +14,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
@@ -52,7 +51,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.util.DialogUtils;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -144,10 +142,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            medium = getResources().getFont(R.font.ptm700);
-            regular = getResources().getFont(R.font.ptm400);
-        }
+        medium = getResources().getFont(R.font.ptm700);
+        regular = getResources().getFont(R.font.ptm400);
 
         observeData();
         return contentView;
@@ -434,7 +430,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.reset)
                 .typeface(medium, regular)
-                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
+                .contentColorRes(R.color.textColorPrimary)
+                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                .widgetColorRes(R.color.colorSecondary)
+                .positiveColorRes(R.color.colorSecondary)
                 .alwaysCallInputCallback()
                 .input("" + counter.getValue(), null, false, (dialog, input) -> {
                 })
@@ -660,7 +659,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
                 .typeface(medium, regular)
-                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
+                .contentColorRes(R.color.textColorPrimary)
+                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                .widgetColorRes(R.color.colorSecondary)
+                .positiveColorRes(R.color.colorSecondary)
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                     if (titleTextView != null) {

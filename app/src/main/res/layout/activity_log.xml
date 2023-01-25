@@ -79,6 +79,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/common_back"
         android:layout_margin="@dimen/spacing_large"
+        app:backgroundTint="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

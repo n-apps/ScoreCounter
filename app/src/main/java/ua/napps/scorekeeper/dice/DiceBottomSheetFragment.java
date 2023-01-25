@@ -21,7 +21,6 @@ import androidx.annotation.NonNull;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.afollestad.materialdialogs.util.DialogUtils;
 import com.bitvale.switcher.SwitcherX;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButtonToggleGroup;
@@ -102,18 +101,17 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceSide(20);
                         break;
                     case R.id.btn_4:
-                        Typeface medium = null;
-                        Typeface regular = null;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            medium = getResources().getFont(R.font.ptm700);
-                            regular = getResources().getFont(R.font.ptm400);
-                        }
+                        Typeface medium = getResources().getFont(R.font.ptm700);
+                        Typeface regular = getResources().getFont(R.font.ptm400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
-                                .contentColor(DialogUtils.getColor(requireContext(), R.color.textColorPrimary))
+                                .contentColorRes(R.color.textColorPrimary)
+                                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                                .widgetColorRes(R.color.colorSecondary)
+                                .positiveColorRes(R.color.colorSecondary)
                                 .alwaysCallInputCallback()
                                 .typeface(medium, regular)
                                 .showListener(dialogInterface -> {
@@ -143,7 +141,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                         if (side > 0) {
                                             validateAndStoreDiceSide(side);
                                         }
-                                        ((Button)group.findViewById(checkedId)).setText("D" + side);
+                                        ((Button) group.findViewById(checkedId)).setText("D" + side);
                                         dialog.dismiss();
                                     }
                                 })
@@ -180,16 +178,17 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceCount(4);
                         break;
                     case R.id.btn_x4:
-                        Typeface medium = null;
-                        Typeface regular = null;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            medium = getResources().getFont(R.font.ptm700);
-                            regular = getResources().getFont(R.font.ptm400);
-                        }
+                        Typeface medium = getResources().getFont(R.font.ptm700);
+                        Typeface regular = getResources().getFont(R.font.ptm400);
+
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dialog_custom_dice_title)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
+                                .contentColorRes(R.color.textColorPrimary)
+                                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                                .widgetColorRes(R.color.colorSecondary)
+                                .positiveColorRes(R.color.colorSecondary)
                                 .alwaysCallInputCallback()
                                 .typeface(medium, regular)
                                 .showListener(dialogInterface -> {
@@ -218,7 +217,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                         Integer side = Utilities.parseInt(editText.getText().toString(), diceCount);
                                         if (side > 0) {
                                             validateAndStoreDiceCount(side);
-                                            ((Button)group.findViewById(checkedId)).setText("" + side);
+                                            ((Button) group.findViewById(checkedId)).setText("" + side);
                                         }
                                         dialog.dismiss();
                                     }
