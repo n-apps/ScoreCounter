@@ -4,7 +4,7 @@
     <string name="about_donation">Koop een kop koffie voor me</string>
     <string name="about_feedback">Neem contact met me op</string>
     <string name="about_rate">Beoordeel mijn app</string>
-    <string name="about_text">Hoi, ik ben Roma en ik kom uit Krementsjoek, Oekraïne. Ik speel graag bordspellen. Dead of Winter en Terraforming Mars zijn twee van mij favoriete spellen.\n\nHet idee om deze app te maken kwam in me op tijdens een potje Stars Realms (dat heeft verschrikkelijke tokens). Ik heb toen besloten deze mobiele app in mijn vrijetijd te maken. Iedere nieuwe review, e-mail of donatie maakt me ontzettend blij!\n\n Wil je iets met me delen, verbeteren of rommelige, slechte vertalingen ziet - voel je vrij om contact op te nemen, iedereen heeft leuke ideeën. Of laat me gewoon even weten wat je \"telt\" :)\n\nIk heb mijn baan verloren door de oorlog in mijn land maar heb toch besloten de app 100% gratis te houden zonder reclame. Als je me wilt ondersteunen, overweeg dan een donatie te doen via onderstaande knop.\n\nSuper bedankt!!</string>
+    <string name="about_text">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Ik speel graag bordspellen, waarbij Dead of Winter en Terraforming Mars twee van mijn favorieten zijn. Het idee voor deze app kreeg ik tijdens het spelen van Stars Realms (dat verschrikkelijke tokens heeft). Ik besloot deze mobiele app in mijn vrije tijd te ontwikkelen. Elke nieuwe recensie, e-mail of donatie maakt me blij. Als je iets te delen hebt, rommelige vertalingen hebt gevonden, of me gewoon wilt laten weten wat je telt, voel je vrij om contact op te nemen. Ik heb mijn baan verloren door de oorlog in mijn land, maar ik heb besloten deze app gratis te houden, zonder advertenties en met alle functies beschikbaar. Als je een indie-ontwikkelaar (mij) wilt steunen, overweeg dan een kleine donatie binnen de app. Bedankt!</string>
     <string name="action_donate">Steun de ontwikkelaar</string>
     <string name="bottom_navigation_tab_counters">Tellers</string>
     <string name="bottom_navigation_tab_dice">Dobbelstenen</string>
@@ -39,8 +39,8 @@
     <string name="donation_pizza_title">Lekkerste pizza in de buurt</string>
     <string name="donation_thank_you">Hartelijk dank voor je steun \u2665</string>
     <string name="donation_xwing_description">Nieuwe X-Wing miniaturen en nieuwe kleurstellingen.</string>
-    <string name="donation_xwing_title">Hoi, ik ben Roma en ik kom uit Krementsjoek, Oekraïne. Ik heb mijn baan verloren door de oorlog in mijn land maar heb toch besloten de app 100% gratis te houden zonder reclame. Als je me wilt ondersteunen, overweeg dan een donatie te doen via onderstaande knop.\n\nSuper bedankt!!</string>
-    <string name="erd_message">Hoi, ik ben Roma en ik kom uit Krementsjoek, Oekraïne. Ik heb mijn baan verloren door de oorlog in mijn land maar heb toch besloten de app 100% gratis te houden zonder reclame. Als je me wilt ondersteunen, overweeg dan een donatie te doen via onderstaande knop.\n\nSuper bedankt!!</string>
+    <string name="donation_xwing_title">Star Wars Miniatures</string>
+    <string name="erd_message">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Helaas heb ik mijn baan verloren door de oorlog in mijn land. Ik heb echter besloten om mijn app, Score Counter, vrij van advertenties en met volledige functionaliteit te houden. Als je een onafhankelijke ontwikkelaar zoals ik wilt steunen, overweeg dan een eenmalige of meervoudige donatie binnen de app. Bedankt!</string>
     <string name="erd_no_thanks">Nee, bedankt</string>
     <string name="erd_remind_me_later">Niet nu</string>
     <string name="error_message">Sorry, er lijkt iets fout gegaan te zijn.</string>

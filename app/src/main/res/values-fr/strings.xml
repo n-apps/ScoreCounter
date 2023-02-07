@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>
     <string name="dice_previous_result_label">Lancé précédent:</string>
-    <string name="erd_message">Bonjour, je m\'appelle Roman et je suis originaire de Kremenchuk, en Ukraine. J\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de laisser cette application 100% gratuite et sans publicité. Si vous souhaitez me soutenir, vous pouvez faire un petit don.\n\nMerci !</string>
+    <string name="erd_message">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. Malheureusement, j\'ai perdu mon travail à cause de la guerre dans mon pays. Cependant, j\'ai pris la décision de garder mon application, Score Counter, sans publicité et avec toutes ses fonctionnalités. Si vous souhaitez soutenir un développeur indépendant comme moi, pensez à faire un don, une ou plusieurs fois, dans l\'application. Merci à tous !</string>
     <string name="erd_no_thanks">Non, merci</string>
     <string name="erd_remind_me_later">Pas maintenant</string>
     <string name="error_no_email_client">Aucune application de messagerie sur votre appareil :(</string>
@@ -45,7 +45,7 @@
     <string name="donation_coffee_title">Un café italien</string>
     <string name="donation_coffee_description">Le caffè corretto est un espresso agrémenté d’une dose de liqueur, comme la grappa.</string>
     <string name="donation_pizza_title">Pizza Hawaïenne</string>
-    <string name="donation_pizza_description">Certains la détestent, d’autre l’adorent.</string>
+    <string name="donation_pizza_description">Certains la détestent, d\’autre l\’adorent.</string>
     <string name="settings_sound">Son</string>
     <string name="action_donate">Faire un don</string>
     <string name="error_message">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
@@ -58,7 +58,7 @@
     <string name="counter_deleted">Compteur supprimé</string>
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
-    <string name="about_text">Bonjour, je m\'appelle Roman et je suis originaire de Kremenchuk, en Ukraine. J\'aime aussi jouer à des jeux de société. Dead of Winter et Terraforming Mars sont deux de mes préférés.\n\nL\'idée de faire une application pour compter les points de victoire m\'est venue à l\'esprit pendant le jeu dans Stars&#160;Realms (il a de terribles jetons). Depuis lors, je développe cette application pendant mon temps libre. Je suis heureux de chaque nouvelle critique, e-mail ou don.\n\nSi vous avez quelque chose à partager ou avez trouvé une traduction en désordre - n\'hésitez pas à nous contacter, tout le monde a des idées sympas. Ou dites-moi simplement ce que vous comptez&#160;:)\nAimez-vous l\'application? Notez-le ou faites un don - cela aide à l\'améliorer.\n\nJe vous remercie!</string>
+    <string name="about_text">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. J\'aime jouer à des jeux de société, Dead of Winter et Terraforming Mars étant deux de mes préférés. L\'idée de cette application m\'est venue en jouant à Stars Realms (dont les jetons sont terribles). J\'ai décidé de développer cette application mobile pendant mon temps libre. Chaque nouvelle critique, email ou don me rend heureux. Si vous avez quelque chose à partager, si vous avez trouvé des traductions désordonnées, ou si vous voulez simplement me faire savoir ce que vous comptez, n\'hésitez pas à me contacter. J\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de garder cette application gratuite sans publicité et avec toutes ses fonctionnalités disponibles. Si vous souhaitez soutenir un développeur indépendant (moi), vous pouvez faire un petit don dans l\'application. Merci !</string>
     <string name="about_donation">Faire un don</string>
     <string name="about_rate">Évaluer mon application</string>
     <string name="about_feedback">Contactez moi</string>

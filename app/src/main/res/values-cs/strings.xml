@@ -4,7 +4,7 @@
     <string name="about_donation">Kupte mi kávu</string>
     <string name="about_feedback">Kontaktujte mě</string>
     <string name="about_rate">Ohodnoťte mou aplikaci</string>
-    <string name="about_text">Ahoj, jmenuji se Roma. Jsem z ukrajinského Kremenčuku a rád hraji deskové hry. Moje nejoblíbenější jsou Dead of Winter a Terraforming Mars.\n\nVytvořit tuto aplikaci mě napadlo během hry Stars Realms (má příšerné žetony). Ve volném čase jsem se pak rozhodl tuto mobilní aplikaci vyvinout. Potěší mne každá nová recenze, e-mail nebo příspěvek.\n\nPokud se chcete o něco podělit nebo jste našli chaotické překlady - klidně se ozvěte, každý má super nápady. Nebo mi jen řekněte, co počítáte :)\n\nKvůli válce v mé zemi jsem přišel o práci, ale rozhodl jsem se nechat tuto aplikaci 100% zdarma a bez reklam. Pokud byste mě chtěli podpořit, zvažte prosím malý příspěvek prostřednictvím tlačítka níže.\n\nDíky!</string>
+    <string name="about_text">Ahoj, jmenuji se Roma a jsem z Kremenčuku na Ukrajině. Ráda hraji deskové hry, mezi mé oblíbené patří Dead of Winter a Terraforming Mars. Nápad na tuto aplikaci mě napadl při hraní Stars Realms (která má příšerné žetony). Ve volném čase jsem se rozhodl tuto mobilní aplikaci vyvinout. Každá nová recenze, e-mail nebo příspěvek mě potěší. Pokud se chcete o něco podělit, našli jste nějaký nepovedený překlad nebo mi jen chcete dát vědět, co počítáte, neváhejte se ozvat. Kvůli válce v mé zemi jsem přišel o práci, ale rozhodl jsem se tuto aplikaci udržet zdarma bez reklam a se všemi jejími dostupnými funkcemi. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím možnost malého příspěvku v rámci aplikace. Děkuji!</string>
     <string name="bottom_navigation_tab_counters">Počítadla</string>
     <string name="action_donate">Podpořte vývojáře</string>
     <string name="bottom_navigation_tab_dice">Kostky</string>
@@ -40,7 +40,7 @@
     <string name="donation_thank_you">Děkujeme za Vaši podporu \u2665</string>
     <string name="donation_xwing_description">Nové X-Wing miniatury a nová barevná schémata.</string>
     <string name="donation_xwing_title">Miniatury Star Wars</string>
-    <string name="erd_message">Ahoj, jmenuji se Roma a jsem z ukrajinského Kremenčuku. Kvůli válce v mé zemi jsem přišel o práci, ale rozhodl jsem se ponechat tuto aplikaci 100% zdarma a bez reklam. Pokud byste mě chtěli podpořit, zvažte prosím malý příspěvek.\n\nDíky moc!</string>
+    <string name="erd_message">Ahoj, jmenuji se Roma a jsem z Kremenčuku na Ukrajině. Bohužel jsem kvůli válce v mé zemi přišla o práci. Přesto jsem se rozhodl, že svou aplikaci Score Counter ponechám bez reklam a s plnou funkčností. Pokud byste chtěli podpořit nezávislého vývojáře, jako jsem já, zvažte prosím možnost přispět, a to buď jednorázově, nebo vícekrát v rámci aplikace. Děkuji vám!</string>
     <string name="erd_no_thanks">Ne, díky</string>
     <string name="erd_remind_me_later">Teď ne</string>
     <string name="error_message">Omlouváme se, zřejmě došlo k chybě.</string>

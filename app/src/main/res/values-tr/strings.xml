@@ -4,7 +4,7 @@
     <string name="about_donation">Bana bir kahve ısmarla</string>
     <string name="about_feedback">Bana ulaşın</string>
     <string name="about_rate">Uygulamayı değerlendirin</string>
-    <string name="about_text">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'lıyım. Masa oyunları oynamayı seviyorum. Dead of Winter ve Terraforming Mars favorilerimden ikisi. Bu uygulamayı yaratma fikri aklıma bir Star Realms oyunu sırasında geldi (korkunç jetonları var). Daha sonra boş zamanlarımda bu mobil uygulamayı geliştirmeye karar verdim.\n\nYapılan her yeni değerlendirme, e-posta veya bağış beni mutlu ediyor. Paylaşacak bir şeyiniz varsa veya hatalı çeviriler bulduysanız - iletişime geçmekten çekinmeyin, herkesin harika fikirleri var. Ya da sadece ne saydığınızı söyleyin :)\n\nÜlkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamanın tüm işlevselliği ile reklamsız olarak ücretsiz kalmasına karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinde bir veya birden fazla kez küçük bir bağış yapmayı düşünün. Teşekkürler!</string>
+    <string name="about_text">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Dead of Winter ve Terraforming Mars favorilerimden ikisi olmak üzere masa oyunları oynamaktan hoşlanıyorum. Bu uygulama fikri aklıma Stars Realms (korkunç jetonları olan) oynarken geldi. Boş zamanlarımda bu mobil uygulamayı geliştirmeye karar verdim. Her yeni inceleme, e-posta veya bağış beni mutlu ediyor. Paylaşacak bir şeyiniz varsa, herhangi bir dağınık çeviri bulduysanız veya sadece ne saydığınızı bana bildirmek istiyorsanız, ulaşmaktan çekinmeyin. Ülkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamayı reklamsız ve tüm özellikleriyle ücretsiz tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinden küçük bir bağış yapmayı düşünün. Teşekkür ederim!</string>
     <string name="action_donate">Destek geliştirici</string>
     <string name="bottom_navigation_tab_counters">Sayaçlar</string>
     <string name="bottom_navigation_tab_dice">Zar</string>
@@ -33,14 +33,14 @@
     <string name="dialog_yes">Evet</string>
     <string name="dice_empty_state">Zar atmak için herhangi bir yere dokunun veya cihazınızı sallayın</string>
     <string name="dice_previous_result_label">Önceki zar:</string>
-    <string name="donation_coffee_description">Çok güzel kahve... ve sıcak!</string>
+    <string name="donation_coffee_description">Çok güzel kahve… ve sıcak!</string>
     <string name="donation_coffee_title">İyi Sade Kahve</string>
     <string name="donation_pizza_description">Tatlı ve acı bir damak tadı macerası.</string>
     <string name="donation_pizza_title">Yakınımdaki En İyi Pizza</string>
     <string name="donation_thank_you">"Desteğiniz için çok teşekkür ederiz "</string>
     <string name="donation_xwing_description">Yeni gemiler ve boya şemaları.</string>
     <string name="donation_xwing_title">Yıldız Savaşları Minyatürleri</string>
-    <string name="erd_message">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'lıyım. Ülkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamanın tüm işlevselliği ile reklamsız olarak ücretsiz kalmasına karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinde bir veya birden fazla kez küçük bir bağış yapmayı düşünün. Teşekkürler!</string>
+    <string name="erd_message">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Maalesef ülkemdeki savaş nedeniyle işimi kaybettim. Ancak, uygulamam Skor Sayacı\'ı reklamsız ve tam işlevsellikte tutmaya karar verdim. Benim gibi bağımsız bir geliştiriciyi desteklemek isterseniz, lütfen uygulama içinden bir veya birden fazla kez bağış yapmayı düşünün. Teşekkür ederim!</string>
     <string name="erd_no_thanks">Hayır, teşekkürler</string>
     <string name="erd_remind_me_later">Şimdi değil</string>
     <string name="error_message">Üzgünüz, bir hata olmuş gibi görünüyor.</string>

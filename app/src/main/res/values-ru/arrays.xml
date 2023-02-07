@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="names">
+        <item>Ти-Рекс</item>
+        <item>пикачу</item>
+        <item>голлум</item>
+        <item>Грут</item>
+        <item>пушистик</item>
         <item>муффало</item>
         <item>бумкрыса</item>
         <item>мегаскарабей</item>

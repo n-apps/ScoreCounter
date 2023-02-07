@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="names">
+        <item>T-Rex</item>
+        <item>pikachu</item>
+        <item>gollum</item>
+        <item>groot</item>
+        <item>fluffy</item>
         <item>muffalo</item>
         <item>Boomrat</item>
         <item>megaskarab</item>

@@ -18,8 +18,7 @@
     <string name="dialog_custom_dice_title">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>
-    <string name="erd_message">Cześć, mam na imię Roma i pochodzę z Kremenczuka na Ukrainie. Straciłam pracę z powodu wojny w moim kraju, ale zdecydowałam się udostępnić tę aplikację w 100% za darmo i bez reklam. Jeśli chciałbyś mnie wesprzeć, rozważ proszę przekazanie niewielkiej darowizny.
-\n\nDzięki!</string>
+    <string name="erd_message">Cześć, mam na imię Roma i pochodzę z Kremenchuk na Ukrainie. Niestety, straciłem pracę z powodu wojny w moim kraju. Jednak zdecydowałem się utrzymać moją aplikację, Score Counter, wolną od reklam i z pełną funkcjonalnością. Jeśli chciałbyś wesprzeć niezależnego dewelopera, takiego jak ja, proszę rozważ dokonanie darowizny, jednorazowo lub wielokrotnie, w ramach aplikacji. Dziękuję!</string>
     <string name="erd_no_thanks">Nie, dzięki</string>
     <string name="erd_remind_me_later">Nie teraz</string>
     <string name="error_no_email_client">Brak aplikacji email na twoim urządzeniu :(</string>
@@ -64,7 +63,7 @@
     <string name="about_feedback">Skontaktuj się ze mną</string>
     <string name="settings_about">O mnie</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_text">Cześć, mam na imię Roma i pochodzę z Kremenczuka na Ukrainie. Lubię też grać w gry planszowe. Dead of Winter i Terraforming Mars to dwa moje ulubione.\n\nPomysł na aplikację do liczenia punktów zwycięstwa przyszedł mi do głowy podczas gry w Stars&#160;Realms (ma straszne żetony). Od tego czasu pracuję nad tą aplikacją w wolnym czasie. Cieszę się z każdej nowej recenzji, maila czy darowizny.\n\nJeśli masz czym się podzielić lub znalazłeś niechlujne tłumaczenie - skontaktuj się z nami, każdy ma fajne pomysły. Albo po prostu powiedz mi co liczysz&#160;:)\n\nPodoba Ci się ta aplikacja? Oceń ją lub dokonaj darowizny - to pomoże Ci ją poprawić. \n\nDziękuję!</string>
+    <string name="about_text">Cześć, mam na imię Roma i pochodzę z Kremenchuk na Ukrainie. Lubię grać w gry planszowe, a Dead of Winter i Terraformacja Marsa to dwie z moich ulubionych gier. Pomysł na tę aplikację przyszedł mi podczas gry w Stars Realms (która ma straszne żetony). Postanowiłem stworzyć tę aplikację mobilną w wolnym czasie. Każda nowa recenzja, e-mail lub darowizna sprawia, że jestem szczęśliwy. Jeśli masz coś do przekazania, znalazłeś jakieś niechlujne tłumaczenia lub po prostu chcesz dać mi znać, co liczysz, nie krępuj się. Straciłem pracę z powodu wojny w moim kraju, ale zdecydowałem się utrzymać tę aplikację za darmo bez reklam i ze wszystkimi jej funkcjami dostępnymi. Jeśli chcesz wesprzeć dewelopera indie (ja), proszę rozważyć dokonanie małej darowizny w ramach aplikacji. Dziękuję!</string>
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>

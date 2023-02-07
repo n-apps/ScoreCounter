@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
-    <string name="erd_message">Bună, numele meu este Roma și sunt din Kremenchuk, Ucraina. Mi-am pierdut locul de muncă din cauza războiului din țara mea, dar am decis să las această aplicație 100% gratuită și fără reclame. Dacă doriți să mă sprijiniți, vă rog să luați în considerare posibilitatea de a face o mică donație.\n\nMulțumesc!</string>
+    <string name="erd_message">Bună, numele meu este Roma și sunt din Kremenchuk, Ucraina. Din păcate, mi-am pierdut locul de muncă din cauza războiului din țara mea. Cu toate acestea, am luat decizia de a păstra aplicația mea, Score Counter, fără reclame și cu funcționalitate completă. Dacă doriți să sprijiniți un dezvoltator independent ca mine, vă rog să luați în considerare posibilitatea de a face o donație, fie o dată, fie de mai multe ori, în cadrul aplicației. Vă mulțumesc!</string>
     <string name="erd_no_thanks">Nu, multumesc</string>
     <string name="erd_remind_me_later">Nu acum</string>
     <string name="error_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
@@ -63,7 +63,7 @@
     <string name="settings_about">Despre mine</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
     <string name="about_donation">Doneaza</string>
-    <string name="about_text">Bună! Sunt rom. Sunt un designer și dezvoltator de 27 de ani, care locuiește în Ucraina&#160;\ud83c\uddfa\ud83c\udde6. De asemenea, îmi place să joc jocuri de masă. Dead of Winter și Terraforming Mars sunt două dintre preferatele mele.\n\nIdeea de a dezvolta o aplicatie care sa numere punctele castigatoare mi-a venit in timp ce jucam Stars&#160;Realms. De atunci dezvolt aceasta aplicatie in timpul meu liber. Ma bucura fiecare noua recenzie, email sau donatie.\n\nPoti sa iei legatura cum mine daca doresti sa imi transmiti ceva sau ai gasit o traducere nepotrivita - oricine poate avea o idee buna. Ce scoruri tii cu aplicatia mea&#160;:)\n\nIti place aplicatia? Fa-i o recenzie sau doneaza – ma ajuta sa o imbunatatesc.\n\nMultumesc!</string>
+    <string name="about_text">Bună ziua, mă numesc Roma și sunt din Kremenchuk, Ucraina. Îmi place să joc jocuri de societate, Dead of Winter și Terraforming Mars fiind două dintre preferatele mele. Ideea pentru această aplicație mi-a venit în timp ce jucam Stars Realms (care are jetoane groaznice). Am decis să dezvolt această aplicație mobilă în timpul meu liber. Fiecare nouă recenzie, e-mail sau donație mă face fericit. Dacă aveți ceva de împărtășit, ați găsit traduceri dezordonate sau pur și simplu vreți să-mi spuneți ce vă numărați, nu ezitați să mă contactați. Mi-am pierdut locul de muncă din cauza războiului din țara mea, dar am decis să păstrez această aplicație gratuită, fără reclame și cu toate funcțiile sale disponibile. Dacă doriți să sprijiniți un dezvoltator independent (eu), vă rog să luați în considerare posibilitatea de a face o mică donație în cadrul aplicației. Vă mulțumesc!</string>
     <string name="switch_press_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="lowest_wins_hint">Logica a fost modificată</string>
     <string name="common_vibrate">Vibrație</string>

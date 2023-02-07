@@ -18,7 +18,7 @@
     <string name="dialog_custom_dice_title">Eigene Würfelseiten</string>
     <string name="dice_empty_state">Irgendwo drücken oder schütteln das Gerät um die Würfel zu rollen</string>
     <string name="dice_previous_result_label">Vorheriger Wurf</string>
-    <string name="erd_message">Hallo, ich bin Roma und komme aus Kremenchuk, Ukraine. Ich habe meinen Job aufgrund des Krieges in meinem Land verloren, aber entschieden, die App 100 % kostenlos und ohne Werbung zu halten. Wenn Sie mich unterstützen möchten, erwägen Sie bitte eine Spende über die Schaltfläche unten.\n\nVielen Dank!!</string>
+    <string name="erd_message">Hallo, mein Name ist Roma und ich komme aus Krementschuk in der Ukraine. Leider habe ich meinen Job wegen des Krieges in meinem Land verloren. Ich habe mich jedoch entschlossen, meine App Score Counter werbefrei und mit voller Funktionalität weiterzuführen. Wenn Sie einen unabhängigen Entwickler wie mich unterstützen möchten, ziehen Sie bitte eine Spende in Betracht, entweder einmalig oder mehrmals innerhalb der App. Ich danke Ihnen!</string>
     <string name="erd_no_thanks">Nein Danke</string>
     <string name="erd_remind_me_later">Nicht jetzt</string>
     <string name="error_no_email_client">Keine E-Mail App auf Ihrem Gerät :(</string>
@@ -58,7 +58,7 @@
     <string name="counter_deleted">Zähler entfernt</string>
     <string name="counter_added">Zähler hinzugefügt</string>
     <string name="snackbar_action_one_more">Noch einer</string>
-    <string name="about_text">Hallo, ich bin Roma und komme aus Kremenchuk, Ukraine. Ich spiele gerne Brettspiele. Dead of Winter und Terraforming Mars sind zwei meiner Lieblingsspiele.\n\nDie Idee, diese App zu erstellen, kam mir während eines Spiels von Stars Realms (das schreckliche Token hat). Ich habe mich dann entschieden, diese mobile App in meiner Freizeit zu machen. Jede neue Bewertung, E-Mail oder Spende macht mich sehr glücklich!\n\nMöchtest du etwas teilen, verbessern oder unordentliche, schlechte Übersetzungen sehen - melde dich gerne, jeder hat tolle Ideen. Oder lassen Sie mich einfach wissen, was Sie \"zählen\" :)\n\nIch habe meinen Job aufgrund des Krieges in meinem Land verloren, aber entschieden, die App 100 % kostenlos und ohne Werbung zu halten. Wenn Sie mich unterstützen möchten, erwägen Sie bitte eine Spende über die Schaltfläche unten.\n\nVielen Dank!!</string>
+    <string name="about_text">Hallo, mein Name ist Roma und ich komme aus Krementschuk, Ukraine. Ich spiele gerne Brettspiele, wobei Dead of Winter und Terraforming Mars zwei meiner Favoriten sind. Die Idee für diese App kam mir beim Spielen von Stars Realms (das schreckliche Spielsteine hat). Ich beschloss, diese mobile App in meiner Freizeit zu entwickeln. Jede neue Bewertung, E-Mail oder Spende macht mich glücklich. Wenn Sie mir etwas mitteilen möchten, eine fehlerhafte Übersetzung gefunden haben oder mich einfach nur wissen lassen möchten, was Sie zählen, können Sie sich gerne melden. Ich habe meinen Job wegen des Krieges in meinem Land verloren, aber ich habe beschlossen, diese App ohne Werbung und mit all ihren Funktionen kostenlos zu halten. Wenn Sie einen Indie-Entwickler (mich) unterstützen möchten, ziehen Sie bitte eine kleine Spende innerhalb der App in Betracht. Ich danke Ihnen!</string>
     <string name="about_donation">Kauf mier eine Tasse Kaffee</string>
     <string name="about_rate">Meine App bewerten</string>
     <string name="about_feedback">Kontaktiere mich</string>
