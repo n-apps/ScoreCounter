@@ -146,7 +146,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
                         inputEditText.setTransformationMethod(null);
-                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
+                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
@@ -155,7 +155,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     if (editText != null) {
                         String value = editText.getText().toString();
                         Integer parseInt = Utilities.parseInt(value, 0);
-                        if (parseInt <= 999 && parseInt > 1) {
+                        if (parseInt <= 9999 && parseInt > 1) {
                             setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();
