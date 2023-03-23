@@ -74,4 +74,5 @@
     <string name="predefined_steps_hint">Du kannst diese Werte in den Einstellungen anpassen</string>
     <string name="menu_log_subtitle">Nur diese Sitzung</string>
     <string name="menu_elektu">Wer fängt an?</string>
+    <string name="change_language">Sprache ändern</string>
 </resources>

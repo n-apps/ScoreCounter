@@ -74,4 +74,5 @@
     <string name="predefined_steps_hint">Wartości te można edytować w ustawieniach</string>
     <string name="menu_log_subtitle">tylko ta sesja</string>
     <string name="menu_elektu">Kto pierwszy?</string>
+    <string name="change_language">Zmiana języka</string>
 </resources>

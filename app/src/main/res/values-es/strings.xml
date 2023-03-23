@@ -74,4 +74,5 @@
     <string name="menu_log_subtitle">sólo para la sesión</string>
     <string name="menu_elektu">¿Quién va primero?</string>
     <string name="translators_title">Traducción</string>
+    <string name="change_language">Cambiar de idioma</string>
 </resources>

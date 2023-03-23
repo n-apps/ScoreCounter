@@ -15,6 +15,18 @@
         android:layout_marginTop="0dp"
         android:text="@string/settings_section_general" />
 
+    <TextView
+        android:id="@+id/tv_open_app_info"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ptm700"
+        android:minHeight="@dimen/list_two_lines_min_height"
+        android:text="@string/change_language"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+        app:drawableTint="?attr/colorPrimary" />
+
     <RelativeLayout
         android:id="@+id/settings_keep_screen_on"
         style="@style/TwoLinesStyle"

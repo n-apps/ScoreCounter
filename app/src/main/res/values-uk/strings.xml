@@ -74,4 +74,5 @@
     <string name="menu_log_subtitle">тільки ця сесія</string>
     <string name="menu_elektu">Хто перший гравець?</string>
     <string name="translators_title">Переклад</string>
+    <string name="change_language">Змінити мову</string>
 </resources>

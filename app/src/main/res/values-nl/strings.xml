@@ -74,4 +74,5 @@
     <string name="settings_shake_to_roll">Schudden om te rollen</string>
     <string name="settings_section_general">Weergaven</string>
     <string name="translators_title">Vertaling</string>
+    <string name="change_language">Taal veranderen</string>
 </resources>

@@ -1,7 +1,11 @@
 package ua.napps.scorekeeper.settings;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.TypedValue;
@@ -27,7 +31,7 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class SettingsBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
-    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4, openAppInfo;
     private SwitcherX keepScreenOn;
     private SwitcherX darkTheme;
     private SwitcherX vibrate;
@@ -41,6 +45,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         darkTheme = contentView.findViewById(R.id.sw_dark_theme);
         vibrate = contentView.findViewById(R.id.sw_vibrate);
         pressLogic = contentView.findViewById(R.id.sw_swap_press);
+        openAppInfo = contentView.findViewById(R.id.tv_open_app_info);
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
         btn_c_3 = contentView.findViewById(R.id.btn_3_text);
@@ -61,10 +66,15 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled(), false);
         pressLogic.setClickable(false);
 
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            openAppInfo.setVisibility(View.GONE);
+        }
+
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
         btn_c_3.setOnClickListener(this);
         btn_c_4.setOnClickListener(this);
+        openAppInfo.setOnClickListener(this);
 
         btn_c_1.setText(String.valueOf(LocalSettings.getCustomCounter(1)));
         btn_c_2.setText(String.valueOf(LocalSettings.getCustomCounter(2)));
@@ -117,9 +127,14 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 LocalSettings.saveSwapPressLogic(newStateSwapPress);
                 pressLogic.setChecked(newStateSwapPress, true);
                 break;
-
             case R.id.btn_close:
                 dismiss();
+                break;
+            case R.id.tv_open_app_info:
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                String packageName = requireActivity().getPackageName();
+                intent.setData(Uri.parse("package:" + packageName));
+                requireActivity().startActivity(intent);
                 break;
         }
 

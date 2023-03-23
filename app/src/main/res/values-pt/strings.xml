@@ -74,4 +74,5 @@
     <string name="menu_log_subtitle">desta sessão apenas</string>
     <string name="menu_elektu">Quem vai primeiro?</string>
     <string name="translators_title">Traduções</string>
+    <string name="change_language">Mudar idioma</string>
 </resources>

@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
 ext.versionMinor = 2
-ext.versionPatch = 2
+ext.versionPatch = 3
 ext.postfix = ''
 
 android {
@@ -66,8 +66,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
-    implementation 'androidx.room:room-runtime:2.5.0'
-    implementation "androidx.room:room-rxjava2:2.5.0"
+    implementation 'androidx.room:room-runtime:2.5.1'
+    implementation "androidx.room:room-rxjava2:2.5.1"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
@@ -80,8 +80,8 @@ dependencies {
     implementation 'io.github.bitvale:switcher:1.1.2'
     implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'
 
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.6.0'
-    annotationProcessor 'androidx.room:room-compiler:2.5.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.5.1'
 }
 
 def generateVersionCode() {
