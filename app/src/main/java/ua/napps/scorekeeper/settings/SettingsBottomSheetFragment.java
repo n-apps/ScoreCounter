@@ -131,10 +131,11 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 dismiss();
                 break;
             case R.id.tv_open_app_info:
-                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                String packageName = requireActivity().getPackageName();
-                intent.setData(Uri.parse("package:" + packageName));
-                requireActivity().startActivity(intent);
+                if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                    Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
+                    intent.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
+                    requireActivity().startActivity(intent);
+                }
                 break;
         }
 

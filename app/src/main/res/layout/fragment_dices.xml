@@ -42,7 +42,7 @@
         android:gravity="center"
         android:lines="1"
         android:paddingVertical="72dp"
-        android:textColor="?android:textColorPrimary"
+        android:textColor="?attr/colorOnSecondary"
         android:textSize="80sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tv_previous_roll_label"
