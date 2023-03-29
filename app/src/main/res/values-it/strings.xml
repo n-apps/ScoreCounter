@@ -74,5 +74,5 @@
     <string name="menu_log_subtitle">Solo per questa sessione</string>
     <string name="menu_elektu">A chi tocca per primo?</string>
     <string name="translators_title">Tradotto da</string>
-    <string name="change_language">Cambiare la lingua</string>
+    <string name="settings_change_language">Cambiare la lingua</string>
 </resources>

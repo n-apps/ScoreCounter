@@ -74,5 +74,5 @@
     <string name="switch_press_logic">Vyměnit krátké a dlouhé stisknutí</string>
     <string name="testers">Příležitostní testeři\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="translators_title">Překlad</string>
-    <string name="change_language">Změna jazyka</string>
+    <string name="settings_change_language">Změna jazyka</string>
 </resources>

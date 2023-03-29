@@ -77,7 +77,7 @@
                 android:fontFamily="@font/ptm700"
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/about_text"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
+                android:textAppearance="?attr/textAppearanceBody1" />
 
             <ImageView
                 android:id="@+id/hero_image"
@@ -91,13 +91,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/ptm700"
                 android:layout_marginTop="@dimen/spacing_large"
+                android:fontFamily="@font/ptm700"
                 android:lineSpacingMultiplier="1.26"
                 android:text="@string/translators_title"
                 android:textAppearance="?attr/textAppearanceBody1" />
 
             <TextView
+                android:id="@+id/translators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
@@ -115,7 +116,6 @@
                 android:paddingEnd="@dimen/padding_normal"
                 android:text="@string/credits"
                 android:textAppearance="?attr/textAppearanceSubtitle1" />
-
 
             <TextView
                 android:layout_width="match_parent"

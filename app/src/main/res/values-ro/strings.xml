@@ -74,5 +74,5 @@
     <string name="menu_log_subtitle">doar această sesiune</string>
     <string name="menu_elektu">Cine începe?</string>
     <string name="translators_title">Traducere</string>
-    <string name="change_language">Schimbați limba</string>
+    <string name="settings_change_language">Schimbați limba</string>
 </resources>

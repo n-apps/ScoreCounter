@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
 ext.versionMinor = 2
-ext.versionPatch = 4
+ext.versionPatch = 5
 ext.postfix = ''
 
 android {
@@ -26,7 +26,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs 'en', 'ru', 'uk', 'fr', 'de', 'es', 'ro', 'pl', 'pt', 'cs', 'nl', 'it', 'tr', 'hu'
+        resConfigs 'en', 'ru', 'uk', 'fr', 'de', 'es', 'ro', 'pl', 'pt', 'cs', 'nl', 'it', 'tr', 'hu', 'sv'
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false

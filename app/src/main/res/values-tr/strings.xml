@@ -74,5 +74,5 @@
     <string name="switch_press_logic">Kısa ve uzun basmayı değiştirin</string>
     <string name="testers">Ara sıra testers\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="translators_title">Çeviri</string>
-    <string name="change_language">Dili değiştir</string>
+    <string name="settings_change_language">Dili değiştir</string>
 </resources>

@@ -74,5 +74,5 @@
     <string name="menu_log_subtitle">только эта сессия</string>
     <string name="menu_elektu">Кто ходит первым?</string>
     <string name="translators_title">Перевод</string>
-    <string name="change_language">Сменить язык</string>
+    <string name="settings_change_language">Сменить язык</string>
 </resources>

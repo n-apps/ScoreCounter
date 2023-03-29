@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
@@ -56,7 +58,17 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
             case R.id.tv_request_feature:
             case R.id.tv_help_translate:
-                Utilities.startEmail(requireContext());
+                Intent s = new Intent(Intent.ACTION_SENDTO);
+                s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
+                s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+                s.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+
+                try {
+                    startActivity(s);
+                } catch (Exception e) {
+                    Toast.makeText(requireContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+                    Timber.e(e, "Launch email intent");
+                }
                 break;
             case R.id.tv_rate_app:
                 Utilities.rateApp(requireActivity());

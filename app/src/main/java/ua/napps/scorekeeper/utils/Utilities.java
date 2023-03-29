@@ -6,13 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import timber.log.Timber;
-import ua.napps.scorekeeper.R;
 
 public class Utilities {
 
@@ -51,20 +49,6 @@ public class Utilities {
             Intent intent = new Intent(Intent.ACTION_VIEW, playStoreUri);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(intent);
-        }
-    }
-
-    public static void startEmail(Context context) {
-        Intent s = new Intent(Intent.ACTION_SENDTO);
-        s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-        s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-        s.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
-
-        try {
-            context.startActivity(s);
-        } catch (Exception e) {
-            Toast.makeText(context, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-            Timber.e(e, "Launch email intent");
         }
     }
 
