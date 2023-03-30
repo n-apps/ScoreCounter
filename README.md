@@ -1,29 +1,12 @@
 # Score Counter Android App
-Having troubles to find a pen and paper at your game night? Tired of having to put points together in your head? Score Counter will help you easily keep score in any games, sports or other activities. Will do all the math for tracking initiative, HP, hit points, spell slots or even count win streaks in your bar game night!
-
-[<img width=760 src="https://user-images.githubusercontent.com/16646251/203299126-d94e5310-8caa-4b46-ade7-198769dca20d.jpg" style="float: left; padding-right: 10
-px;">](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper)
-
-#### Key features
-* Easy to use
-*  No ads at all. NEVER
-*  Great for on the fly score counting
-*  Intuitive and simple design
-*  Quickly adding any amount of points
-*  Suitable for any game
-*  Custom increments
-*  Comes with a virtual dice roll
-*  Dark theme
-*  Works for big numbers
-*  Open sourced
 
 
-[<img src="https://user-images.githubusercontent.com/16646251/176419200-f4fd3bb5-b8fa-4d25-aecd-261491766fd8.jpg" width=250>]()
-[<img src="https://user-images.githubusercontent.com/16646251/176419196-8d68d64e-4c9e-4ca0-b26d-5322dbb04a66.jpg" width=250>]()
-[<img src="https://user-images.githubusercontent.com/16646251/176419182-a001cac7-75e5-4795-8b3e-ee06654d7994.jpg" width=250>]()
+[<a href="https://play.google.com/store/apps/details?id=ua.napps.scorekeeper"><img src="https://user-images.githubusercontent.com/16646251/228914788-19aadb36-28ec-4954-a630-ecdd71460fc5.png" width=600></a>]()
 
+Score Counter – Count Anything is the perfect solution for game nights, sports competitions, or any activity where you need to keep track of scores on the fly. With its simple and customizable design, this app makes score counting quick and easy, without any interruptions from ads. Whether you're tracking initiative, hit points (HP), spell slots, or even win streaks in your bar game night, Score Counter has you covered.
 
-If you like this app, please leave feedback or make a donation – this will boost my mood and will help improve the app. If you want to drop me a line, I'm happy to hear from you scorekeeper.feedback@gmail.com. Thank you! 
+Score Counter is a free app without any ads and with all its features available. However, if you would like to support an indie developer from Ukraine (that's me!), you can make a one-time or multiple contributions within the Score Counter app. If you have any feedback, questions, or notice any mistakes in the app's translation, please don't hesitate to reach out to me via email at scorekeeper.feedback@gmail.com. Thank you!
+
 
 ## Contribution 
 If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
@@ -47,13 +30,14 @@ If you want to help translate the App you can do this in multiple ways.
 With Android Studio open any of the `string.xml` files in the `res\values` directory and add a new locale using the translation editor. 
 **Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
 
-If you've never used git and not familiar with Android development, download [this file](https://raw.githubusercontent.com/n-apps/ScoreCounter/master/app/src/main/res/values/strings.xml) and edit it using the text editor of your choice (notepad etc...) and just email your modified files to me.
+Or I can prepare a Google Spreadsheet for you :)
 
 #### #StandWithUkraine
-[<a target="_blank" href="https://www.standwithukraine.how/"><img src="https://user-images.githubusercontent.com/16646251/176420453-e24a0d68-72cc-4c71-8b28-f040a623ed1e.jpg" width=400></a>]()
-
+[<a target="_blank" href="https://www.standwithukraine.how/"><img src="https://user-images.githubusercontent.com/16646251/228910177-a799b0c1-0e68-499f-8212-c1bc650d3bd8.png" width=400></a>]()
 
 ## Donate
+Score Counter is a free app without any ads and with all its features available. However, if you would like to support an indie developer from Ukraine (that's me!), you can make a one-time or multiple contributions within the Score Counter app. If you have any feedback, questions, or notice any mistakes in the app's translation, please don't hesitate to reach out to me via email at scorekeeper.feedback@gmail.com. Thank you!
+
 <a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="56"></a>  
 If you enjoyed this project — or just feeling generous, consider buying me a coffee/borsch. Cheers! :beers:
 
