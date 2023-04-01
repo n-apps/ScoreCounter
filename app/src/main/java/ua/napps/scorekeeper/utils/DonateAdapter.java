@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import ua.napps.scorekeeper.R;
@@ -41,19 +42,23 @@ public class DonateAdapter extends BaseAdapter {
 
         TextView title = v.findViewById(R.id.title);
         TextView description = v.findViewById(R.id.description);
+        ImageView image = v.findViewById(R.id.image);
         switch (position) {
             default:
             case 0:  // coffee
-                title.setText("\u2615 " + context.getString(R.string.donation_coffee_title));
-                description.setText(context.getString(R.string.donation_coffee_description));
+                title.setText(R.string.donation_coffee_title);
+                description.setText(R.string.donation_coffee_description);
+                image.setImageResource(R.drawable.inapp_coffee);
                 break;
             case 1: // pizza
-                title.setText("\uD83C\uDF55 " + context.getString(R.string.donation_pizza_title));
-                description.setText(context.getString(R.string.donation_pizza_description));
+                title.setText(R.string.donation_pizza_title);
+                description.setText(R.string.donation_pizza_description);
+                image.setImageResource(R.drawable.inapp_food);
                 break;
             case 2:
-                    title.setText("\uD83D\uDE80 " +context.getString(R.string.donation_xwing_title));
-                description.setText(context.getString(R.string.donation_xwing_description));
+                title.setText(R.string.donation_xwing_title);
+                description.setText(R.string.donation_xwing_description);
+                image.setImageResource(R.drawable.inapp_miniature);
                 break;
         }
 

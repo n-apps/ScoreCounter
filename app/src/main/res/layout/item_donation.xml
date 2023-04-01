@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_vertical"
     android:foreground="@drawable/ripple"
-    android:orientation="vertical"
     android:padding="@dimen/padding_large">
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:fontFamily="@font/ptm700"
         android:gravity="center_vertical"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:drawableEndCompat="@drawable/ic_arrow_right"
-        app:drawableTint="?attr/colorPrimary"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/image"
+        android:paddingEnd="@dimen/padding_normal"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/donation_pizza_title" />
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_normal"
         android:paddingEnd="@dimen/padding_normal"
         android:textAppearance="?attr/textAppearanceBody2"
+        android:fontFamily="@font/ptm400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@id/title"
         tools:text="@string/donation_pizza_description" />
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/inapp_coffee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

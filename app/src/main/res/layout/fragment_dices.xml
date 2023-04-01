@@ -51,7 +51,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
         tools:text="9999"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/empty_state_group"
@@ -60,14 +60,15 @@
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/im_empty_state"
         android:layout_width="@dimen/empty_state_icon_size"
         android:layout_height="@dimen/empty_state_icon_size"
+        android:layout_marginBottom="@dimen/spacing_normal"
         android:contentDescription="@string/dice_empty_state"
-        android:src="?dice_picture"
+        android:src="@drawable/empty_dice"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

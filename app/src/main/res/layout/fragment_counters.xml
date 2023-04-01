@@ -28,13 +28,14 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
             android:contentDescription="@string/counters_empty_message"
-            android:src="?plus_picture" />
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:src="@drawable/empty_counters" />
 
         <TextView
             style="@style/EmptyStateMessage"
@@ -49,6 +50,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_counter_compact"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 </LinearLayout>

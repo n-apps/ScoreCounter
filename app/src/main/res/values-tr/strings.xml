@@ -4,7 +4,7 @@
     <string name="about_donation">Bana bir kahve ısmarla</string>
     <string name="about_feedback">Bana ulaşın</string>
     <string name="about_rate">Uygulamayı değerlendirin</string>
-    <string name="about_text">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Dead of Winter ve Terraforming Mars favorilerimden ikisi olmak üzere masa oyunları oynamaktan hoşlanıyorum. Bu uygulama fikri aklıma Stars Realms (korkunç jetonları olan) oynarken geldi. Boş zamanlarımda bu mobil uygulamayı geliştirmeye karar verdim. Her yeni inceleme, e-posta veya bağış beni mutlu ediyor. Paylaşacak bir şeyiniz varsa, herhangi bir dağınık çeviri bulduysanız veya sadece ne saydığınızı bana bildirmek istiyorsanız, ulaşmaktan çekinmeyin. Ülkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamayı reklamsız ve tüm özellikleriyle ücretsiz tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinden küçük bir bağış yapmayı düşünün. Teşekkür ederim!</string>
+    <string name="about_text">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Dead of Winter ve Terraforming Mars favorilerimden ikisi olmak üzere masa oyunları oynamaktan hoşlanıyorum. Bu uygulama fikri aklıma Stars Realms (korkunç jetonları olan) oynarken geldi.\n\nBoş zamanlarımda bu mobil uygulamayı geliştirmeye karar verdim. Her yeni inceleme, e-posta veya bağış beni mutlu ediyor. Paylaşacak bir şeyiniz varsa, herhangi bir dağınık çeviri bulduysanız veya sadece ne saydığınızı bana bildirmek istiyorsanız, ulaşmaktan çekinmeyin.\n\nÜlkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamayı reklamsız ve tüm özellikleriyle ücretsiz tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinden küçük bir bağış yapmayı düşünün.\n\nTeşekkür ederim!</string>
     <string name="action_donate">Destek geliştirici</string>
     <string name="bottom_navigation_tab_counters">Sayaçlar</string>
     <string name="bottom_navigation_tab_dice">Zar</string>
@@ -69,7 +69,7 @@
     <string name="settings_shake_to_roll">Zar atmak için salla</string>
     <string name="settings_sound">Ses</string>
     <string name="settings_stay_awake">Ekranı açık tut</string>
-    <string name="share_snippet">Merhabalar! Skor Sayacı, herhangi bir oyunda, sporda veya diğer etkinliklerde kolayca skor tutmanıza yardımcı olacaktır. Ücretsiz Android uygulamasını buradan indirin:\\nhttp://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Merhabalar! Skor Sayacı, herhangi bir oyunda, sporda veya diğer etkinliklerde kolayca skor tutmanıza yardımcı olacaktır. Ücretsiz Android uygulamasını buradan indirin: http://play.google.com/store/apps/details?id=</string>
     <string name="snackbar_action_one_more">Bir tane daha</string>
     <string name="switch_press_logic">Kısa ve uzun basmayı değiştirin</string>
     <string name="testers">Ara sıra testers\n\u2690 bleeerr\n\u2690 Moonua</string>

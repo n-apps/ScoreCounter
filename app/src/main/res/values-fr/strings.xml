@@ -41,7 +41,7 @@
     <string name="dialog_yes">Oui</string>
     <string name="dialog_no">Non</string>
     <string name="privacy_policy">Politique de confidentialité</string>
-    <string name="donation_thank_you">Merci 💜</string>
+    <string name="donation_thank_you">Merci \\u2665</string>
     <string name="donation_coffee_title">Un café italien</string>
     <string name="donation_coffee_description">Le caffè corretto est un espresso agrémenté d’une dose de liqueur, comme la grappa.</string>
     <string name="donation_pizza_title">Pizza Hawaïenne</string>
@@ -58,7 +58,7 @@
     <string name="counter_deleted">Compteur supprimé</string>
     <string name="counter_added">Compteur ajouté</string>
     <string name="snackbar_action_one_more">Un de plus</string>
-    <string name="about_text">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. J\'aime jouer à des jeux de société, Dead of Winter et Terraforming Mars étant deux de mes préférés. L\'idée de cette application m\'est venue en jouant à Stars Realms (dont les jetons sont terribles). J\'ai décidé de développer cette application mobile pendant mon temps libre. Chaque nouvelle critique, email ou don me rend heureux. Si vous avez quelque chose à partager, si vous avez trouvé des traductions désordonnées, ou si vous voulez simplement me faire savoir ce que vous comptez, n\'hésitez pas à me contacter. J\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de garder cette application gratuite sans publicité et avec toutes ses fonctionnalités disponibles. Si vous souhaitez soutenir un développeur indépendant (moi), vous pouvez faire un petit don dans l\'application. Merci !</string>
+    <string name="about_text">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. J\'aime jouer à des jeux de société, Dead of Winter et Terraforming Mars étant deux de mes préférés. L\'idée de cette application m\'est venue en jouant à Stars Realms (dont les jetons sont terribles).\n\nJ\'ai décidé de développer cette application mobile pendant mon temps libre. Chaque nouvelle critique, email ou don me rend heureux. Si vous avez quelque chose à partager, si vous avez trouvé des traductions désordonnées, ou si vous voulez simplement me faire savoir ce que vous comptez, n\'hésitez pas à me contacter.\n\nJ\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de garder cette application gratuite sans publicité et avec toutes ses fonctionnalités disponibles. Si vous souhaitez soutenir un développeur indépendant (moi), vous pouvez faire un petit don dans l\'application.\n\nMerci !</string>
     <string name="about_donation">Faire un don</string>
     <string name="about_rate">Évaluer mon application</string>
     <string name="about_feedback">Contactez moi</string>

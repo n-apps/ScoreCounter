@@ -53,7 +53,7 @@
     <string name="common_more">Więcej</string>
     <string name="reset">Zresetuj</string>
     <string name="setting_share">Poleć znajomemu</string>
-    <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj: %link%</string>
+    <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj: http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Edytuj</string>
     <string name="counter_deleted">Usunięto licznik</string>
     <string name="counter_added">Dodano licznik</string>
