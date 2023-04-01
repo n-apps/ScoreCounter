@@ -1,8 +1,11 @@
 package ua.napps.scorekeeper.dice;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -37,6 +40,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     private DialogInterface.OnDismissListener onDismissListener;
     private SwitcherX shakeToRoll;
     private SwitcherX soundRoll;
+
+    private Vibrator vibrator;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -88,6 +93,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 diceCountGroup.check(R.id.btn_x4);
                 break;
         }
+
+        vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
         diceSidesGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (isChecked) {
                 switch (checkedId) {
@@ -261,12 +268,26 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     private void validateAndStoreDiceSide(int diceMaxSide) {
         if (diceMaxSide <= 100) {
             LocalSettings.saveDiceMaxSide(diceMaxSide);
+            tryVibrate();
         }
     }
 
     private void validateAndStoreDiceCount(int diceCount) {
         if (diceCount <= 100) {
             LocalSettings.saveDiceCount(diceCount);
+            tryVibrate();
+        }
+    }
+
+    private void tryVibrate() {
+        if (!isAdded() || !LocalSettings.isCountersVibrate() || vibrator == null) {
+            return;
+        }
+
+        if (Utilities.hasQ()) {
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+        } else {
+            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
         }
     }
 
@@ -277,11 +298,13 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 boolean newStateSound = !soundRoll.isChecked();
                 LocalSettings.saveSoundRoll(newStateSound);
                 soundRoll.setChecked(newStateSound, true);
+                tryVibrate();
                 break;
             case R.id.settings_shake:
                 boolean newStateShake = !shakeToRoll.isChecked();
                 LocalSettings.saveShakeToRoll(newStateShake);
                 shakeToRoll.setChecked(newStateShake, true);
+                tryVibrate();
                 if (newStateShake) {
                     ViewUtil.shakeView(v, 2, 0);
                 }

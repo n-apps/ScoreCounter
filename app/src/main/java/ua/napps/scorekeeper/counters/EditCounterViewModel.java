@@ -3,6 +3,7 @@ package ua.napps.scorekeeper.counters;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import io.reactivex.CompletableObserver;
@@ -13,8 +14,12 @@ import timber.log.Timber;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.utils.Singleton;
+import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
+import ua.napps.scorekeeper.utils.livedata.VibrateIntent;
 
 class EditCounterViewModel extends ViewModel {
+
+    public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
 
     private final CountersRepository countersRepository;
     private final LiveData<Counter> counterLiveData;
@@ -42,7 +47,6 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
                     }
 
                     @Override
@@ -106,7 +110,6 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
                     }
 
                     @Override
@@ -130,6 +133,7 @@ class EditCounterViewModel extends ViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -145,14 +149,13 @@ class EditCounterViewModel extends ViewModel {
     }
 
     void deleteCounter() {
-
         countersRepository.delete(counter)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override

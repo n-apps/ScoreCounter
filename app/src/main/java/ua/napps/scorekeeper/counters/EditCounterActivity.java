@@ -1,12 +1,15 @@
 package ua.napps.scorekeeper.counters;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -38,6 +42,8 @@ import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
+import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
+import ua.napps.scorekeeper.utils.livedata.VibrateIntent;
 
 public class EditCounterActivity extends AppCompatActivity implements OnColorSelectedListener {
 
@@ -59,6 +65,12 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     private String newCounterColor;
     private ColorSlider colorSlider;
     private int selectedColor;
+    private Vibrator vibrator;
+
+    private final Observer<SingleShotEvent> eventBusObserver = event -> {
+        Object intent = event.getValueAndConsume();
+        if (intent instanceof VibrateIntent) vibrate();
+    };
 
     public static void start(Activity activity, Counter counter) {
         Intent intent = new Intent(activity, EditCounterActivity.class);
@@ -90,6 +102,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
 
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         subscribeToModel(id);
     }
 
@@ -246,7 +259,20 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         if (counterStep != step) {
             viewModel.updateStep(step);
         }
+        vibrate();
         supportFinishAfterTransition();
+    }
+
+    private void vibrate() {
+        if (!LocalSettings.isCountersVibrate() || vibrator == null) {
+            return;
+        }
+        if (Utilities.hasQ()) {
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK));
+        } else {
+            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
+        }
+        viewModel.eventBus.removeObserver(eventBusObserver);
     }
 
     private void subscribeToModel(int id) {
@@ -268,6 +294,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
                 finish();
             }
         });
+        viewModel.eventBus.observeForever(eventBusObserver);
     }
 
     @Override

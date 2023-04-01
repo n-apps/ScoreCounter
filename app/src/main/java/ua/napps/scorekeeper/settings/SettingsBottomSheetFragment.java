@@ -1,10 +1,13 @@
 package ua.napps.scorekeeper.settings;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -36,6 +39,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     private SwitcherX darkTheme;
     private SwitcherX vibrate;
     private SwitcherX pressLogic;
+    private Vibrator vibrator;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -65,6 +69,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         vibrate.setClickable(false);
         pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled(), false);
         pressLogic.setClickable(false);
+        vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             openAppInfo.setVisibility(View.GONE);
@@ -93,17 +98,20 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
             case R.id.settings_keep_screen_on:
                 boolean newStateKeepScreenOn = !keepScreenOn.isChecked();
                 LocalSettings.saveKeepScreenOn(newStateKeepScreenOn);
+                tryVibrate();
                 keepScreenOn.setChecked(newStateKeepScreenOn, true);
                 break;
             case R.id.settings_dark_theme:
                 boolean newStateDarkTheme = !darkTheme.isChecked();
                 LocalSettings.saveDarkTheme(newStateDarkTheme);
+                tryVibrate();
                 darkTheme.setChecked(newStateDarkTheme, true);
                 break;
 
             case R.id.settings_vibrate:
                 boolean newStateVibrate = !vibrate.isChecked();
                 LocalSettings.saveCountersVibrate(newStateVibrate);
+                tryVibrate();
                 vibrate.setChecked(newStateVibrate, true);
                 if (newStateVibrate) {
                     ViewUtil.shakeView(v, 2, 0);
@@ -125,6 +133,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
             case R.id.settings_swap_press:
                 boolean newStateSwapPress = !pressLogic.isChecked();
                 LocalSettings.saveSwapPressLogic(newStateSwapPress);
+                tryVibrate();
                 pressLogic.setChecked(newStateSwapPress, true);
                 break;
             case R.id.btn_close:
@@ -196,6 +205,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
 
     private void setCustomCounter(int id, int value) {
         LocalSettings.saveCustomCounter(id, value);
+        tryVibrate();
         switch (id) {
             case 1:
                 btn_c_1.setText(String.valueOf(value));
@@ -213,6 +223,18 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 btn_c_4.setText(String.valueOf(value));
                 ViewUtil.shakeView(btn_c_4, 4, 0);
                 break;
+        }
+    }
+
+    private void tryVibrate() {
+        if (!isAdded() || !LocalSettings.isCountersVibrate() || vibrator == null) {
+            return;
+        }
+
+        if (Utilities.hasQ()) {
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+        } else {
+            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
         }
     }
 

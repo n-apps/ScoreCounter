@@ -7,6 +7,7 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,8 +26,12 @@ import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SnackbarMessage;
+import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
+import ua.napps.scorekeeper.utils.livedata.VibrateIntent;
 
 class CountersViewModel extends AndroidViewModel {
+
+    public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
 
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
@@ -62,6 +67,7 @@ class CountersViewModel extends AndroidViewModel {
                         @Override
                         public void onComplete() {
                             showSnackbarMessage(R.string.counter_added);
+                            eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                             Timber.d("");
                         }
 
@@ -89,7 +95,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -111,6 +117,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -126,7 +133,6 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void modifyName(Counter counter, @NonNull String newName) {
-        
         if ((newName.equalsIgnoreCase("roman") |
                 newName.equalsIgnoreCase("roma") |
                 newName.equalsIgnoreCase("роман") |
@@ -139,6 +145,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -166,6 +173,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -229,6 +237,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                         Singleton.getInstance().clearLogEntries();
                         shuffleInitialDataArrays();
                     }
@@ -259,7 +268,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
-
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
@@ -283,6 +292,7 @@ class CountersViewModel extends AndroidViewModel {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onComplete() {
+                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
                     }
 
                     @Override
