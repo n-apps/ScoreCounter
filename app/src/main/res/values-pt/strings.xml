@@ -64,7 +64,7 @@
     <string name="about_donation">Faça uma doação</string>
     <string name="about_rate">Avalie a minha aplicação</string>
     <string name="about_feedback">Entre em contato</string>
-    <string name="settings_about">Sobre mim</string>
+    <string name="settings_about">Sobre a app</string>
     <string name="setting_help_translate">Ajude a traduzir</string>
     <string name="switch_press_logic">Inverter toques curtos e longos</string>
     <string name="lowest_wins_hint">Lógica modificada</string>
@@ -73,6 +73,6 @@
     <string name="predefined_steps_hint">Você pode editar esses valores nas configurações</string>
     <string name="menu_log_subtitle">desta sessão apenas</string>
     <string name="menu_elektu">Quem vai primeiro?</string>
-    <string name="translators_title">Traduções</string>
+    <string name="translators_title">Chamando todos os gênios da língua e os entusiastas dos animais! Vamos dar um toque especial ao nosso amado aplicativo com traduções e apelidos hilários de animais. Junte-se à festa e seja tão legal quanto as pessoas que já emprestaram sua genialidade:</string>
     <string name="settings_change_language">Mudar idioma</string>
 </resources>

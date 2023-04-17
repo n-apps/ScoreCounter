@@ -62,7 +62,7 @@
     <string name="about_donation">Faire un don</string>
     <string name="about_rate">Évaluer mon application</string>
     <string name="about_feedback">Contactez moi</string>
-    <string name="settings_about">À propos de moi</string>
+    <string name="settings_about">À propos de l\'application</string>
     <string name="setting_help_translate">Aider à traduire</string>
     <string name="switch_press_logic">Échanger appui court et appui long</string>
     <string name="lowest_wins_hint">La logique a changé</string>
@@ -73,6 +73,6 @@
     <string name="predefined_steps_hint">Vous pouvez modifier ces valeurs dans les paramètres</string>
     <string name="menu_log_subtitle">seulement cette session</string>
     <string name="menu_elektu">Qui commence ?</string>
-    <string name="translators_title">Traduction</string>
+    <string name="translators_title">À tous les magiciens des langues et les passionnés des animaux ! Égayons notre application adorée avec des traductions et des surnoms d\'animaux hilarants. Joignez-vous à la fête et soyez aussi cool que les personnes qui ont déjà prêté leur génie :</string>
     <string name="settings_change_language">Changer de langue</string>
 </resources>

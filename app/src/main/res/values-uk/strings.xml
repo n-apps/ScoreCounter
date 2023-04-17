@@ -62,7 +62,7 @@
     <string name="about_donation">Підтримати</string>
     <string name="about_rate">Оцінити додаток</string>
     <string name="about_feedback">Написати мені</string>
-    <string name="settings_about">Про мене</string>
+    <string name="settings_about">Про застосунок</string>
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="switch_press_logic">Змінити коротке та довге натискання</string>
     <string name="lowest_wins_hint">Логіка змінилася</string>
@@ -73,6 +73,6 @@
     <string name="predefined_steps_hint">Ви можете змінити ці значення у налаштуваннях</string>
     <string name="menu_log_subtitle">тільки ця сесія</string>
     <string name="menu_elektu">Хто перший гравець?</string>
-    <string name="translators_title">Переклад</string>
+    <string name="translators_title">Запрошуємо всіх магів мов та прихильників тварин! Додаймо нашому улюбленому додатку ще більше перекладів та веселих кличок тварин. Приєднуйтеся до вечірки і будьте такими ж крутими, як люди, які вже додали свою крутість:</string>
     <string name="settings_change_language">Змінити мову</string>
 </resources>

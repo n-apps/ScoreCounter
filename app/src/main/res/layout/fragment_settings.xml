@@ -57,18 +57,6 @@
             app:drawableTint="?attr/colorPrimary" />
 
         <TextView
-            android:id="@+id/tv_request_feature"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptm700"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/settings_feedback"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_chat"
-            app:drawableTint="?attr/colorControlNormal" />
-
-        <TextView
             android:id="@+id/tv_rate_app"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
@@ -78,6 +66,18 @@
             android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_asterisk"
+            app:drawableTint="?attr/colorControlNormal" />
+
+        <TextView
+            android:id="@+id/tv_request_feature"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_feedback"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_chat"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView

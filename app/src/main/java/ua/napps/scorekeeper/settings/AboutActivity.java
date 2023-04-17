@@ -49,20 +49,8 @@ public class AboutActivity extends AppCompatActivity {
             DonateDialog dialog = new DonateDialog();
             dialog.show(getSupportFragmentManager(), "donate");
         });
-        findViewById(R.id.translators).setOnClickListener(v -> {
-            Intent s = new Intent(Intent.ACTION_SENDTO);
-            s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-            s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-            s.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-            s.putExtra(Intent.EXTRA_TEXT, getString(R.string.setting_help_translate));
-
-            try {
-                startActivity(s);
-            } catch (Exception e) {
-                Toast.makeText(this, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
-                Timber.e(e, "Launch email intent");
-            }
-        });
+        findViewById(R.id.translators).setOnClickListener(v -> launchEmailClient());
+        findViewById(R.id.translators_title).setOnClickListener(v -> launchEmailClient());
 
         boolean isLightTheme = LocalSettings.isLightTheme();
         if (isLightTheme) {
@@ -71,6 +59,21 @@ public class AboutActivity extends AppCompatActivity {
             ViewUtil.clearLightStatusBar(this);
         }
         ViewUtil.setNavBarColor(this, isLightTheme);
+    }
+
+    private void launchEmailClient() {
+        Intent s = new Intent(Intent.ACTION_SENDTO);
+        s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
+        s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        s.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        s.putExtra(Intent.EXTRA_TEXT, getString(R.string.setting_help_translate));
+
+        try {
+            startActivity(s);
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+            Timber.e(e, "Launch email intent");
+        }
     }
 
     @Override

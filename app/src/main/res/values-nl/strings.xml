@@ -60,7 +60,7 @@
     <string name="save">Opslaan</string>
     <string name="setting_help_translate">Help met vertalen</string>
     <string name="setting_share">Aanbevelen aan een vriend</string>
-    <string name="settings_about">Over mij</string>
+    <string name="settings_about">Over de app</string>
     <string name="settings_dark_theme">Donker thema</string>
     <string name="settings_feedback">Terugkoppeling verzenden</string>
     <string name="settings_section_actions">Acties</string>
@@ -73,6 +73,6 @@
     <string name="settings_sound">Geluid</string>
     <string name="settings_shake_to_roll">Schudden om te rollen</string>
     <string name="settings_section_general">Weergaven</string>
-    <string name="translators_title">Vertaling</string>
+    <string name="translators_title">Alle taalwizards en dierenliefhebbers opgelet! Laten we onze geliefde app opfleuren met vertalingen en grappige dierennamen. Doe mee met het feest en wees net zo cool als de mensen die hun geweldigheid al hebben uitgeleend:</string>
     <string name="settings_change_language">Taal veranderen</string>
 </resources>

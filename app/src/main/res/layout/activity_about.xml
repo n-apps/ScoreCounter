@@ -84,14 +84,14 @@
                 android:id="@+id/hero_image"
                 android:layout_width="@dimen/empty_state_icon_size"
                 android:layout_height="@dimen/empty_state_icon_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/spacing_normal"
                 android:contentDescription="@string/action_donate"
                 android:scaleType="fitCenter"
-                android:src="@drawable/coffee"
-                android:layout_marginVertical="@dimen/spacing_normal"
-                android:layout_gravity="center_horizontal"
-                />
+                android:src="@drawable/coffee" />
 
             <TextView
+                android:id="@+id/translators_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptm700"
@@ -109,13 +109,12 @@
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/translators"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnSecondary"
-                tools:visibility="gone" />
+                android:textColor="?attr/colorOnSecondary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_big"
+                android:layout_marginVertical="@dimen/spacing_large"
                 android:fontFamily="@font/icm400"
                 android:lineSpacingMultiplier="1.33"
                 android:paddingEnd="@dimen/padding_normal"
@@ -184,8 +183,6 @@
                 android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
                 android:textAppearance="?attr/textAppearanceCaption"
                 tools:ignore="HardcodedText" />
-
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -73,6 +73,6 @@
     <string name="snackbar_action_one_more">Bir tane daha</string>
     <string name="switch_press_logic">Kısa ve uzun basmayı değiştirin</string>
     <string name="testers">Ara sıra testers\n\u2690 bleeerr\n\u2690 Moonua</string>
-    <string name="translators_title">Çeviri</string>
+    <string name="translators_title">Tüm dil büyücüleri ve hayvan tutkunlarına çağrı! Sevimli uygulamamızı çeviriler ve komik hayvan takma adlarıyla renklendirelim. Partiye katılın ve awesomeness\'lerini paylaşan insanlar kadar havalı olun:</string>
     <string name="settings_change_language">Dili değiştir</string>
 </resources>

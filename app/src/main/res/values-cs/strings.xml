@@ -59,7 +59,7 @@
     <string name="reset">Obnovit</string>
     <string name="save">Uložit</string>
     <string name="setting_help_translate">Pomoc s překladem</string>
-    <string name="settings_about">O mně</string>
+    <string name="settings_about">O aplikaci</string>
     <string name="setting_share">Doporučit příteli</string>
     <string name="settings_dark_theme">Tmavý režim</string>
     <string name="settings_feedback">Poslat zpětnou vazbu</string>
@@ -73,6 +73,6 @@
     <string name="snackbar_action_one_more">Ještě jeden</string>
     <string name="switch_press_logic">Vyměnit krátké a dlouhé stisknutí</string>
     <string name="testers">Příležitostní testeři\n\u2690 bleeerr\n\u2690 Moonua</string>
-    <string name="translators_title">Překlad</string>
+    <string name="translators_title">Voláme všechny jazykové kouzelníky a nadšence do zvířat! Obohatme naši oblíbenou aplikaci překlady a vtipnými zvířecími přezdívkami. Připojte se k tomuto zábavnému večírku a buďte stejně skvělí jako lidé, kteří už přidali své fantastické nápady:</string>
     <string name="settings_change_language">Změna jazyka</string>
 </resources>

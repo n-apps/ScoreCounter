@@ -6,9 +6,9 @@
         <item>Gollam</item>
         <item>Pikachu</item>
         <item>T-Rex</item>
-        <item>Muffalo</item>
-        <item>Boomrat</item>
-        <item>Megaszkarabeusz</item>
+        <item>Vuk</item>
+        <item>Safranek</item>
+        <item>Kukori</item>
         <item>Kobra</item>
         <item>Szarvas</item>
         <item>Vaddisznó</item>
@@ -61,7 +61,7 @@
         <item>Galamb</item>
         <item>Szitakötő</item>
         <item>Sas</item>
-        <item>Echidna</item>
+        <item>Pom-Pom</item>
         <item>Angolna</item>
         <item>Jávorantilop</item>
         <item>Elefánt</item>
@@ -121,7 +121,7 @@
         <item>Homár</item>
         <item>Sáska</item>
         <item>Tetű</item>
-        <item>Pompás lantfarkúmadár</item>
+        <item>Mazsola</item>
         <item>Szarka</item>
         <item>Vadkacsa</item>
         <item>Kacsa</item>
@@ -193,7 +193,7 @@
         <item>Fecske</item>
         <item>Hattyú</item>
         <item>Tapír</item>
-        <item>Tarsier</item>
+        <item>Grabowski</item>
         <item>Termesz</item>
         <item>Tigris</item>
         <item>Varangy</item>
@@ -222,20 +222,20 @@
         <item>Sárkány</item>
         <item>Zombi</item>
         <item>Tündér</item>
-        <item>Dobby</item>
-        <item>Cseburáska</item>
-        <item>Brownie</item>
+        <item>Misi mókus</item>
+        <item>Gusztáv</item>
+        <item>Vízipók-csodapók</item>
         <item>Scooby Doo</item>
-        <item>Rapunzel</item>
+        <item>Gombóc Artúr</item>
         <item>Oroszlánkirály</item>
         <item>Spongyabob</item>
-        <item>Chupacabra</item>
-        <item>Kraken</item>
-        <item>Loris</item>
-        <item>Nyan Cat</item>
-        <item>Kacsacsőrű emlős</item>
-        <item>Piton</item>
-        <item>Quagga</item>
-        <item>Quokka</item>
+        <item>Mekk Elek</item>
+        <item>A nagy ho-ho-horgász</item>
+        <item>Kockásfülű nyúl</item>
+        <item>Frakk</item>
+        <item>Mikrobi</item>
+        <item>Pityke</item>
+        <item>Dr. Bubó</item>
+        <item>Mézga Géza</item>
     </string-array>
 </resources>

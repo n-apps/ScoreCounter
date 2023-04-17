@@ -62,7 +62,7 @@
     <string name="about_donation">Угостить кофе</string>
     <string name="about_rate">Оценить приложение</string>
     <string name="about_feedback">Написать мне</string>
-    <string name="settings_about">Об авторе</string>
+    <string name="settings_about">О приложении</string>
     <string name="setting_help_translate">Помочь с переводом</string>
     <string name="switch_press_logic">Поменять короткое и&#160;долгое нажатие</string>
     <string name="lowest_wins_hint">Логика изменилась</string>
@@ -73,6 +73,6 @@
     <string name="predefined_steps_hint">Вы можете изменить эти значения в настройках</string>
     <string name="menu_log_subtitle">только эта сессия</string>
     <string name="menu_elektu">Кто ходит первым?</string>
-    <string name="translators_title">Перевод</string>
+    <string name="translators_title">Приглашаем всех языковых волшебников и любителей животных! Давайте придадим нашему любимому приложению изюминку с помощью переводов и забавных кличек животных. Присоединяйтесь к нашей вечеринке и будьте такими же крутыми, как те, кто уже проявил свою крутость:</string>
     <string name="settings_change_language">Сменить язык</string>
 </resources>

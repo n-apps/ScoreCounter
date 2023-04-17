@@ -73,6 +73,6 @@
     <string name="predefined_steps_hint">Puede editar estos valores en la configuración</string>
     <string name="menu_log_subtitle">sólo para la sesión</string>
     <string name="menu_elektu">¿Quién va primero?</string>
-    <string name="translators_title">Traducción</string>
+    <string name="translators_title">¡Llamando a todos los magos del lenguaje y los entusiastas de los animales! Vamos a darle un toque de diversión a nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
     <string name="settings_change_language">Cambiar de idioma</string>
 </resources>

@@ -61,13 +61,13 @@
     <string name="about_donation">Wyślij donate</string>
     <string name="about_rate">Oceń moją aplikację</string>
     <string name="about_feedback">Skontaktuj się ze mną</string>
-    <string name="settings_about">O mnie</string>
+    <string name="settings_about">O aplikacji</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
     <string name="about_text">Cześć, mam na imię Roma i pochodzę z Kremenchuk na Ukrainie. Lubię grać w gry planszowe, a Dead of Winter i Terraformacja Marsa to dwie z moich ulubionych gier. Pomysł na tę aplikację przyszedł mi podczas gry w Stars Realms (która ma straszne żetony). Postanowiłem stworzyć tę aplikację mobilną w wolnym czasie. Każda nowa recenzja, e-mail lub darowizna sprawia, że jestem szczęśliwy. Jeśli masz coś do przekazania, znalazłeś jakieś niechlujne tłumaczenia lub po prostu chcesz dać mi znać, co liczysz, nie krępuj się. Straciłem pracę z powodu wojny w moim kraju, ale zdecydowałem się utrzymać tę aplikację za darmo bez reklam i ze wszystkimi jej funkcjami dostępnymi. Jeśli chcesz wesprzeć dewelopera indie (ja), proszę rozważyć dokonanie małej darowizny w ramach aplikacji. Dziękuję!</string>
     <string name="switch_press_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="lowest_wins_hint">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>
-    <string name="translators_title">Tłumaczenie</string>
+    <string name="translators_title">Zapraszamy wszystkich językowych magików i miłośników zwierząt! Ożywmy naszą ukochaną aplikację tłumaczeniami i zabawnymi zwierzęcymi przezwiskami. Dołącz do zabawy i bądź tak fajny jak ludzie, którzy już dodali swoją niezwykłość:</string>
     <string name="donation_xwing_title">Star Wars: X-Wing Gra Figurkowa</string>
     <string name="donation_xwing_description">Z oszałamiająco malowanymi miniaturami</string>
     <string name="testers">Testerzy aplikacji\n\u2690 bleeerr\n\u2690 Moonua</string>
