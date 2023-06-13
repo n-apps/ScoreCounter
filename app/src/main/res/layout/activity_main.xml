@@ -19,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:elevation="0dp"
-        android:theme="@style/BottomNavThem"
         app:itemRippleColor="@color/rippleColor"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_navigation_menu" />

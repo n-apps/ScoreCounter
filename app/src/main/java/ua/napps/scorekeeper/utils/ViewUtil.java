@@ -5,34 +5,78 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.os.Build;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import ua.napps.scorekeeper.R;
 
 public class ViewUtil {
 
-    public static void setLightStatusBar(Activity activity) {
-        int oldFlags = activity.getWindow().getDecorView().getSystemUiVisibility();
-        // Apply the state flags in priority order
-        int newFlags = oldFlags;
-        newFlags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-        if (newFlags != oldFlags) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
+    public static void setLightMode(@NonNull Activity activity, boolean light) {
+        Window window = activity.getWindow();
+        View decorView = window.getDecorView();
+        setMIUIStatusBarDarkIcon(activity, light);
+        setMeizuStatusBarDarkIcon(activity, light);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.R) {
+            WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(window, decorView);
+            insetsController.setAppearanceLightStatusBars(light);
+        } else {
+            // 经过测试，小米 Android 11 用  WindowInsetsControllerCompat 不起作用， 我还能说什么呢。。。
+
+            int systemUi = decorView.getSystemUiVisibility();
+            if (light) {
+                systemUi |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            } else {
+                systemUi &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            }
+            decorView.setSystemUiVisibility(systemUi);
         }
     }
 
-    public static void clearLightStatusBar(Activity activity) {
-        int oldFlags = activity.getWindow().getDecorView().getSystemUiVisibility();
-        // Apply the state flags in priority order
-        int newFlags = oldFlags;
-        newFlags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-        if (newFlags != oldFlags) {
-            activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
+    private static void setMIUIStatusBarDarkIcon(@NonNull Activity activity, boolean darkIcon) {
+        Class<? extends Window> clazz = activity.getWindow().getClass();
+        try {
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            int darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            extraFlagField.invoke(activity.getWindow(), darkIcon ? darkModeFlag : 0, darkModeFlag);
+        } catch (Exception e) {
+            //e.printStackTrace();
         }
-        activity.getWindow().setStatusBarColor(activity.getColor(R.color.primaryBackground));
     }
 
-    public static void setNavBarColor(Activity activity, boolean isLight) {
+    private static void setMeizuStatusBarDarkIcon(@NonNull Activity activity, boolean darkIcon) {
+        try {
+            WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+            Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+            Field meizuFlags = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+            darkFlag.setAccessible(true);
+            meizuFlags.setAccessible(true);
+            int bit = darkFlag.getInt(null);
+            int value = meizuFlags.getInt(lp);
+            if (darkIcon) {
+                value |= bit;
+            } else {
+                value &= ~bit;
+            }
+            meizuFlags.setInt(lp, value);
+            activity.getWindow().setAttributes(lp);
+        } catch (Exception e) {
+            //e.printStackTrace();
+        }
+    }
+
+    public static void setNavBarColor(@NonNull Activity activity, boolean isLight) {
         int oldFlags = activity.getWindow().getDecorView().getSystemUiVisibility();
         // Apply the state flags in priority order
         int newFlags = oldFlags;

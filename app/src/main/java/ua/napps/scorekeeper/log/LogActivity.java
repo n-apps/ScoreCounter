@@ -64,11 +64,7 @@ public class LogActivity extends AppCompatActivity {
         findViewById(R.id.btn_close).setOnClickListener(v -> finishAfterTransition());
 
         boolean isLightTheme = LocalSettings.isLightTheme();
-        if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this);
-        } else {
-            ViewUtil.clearLightStatusBar(this);
-        }
+        ViewUtil.setLightMode(this, isLightTheme);
         ViewUtil.setNavBarColor(this, isLightTheme);
     }
 

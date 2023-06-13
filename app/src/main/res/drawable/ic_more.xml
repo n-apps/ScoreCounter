@@ -8,12 +8,12 @@
         android:pathData="M0,0h32v32h-32z"/>
     <path
         android:pathData="M8,18C9.105,18 10,17.105 10,16C10,14.895 9.105,14 8,14C6.895,14 6,14.895 6,16C6,17.105 6.895,18 8,18Z"
-        android:fillColor="?attr/colorOnPrimary"/>
+        android:fillColor="?attr/colorOnSurface"/>
     <path
         android:pathData="M16,18C17.105,18 18,17.105 18,16C18,14.895 17.105,14 16,14C14.895,14 14,14.895 14,16C14,17.105 14.895,18 16,18Z"
-        android:fillColor="?attr/colorOnPrimary"/>
+        android:fillColor="?attr/colorOnSurface"/>
     <path
         android:pathData="M24,18C25.105,18 26,17.105 26,16C26,14.895 25.105,14 24,14C22.895,14 22,14.895 22,16C22,17.105 22.895,18 24,18Z"
-        android:fillColor="?attr/colorOnPrimary"/>
+        android:fillColor="?attr/colorOnSurface"/>
   </group>
 </vector>

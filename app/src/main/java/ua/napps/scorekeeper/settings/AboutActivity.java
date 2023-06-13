@@ -53,11 +53,7 @@ public class AboutActivity extends AppCompatActivity {
         findViewById(R.id.translators_title).setOnClickListener(v -> launchEmailClient());
 
         boolean isLightTheme = LocalSettings.isLightTheme();
-        if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this);
-        } else {
-            ViewUtil.clearLightStatusBar(this);
-        }
+        ViewUtil.setLightMode(this, isLightTheme);
         ViewUtil.setNavBarColor(this, isLightTheme);
     }
 

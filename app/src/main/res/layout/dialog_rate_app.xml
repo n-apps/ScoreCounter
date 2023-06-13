@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorSurface"
     android:orientation="vertical"
-    android:background="?attr/colorBackgroundFloating"
     android:paddingBottom="@dimen/padding_normal">
 
     <ImageView
@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:contentDescription="@string/action_donate"
-        android:src="@drawable/about"
         android:scaleType="centerCrop"
+        android:src="@drawable/about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="@dimen/padding_normal"
         android:paddingLeft="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_normal"
         android:paddingRight="@dimen/padding_large">
 
         <TextView
@@ -32,13 +32,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:lineSpacingMultiplier="1.3"
             android:fontFamily="@font/ptm700"
+            android:lineSpacingMultiplier="1.3"
             android:text="@string/erd_message"
             android:textAppearance="?attr/textAppearanceBody2" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_donate_it"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_large"
@@ -46,6 +47,8 @@
             android:insetBottom="0dp"
             android:minHeight="56dp"
             android:text="@string/about_donation"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/font_title" />
 
         <LinearLayout

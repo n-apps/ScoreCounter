@@ -95,11 +95,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         initViews();
 
         boolean isLightTheme = LocalSettings.isLightTheme();
-        if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this);
-        } else {
-            ViewUtil.clearLightStatusBar(this);
-        }
+        ViewUtil.setLightMode(this, isLightTheme);
         ViewUtil.setNavBarColor(this, isLightTheme);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

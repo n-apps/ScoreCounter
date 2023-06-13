@@ -27,7 +27,6 @@
         <item name="materialButtonStyle">@style/MyButton</item>
         <item name="android:textViewStyle">@style/MyTextViewStyle</item>
         <item name="materialButtonOutlinedStyle">@style/MaterialButtonOutlinedStyle</item>
-        <item name="bottomNavigationStyle">@style/BottomNavigationStyle</item>
 
         <item name="md_content_color">@color/textColorPrimary</item>
         <item name="md_widget_color">@color/colorPrimary</item>
@@ -115,15 +114,6 @@
         <item name="android:textSize">@dimen/font_subheading</item>
     </style>
 
-    <style name="BottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
-    </style>
-
-    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
-        <item name="colorPrimary">@color/colorSecondary</item>
-        <item name="colorOnPrimary">@color/colorOnSecondary</item>
-    </style>
-
     <style name="SettingsSectionHeader">
         <item name="android:fontFamily">@font/ptm700</item>
         <item name="android:textAppearance">@style/EmptyStateMessage</item>
@@ -136,10 +126,6 @@
 
     <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
         <item name="colorControlActivated">@color/colorSecondary</item>
-    </style>
-
-    <style name="BottomNavThem" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
     </style>
 
     <style name="DiceButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">

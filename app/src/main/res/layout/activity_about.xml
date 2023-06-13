@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimaryVariant"
+    android:background="?attr/colorSecondaryVariant"
     android:fitsSystemWindows="true"
     tools:context=".settings.AboutActivity">
 
@@ -15,7 +15,7 @@
         android:background="@null"
         android:fitsSystemWindows="true"
         app:elevation="0dp"
-        app:statusBarScrim="?attr/colorPrimaryVariant">
+        app:statusBarScrim="?attr/colorSecondaryVariant">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            app:statusBarScrim="?attr/colorPrimaryVariant"
+            app:statusBarScrim="?attr/colorSecondaryVariant"
             app:toolbarId="@+id/toolbar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,7 +94,7 @@
                 android:id="@+id/translators_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/ptm700"
+                android:fontFamily="@font/ptm400"
                 android:lineSpacingMultiplier="1.26"
                 android:text="@string/translators_title"
                 android:textAppearance="?attr/textAppearanceBody1"
@@ -104,38 +104,39 @@
                 android:id="@+id/translators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/ptm400"
                 android:layout_marginTop="@dimen/spacing_normal"
-                android:fontFamily="@font/icm400"
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/translators"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="?attr/colorOnSecondary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/spacing_large"
-                android:fontFamily="@font/icm400"
+                android:fontFamily="@font/ptm400"
                 android:lineSpacingMultiplier="1.33"
                 android:paddingEnd="@dimen/padding_normal"
                 android:text="@string/credits"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="?attr/colorOnSecondary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_big"
-                android:fontFamily="@font/icm400"
+                android:fontFamily="@font/ptm400"
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/testers"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="?attr/colorOnSecondary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/ptm400"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
                 android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
@@ -156,7 +157,6 @@
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSecondary"
                 android:textSize="@dimen/font_title"
-                app:backgroundTint="@color/colorSecondaryVariant"
                 app:strokeWidth="2dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -172,6 +172,7 @@
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSecondary"
                 android:textSize="@dimen/font_title"
+                app:backgroundTint="@color/colorSecondary"
                 app:strokeWidth="2dp" />
 
             <TextView

@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
             previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
-        boolean isLightTheme = LocalSettings.isLightTheme();
 
         // If android Q override night mode settings from system default
         if (Utilities.hasQ()) {
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
             LocalSettings.saveDarkTheme((currentNightMode == Configuration.UI_MODE_NIGHT_YES));
         } else {
-            AppCompatDelegate.setDefaultNightMode(isLightTheme ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
+            AppCompatDelegate.setDefaultNightMode(LocalSettings.isLightTheme() ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES);
         }
 
         setContentView(R.layout.activity_main);
@@ -114,12 +113,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         });
 
         switchFragment(TAGS[0]);
-
-        if (isLightTheme) {
-            ViewUtil.setLightStatusBar(this);
-        } else {
-            ViewUtil.clearLightStatusBar(this);
-        }
+        boolean isLightTheme = LocalSettings.isLightTheme();
+        ViewUtil.setLightMode(this, isLightTheme);
         ViewUtil.setNavBarColor(this, isLightTheme);
         applyKeepScreenOnIfNeeded();
     }
