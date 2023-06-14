@@ -65,7 +65,7 @@
     <string name="settings_feedback">Poslat zpětnou vazbu</string>
     <string name="settings_section_actions">Akce</string>
     <string name="settings_section_dice">Kostky</string>
-    <string name="settings_section_general">Vzhled</string>
+    <string name="settings_appearance">Vzhled</string>
     <string name="settings_shake_to_roll">Hodit zatřesením</string>
     <string name="settings_sound">Zvuk</string>
     <string name="settings_stay_awake">Ponechat obrazovku zapnutou</string>

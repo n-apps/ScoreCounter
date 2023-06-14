@@ -9,14 +9,15 @@
 
     <TextView
         android:id="@+id/tv_dice_variant_info"
-        style="@style/EmptyStateMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_normal"
         android:gravity="center"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/list_single_line_min_height"
+        android:fontFamily="@font/ptm700"
         android:paddingStart="@dimen/padding_normal"
         android:paddingEnd="@dimen/padding_normal"
+        android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="d6" />
@@ -27,11 +28,10 @@
         android:layout_height="48dp"
         android:layout_margin="@dimen/spacing_normal"
         android:contentDescription="@string/settings_section_dice"
-        android:scaleType="center"
         android:src="@drawable/ic_more"
+        android:padding="@dimen/spacing_normal"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?attr/colorControlNormal" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/dice"

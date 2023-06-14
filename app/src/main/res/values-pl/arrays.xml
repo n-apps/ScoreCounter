@@ -238,4 +238,9 @@
         <item>quagga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Systemowy</item>
+        <item>Motyw jasny</item>
+        <item>Motyw ciemny</item>
+    </string-array>
 </resources>

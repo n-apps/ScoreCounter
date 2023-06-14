@@ -28,7 +28,7 @@
     <string name="message_you_can_use_long_press">Spróbuj przytrzymać + lub -</string>
     <string name="settings_dark_theme">Ciemny motyw</string>
     <string name="settings_section_actions">Działania</string>
-    <string name="settings_section_general">Wygląd</string>
+    <string name="settings_appearance">Wygląd</string>
     <string name="settings_section_dice">Kostka</string>
     <string name="settings_feedback">Wyślij opinię</string>
     <string name="settings_shake_to_roll">Potrząśnij aby rzucić</string>

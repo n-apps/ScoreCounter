@@ -238,4 +238,9 @@
         <item>quagga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Aygıt varsayılanları</item>
+        <item>Açık tema</item>
+        <item>Siyah tema</item>
+    </string-array>
 </resources>

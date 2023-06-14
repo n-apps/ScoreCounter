@@ -443,7 +443,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .neutralText(R.string.reset)
                 .typeface(medium, regular)
                 .contentColorRes(R.color.textColorPrimary)
-                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorSecondary)
                 .positiveColorRes(R.color.colorSecondary)
                 .alwaysCallInputCallback()
@@ -666,7 +666,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .neutralText(R.string.common_more)
                 .typeface(medium, regular)
                 .contentColorRes(R.color.textColorPrimary)
-                .buttonRippleColorRes(R.color.btn_text_btn_bg_color_selector)
+                .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorSecondary)
                 .positiveColorRes(R.color.colorSecondary)
                 .showListener(dialogInterface -> {

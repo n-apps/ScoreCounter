@@ -72,7 +72,7 @@
     <string name="settings_stay_awake">Houd scherm aan</string>
     <string name="settings_sound">Geluid</string>
     <string name="settings_shake_to_roll">Schudden om te rollen</string>
-    <string name="settings_section_general">Weergaven</string>
+    <string name="settings_appearance">Weergaven</string>
     <string name="translators_title">Alle taalwizards en dierenliefhebbers opgelet! Laten we onze geliefde app opfleuren met vertalingen en grappige dierennamen. Doe mee met het feest en wees net zo cool als de mensen die hun geweldigheid al hebben uitgeleend:</string>
     <string name="settings_change_language">Taal veranderen</string>
 </resources>

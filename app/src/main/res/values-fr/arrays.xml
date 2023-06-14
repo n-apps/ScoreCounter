@@ -238,4 +238,9 @@
         <item>quagga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Système</item>
+        <item>Lumière</item>
+        <item>Sombre</item>
+    </string-array>
 </resources>

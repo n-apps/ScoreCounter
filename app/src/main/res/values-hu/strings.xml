@@ -65,7 +65,7 @@
     <string name="settings_feedback">Visszajelzés küldése</string>
     <string name="settings_section_actions">Műveletek</string>
     <string name="settings_section_dice">Kockák</string>
-    <string name="settings_section_general">Megjelenés</string>
+    <string name="settings_appearance">Megjelenés</string>
     <string name="settings_shake_to_roll">Kockadobás rázással</string>
     <string name="settings_sound">Hang</string>
     <string name="settings_stay_awake">Tartsa bekapcsolva a képernyőt</string>

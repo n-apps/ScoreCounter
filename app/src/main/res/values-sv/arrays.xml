@@ -237,6 +237,10 @@
         <item>pyton</item>
         <item>quagga</item>
         <item>quokka</item>
-
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>Automatiskt tema</item>
+        <item>Ljust tema</item>
+        <item>Mörkt tema</item>
     </string-array>
 </resources>

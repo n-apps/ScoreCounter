@@ -68,7 +68,6 @@ class CountersViewModel extends AndroidViewModel {
                         public void onComplete() {
                             showSnackbarMessage(R.string.counter_added);
                             eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                            Timber.d("");
                         }
 
                         @Override
@@ -327,10 +326,6 @@ class CountersViewModel extends AndroidViewModel {
         int rndmNumber = rndm.nextInt(colorSet.size());
         String value = array[rndmNumber];
         colorSet.remove(value);
-
-        Timber.d("set size -> %d", array.length);
-        Timber.d("new color -> %s", value);
-        Timber.d("----------------");
         return value;
     }
 
@@ -346,10 +341,6 @@ class CountersViewModel extends AndroidViewModel {
         int rndmNumber = rndm.nextInt(namesSet.size());
         String value = array[rndmNumber];
         namesSet.remove(value);
-
-        Timber.d("names size -> %d", array.length);
-        Timber.d("new name -> %s", value);
-        Timber.d("----------------");
 
         return value;
     }

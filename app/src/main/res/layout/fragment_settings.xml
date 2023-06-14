@@ -24,7 +24,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/support"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1024:408"
+                app:layout_constraintDimensionRatio="H,1024:404"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/about_rate"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_asterisk"
+            app:drawableEndCompat="@drawable/ic_satisfied"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -113,13 +113,14 @@
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/privacy_policy"
             android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_earth"
+            app:drawableEndCompat="@drawable/ic_cookie"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
             android:id="@+id/tv_easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
             android:padding="@dimen/padding_large"
             android:layout_gravity="center_horizontal"
             android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"

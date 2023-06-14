@@ -29,7 +29,7 @@
     <string name="settings_dark_theme">Темная тема</string>
     <string name="settings_section_actions">Действия</string>
     <string name="settings_section_dice">Кубик</string>
-    <string name="settings_section_general">Внешний вид</string>
+    <string name="settings_appearance">Внешний вид</string>
     <string name="settings_feedback">Написать автору</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_stay_awake">Не отключать подсветку</string>

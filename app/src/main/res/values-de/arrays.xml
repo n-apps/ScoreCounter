@@ -238,4 +238,9 @@
         <item>Quagga</item>
         <item>Quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Dynamisches</item>
+        <item>Hell</item>
+        <item>Dunkel</item>
+    </string-array>
 </resources>

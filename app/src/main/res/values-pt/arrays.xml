@@ -238,4 +238,9 @@
         <item>quaga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Sistema</item>
+        <item>Claro</item>
+        <item>Escuro</item>
+    </string-array>
 </resources>

@@ -4,7 +4,7 @@
     <string name="about_feedback">Contact me</string>
     <string name="about_rate">Rate my app</string>
     <string name="about_text">Hi there, my name is Roma and I\'m from Kremenchuk, Ukraine. I enjoy playing board games, with Dead of Winter and Terraforming Mars being two of my favorites. The idea for this app came to me while playing Stars Realms (which has terrible tokens). I decided to develop this mobile app in my free time.\n\nEvery new review, email, or donation makes me happy. If you have something to share, have found any messy translations, or just want to let me know what you\'re counting, feel free to reach out.\n\nI lost my job due to the war in my country, but I have decided to keep this app free without advertisements and with all its features available. If you would like to support an indie developer (me), please consider making a small donation within the app.\n\nThank you!</string>
-    <string name="action_donate">Buy me a</string>
+    <string name="action_donate">Support developer</string>
     <string name="app_name">Score Counter</string>
     <string name="bottom_navigation_tab_counters">Counters</string>
     <string name="bottom_navigation_tab_dice">Dice</string>
@@ -68,7 +68,7 @@
     <string name="settings_feedback">Send feedback</string>
     <string name="settings_section_actions">Actions</string>
     <string name="settings_section_dice">Dice</string>
-    <string name="settings_section_general">Appearance</string>
+    <string name="settings_appearance">Appearance</string>
     <string name="settings_shake_to_roll">Shake to roll</string>
     <string name="settings_sound">Sound</string>
     <string name="settings_stay_awake">Keep screen on</string>

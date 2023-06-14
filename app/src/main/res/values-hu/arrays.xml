@@ -238,4 +238,9 @@
         <item>Dr. Bubó</item>
         <item>Mézga Géza</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Systeemmodus</item>
+        <item>Világos téma</item>
+        <item>Fekete téma</item>
+    </string-array>
 </resources>

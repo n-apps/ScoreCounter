@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
@@ -63,9 +62,9 @@ public class LogActivity extends AppCompatActivity {
         emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
         findViewById(R.id.btn_close).setOnClickListener(v -> finishAfterTransition());
 
-        boolean isLightTheme = LocalSettings.isLightTheme();
-        ViewUtil.setLightMode(this, isLightTheme);
-        ViewUtil.setNavBarColor(this, isLightTheme);
+        boolean nightModeActive = ViewUtil.isNightModeActive(this);
+        ViewUtil.setLightMode(this, !nightModeActive);
+        ViewUtil.setNavBarColor(this, !nightModeActive);
     }
 
     @Override

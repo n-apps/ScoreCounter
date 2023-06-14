@@ -29,7 +29,7 @@
     <string name="settings_dark_theme">Tema escuro</string>
     <string name="settings_section_actions">Ações</string>
     <string name="settings_section_dice">Dados</string>
-    <string name="settings_section_general">Aparência</string>
+    <string name="settings_appearance">Aparência</string>
     <string name="settings_feedback">Enviar feedback</string>
     <string name="settings_shake_to_roll">Agite para rolar</string>
     <string name="settings_stay_awake">Manter a tela ligada</string>

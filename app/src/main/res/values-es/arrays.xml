@@ -238,4 +238,9 @@
         <item>cuaga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Sistema</item>
+        <item>Ligero</item>
+        <item>Oscuro</item>
+    </string-array>
 </resources>

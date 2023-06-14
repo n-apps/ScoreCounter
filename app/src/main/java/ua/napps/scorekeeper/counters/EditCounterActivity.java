@@ -88,15 +88,14 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
             throw new UnsupportedOperationException("Activity should be started using the static start method");
         }
         setContentView(R.layout.activity_edit_counter);
-        ViewUtil.setNavBarColor(EditCounterActivity.this, LocalSettings.isLightTheme());
 
         final int id = getIntent().getIntExtra(ARGUMENT_COUNTER_ID, 0);
 
         initViews();
 
-        boolean isLightTheme = LocalSettings.isLightTheme();
-        ViewUtil.setLightMode(this, isLightTheme);
-        ViewUtil.setNavBarColor(this, isLightTheme);
+        boolean nightModeActive = ViewUtil.isNightModeActive(this);
+        ViewUtil.setLightMode(this, !nightModeActive);
+        ViewUtil.setNavBarColor(this, !nightModeActive);
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         subscribeToModel(id);

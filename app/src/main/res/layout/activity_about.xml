@@ -104,8 +104,8 @@
                 android:id="@+id/translators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/ptm400"
                 android:layout_marginTop="@dimen/spacing_normal"
+                android:fontFamily="@font/ptm400"
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/translators"
                 android:textAppearance="?attr/textAppearanceBody1"
@@ -136,11 +136,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/ptm400"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:layout_marginBottom="@dimen/spacing_xlarge"
+                android:fontFamily="@font/ptm400"
                 android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
                 android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorOnSecondary"
                 tools:ignore="HardcodedText" />
 
             <!--                Donate-->
@@ -183,6 +184,7 @@
                 android:layout_marginBottom="@dimen/spacing_xlarge"
                 android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
                 android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="?attr/colorOnSecondary"
                 tools:ignore="HardcodedText" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

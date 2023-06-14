@@ -29,7 +29,7 @@
     <string name="settings_dark_theme">Tema scuro</string>
     <string name="settings_section_actions">Azioni</string>
     <string name="settings_section_dice">Dadi</string>
-    <string name="settings_section_general">Aspetto</string>
+    <string name="settings_appearance">Aspetto</string>
     <string name="settings_feedback">Mandami i tuoi commenti</string>
     <string name="settings_shake_to_roll">Scuoti per lanciare i dadi</string>
     <string name="settings_stay_awake">Tieni lo schermo acceso</string>

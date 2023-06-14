@@ -238,4 +238,9 @@
         <item>kvaga</item>
         <item>quokka</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Režim systému</item>
+        <item>Světlé téma</item>
+        <item>Tmavé téma</item>
+    </string-array>
 </resources>

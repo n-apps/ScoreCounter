@@ -238,4 +238,9 @@
         <item>квагга</item>
         <item>квокка</item>
     </string-array>
+    <string-array name="app_theme_options">
+        <item>Как в системе</item>
+        <item>Светлая</item>
+        <item>Ночная</item>
+    </string-array>
 </resources>

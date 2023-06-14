@@ -29,7 +29,7 @@
     <string name="settings_dark_theme">Темна тема</string>
     <string name="settings_section_actions">Інформація</string>
     <string name="settings_section_dice">Кубик</string>
-    <string name="settings_section_general">Зовнішній вигляд</string>
+    <string name="settings_appearance">Зовнішній вигляд</string>
     <string name="settings_feedback">Зворотній зв\'язок</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>

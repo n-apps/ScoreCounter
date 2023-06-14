@@ -66,7 +66,7 @@
     <string name="settings_feedback">Skicka feedback</string>
     <string name="settings_section_actions">Handlingar</string>
     <string name="settings_section_dice">Tärning</string>
-    <string name="settings_section_general">Utseende</string>
+    <string name="settings_appearance">Utseende</string>
     <string name="settings_shake_to_roll">Skaka för att rulla</string>
     <string name="settings_sound">Ljud</string>
     <string name="settings_stay_awake">Behåll skärmen på</string>

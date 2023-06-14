@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_theme_options">
+        <item>Systeemmodus</item>
+        <item>Lichtmodus</item>
+        <item>Donkere modus</item>
+    </string-array>
+</resources>

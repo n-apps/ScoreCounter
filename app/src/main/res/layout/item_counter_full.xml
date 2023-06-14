@@ -104,7 +104,7 @@
                     android:alpha="0.54"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
-                    android:src="@drawable/ic_subtract" />
+                    android:src="@drawable/ic_minus" />
 
                 <ImageView
                     android:id="@+id/iv_increase"
@@ -115,7 +115,7 @@
                     android:alpha="0.54"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
-                    android:src="@drawable/ic_add" />
+                    android:src="@drawable/ic_plus" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

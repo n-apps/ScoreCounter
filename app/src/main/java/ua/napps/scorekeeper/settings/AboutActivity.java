@@ -52,9 +52,9 @@ public class AboutActivity extends AppCompatActivity {
         findViewById(R.id.translators).setOnClickListener(v -> launchEmailClient());
         findViewById(R.id.translators_title).setOnClickListener(v -> launchEmailClient());
 
-        boolean isLightTheme = LocalSettings.isLightTheme();
-        ViewUtil.setLightMode(this, isLightTheme);
-        ViewUtil.setNavBarColor(this, isLightTheme);
+        boolean nightModeActive = ViewUtil.isNightModeActive(this);
+        ViewUtil.setLightMode(this, !nightModeActive);
+        ViewUtil.setNavBarColor(this, !nightModeActive);
     }
 
     private void launchEmailClient() {

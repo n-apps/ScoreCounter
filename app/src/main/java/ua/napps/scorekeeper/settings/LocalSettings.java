@@ -4,7 +4,11 @@ import ua.napps.scorekeeper.app.App;
 
 public class LocalSettings {
 
-    public static final String DARK_THEME = "dark_theme";
+    public static final int THEME_LIGHT = 0;
+    public static final int THEME_DARK = 1;
+    public static final int THEME_SYSTEM = 2;
+
+    public static final String APP_THEME_MODE = "app_theme_mode";
     public static final String KEEP_SCREEN_ON = "keep_screen_on";
     private static final String LONG_PRESS_TIP_SHOWED = "long_click_tip_showed";
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
@@ -25,12 +29,12 @@ public class LocalSettings {
     private static final String CUSTOM_COUNTER_3 = "custom_counter_3";
     private static final String CUSTOM_COUNTER_4 = "custom_counter_4";
 
-    public static boolean isLightTheme() {
-        return !App.getTinyDB().getBoolean(DARK_THEME, false);
+    public static int getDefaultTheme() {
+        return App.getTinyDB().getInt(APP_THEME_MODE, THEME_SYSTEM);
     }
 
-    public static void saveDarkTheme(boolean enabled) {
-        App.getTinyDB().putBoolean(DARK_THEME, enabled);
+    public static void saveDefaultTheme(int theme) {
+        App.getTinyDB().putInt(APP_THEME_MODE, theme);
     }
 
     public static boolean isKeepScreenOnEnabled() {

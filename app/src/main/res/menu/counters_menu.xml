@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:id="@+id/menu_add_counter"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/ic_plus"
         android:title="@string/menu_add_new_counter"
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
     <item
         android:id="@+id/menu_log"
-        android:icon="@drawable/ic_recently_viewed"
+        android:icon="@drawable/ic_history"
         android:title="@string/menu_log"
         app:showAsAction="always" />
     <item

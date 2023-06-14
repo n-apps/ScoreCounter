@@ -5,12 +5,15 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
@@ -30,8 +33,6 @@ public class ViewUtil {
             WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(window, decorView);
             insetsController.setAppearanceLightStatusBars(light);
         } else {
-            // 经过测试，小米 Android 11 用  WindowInsetsControllerCompat 不起作用， 我还能说什么呢。。。
-
             int systemUi = decorView.getSystemUiVisibility();
             if (light) {
                 systemUi |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -89,6 +90,28 @@ public class ViewUtil {
         if (newFlags != oldFlags) {
             activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
         }
+    }
+
+    public static boolean isNightModeActive(Context context) {
+        int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
+        if (defaultNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            return true;
+        }
+        if (defaultNightMode == AppCompatDelegate.MODE_NIGHT_NO) {
+            return false;
+        }
+
+        int currentNightMode = context.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+        switch (currentNightMode) {
+            case Configuration.UI_MODE_NIGHT_NO:
+                return false;
+            case Configuration.UI_MODE_NIGHT_YES:
+                return true;
+            case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                return false;
+        }
+        return false;
     }
 
     public static void shakeView(final View view, final float x, final int num) {
