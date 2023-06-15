@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Licznik Punktów</string>
-    <string name="bottom_navigation_tab_counters">Liczniki</string>
-    <string name="bottom_navigation_tab_dice">Kostka</string>
-    <string name="bottom_navigation_tab_settings">Ustawienia</string>
+    <string name="common_counters">Liczniki</string>
+    <string name="common_dice">Kostka</string>
+    <string name="common_settings">Ustawienia</string>
     <string name="common_back">Cofnij</string>
     <string name="common_decrease">Zmniejsz</string>
     <string name="common_increase">Zwiększ</string>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Punktezähler</string>
-    <string name="bottom_navigation_tab_counters">Zähler</string>
-    <string name="bottom_navigation_tab_dice">Würfel</string>
-    <string name="bottom_navigation_tab_settings">Einstellungen</string>
+    <string name="common_counters">Zähler</string>
+    <string name="common_dice">Würfel</string>
+    <string name="common_settings">Einstellungen</string>
     <string name="common_back">Zurück</string>
     <string name="common_decrease">Verringern</string>
     <string name="common_increase">Erhöhen</string>

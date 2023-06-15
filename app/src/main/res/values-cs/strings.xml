@@ -5,10 +5,10 @@
     <string name="about_feedback">Kontaktujte mě</string>
     <string name="about_rate">Ohodnoťte mou aplikaci</string>
     <string name="about_text">Ahoj, jmenuji se Roma a jsem z Kremenčuku na Ukrajině. Ráda hraji deskové hry, mezi mé oblíbené patří Dead of Winter a Terraforming Mars. Nápad na tuto aplikaci mě napadl při hraní Stars Realms (která má příšerné žetony). Ve volném čase jsem se rozhodl tuto mobilní aplikaci vyvinout.\n\nKaždá nová recenze, e-mail nebo příspěvek mě potěší. Pokud se chcete o něco podělit, našli jste nějaký nepovedený překlad nebo mi jen chcete dát vědět, co počítáte, neváhejte se ozvat.\n\nKvůli válce v mé zemi jsem přišel o práci, ale rozhodl jsem se tuto aplikaci udržet zdarma bez reklam a se všemi jejími dostupnými funkcemi. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím možnost malého příspěvku v rámci aplikace.\n\nDěkuji!</string>
-    <string name="bottom_navigation_tab_counters">Počítadla</string>
+    <string name="common_counters">Počítadla</string>
     <string name="action_donate">Podpořte vývojáře</string>
-    <string name="bottom_navigation_tab_dice">Kostky</string>
-    <string name="bottom_navigation_tab_settings">Nastavení</string>
+    <string name="common_dice">Kostky</string>
+    <string name="common_settings">Nastavení</string>
     <string name="common_back">Zpět</string>
     <string name="settings_counter_title">Počítadlo (přírůstky skóre)</string>
     <string name="common_decrease">Snížit</string>

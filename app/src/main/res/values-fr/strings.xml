@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
     <string name="app_name">Score Counter</string>
-    <string name="bottom_navigation_tab_counters">Compteurs</string>
-    <string name="bottom_navigation_tab_dice">Dé</string>
-    <string name="bottom_navigation_tab_settings">Paramètres</string>
+    <string name="common_counters">Compteurs</string>
+    <string name="common_dice">Dé</string>
+    <string name="common_settings">Paramètres</string>
     <string name="common_back">Retour</string>
     <string name="common_decrease">Diminuer</string>
     <string name="common_increase">Augmenter</string>

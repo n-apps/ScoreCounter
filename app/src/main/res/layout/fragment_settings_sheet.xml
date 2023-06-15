@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="0dp"
-        android:text="@string/settings_appearance" />
+        android:text="@string/common_settings" />
 
     <TextView
         android:id="@+id/tv_app_theme"
@@ -102,7 +102,6 @@
             app:switcher_off_color="?android:textColorHint"
             app:switcher_on_color="?attr/colorPrimary" />
     </RelativeLayout>
-
 
     <TextView
         style="@style/SettingsSectionHeader"

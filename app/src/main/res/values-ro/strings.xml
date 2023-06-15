@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Score Counter</string>
-    <string name="bottom_navigation_tab_counters">Contoare</string>
-    <string name="bottom_navigation_tab_dice">Zar</string>
-    <string name="bottom_navigation_tab_settings">Setari</string>
+    <string name="common_counters">Contoare</string>
+    <string name="common_dice">Zar</string>
+    <string name="common_settings">Setari</string>
     <string name="common_back">Inapoi</string>
     <string name="common_decrease">Scade</string>
     <string name="common_increase">Creste</string>

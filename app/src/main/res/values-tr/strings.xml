@@ -6,9 +6,9 @@
     <string name="about_rate">Uygulamayı değerlendirin</string>
     <string name="about_text">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Dead of Winter ve Terraforming Mars favorilerimden ikisi olmak üzere masa oyunları oynamaktan hoşlanıyorum. Bu uygulama fikri aklıma Stars Realms (korkunç jetonları olan) oynarken geldi.\n\nBoş zamanlarımda bu mobil uygulamayı geliştirmeye karar verdim. Her yeni inceleme, e-posta veya bağış beni mutlu ediyor. Paylaşacak bir şeyiniz varsa, herhangi bir dağınık çeviri bulduysanız veya sadece ne saydığınızı bana bildirmek istiyorsanız, ulaşmaktan çekinmeyin.\n\nÜlkemdeki savaş nedeniyle işimi kaybettim, ancak bu uygulamayı reklamsız ve tüm özellikleriyle ücretsiz tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içinden küçük bir bağış yapmayı düşünün.\n\nTeşekkür ederim!</string>
     <string name="action_donate">Destek geliştirici</string>
-    <string name="bottom_navigation_tab_counters">Sayaçlar</string>
-    <string name="bottom_navigation_tab_dice">Zar</string>
-    <string name="bottom_navigation_tab_settings">Ayarlar</string>
+    <string name="common_counters">Sayaçlar</string>
+    <string name="common_dice">Zar</string>
+    <string name="common_settings">Ayarlar</string>
     <string name="common_back">Geri</string>
     <string name="common_decrease">Azalt</string>
     <string name="common_edit">Düzenle</string>

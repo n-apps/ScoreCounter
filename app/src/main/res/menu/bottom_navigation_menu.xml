@@ -3,13 +3,13 @@
     <item
         android:id="@+id/counters"
         android:icon="@drawable/ic_counters"
-        android:title="@string/bottom_navigation_tab_counters" />
+        android:title="@string/common_counters" />
     <item
         android:id="@+id/dices"
         android:icon="@drawable/ic_dice"
-        android:title="@string/bottom_navigation_tab_dice" />
+        android:title="@string/common_dice" />
     <item
         android:id="@+id/more"
         android:icon="@drawable/ic_more"
-        android:title="@string/bottom_navigation_tab_settings" />
+        android:title="@string/common_settings" />
 </menu>

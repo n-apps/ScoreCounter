@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">Contador de pontos</string>
-    <string name="bottom_navigation_tab_counters">Contadores</string>
-    <string name="bottom_navigation_tab_dice">Dado</string>
-    <string name="bottom_navigation_tab_settings">Configurações</string>
+    <string name="common_counters">Contadores</string>
+    <string name="common_dice">Dado</string>
+    <string name="common_settings">Configurações</string>
     <string name="common_back">Voltar</string>
     <string name="common_decrease">Diminuir</string>
     <string name="common_increase">Aumentar</string>

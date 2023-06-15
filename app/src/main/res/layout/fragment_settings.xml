@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/bottom_navigation_tab_settings"
+            android:text="@string/common_settings"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
             app:drawableTint="?attr/colorPrimary" />

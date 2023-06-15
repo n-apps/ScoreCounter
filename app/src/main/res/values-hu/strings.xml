@@ -6,9 +6,9 @@
     <string name="about_rate">Értékeld az alkalmazást</string>
     <string name="about_text">Sziasztok, az én nevem Roma és az ukrajnai Kremencsukból származom. Szeretek társasjátékokkal játszani, a Dead of Winter és a Terraforming Mars a két kedvencem. Ennek az alkalmazásnak az ötlete a Stars Realms játék közben jutott eszembe, mert borzalmas tokenek vannak benne. Úgy döntöttem, hogy szabadidőmben kifejlesztem ezt a mobilalkalmazást.\n\nMinden új értékelés, e-mail vagy adomány boldoggá tesz.\n\nHa van valami, amit megosztanál velem, találtál valami ügyetlen fordítást, vagy csak szeretnéd, hogy tudjam, mit számolsz az appal, nyugodtan írj nekem. A hazámban zajló háború miatt elvesztettem a munkámat, mégis úgy döntöttem, hogy ezt az alkalmazást ingyenesen, reklámok nélkül és minden funkciójával együtt elérhetővé teszem. Ha szeretnél támogatni egy indie fejlesztőt (engem), kérlek, fontold meg, hogy adsz egy kis adományt az alkalmazáson keresztül. \n\nKöszönöm!</string>
     <string name="action_donate">Vegyél nekem egy</string>
-    <string name="bottom_navigation_tab_counters">Pontszámok</string>
-    <string name="bottom_navigation_tab_dice">Kockák</string>
-    <string name="bottom_navigation_tab_settings">Beállítások</string>
+    <string name="common_counters">Pontszámok</string>
+    <string name="common_dice">Kockák</string>
+    <string name="common_settings">Beállítások</string>
     <string name="common_back">Vissza</string>
     <string name="common_decrease">Csökkentés</string>
     <string name="common_edit">Szerkesztés</string>

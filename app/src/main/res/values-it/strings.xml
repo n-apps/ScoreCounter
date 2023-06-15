@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
     <string name="app_name">Segnapunti</string>
-    <string name="bottom_navigation_tab_counters">Segnapunti</string>
-    <string name="bottom_navigation_tab_dice">Dadi</string>
-    <string name="bottom_navigation_tab_settings">Impostazioni</string>
+    <string name="common_counters">Segnapunti</string>
+    <string name="common_dice">Dadi</string>
+    <string name="common_settings">Impostazioni</string>
     <string name="common_back">Indietro</string>
     <string name="common_decrease">Diminuisci</string>
     <string name="common_increase">Aumenta</string>

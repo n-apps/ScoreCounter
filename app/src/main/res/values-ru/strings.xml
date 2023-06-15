@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
     <string name="app_name">Счетчик Очков</string>
-    <string name="bottom_navigation_tab_counters">Счетчики</string>
-    <string name="bottom_navigation_tab_dice">Кубик</string>
-    <string name="bottom_navigation_tab_settings">Настройки</string>
+    <string name="common_counters">Счетчики</string>
+    <string name="common_dice">Кубик</string>
+    <string name="common_settings">Настройки</string>
     <string name="common_back">Назад</string>
     <string name="common_decrease">Уменьшить</string>
     <string name="common_increase">Увеличить</string>
