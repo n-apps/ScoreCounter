@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>mịn màng</item>
+        <item>groot</item>
+        <item>gollum</item>
+        <item>pikachu</item>
+        <item>khủng long bạo chúa</item>
+        <item>bánh xốp</item>
+        <item>chuột cống</item>
+        <item>siêu bọ hung</item>
+        <item>rắn hổ mang</item>
+        <item>con nai</item>
+        <item>heo rừng</item>
+        <item>con sóc</item>
+        <item>kỳ nhông</item>
+        <item>lợn đất</item>
+        <item>chim hải âu</item>
+        <item>cá sấu</item>
+        <item>lạc đà không bướu</item>
+        <item>con kiến</item>
+        <item>thú ăn kiến</item>
+        <item>con linh dương</item>
+        <item>vượn</item>
+        <item>tatu</item>
+        <item>con lừa</item>
+        <item>khỉ đầu chó</item>
+        <item>con lửng</item>
+        <item>cá nhồng</item>
+        <item>con dơi</item>
+        <item>con gấu</item>
+        <item>hải ly</item>
+        <item>con ong</item>
+        <item>bò rừng</item>
+        <item>trâu</item>
+        <item>bươm bướm</item>
+        <item>con lạc đà</item>
+        <item>tuần lộc</item>
+        <item>con mèo</item>
+        <item>sâu róm</item>
+        <item>gia súc</item>
+        <item>con báo</item>
+        <item>thịt gà</item>
+        <item>tinh tinh</item>
+        <item>chinchilla</item>
+        <item>quạ chân đỏ</item>
+        <item>con ngao</item>
+        <item>con gián</item>
+        <item>cá tuyết</item>
+        <item>kền kền khoang cổ</item>
+        <item>chim cốc</item>
+        <item>chó sói</item>
+        <item>cua</item>
+        <item>sếu</item>
+        <item>cá sấu</item>
+        <item>con quạ</item>
+        <item>khủng long</item>
+        <item>chó</item>
+        <item>cá heo</item>
+        <item>con lừa</item>
+        <item>bồ câu</item>
+        <item>con chuồn chuồn</item>
+        <item>chim ưng</item>
+        <item>thú lông nhím</item>
+        <item>lươn</item>
+        <item>linh dương</item>
+        <item>con voi</item>
+        <item>con dấu voi</item>
+        <item>nai sừng tấm</item>
+        <item>Đà điểu</item>
+        <item>chim ưng</item>
+        <item>chồn hôi</item>
+        <item>chim sẻ</item>
+        <item>cá</item>
+        <item>Chim hồng hạc</item>
+        <item>ruồi</item>
+        <item>cáo</item>
+        <item>con ếch</item>
+        <item>linh dương</item>
+        <item>chuột nhảy</item>
+        <item>gấu trúc</item>
+        <item>hươu cao cổ</item>
+        <item>con muỗi</item>
+        <item>gnu</item>
+        <item>con dê</item>
+        <item>con ngỗng</item>
+        <item>cá vàng</item>
+        <item>con khỉ đột</item>
+        <item>diều hâu</item>
+        <item>con châu chấu</item>
+        <item>gà̀ gô trắng</item>
+        <item>guanaco</item>
+        <item>chuột bạch</item>
+        <item>mòng biển</item>
+        <item>chuột đồng</item>
+        <item>thỏ rừng</item>
+        <item>chim ưng</item>
+        <item>nhím</item>
+        <item>diệc</item>
+        <item>cá trích</item>
+        <item>Hà mã</item>
+        <item>ong bắp cày</item>
+        <item>ngựa</item>
+        <item>nhân loại</item>
+        <item>chim ruồi</item>
+        <item>Linh cẩu</item>
+        <item>cò quăm</item>
+        <item>chó rừng</item>
+        <item>báo đốm</item>
+        <item>giẻ cùi</item>
+        <item>chim giẻ cùi xanh</item>
+        <item>con sứa</item>
+        <item>con chuột túi</item>
+        <item>gấu túi</item>
+        <item>komodo</item>
+        <item>chim sơn ca</item>
+        <item>vong linh</item>
+        <item>báo</item>
+        <item>con sư tử</item>
+        <item>lạc đà không bướu</item>
+        <item>tôm</item>
+        <item>châu chấu</item>
+        <item>rận</item>
+        <item>chim cầm</item>
+        <item>chim ác là</item>
+        <item>vịt trời</item>
+        <item>con vịt</item>
+        <item>lợn biển</item>
+        <item>mũi khoan</item>
+        <item>con bọ ngựa</item>
+        <item>meerkat</item>
+        <item>chồn</item>
+        <item>nốt ruồi</item>
+        <item>cầy mangut</item>
+        <item>con khỉ</item>
+        <item>nai sừng tấm</item>
+        <item>chuột</item>
+        <item>con muỗi</item>
+        <item>con la</item>
+        <item>kỳ lân biển</item>
+        <item>sa giông</item>
+        <item>chim sơn ca</item>
+        <item>bạch tuộc</item>
+        <item>được rồi</item>
+        <item>chồn Opossum</item>
+        <item>đà điểu</item>
+        <item>rái cá</item>
+        <item>con cú</item>
+        <item>con bò đực</item>
+        <item>con hàu</item>
+        <item>con beo</item>
+        <item>con vẹt</item>
+        <item>chim đa đa</item>
+        <item>Bồ nông</item>
+        <item>chim cánh cụt</item>
+        <item>gà lôi</item>
+        <item>con lợn</item>
+        <item>bồ câu</item>
+        <item>gấu Bắc cực</item>
+        <item>ngựa con</item>
+        <item>con nhím</item>
+        <item>cá heo</item>
+        <item>chó đồng cỏ</item>
+        <item>chim cun cút</item>
+        <item>con thỏ</item>
+        <item>gấu mèo</item>
+        <item>đập</item>
+        <item>con chuột</item>
+        <item>con quạ</item>
+        <item>tuần lộc</item>
+        <item>tê giác</item>
+        <item>kỳ nhông</item>
+        <item>cá hồi</item>
+        <item>cá mòi</item>
+        <item>bọ cạp</item>
+        <item>sư tử biển</item>
+        <item>nhím biển</item>
+        <item>cá ngựa</item>
+        <item>hải cẩu</item>
+        <item>cá mập</item>
+        <item>con cừu</item>
+        <item>chuột chù</item>
+        <item>chồn hôi</item>
+        <item>ốc sên</item>
+        <item>rắn</item>
+        <item>chim sẻ</item>
+        <item>con nhện</item>
+        <item>mực ống</item>
+        <item>chim sáo đá</item>
+        <item>cá đuối</item>
+        <item>bọ xít vải</item>
+        <item>con cò</item>
+        <item>nuốt</item>
+        <item>thiên nga</item>
+        <item>heo vòi</item>
+        <item>tarsier</item>
+        <item>mối mọt</item>
+        <item>con hổ</item>
+        <item>con cóc</item>
+        <item>cá hồi</item>
+        <item>gà tây</item>
+        <item>con rùa</item>
+        <item>rắn lục</item>
+        <item>chuột đồng</item>
+        <item>con kền kền</item>
+        <item>wallaby</item>
+        <item>hải mã</item>
+        <item>ong vò vẽ</item>
+        <item>chồn</item>
+        <item>cá voi</item>
+        <item>chó sói</item>
+        <item>người sói</item>
+        <item>gấu túi</item>
+        <item>chim gõ kiến</item>
+        <item>sâu</item>
+        <item>yak</item>
+        <item>ngựa vằn</item>
+        <item>winnie the pooh</item>
+        <item>king kong</item>
+        <item>chó xù</item>
+        <item>con kỳ lân</item>
+        <item>rồng</item>
+        <item>thây ma</item>
+        <item>tiên</item>
+        <item>dobby</item>
+        <item>cheburashka</item>
+        <item>bánh hạnh nhân</item>
+        <item>scooby doo</item>
+        <item>rapunzel</item>
+        <item>vua sư tử</item>
+        <item>bọt biển</item>
+        <item>chupacabra</item>
+        <item>kraken</item>
+        <item>cu li thon lông đỏ</item>
+        <item>nyan cat</item>
+        <item>thú mỏ vịt</item>
+        <item>con trăn</item>
+        <item>quagga</item>
+        <item>quokka</item>
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>System</item>
+        <item>Bright</item>
+        <item>Dark</item>
+    </string-array>
+</resources>

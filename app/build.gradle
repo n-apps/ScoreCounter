@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
 ext.versionMinor = 3
-ext.versionPatch = 2
+ext.versionPatch = 3
 ext.postfix = ''
 
 android {
@@ -26,7 +26,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resConfigs 'en', 'ru', 'uk', 'fr', 'de', 'es', 'ro', 'pl', 'pt', 'cs', 'nl', 'it', 'tr', 'hu', 'sv'
+        resourceConfigurations += [ 'en', 'ru', 'uk', 'fr', 'de', 'es', 'ro', 'pl', 'pt', 'cs', 'nl', 'it', 'tr', 'hu', 'sv', 'vi']
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
@@ -66,8 +66,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
-    implementation 'androidx.room:room-runtime:2.5.1'
-    implementation "androidx.room:room-rxjava2:2.5.1"
+    implementation 'androidx.room:room-runtime:2.5.2'
+    implementation "androidx.room:room-rxjava2:2.5.2"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
@@ -81,7 +81,7 @@ dependencies {
     implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'
 
     annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.6.1'
-    annotationProcessor 'androidx.room:room-compiler:2.5.1'
+    annotationProcessor 'androidx.room:room-compiler:2.5.2'
 }
 
 def generateVersionCode() {

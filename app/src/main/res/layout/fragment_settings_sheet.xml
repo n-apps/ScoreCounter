@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorSurface"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/spacing_xlarge">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_general"
@@ -216,8 +215,8 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginVertical="@dimen/spacing_xlarge"
         android:contentDescription="@string/common_back"
