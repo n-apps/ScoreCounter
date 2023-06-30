@@ -112,7 +112,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         Typeface regular = getResources().getFont(R.font.ptm400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                .title(R.string.dialog_custom_dice_title)
+                                .title(R.string.dice_sides)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .contentColorRes(R.color.textColorPrimary)
@@ -189,7 +189,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         Typeface regular = getResources().getFont(R.font.ptm400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                .title(R.string.dialog_custom_dice_title)
+                                .title(R.string.dice_sides)
                                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
                                 .positiveText(R.string.common_set)
                                 .contentColorRes(R.color.textColorPrimary)

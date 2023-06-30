@@ -239,8 +239,8 @@
         <item>квока</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Як у системи</item>
-        <item>Світла тема</item>
-        <item>Нічна тема</item>
+        <item>Основано на системі</item>
+        <item>Світлий режим</item>
+        <item>Темний режим</item>
     </string-array>
 </resources>

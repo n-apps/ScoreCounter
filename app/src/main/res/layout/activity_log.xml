@@ -22,8 +22,8 @@
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
             android:layout_height="?android:actionBarSize"
-            app:subtitle="@string/menu_log_subtitle"
-            app:title="@string/menu_log" />
+            app:subtitle="@string/history_subtitle"
+            app:title="@string/menu_history" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,7 +48,7 @@
         android:id="@+id/iv_history"
         android:layout_width="@dimen/empty_state_icon_size"
         android:layout_height="@dimen/empty_state_icon_size"
-        android:contentDescription="@string/counters_empty_message"
+        android:contentDescription="@string/history_empty_message"
         android:layout_marginBottom="@dimen/spacing_normal"
         android:src="@drawable/empty_log"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"

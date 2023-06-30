@@ -239,8 +239,8 @@
         <item>квокка</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Как в системе</item>
-        <item>Светлая</item>
-        <item>Ночная</item>
+        <item>Автоматически (как в системе)</item>
+        <item>Светлая тема</item>
+        <item>Тёмная тема</item>
     </string-array>
 </resources>

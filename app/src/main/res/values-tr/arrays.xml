@@ -239,8 +239,8 @@
         <item>quokka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Aygıt varsayılanları</item>
-        <item>Açık tema</item>
-        <item>Siyah tema</item>
+        <item>Otomatik (Sisteme Göre)</item>
+        <item>Açık Mod</item>
+        <item>Koyu Mod</item>
     </string-array>
 </resources>

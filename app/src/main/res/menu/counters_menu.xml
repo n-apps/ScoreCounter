@@ -11,7 +11,7 @@
     <item
         android:id="@+id/menu_log"
         android:icon="@drawable/ic_history"
-        android:title="@string/menu_log"
+        android:title="@string/menu_history"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_elektu"

@@ -66,7 +66,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 try {
                     startActivity(s);
                 } catch (Exception e) {
-                    Toast.makeText(requireContext(), R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), R.string.message_no_email_client, Toast.LENGTH_SHORT).show();
                     Timber.e(e, "Launch email intent");
                 }
                 break;

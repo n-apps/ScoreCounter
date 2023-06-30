@@ -72,7 +72,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
                             new BillingStateException(billingResult.getDebugMessage()),
                             "Problem setting up in-app billing: %s", billingResult.getResponseCode()
                     );
-                    eventBus.postValue(new SingleShotEvent<>(new MessageIntent(R.string.error_message)));
+                    eventBus.postValue(new SingleShotEvent<>(new MessageIntent(R.string.message_error_generic)));
                 }
             }
 
@@ -92,7 +92,7 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         SkuDetails skuDetails = findSkuDetails(sku);
         if (skuDetails == null) {
             Timber.e(new BillingStateException("skuDetails not found :("));
-            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.error_message)));
+            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic)));
             return;
         }
         billingClient.launchBillingFlow(activity, BillingFlowParams.newBuilder()
@@ -114,11 +114,11 @@ public class DonateViewModel extends AndroidViewModel implements PurchasesUpdate
         if (billingResult.getResponseCode() == BillingResponseCode.OK && purchases != null && !purchases.isEmpty()) {
             consumePurchases(
                     purchases,
-                    () -> eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.donation_thank_you)))
+                    () -> eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you)))
             );
         } else {
             if (billingResult.getResponseCode() != BillingResponseCode.USER_CANCELED) {
-                eventBus.postValue(new SingleShotEvent<>(new MessageIntent(R.string.error_message)));
+                eventBus.postValue(new SingleShotEvent<>(new MessageIntent(R.string.message_error_generic)));
             }
         }
     }

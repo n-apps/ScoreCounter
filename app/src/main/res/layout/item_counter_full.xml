@@ -114,7 +114,7 @@
                     android:layout_marginEnd="@dimen/padding_normal"
                     android:alpha="0.54"
                     android:clickable="false"
-                    android:contentDescription="@string/common_decrease"
+                    android:contentDescription="@string/common_increase"
                     android:src="@drawable/ic_plus" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

@@ -67,7 +67,7 @@ public class AboutActivity extends AppCompatActivity {
         try {
             startActivity(s);
         } catch (Exception e) {
-            Toast.makeText(this, R.string.error_no_email_client, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.message_no_email_client, Toast.LENGTH_SHORT).show();
             Timber.e(e, "Launch email intent");
         }
     }

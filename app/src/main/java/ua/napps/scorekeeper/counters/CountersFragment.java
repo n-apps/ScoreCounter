@@ -164,7 +164,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLowestScoreWins = !isLowestScoreWins;
         List<Counter> counters = viewModel.getCounters().getValue();
         findAndUpdateTopCounterView(counters);
-        showSnack(R.string.lowest_wins_hint);
+        showSnack(R.string.message_lowest_wins);
         tryVibrate();
     }
 
@@ -308,7 +308,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), (Observer<Integer>) resourceId -> {
             if (resourceId == R.string.counter_added) {
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
-                        .setAction(R.string.snackbar_action_one_more, v -> viewModel.addCounter())
+                        .setAction(R.string.message_one_more_counter, v -> viewModel.addCounter())
                         .setAnchorView(R.id.bottom_navigation)
                         .show();
             } else {
@@ -440,7 +440,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .title(counter.getName() + " | " + counter.getValue())
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .neutralText(R.string.reset)
+                .neutralText(R.string.action_reset)
                 .typeface(medium, regular)
                 .contentColorRes(R.color.textColorPrimary)
                 .buttonRippleColorRes(R.color.rippleColor)

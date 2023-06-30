@@ -239,8 +239,8 @@
         <item>quokka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Automatiskt tema</item>
-        <item>Ljust tema</item>
-        <item>Mörkt tema</item>
+        <item>Automatisk (baserat på system)</item>
+        <item>Ljust läge</item>
+        <item>Mörkt läge</item>
     </string-array>
 </resources>

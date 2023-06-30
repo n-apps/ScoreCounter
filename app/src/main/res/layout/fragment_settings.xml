@@ -26,10 +26,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="H,1024:404"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -63,7 +61,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/about_rate"
+            android:text="@string/settings_rate_app"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_satisfied"
             app:drawableTint="?attr/colorControlNormal" />
@@ -111,7 +109,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptm700"
             android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/privacy_policy"
+            android:text="@string/settings_privacy_policy"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_cookie"
             app:drawableTint="?attr/colorControlNormal" />
@@ -120,9 +118,9 @@
             android:id="@+id/tv_easter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_large"
             android:padding="@dimen/padding_large"
-            android:layout_gravity="center_horizontal"
             android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
             android:textAppearance="?attr/textAppearanceCaption"
             android:textColor="?attr/colorPrimaryVariant"

@@ -239,8 +239,8 @@
         <item>quokka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Système</item>
-        <item>Lumière</item>
-        <item>Sombre</item>
+        <item>Automatique (Basé sur le système)</item>
+        <item>Mode Clair</item>
+        <item>Mode sombre</item>
     </string-array>
 </resources>

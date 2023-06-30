@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>пухкав</item>
+        <item>грут</item>
+        <item>голум</item>
+        <item>пикачу</item>
+        <item>т-рекс</item>
+        <item>мъфало</item>
+        <item>бумрат</item>
+        <item>мегаскараб</item>
+        <item>кобра</item>
+        <item>елен</item>
+        <item>глиган</item>
+        <item>катерица</item>
+        <item>игуана</item>
+        <item>арарварк</item>
+        <item>албатрос</item>
+        <item>алигатор</item>
+        <item>алпака</item>
+        <item>мравка</item>
+        <item>мравояд</item>
+        <item>антилопа</item>
+        <item>маймуна</item>
+        <item>броненосец</item>
+        <item>магаре</item>
+        <item>бабуин</item>
+        <item>язовец</item>
+        <item>баракуда</item>
+        <item>прилеп</item>
+        <item>мечка</item>
+        <item>бобър</item>
+        <item>пчела</item>
+        <item>бизон</item>
+        <item>бизон</item>
+        <item>пеперуда</item>
+        <item>камила</item>
+        <item>карибу</item>
+        <item>котка</item>
+        <item>гъсеница</item>
+        <item>говеда</item>
+        <item>гепард</item>
+        <item>пиле</item>
+        <item>шимпанзе</item>
+        <item>шинчила</item>
+        <item>чауш</item>
+        <item>мида</item>
+        <item>хлебарка</item>
+        <item>треска</item>
+        <item>кондор</item>
+        <item>корморан</item>
+        <item>койот</item>
+        <item>раци</item>
+        <item>жерав</item>
+        <item>крокодил</item>
+        <item>врана</item>
+        <item>динозавър</item>
+        <item>куче</item>
+        <item>делфин</item>
+        <item>магаре</item>
+        <item>гълъб</item>
+        <item>водно конче</item>
+        <item>орел</item>
+        <item>ехидна</item>
+        <item>змиорка</item>
+        <item>еленд</item>
+        <item>слон</item>
+        <item>тюлен слон</item>
+        <item>лос</item>
+        <item>ему</item>
+        <item>сокол</item>
+        <item>фретка</item>
+        <item>финх</item>
+        <item>риба</item>
+        <item>фламинго</item>
+        <item>муха</item>
+        <item>лисица</item>
+        <item>жаба</item>
+        <item>газела</item>
+        <item>песчанка</item>
+        <item>панда</item>
+        <item>жираф</item>
+        <item>комар</item>
+        <item>гну</item>
+        <item>коза</item>
+        <item>гъска</item>
+        <item>златна рибка</item>
+        <item>горила</item>
+        <item>ястреб</item>
+        <item>скакалец</item>
+        <item>глухар</item>
+        <item>гуанако</item>
+        <item>морско свинче</item>
+        <item>чайка</item>
+        <item>хамстер</item>
+        <item>заек</item>
+        <item>ястреб</item>
+        <item>таралеж</item>
+        <item>чапла</item>
+        <item>херинга</item>
+        <item>хипопотам</item>
+        <item>стършели</item>
+        <item>кон</item>
+        <item>човек</item>
+        <item>колибри</item>
+        <item>хиена</item>
+        <item>ибис</item>
+        <item>чакал</item>
+        <item>ягуар</item>
+        <item>яйцето</item>
+        <item>синигери</item>
+        <item>медузи</item>
+        <item>кенгуру</item>
+        <item>коала</item>
+        <item>комодо</item>
+        <item>чучулига</item>
+        <item>лемур</item>
+        <item>леопард</item>
+        <item>лъв</item>
+        <item>лама</item>
+        <item>омар</item>
+        <item>скакалец</item>
+        <item>въшка</item>
+        <item>лира</item>
+        <item>сврака</item>
+        <item>зеленоглава патица</item>
+        <item>патица</item>
+        <item>манатарки</item>
+        <item>мандра</item>
+        <item>богомолка</item>
+        <item>сурикат</item>
+        <item>норки</item>
+        <item>къртица</item>
+        <item>мангуста</item>
+        <item>маймуна</item>
+        <item>лос</item>
+        <item>мишка</item>
+        <item>комар</item>
+        <item>муле</item>
+        <item>нарвал</item>
+        <item>тритон</item>
+        <item>славей</item>
+        <item>октопод</item>
+        <item>окапи</item>
+        <item>опосум</item>
+        <item>щраус</item>
+        <item>видра</item>
+        <item>сова</item>
+        <item>вол</item>
+        <item>стриди</item>
+        <item>пантера</item>
+        <item>папагал</item>
+        <item>яребица</item>
+        <item>пеликан</item>
+        <item>пингвин</item>
+        <item>фазан</item>
+        <item>свиня</item>
+        <item>гълъб</item>
+        <item>полярна мечка</item>
+        <item>пони</item>
+        <item>дикобраз</item>
+        <item>свиня</item>
+        <item>прерийно куче</item>
+        <item>пъдпъдък</item>
+        <item>заек</item>
+        <item>енот</item>
+        <item>овен</item>
+        <item>плъх</item>
+        <item>гарван</item>
+        <item>северен елен</item>
+        <item>носорог</item>
+        <item>саламандър</item>
+        <item>сьомга</item>
+        <item>сардина</item>
+        <item>скорпион</item>
+        <item>морски лъв</item>
+        <item>морски таралеж</item>
+        <item>морско конче</item>
+        <item>тюлен</item>
+        <item>акула</item>
+        <item>овца</item>
+        <item>акула</item>
+        <item>скункс</item>
+        <item>охлюв</item>
+        <item>змия</item>
+        <item>врабче</item>
+        <item>паяк</item>
+        <item>калмар</item>
+        <item>скорец</item>
+        <item>скат</item>
+        <item>миризлива буболечка</item>
+        <item>щъркел</item>
+        <item>лястовица</item>
+        <item>лебед</item>
+        <item>тапир</item>
+        <item>тарсиер</item>
+        <item>термит</item>
+        <item>тигър</item>
+        <item>жаба</item>
+        <item>пъстърва</item>
+        <item>пуйка</item>
+        <item>костенурка</item>
+        <item>гадняр</item>
+        <item>полевка</item>
+        <item>лешояд</item>
+        <item>валаби</item>
+        <item>морж</item>
+        <item>оса</item>
+        <item>ласка</item>
+        <item>кит</item>
+        <item>вълк</item>
+        <item>росомаха</item>
+        <item>вомбат</item>
+        <item>кълвач</item>
+        <item>червей</item>
+        <item>як</item>
+        <item>зебра</item>
+        <item>мечо пух</item>
+        <item>крал Конг</item>
+        <item>пудел</item>
+        <item>еднорог</item>
+        <item>дракон</item>
+        <item>зомбита</item>
+        <item>фея</item>
+        <item>доби</item>
+        <item>чебурашка</item>
+        <item>брауни</item>
+        <item>скуби ду</item>
+        <item>рапунцел</item>
+        <item>цар лъв</item>
+        <item>спонджбоб</item>
+        <item>чупакабра</item>
+        <item>кракен</item>
+        <item>лорис</item>
+        <item>котка ниян</item>
+        <item>платипус</item>
+        <item>питон</item>
+        <item>квага</item>
+        <item>куока</item>
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>Автоматична</item>
+        <item>Светъл режим</item>
+        <item>Тъмен режим</item>
+    </string-array>
+</resources>

@@ -27,11 +27,13 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="@dimen/spacing_normal"
-        android:contentDescription="@string/settings_section_dice"
-        android:src="@drawable/ic_more"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@string/common_settings"
         android:padding="@dimen/spacing_normal"
+        android:src="@drawable/ic_more"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/dice"
