@@ -239,8 +239,8 @@
         <item>quokka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>System</item>
-        <item>Bright</item>
-        <item>Dark</item>
+        <item>Theo hệ thống</item>
+        <item>Chủ đề Sáng</item>
+        <item>Tối</item>
     </string-array>
 </resources>
