@@ -15,7 +15,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.Looper;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.InputFilter;
@@ -366,8 +366,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showLongPressHint() {
         if (!isLongPressTipShowed) {
-            Handler handler = new Handler();
-            handler.postDelayed(() -> Toast.makeText(getActivity(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show(), 500);
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                Toast.makeText(getActivity(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show();
+            } else {
+                requireActivity().runOnUiThread(() -> Toast.makeText(getActivity(), R.string.message_you_can_use_long_press, Toast.LENGTH_LONG).show());
+            }
             LocalSettings.setLongPressTipShowed();
             isLongPressTipShowed = true;
         }
@@ -403,7 +406,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC, step, counter.getValue()));
 
         viewModel.increaseCounter(counter, step);
-        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 10) {
             showLongPressHint();
         }
     }
@@ -416,7 +419,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         viewModel.decreaseCounter(counter, step);
 
-        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 20) {
+        if (Math.abs(counter.getValue() - counter.getDefaultValue()) > 10) {
             showLongPressHint();
         }
     }
@@ -497,7 +500,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         if (Utilities.hasQ()) {
             vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
         } else {
-            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
+            vibrator.vibrate(100L);
         }
     }
 

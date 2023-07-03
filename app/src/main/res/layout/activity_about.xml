@@ -118,7 +118,7 @@
                 android:fontFamily="@font/ptm400"
                 android:lineSpacingMultiplier="1.33"
                 android:paddingEnd="@dimen/padding_normal"
-                android:text="@string/credits"
+                android:text="@string/about_credits"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="?attr/colorOnSecondary" />
 

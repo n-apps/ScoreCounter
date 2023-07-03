@@ -265,7 +265,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         if (Utilities.hasQ()) {
             vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK));
         } else {
-            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
+            vibrator.vibrate(100L);
         }
         viewModel.eventBus.removeObserver(eventBusObserver);
     }

@@ -281,7 +281,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         if (Utilities.hasQ()) {
             vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
         } else {
-            vibrator.vibrate(VibrationEffect.createOneShot(9, 255));
+            vibrator.vibrate(100L);
         }
     }
 
