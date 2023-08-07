@@ -39,7 +39,7 @@
     <string name="dialog_support_me_no_thanks">Не, благодаря</string>
     <string name="dialog_support_me_remind_me_later">Не сега</string>
     <string name="message_error_generic">Съжалявам, изглежда е станала грешка.</string>
-    <string name="message_no_email_client">На вашето устройство няма приложение за електронна поща :(</string>
+    <string name="message_app_not_found">На вашето устройство няма приложение за електронна поща :(</string>
     <string name="history_empty_message">Все още няма история</string>
     <string name="message_lowest_wins">Логиката е променена</string>
     <string name="menu_add_new_counter">Добавяне на брояч</string>

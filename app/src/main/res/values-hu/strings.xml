@@ -39,7 +39,7 @@
     <string name="dialog_support_me_no_thanks">Nem, köszönöm</string>
     <string name="dialog_support_me_remind_me_later">Most nem</string>
     <string name="message_error_generic">Elnézést, úgy tűnik, hiba történt.</string>
-    <string name="message_no_email_client">Nincs e-mail alkalmazás a készülékeden :(</string>
+    <string name="message_app_not_found">Nincs e-mail alkalmazás a készülékeden :(</string>
     <string name="history_empty_message">Nincs még előzmény</string>
     <string name="message_lowest_wins">Logika megváltozott</string>
     <string name="menu_add_new_counter">Számláló hozzáadása</string>

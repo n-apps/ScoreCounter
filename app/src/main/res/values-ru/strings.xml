@@ -20,7 +20,7 @@
     <string name="dialog_support_me_content">Привет, меня зовут Рома и я из Кременчуга, Украина. К сожалению, я потерял работу из-за войны в моей стране. Тем не менее, я принял решение оставить свое приложение без рекламы и с полной функциональностью. Если вы хотите поддержать независимого разработчика (меня), пожалуйста, сделайте пожертвование, один или несколько раз, в приложении. Спасибо!</string>
     <string name="dialog_support_me_no_thanks">Нет, спасибо</string>
     <string name="dialog_support_me_remind_me_later">Не сейчас</string>
-    <string name="message_no_email_client">На вашем устройстве нет приложения электронной почты :(</string>
+    <string name="message_app_not_found">Невозможно обработать это действие :(</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>
     <string name="menu_delete_all_counters">Удалить все</string>
     <string name="menu_reset_all_counters">Сбросить все</string>

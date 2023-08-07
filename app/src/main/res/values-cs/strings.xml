@@ -40,7 +40,7 @@
     <string name="dialog_support_me_no_thanks">Ne, díky</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>
     <string name="message_error_generic">Omlouváme se, zřejmě došlo k chybě.</string>
-    <string name="message_no_email_client">Ve vašem zařízení není žádná e-mailová aplikace :(</string>
+    <string name="message_app_not_found">Ve vašem zařízení není žádná e-mailová aplikace :(</string>
     <string name="history_empty_message">Zatím žádná historie</string>
     <string name="message_lowest_wins">Logika se změnila</string>
     <string name="menu_add_new_counter">Přidat počítadlo</string>

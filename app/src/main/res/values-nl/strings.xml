@@ -40,7 +40,7 @@
     <string name="dialog_support_me_no_thanks">Nee, bedankt</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="message_error_generic">Sorry, er lijkt iets fout gegaan te zijn.</string>
-    <string name="message_no_email_client">Geen e-mail app op je apparaat :(</string>
+    <string name="message_app_not_found">Geen e-mail app op je apparaat :(</string>
     <string name="history_empty_message">Geen geschiedenis aanwezig</string>
     <string name="message_lowest_wins">logica aangepast</string>
     <string name="menu_add_new_counter">Teller toevoegen</string>

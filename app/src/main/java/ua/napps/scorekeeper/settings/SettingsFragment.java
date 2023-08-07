@@ -66,7 +66,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 try {
                     startActivity(s);
                 } catch (Exception e) {
-                    Toast.makeText(requireContext(), R.string.message_no_email_client, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
                     Timber.e(e, "Launch email intent");
                 }
                 break;
@@ -80,7 +80,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_privacy_policy:
                 Intent viewIntent =
                         new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
-                startActivity(viewIntent);
+                try {
+                    startActivity(viewIntent);
+                } catch (Exception e) {
+                    Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
+                    Timber.e(e, "Launch web intent");
+                }
                 break;
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);

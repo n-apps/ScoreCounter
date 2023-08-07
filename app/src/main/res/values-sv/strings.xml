@@ -39,7 +39,7 @@
     <string name="dialog_support_me_no_thanks">Nej, tack</string>
     <string name="dialog_support_me_remind_me_later">Inte nu</string>
     <string name="message_error_generic">Förlåt, det verkar ha uppstått ett fel.</string>
-    <string name="message_no_email_client">Det finns ingen e-postapp på din enhet :(</string>
+    <string name="message_app_not_found">Det finns ingen e-postapp på din enhet :(</string>
     <string name="history_empty_message">Ingen historik ännu</string>
     <string name="message_lowest_wins">Logiken har ändrats</string>
     <string name="menu_add_new_counter">Lägg till räknare</string>

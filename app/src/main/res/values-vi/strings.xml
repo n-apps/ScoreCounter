@@ -39,7 +39,7 @@
     <string name="dialog_support_me_no_thanks">Không, cám ơn</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>
-    <string name="message_no_email_client">Không có ứng dụng email trên thiết bị của bạn :(</string>
+    <string name="message_app_not_found">Không có ứng dụng email trên thiết bị của bạn :(</string>
     <string name="history_empty_message">Chưa có lịch sử</string>
     <string name="message_lowest_wins">Logic đã thay đổi</string>
     <string name="menu_add_new_counter">Thêm bộ đếm</string>

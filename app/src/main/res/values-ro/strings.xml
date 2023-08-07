@@ -20,7 +20,7 @@
     <string name="dialog_support_me_content">Bună, numele meu este Roma și sunt din Kremenchuk, Ucraina. Din păcate, mi-am pierdut locul de muncă din cauza războiului din țara mea. Cu toate acestea, am luat decizia de a păstra aplicația mea, Score Counter, fără reclame și cu funcționalitate completă. Dacă doriți să sprijiniți un dezvoltator independent ca mine, vă rog să luați în considerare posibilitatea de a face o donație, fie o dată, fie de mai multe ori, în cadrul aplicației. Vă mulțumesc!</string>
     <string name="dialog_support_me_no_thanks">Nu, multumesc</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
-    <string name="message_no_email_client">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
+    <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
     <string name="menu_reset_all_counters">Reseteaza tot</string>

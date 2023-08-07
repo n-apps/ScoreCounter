@@ -20,7 +20,7 @@
     <string name="dialog_support_me_content">Привіт, мене звати Рома, я з Кременчука, Україна. На жаль, я втратив роботу через війну в моїй країні. Однак я прийняв рішення залишити свій додаток без реклами та з повним функціоналом. Якщо ви хочете підтримати такого незалежного розробника, як я, будь ласка, розгляньте можливість зробити донат в додатку. Дякую!</string>
     <string name="dialog_support_me_no_thanks">Ні, дякую</string>
     <string name="dialog_support_me_remind_me_later">Не зараз</string>
-    <string name="message_no_email_client">Немає додатків електронної пошти на вашому пристрої :(</string>
+    <string name="message_app_not_found">Не знайдено програму для обробки цієї дії :(</string>
     <string name="menu_add_new_counter">Додати лічильник</string>
     <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>

@@ -20,7 +20,7 @@
     <string name="dialog_support_me_content">Salve, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Purtroppo ho perso il lavoro a causa della guerra nel mio Paese. Tuttavia, ho deciso di mantenere la mia applicazione, Score Counter, senza pubblicità e con tutte le funzionalità. Se volete sostenere uno sviluppatore indipendente come me, vi prego di considerare la possibilità di fare una donazione, una o più volte, all\'interno dell\'applicazione. Grazie!</string>
     <string name="dialog_support_me_no_thanks">No, grazie</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
-    <string name="message_no_email_client">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>
+    <string name="message_app_not_found">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>
     <string name="menu_add_new_counter">Aggiungi un seganpunti</string>
     <string name="menu_delete_all_counters">Cancella tutto</string>
     <string name="menu_reset_all_counters">Azzera tutto</string>

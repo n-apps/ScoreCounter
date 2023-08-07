@@ -53,7 +53,7 @@
     <string name="menu_reset_all_counters">Reset all</string>
     <string name="message_error_generic">Sorry, there seems to have been an error.</string>
     <string name="message_lowest_wins">Logic changed</string>
-    <string name="message_no_email_client">No email app on your device :(</string>
+    <string name="message_app_not_found">No application found to handle this action :(</string>
     <string name="message_one_more_counter">One more</string>
     <string name="message_thank_you">Thank you very much for your support ❤</string>
     <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>

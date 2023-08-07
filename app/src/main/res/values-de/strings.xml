@@ -20,7 +20,7 @@
     <string name="dialog_support_me_content">Hallo, mein Name ist Roma und ich komme aus Krementschuk in der Ukraine. Leider habe ich meinen Job wegen des Krieges in meinem Land verloren. Ich habe mich jedoch entschlossen, meine App Score Counter werbefrei und mit voller Funktionalität weiterzuführen. Wenn Sie einen unabhängigen Entwickler wie mich unterstützen möchten, ziehen Sie bitte eine Spende in Betracht, entweder einmalig oder mehrmals innerhalb der App. Ich danke Ihnen!</string>
     <string name="dialog_support_me_no_thanks">Nein Danke</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
-    <string name="message_no_email_client">Keine E-Mail App auf Ihrem Gerät :(</string>
+    <string name="message_app_not_found">Für diese Aktion wurde keine App gefunden :(</string>
     <string name="menu_add_new_counter">Zähler hinzufügen</string>
     <string name="menu_delete_all_counters">Alles löschen</string>
     <string name="menu_reset_all_counters">Alles wiederherstellen</string>
