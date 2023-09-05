@@ -31,18 +31,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/tv_open_settings"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptm700"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/common_settings"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="?attr/colorPrimary" />
-
-        <TextView
             android:id="@+id/tv_about"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
@@ -54,6 +42,17 @@
             app:drawableEndCompat="@drawable/ic_arrow_right"
             app:drawableTint="?attr/colorPrimary" />
 
+        <TextView
+            android:id="@+id/tv_open_settings"
+            style="@style/TwoLinesStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptm700"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/common_settings"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:drawableEndCompat="@drawable/ic_arrow_right"
+            app:drawableTint="?attr/colorPrimary" />
         <TextView
             android:id="@+id/tv_rate_app"
             style="@style/TwoLinesStyle"

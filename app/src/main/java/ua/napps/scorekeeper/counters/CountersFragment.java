@@ -34,6 +34,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,7 +42,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -548,7 +548,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         ((TextView) contentView.findViewById(R.id.counter_value)).setText("" + counter.getValue());
         ((TextView) contentView.findViewById(R.id.counter_name)).setText(counter.getName());
-        ((CardView) contentView.findViewById(R.id.counter_info_header)).setCardBackgroundColor(color);
+        ((LinearLayout) contentView.findViewById(R.id.counter_info_header)).setBackgroundColor(color);
         ((TextView) contentView.findViewById(R.id.counter_value)).setTextColor(tintColor);
         ((TextView) contentView.findViewById(R.id.counter_name)).setTextColor(tintColor);
 

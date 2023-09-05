@@ -11,18 +11,17 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
-ext.versionMinor = 3
-ext.versionPatch = 6
+ext.versionMinor = 4
+ext.versionPatch = 0
 ext.postfix = ''
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion '34.0.0'
+    compileSdk 34
 
     defaultConfig {
         applicationId 'ua.napps.scorekeeper'
         minSdkVersion 26
-        targetSdkVersion 33
+        targetSdkVersion 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
@@ -59,6 +58,7 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {
@@ -71,11 +71,11 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     //noinspection GradleDependency
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
-    implementation 'com.google.firebase:firebase-crashlytics:18.4.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.4.1'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     implementation 'com.jakewharton.timber:timber:5.0.1'
-    implementation 'com.android.billingclient:billing:4.1.0'
+    implementation 'com.android.billingclient:billing:6.0.1'
     implementation 'com.github.naz013:ColorSlider:2.0.7'
     implementation 'io.github.bitvale:switcher:1.1.2'
     implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'

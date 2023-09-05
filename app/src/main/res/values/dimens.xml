@@ -17,4 +17,5 @@
     <dimen name="spacing_normal">8dp</dimen>
     <dimen name="spacing_xlarge">48dp</dimen>
     <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="material_button_full_round_corner_radius">1000dp</dimen>
 </resources>

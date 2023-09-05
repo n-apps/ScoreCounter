@@ -5,64 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingStart="@dimen/padding_large"
-    android:paddingTop="@dimen/padding_large"
-    android:paddingEnd="@dimen/padding_large"
-    android:paddingBottom="@dimen/spacing_large"
+    android:paddingBottom="@dimen/padding_large"
     tools:ignore="HardcodedText">
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:id="@+id/counter_info_header"
-        style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginVertical="@dimen/spacing_normal"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
-        tools:cardBackgroundColor="#F2B04B">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/list_single_line_min_height"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:paddingVertical="@dimen/padding_normal"
+        tools:background="#F2B04B">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/counter_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="@font/ptm700"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:paddingEnd="@dimen/padding_normal"
+            android:text="Jessica — Jessica"
+            app:autoSizeMaxTextSize="@dimen/font_display"
+            app:autoSizeMinTextSize="@dimen/font_body"
+            app:autoSizeStepGranularity="1sp"
+            app:autoSizeTextType="uniform"
+            tools:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/counter_value"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/icm400"
             android:gravity="center"
-            android:minHeight="@dimen/list_single_line_min_height"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/padding_normal">
-
-            <TextView
-                android:id="@+id/counter_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:fontFamily="@font/icm400"
-                android:gravity="center"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?android:attr/textColorPrimary"
-                tools:text="435" />
-
-            <TextView
-                android:id="@+id/counter_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="@dimen/spacing_large"
-                android:ellipsize="end"
-                android:fontFamily="@font/ptm700"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:text="Jessica — Jessica"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                tools:textColor="?attr/colorOnSurface" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="435" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/spacing_xlarge"
         android:baselineAligned="false"
         android:orientation="horizontal">
 
@@ -134,17 +126,17 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/spacing_normal"
-        android:maxLines="1"
+        android:layout_marginVertical="@dimen/spacing_normal"
+        android:gravity="center_horizontal"
         android:text="@string/dialog_predefined_steps"
         android:textAppearance="?attr/textAppearanceCaption" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_normal"
         android:layout_marginTop="@dimen/spacing_large"
         android:baselineAligned="false"
         android:gravity="center"
@@ -155,7 +147,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:paddingVertical="4dp"
             app:selectionRequired="true"
@@ -167,14 +159,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
                 android:backgroundTint="@color/btn_text_btn_bg_color_selector"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="-"
+                android:text="–"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:attr/textColorPrimary"
+                app:cornerRadius="24dp"
                 app:rippleColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
 
@@ -190,6 +183,7 @@
                 android:text="+"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="?android:textColorPrimary"
+                app:cornerRadius="24dp"
                 app:rippleColor="@color/colorSecondary"
                 tools:ignore="HardcodedText" />
         </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -200,6 +194,10 @@
             android:layout_height="match_parent"
             android:layout_marginTop="-3dp"
             android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+            app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+            app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+            app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+            app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
             app:boxStrokeColor="@color/colorSecondary">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -214,6 +212,7 @@
                 android:maxLength="9"
                 android:maxLines="1"
                 android:minWidth="140dp"
+                android:paddingHorizontal="@dimen/padding_large"
                 android:selectAllOnFocus="true"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 tools:text="231" />

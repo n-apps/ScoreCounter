@@ -49,11 +49,6 @@ class CountersViewModel extends AndroidViewModel {
         initialNames = application.getResources().getStringArray(R.array.names);
         shuffleInitialDataArrays();
     }
-
-    public LiveData<Counter> getCounterLiveData(int counterID) {
-        return repository.loadCounter(counterID);
-    }
-
     void addCounter() {
         List<Counter> value = counters.getValue();
         if (value != null) {

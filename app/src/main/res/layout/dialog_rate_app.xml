@@ -23,9 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_large"
-        android:paddingTop="@dimen/padding_normal"
-        android:paddingRight="@dimen/padding_large">
+        android:paddingHorizontal="@dimen/padding_normal"
+        android:paddingTop="@dimen/padding_normal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,7 +32,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_normal"
             android:fontFamily="@font/ptm700"
-            android:lineSpacingMultiplier="1.3"
+            android:lineSpacingMultiplier="1.33"
             android:text="@string/dialog_support_me_content"
             android:textAppearance="?attr/textAppearanceBody2" />
 
@@ -45,7 +44,8 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:minHeight="56dp"
+            app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+            android:minHeight="@dimen/list_single_line_min_height"
             android:text="@string/action_donate"
             android:textAllCaps="false"
             android:textColor="?attr/colorOnPrimary"
@@ -57,30 +57,25 @@
             android:layout_marginTop="@dimen/spacing_normal"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_no_thanks"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:minWidth="64dp"
-                android:minHeight="56dp"
                 android:paddingHorizontal="@dimen/padding_normal"
                 android:text="@string/dialog_support_me_no_thanks"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorPrimary" />
 
-            <android.widget.Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_remind_later"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="end|center_vertical"
                 android:layout_height="wrap_content"
-                android:minWidth="64dp"
-                android:minHeight="56dp"
                 android:paddingHorizontal="@dimen/padding_normal"
                 android:text="@string/dialog_support_me_remind_me_later"
                 android:textAppearance="?attr/textAppearanceBody2"

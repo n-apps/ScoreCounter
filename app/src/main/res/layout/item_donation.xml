@@ -10,37 +10,36 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/ptm700"
-        android:gravity="center_vertical"
+        android:paddingEnd="@dimen/padding_normal"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
-        android:paddingEnd="@dimen/padding_normal"
+        app:layout_constraintBottom_toTopOf="@id/price"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/donation_pizza_title" />
+        tools:text="Coffee" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:paddingEnd="@dimen/padding_normal"
+        android:fontFamily="@font/icm400"
         android:textAppearance="?attr/textAppearanceBody2"
-        android:fontFamily="@font/ptm400"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/textColorSecondary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:text="@string/donation_pizza_description" />
+        tools:text="UAH 59.99" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/inapp_coffee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/title"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/inapp_coffee" />
 </androidx.constraintlayout.widget.ConstraintLayout>

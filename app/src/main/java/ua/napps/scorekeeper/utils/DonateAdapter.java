@@ -9,19 +9,27 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.DrawableRes;
+
+import com.android.billingclient.api.ProductDetails;
+
+import java.util.List;
+
 import ua.napps.scorekeeper.R;
 
 public class DonateAdapter extends BaseAdapter {
 
     private final Context context;
+    private List<ProductDetails> productDetails;
 
-    DonateAdapter(Context context) {
+    DonateAdapter(Context context, List<ProductDetails> data) {
         this.context = context;
+        productDetails = data;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return productDetails.size();
     }
 
     @Override
@@ -40,28 +48,35 @@ public class DonateAdapter extends BaseAdapter {
         @SuppressLint("ViewHolder")
         View v = LayoutInflater.from(context).inflate(R.layout.item_donation, null);
 
-        TextView title = v.findViewById(R.id.title);
-        TextView description = v.findViewById(R.id.description);
-        ImageView image = v.findViewById(R.id.image);
-        switch (position) {
-            default:
-            case 0:  // coffee
-                title.setText(R.string.donation_coffee_title);
-                description.setText(R.string.donation_coffee_description);
-                image.setImageResource(R.drawable.inapp_coffee);
-                break;
-            case 1: // pizza
-                title.setText(R.string.donation_pizza_title);
-                description.setText(R.string.donation_pizza_description);
-                image.setImageResource(R.drawable.inapp_food);
-                break;
-            case 2:
-                title.setText(R.string.donation_xwing_title);
-                description.setText(R.string.donation_xwing_description);
-                image.setImageResource(R.drawable.inapp_miniature);
-                break;
+        if (!productDetails.isEmpty()) {
+            ProductDetails productDetail = productDetails.get(position);
+            int imageResource = getIconForInApp(productDetail);
+            String name = productDetail.getName();
+            String price = productDetail.getOneTimePurchaseOfferDetails().getFormattedPrice();
+
+            ((ImageView) v.findViewById(R.id.image)).setImageResource(imageResource);
+            ((TextView) v.findViewById(R.id.title)).setText(name);
+            ((TextView) v.findViewById(R.id.price)).setText(price);
         }
 
         return (v);
+    }
+
+    @DrawableRes
+    private int getIconForInApp(ProductDetails productDetail) {
+        switch (productDetail.getProductId()) {
+            default:
+            case "buy_me_a_coffee":
+                return R.drawable.inapp_coffee;
+            case "buy_me_a_pizza":
+                return R.drawable.inapp_food;
+            case "buy_me_a_xwing":
+                return R.drawable.inapp_miniature;
+        }
+    }
+
+    public void updateData(List<ProductDetails> data) {
+        productDetails = data;
+        notifyDataSetChanged();
     }
 }

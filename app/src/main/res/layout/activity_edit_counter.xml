@@ -30,12 +30,12 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:paddingTop="@dimen/padding_normal"
+        android:paddingHorizontal="@dimen/padding_normal"
+        android:paddingBottom="@dimen/padding_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/app_bar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -47,15 +47,13 @@
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="32dp"
+                android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="72dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_save"
                 android:textAllCaps="false"
                 android:textSize="@dimen/font_title"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,15 +65,18 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_step"
                 app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/til_counter_name"
-
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/til_counter_value"
                 tools:boxBackgroundColor="#0DFA23FF">
 
@@ -88,6 +89,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="9"
                     android:maxLines="1"
+                    android:paddingHorizontal="@dimen/padding_large"
                     android:selectAllOnFocus="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     tools:text="1" />
@@ -99,12 +101,16 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/spacing_xlarge"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_default_value"
                 app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintEnd_toEndOf="@+id/til_counter_value"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/til_counter_step"
                 app:layout_constraintTop_toTopOf="@+id/til_counter_step"
@@ -119,6 +125,7 @@
                     android:inputType="numberSigned"
                     android:maxLength="9"
                     android:maxLines="1"
+                    android:paddingHorizontal="@dimen/padding_large"
                     android:selectAllOnFocus="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     tools:text="1" />
@@ -129,20 +136,18 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="@dimen/spacing_normal"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidth="2dp"
                 app:boxStrokeWidthFocused="4dp"
-                app:boxCornerRadiusBottomEnd="8dp"
-                app:boxCornerRadiusBottomStart="8dp"
-                app:boxCornerRadiusTopStart="8dp"
-                app:boxCornerRadiusTopEnd="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/color_slider"
+                android:layout_marginTop="@dimen/spacing_normal"
+                app:layout_constraintBottom_toTopOf="@+id/til_counter_value"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/color_slider"
                 tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -150,11 +155,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ptm700"
+                    android:gravity="center"
                     android:imeOptions="actionDone"
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textAppearance="?attr/textAppearanceHeadline4"
                     tools:text="@string/app_name" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,10 +172,10 @@
                 android:background="@color/rippleColor"
                 android:src="@drawable/ic_palette"
                 app:contentPadding="@dimen/spacing_normal"
-                app:layout_constraintBottom_toTopOf="@id/til_counter_value"
-                app:layout_constraintEnd_toEndOf="@id/til_counter_name"
+                app:layout_constraintBottom_toTopOf="@id/til_counter_name"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/color_slider"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_name"
+                app:layout_constraintTop_toTopOf="parent"
                 app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 
             <com.github.naz013.colorslider.ColorSlider
@@ -178,10 +184,10 @@
                 android:layout_height="56dp"
                 android:layout_marginVertical="@dimen/spacing_normal"
                 app:cs_hex_colors="?colors_scheme"
-                app:layout_constraintBottom_toTopOf="@id/til_counter_value"
+                app:layout_constraintBottom_toTopOf="@id/til_counter_name"
                 app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
-                app:layout_constraintStart_toStartOf="@id/til_counter_name"
-                app:layout_constraintTop_toBottomOf="@id/til_counter_name" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -190,16 +196,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
-                android:layout_marginBottom="@dimen/spacing_micro"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+                app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+                app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_value"
                 app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
-                app:layout_constraintEnd_toEndOf="@+id/til_counter_name"
-                app:layout_constraintStart_toStartOf="@+id/til_counter_name"
-                app:layout_constraintTop_toBottomOf="@id/color_slider"
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_counter_name"
                 tools:boxBackgroundColor="#0DFA23FF">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -207,12 +215,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/icm400"
+                    android:gravity="center"
                     android:imeOptions="actionDone"
                     android:inputType="numberSigned"
                     android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

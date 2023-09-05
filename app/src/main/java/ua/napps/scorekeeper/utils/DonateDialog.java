@@ -11,6 +11,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
@@ -26,6 +28,7 @@ public class DonateDialog extends DialogFragment {
             Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
         } else if (intent instanceof CloseScreenIntent) {
             int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
+
             Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
             dismiss();
         }
@@ -37,21 +40,25 @@ public class DonateDialog extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(DonateViewModel.class);
-        adapter = new DonateAdapter(requireContext());
+        adapter = new DonateAdapter(requireContext(), new ArrayList<>());
+
+        viewModel.productDetailsList.observe(requireActivity(), productDetails -> {
+            adapter.updateData(productDetails);
+            adapter.notifyDataSetChanged();
+        });
+
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
+        return new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.action_donate)
-                .setAdapter(adapter, null)
+                .setAdapter(adapter, (d, option) -> {
+                    viewModel.launchPurchaseFlow(requireActivity(), option);
+                    LocalSettings.markDonated();
+                })
                 .create();
-        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> {
-            viewModel.purchase(requireActivity(), donateOption);
-            LocalSettings.markDonated();
-        });
-        return alertDialog;
     }
 
     @Override
