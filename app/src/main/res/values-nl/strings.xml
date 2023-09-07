@@ -29,13 +29,7 @@
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>
     <string name="dice_previous_result_label">Vorige worp</string>
-    <string name="donation_coffee_description">Verdomd lekkere koffie… en heet!</string>
-    <string name="donation_coffee_title">Goede zwarte koffie</string>
-    <string name="donation_pizza_description">Met ui, dubbele kaas en salami graag. En geen ananas!</string>
-    <string name="donation_pizza_title">Lekkerste pizza in de buurt</string>
     <string name="message_thank_you">Hartelijk dank voor je steun ❤</string>
-    <string name="donation_xwing_description">Nieuwe X-Wing miniaturen en nieuwe kleurstellingen.</string>
-    <string name="donation_xwing_title">Star Wars Miniatures</string>
     <string name="dialog_support_me_content">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Helaas heb ik mijn baan verloren door de oorlog in mijn land. Ik heb echter besloten om mijn app, Score Counter, vrij van advertenties en met volledige functionaliteit te houden. Als je een onafhankelijke ontwikkelaar zoals ik wilt steunen, overweeg dan een eenmalige of meervoudige donatie binnen de app. Bedankt!</string>
     <string name="dialog_support_me_no_thanks">Nee, bedankt</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>

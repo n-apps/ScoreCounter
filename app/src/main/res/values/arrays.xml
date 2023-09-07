@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="default_color_list">
+        <item>#212529</item>
+        <item>#f8f9fa</item>
         <item>#f03e3e</item>
         <item>#f06595</item>
         <item>#be4bdb</item>
@@ -12,8 +14,6 @@
         <item>#82c91e</item>
         <item>#ffd43b</item>
         <item>#ff922b</item>
-        <item>#f8f9fa</item>
-        <item>#212529</item>
     </string-array>
     <string-array name="names">
         <item>T-Rex</item>

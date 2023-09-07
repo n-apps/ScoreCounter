@@ -136,6 +136,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
                 app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
                 app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
@@ -143,7 +144,6 @@
                 app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidth="2dp"
                 app:boxStrokeWidthFocused="4dp"
-                android:layout_marginTop="@dimen/spacing_normal"
                 app:layout_constraintBottom_toTopOf="@+id/til_counter_value"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -169,13 +169,13 @@
                 android:layout_width="44dp"
                 android:layout_height="44dp"
                 android:layout_marginStart="@dimen/padding_normal"
-                android:background="@color/rippleColor"
+                android:foreground="@drawable/ripple"
                 android:src="@drawable/ic_palette"
                 app:contentPadding="@dimen/spacing_normal"
-                app:layout_constraintBottom_toTopOf="@id/til_counter_name"
+                app:layout_constraintBottom_toBottomOf="@id/color_slider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/color_slider"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/color_slider"
                 app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 
             <com.github.naz013.colorslider.ColorSlider
@@ -188,7 +188,6 @@
                 app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_value"
@@ -221,7 +220,7 @@
                     android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

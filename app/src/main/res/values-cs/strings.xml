@@ -29,13 +29,7 @@
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
     <string name="dice_previous_result_label">Předchozí hod:</string>
-    <string name="donation_coffee_description">Zatraceně fajn káva… a horká!</string>
-    <string name="donation_coffee_title">Dobrá černá káva</string>
-    <string name="donation_pizza_description">Sladké a kořeněné dobrodružství chuťových pohárků.</string>
-    <string name="donation_pizza_title">Nejlepší pizza v mém okolí</string>
     <string name="message_thank_you">Děkujeme za Vaši podporu ❤</string>
-    <string name="donation_xwing_description">Nové X-Wing miniatury a nová barevná schémata.</string>
-    <string name="donation_xwing_title">Miniatury Star Wars</string>
     <string name="dialog_support_me_content">Ahoj, jmenuji se Roma a jsem z Kremenčuku na Ukrajině. Bohužel jsem kvůli válce v mé zemi přišla o práci. Přesto jsem se rozhodl, že svou aplikaci Score Counter ponechám bez reklam a s plnou funkčností. Pokud byste chtěli podpořit nezávislého vývojáře, jako jsem já, zvažte prosím možnost přispět, a to buď jednorázově, nebo vícekrát v rámci aplikace. Děkuji vám!</string>
     <string name="dialog_support_me_no_thanks">Ne, díky</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>

@@ -115,14 +115,13 @@
 
         <TextView
             android:id="@+id/tv_easter"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacing_large"
+            android:gravity="center"
             android:padding="@dimen/padding_large"
-            android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
+            android:text="⁕ ⁕ ⁕ +23 ⁕ ⁕ ⁕"
             android:textAppearance="?attr/textAppearanceCaption"
-            android:textColor="?attr/colorPrimaryVariant"
+            android:textColor="?attr/colorPrimary"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

@@ -30,19 +30,13 @@
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">You can edit these values in the settings</string>
-    <string name="dialog_support_me_content">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. Unfortunately, I lost my job due to the war in my country. However, I made the decision to keep my app free of ads and with full functionality. If you\'d like to support an independent solo developer like me, please consider making a donation, either once or multiple times, within the app.\n\nThank you!</string>
+    <string name="dialog_support_me_content">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. Unfortunately, I lost my job due to&#160;the war in my&#160;country. However, I made the decision to&#160;keep my app free of&#160;ads and&#160;with full functionality.\n\nIf you\'d like to&#160;support an independent solo developer like me, please consider making a donation, either once or multiple times, within the app. Thank you!</string>
     <string name="dialog_support_me_no_thanks">No, thanks</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>
     <string name="dice_previous_result_label">Previous roll:</string>
     <string name="dice_sides">Custom dice sides</string>
-    <string name="donation_coffee_description">Fine coffee… and hot!</string>
-    <string name="donation_coffee_title">Good Black Coffee</string>
-    <string name="donation_pizza_description">Hmm… Or even borscht.</string>
-    <string name="donation_pizza_title">Best Doner Near Me</string>
-    <string name="donation_xwing_description">New ships and paint schemes.</string>
-    <string name="donation_xwing_title">Star Wars Miniatures</string>
     <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
     <string name="history_empty_message">No history yet</string>
     <string name="history_subtitle">session-only</string>

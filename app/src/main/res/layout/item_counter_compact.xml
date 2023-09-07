@@ -7,9 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/padding_normal"
+    android:layout_marginTop="@dimen/spacing_micro"
     android:layout_marginEnd="@dimen/padding_normal"
     android:layout_marginBottom="@dimen/spacing_micro"
-    android:layout_marginTop="@dimen/spacing_micro"
     app:cardCornerRadius="4dp"
     app:cardElevation="1dp"
     tools:backgroundTint="#9B8FFF">
@@ -26,9 +26,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/ripple"
             android:ellipsize="end"
             android:fontFamily="@font/ptm700"
+            android:foreground="@drawable/ripple"
             android:gravity="center_vertical"
             android:maxLines="2"
             android:paddingStart="@dimen/padding_normal"
@@ -46,8 +46,8 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.54"
-            android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/common_increase"
+            android:foreground="@drawable/ripple"
             android:scaleType="center"
             android:src="@drawable/ic_minus" />
 
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@drawable/ripple"
+            android:foreground="@drawable/ripple"
             android:fontFamily="@font/icm400"
             android:gravity="center"
             android:lines="1"
@@ -66,7 +66,7 @@
             app:autoSizeMinTextSize="@dimen/counter_min_text_size"
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
-            tools:text="@tools:sample/us_zipcodes" />
+            tools:text="24" />
 
         <ImageView
             android:id="@+id/iv_increase"
@@ -74,7 +74,7 @@
             android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.54"
-            android:background="?attr/selectableItemBackground"
+            android:foreground="@drawable/ripple"
             android:contentDescription="@string/common_decrease"
             android:scaleType="center"
             android:src="@drawable/ic_plus" />

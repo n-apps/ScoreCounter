@@ -39,7 +39,8 @@
 
         <TextView
             style="@style/EmptyStateMessage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/spacing_xlarge"
             android:layout_height="wrap_content"
             android:text="@string/counters_empty_message" />
 

@@ -38,10 +38,6 @@
     <string name="dialog_no">Nu</string>
     <string name="settings_privacy_policy">Politica de confidentialitate</string>
     <string name="message_thank_you">Multumesc ❤</string>
-    <string name="donation_coffee_title">Ceasca de cafea</string>
-    <string name="donation_coffee_description">Ma tine treaza dupa-amiaza</string>
-    <string name="donation_pizza_title">Pizza gustoasa</string>
-    <string name="donation_pizza_description">Cu ceapa, branza si salam, te rog. Si fara ciuperci!</string>
     <string name="settings_sound">Sunet</string>
     <string name="action_donate">Doneaza ❤</string>
     <string name="message_error_generic">Imi pare rau, se pare ca a intervenit o eroare</string>
@@ -61,8 +57,6 @@
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="message_lowest_wins">Logica a fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
-    <string name="donation_xwing_title">Star Wars: X-Wing Miniatures</string>
-    <string name="donation_xwing_description">Noi miniaturi și noi scheme de vopsea.</string>
     <string name="about_testers">Testeri\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Puteți edita aceste valori în setările</string>
     <string name="history_subtitle">doar această sesiune</string>

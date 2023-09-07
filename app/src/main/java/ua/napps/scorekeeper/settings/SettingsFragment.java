@@ -55,16 +55,20 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_open_settings:
                 showBottomSheet();
                 break;
-
             case R.id.tv_request_feature:
             case R.id.tv_help_translate:
-                Intent s = new Intent(Intent.ACTION_SENDTO);
-                s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-                s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-                s.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                Intent i = new Intent(Intent.ACTION_SENDTO);
+                i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
+                i.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+                if (v.getId() == R.id.tv_help_translate) {
+                    String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
+                    i.putExtra(Intent.EXTRA_SUBJECT, s);
+                } else {
+                    i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                }
 
                 try {
-                    startActivity(s);
+                    startActivity(i);
                 } catch (Exception e) {
                     Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
                     Timber.e(e, "Launch email intent");

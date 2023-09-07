@@ -38,10 +38,6 @@
     <string name="dialog_no">Non</string>
     <string name="settings_privacy_policy">Politique de confidentialité</string>
     <string name="message_thank_you">Merci ❤</string>
-    <string name="donation_coffee_title">Un café italien</string>
-    <string name="donation_coffee_description">Le caffè corretto est un espresso agrémenté d’une dose de liqueur, comme la grappa.</string>
-    <string name="donation_pizza_title">Pizza Hawaïenne</string>
-    <string name="donation_pizza_description">Certains la détestent, d\’autre l\’adorent.</string>
     <string name="settings_sound">Son</string>
     <string name="action_donate">❤ Soutenir ❤</string>
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
@@ -61,8 +57,6 @@
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
     <string name="message_lowest_wins">La logique a changé</string>
     <string name="common_vibrate">Vibrer</string>
-    <string name="donation_xwing_title">Star Wars: Le Jeu de Figurines</string>
-    <string name="donation_xwing_description">De nouveaux navires et de nouvelles peintures.</string>
     <string name="about_testers">Testeurs occasionnels\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Vous pouvez modifier ces valeurs dans les paramètres</string>
     <string name="history_subtitle">seulement cette session</string>

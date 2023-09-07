@@ -58,17 +58,17 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     private void launchEmailClient() {
-        Intent s = new Intent(Intent.ACTION_SENDTO);
-        s.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-        s.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
-        s.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        s.putExtra(Intent.EXTRA_TEXT, getString(R.string.setting_help_translate));
+        Intent i = new Intent(Intent.ACTION_SENDTO);
+        i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
+        i.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
+        i.putExtra(Intent.EXTRA_SUBJECT, s);
 
         try {
-            startActivity(s);
+            startActivity(i);
         } catch (Exception e) {
             Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-            Timber.e(e, "Launch email intent");
+            Timber.e(e, "Launch email intent error");
         }
     }
 

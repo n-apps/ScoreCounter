@@ -12,6 +12,7 @@
         <item name="colorOnError">@color/colorOnError</item>
         <item name="colorSurface">@color/primaryBackground</item>
         <item name="rippleColor">@color/rippleColor</item>
+        <item name="itemRippleColor">@color/rippleColor</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorSecondary</item>
         <item name="android:textColorHint">@color/textColorHint</item>
@@ -66,9 +67,8 @@
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
-        <item name="android:paddingHorizontal">@dimen/padding_large</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="fontFamily">@font/ptm700</item>
+        <item name="fontFamily">@font/ptm400</item>
     </style>
 
     <style name="MiniDiceStyle">

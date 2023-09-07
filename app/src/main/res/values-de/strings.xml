@@ -38,10 +38,6 @@
     <string name="dialog_no">Nein</string>
     <string name="settings_privacy_policy">Datenschutz-Bestimmungen</string>
     <string name="message_thank_you">Vielen Dank für deine Unterstützung ❤</string>
-    <string name="donation_coffee_title">Guter schwarzer Kaffee</string>
-    <string name="donation_coffee_description">Verdammt guter Kaffee… und heiß!</string>
-    <string name="donation_pizza_title">Beste Pizza weit und breit</string>
-    <string name="donation_pizza_description">Bitte mit Zwiebel, Doppelkäse und Salami. Und keine Ananas!</string>
     <string name="settings_sound">Klang</string>
     <string name="action_donate">❤ Spenden ❤</string>
     <string name="message_error_generic">Entschuldigung, es sieht so aus ob ein Fehler aufgetreten ist.</string>
@@ -62,8 +58,6 @@
     <string name="message_lowest_wins">Logik verändert</string>
     <string name="common_vibrate">Vibrieren</string>
     <string name="about_translators_title">Alle Sprachzauberer und Tierliebhaber aufgepasst! Lasst uns unsere geliebte App mit Übersetzungen und witzigen Tier-Spitznamen aufpeppen. Sei dabei und werde genauso cool wie diejenigen, die bereits ihre Großartigkeit eingebracht haben:</string>
-    <string name="donation_xwing_title">Star Wars Miniaturen</string>
-    <string name="donation_xwing_description">Neue X-Wing Miniaturen und neue Farbvarianten.</string>
     <string name="about_testers">Gelegenheitstester\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Du kannst diese Werte in den Einstellungen anpassen</string>
     <string name="history_subtitle">Nur diese Sitzung</string>

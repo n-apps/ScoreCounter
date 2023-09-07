@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3333FF</color>
+    <color name="colorPrimary">#6666cc</color>
     <color name="colorPrimaryVariant">#191980</color>
     <color name="colorOnPrimary">#ffffff</color>
     <color name="colorSecondary">#faa00f</color>
@@ -12,6 +12,6 @@
     <color name="textColorSecondary">#89000016</color>
     <color name="textColorHint">#42000016</color>
     <color name="primaryBackground">#fff</color>
-    <color name="rippleColor">#08FAA00F</color>
+    <color name="rippleColor">#3E3333FF</color>
     <color name="sectionHeader">#ddd</color>
 </resources>

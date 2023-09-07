@@ -38,10 +38,6 @@
     <string name="dialog_no">Нет</string>
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
     <string name="message_thank_you">Спасибо ❤</string>
-    <string name="donation_coffee_title">Кофейком</string>
-    <string name="donation_coffee_description">Черным и горячим</string>
-    <string name="donation_pizza_title">Бигмаком</string>
-    <string name="donation_pizza_description">Пища не на каждый день конечно, но повод достойный!</string>
     <string name="settings_sound">Звук</string>
     <string name="action_donate">Поддержать Разработчика ❤</string>
     <string name="message_error_generic">Произошла ошибка.</string>
@@ -61,8 +57,6 @@
     <string name="settings_switch_tap_logic">Поменять короткое и&#160;долгое нажатие</string>
     <string name="message_lowest_wins">Логика изменилась</string>
     <string name="common_vibrate">Вибрировать</string>
-    <string name="donation_xwing_title">Миниатюры для Star Wars</string>
-    <string name="donation_xwing_description">Новые корабли и схеми раскраски.</string>
     <string name="about_testers">Тестировщики\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">Вы можете изменить эти значения в настройках</string>
     <string name="history_subtitle">только эта сессия</string>

@@ -28,13 +28,7 @@
     <string name="dialog_yes">Да</string>
     <string name="dice_empty_state">Докоснете някъде или разклатете устройството, за да хвърлите заровете</string>
     <string name="dice_previous_result_label">Предишно хвърляне:</string>
-    <string name="donation_coffee_description">Прекрасно кафе... и горещо!</string>
-    <string name="donation_coffee_title">Добро черно кафе</string>
-    <string name="donation_pizza_description">Хм... Или дори борш.</string>
-    <string name="donation_pizza_title">Най-добър дюнер близо до мен</string>
     <string name="message_thank_you">Благодаря ви много за подкрепата ❤</string>
-    <string name="donation_xwing_description">Нови кораби и схеми за боядисване.</string>
-    <string name="donation_xwing_title">Миниатюри от Междузвездни войни</string>
     <string name="dialog_support_me_content">Здравейте, казвам се Рома и съм от Кременчук, Украйна. За съжаление, загубих работата си заради войната в моята страна. Въпреки това взех решение да запазя приложението си без реклами и с пълна функционалност. Ако искате да подкрепите независим самостоятелен разработчик като мен, моля, помислете дали да не направите дарение, еднократно или многократно, в рамките на приложението. Благодаря ви!</string>
     <string name="dialog_support_me_no_thanks">Не, благодаря</string>
     <string name="dialog_support_me_remind_me_later">Не сега</string>

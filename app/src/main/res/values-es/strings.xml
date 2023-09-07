@@ -38,10 +38,6 @@
     <string name="dialog_yes">Sí</string>
     <string name="settings_privacy_policy">Política de privacidad</string>
     <string name="message_thank_you">Muchas gracias por tu apoyo ❤</string>
-    <string name="donation_coffee_title">Un buen café negro</string>
-    <string name="donation_coffee_description">¡Un café buenisimo… y caliente!</string>
-    <string name="donation_pizza_title">La mejor pizza cerca de mi</string>
-    <string name="donation_pizza_description">Con cebolla, queso doble y salami, por favor. ¡Y sin piña!</string>
     <string name="settings_sound">Apoyar al desarrollador</string>
     <string name="action_donate">Hacer una donación ❤</string>
     <string name="message_error_generic">Parece que hubo algún error.</string>
@@ -61,8 +57,6 @@
     <string name="settings_switch_tap_logic">Cambiar pulsación corta y larga</string>
     <string name="message_lowest_wins">La lógica cambió</string>
     <string name="common_vibrate">Vibración</string>
-    <string name="donation_xwing_title">Miniaturas de Star Wars</string>
-    <string name="donation_xwing_description">Nuevas miniaturas con esquemas de pintura alternos.</string>
     <string name="about_testers">Probadores ocasionales\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Puede editar estos valores en la configuración</string>
     <string name="history_subtitle">sólo para la sesión</string>
