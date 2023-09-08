@@ -52,7 +52,6 @@
     <string name="setting_share">Bir arkadaşınıza tavsiye edin</string>
     <string name="settings_about">Uygulama hakkında</string>
     <string name="settings_feedback">Geri bildirim gönderin</string>
-    <string name="settings_section_actions">Eylemler</string>
     <string name="settings_appearance">Görünüm</string>
     <string name="settings_shake_to_roll">Zar atmak için salla</string>
     <string name="settings_sound">Ses</string>

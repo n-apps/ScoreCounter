@@ -55,15 +55,6 @@
         <item name="android:paddingEnd">@dimen/padding_large</item>
     </style>
 
-    <style name="SwitchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
-        <item name="android:paddingEnd">@dimen/padding_normal</item>
-        <item name="android:foreground">@drawable/ripple</item>
-        <item name="android:textSize">@dimen/font_subheading</item>
-        <item name="android:letterSpacing">0.025</item>
-        <item name="android:fontFamily">@font/ptm400</item>
-        <item name="android:colorControlActivated">?android:colorPrimary</item>
-    </style>
-
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
@@ -96,12 +87,6 @@
 
     <style name="MyTextViewStyle" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/ptm400</item>
-    </style>
-
-    <style name="ButtonBarTheme" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?colorPrimary</item>
-        <item name="android:letterSpacing">0.05</item>
-        <item name="fontFamily">@font/ptm700</item>
     </style>
 
     <style name="MaterialButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">

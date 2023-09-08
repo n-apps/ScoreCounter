@@ -25,7 +25,6 @@
     <string name="menu_delete_all_counters">Alles löschen</string>
     <string name="menu_reset_all_counters">Alles wiederherstellen</string>
     <string name="message_you_can_use_long_press">Versuch +/- lange zu drücken</string>
-    <string name="settings_section_actions">Aktionen</string>
     <string name="settings_appearance">Design</string>
     <string name="settings_feedback">Feedback abschicken</string>
     <string name="settings_shake_to_roll">Schütteln zum Rollen</string>

@@ -13,5 +13,4 @@
     <color name="textColorHint">#42000016</color>
     <color name="primaryBackground">#fff</color>
     <color name="rippleColor">#3E3333FF</color>
-    <color name="sectionHeader">#ddd</color>
 </resources>

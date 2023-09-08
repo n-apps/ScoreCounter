@@ -25,7 +25,6 @@
     <string name="menu_delete_all_counters">Видалити всі</string>
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
-    <string name="settings_section_actions">Інформація</string>
     <string name="settings_appearance">Зовнішній вигляд</string>
     <string name="settings_feedback">Зворотній зв\'язок</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>

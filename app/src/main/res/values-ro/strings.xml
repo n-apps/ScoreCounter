@@ -25,7 +25,6 @@
     <string name="menu_delete_all_counters">Sterge tot</string>
     <string name="menu_reset_all_counters">Reseteaza tot</string>
     <string name="message_you_can_use_long_press">Incearca sa apesi lung pe + sau -</string>
-    <string name="settings_section_actions">Actiuni</string>
     <string name="settings_appearance">Aspect</string>
     <string name="settings_feedback">Trimite feedback</string>
     <string name="settings_shake_to_roll">Scutura pentru a da cu zarul</string>
