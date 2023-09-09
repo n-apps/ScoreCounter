@@ -121,7 +121,7 @@
             android:padding="@dimen/padding_large"
             android:text="⁕ ⁕ ⁕ +23 ⁕ ⁕ ⁕"
             android:textAppearance="?attr/textAppearanceCaption"
-            android:textColor="?attr/colorPrimary"
+            android:textColor="?attr/colorPrimaryVariant"
             tools:ignore="HardcodedText" />
     </LinearLayout>
 </ScrollView>

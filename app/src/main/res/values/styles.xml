@@ -52,6 +52,7 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
         <item name="android:paddingStart">@dimen/padding_large</item>
+        <item name="android:paddingStart">@dimen/padding_large</item>
         <item name="android:paddingEnd">@dimen/padding_large</item>
     </style>
 

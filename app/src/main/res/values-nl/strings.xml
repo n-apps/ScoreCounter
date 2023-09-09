@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Scoreteller</string>
-    <string name="settings_rate_app">Waarderen op Google Play</string>
+    <string name="settings_rate_app">Waarderen op Google&#160;Play</string>
     <string name="about_text">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Ik speel graag bordspellen, waarbij Dead of Winter en Terraforming Mars twee van mijn favorieten zijn. Het idee voor deze app kreeg ik tijdens het spelen van Stars Realms (dat verschrikkelijke tokens heeft).\n\nIk besloot deze mobiele app in mijn vrije tijd te ontwikkelen. Elke nieuwe recensie, e-mail of donatie maakt me blij. Als je iets te delen hebt, rommelige vertalingen hebt gevonden, of me gewoon wilt laten weten wat je telt, voel je vrij om contact op te nemen.\n\nIk heb mijn baan verloren door de oorlog in mijn land, maar ik heb besloten deze app gratis te houden, zonder advertenties en met alle functies beschikbaar. Als je een indie-ontwikkelaar (mij) wilt steunen, overweeg dan een kleine donatie binnen de app.\n\nBedankt!</string>
     <string name="action_donate">Steun de ontwikkelaar ❤</string>
     <string name="common_counters">Tellers</string>
@@ -52,7 +52,7 @@
     <string name="setting_share">Aanbevelen aan een vriend</string>
     <string name="settings_about">Over de app</string>
     <string name="settings_feedback">Terugkoppeling verzenden</string>
-    <string name="about_testers">Incidentele testers\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Incidentele testers\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="settings_switch_tap_logic">Wissel lang en kort drukken</string>
     <string name="message_one_more_counter">Nog een</string>
     <string name="share_snippet">Hallo daar! Score Counter helpt je gemakkelijk de score bij te houden in spellen, sport of andere activiteiten. Download hier de gratis Android app:\nhttp://play.google.com/store/apps/details?id=</string>

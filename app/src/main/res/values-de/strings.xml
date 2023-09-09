@@ -50,14 +50,14 @@
     <string name="counter_added">Zähler hinzugefügt</string>
     <string name="message_one_more_counter">Noch einer</string>
     <string name="about_text">Hallo, mein Name ist Roma und ich komme aus Krementschuk, Ukraine. Ich spiele gerne Brettspiele, wobei Dead of Winter und Terraforming Mars zwei meiner Favoriten sind. Die Idee für diese App kam mir beim Spielen von Stars Realms (das schreckliche Spielsteine hat).\n\nIch beschloss, diese mobile App in meiner Freizeit zu entwickeln. Jede neue Bewertung, E-Mail oder Spende macht mich glücklich.\n\nWenn Sie mir etwas mitteilen möchten, eine fehlerhafte Übersetzung gefunden haben oder mich einfach nur wissen lassen möchten, was Sie zählen, können Sie sich gerne melden. Ich habe meinen Job wegen des Krieges in meinem Land verloren, aber ich habe beschlossen, diese App ohne Werbung und mit all ihren Funktionen kostenlos zu halten. Wenn Sie einen Indie-Entwickler (mich) unterstützen möchten, ziehen Sie bitte eine kleine Spende innerhalb der App in Betracht.\n\nIch danke Ihnen!</string>
-    <string name="settings_rate_app">Bei Google Play bewerten</string>
+    <string name="settings_rate_app">Bei Google&#160;Play bewerten</string>
     <string name="settings_about">Über app</string>
     <string name="setting_help_translate">Hilfe bei der Übersetzung</string>
     <string name="settings_switch_tap_logic">Umschalten lang und kurz drücken</string>
     <string name="message_lowest_wins">Logik verändert</string>
     <string name="common_vibrate">Vibrieren</string>
     <string name="about_translators_title">Alle Sprachzauberer und Tierliebhaber aufgepasst! Lasst uns unsere geliebte App mit Übersetzungen und witzigen Tier-Spitznamen aufpeppen. Sei dabei und werde genauso cool wie diejenigen, die bereits ihre Großartigkeit eingebracht haben:</string>
-    <string name="about_testers">Gelegenheitstester\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Gelegenheitstester\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">Du kannst diese Werte in den Einstellungen anpassen</string>
     <string name="history_subtitle">Nur diese Sitzung</string>
     <string name="menu_elektu">Wer fängt an?</string>

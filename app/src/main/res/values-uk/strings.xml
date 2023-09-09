@@ -26,7 +26,7 @@
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
     <string name="settings_appearance">Зовнішній вигляд</string>
-    <string name="settings_feedback">Зворотній зв\'язок</string>
+    <string name="settings_feedback">Написати автору</string>
     <string name="settings_shake_to_roll">Потрусити для кидку</string>
     <string name="settings_stay_awake">Не вимикати екран</string>
     <string name="menu_history">Історія</string>
@@ -50,7 +50,7 @@
     <string name="counter_added">Лічильник додано</string>
     <string name="message_one_more_counter">Ще один</string>
     <string name="about_text">Привіт, мене звуть Рома, я з Кременчука. Мені подобається грати в настільні ігри, серед яких дві мої улюблені - Dead of Winter та Terraforming Mars. Ідея цього додатку прийшла до мене під час гри в Stars Realms (яка має жахливі жетони).\n\nЯ вирішив розробити цей мобільний додаток у свій вільний час. Кожен новий відгук, лист або пожертвування роблять мене щасливим. Якщо вам є чим поділитися, ви знайшли неякісний переклад або просто хочете повідомити мені, що ви порахували, не соромтеся звертатися до мене.\n\nЯ втратив роботу через війну в моїй країні, але я вирішив зберегти цей додаток безкоштовним, без реклами і з усіма його функціями. Якщо ви хочете підтримати інді-розробника (мене), будь ласка, розгляньте можливість зробити донат в додатку.\n\nДякую!</string>
-    <string name="settings_rate_app">Оцінити у Google Play ★</string>
+    <string name="settings_rate_app">Оцініть у Google&#160;Play ★</string>
     <string name="settings_about">Про застосунок</string>
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="settings_switch_tap_logic">Змінити коротке та довге натискання</string>

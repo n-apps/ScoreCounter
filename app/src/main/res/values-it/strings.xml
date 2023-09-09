@@ -50,13 +50,13 @@
     <string name="counter_added">Segnapunti aggiunto</string>
     <string name="message_one_more_counter">Ancora uno</string>
     <string name="about_text">Ciao a tutti, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Mi piace giocare ai giochi da tavolo: Dead of Winter e Terraforming Mars sono due dei miei preferiti. L\'idea di questa applicazione mi è venuta giocando a Stars Realms (che ha delle pedine terribili).\n\nHo deciso di sviluppare questa applicazione mobile nel mio tempo libero. Ogni nuova recensione, e-mail o donazione mi rende felice. Se avete qualcosa da condividere, se avete trovato delle traduzioni non corrette o se volete semplicemente farmi sapere cosa state contando, sentitevi liberi di contattarmi.\n\nHo perso il lavoro a causa della guerra nel mio Paese, ma ho deciso di mantenere questa applicazione gratuita, senza pubblicità e con tutte le sue funzioni disponibili. Se volete sostenere uno sviluppatore indipendente (me), considerate la possibilità di fare una piccola donazione all\'interno dell\'app.\n\nGrazie!</string>
-    <string name="settings_rate_app">Vota su Google Play</string>
+    <string name="settings_rate_app">Vota su Google&#160;Play</string>
     <string name="settings_about">Informazioni sull\'app</string>
     <string name="setting_help_translate">Aiuta a tradurre</string>
     <string name="settings_switch_tap_logic">Passa da un tocco lungo a uno breve</string>
     <string name="message_lowest_wins">Logica modificata</string>
     <string name="common_vibrate">Vibrazione</string>
-    <string name="about_testers">Collaudatori occasionali\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Collaudatori occasionali\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
     <string name="history_subtitle">Solo per questa sessione</string>
     <string name="menu_elektu">A chi tocca per primo?</string>

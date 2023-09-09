@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pontszámláló</string>
-    <string name="settings_rate_app">Értékelés a Google Playen</string>
+    <string name="settings_rate_app">Értékelés a Google&#160;Playen</string>
     <string name="about_text">Sziasztok, az én nevem Roma és az ukrajnai Kremencsukból származom. Szeretek társasjátékokkal játszani, a Dead of Winter és a Terraforming Mars a két kedvencem. Ennek az alkalmazásnak az ötlete a Stars Realms játék közben jutott eszembe, mert borzalmas tokenek vannak benne. Úgy döntöttem, hogy szabadidőmben kifejlesztem ezt a mobilalkalmazást.\n\nMinden új értékelés, e-mail vagy adomány boldoggá tesz.\n\nHa van valami, amit megosztanál velem, találtál valami ügyetlen fordítást, vagy csak szeretnéd, hogy tudjam, mit számolsz az appal, nyugodtan írj nekem. A hazámban zajló háború miatt elvesztettem a munkámat, mégis úgy döntöttem, hogy ezt az alkalmazást ingyenesen, reklámok nélkül és minden funkciójával együtt elérhetővé teszem. Ha szeretnél támogatni egy indie fejlesztőt (engem), kérlek, fontold meg, hogy adsz egy kis adományt az alkalmazáson keresztül. \n\nKöszönöm!</string>
     <string name="action_donate">Vegyél nekem egy ❤</string>
     <string name="common_counters">Pontszámok</string>
@@ -59,7 +59,7 @@
     <string name="share_snippet">Sziasztok! A Pontszámláló segítségével könnyedén követheted a pontszámokat bármilyen játékban, sportban vagy más tevékenységben. Szerezd meg az ingyenes Android alkalmazást itt: http://play.google.com/store/apps/details?id=</string>
     <string name="message_one_more_counter">Még egy</string>
     <string name="settings_switch_tap_logic">Rövid és hosszú gombnyomás felcserélése</string>
-    <string name="about_testers">Alkalmi tesztelők \n\u2690 bleeerr \n\u2690 Moonua</string>
+    <string name="about_testers">Alkalmi tesztelők\n\u2690 bleeerr \n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Hívjuk az összes nyelvi varázslót és állatbarátot! Fűszerezzük fel a kedvenc alkalmazásunkat fordításokkal és vicces állatnevekkel. Csatlakozz a bulihoz és légy olyan menő, mint azok az emberek, akik már hozzáadták saját fantasztikus ötleteiket:</string>
     <string name="settings_change_language">Nyelvváltás</string>
 </resources>

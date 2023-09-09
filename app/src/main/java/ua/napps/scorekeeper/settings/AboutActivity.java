@@ -36,7 +36,7 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("\uD83D\uDC4B");
 
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
-        findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6!", Toast.LENGTH_SHORT).show());
+        findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6", Toast.LENGTH_SHORT).show());
 
         findViewById(R.id.btn_rate_it).setOnClickListener(v -> {
             Utilities.rateApp(this);

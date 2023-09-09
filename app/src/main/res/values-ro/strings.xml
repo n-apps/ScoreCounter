@@ -49,14 +49,14 @@
     <string name="counter_deleted">Contor sters</string>
     <string name="counter_added">Contor adaugat</string>
     <string name="message_one_more_counter">Inca unul</string>
-    <string name="settings_rate_app">Evaluează pe Google Play</string>
+    <string name="settings_rate_app">Evaluează pe Google&#160;Play</string>
     <string name="settings_about">Despre aplicație</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
     <string name="about_text">Bună ziua, mă numesc Roma și sunt din Kremenchuk, Ucraina. Îmi place să joc jocuri de societate, Dead of Winter și Terraforming Mars fiind două dintre preferatele mele.\n\nIdeea pentru această aplicație mi-a venit în timp ce jucam Stars Realms (care are jetoane groaznice). Am decis să dezvolt această aplicație mobilă în timpul meu liber. Fiecare nouă recenzie, e-mail sau donație mă face fericit. Dacă aveți ceva de împărtășit, ați găsit traduceri dezordonate sau pur și simplu vreți să-mi spuneți ce vă numărați, nu ezitați să mă contactați.\n\nMi-am pierdut locul de muncă din cauza războiului din țara mea, dar am decis să păstrez această aplicație gratuită, fără reclame și cu toate funcțiile sale disponibile. Dacă doriți să sprijiniți un dezvoltator independent (eu), vă rog să luați în considerare posibilitatea de a face o mică donație în cadrul aplicației.\n\nVă mulțumesc!</string>
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="message_lowest_wins">Logica a fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
-    <string name="about_testers">Testeri\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Testeri\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">Puteți edita aceste valori în setările</string>
     <string name="history_subtitle">doar această sesiune</string>
     <string name="menu_elektu">Cine începe?</string>

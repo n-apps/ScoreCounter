@@ -50,7 +50,7 @@
     <string name="counter_added">Contador adicionado</string>
     <string name="message_one_more_counter">Mais um</string>MA
     <string name="about_text">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Gosto de jogar jogos de tabuleiro, com Dead of Winter e Terraforming Mars sendo dois dos meus favoritos. A ideia para esta aplicação surgiu-me enquanto jogava Stars Realms (que tem terríveis fichas).\n\nDecidi desenvolver esta aplicação móvel no meu tempo livre. Cada nova revisão, e-mail, ou doação faz-me feliz. Se tem algo para partilhar, se encontrou alguma tradução confusa, ou se apenas me quer dizer o que está a contar, sinta-se à vontade para me contactar. Perdi o meu emprego devido à guerra no meu país, mas decidi manter este aplicativo gratuito sem anúncios e com todas as suas características disponíveis. Se quiserem apoiar um desenvolvedor indie (eu), por favor considerem fazer um pequeno donativo dentro da aplicação.\n\nObrigado!</string>
-    <string name="settings_rate_app">Avalie no Google Play</string>
+    <string name="settings_rate_app">Avalie no Google&#160;Play</string>
     <string name="settings_about">Sobre a app</string>
     <string name="setting_help_translate">Ajude a traduzir</string>
     <string name="settings_switch_tap_logic">Inverter toques curtos e longos</string>

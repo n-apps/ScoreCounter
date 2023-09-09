@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="settings_rate_app">Đánh giá trên Google Play</string>
+    <string name="settings_rate_app">Đánh giá trên Google&#160;Play</string>
     <string name="about_text">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hài lòng. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, vui lòng liên hệ. Tôi đã mất việc do chiến tranh ở đất nước của mình, nhưng tôi đã quyết định giữ cho ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng của ứng dụng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
     <string name="action_donate">Mua cho tôi một ❤</string>
     <string name="app_name">Bộ đếm điểm</string>
@@ -60,6 +60,6 @@
     <string name="share_snippet">Chào bạn! Bộ đếm điểm sẽ giúp bạn dễ dàng ghi điểm trong mọi trò chơi, thể thao hoặc các hoạt động khác. Tải ứng dụng Android miễn phí tại đây:</string>
     <string name="message_one_more_counter">Một lần nữa</string>
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
-    <string name="about_testers">Người thử nghiệm không thường xuyên\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Người thử nghiệm không thường xuyên\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Dịch thuật</string>
 </resources>

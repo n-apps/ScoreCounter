@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="app_name">Contador de puntos</string>
-    <string name="about_testers">Probadores ocasionales\n\u2690 bleeerr\n\u2690 Moonua</string>
+    <string name="about_testers">Probadores ocasionales\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_text">Hola, me llamo Roma y soy de Kremenchuk, Ucrania. Me gusta jugar a juegos de mesa, siendo Dead of Winter y Terraforming Mars dos de mis favoritos. La idea de esta aplicación se me ocurrió mientras jugaba a Stars Realms (que tiene unas fichas terribles).\n\nDecidí desarrollar esta aplicación móvil en mi tiempo libre. Cada nueva reseña, correo electrónico o donación me hace feliz.\n\nSi tienes algo que compartir, has encontrado alguna traducción desordenada o simplemente quieres hacerme saber lo que cuentas, no dudes en ponerte en contacto conmigo.\n\nPerdí mi trabajo debido a la guerra en mi país, pero he decidido mantener esta aplicación gratuita sin anuncios y con todas sus características disponibles. Si quieres apoyar a un desarrollador independiente (yo), por favor considera hacer una pequeña donación dentro de la aplicación.\n\nMuchas gracias.</string>
     <string name="about_translators_title">¡Llamando a todos los magos del lenguaje y los entusiastas de los animales! Vamos a darle un toque de diversión a nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
     <string name="action_donate">Hacer una donación ❤</string>
@@ -54,9 +54,9 @@
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_change_language">Cambiar de idioma</string>
     <string name="settings_counter_title">Contador (incrementos de puntuación)</string>
-    <string name="settings_feedback">Feedback</string>
+    <string name="settings_feedback">Contactar al desarrollador</string>
     <string name="settings_privacy_policy">Política de privacidad</string>
-    <string name="settings_rate_app">Calificar en Google Play ★</string>
+    <string name="settings_rate_app">Calificar en Google&#160;Play ★</string>
     <string name="settings_shake_to_roll">Agita para lanzar un dado</string>
     <string name="settings_sound">Apoyar al desarrollador</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
