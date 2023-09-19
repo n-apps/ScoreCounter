@@ -44,42 +44,22 @@
             android:layout_marginTop="@dimen/spacing_large"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            app:cornerRadius="@dimen/material_button_full_round_corner_radius"
             android:minHeight="@dimen/list_single_line_min_height"
             android:text="@string/action_donate"
             android:textAllCaps="false"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="@dimen/font_title" />
+            android:textSize="@dimen/font_title"
+            app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_remind_later"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
+            android:layout_marginVertical="@dimen/spacing_normal"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_no_thanks"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
-                android:gravity="start|center_vertical"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/padding_normal"
-                android:text="@string/dialog_support_me_no_thanks"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorPrimary" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_remind_later"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="end|center_vertical"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/padding_normal"
-                android:text="@string/dialog_support_me_remind_me_later"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorPrimary" />
-        </LinearLayout>
+            android:gravity="center"
+            android:text="@string/dialog_support_me_remind_me_later"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorPrimary" />
     </LinearLayout>
 </LinearLayout>

@@ -28,8 +28,13 @@ public class DonateDialog extends DialogFragment {
             Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
         } else if (intent instanceof CloseScreenIntent) {
             int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
-
-            Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
+            boolean dueToError = ((CloseScreenIntent) intent).dueToError;
+            if (dueToError) {
+                Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(requireContext().getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
+                LocalSettings.markDonated();
+            }
             dismiss();
         }
     };
@@ -52,13 +57,13 @@ public class DonateDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        return new AlertDialog.Builder(requireContext())
+        AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.action_donate)
-                .setAdapter(adapter, (d, option) -> {
-                    viewModel.launchPurchaseFlow(requireActivity(), option);
-                    LocalSettings.markDonated();
-                })
+                .setAdapter(adapter, null)
                 .create();
+        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption));
+
+        return alertDialog;
     }
 
     @Override

@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.android.billingclient.api.AcknowledgePurchaseParams;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -50,11 +49,11 @@ public class DonateViewModel extends AndroidViewModel {
                 .setListener((billingResult, list) -> {
                     if (billingResult.getResponseCode() == BillingResponseCode.OK && list != null) {
                         for (Purchase purchase : list) {
-                            handlePurchase(purchase, () -> eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you)))
-                            );
+                            handlePurchase(purchase);
                         }
                     } else {
                         if (billingResult.getResponseCode() != BillingResponseCode.USER_CANCELED) {
+                            Timber.e(new BillingStateException("Billing initialisation error :("));
                             eventBus.postValue(new SingleShotEvent<>(new MessageIntent(R.string.message_error_generic)));
                         }
                     }
@@ -71,16 +70,14 @@ public class DonateViewModel extends AndroidViewModel {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     getListsInAppDetail();
                     refreshPurchasesAsync();
-                    Timber.d("Connection Established");
                 } else if (billingResult.getResponseCode() == BillingResponseCode.BILLING_UNAVAILABLE) {
                     Timber.e(new BillingStateException("BILLING_UNAVAILABLE :("));
-                    eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic)));
+                    eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
                 }
             }
 
             @Override
             public void onBillingServiceDisconnected() {
-                Timber.d("Connection NOT Established");
                 establishConnection();
             }
         });
@@ -110,7 +107,7 @@ public class DonateViewModel extends AndroidViewModel {
         ProductDetails productDetails = findProductDetails(productIDs.get(donateOption));
         if (productDetails == null) {
             Timber.e(new BillingStateException("productDetails not found :("));
-            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic)));
+            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
             return;
         }
         productList.add(
@@ -139,23 +136,9 @@ public class DonateViewModel extends AndroidViewModel {
     }
 
 
-    private void handlePurchase(Purchase purchase, @Nullable Runnable onCompleted) {
-        if (!purchase.isAcknowledged()) {
-            billingClient.acknowledgePurchase(AcknowledgePurchaseParams
-                    .newBuilder()
-                    .setPurchaseToken(purchase.getPurchaseToken())
-                    .build(), billingResult -> {
-
-                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                    consumePurchase(purchase);
-                } else {
-                    Timber.e(
-                            new BillingStateException("Couldn't handle purchase: " + purchase.getPurchaseToken()));
-                }
-                if (onCompleted != null) {
-                    onCompleted.run();
-                }
-            });
+    private void handlePurchase(Purchase purchase) {
+        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+            consumePurchase(purchase);
         }
     }
 
@@ -164,7 +147,15 @@ public class DonateViewModel extends AndroidViewModel {
                 .setPurchaseToken(purchase.getPurchaseToken())
                 .build();
 
-        billingClient.consumeAsync(params, (billingResult, s) -> Timber.d("Consuming Successful: %S", s));
+        billingClient.consumeAsync(params, (billingResult, listener) -> {
+            if (billingResult.getResponseCode() == BillingResponseCode.OK) {
+                Timber.d("Consumed successful");
+                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you,false)));
+            } else {
+                Timber.e(new BillingStateException("Consuming unsuccessful :("));
+                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
+            }
+        });
     }
 
     public void refreshPurchasesAsync() {
@@ -177,7 +168,7 @@ public class DonateViewModel extends AndroidViewModel {
                     }
                     if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                         for (Purchase purchase : list) {
-                            handlePurchase(purchase, null);
+                            handlePurchase(purchase);
                         }
                     }
                 });
@@ -186,7 +177,9 @@ public class DonateViewModel extends AndroidViewModel {
 
     @Override
     protected void onCleared() {
-        billingClient.endConnection();
+        if (billingClient != null) {
+            billingClient.endConnection();
+        }
     }
 
     private static class BillingStateException extends RuntimeException {

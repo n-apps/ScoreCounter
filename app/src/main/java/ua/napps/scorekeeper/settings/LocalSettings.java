@@ -22,7 +22,6 @@ public class LocalSettings {
     private static final String KEY_FIRST_HIT_DATE = "key_first_hit_date";
     private static final String KEY_LAUNCH_TIMES = "key_launch_times";
     private static final String KEY_DONATED = "key_donated";
-    private static final String KEY_NEVER_REMINDER = "key_never_reminder";
 
     private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
     private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
@@ -99,14 +98,6 @@ public class LocalSettings {
 
     public static void saveFirstHitDate(long hitCount) {
         App.getTinyDB().putLong(KEY_FIRST_HIT_DATE, hitCount);
-    }
-
-    public static boolean didNeverReminder() {
-        return App.getTinyDB().getBoolean(KEY_NEVER_REMINDER, false);
-    }
-
-    public static void neverReminder() {
-        App.getTinyDB().putBoolean(KEY_NEVER_REMINDER, true);
     }
 
     public static int getCustomCounter(int counterId) {

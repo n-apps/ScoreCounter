@@ -26,7 +26,7 @@ public class RateMyAppDialog {
     }
 
     public void onStart() {
-        if (didRate() || didNeverReminder()) return;
+        if (didDonateAlready()) return;
 
         int launchTimes = LocalSettings.getAppLaunchTimes();
         long firstDate = LocalSettings.getFirstHitDate();
@@ -57,13 +57,10 @@ public class RateMyAppDialog {
         return dialog != null && dialog.isShowing();
     }
 
-    private boolean didRate() {
+    private boolean didDonateAlready() {
         return LocalSettings.didDonate();
     }
 
-    private boolean didNeverReminder() {
-        return LocalSettings.didNeverReminder();
-    }
 
     private void tryShow(FragmentActivity activity) {
         if (isShowing())
@@ -82,7 +79,7 @@ public class RateMyAppDialog {
     }
 
     private boolean shouldShow() {
-        if (didRate() || didNeverReminder()) return false;
+        if (didDonateAlready()) return false;
 
         int launchTimes = LocalSettings.getAppLaunchTimes();
         long firstDate = LocalSettings.getFirstHitDate();
@@ -124,10 +121,6 @@ public class RateMyAppDialog {
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
             remindMeLater();
-            dialog.dismiss();
-        });
-        contentView.findViewById(R.id.btn_no_thanks).setOnClickListener(v -> {
-            LocalSettings.neverReminder();
             dialog.dismiss();
         });
 
