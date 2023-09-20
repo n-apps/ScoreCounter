@@ -23,13 +23,12 @@
     <string name="counter_details_name">Nombre del contador</string>
     <string name="counter_details_step">Incremento</string>
     <string name="counter_details_value">Valor</string>
-    <string name="counters_empty_message">Pulse el "+" en la esquina superior derecha para añadir un nuevo contador</string>
+    <string name="counters_empty_message">Pulse el \"+\" en la esquina superior derecha para añadir un nuevo contador</string>
     <string name="delete">Eliminar</string>
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">Puede editar estos valores en la configuración</string>
     <string name="dialog_support_me_content">Hola, me llamo Roma y soy de Kremenchuk, Ucrania. Por desgracia, perdí mi trabajo debido a la guerra en mi país. Sin embargo, tomé la decisión de mantener mi aplicación, Score Counter, libre de anuncios y con todas las funcionalidades. Si desea apoyar a un desarrollador independiente como yo, por favor considere hacer una donación, ya sea una o varias veces, dentro de la aplicación. Muchas gracias.</string>
-    <string name="dialog_support_me_no_thanks">No, gracias</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>

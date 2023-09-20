@@ -30,7 +30,6 @@
     <string name="dice_previous_result_label">Föregående kast:</string>
     <string name="message_thank_you">Tack så jätte mycket för ditt stöd ❤</string>
     <string name="dialog_support_me_content">Hej, jag heter Roma och kommer från Kremenchuk, Ukraina. Tyvärr förlorade jag mitt jobb på grund av kriget i mitt hemland. Jag tog dock beslutet att behålla min app fri från annonser och behålla all funktionalitet. Om du vill stödja en oberoende soloutvecklare som jag, kan du överväga att göra en donation, antingen en eller flera gånger, i appen. Tack!</string>
-    <string name="dialog_support_me_no_thanks">Nej, tack</string>
     <string name="dialog_support_me_remind_me_later">Inte nu</string>
     <string name="message_error_generic">Förlåt, det verkar ha uppstått ett fel.</string>
     <string name="message_app_not_found">Det finns ingen e-postapp på din enhet :(</string>

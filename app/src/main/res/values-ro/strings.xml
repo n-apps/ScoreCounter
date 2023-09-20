@@ -13,12 +13,11 @@
     <string name="counter_details_name">Numele contorului</string>
     <string name="counter_details_step">Creștere</string>
     <string name="counter_details_value">Valoare curenta</string>
-    <string name="counters_empty_message">Atingeți "+" în colțul din dreapta sus pentru a adăuga un nou contor</string>
+    <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
     <string name="dialog_support_me_content">Bună, numele meu este Roma și sunt din Kremenchuk, Ucraina. Din păcate, mi-am pierdut locul de muncă din cauza războiului din țara mea. Cu toate acestea, am luat decizia de a păstra aplicația mea, Score Counter, fără reclame și cu funcționalitate completă. Dacă doriți să sprijiniți un dezvoltator independent ca mine, vă rog să luați în considerare posibilitatea de a face o donație, fie o dată, fie de mai multe ori, în cadrul aplicației. Vă mulțumesc!</string>
-    <string name="dialog_support_me_no_thanks">Nu, multumesc</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>

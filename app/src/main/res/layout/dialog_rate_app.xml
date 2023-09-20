@@ -54,9 +54,11 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_remind_later"
             style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_marginVertical="@dimen/spacing_normal"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_large"
             android:gravity="center"
             android:text="@string/dialog_support_me_remind_me_later"
             android:textAppearance="?attr/textAppearanceBody2"

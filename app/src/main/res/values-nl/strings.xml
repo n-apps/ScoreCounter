@@ -31,7 +31,6 @@
     <string name="dice_previous_result_label">Vorige worp</string>
     <string name="message_thank_you">Hartelijk dank voor je steun ❤</string>
     <string name="dialog_support_me_content">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Helaas heb ik mijn baan verloren door de oorlog in mijn land. Ik heb echter besloten om mijn app, Score Counter, vrij van advertenties en met volledige functionaliteit te houden. Als je een onafhankelijke ontwikkelaar zoals ik wilt steunen, overweeg dan een eenmalige of meervoudige donatie binnen de app. Bedankt!</string>
-    <string name="dialog_support_me_no_thanks">Nee, bedankt</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="message_error_generic">Sorry, er lijkt iets fout gegaan te zijn.</string>
     <string name="message_app_not_found">Geen e-mail app op je apparaat :(</string>

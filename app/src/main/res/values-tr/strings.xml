@@ -31,7 +31,6 @@
     <string name="dice_previous_result_label">Önceki zar:</string>
     <string name="message_thank_you">Desteğiniz için çok teşekkür ederiz  ❤</string>
     <string name="dialog_support_me_content">Merhaba, benim adım Roma ve Kremenchuk, Ukrayna\'danım. Maalesef ülkemdeki savaş nedeniyle işimi kaybettim. Ancak, uygulamam Skor Sayacı\'ı reklamsız ve tam işlevsellikte tutmaya karar verdim. Benim gibi bağımsız bir geliştiriciyi desteklemek isterseniz, lütfen uygulama içinden bir veya birden fazla kez bağış yapmayı düşünün. Teşekkür ederim!</string>
-    <string name="dialog_support_me_no_thanks">Hayır, teşekkürler</string>
     <string name="dialog_support_me_remind_me_later">Şimdi değil</string>
     <string name="message_error_generic">Üzgünüz, bir hata olmuş gibi görünüyor.</string>
     <string name="message_app_not_found">Cihazınızda e-posta uygulaması yok :(</string>

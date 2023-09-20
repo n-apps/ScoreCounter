@@ -31,7 +31,6 @@
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">You can edit these values in the settings</string>
     <string name="dialog_support_me_content">Hi, my name is Roma and I\'m from Kremenchuk, Ukraine. Unfortunately, I lost my job due to&#160;the war in my&#160;country. However, I made the decision to&#160;keep my app free of&#160;ads and&#160;with full functionality.\n\nIf you\'d like to&#160;support an independent solo developer like me, please consider making a donation, either once or multiple times, within the app. Thank you!</string>
-    <string name="dialog_support_me_no_thanks">No, thanks</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to roll the dice</string>

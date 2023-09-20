@@ -13,12 +13,11 @@
     <string name="counter_details_name">Название счетчика</string>
     <string name="counter_details_step">Инкремент</string>
     <string name="counter_details_value">Текущее значение</string>
-    <string name="counters_empty_message">Нажмите на "+" в правом верхнем углу, чтобы добавить новый счетчик</string>
+    <string name="counters_empty_message">Нажмите на \"+\" в правом верхнем углу, чтобы добавить новый счетчик</string>
     <string name="dice_sides">Количество граней</string>
     <string name="dice_empty_state">Нажмите в любом месте или&#160;встряхните устройство, чтобы бросить кубик</string>
     <string name="dice_previous_result_label">Предыдущий бросок:</string>
     <string name="dialog_support_me_content">Привет, меня зовут Рома и я из Кременчуга, Украина. К сожалению, я потерял работу из-за войны в моей стране. Тем не менее, я принял решение оставить свое приложение без рекламы и с полной функциональностью. Если вы хотите поддержать независимого разработчика (меня), пожалуйста, сделайте пожертвование, один или несколько раз, в приложении. Спасибо!</string>
-    <string name="dialog_support_me_no_thanks">Нет, спасибо</string>
     <string name="dialog_support_me_remind_me_later">Не сейчас</string>
     <string name="message_app_not_found">Невозможно обработать это действие :(</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>

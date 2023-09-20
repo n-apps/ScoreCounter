@@ -23,13 +23,12 @@
     <string name="counter_details_name">Όνομα μετρητή</string>
     <string name="counter_details_step">Αύξηση</string>
     <string name="counter_details_value">Τιμή</string>
-    <string name="counters_empty_message">Πατήστε το κουμπί ""+"" στην πάνω δεξιά γωνία για να προσθέσετε έναν μετρητή</string>
+    <string name="counters_empty_message">Πατήστε το κουμπί \"+\" στην πάνω δεξιά γωνία για να προσθέσετε έναν μετρητή</string>
     <string name="delete">Διαγραφή</string>
     <string name="dialog_confirmation_question">Είστε σίγουρος/η;</string>
     <string name="dialog_no">Όχι</string>
     <string name="dialog_predefined_steps">Μπορείτε να επεξεργαστείτε αυτές τις τιμές στις ρυθμίσεις</string>
     <string name="dialog_support_me_content">Γεια σας, ονομάζομαι Roma και είμαι από το Kremenchuk της Ουκρανίας. Δυστυχώς, έχασα την δουλειά μου λόγω του πολέμου στην χώρα μου, αλλά παρόλα αυτά αποφάσισα να κρατήσω αυτήν την εφαρμογή δωρεάν, χωρίς διαφημίσεις και με όλες της τις δυνατότητες διαθέσιμες. Εάν θα θέλατε να υποστηρίξετε έναν χομπίστα προγραμματιστή, μπορείτε να κάνετε μία ή περισσότερες δωρεές μέσω της εφαρμογής. Σας ευχαριστώ!</string>
-    <string name="dialog_support_me_no_thanks">Όχι, ευχαριστώ</string>
     <string name="dialog_support_me_remind_me_later">Όχι τώρα</string>
     <string name="dialog_yes">Ναι</string>
     <string name="dice_empty_state">Πατήστε οπουδήποτε ή ανακινήστε την συσκευή σας για να ρίξετε το ζάρι</string>

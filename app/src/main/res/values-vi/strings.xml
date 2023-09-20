@@ -20,7 +20,7 @@
     <string name="counter_details_name">Tên bộ đếm</string>
     <string name="counter_details_step">Tăng</string>
     <string name="counter_details_value">Giá trị</string>
-    <string name="counters_empty_message">Nhấn vào nút “+” ở góc trên cùng bên phải để thêm bộ đếm mới</string>
+    <string name="counters_empty_message">Nhấn vào nút \"+\" ở góc trên cùng bên phải để thêm bộ đếm mới</string>
     <string name="delete">Xóa bỏ</string>
     <string name="dialog_confirmation_question">Bạn có chắc không?</string>
     <string name="dice_sides">Mặt xúc xắc tùy chỉnh</string>
@@ -30,7 +30,6 @@
     <string name="dice_previous_result_label">Lần xổ trước:</string>
     <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ ❤</string>
     <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Thật không may, tôi đã mất việc do chiến tranh ở đất nước tôi. Tuy nhiên, tôi đã quyết định giữ cho ứng dụng của mình không có quảng cáo và có đầy đủ chức năng. Nếu bạn muốn hỗ trợ một nhà phát triển solo độc lập như tôi, vui lòng xem xét quyên góp, một lần hoặc nhiều lần, trong ứng dụng. Cảm ơn!</string>
-    <string name="dialog_support_me_no_thanks">Không, cám ơn</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>
     <string name="message_app_not_found">Không có ứng dụng email trên thiết bị của bạn :(</string>

@@ -13,12 +13,11 @@
     <string name="counter_details_name">Nome do contador</string>
     <string name="counter_details_step">Incremento</string>
     <string name="counter_details_value">Valor</string>
-    <string name="counters_empty_message">Toque no botão "+" no canto superior direito para adicionar um contador</string>
+    <string name="counters_empty_message">Toque no botão \"+\" no canto superior direito para adicionar um contador</string>
     <string name="dice_sides">Quantidade de lados</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
     <string name="dice_previous_result_label">Valor anterior:</string>
     <string name="dialog_support_me_content">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Infelizmente, perdi o meu emprego devido à guerra no meu país. No entanto, tomei a decisão de manter a minha aplicação, Score Counter, livre de anúncios e com total funcionalidade. Se quiser apoiar um programador independente como eu, por favor considere fazer uma doação, uma ou várias vezes, dentro da aplicação. Obrigado!</string>
-    <string name="dialog_support_me_no_thanks">Não, obrigado</string>
     <string name="dialog_support_me_remind_me_later">Agora não</string>
     <string name="message_app_not_found">Nenhum aplicativo de email no seu dispositivo :(</string>
     <string name="menu_add_new_counter">Adicionar contador</string>

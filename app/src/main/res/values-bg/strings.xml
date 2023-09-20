@@ -30,7 +30,6 @@
     <string name="dice_previous_result_label">Предишно хвърляне:</string>
     <string name="message_thank_you">Благодаря ви много за подкрепата ❤</string>
     <string name="dialog_support_me_content">Здравейте, казвам се Рома и съм от Кременчук, Украйна. За съжаление, загубих работата си заради войната в моята страна. Въпреки това взех решение да запазя приложението си без реклами и с пълна функционалност. Ако искате да подкрепите независим самостоятелен разработчик като мен, моля, помислете дали да не направите дарение, еднократно или многократно, в рамките на приложението. Благодаря ви!</string>
-    <string name="dialog_support_me_no_thanks">Не, благодаря</string>
     <string name="dialog_support_me_remind_me_later">Не сега</string>
     <string name="message_error_generic">Съжалявам, изглежда е станала грешка.</string>
     <string name="message_app_not_found">На вашето устройство няма приложение за електронна поща :(</string>
