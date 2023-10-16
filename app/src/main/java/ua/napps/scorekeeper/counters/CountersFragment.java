@@ -147,13 +147,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         recyclerView.setAdapter(countersAdapter);
 
         emptyState = contentView.findViewById(R.id.empty_state);
-        emptyState.setOnClickListener(view -> viewModel.addCounter());
+        contentView.findViewById(R.id.btn_add_c).setOnClickListener(view -> viewModel.addCounter());
 
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
-        medium = getResources().getFont(R.font.ptm700);
-        regular = getResources().getFont(R.font.ptm400);
+        medium = getResources().getFont(R.font.o600);
+        regular = getResources().getFont(R.font.o400);
 
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 

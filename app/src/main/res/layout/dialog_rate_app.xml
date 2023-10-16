@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:fontFamily="@font/ptm700"
+            android:fontFamily="@font/o600"
             android:lineSpacingMultiplier="1.33"
             android:text="@string/dialog_support_me_content"
             android:textAppearance="?attr/textAppearanceBody2" />

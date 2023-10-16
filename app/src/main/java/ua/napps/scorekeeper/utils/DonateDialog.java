@@ -3,6 +3,8 @@ package ua.napps.scorekeeper.utils;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -57,8 +59,11 @@ public class DonateDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        final View titleView = LayoutInflater.from(requireContext()).inflate(R.layout.item_donation_title,  null);
+
         AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.action_donate)
+                .setCustomTitle(titleView)
                 .setAdapter(adapter, null)
                 .create();
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption));

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="default_color_list">
-        <item>#212529</item>
-        <item>#f8f9fa</item>
-        <item>#f03e3e</item>
-        <item>#f06595</item>
-        <item>#be4bdb</item>
-        <item>#7048e8</item>
-        <item>#4dabf7</item>
-        <item>#66d9e8</item>
-        <item>#20c997</item>
-        <item>#40c057</item>
-        <item>#82c91e</item>
-        <item>#ffd43b</item>
-        <item>#ff922b</item>
+        <item>#282726</item>
+        <item>#F2F0E5</item>
+        <item>#D14D41</item>
+        <item>#DA702C</item>
+        <item>#D0A215</item>
+        <item>#879A39</item>
+        <item>#3AA99F</item>
+        <item>#4385BE</item>
+        <item>#8B7EC8</item>
+        <item>#CE5D97</item>
     </string-array>
     <string-array name="names">
         <item>T-Rex</item>

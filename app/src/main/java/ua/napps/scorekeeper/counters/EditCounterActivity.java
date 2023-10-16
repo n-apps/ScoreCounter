@@ -111,8 +111,8 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_delete) {
-            Typeface medium = getResources().getFont(R.font.ptm700);
-            Typeface regular = getResources().getFont(R.font.ptm400);
+            Typeface medium = getResources().getFont(R.font.o600);
+            Typeface regular = getResources().getFont(R.font.o400);
             new MaterialDialog.Builder(this)
                     .title(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {

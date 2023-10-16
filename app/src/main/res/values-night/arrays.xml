@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="default_color_list">
+        <item>#343331</item>
+        <item>#E6E4D9</item>
+        <item>#AF3029</item>
+        <item>#BC5215</item>
+        <item>#AD8301</item>
+        <item>#66800B</item>
+        <item>#24837B</item>
+        <item>#205EA6</item>
+        <item>#5E409D</item>
+        <item>#A02F6F</item>
+    </string-array>
+</resources>

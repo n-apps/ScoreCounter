@@ -19,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/spacing_micro"
-        android:fontFamily="@font/ptm700"
+        android:fontFamily="@font/o600"
         android:gravity="start"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintBottom_toTopOf="@+id/tv_item_log_info"

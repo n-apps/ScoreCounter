@@ -38,7 +38,7 @@
                     android:foreground="@drawable/ripple"
                     android:contentDescription="@string/counter_details_name"
                     android:ellipsize="end"
-                    android:fontFamily="@font/ptm700"
+                    android:fontFamily="@font/o600"
                     android:gravity="center_vertical"
                     android:maxLines="1"
                     android:paddingStart="@dimen/padding_normal"

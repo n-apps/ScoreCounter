@@ -2,7 +2,7 @@
 <resources>
     <string name="settings_rate_app">Đánh giá trên Google&#160;Play</string>
     <string name="about_text">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hài lòng. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, vui lòng liên hệ. Tôi đã mất việc do chiến tranh ở đất nước của mình, nhưng tôi đã quyết định giữ cho ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng của ứng dụng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
-    <string name="action_donate">Mua cho tôi một ❤</string>
+    <string name="action_donate">Mua cho tôi một \u263a\ufe0e</string>
     <string name="app_name">Bộ đếm điểm</string>
     <string name="common_counters">Bộ đếm</string>
     <string name="common_dice">Xúc xắc</string>
@@ -28,7 +28,7 @@
     <string name="dialog_yes">Có</string>
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>
     <string name="dice_previous_result_label">Lần xổ trước:</string>
-    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ ❤</string>
+    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u263a\ufe0e</string>
     <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Thật không may, tôi đã mất việc do chiến tranh ở đất nước tôi. Tuy nhiên, tôi đã quyết định giữ cho ứng dụng của mình không có quảng cáo và có đầy đủ chức năng. Nếu bạn muốn hỗ trợ một nhà phát triển solo độc lập như tôi, vui lòng xem xét quyên góp, một lần hoặc nhiều lần, trong ứng dụng. Cảm ơn!</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>

@@ -3,7 +3,7 @@
     <string name="app_name">Scoreteller</string>
     <string name="settings_rate_app">Waarderen op Google&#160;Play</string>
     <string name="about_text">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Ik speel graag bordspellen, waarbij Dead of Winter en Terraforming Mars twee van mijn favorieten zijn. Het idee voor deze app kreeg ik tijdens het spelen van Stars Realms (dat verschrikkelijke tokens heeft).\n\nIk besloot deze mobiele app in mijn vrije tijd te ontwikkelen. Elke nieuwe recensie, e-mail of donatie maakt me blij. Als je iets te delen hebt, rommelige vertalingen hebt gevonden, of me gewoon wilt laten weten wat je telt, voel je vrij om contact op te nemen.\n\nIk heb mijn baan verloren door de oorlog in mijn land, maar ik heb besloten deze app gratis te houden, zonder advertenties en met alle functies beschikbaar. Als je een indie-ontwikkelaar (mij) wilt steunen, overweeg dan een kleine donatie binnen de app.\n\nBedankt!</string>
-    <string name="action_donate">Steun de ontwikkelaar ❤</string>
+    <string name="action_donate">Steun de ontwikkelaar \u263a\ufe0e</string>
     <string name="common_counters">Tellers</string>
     <string name="common_dice">Dobbelstenen</string>
     <string name="common_settings">Instellingen</string>
@@ -29,7 +29,7 @@
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>
     <string name="dice_previous_result_label">Vorige worp</string>
-    <string name="message_thank_you">Hartelijk dank voor je steun ❤</string>
+    <string name="message_thank_you">Hartelijk dank voor je steun \u263a\ufe0e</string>
     <string name="dialog_support_me_content">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Helaas heb ik mijn baan verloren door de oorlog in mijn land. Ik heb echter besloten om mijn app, Score Counter, vrij van advertenties en met volledige functionaliteit te houden. Als je een onafhankelijke ontwikkelaar zoals ik wilt steunen, overweeg dan een eenmalige of meervoudige donatie binnen de app. Bedankt!</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="message_error_generic">Sorry, er lijkt iets fout gegaan te zijn.</string>

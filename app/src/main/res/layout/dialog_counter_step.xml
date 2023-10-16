@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:ellipsize="end"
-            android:fontFamily="@font/ptm700"
+            android:fontFamily="@font/o600"
             android:gravity="center_vertical"
             android:includeFontPadding="false"
             android:maxLines="1"

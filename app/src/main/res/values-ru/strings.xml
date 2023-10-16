@@ -35,9 +35,9 @@
     <string name="dialog_yes">Да</string>
     <string name="dialog_no">Нет</string>
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
-    <string name="message_thank_you">Спасибо ❤</string>
+    <string name="message_thank_you">Спасибо \u263a\ufe0e</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Поддержать Разработчика ❤</string>
+    <string name="action_donate">Поддержать Разработчика \u263a\ufe0e</string>
     <string name="message_error_generic">Произошла ошибка.</string>
     <string name="action_save">Сохранить</string>
     <string name="common_more">Больше</string>

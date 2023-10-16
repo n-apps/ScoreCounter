@@ -102,7 +102,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 keepScreenOn.setChecked(newStateKeepScreenOn, true);
                 break;
             case R.id.tv_app_theme:
-                Typeface medium = getResources().getFont(R.font.ptm700);
+                Typeface medium = getResources().getFont(R.font.o600);
 
                 int theme = LocalSettings.getDefaultTheme();
                 final int currentMode;
@@ -198,7 +198,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
-        Typeface medium = getResources().getFont(R.font.ptm700);
+        Typeface medium = getResources().getFont(R.font.o600);
         Typeface regular = getResources().getFont(R.font.icm400);
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())

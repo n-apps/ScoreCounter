@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_normal"
-        android:fontFamily="@font/ptm700"
+        android:fontFamily="@font/o600"
         android:gravity="center"
         android:minHeight="@dimen/list_single_line_min_height"
         android:foreground="@drawable/ripple"

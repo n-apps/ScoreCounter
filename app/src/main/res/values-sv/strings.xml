@@ -2,7 +2,7 @@
 <resources>
     <string name="settings_rate_app">Betygsätt min app</string>
     <string name="about_text">Hej, jag heter Roma och kommer från Kremenchuk, Ukraina. Jag gillar att spela brädspel, där Dead of Winter och Terraforming Mars är två av mina favoriter. Jag fick iden för denna appen när jag splade Stars Realms (som har fruktansvärda spel tokens).\n\nJag bestämde mig för att utveckla den här mobilappen på min fritid. Varje ny recension, e-post eller donation gör mig glad. Om du har något du vill dela med dig av, har hittat en märklig översättning eller bara vill dela med dig av vad du räknar, är du välkommen att höra av dig.\n\nJag förlorade mitt jobb på grund av kriget i mitt land, men jag har bestämt mig för att hålla den här appen gratis och utan reklam samt behålla alla funktioner. Om du vill stödja en indieutvecklare (mig), vänligen överväg att göra en liten donation via appen.\n\nTack!</string>
-    <string name="action_donate">Köp mig en ❤</string>
+    <string name="action_donate">Köp mig en \u263a\ufe0e</string>
     <string name="app_name">Poängräknare</string>
     <string name="common_counters">Räknare</string>
     <string name="common_dice">Tärning</string>
@@ -28,7 +28,7 @@
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Tryck var som helst eller skaka enheten för att kasta tärningarna.</string>
     <string name="dice_previous_result_label">Föregående kast:</string>
-    <string name="message_thank_you">Tack så jätte mycket för ditt stöd ❤</string>
+    <string name="message_thank_you">Tack så jätte mycket för ditt stöd \u263a\ufe0e</string>
     <string name="dialog_support_me_content">Hej, jag heter Roma och kommer från Kremenchuk, Ukraina. Tyvärr förlorade jag mitt jobb på grund av kriget i mitt hemland. Jag tog dock beslutet att behålla min app fri från annonser och behålla all funktionalitet. Om du vill stödja en oberoende soloutvecklare som jag, kan du överväga att göra en donation, antingen en eller flera gånger, i appen. Tack!</string>
     <string name="dialog_support_me_remind_me_later">Inte nu</string>
     <string name="message_error_generic">Förlåt, det verkar ha uppstått ett fel.</string>

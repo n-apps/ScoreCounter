@@ -154,7 +154,7 @@
                     android:id="@+id/et_counter_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/ptm700"
+                    android:fontFamily="@font/o600"
                     android:gravity="center"
                     android:imeOptions="actionDone"
                     android:inputType="textCapSentences|textAutoComplete|textAutoCorrect|textPersonName"

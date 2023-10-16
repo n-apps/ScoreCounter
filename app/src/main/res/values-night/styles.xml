@@ -35,10 +35,16 @@
         <item name="md_btn_ripple_color">@color/rippleColor</item>
     </style>
 
-    <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar">
+    <style name="ToolBarStyle" parent="Widget.MaterialComponents.Toolbar.Surface">
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
-        <item name="android:background">@color/primaryBackground</item>
+        <item name="titleTextAppearance">@style/TextAppearance.App.Toolbar.Title</item>
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
         <item name="theme">@style/AppTheme.AppBarOverlay</item>
+    </style>
+
+    <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/o600</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />

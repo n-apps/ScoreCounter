@@ -46,7 +46,7 @@ public class DonateAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         @SuppressLint("ViewHolder")
-        View v = LayoutInflater.from(context).inflate(R.layout.item_donation, null);
+        final View v = LayoutInflater.from(context).inflate(R.layout.item_donation, null);
 
         if (!productDetails.isEmpty()) {
             ProductDetails productDetail = productDetails.get(position);
@@ -67,11 +67,11 @@ public class DonateAdapter extends BaseAdapter {
         switch (productDetail.getProductId()) {
             default:
             case "buy_me_a_coffee":
-                return R.drawable.inapp_coffee;
+                return R.drawable.in_app_coffee;
             case "buy_me_a_pizza":
-                return R.drawable.inapp_food;
+                return R.drawable.in_app_food;
             case "buy_me_a_xwing":
-                return R.drawable.inapp_miniature;
+                return R.drawable.in_app_xwing;
         }
     }
 
