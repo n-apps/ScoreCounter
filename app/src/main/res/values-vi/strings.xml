@@ -28,7 +28,7 @@
     <string name="dialog_yes">Có</string>
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>
     <string name="dice_previous_result_label">Lần xổ trước:</string>
-    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u263a\ufe0e</string>
+    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Thật không may, tôi đã mất việc do chiến tranh ở đất nước tôi. Tuy nhiên, tôi đã quyết định giữ cho ứng dụng của mình không có quảng cáo và có đầy đủ chức năng. Nếu bạn muốn hỗ trợ một nhà phát triển solo độc lập như tôi, vui lòng xem xét quyên góp, một lần hoặc nhiều lần, trong ứng dụng. Cảm ơn!</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>

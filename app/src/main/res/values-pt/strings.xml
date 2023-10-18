@@ -35,7 +35,7 @@
     <string name="dialog_yes">Sim</string>
     <string name="dialog_no">Não</string>
     <string name="settings_privacy_policy">Política de privacidade</string>
-    <string name="message_thank_you">Obrigado \u263a\ufe0e</string>
+    <string name="message_thank_you">Obrigado! \u2665\ufe0e</string>
     <string name="settings_sound">Som</string>
     <string name="action_donate">Doar \u263a\ufe0e</string>
     <string name="message_error_generic">Desculpe, parece que ocorreu um erro.</string>

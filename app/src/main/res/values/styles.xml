@@ -72,7 +72,8 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>
         <item name="android:padding">@dimen/spacing_micro</item>
-        <item name="android:fontFamily">@font/icm400</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/azm</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="autoSizeMaxTextSize">@dimen/font_display</item>
         <item name="autoSizeMinTextSize">@dimen/font_body</item>
@@ -121,6 +122,8 @@
     <style name="DiceButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">?colorSecondary</item>
         <item name="strokeWidth">2dp</item>
+        <item name="android:fontFamily">@font/azm</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:padding">@dimen/padding_normal</item>
         <item name="android:textColor">?colorSecondary</item>
         <item name="backgroundTint">@color/outline_button_selector</item>

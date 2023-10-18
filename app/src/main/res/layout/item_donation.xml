@@ -22,16 +22,16 @@
         app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginBottom="@dimen/spacing_normal"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Good Black Coffee Coffee Coffee" />
+        tools:text="Good Black Coffee" />
 
     <TextView
         android:id="@+id/price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/icm400"
+        android:fontFamily="@font/azm"
         android:textAppearance="?attr/textAppearanceBody2"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textColor="@color/textColorSecondary"
+        android:textColor="?android:attr/textColorSecondary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/title"

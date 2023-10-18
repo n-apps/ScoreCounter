@@ -28,7 +28,7 @@
     <string name="dialog_yes">Igen</string>
     <string name="dice_empty_state">Bökj bárhová vagy rázd meg a készüléket a kockadobáshoz!</string>
     <string name="dice_previous_result_label">Előző dobás:</string>
-    <string name="message_thank_you">Köszönöm szépen a támogatást \u263a\ufe0e</string>
+    <string name="message_thank_you">Köszönöm szépen a támogatást \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Szia, a nevem Roma. Kremencsukból, Ukrajnából származom. Sajnos elvesztettem a munkámat a hazámban zajló háború miatt. Azonban úgy döntöttem, hogy az alkalmazásom így is reklám mentes és teljes funkcionalitású maradjon. Ha szeretnél támogatni egy hozzám hasonló független, önálló fejlesztőt, kérlek, fontold meg, hogy adományozol, akár egyszer vagy többször, az alkalmazáson belül. Köszönöm!</string>
     <string name="dialog_support_me_remind_me_later">Most nem</string>
     <string name="message_error_generic">Elnézést, úgy tűnik, hiba történt.</string>

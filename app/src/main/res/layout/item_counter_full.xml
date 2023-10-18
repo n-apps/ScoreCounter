@@ -15,6 +15,7 @@
         android:layout_marginBottom="@dimen/spacing_micro"
         android:layout_marginTop="@dimen/spacing_micro"
         app:cardCornerRadius="8dp"
+
         app:cardElevation="1dp"
         tools:cardBackgroundColor="#F2B04B">
 
@@ -63,16 +64,13 @@
                     android:src="@drawable/ic_edit" />
             </LinearLayout>
 
-            <com.google.android.material.card.MaterialCardView
+            <FrameLayout
                 android:id="@+id/counter_interaction_area"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="0dp"
-                app:cardElevation="0dp"
-                app:rippleColor="#0D000000">
+                android:foreground="@drawable/ripple"
+                android:focusable="true">
 
                 <TextView
                     android:id="@+id/tv_counter_value"
@@ -81,11 +79,12 @@
                     android:layout_gravity="center"
                     android:clickable="false"
                     android:contentDescription="@string/counter_details_value"
-                    android:fontFamily="@font/icm400"
+                    android:fontFamily="@font/azm"
                     android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:foreground="@android:color/transparent"
                     android:lines="1"
                     android:paddingStart="40dp"
-                    android:foreground="@drawable/ripple"
                     android:paddingEnd="40dp"
                     android:textColor="?android:attr/textColorPrimary"
                     app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
@@ -117,7 +116,7 @@
                     android:clickable="false"
                     android:contentDescription="@string/common_increase"
                     android:src="@drawable/ic_plus" />
-            </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>

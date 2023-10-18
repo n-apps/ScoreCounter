@@ -11,8 +11,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
-ext.versionMinor = 4
-ext.versionPatch = 6
+ext.versionMinor = 5
+ext.versionPatch = 0
 ext.postfix = ''
 
 android {
@@ -25,11 +25,19 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         versionCode generateVersionCode()
         versionName generateVersionName()
-        resourceConfigurations += [ 'en', 'ru', 'uk', 'fr', 'de', 'es', 'ro', 'pl', 'pt', 'cs', 'nl', 'it', 'tr', 'hu', 'sv', 'vi', 'bg', 'el']
 
         manifestPlaceholders += [
                 crashlyticsEnabled: false
         ]
+    }
+    androidResources {
+        generateLocaleConfig true
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
     }
 
     signingConfigs {
@@ -59,10 +67,11 @@ android {
         sourceCompatibility 1.8
     }
     buildToolsVersion '34.0.0'
+    namespace 'ua.napps.scorekeeper'
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'

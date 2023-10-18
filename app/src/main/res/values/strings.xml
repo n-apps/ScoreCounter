@@ -48,7 +48,7 @@
     <string name="message_lowest_wins">Logic changed</string>
     <string name="message_app_not_found">No application found to handle this action :(</string>
     <string name="message_one_more_counter">One more</string>
-    <string name="message_thank_you">Thanks for your support \u263a\ufe0e</string>
+    <string name="message_thank_you">Thanks for your support \u2665\ufe0e</string>
     <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>
     <string name="setting_help_translate">Help Translate</string>
     <string name="setting_share">Recommend to a Friend</string>

@@ -12,7 +12,7 @@
     android:layout_marginBottom="@dimen/spacing_micro"
     app:cardCornerRadius="4dp"
     app:cardElevation="1dp"
-    tools:backgroundTint="#9B8FFF">
+    tools:backgroundTint="#3AA99F">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,41 +32,45 @@
             android:gravity="center_vertical"
             android:maxLines="2"
             android:paddingStart="@dimen/padding_normal"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:autoSizeMaxTextSize="@dimen/font_display"
-            app:autoSizeMinTextSize="10sp"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            app:autoSizeMaxTextSize="@dimen/font_title"
+            app:autoSizeMinTextSize="8sp"
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
-            tools:text="@tools:sample/full_names" />
+            tools:text="гвинтики"
+            tools:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/iv_decrease"
             android:layout_width="@dimen/list_two_lines_min_height"
             android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="@dimen/spacing_normal"
             android:alpha="0.54"
             android:contentDescription="@string/common_increase"
             android:foreground="@drawable/ripple"
             android:scaleType="center"
-            android:src="@drawable/ic_minus" />
+            android:src="@drawable/ic_minus"
+            tools:tint="@android:color/primary_text_dark" />
 
         <TextView
             android:id="@+id/tv_counter_value"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:fontFamily="@font/azm"
             android:foreground="@drawable/ripple"
-            android:fontFamily="@font/icm400"
+            android:includeFontPadding="false"
             android:gravity="center"
             android:lines="1"
+            android:minEms="2"
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="?android:attr/textColorPrimary"
             app:autoSizeMaxTextSize="34sp"
             app:autoSizeMinTextSize="@dimen/counter_min_text_size"
             app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
-            tools:text="24" />
+            tools:text="24"
+            tools:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/iv_increase"
@@ -74,10 +78,11 @@
             android:layout_height="@dimen/list_two_lines_min_height"
             android:layout_gravity="end|center_vertical"
             android:alpha="0.54"
-            android:foreground="@drawable/ripple"
             android:contentDescription="@string/common_decrease"
+            android:foreground="@drawable/ripple"
             android:scaleType="center"
-            android:src="@drawable/ic_plus" />
+            android:src="@drawable/ic_plus"
+            tools:tint="@android:color/primary_text_dark" />
 
     </LinearLayout>
 

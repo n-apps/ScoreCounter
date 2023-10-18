@@ -12,5 +12,5 @@
     <color name="textColorSecondary">#DEFFFFFF</color>
     <color name="textColorHint">#89FFFFFF</color>
     <color name="primaryBackground">#181821</color>
-    <color name="rippleColor">#60D6D6EC</color>
+    <color name="rippleColor">#33dfe3ff</color>
 </resources>

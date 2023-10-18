@@ -45,7 +45,7 @@
     <string name="message_error_generic">Parece que hubo algún error.</string>
     <string name="message_lowest_wins">La lógica cambió</string>
     <string name="message_one_more_counter">Uno mas</string>
-    <string name="message_thank_you">Muchas gracias por tu apoyo \u263a\ufe0e</string>
+    <string name="message_thank_you">Muchas gracias por tu apoyo \u2665\ufe0e</string>
     <string name="message_you_can_use_long_press">Intenta presionar durante más tiempo + o -</string>
     <string name="setting_help_translate">Ayúdanos a traducir</string>
     <string name="setting_share">Recomendar a un amigo</string>
