@@ -108,12 +108,12 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceSide(20);
                         break;
                     case R.id.btn_4:
+                        Typeface regular = getResources().getFont(R.font.azm);
                         Typeface medium = getResources().getFont(R.font.o600);
-                        Typeface regular = getResources().getFont(R.font.o400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dice_sides)
-                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
                                 .contentColorRes(R.color.textColorPrimary)
                                 .buttonRippleColorRes(R.color.rippleColor)
@@ -185,12 +185,12 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceCount(4);
                         break;
                     case R.id.btn_x4:
+                        Typeface regular = getResources().getFont(R.font.azm);
                         Typeface medium = getResources().getFont(R.font.o600);
-                        Typeface regular = getResources().getFont(R.font.o400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dice_sides)
-                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                                 .positiveText(R.string.common_set)
                                 .contentColorRes(R.color.textColorPrimary)
                                 .buttonRippleColorRes(R.color.rippleColor)

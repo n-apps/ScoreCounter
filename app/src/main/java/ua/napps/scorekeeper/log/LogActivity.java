@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.log;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -78,8 +77,6 @@ public class LogActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_delete) {
-            Typeface medium = getResources().getFont(R.font.o600);
-            Typeface regular = getResources().getFont(R.font.o400);
             new MaterialDialog.Builder(this)
                     .title(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
@@ -94,7 +91,6 @@ public class LogActivity extends AppCompatActivity {
                             content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                         }
                     })
-                    .typeface(medium, regular)
                     .positiveText(R.string.dialog_yes)
                     .negativeText(R.string.dialog_no)
                     .show();

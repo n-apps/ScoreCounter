@@ -210,7 +210,7 @@
                 android:includeFontPadding="false"
                 android:gravity="center_vertical"
                 android:imeOptions="actionDone"
-                android:inputType="numberPassword"
+                android:inputType="numberSigned"
                 android:maxLength="9"
                 android:maxLines="1"
                 android:minWidth="140dp"

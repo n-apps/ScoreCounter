@@ -102,6 +102,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 keepScreenOn.setChecked(newStateKeepScreenOn, true);
                 break;
             case R.id.tv_app_theme:
+                Typeface regular = getResources().getFont(R.font.o400);
                 Typeface medium = getResources().getFont(R.font.o600);
 
                 int theme = LocalSettings.getDefaultTheme();
@@ -152,7 +153,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                             return true;
                         })
                         .items(getResources().getStringArray(R.array.app_theme_options))
-                        .typeface(medium, medium)
+                        .typeface(medium, regular)
                         .show();
 
                 break;
@@ -198,12 +199,12 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
-        Typeface medium = getResources().getFont(R.font.o600);
         Typeface regular = getResources().getFont(R.font.azm);
+        Typeface medium = getResources().getFont(R.font.o600);
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.settings_counter_title)
-                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .contentColorRes(R.color.textColorPrimary)
                 .buttonRippleColorRes(R.color.rippleColor)
@@ -219,7 +220,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                         inputEditText.requestFocus();
                         inputEditText.setTransformationMethod(null);
                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
-                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                     }
                 })
                 .onPositive((dialog, which) -> {
