@@ -17,7 +17,7 @@
     <string name="dice_sides">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_previous_result_label">Poprzedni rzut:</string>
-    <string name="dialog_support_me_content">Cześć, mam na imię Roma i pochodzę z Kremenchuk na Ukrainie. Niestety, straciłem pracę z powodu wojny w moim kraju. Jednak zdecydowałem się utrzymać moją aplikację, Score Counter, wolną od reklam i z pełną funkcjonalnością. Jeśli chciałbyś wesprzeć niezależnego dewelopera, takiego jak ja, proszę rozważ dokonanie darowizny, jednorazowo lub wielokrotnie, w ramach aplikacji. Dziękuję!</string>
+    <string name="dialog_support_me_content">Cześć, nazywam się Roma i pochodzę z Kremenczuk, Ukraina. Nie jestem programistą i pracuję nad tą aplikacją w wolnym czasie.\n\nMimo wojny w moim kraju, postanowiłem zachować tę aplikację jako bezpłatną i całkowicie bez reklam. Jeśli chcielibyście wesprzeć niezależnego dewelopera (mnie), rozważcie proszę wpłatę w aplikacji. Dziękuję!</string>
     <string name="dialog_support_me_remind_me_later">Nie teraz</string>
     <string name="message_app_not_found">Brak aplikacji email na twoim urządzeniu :(</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
@@ -51,7 +51,7 @@
     <string name="settings_rate_app">Oceń w Google&#160;Play</string>
     <string name="settings_about">O aplikacji</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
-    <string name="about_text">Cześć, mam na imię Roma i pochodzę z Kremenchuk na Ukrainie. Lubię grać w gry planszowe, a Dead of Winter i Terraformacja Marsa to dwie z moich ulubionych gier. Pomysł na tę aplikację przyszedł mi podczas gry w Stars Realms (która ma straszne żetony). Postanowiłem stworzyć tę aplikację mobilną w wolnym czasie. Każda nowa recenzja, e-mail lub darowizna sprawia, że jestem szczęśliwy. Jeśli masz coś do przekazania, znalazłeś jakieś niechlujne tłumaczenia lub po prostu chcesz dać mi znać, co liczysz, nie krępuj się. Straciłem pracę z powodu wojny w moim kraju, ale zdecydowałem się utrzymać tę aplikację za darmo bez reklam i ze wszystkimi jej funkcjami dostępnymi. Jeśli chcesz wesprzeć dewelopera indie (ja), proszę rozważyć dokonanie małej darowizny w ramach aplikacji. Dziękuję!</string>
+    <string name="about_text">Cześć, nazywam się Roma i pochodzę z Kremenczuk, Ukraina. Gram w gry planszowe od ponad 10 lat. Pomysł na tę aplikację przyszedł mi do głowy podczas rozgrywki w Stars Realms (które ma okropne żetony).\n\nNie jestem programistą i pracuję nad tą aplikacją w wolnym czasie. Każda z wasza opinia, wasz e-mail lub darowizna sprawia, że jestem trochę szczęśliwsza. Jeśli macie coś do podzielenia się, potrzebujecie pomocy z tłumaczeniem lub po prostu chcecie podzielić się, czym się teraz zajmujecie, śmiało się do mnie zgłoście.\n\nMimo wojny w moim kraju, zdecydowałam się, żeby ta aplikacja pozostała darmowa i bez reklam. Jeśli chcielibyście wesprzeć niezależnego twórcę (mnie), rozważcie możliwość dokonania darowizny w aplikacji.\n\nDziękuję!</string>
     <string name="settings_switch_tap_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="message_lowest_wins">Logika się zmieniła</string>
     <string name="common_vibrate">Wibracje</string>

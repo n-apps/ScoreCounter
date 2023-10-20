@@ -17,7 +17,7 @@
     <string name="dice_sides">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>
     <string name="dice_previous_result_label">Lancé précédent:</string>
-    <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. Malheureusement, j\'ai perdu mon travail à cause de la guerre dans mon pays. Cependant, j\'ai pris la décision de garder mon application, Score Counter, sans publicité et avec toutes ses fonctionnalités. Si vous souhaitez soutenir un développeur indépendant comme moi, pensez à faire un don, une ou plusieurs fois, dans l\'application. Merci à tous !</string>
+    <string name="dialog_support_me_content">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je ne suis pas un développeur et je travaille sur cette application pendant mon temps libre.\n\nMalgré la guerre dans mon pays, j\'ai décidé de maintenir cette application gratuite et sans publicité. Si vous souhaitez soutenir un développeur indépendant (moi), merci de envisager de faire un don dans l\'application. Merci !</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="message_app_not_found">Aucune application trouvée pour gérer cette action :(</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>

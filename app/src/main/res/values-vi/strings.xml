@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="settings_rate_app">Đánh giá trên Google&#160;Play</string>
-    <string name="about_text">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hài lòng. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, vui lòng liên hệ. Tôi đã mất việc do chiến tranh ở đất nước của mình, nhưng tôi đã quyết định giữ cho ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng của ứng dụng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
+    <string name="about_text">Xin chào, tôi tên là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi đã chơi các trò chơi bàn trong hơn 10 năm. Ý tưởng cho ứng dụng này xuất hiện trong tôi khi tôi đang chơi Stars Realms (mà có các viên nặng kém).\n\nTôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi. Mỗi phản hồi của bạn, địa chỉ email hoặc sự ủng hộ tài chính khiến tôi hạnh phúc một chút. Nếu bạn có điều gì đó để chia sẻ, muốn giúp đỡ về bản dịch, hoặc chỉ muốn chia sẻ điều bạn đang tính, đừng ngần ngại liên hệ với tôi.\n\nBất kể cuộc chiến tranh đang diễn ra ở quê hương tôi, tôi quyết định giữ cho ứng dụng này miễn phí và không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), xin hãy xem xét ủng hộ thông qua ứng dụng.\n\nCảm ơn bạn!</string>
     <string name="action_donate">Mua cho tôi một \u263a\ufe0e</string>
     <string name="app_name">Bộ đếm điểm</string>
     <string name="common_counters">Bộ đếm</string>
@@ -29,7 +29,7 @@
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>
     <string name="dice_previous_result_label">Lần xổ trước:</string>
     <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u2665\ufe0e</string>
-    <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraine. Thật không may, tôi đã mất việc do chiến tranh ở đất nước tôi. Tuy nhiên, tôi đã quyết định giữ cho ứng dụng của mình không có quảng cáo và có đầy đủ chức năng. Nếu bạn muốn hỗ trợ một nhà phát triển solo độc lập như tôi, vui lòng xem xét quyên góp, một lần hoặc nhiều lần, trong ứng dụng. Cảm ơn!</string>
+    <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraina. Tôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi.\n\nBất kể cuộc chiến tranh diễn ra ở đất nước của tôi, tôi quyết định giữ ứng dụng này miễn phí và hoàn toàn không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), vui lòng xem xét quyên góp trong ứng dụng. Cảm ơn!</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>
     <string name="message_app_not_found">Không có ứng dụng email trên thiết bị của bạn :(</string>

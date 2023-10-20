@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Pontszámláló</string>
     <string name="settings_rate_app">Értékelés a Google&#160;Playen</string>
-    <string name="about_text">Sziasztok, az én nevem Roma és az ukrajnai Kremencsukból származom. Szeretek társasjátékokkal játszani, a Dead of Winter és a Terraforming Mars a két kedvencem. Ennek az alkalmazásnak az ötlete a Stars Realms játék közben jutott eszembe, mert borzalmas tokenek vannak benne. Úgy döntöttem, hogy szabadidőmben kifejlesztem ezt a mobilalkalmazást.\n\nMinden új értékelés, e-mail vagy adomány boldoggá tesz.\n\nHa van valami, amit megosztanál velem, találtál valami ügyetlen fordítást, vagy csak szeretnéd, hogy tudjam, mit számolsz az appal, nyugodtan írj nekem. A hazámban zajló háború miatt elvesztettem a munkámat, mégis úgy döntöttem, hogy ezt az alkalmazást ingyenesen, reklámok nélkül és minden funkciójával együtt elérhetővé teszem. Ha szeretnél támogatni egy indie fejlesztőt (engem), kérlek, fontold meg, hogy adsz egy kis adományt az alkalmazáson keresztül. \n\nKöszönöm!</string>
+    <string name="about_text">Szia, a nevem Roma, és Kremenchukból, Ukrajnából származom. Több mint 10 éve játszom társasjátékokkal. Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Stars Realms játékot játszottam (amelynek szörnyű zsetonjai vannak).\n\nNem vagyok fejlesztő, és a szabadidőmben dolgozom ezen az alkalmazáson. Minden visszajelzésed, e-mailcímed vagy adományod kicsit boldoggá tesz. Ha van valamid megosztani, segítségre van szükséged a fordításhoz, vagy csak szeretnél valamit megosztani, ne habozz kapcsolatba lépni velem.\n\nAnnak ellenére, hogy háború zajlik az országomban, úgy döntöttem, hogy ezt az alkalmazást ingyenesen és teljesen hirdetésmentesen tartom. Ha támogatni szeretnéd a független fejlesztőt (engem), fontold meg az alkalmazáson belüli adományozást.\n\nKöszönöm!</string>
     <string name="action_donate">Vegyél nekem egy \u263a\ufe0e</string>
     <string name="common_counters">Pontszámok</string>
     <string name="common_dice">Kockák</string>
@@ -29,7 +29,7 @@
     <string name="dice_empty_state">Bökj bárhová vagy rázd meg a készüléket a kockadobáshoz!</string>
     <string name="dice_previous_result_label">Előző dobás:</string>
     <string name="message_thank_you">Köszönöm szépen a támogatást \u2665\ufe0e</string>
-    <string name="dialog_support_me_content">Szia, a nevem Roma. Kremencsukból, Ukrajnából származom. Sajnos elvesztettem a munkámat a hazámban zajló háború miatt. Azonban úgy döntöttem, hogy az alkalmazásom így is reklám mentes és teljes funkcionalitású maradjon. Ha szeretnél támogatni egy hozzám hasonló független, önálló fejlesztőt, kérlek, fontold meg, hogy adományozol, akár egyszer vagy többször, az alkalmazáson belül. Köszönöm!</string>
+    <string name="dialog_support_me_content">Sziasztok, a nevem Roma, és Kremenchukból, Ukrajnából származom. Nem vagyok fejlesztő, és szabadidőmben dolgozom ezen az alkalmazáson.\n\nAnnak ellenére, hogy háború zajlik az országomban, úgy döntöttem, hogy az alkalmazást teljesen ingyenesen és reklámok nélkül tartom. Ha támogatni szeretnéd a független fejlesztőt (engem), kérlek, fontold meg az in-app adományozást. Köszönöm!</string>
     <string name="dialog_support_me_remind_me_later">Most nem</string>
     <string name="message_error_generic">Elnézést, úgy tűnik, hiba történt.</string>
     <string name="message_app_not_found">Nincs e-mail alkalmazás a készülékeden :(</string>

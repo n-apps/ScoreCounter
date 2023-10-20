@@ -17,7 +17,7 @@
     <string name="dice_sides">Eigene Würfelseiten</string>
     <string name="dice_empty_state">Irgendwo drücken oder schütteln das Gerät um die Würfel zu rollen</string>
     <string name="dice_previous_result_label">Vorheriger Wurf</string>
-    <string name="dialog_support_me_content">Hallo, mein Name ist Roma und ich komme aus Krementschuk in der Ukraine. Leider habe ich meinen Job wegen des Krieges in meinem Land verloren. Ich habe mich jedoch entschlossen, meine App Score Counter werbefrei und mit voller Funktionalität weiterzuführen. Wenn Sie einen unabhängigen Entwickler wie mich unterstützen möchten, ziehen Sie bitte eine Spende in Betracht, entweder einmalig oder mehrmals innerhalb der App. Ich danke Ihnen!</string>
+    <string name="dialog_support_me_content">Hi, mein Name ist Roma und ich komme aus Kremenchuk, Ukraine. Ich bin kein Entwickler und arbeite in meiner Freizeit an dieser App.\n\nTrotz des Kriegs in meinem Land habe ich mich entschieden, diese App völlig kostenlos und ohne Werbung zu halten. Wenn Sie einen unabhängigen Entwickler (mich) unterstützen möchten, erwägen Sie bitte, in der App eine Spende zu tätigen. Vielen Dank!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="message_app_not_found">Für diese Aktion wurde keine App gefunden :(</string>
     <string name="menu_add_new_counter">Zähler hinzufügen</string>
@@ -48,7 +48,7 @@
     <string name="counter_deleted">Zähler entfernt</string>
     <string name="counter_added">Zähler hinzugefügt</string>
     <string name="message_one_more_counter">Noch einer</string>
-    <string name="about_text">Hallo, mein Name ist Roma und ich komme aus Krementschuk, Ukraine. Ich spiele gerne Brettspiele, wobei Dead of Winter und Terraforming Mars zwei meiner Favoriten sind. Die Idee für diese App kam mir beim Spielen von Stars Realms (das schreckliche Spielsteine hat).\n\nIch beschloss, diese mobile App in meiner Freizeit zu entwickeln. Jede neue Bewertung, E-Mail oder Spende macht mich glücklich.\n\nWenn Sie mir etwas mitteilen möchten, eine fehlerhafte Übersetzung gefunden haben oder mich einfach nur wissen lassen möchten, was Sie zählen, können Sie sich gerne melden. Ich habe meinen Job wegen des Krieges in meinem Land verloren, aber ich habe beschlossen, diese App ohne Werbung und mit all ihren Funktionen kostenlos zu halten. Wenn Sie einen Indie-Entwickler (mich) unterstützen möchten, ziehen Sie bitte eine kleine Spende innerhalb der App in Betracht.\n\nIch danke Ihnen!</string>
+    <string name="about_text">Hallo, mein Name ist Roma und ich komme aus Kremenchuk, Ukraine. Ich spiele seit über 10 Jahren Brettspiele. Die Idee für diese App kam mir, als ich Stars Realms spielte (die schreckliche Marker hat).\n\nIch bin kein Entwickler und arbeite in meiner Freizeit an dieser App. Jedes Feedback, Ihre E-Mail oder Spende macht mich ein wenig glücklicher. Wenn Sie etwas teilen möchten, Hilfe bei der Übersetzung benötigen oder einfach mitteilen möchten, woran Sie arbeiten, zögern Sie nicht, mich zu kontaktieren.\n\nTrotz des Kriegs in meinem Land habe ich beschlossen, diese App völlig kostenlos und ohne Werbung zu halten. Wenn Sie einen unabhängigen Entwickler (mich) unterstützen möchten, überlegen Sie bitte, in der App eine Spende zu leisten.\n\nVielen Dank!</string>
     <string name="settings_rate_app">Bei Google&#160;Play bewerten</string>
     <string name="settings_about">Über app</string>
     <string name="setting_help_translate">Hilfe bei der Übersetzung</string>

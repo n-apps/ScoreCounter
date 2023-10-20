@@ -10,14 +10,10 @@
     <ImageView
         android:id="@+id/iv_donate"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="140dp"
         android:contentDescription="@string/action_donate"
         android:scaleType="centerCrop"
-        android:src="@drawable/about"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/support" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,12 +23,10 @@
         android:paddingTop="@dimen/padding_normal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:fontFamily="@font/o600"
-            android:lineSpacingMultiplier="1.33"
+            android:fontFamily="@font/o400"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/dialog_support_me_content"
             android:textAppearance="?attr/textAppearanceBody2" />
 
