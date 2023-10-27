@@ -10,25 +10,57 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_large"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_large">
 
             <ImageView
-                android:id="@+id/iv_donate"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:contentDescription="@string/action_donate"
-                android:scaleType="centerCrop"
-                android:src="@drawable/support"
+                android:id="@+id/image"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginEnd="@dimen/spacing_big"
+                android:src="@drawable/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1024:404"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/o600"
+                android:text="@string/app_name"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintBottom_toTopOf="@id/tv_support"
+                app:layout_constraintLeft_toRightOf="@id/image"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_support"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/o400"
+                android:text="@string/message_thank_you"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/title"
+                app:layout_constraintRight_toRightOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp" />
 
         <TextView
             android:id="@+id/tv_about"
@@ -53,6 +85,7 @@
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
             app:drawableTint="?attr/colorPrimary" />
+
         <TextView
             android:id="@+id/tv_rate_app"
             style="@style/TwoLinesStyle"
@@ -101,27 +134,25 @@
             app:drawableEndCompat="@drawable/ic_share"
             app:drawableTint="?attr/colorControlNormal" />
 
-        <TextView
-            android:id="@+id/tv_privacy_policy"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/o600"
-            android:minHeight="@dimen/list_two_lines_min_height"
-            android:text="@string/settings_privacy_policy"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_cookie"
-            app:drawableTint="?attr/colorControlNormal" />
 
-        <TextView
-            android:id="@+id/tv_easter"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/padding_large"
-            android:text="⁕ ⁕ ⁕ +23 ⁕ ⁕ ⁕"
-            android:textAppearance="?attr/textAppearanceCaption"
-            android:textColor="?attr/colorPrimaryVariant"
-            tools:ignore="HardcodedText" />
+            android:layout_marginHorizontal="@dimen/spacing_big"
+            android:layout_marginVertical="@dimen/spacing_large"
+            android:clipToPadding="false">
+
+            <ImageView
+                android:id="@+id/iv_donate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:contentDescription="@string/action_donate"
+                android:src="@drawable/support"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1024:408"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </ScrollView>

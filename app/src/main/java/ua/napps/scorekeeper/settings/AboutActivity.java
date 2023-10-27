@@ -49,8 +49,19 @@ public class AboutActivity extends AppCompatActivity {
             DonateDialog dialog = new DonateDialog();
             dialog.show(getSupportFragmentManager(), "donate");
         });
-        findViewById(R.id.translators).setOnClickListener(v -> launchEmailClient());
+        findViewById(R.id.btn_help_translate).setOnClickListener(v -> launchEmailClient());
         findViewById(R.id.translators_title).setOnClickListener(v -> launchEmailClient());
+        findViewById(R.id.btn_privacy_policy).setOnClickListener(v -> {
+                    Intent viewIntent =
+                            new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
+                    try {
+                        startActivity(viewIntent);
+                    } catch (Exception e) {
+                        Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
+                        Timber.e(e, "Launch web intent error");
+                    }
+                }
+        );
 
         boolean nightModeActive = ViewUtil.isNightModeActive(this);
         ViewUtil.setLightMode(this, !nightModeActive);
@@ -60,7 +71,7 @@ public class AboutActivity extends AppCompatActivity {
     private void launchEmailClient() {
         Intent i = new Intent(Intent.ACTION_SENDTO);
         i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-        i.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"scorekeeper.feedback@gmail.com"});
         String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
         i.putExtra(Intent.EXTRA_SUBJECT, s);
 

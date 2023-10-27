@@ -41,7 +41,7 @@
             android:minHeight="@dimen/list_single_line_min_height"
             android:text="@string/action_donate"
             android:textAllCaps="false"
-            android:textColor="?attr/colorOnPrimary"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="@dimen/font_title"
             app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 

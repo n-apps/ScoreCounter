@@ -41,10 +41,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_privacy_policy).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_easter).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_support).setOnClickListener(this);
 
         return contentView;
     }
@@ -59,7 +58,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_help_translate:
                 Intent i = new Intent(Intent.ACTION_SENDTO);
                 i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
-                i.putExtra(Intent.EXTRA_EMAIL, "scorekeeper.feedback@gmail.com");
+                i.putExtra(Intent.EXTRA_EMAIL, new String[]{"scorekeeper.feedback@gmail.com"});
                 if (v.getId() == R.id.tv_help_translate) {
                     String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
                     i.putExtra(Intent.EXTRA_SUBJECT, s);
@@ -81,16 +80,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 DonateDialog dialog = new DonateDialog();
                 dialog.show(getParentFragmentManager(), "donate");
                 break;
-            case R.id.tv_privacy_policy:
-                Intent viewIntent =
-                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));
-                try {
-                    startActivity(viewIntent);
-                } catch (Exception e) {
-                    Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                    Timber.e(e, "Launch web intent error");
-                }
-                break;
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -102,7 +91,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_about:
                 AboutActivity.start(requireActivity());
                 break;
-            case R.id.tv_easter:
+            case R.id.tv_support:
                 new RateMyAppDialog(requireActivity()).showAnyway();
                 break;
         }

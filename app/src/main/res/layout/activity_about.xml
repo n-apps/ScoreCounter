@@ -68,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/padding_large">
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingBottom="@dimen/padding_large">
 
             <TextView
                 android:id="@+id/content"
@@ -78,17 +79,12 @@
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/about_text"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#fff" />
+                android:textColor="@color/primary_text_default_material_dark" />
 
-            <ImageView
-                android:id="@+id/hero_image"
-                android:layout_width="@dimen/empty_state_icon_size"
-                android:layout_height="@dimen/empty_state_icon_size"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginVertical="@dimen/spacing_normal"
-                android:contentDescription="@string/action_donate"
-                android:scaleType="fitCenter"
-                android:src="@drawable/coffee" />
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_xlarge" />
 
             <TextView
                 android:id="@+id/translators_title"
@@ -98,29 +94,45 @@
                 android:lineSpacingMultiplier="1.26"
                 android:text="@string/about_translators_title"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#ffffff" />
+                android:textColor="@color/primary_text_default_material_dark" />
 
             <TextView
-                android:id="@+id/translators"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
-                android:fontFamily="@font/o400"
+                android:fontFamily="@font/azm"
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/about_translators"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#ffffff" />
+                android:textColor="@android:color/holo_blue_bright" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_help_translate"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:text="@string/setting_help_translate"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/primary_text_default_material_dark"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+                app:strokeColor="@android:color/holo_blue_bright" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_large" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_large"
                 android:fontFamily="@font/o400"
                 android:lineSpacingMultiplier="1.33"
                 android:paddingEnd="@dimen/padding_normal"
                 android:text="@string/about_credits"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#ffffff" />
+                android:textColor="@color/primary_text_default_material_dark" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -130,21 +142,24 @@
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/about_testers"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#ffffff" />
+                android:textColor="@color/primary_text_default_material_dark" />
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_xlarge"
-                android:layout_marginBottom="@dimen/spacing_xlarge"
-                android:fontFamily="@font/o400"
-                android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
-                android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="@color/colorSecondaryVariant"
-                tools:ignore="HardcodedText" />
+                android:layout_marginVertical="@dimen/spacing_xlarge" />
 
             <!--                Donate-->
+            <ImageView
+                android:id="@+id/hero_image"
+                android:layout_width="@dimen/empty_state_icon_size"
+                android:layout_height="@dimen/empty_state_icon_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:contentDescription="@string/action_donate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/coffee" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_donate_it"
@@ -176,16 +191,21 @@
                 app:backgroundTint="@color/colorSecondaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_privacy_policy"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_xlarge"
-                android:layout_marginBottom="@dimen/spacing_xlarge"
-                android:text="\u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f    \u25fb\ufe0f"
-                android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="@color/colorSecondaryVariant"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="@dimen/spacing_large"
+                app:rippleColor="@color/rippleColor"
+                android:gravity="center"
+                android:textColorHighlight="@color/primary_text_default_material_dark"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:text="@string/settings_privacy_policy"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/primary_text_default_material_dark" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -115,7 +115,8 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_normal">
+        android:layout_marginVertical="@dimen/spacing_normal"
+        android:paddingHorizontal="@dimen/padding_large">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:layout_width="0dp"

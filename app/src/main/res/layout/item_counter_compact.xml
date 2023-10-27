@@ -50,7 +50,7 @@
             android:foreground="@drawable/ripple"
             android:scaleType="center"
             android:src="@drawable/ic_minus"
-            tools:tint="@android:color/primary_text_dark" />
+            tools:tint="@color/primary_text_default_material_dark" />
 
         <TextView
             android:id="@+id/tv_counter_value"
@@ -82,7 +82,7 @@
             android:foreground="@drawable/ripple"
             android:scaleType="center"
             android:src="@drawable/ic_plus"
-            tools:tint="@android:color/primary_text_dark" />
+            tools:tint="@color/primary_text_default_material_dark" />
 
     </LinearLayout>
 

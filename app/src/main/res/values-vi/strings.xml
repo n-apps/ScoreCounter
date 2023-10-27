@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="settings_rate_app">Đánh giá trên Google&#160;Play</string>
+    <string name="settings_rate_app">Đánh giá trên Google&#160;Play ★</string>
     <string name="about_text">Xin chào, tôi tên là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi đã chơi các trò chơi bàn trong hơn 10 năm. Ý tưởng cho ứng dụng này xuất hiện trong tôi khi tôi đang chơi Stars Realms (mà có các viên nặng kém).\n\nTôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi. Mỗi phản hồi của bạn, địa chỉ email hoặc sự ủng hộ tài chính khiến tôi hạnh phúc một chút. Nếu bạn có điều gì đó để chia sẻ, muốn giúp đỡ về bản dịch, hoặc chỉ muốn chia sẻ điều bạn đang tính, đừng ngần ngại liên hệ với tôi.\n\nBất kể cuộc chiến tranh đang diễn ra ở quê hương tôi, tôi quyết định giữ cho ứng dụng này miễn phí và không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), xin hãy xem xét ủng hộ thông qua ứng dụng.\n\nCảm ơn bạn!</string>
     <string name="action_donate">Mua cho tôi một \u263a\ufe0e</string>
     <string name="app_name">Bộ đếm điểm</string>

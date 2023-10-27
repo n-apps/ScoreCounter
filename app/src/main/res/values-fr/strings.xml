@@ -49,7 +49,7 @@
     <string name="counter_added">Compteur ajouté</string>
     <string name="message_one_more_counter">Un de plus</string>
     <string name="about_text">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. J\'aime jouer à des jeux de société, Dead of Winter et Terraforming Mars étant deux de mes préférés. L\'idée de cette application m\'est venue en jouant à Stars Realms (dont les jetons sont terribles).\n\nJ\'ai décidé de développer cette application mobile pendant mon temps libre. Chaque nouvelle critique, email ou don me rend heureux. Si vous avez quelque chose à partager, si vous avez trouvé des traductions désordonnées, ou si vous voulez simplement me faire savoir ce que vous comptez, n\'hésitez pas à me contacter.\n\nJ\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de garder cette application gratuite sans publicité et avec toutes ses fonctionnalités disponibles. Si vous souhaitez soutenir un développeur indépendant (moi), vous pouvez faire un petit don dans l\'application.\n\nMerci !</string>
-    <string name="settings_rate_app">Attribuer une note sur Google&#160;Play</string>
+    <string name="settings_rate_app">Attribuer une note sur Google&#160;Play ★</string>
     <string name="settings_about">À propos de l\'application</string>
     <string name="setting_help_translate">Aider à traduire</string>
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
