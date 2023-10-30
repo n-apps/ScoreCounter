@@ -60,7 +60,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"scorekeeper.feedback@gmail.com"});
                 if (v.getId() == R.id.tv_help_translate) {
-                    String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
+                    String s = getString(R.string.app_name) + ": " + getString(R.string.setting_help_translate);
                     i.putExtra(Intent.EXTRA_SUBJECT, s);
                 } else {
                     i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));

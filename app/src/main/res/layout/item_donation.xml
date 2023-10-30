@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/o600"
         android:paddingEnd="@dimen/padding_normal"
-        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
         app:layout_constraintBottom_toTopOf="@id/price"

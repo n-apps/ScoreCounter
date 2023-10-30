@@ -4,8 +4,11 @@ import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
 
 import java.util.Date;
 
@@ -104,10 +107,9 @@ public class RateMyAppDialog {
     private Dialog createDialog(FragmentActivity context) {
         final View contentView = LayoutInflater.from(context).inflate(R.layout.dialog_rate_app, null, false);
 
-        final AlertDialog dialog = new AlertDialog.Builder(context)
+        final MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(context)
                 .setOnCancelListener(d -> remindMeLater())
-                .setView(contentView)
-                .create();
+                .setView(contentView);
 
         contentView.findViewById(R.id.iv_donate).setOnClickListener(v -> {
             DonateDialog donateDialog = new DonateDialog();
@@ -124,7 +126,16 @@ public class RateMyAppDialog {
             dialog.dismiss();
         });
 
-        return dialog;
+        // Set a custom ShapeAppearanceModel
+        MaterialShapeDrawable alertBackground = (MaterialShapeDrawable) materialAlertDialogBuilder.getBackground();
+        if (alertBackground != null) {
+            alertBackground.setShapeAppearanceModel(
+                    alertBackground.getShapeAppearanceModel()
+                            .toBuilder()
+                            .setAllCorners(CornerFamily.ROUNDED, 24.0f)
+                            .build());
+        }
+        return materialAlertDialogBuilder.create();
     }
 
 }

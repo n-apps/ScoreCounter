@@ -34,12 +34,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -53,6 +53,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.button.MaterialButtonToggleGroup;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -81,7 +84,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private View emptyState;
     private CountersViewModel viewModel;
     private boolean isFirstLoad = true;
-    private MaterialDialog longClickDialog;
+    private AlertDialog longClickDialog;
     private int oldListSize;
     private boolean isLongPressTipShowed;
     private ItemTouchHelper itemTouchHelper;
@@ -209,12 +212,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .showListener(dialog1 -> {
-                            TextView content = ((MaterialDialog) dialog1).getContentView();
-                            if (content != null) {
-                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                            }
-                        })
                         .typeface(medium, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
@@ -225,12 +222,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.resetAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .showListener(dialog1 -> {
-                            TextView content = ((MaterialDialog) dialog1).getContentView();
-                            if (content != null) {
-                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                            }
-                        })
                         .typeface(medium, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
@@ -511,10 +502,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void showCounterStepDialog(Counter counter, int position, int mode) {
-        final MaterialDialog.Builder builder = new MaterialDialog.Builder(requireActivity());
-
         counterStepDialogMode = mode;
 
+        final MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(requireActivity());
         final View contentView = LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_counter_step, null, false);
 
         MaterialButtonToggleGroup signBtnGroup = contentView.findViewById(R.id.sign_btn_group);
@@ -548,7 +538,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         ((TextView) contentView.findViewById(R.id.counter_value)).setText("" + counter.getValue());
         ((TextView) contentView.findViewById(R.id.counter_name)).setText(counter.getName());
-        ((LinearLayout) contentView.findViewById(R.id.counter_info_header)).setBackgroundColor(color);
+        contentView.findViewById(R.id.counter_info_header).setBackgroundColor(color);
         ((TextView) contentView.findViewById(R.id.counter_value)).setTextColor(tintColor);
         ((TextView) contentView.findViewById(R.id.counter_name)).setTextColor(tintColor);
 
@@ -644,8 +634,20 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
             return false;
         });
-        builder.customView(contentView, false);
-        longClickDialog = builder.build();
+        materialAlertDialogBuilder.setView(contentView);
+
+        // Set a custom ShapeAppearanceModel
+        MaterialShapeDrawable alertBackground = (MaterialShapeDrawable) materialAlertDialogBuilder.getBackground();
+        if (alertBackground != null) {
+            alertBackground.setShapeAppearanceModel(
+                    alertBackground.getShapeAppearanceModel()
+                            .toBuilder()
+                            .setAllCorners(CornerFamily.ROUNDED, 24.0f)
+                            .build());
+        }
+
+        longClickDialog = materialAlertDialogBuilder.create();
+
         longClickDialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         longClickDialog.show();

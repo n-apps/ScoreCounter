@@ -72,7 +72,7 @@ public class AboutActivity extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_SENDTO);
         i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
         i.putExtra(Intent.EXTRA_EMAIL, new String[]{"scorekeeper.feedback@gmail.com"});
-        String s = getString(R.string.app_name) + " – " + getString(R.string.setting_help_translate);
+        String s = getString(R.string.app_name) + ": " + getString(R.string.setting_help_translate);
         i.putExtra(Intent.EXTRA_SUBJECT, s);
 
         try {

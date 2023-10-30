@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
     android:orientation="vertical"
     android:paddingBottom="@dimen/padding_normal">
 
@@ -56,6 +55,6 @@
             android:gravity="center"
             android:text="@string/dialog_support_me_remind_me_later"
             android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textColor="?android:attr/textColorSecondary" />
     </LinearLayout>
 </LinearLayout>

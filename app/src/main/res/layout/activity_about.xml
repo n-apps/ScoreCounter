@@ -198,13 +198,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
-                app:rippleColor="@color/rippleColor"
                 android:gravity="center"
-                android:textColorHighlight="@color/primary_text_default_material_dark"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/primary_text_default_material_dark" />
+                android:textColor="@color/primary_text_default_material_dark"
+                android:textColorHighlight="@color/primary_text_default_material_dark"
+                app:rippleColor="@color/rippleColor" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

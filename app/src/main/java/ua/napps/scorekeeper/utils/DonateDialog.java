@@ -1,6 +1,5 @@
 package ua.napps.scorekeeper.utils;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,9 +8,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
 
 import java.util.ArrayList;
 
@@ -59,13 +63,24 @@ public class DonateDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final View titleView = LayoutInflater.from(requireContext()).inflate(R.layout.item_donation_title,  null);
+        final View titleView = LayoutInflater.from(requireContext()).inflate(R.layout.item_donation_title, null);
 
-        AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
+        final MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.action_donate)
                 .setCustomTitle(titleView)
-                .setAdapter(adapter, null)
-                .create();
+                .setAdapter(adapter, null);
+
+        // Set a custom ShapeAppearanceModel
+        MaterialShapeDrawable alertBackground = (MaterialShapeDrawable) materialAlertDialogBuilder.getBackground();
+        if (alertBackground != null) {
+            alertBackground.setShapeAppearanceModel(
+                    alertBackground.getShapeAppearanceModel()
+                            .toBuilder()
+                            .setAllCorners(CornerFamily.ROUNDED, 24.0f)
+                            .build());
+        }
+
+        AlertDialog alertDialog = materialAlertDialogBuilder.create();
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption));
 
         return alertDialog;
