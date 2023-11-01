@@ -79,12 +79,13 @@
                 android:lineSpacingMultiplier="1.33"
                 android:text="@string/about_text"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/primary_text_default_material_dark" />
+                android:textColor="@color/primary_material_light" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xlarge" />
+                android:layout_marginVertical="@dimen/spacing_xlarge"
+                app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <TextView
                 android:id="@+id/translators_title"
@@ -122,7 +123,8 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_large" />
+                android:layout_marginVertical="@dimen/spacing_large"
+                app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -148,12 +150,13 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xlarge" />
+                android:layout_marginVertical="@dimen/spacing_xlarge"
+                app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <!--                Donate-->
             <ImageView
                 android:id="@+id/hero_image"
-                android:layout_width="@dimen/empty_state_icon_size"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/empty_state_icon_size"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="@dimen/spacing_large"
