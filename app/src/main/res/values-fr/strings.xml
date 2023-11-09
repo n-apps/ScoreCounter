@@ -53,7 +53,7 @@
     <string name="settings_about">À propos de l\'application</string>
     <string name="setting_help_translate">Aider à traduire</string>
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
-    <string name="message_lowest_wins">La logique a changé</string>
+    <string name="message_lowest_wins">La logique a&#160;changé</string>
     <string name="common_vibrate">Vibrer</string>
     <string name="about_testers">Testeurs occasionnels\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Vous pouvez modifier ces valeurs dans les paramètres</string>

@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Contador de puntos</string>
     <string name="about_testers">Probadores ocasionales\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
-    <string name="about_text">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je joue à des jeux de société depuis plus de 10 ans. L\'idée de cette application m\'est venue en jouant à Star Realms (qui a des jetons terribles).\n\nJe ne suis pas développeur et je travaille sur cette application pendant mon temps libre. Chacun de vos retours, votre email ou votre don me rend un peu plus heureux. Si vous avez quelque chose à partager, si vous avez besoin d\'aide pour la traduction ou si vous souhaitez simplement partager ce que vous comptez, n\'hésitez pas à me contacter.\n\nMalgré la guerre dans mon pays, j\'ai décidé de garder cette application gratuite et sans publicités du tout. Si vous souhaitez soutenir un développeur indépendant (moi), envisagez de faire un don dans l\'application.\n\nMerci !</string>
-    <string name="about_translators_title">¡Llamando a todos los magos del lenguaje y los entusiastas de los animales! Vamos a darle un toque de diversión a nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
+    <string name="about_text">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je joue à des jeux de société depuis plus de 10 ans. L\'idée de cette application m\'est venue en jouant à Star Realms (qui a&#160;des jetons terribles).\n\nJe ne suis pas développeur et je travaille sur cette application pendant mon temps libre. Chacun de vos retours, votre email ou votre don me rend un peu plus heureux. Si vous avez quelque chose à partager, si vous avez besoin d\'aide pour la traduction ou si vous souhaitez simplement partager ce que vous comptez, n\'hésitez pas à me contacter.\n\nMalgré la guerre dans mon pays, j\'ai décidé de garder cette application gratuite et sans publicités du tout. Si vous souhaitez soutenir un développeur indépendant (moi), envisagez de faire un don dans l\'application.\n\nMerci !</string>
+    <string name="about_translators_title">¡Llamando a&#160;todos los magos del lenguaje y los entusiastas de los animales! Vamos a&#160;darle un toque de diversión a&#160;nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a&#160;la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
     <string name="action_donate">Hacer una donación \u263a\ufe0e</string>
     <string name="action_reset">Reiniciar</string>
     <string name="action_save">Guardar</string>
@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">¿Estás seguro?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">Puede editar estos valores en la configuración</string>
-    <string name="dialog_support_me_content">Ciao, il mio nome è Roma e vengo da Kremenchuk, Ucraina. Non sono uno sviluppatore e sto lavorando a questa app nel mio tempo libero.\n\nNonostante la guerra nel mio paese, ho deciso di mantenere questa app gratuita e senza pubblicità affatto. Se desideri sostenere uno sviluppatore indie (io), per favore considera di fare una donazione tramite l\'app. Grazie!</string>
+    <string name="dialog_support_me_content">Ciao, il mio nome è Roma e vengo da Kremenchuk, Ucraina. Non sono uno sviluppatore e sto lavorando a&#160;questa app nel mio tempo libero.\n\nNonostante la guerra nel mio paese, ho deciso di mantenere questa app gratuita e senza pubblicità affatto. Se desideri sostenere uno sviluppatore indie (io), per favore considera di fare una donazione tramite l\'app. Grazie!</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
@@ -47,8 +47,8 @@
     <string name="message_one_more_counter">Uno mas</string>
     <string name="message_thank_you">Muchas gracias por tu apoyo \u2665\ufe0e</string>
     <string name="message_you_can_use_long_press">Intenta presionar durante más tiempo + o -</string>
-    <string name="setting_help_translate">Ayúdanos a traducir</string>
-    <string name="setting_share">Recomendar a un amigo</string>
+    <string name="setting_help_translate">Ayúdanos a&#160;traducir</string>
+    <string name="setting_share">Recomendar a&#160;un amigo</string>
     <string name="settings_about">Sobre la aplicación</string>
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_change_language">Cambiar de idioma</string>
@@ -60,5 +60,5 @@
     <string name="settings_sound">Apoyar al desarrollador</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
     <string name="settings_switch_tap_logic">Cambiar pulsación corta y larga</string>
-    <string name="share_snippet">¡Hola! Esta aplicación te ayudará a mantener fácilmente la puntuación en cualquier juego o actividad. Descarga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">¡Hola! Esta aplicación te ayudará a&#160;mantener fácilmente la puntuación en cualquier juego o actividad. Descarga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
 </resources>

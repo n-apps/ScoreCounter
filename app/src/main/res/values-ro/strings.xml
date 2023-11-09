@@ -13,9 +13,9 @@
     <string name="counter_details_name">Numele contorului</string>
     <string name="counter_details_step">Creștere</string>
     <string name="counter_details_value">Valoare curenta</string>
-    <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a adăuga un nou contor</string>
+    <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
-    <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a da cu zarul</string>
+    <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
     <string name="dice_previous_result_label">Aruncarea anterioara:</string>
     <string name="dialog_support_me_content">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Nu sunt un dezvoltator și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda războiului din țara mea, am decis să păstrez această aplicație gratuită și fără reclame deloc. Dacă doriți să susțineți un dezvoltator independent (pe mine), vă rugăm să luați în considerare să donați în aplicație. Mulțumesc!</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
@@ -26,7 +26,7 @@
     <string name="message_you_can_use_long_press">Incearca sa apesi lung pe + sau -</string>
     <string name="settings_appearance">Aspect</string>
     <string name="settings_feedback">Trimite feedback</string>
-    <string name="settings_shake_to_roll">Scutura pentru a da cu zarul</string>
+    <string name="settings_shake_to_roll">Scutura pentru a&#160;da cu zarul</string>
     <string name="settings_stay_awake">Pastreaza ecranul aprins</string>
     <string name="menu_history">Istoric</string>
     <string name="history_empty_message">Niciun istoric momentan</string>
@@ -38,7 +38,7 @@
     <string name="message_thank_you">Multumesc \u263a\ufe0e</string>
     <string name="settings_sound">Sunet</string>
     <string name="action_donate">Doneaza \u263a\ufe0e</string>
-    <string name="message_error_generic">Imi pare rau, se pare ca a intervenit o eroare</string>
+    <string name="message_error_generic">Imi pare rau, se pare ca a&#160;intervenit o eroare</string>
     <string name="action_save">Salveaza</string>
     <string name="common_more">Mai multe</string>
     <string name="action_reset">Reseteaza</string>
@@ -53,7 +53,7 @@
     <string name="setting_help_translate">Contribuie la traducere</string>
     <string name="about_text">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Joc jocuri de societate de peste 10 ani. Ideea pentru această aplicație mi-a venit în timp ce jucam Star Realms (care are jetoane groaznice).\n\nNu sunt dezvoltator și lucrez la această aplicație în timpul meu liber. Fiecare dintre feedback-urile voastre, adresa voastră de email sau donația voastră mă fac puțin mai fericit. Dacă aveți ceva de împărtășit, doriți ajutor cu traducerea sau doar să împărtășiți ce numărați, nu ezitați să mă contactați.\n\nÎn ciuda războiului din țara mea, am decis să mențin această aplicație gratuită și fără reclame deloc. Dacă doriți să sprijiniți un dezvoltator independent (pe mine), vă rog să luați în considerare donarea în aplicație.\n\nVă mulțumesc!</string>
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
-    <string name="message_lowest_wins">Logica a fost modificată</string>
+    <string name="message_lowest_wins">Logica a&#160;fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
     <string name="about_testers">Testeri\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">Puteți edita aceste valori în setările</string>

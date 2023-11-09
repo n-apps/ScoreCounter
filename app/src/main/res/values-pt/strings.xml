@@ -27,7 +27,7 @@
     <string name="settings_appearance">Aparência</string>
     <string name="settings_feedback">Enviar feedback</string>
     <string name="settings_shake_to_roll">Agite para rolar</string>
-    <string name="settings_stay_awake">Manter a tela ligada</string>
+    <string name="settings_stay_awake">Manter a&#160;tela ligada</string>
     <string name="menu_history">Histórico</string>
     <string name="history_empty_message">Nenhum histórico ainda</string>
     <string name="settings_counter_title">Contador (Opção troca rápida)</string>
@@ -42,16 +42,16 @@
     <string name="action_save">Salvar</string>
     <string name="common_more">Mais</string>
     <string name="action_reset">Reiniciar</string>
-    <string name="setting_share">Recomendar a um amigo</string>
-    <string name="share_snippet">Olá! O Score Counter vai te ajudar a facilmente manter a pontuação em qualquer jogo, esporte ou outra atividade. Baixe gratuitamente a versão para Android aqui:\nhttp://play.google.com/store/apps/details?id=</string>
+    <string name="setting_share">Recomendar a&#160;um amigo</string>
+    <string name="share_snippet">Olá! O Score Counter vai te ajudar a&#160;facilmente manter a&#160;pontuação em qualquer jogo, esporte ou outra atividade. Baixe gratuitamente a&#160;versão para Android aqui:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
     <string name="counter_deleted">Contador removido</string>
     <string name="counter_added">Contador adicionado</string>
     <string name="message_one_more_counter">Mais um</string>MA
-    <string name="about_text">Olá, meu nome é Roma e sou de Kremenchuk, Ucrânia. Tenho jogado jogos de tabuleiro por mais de 10 anos. A ideia para este aplicativo surgiu enquanto eu estava jogando Star Realms (que tem fichas terríveis).\n\nNão sou um desenvolvedor e estou trabalhando neste aplicativo no meu tempo livre. Cada um dos seus comentários, seu email ou doação me deixa um pouco mais feliz. Se você tem algo para compartilhar, precisa de ajuda com a tradução ou simplesmente quer compartilhar o que está pensando, não hesite em entrar em contato comigo.\n\nApesar da guerra em meu país, decidi manter este aplicativo gratuito e sem anúncios. Se você gostaria de apoiar um desenvolvedor independente (eu), por favor, considere fazer uma doação no aplicativo.\n\nObrigado!</string>
+    <string name="about_text">Olá, meu nome é Roma e sou de Kremenchuk, Ucrânia. Tenho jogado jogos de tabuleiro por mais de 10 anos. A ideia para este aplicativo surgiu enquanto eu estava jogando Star Realms (que tem fichas terríveis).\n\nNão sou um desenvolvedor e estou trabalhando neste aplicativo no meu tempo livre. Cada um dos seus comentários, seu email ou doação me deixa um pouco mais feliz. Se você tem algo para compartilhar, precisa de ajuda com a&#160;tradução ou simplesmente quer compartilhar o que está pensando, não hesite em entrar em contato comigo.\n\nApesar da guerra em meu país, decidi manter este aplicativo gratuito e sem anúncios. Se você gostaria de apoiar um desenvolvedor independente (eu), por favor, considere fazer uma doação no aplicativo.\n\nObrigado!</string>
     <string name="settings_rate_app">Avalie no Google&#160;Play ★</string>
-    <string name="settings_about">Sobre a app</string>
-    <string name="setting_help_translate">Ajude a traduzir</string>
+    <string name="settings_about">Sobre a&#160;app</string>
+    <string name="setting_help_translate">Ajude a&#160;traduzir</string>
     <string name="settings_switch_tap_logic">Inverter toques curtos e longos</string>
     <string name="message_lowest_wins">Lógica modificada</string>
     <string name="common_vibrate">Vibrar</string>

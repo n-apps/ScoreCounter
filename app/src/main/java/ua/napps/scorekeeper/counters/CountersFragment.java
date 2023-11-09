@@ -24,6 +24,7 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,6 +32,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -507,7 +509,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         final MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(requireActivity());
         final View contentView = LayoutInflater.from(requireActivity()).inflate(R.layout.dialog_counter_step, null, false);
 
-        MaterialButtonToggleGroup signBtnGroup = contentView.findViewById(R.id.sign_btn_group);
+        MaterialButtonToggleGroup signBtnGroup = contentView.findViewById(R.id.group_sign_btn);
         if (counterStepDialogMode == MODE_INCREASE_VALUE) {
             signBtnGroup.check(R.id.btn_add);
         } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
@@ -648,8 +650,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         longClickDialog = materialAlertDialogBuilder.create();
 
-        longClickDialog.getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        Window window = longClickDialog.getWindow();
+        if (window != null) {
+            window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+            window.setGravity(Gravity.CENTER);
+            window.setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
         longClickDialog.show();
     }
 

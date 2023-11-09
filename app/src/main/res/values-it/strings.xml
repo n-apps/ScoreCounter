@@ -13,17 +13,17 @@
     <string name="counter_details_name">Nome del segnapunti</string>
     <string name="counter_details_step">Aumento</string>
     <string name="counter_details_value">Valore</string>
-    <string name="counters_empty_message">Toccare il pulsante \"+\" nell\'angolo in alto a destra per aggiungere un nuovo seganpunti</string>
+    <string name="counters_empty_message">Toccare il pulsante \"+\" nell\'angolo in alto a&#160;destra per aggiungere un nuovo seganpunti</string>
     <string name="dice_sides">Lati dei dadi personalizzati</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>
     <string name="dice_previous_result_label">Lancio precedente:</string>
-    <string name="dialog_support_me_content">Salve, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Purtroppo ho perso il lavoro a causa della guerra nel mio Paese. Tuttavia, ho deciso di mantenere la mia applicazione, Score Counter, senza pubblicità e con tutte le funzionalità. Se volete sostenere uno sviluppatore indipendente come me, vi prego di considerare la possibilità di fare una donazione, una o più volte, all\'interno dell\'applicazione. Grazie!</string>
+    <string name="dialog_support_me_content">Salve, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Purtroppo ho perso il lavoro a&#160;causa della guerra nel mio Paese. Tuttavia, ho deciso di mantenere la mia applicazione, Score Counter, senza pubblicità e con tutte le funzionalità. Se volete sostenere uno sviluppatore indipendente come me, vi prego di considerare la possibilità di fare una donazione, una o più volte, all\'interno dell\'applicazione. Grazie!</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
     <string name="message_app_not_found">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>
     <string name="menu_add_new_counter">Aggiungi un seganpunti</string>
     <string name="menu_delete_all_counters">Cancella tutto</string>
     <string name="menu_reset_all_counters">Azzera tutto</string>
-    <string name="message_you_can_use_long_press">Prova a toccare e tenere premuto +/-</string>
+    <string name="message_you_can_use_long_press">Prova a&#160;toccare e tenere premuto +/-</string>
     <string name="settings_appearance">Aspetto</string>
     <string name="settings_feedback">Mandami i tuoi commenti</string>
     <string name="settings_shake_to_roll">Scuoti per lanciare i dadi</string>
@@ -43,22 +43,22 @@
     <string name="common_more">Di più</string>
     <string name="action_reset">Azzera</string>
     <string name="setting_share">Consiglia ad un amico</string>
-    <string name="share_snippet">Ciao! Score Counter ti aiuterà a tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui:\nhttp://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Modifica</string>
     <string name="counter_deleted">Segnapunti cancellato</string>
     <string name="counter_added">Segnapunti aggiunto</string>
     <string name="message_one_more_counter">Ancora uno</string>
-    <string name="about_text">Ciao, il mio nome è Roma e vengo da Kremenchuk, Ucraina. Gioco giochi da tavolo da oltre 10 anni. L\'idea per questa app mi è venuta mentre giocavo a Star Realms (che ha gettoni terribili).\n\nNon sono uno sviluppatore e sto lavorando su questa app nel mio tempo libero. Ogni vostro feedback, la vostra email o donazione mi rende un po\' più felice. Se avete qualcosa da condividere, desiderate assistenza nella traduzione, o semplicemente volete condividere cosa state contando, non esitate a contattarmi.\n\nNonostante la guerra nel mio paese, ho deciso di mantenere questa app gratuita e senza alcuna pubblicità. Se desiderate sostenere uno sviluppatore indipendente (me), per favore considerate la possibilità di effettuare una donazione in-app.\n\nGrazie!</string>
+    <string name="about_text">Ciao, il mio nome è Roma e vengo da Kremenchuk, Ucraina. Gioco giochi da tavolo da oltre 10 anni. L\'idea per questa app mi è venuta mentre giocavo a&#160;Star Realms (che ha gettoni terribili).\n\nNon sono uno sviluppatore e sto lavorando su questa app nel mio tempo libero. Ogni vostro feedback, la vostra email o donazione mi rende un po\' più felice. Se avete qualcosa da condividere, desiderate assistenza nella traduzione, o semplicemente volete condividere cosa state contando, non esitate a&#160;contattarmi.\n\nNonostante la guerra nel mio paese, ho deciso di mantenere questa app gratuita e senza alcuna pubblicità. Se desiderate sostenere uno sviluppatore indipendente (me), per favore considerate la possibilità di effettuare una donazione in-app.\n\nGrazie!</string>
     <string name="settings_rate_app">Vota su Google&#160;Play ★</string>
     <string name="settings_about">Informazioni sull\'app</string>
-    <string name="setting_help_translate">Aiuta a tradurre</string>
-    <string name="settings_switch_tap_logic">Passa da un tocco lungo a uno breve</string>
+    <string name="setting_help_translate">Aiuta a&#160;tradurre</string>
+    <string name="settings_switch_tap_logic">Passa da un tocco lungo a&#160;uno breve</string>
     <string name="message_lowest_wins">Logica modificata</string>
     <string name="common_vibrate">Vibrazione</string>
     <string name="about_testers">Collaudatori occasionali\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
     <string name="history_subtitle">Solo per questa sessione</string>
     <string name="menu_elektu">A chi tocca per primo?</string>
-    <string name="about_translators_title">Chiamiamo tutti gli esperti di lingue e gli appassionati di animali! Rendiamo la nostra adorata app più divertente con traduzioni e simpatici nomi di animali. Unisciti alla festa e sii altrettanto cool come le persone che hanno già messo a disposizione la loro fantastica creatività:</string>
+    <string name="about_translators_title">Chiamiamo tutti gli esperti di lingue e gli appassionati di animali! Rendiamo la nostra adorata app più divertente con traduzioni e simpatici nomi di animali. Unisciti alla festa e sii altrettanto cool come le persone che hanno già messo a&#160;disposizione la loro fantastica creatività:</string>
     <string name="settings_change_language">Cambiare la lingua</string>
 </resources>

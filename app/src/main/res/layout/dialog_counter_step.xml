@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorSurface"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/padding_large"
+    android:paddingBottom="@dimen/spacing_large"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -18,6 +17,9 @@
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingVertical="@dimen/padding_normal"
+        app:layout_constraintBottom_toTopOf="@id/buttons_row"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:background="#F2B04B">
 
         <TextView
@@ -36,6 +38,7 @@
             app:autoSizeMinTextSize="@dimen/font_body"
             app:autoSizeStepGranularity="1sp"
             app:autoSizeTextType="uniform"
+
             tools:textColor="?attr/colorOnSurface" />
 
         <TextView
@@ -53,12 +56,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/buttons_row"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_normal"
+        android:layout_marginHorizontal="@dimen/spacing_big"
         android:layout_marginTop="@dimen/spacing_xlarge"
         android:baselineAligned="false"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/counter_info_header">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_one"
@@ -66,13 +73,15 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:padding="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/btn_one_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:text="+5"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -83,13 +92,15 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:padding="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/btn_two_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:text="+10"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -100,13 +111,15 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:padding="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/btn_three_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:text="+150"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
 
@@ -116,110 +129,112 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:padding="@dimen/spacing_micro">
 
             <TextView
                 android:id="@+id/btn_four_text"
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                tools:text="+30"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
     </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/spacing_normal"
         android:gravity="center_horizontal"
         android:text="@string/dialog_predefined_steps"
-        android:textAppearance="?attr/textAppearanceCaption" />
+        android:textAppearance="?attr/textAppearanceCaption"
+        app:layout_constraintEnd_toEndOf="@id/buttons_row"
+        app:layout_constraintStart_toStartOf="@id/buttons_row"
+        app:layout_constraintTop_toBottomOf="@id/buttons_row" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/group_sign_btn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_normal"
-        android:layout_marginTop="@dimen/spacing_large"
-        android:baselineAligned="false"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/spacing_big"
+        app:layout_constraintBottom_toBottomOf="@id/til_custom_step"
+        app:layout_constraintEnd_toStartOf="@id/til_custom_step"
+        app:layout_constraintStart_toStartOf="@id/buttons_row"
+        app:layout_constraintTop_toTopOf="@id/til_custom_step"
+        app:selectionRequired="true"
+        app:singleSelection="true">
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/sign_btn_group"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dec"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:paddingVertical="4dp"
-            app:selectionRequired="true"
-            app:singleSelection="true">
+            android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="–"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?android:attr/textColorPrimary"
+            app:cornerRadius="24dp"
+            app:rippleColor="@color/colorSecondary"
+            tools:ignore="HardcodedText" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_dec"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/btn_text_btn_bg_color_selector"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="–"
-                android:textAppearance="?attr/textAppearanceHeadline4"
-                android:textColor="?android:attr/textColorPrimary"
-                app:cornerRadius="24dp"
-                app:rippleColor="@color/colorSecondary"
-                tools:ignore="HardcodedText" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="+"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textColor="?android:textColorPrimary"
+            app:cornerRadius="24dp"
+            app:rippleColor="@color/colorSecondary"
+            tools:ignore="HardcodedText" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_add"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/btn_text_btn_bg_color_selector"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:text="+"
-                android:textAppearance="?attr/textAppearanceHeadline4"
-                android:textColor="?android:textColorPrimary"
-                app:cornerRadius="24dp"
-                app:rippleColor="@color/colorSecondary"
-                tools:ignore="HardcodedText" />
-        </com.google.android.material.button.MaterialButtonToggleGroup>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_custom_step"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+        app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintEnd_toEndOf="@id/buttons_row"
+        app:layout_constraintStart_toEndOf="@id/group_sign_btn"
+        app:layout_constraintTop_toBottomOf="@id/tv_hint">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-3dp"
-            android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
-            app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
-            app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
-            app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
-            app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
-            app:boxStrokeColor="@color/colorSecondary">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_add_custom_value"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:digits="1234567890"
-                android:fontFamily="@font/azm"
-                android:gravity="center_vertical"
-                android:imeOptions="actionDone"
-                android:includeFontPadding="false"
-                android:inputType="numberSigned"
-                android:maxLength="9"
-                android:maxLines="1"
-                android:minWidth="140dp"
-                android:paddingHorizontal="@dimen/padding_large"
-                android:selectAllOnFocus="true"
-                android:textAppearance="?attr/textAppearanceHeadline4"
-                tools:text="231" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-</LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_add_custom_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890"
+            android:fontFamily="@font/azm"
+            android:gravity="center"
+            android:imeOptions="actionDone"
+            android:includeFontPadding="false"
+            android:inputType="numberSigned"
+            android:maxLength="9"
+            android:selectAllOnFocus="true"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:autoSizeMaxTextSize="48sp"
+            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            tools:text="95866" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
