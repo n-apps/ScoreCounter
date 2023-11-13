@@ -212,7 +212,11 @@
         app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
+        android:hint="@string/simple_edit_value_hint"
         app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/colorSecondary"
+        app:hintTextAppearance="?attr/textAppearanceCaption"
         app:boxStrokeColor="@color/colorSecondary"
         app:layout_constraintEnd_toEndOf="@id/buttons_row"
         app:layout_constraintStart_toEndOf="@id/group_sign_btn"
@@ -229,12 +233,11 @@
             android:includeFontPadding="false"
             android:inputType="numberSigned"
             android:maxLength="9"
-            android:selectAllOnFocus="true"
             android:textAppearance="?attr/textAppearanceHeadline4"
-            app:autoSizeMaxTextSize="48sp"
-            app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+            tools:text="56"
+            tools:focusedByDefault="true"
+            tools:cursorVisible="true"
             app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            tools:text="95866" />
+            app:autoSizeTextType="uniform"/>
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

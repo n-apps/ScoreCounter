@@ -117,8 +117,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                 .positiveText(R.string.common_set)
                                 .contentColorRes(R.color.textColorPrimary)
                                 .buttonRippleColorRes(R.color.rippleColor)
-                                .widgetColorRes(R.color.colorSecondary)
-                                .positiveColorRes(R.color.colorSecondary)
+                                .widgetColorRes(R.color.colorPrimary)
+                                .positiveColorRes(R.color.colorPrimary)
                                 .alwaysCallInputCallback()
                                 .typeface(medium, regular)
                                 .showListener(dialogInterface -> {

@@ -18,7 +18,6 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.text.InputFilter;
 import android.text.InputType;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -53,6 +52,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -102,7 +102,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private int counterStep4;
     private SpanningLinearLayoutManager spanningLinearLayoutManager;
     private LinearLayoutManager linearLayoutManager;
-    private Typeface medium;
+    private Typeface mono;
     private Typeface regular;
     private Vibrator vibrator;
 
@@ -157,7 +157,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
-        medium = getResources().getFont(R.font.o600);
+        mono = getResources().getFont(R.font.azm);
         regular = getResources().getFont(R.font.o400);
 
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
@@ -214,7 +214,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(medium, regular)
+                        .typeface(mono, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
                         .show();
@@ -224,7 +224,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.resetAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(medium, regular)
+                        .typeface(mono, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
                         .show();
@@ -266,7 +266,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
                 if (oldListSize != size) {
 //                    countersAdapter.notifyDataSetChanged();
-                    if (size < 6) {
+                    if (size < CountersAdapter.COUNTERS_LAYOUT_THRESHOLD) {
                         if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
                             recyclerView.setLayoutManager(spanningLinearLayoutManager);
                         }
@@ -439,33 +439,33 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSetValueDialog(Counter counter, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(counter.getName() + " | " + counter.getValue())
+                .title(counter.getName() + " [" + counter.getValue()+ "]")
+                .titleGravity(GravityEnum.CENTER)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .neutralText(R.string.action_reset)
-                .typeface(medium, regular)
+                .typeface(regular, mono)
                 .contentColorRes(R.color.textColorPrimary)
                 .buttonRippleColorRes(R.color.rippleColor)
-                .widgetColorRes(R.color.colorSecondary)
-                .positiveColorRes(R.color.colorSecondary)
+                .widgetColorRes(R.color.colorPrimary)
+                .positiveColorRes(R.color.colorPrimary)
                 .alwaysCallInputCallback()
-                .input("" + counter.getValue(), null, false, (dialog, input) -> {
+                .input(R.string.simple_edit_value_hint, 0, false, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {
-                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                    TextView titleTextView = ((MaterialDialog) dialogInterface).getTitleView();
                     if (titleTextView != null) {
                         titleTextView.setLines(1);
                         titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                        titleTextView.setGravity(Gravity.CENTER);
                         titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
                     }
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
-                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(9)});
-                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                        inputEditText.setGravity(Gravity.CENTER);
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
-                .onNeutral((dialog, which) -> viewModel.resetCounter(counter))
                 .onPositive((dialog, which) -> {
                     EditText editText = dialog.getInputEditText();
                     if (editText != null) {
@@ -543,7 +543,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         contentView.findViewById(R.id.counter_info_header).setBackgroundColor(color);
         ((TextView) contentView.findViewById(R.id.counter_value)).setTextColor(tintColor);
         ((TextView) contentView.findViewById(R.id.counter_name)).setTextColor(tintColor);
-
 
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
@@ -682,11 +681,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
-                .typeface(medium, regular)
+                .typeface(regular, regular)
                 .contentColorRes(R.color.textColorPrimary)
                 .buttonRippleColorRes(R.color.rippleColor)
-                .widgetColorRes(R.color.colorSecondary)
-                .positiveColorRes(R.color.colorSecondary)
+                .widgetColorRes(R.color.colorPrimary)
+                .positiveColorRes(R.color.colorPrimary)
+                .neutralColorRes(R.color.colorPrimary)
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                     if (titleTextView != null) {

@@ -41,7 +41,6 @@
     <string name="message_error_generic">Entschuldigung, es sieht so aus ob ein Fehler aufgetreten ist.</string>
     <string name="action_save">Speichern</string>
     <string name="common_more">Mehr</string>
-    <string name="action_reset">Zurücksetzen</string>
     <string name="setting_share">Einem Freund empfehlen</string>
     <string name="share_snippet">Hi! Mit dem Punktezähler können Sie bei Spielen, Sport oder anderen Aktivitäten problemlos Punkte sammeln. Laden Sie die kostenlose Android-App hier herunter:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Ändern</string>
@@ -61,4 +60,5 @@
     <string name="history_subtitle">Nur diese Sitzung</string>
     <string name="menu_elektu">Wer fängt an?</string>
     <string name="settings_change_language">Sprache</string>
+    <string name="simple_edit_value_hint">Wert eingeben</string>
 </resources>

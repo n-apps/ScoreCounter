@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_height="112dp">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/item_view"
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/padding_normal"
+        android:layout_marginTop="@dimen/spacing_micro"
         android:layout_marginEnd="@dimen/padding_normal"
         android:layout_marginBottom="@dimen/spacing_micro"
-        android:layout_marginTop="@dimen/spacing_micro"
         app:cardCornerRadius="8dp"
-
         app:cardElevation="1dp"
         tools:cardBackgroundColor="#F2B04B">
 
@@ -36,19 +36,15 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:foreground="@drawable/ripple"
                     android:contentDescription="@string/counter_details_name"
                     android:ellipsize="end"
                     android:fontFamily="@font/o600"
+                    android:foreground="@drawable/ripple"
                     android:gravity="center_vertical"
                     android:maxLines="1"
                     android:paddingStart="@dimen/padding_normal"
-                    android:paddingEnd="@dimen/padding_normal"
                     android:textColor="?android:attr/textColorPrimary"
-                    app:autoSizeMaxTextSize="@dimen/font_display"
-                    app:autoSizeMinTextSize="@dimen/font_body"
-                    app:autoSizeStepGranularity="1sp"
-                    app:autoSizeTextType="uniform"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
                     tools:text="@tools:sample/first_names" />
 
                 <ImageView
@@ -56,8 +52,8 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:alpha="0.54"
-                    android:foreground="@drawable/ripple"
                     android:contentDescription="@string/common_edit"
+                    android:foreground="@drawable/ripple"
                     android:gravity="end"
                     android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
@@ -69,8 +65,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:foreground="@drawable/ripple"
-                android:focusable="true">
+                android:focusable="true"
+                android:padding="8dp"
+                android:foreground="@drawable/ripple">
 
                 <TextView
                     android:id="@+id/tv_counter_value"
@@ -80,20 +77,19 @@
                     android:clickable="false"
                     android:contentDescription="@string/counter_details_value"
                     android:fontFamily="@font/azm"
+                    android:foreground="@android:color/transparent"
                     android:gravity="center"
                     android:includeFontPadding="false"
-                    android:foreground="@android:color/transparent"
                     android:lines="1"
                     android:paddingStart="40dp"
                     android:paddingEnd="40dp"
                     android:textColor="?android:attr/textColorPrimary"
-                    app:autoSizeMaxTextSize="@dimen/counter_max_text_size"
-                    app:autoSizeMinTextSize="@dimen/counter_min_text_size"
+                    app:autoSizeMaxTextSize="80sp"
+                    app:autoSizeMinTextSize="14sp"
                     app:autoSizeStepGranularity="2sp"
                     app:autoSizeTextType="uniform"
                     tools:ignore="MissingPrefix"
-                    tools:text="20"
-                    tools:textSize="192sp" />
+                    tools:text="20" />
 
                 <ImageView
                     android:id="@+id/iv_decrease"
@@ -101,10 +97,9 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginStart="@dimen/padding_normal"
-                    android:alpha="0.54"
                     android:clickable="false"
                     android:contentDescription="@string/common_decrease"
-                    android:src="@drawable/ic_minus" />
+                    android:src="@drawable/ic_subtract" />
 
                 <ImageView
                     android:id="@+id/iv_increase"
@@ -112,10 +107,9 @@
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="@dimen/padding_normal"
-                    android:alpha="0.54"
                     android:clickable="false"
                     android:contentDescription="@string/common_increase"
-                    android:src="@drawable/ic_plus" />
+                    android:src="@drawable/ic_add" />
             </FrameLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

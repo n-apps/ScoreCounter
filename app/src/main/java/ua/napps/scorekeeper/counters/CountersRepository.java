@@ -2,10 +2,11 @@ package ua.napps.scorekeeper.counters;
 
 import android.util.SparseIntArray;
 
-import androidx.lifecycle.LiveData;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.Random;
 
 import io.reactivex.Completable;
 
@@ -20,6 +21,7 @@ class CountersRepository {
 
     public Completable createCounter(String name, String color, int position) {
         final Counter counter = new Counter(name, color,position);
+        counter.setValue(new Random().nextInt(125));
         return countersDao.insert(counter);
     }
 

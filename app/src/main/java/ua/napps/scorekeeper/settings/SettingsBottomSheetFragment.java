@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.text.InputFilter;
 import android.text.InputType;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -231,8 +230,8 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 .positiveText(R.string.common_set)
                 .contentColorRes(R.color.textColorPrimary)
                 .buttonRippleColorRes(R.color.rippleColor)
-                .widgetColorRes(R.color.colorSecondary)
-                .positiveColorRes(R.color.colorSecondary)
+                .widgetColorRes(R.color.colorPrimary)
+                .positiveColorRes(R.color.colorPrimary)
                 .alwaysCallInputCallback()
                 .typeface(medium, regular)
                 .input(oldValue, null, false, (dialog, input) -> {
@@ -242,7 +241,6 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
                         inputEditText.setTransformationMethod(null);
-                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                     }
                 })
@@ -251,7 +249,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     if (editText != null) {
                         String value = editText.getText().toString();
                         Integer parseInt = Utilities.parseInt(value, 0);
-                        if (parseInt <= 9999 && parseInt > 1) {
+                        if (parseInt > 1) {
                             setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();

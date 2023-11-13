@@ -41,7 +41,6 @@
     <string name="message_error_generic">Spiacente, sembra essersi verificato un errore.</string>
     <string name="action_save">Salva</string>
     <string name="common_more">Di più</string>
-    <string name="action_reset">Azzera</string>
     <string name="setting_share">Consiglia ad un amico</string>
     <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Modifica</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">A chi tocca per primo?</string>
     <string name="about_translators_title">Chiamiamo tutti gli esperti di lingue e gli appassionati di animali! Rendiamo la nostra adorata app più divertente con traduzioni e simpatici nomi di animali. Unisciti alla festa e sii altrettanto cool come le persone che hanno già messo a&#160;disposizione la loro fantastica creatività:</string>
     <string name="settings_change_language">Cambiare la lingua</string>
+    <string name="simple_edit_value_hint">Immetti valore</string>
 </resources>

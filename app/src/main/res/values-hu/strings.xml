@@ -44,7 +44,6 @@
     <string name="message_you_can_use_long_press">Próbálj meg hosszan rábökni a&#160;+/- gombokra</string>
     <string name="dialog_predefined_steps">A beállításokban átírhatod ezeket az értékeket</string>
     <string name="settings_privacy_policy">Adatvédelem</string>
-    <string name="action_reset">Visszaállítás</string>
     <string name="action_save">Mentés</string>
     <string name="setting_help_translate">Segítség a&#160;fordításban</string>
     <string name="setting_share">Ajánlás egy barátnak</string>
@@ -61,4 +60,5 @@
     <string name="about_testers">Alkalmi tesztelők\n\u2690 bleeerr \n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Hívjuk az összes nyelvi varázslót és állatbarátot! Fűszerezzük fel a&#160;kedvenc alkalmazásunkat fordításokkal és vicces állatnevekkel. Csatlakozz a&#160;bulihoz és légy olyan menő, mint azok az emberek, akik már hozzáadták saját fantasztikus ötleteiket:</string>
     <string name="settings_change_language">Nyelvváltás</string>
+    <string name="simple_edit_value_hint">Új érték</string>
 </resources>

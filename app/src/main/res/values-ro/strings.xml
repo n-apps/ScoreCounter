@@ -41,7 +41,6 @@
     <string name="message_error_generic">Imi pare rau, se pare ca a&#160;intervenit o eroare</string>
     <string name="action_save">Salveaza</string>
     <string name="common_more">Mai multe</string>
-    <string name="action_reset">Reseteaza</string>
     <string name="setting_share">Recomanda unui prieten</string>
     <string name="share_snippet">Salut! Score Counter te ajuta sa tii scorul in orice joc, sport sau activitate. Descarca gratuit aplicatia pentru Android :\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editeaza</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">Cine începe?</string>
     <string name="about_translators_title">Chemăm toți magicienii lingvistici și entuziaștii animalelor! Să îmbunătățim aplicația noastră dragă cu traduceri și porecle amuzante pentru animale. Alătură-te petrecerii și fii la fel de tare ca oamenii care și-au împrumutat deja talentul lor minunat:</string>
     <string name="settings_change_language">Schimbați limba</string>
+    <string name="simple_edit_value_hint">Introduceți valoarea</string>
 </resources>

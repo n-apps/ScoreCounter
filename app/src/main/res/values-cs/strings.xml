@@ -45,7 +45,6 @@
     <string name="message_you_can_use_long_press">Zkuste podržet +/-</string>
     <string name="settings_privacy_policy">Zásady ochrany osobních údajů</string>
     <string name="dialog_predefined_steps">Tyto hodnoty můžete upravit v nastavení</string>
-    <string name="action_reset">Obnovit</string>
     <string name="action_save">Uložit</string>
     <string name="setting_help_translate">Pomoc s překladem</string>
     <string name="settings_about">O aplikaci</string>
@@ -61,4 +60,5 @@
     <string name="about_testers">Příležitostní testeři\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="about_translators_title">Voláme všechny jazykové kouzelníky a&#160;nadšence do zvířat! Obohatme naši oblíbenou aplikaci překlady a&#160;vtipnými zvířecími přezdívkami. Připojte se k tomuto zábavnému večírku a&#160;buďte stejně skvělí jako lidé, kteří už přidali své fantastické nápady:</string>
     <string name="settings_change_language">Změna jazyka</string>
+    <string name="simple_edit_value_hint">Zadejte hodnotu</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="message_error_generic">Виникла помилка.</string>
     <string name="action_save">Зберегти</string>
     <string name="common_more">Більше</string>
-    <string name="action_reset">Скинути</string>
     <string name="setting_share">Зкинути другу з Android-ом</string>
     <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай застосунок для Android тут:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Редагувати</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">Хто перший гравець?</string>
     <string name="about_translators_title">Запрошуємо всіх магів мов та прихильників тварин! Додамо нашому улюбленому додатку ще більше перекладів та веселих кличок тварин. Приєднуйтеся до вечірки і будьте такими ж крутими, як люди, які вже додали свою крутість:</string>
     <string name="settings_change_language">Мова</string>
+    <string name="simple_edit_value_hint">Введіть значення</string>
 </resources>

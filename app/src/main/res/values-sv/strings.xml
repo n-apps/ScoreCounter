@@ -44,7 +44,6 @@
     <string name="message_you_can_use_long_press">Prova att trycka länge på +/-</string>
     <string name="dialog_predefined_steps">Du kan ändra dessa värden i inställningarna</string>
     <string name="settings_privacy_policy">Integritetspolicy</string>
-    <string name="action_reset">Återställ</string>
     <string name="action_save">Spara</string>
     <string name="setting_help_translate">Hjälp till att översätta</string>
     <string name="setting_share">Rekommendera till en vän</string>
@@ -61,4 +60,5 @@
     <string name="settings_switch_tap_logic">Byt kort och långa tryckning</string>
     <string name="about_testers">Tillfälliga testare\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="about_translators_title">Kalla alla språkexperter och djurälskare! Vi kryddar upp vår älskade app med översättningar och roliga djurnamn. Gå med i festen och var lika cool som personerna som redan har bidragit med sin fantastiska kreativitet:</string>
+    <string name="simple_edit_value_hint">Ange ett värde</string>
 </resources>

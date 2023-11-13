@@ -45,7 +45,6 @@
     <string name="message_you_can_use_long_press">Probeer lang op +/- te drukken</string>
     <string name="dialog_predefined_steps">Je kunt deze waarden in de instellingen aanpassen</string>
     <string name="settings_privacy_policy">Privacybeleid</string>
-    <string name="action_reset">Resetten</string>
     <string name="action_save">Opslaan</string>
     <string name="setting_help_translate">Help met vertalen</string>
     <string name="setting_share">Aanbevelen aan een vriend</string>
@@ -61,4 +60,5 @@
     <string name="settings_appearance">Weergaven</string>
     <string name="about_translators_title">Alle taalwizards en dierenliefhebbers opgelet! Laten we onze geliefde app opfleuren met vertalingen en grappige dierennamen. Doe mee met het feest en wees net zo cool als de mensen die hun geweldigheid al hebben uitgeleend:</string>
     <string name="settings_change_language">Taal veranderen</string>
+    <string name="simple_edit_value_hint">Nieuwe waarde</string>
 </resources>

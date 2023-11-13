@@ -38,6 +38,8 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public static final int TYPE_FULL = 1;
     public static final int TYPE_COMPACT = 2;
 
+    public static final int COUNTERS_LAYOUT_THRESHOLD = 7;
+
     static final String INCREASE_VALUE_CLICK = "increase_value_click";
     static final String DECREASE_VALUE_CLICK = "decrease_value_click";
     private final CounterActionCallback callback;
@@ -108,7 +110,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemViewType(int position) {
-        if (getItemCount() < 6) {
+        if (getItemCount() < COUNTERS_LAYOUT_THRESHOLD) {
             return TYPE_FULL;
         } else {
             return TYPE_COMPACT;
@@ -194,7 +196,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             counterName = v.findViewById(R.id.tv_counter_name);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
-            container = v.findViewById(R.id.card);
+            container = v.findViewById(R.id.item_view);
             counterName.setOnClickListener(v1 -> counterActionCallback.onEditClick(counter));
 
             final CounterCompactViewHolder holder = this;
@@ -262,7 +264,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             counterClickableArea = v.findViewById(R.id.counter_interaction_area);
             increaseImageView = v.findViewById(R.id.iv_increase);
             decreaseImageView = v.findViewById(R.id.iv_decrease);
-            container = v.findViewById(R.id.card);
+            container = v.findViewById(R.id.item_view);
             counterName.setOnClickListener(v1 -> counterActionCallback.onNameClick(counter));
             counterOptionsImageView.setOnClickListener(v2 -> counterActionCallback.onEditClick(counter));
 

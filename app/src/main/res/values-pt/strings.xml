@@ -41,7 +41,6 @@
     <string name="message_error_generic">Desculpe, parece que ocorreu um erro.</string>
     <string name="action_save">Salvar</string>
     <string name="common_more">Mais</string>
-    <string name="action_reset">Reiniciar</string>
     <string name="setting_share">Recomendar a&#160;um amigo</string>
     <string name="share_snippet">Olá! O Score Counter vai te ajudar a&#160;facilmente manter a&#160;pontuação em qualquer jogo, esporte ou outra atividade. Baixe gratuitamente a&#160;versão para Android aqui:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Editar</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">Quem vai primeiro?</string>
     <string name="about_translators_title">Chamando todos os gênios da língua e os entusiastas dos animais! Vamos dar um toque especial ao nosso amado aplicativo com traduções e apelidos hilários de animais. Junte-se à festa e seja tão legal quanto as pessoas que já emprestaram sua genialidade:</string>
     <string name="settings_change_language">Mudar idioma</string>
+    <string name="simple_edit_value_hint">Insira um valor</string>
 </resources>

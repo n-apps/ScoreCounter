@@ -45,7 +45,6 @@
     <string name="message_you_can_use_long_press">" +/- tuşlarına daha uzun süre basmayı deneyin"</string>
     <string name="dialog_predefined_steps">Bu değerleri ayarlardan düzenleyebilirsiniz</string>
     <string name="settings_privacy_policy">Gizlilik Politikası</string>
-    <string name="action_reset">Sıfırla</string>
     <string name="action_save">Kaydet</string>
     <string name="setting_help_translate">Çeviriye yardım edin</string>
     <string name="setting_share">Bir arkadaşınıza tavsiye edin</string>
@@ -61,4 +60,5 @@
     <string name="about_testers">Ara sıra testers \n\u2690 bleeerr \n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Tüm dil büyücüleri ve hayvan tutkunlarına çağrı! Sevimli uygulamamızı çeviriler ve komik hayvan takma adlarıyla renklendirelim. Partiye katılın ve awesomeness\'lerini paylaşan insanlar kadar havalı olun:</string>
     <string name="settings_change_language">Dili değiştir</string>
+    <string name="simple_edit_value_hint">Değer girin</string>
 </resources>

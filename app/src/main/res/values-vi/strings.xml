@@ -44,7 +44,6 @@
     <string name="message_you_can_use_long_press">Hãy thử chạm lâu vào +/-</string>
     <string name="dialog_predefined_steps">Bạn có thể chỉnh sửa các giá trị này trong cài đặt</string>
     <string name="settings_privacy_policy">Chính sách bảo mật</string>
-    <string name="action_reset">Cài lại</string>
     <string name="action_save">Lưu</string>
     <string name="setting_help_translate">Giúp dịch thuật</string>
     <string name="setting_share">Giới thiệu cho bạn bè</string>
@@ -61,4 +60,5 @@
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
     <string name="about_testers">Người thử nghiệm không thường xuyên\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Dịch thuật</string>
+    <string name="simple_edit_value_hint">Giá trị mới</string>
 </resources>

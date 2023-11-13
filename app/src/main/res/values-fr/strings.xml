@@ -41,7 +41,6 @@
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
     <string name="action_save">Sauvegarder</string>
     <string name="common_more">Plus</string>
-    <string name="action_reset">Réinitialiser</string>
     <string name="setting_share">Recommander à un ami</string>
     <string name="share_snippet">Salut! Score Counter vous permettra de maintenir facilement la feuille de score dans n\'importe quel jeu, sport ou activité. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Modifier</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">Qui commence ?</string>
     <string name="about_translators_title">À tous les magiciens des langues et les passionnés des animaux ! Égayons notre application adorée avec des traductions et des surnoms d\'animaux hilarants. Joignez-vous à la fête et soyez aussi cool que les personnes qui ont déjà prêté leur génie :</string>
     <string name="settings_change_language">Changer de langue</string>
+    <string name="simple_edit_value_hint">Saisissez une valeur</string>
 </resources>

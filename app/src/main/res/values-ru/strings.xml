@@ -41,7 +41,6 @@
     <string name="message_error_generic">Произошла ошибка.</string>
     <string name="action_save">Сохранить</string>
     <string name="common_more">Больше</string>
-    <string name="action_reset">Сброс</string>
     <string name="setting_share">Отправить другу с Android-ом</string>
     <string name="share_snippet">Привет! Счетчик Очков поможет тебе с легкостью и в пару нажатий вести счет в настольных играх, спорте или&#160;других занятиях. Качай приложение для Android тут:\n http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Изменить</string>
@@ -61,4 +60,5 @@
     <string name="menu_elektu">Кто ходит первым?</string>
     <string name="about_translators_title">Приглашаем всех языковых волшебников и любителей животных! Давайте придадим нашему любимому приложению изюминку с помощью переводов и забавных кличек животных. Присоединяйтесь к нашей вечеринке и будьте такими же крутыми, как те, кто уже проявил свою крутость:</string>
     <string name="settings_change_language">Язык</string>
+    <string name="simple_edit_value_hint">Введите значение</string>
 </resources>

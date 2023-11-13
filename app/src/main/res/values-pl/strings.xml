@@ -41,7 +41,6 @@
     <string name="message_error_generic">Przepraszam, wygląda na to, że wystąpił jakiś błąd.</string>
     <string name="action_save">Zapisz</string>
     <string name="common_more">Więcej</string>
-    <string name="action_reset">Zresetuj</string>
     <string name="setting_share">Poleć znajomemu</string>
     <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj: http://play.google.com/store/apps/details?id=</string>
     <string name="common_edit">Edytuj</string>
@@ -61,4 +60,5 @@
     <string name="history_subtitle">tylko ta sesja</string>
     <string name="menu_elektu">Kto pierwszy?</string>
     <string name="settings_change_language">Zmiana języka</string>
+    <string name="simple_edit_value_hint">Nowa wartość</string>
 </resources>
