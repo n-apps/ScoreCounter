@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/counters_fragment"
     android:background="?attr/colorSurface"
     tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 

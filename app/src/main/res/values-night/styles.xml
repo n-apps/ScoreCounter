@@ -19,7 +19,9 @@
         <item name="android:colorEdgeEffect">@color/primaryBackground</item>
         <item name="android:statusBarColor">@color/primaryBackground</item>
         <item name="android:windowActivityTransitions">true</item>
-        <item name="android:windowEnterTransition">@transition/fade</item>
+        <item name="android:windowEnterTransition">@android:transition/fade</item>
+        <item name="android:windowExitTransition">@android:transition/fade</item>
+        <item name="android:windowReenterTransition">@android:transition/fade</item>
         <item name="android:forceDarkAllowed">false</item>
 
         <item name="colors_scheme">@array/default_color_list</item>

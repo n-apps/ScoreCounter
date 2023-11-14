@@ -13,11 +13,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.transition.Transition;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.transition.MaterialSharedAxis;
+import com.google.android.material.transition.platform.MaterialFadeThrough;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.counters.CountersFragment;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
     private RateMyAppDialog rateMyAppDialog;
-    private Fragment currentFragment;
+    private String currentFragmentTag;
     private FragmentManager manager;
     private int currentDiceRoll;
     private int previousDiceRoll;
@@ -96,8 +95,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
         bottomNavigationBar.setOnItemReselectedListener(item -> {
             if (item.getItemId() == R.id.counters) {
-                if (currentFragment instanceof CountersFragment) {
-                    ((CountersFragment) currentFragment).scrollToTop();
+                Fragment f = getSupportFragmentManager().findFragmentByTag(currentFragmentTag);
+                if (f instanceof CountersFragment) {
+                    ((CountersFragment) f).scrollToTop();
                 }
             }
         });
@@ -171,36 +171,41 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     @Override
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
-        switch (key) {
-            case LocalSettings.KEEP_SCREEN_ON:
-                isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
-                applyKeepScreenOnIfNeeded();
-                break;
-            case LocalSettings.APP_THEME_MODE:
-                bottomNavigationBar.setSelectedItemId(R.id.counters);
-                applyAppTheme();
-                getDelegate().applyDayNight();
-                break;
+        if (LocalSettings.KEEP_SCREEN_ON.equals(key)) {
+            isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
+            applyKeepScreenOnIfNeeded();
+        } else if (LocalSettings.APP_THEME_MODE.equals(key)) {
+            bottomNavigationBar.setSelectedItemId(R.id.counters);
+            applyAppTheme();
+            getDelegate().applyDayNight();
         }
     }
 
     private void switchFragment(String tag) {
+        if (tag.equals(currentFragmentTag)) return;
+        Fragment fragment = getFragmentByTag(tag);
+
+        fragment.setEnterTransition(createTransition());
+
+        manager.beginTransaction()
+                .replace(R.id.container, fragment, tag)
+                .commit();
+        currentFragmentTag = tag;
+    }
+
+    private Fragment getFragmentByTag(String tag) {
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
+        if (fragment != null) return fragment;
+
         switch (tag) {
             case TAG_COUNTERS_FRAGMENT:
-                currentFragment = CountersFragment.newInstance();
-                break;
+                return CountersFragment.newInstance();
             case TAG_DICES_FRAGMENT:
-                currentFragment = DicesFragment.newInstance(currentDiceRoll, previousDiceRoll);
-                break;
+                return DicesFragment.newInstance(currentDiceRoll, previousDiceRoll);
             case TAG_SETTINGS_FRAGMENT:
-                currentFragment = SettingsFragment.newInstance();
-                break;
+                return SettingsFragment.newInstance();
         }
-        Transition enterTrans = new MaterialSharedAxis(MaterialSharedAxis.X, true);
-        currentFragment.setEnterTransition(enterTrans);
-        manager.beginTransaction()
-                .replace(R.id.container, currentFragment, tag)
-                .commit();
+        return null;
     }
 
     private void applyKeepScreenOnIfNeeded() {
@@ -209,6 +214,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+    }
+
+    private MaterialFadeThrough createTransition() {
+        MaterialFadeThrough fadeThrough = new MaterialFadeThrough();
+
+        // Add targets for this transition to explicitly run transitions only on these views. Without
+        // targeting, a MaterialFadeThrough would be run for every view in the Fragment's layout.
+        fadeThrough.addTarget(R.id.counters_fragment);
+        fadeThrough.addTarget(R.id.dices_fragment);
+        fadeThrough.addTarget(R.id.settings_fragment);
+
+        return fadeThrough;
     }
 
     @Override

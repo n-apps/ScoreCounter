@@ -84,7 +84,7 @@ public class DicesFragment extends Fragment {
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
         diceCompositionTextView = contentView.findViewById(R.id.tv_dice_composition);
-        root = contentView.findViewById(R.id.container);
+        root = contentView.findViewById(R.id.dices_fragment);
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
 
         maxSide = LocalSettings.getDiceMaxSide();

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/settings_fragment"
     android:layout_height="wrap_content"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
     tools:ignore="TouchTargetSizeCheck">
