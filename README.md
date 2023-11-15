@@ -1,6 +1,6 @@
 # Score Counter Android App
 
-![Score Counter Android App](https://github.com/n-apps/ScoreCounter/assets/16646251/ff9a9bd4-4fe9-4e62-89a4-16d0cf0254d5)
+![Score Counter Android App](https://github.com/n-apps/ScoreCounter/assets/16646251/70e172db-2666-461d-82a5-14a64a422419)
 
 **The easy-to-use score keeper for all your games.**
 
