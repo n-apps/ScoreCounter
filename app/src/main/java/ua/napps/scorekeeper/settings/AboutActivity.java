@@ -33,7 +33,7 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("\uD83D\uDC4B");
+        getSupportActionBar().setTitle("Привіт!");
 
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
         findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6", Toast.LENGTH_SHORT).show());

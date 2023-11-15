@@ -15,15 +15,17 @@
         android:background="@null"
         android:fitsSystemWindows="true"
         app:elevation="0dp"
-        app:statusBarScrim="?attr/colorSecondaryVariant">
+        app:statusBarScrim="#181821">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            app:collapsedTitleTextColor="@color/primary_material_light"
+            app:expandedTitleTextColor="@color/primary_material_light"
             app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            app:statusBarScrim="?attr/colorSecondaryVariant"
+            app:statusBarScrim="#181821"
             app:toolbarId="@+id/toolbar">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +44,8 @@
                     app:layout_constraintDimensionRatio="H,1024:880"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/about_text" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -51,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@null"
-                app:layout_collapseMode="parallax"
+                android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"                app:layout_collapseMode="parallax"
                 app:title="@null" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -102,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:fontFamily="@font/azm"
-                android:lineSpacingMultiplier="1.33"
+                android:lineSpacingMultiplier="1.5"
                 android:text="@string/about_translators"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="@android:color/holo_blue_bright" />

@@ -322,7 +322,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         int topSize = topCounters.size();
         if (topSize == 1) {
             Counter top = topCounters.get(0);
-            toolbar.setTitle("\uD83C\uDFC5 " + top.getName());
+            toolbar.setTitle("\uD83E\uDD47 " + top.getName());
             int counterId = top.getId();
             if (previousTopCounterId != counterId) {
                 if (toolbarTitle != null) {
@@ -336,8 +336,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 previousTopCounterId = counterId;
             }
         } else { // At least the first and the second counters have the same value.
-            boolean isAllCountersTheSame = topSize == counters.size();
-            toolbar.setTitle(isAllCountersTheSame ? null : topSize + " \uD83D\uDCCF");
+            int countersTotal = counters.size();
+            toolbar.setTitle(topSize == countersTotal ? countersTotal +"\uD83D\uDD39︎" : topSize + " \uD83D\uDFF0");
             ViewUtil.shakeView(toolbarTitle, 2, 2);
             previousTopCounterId = 0;
         }
@@ -439,7 +439,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSetValueDialog(Counter counter, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(counter.getName() + " [" + counter.getValue()+ "]")
+                .title(counter.getName() + " [" + counter.getValue() + "]")
                 .titleGravity(GravityEnum.CENTER)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)

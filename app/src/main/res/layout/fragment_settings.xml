@@ -2,9 +2,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/settings_fragment"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0CDFE3FF"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
     tools:ignore="TouchTargetSizeCheck">
 
@@ -16,7 +17,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_large">
+            android:background="?attr/colorSurface"
+            android:paddingVertical="@dimen/spacing_large"
+            android:paddingHorizontal="@dimen/padding_large">
 
             <ImageView
                 android:id="@+id/image"
@@ -67,8 +70,8 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
             android:fontFamily="@font/o600"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_about"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
@@ -78,9 +81,9 @@
             android:id="@+id/tv_open_settings"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
+            android:background="?attr/colorSurface"
             android:layout_height="wrap_content"
             android:fontFamily="@font/o600"
-            android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/common_settings"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:drawableEndCompat="@drawable/ic_arrow_right"
@@ -91,11 +94,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/o400"
-            android:minHeight="@dimen/list_two_lines_min_height"
+            android:drawablePadding="@dimen/spacing_big"
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_chat"
+            app:drawableStartCompat="@drawable/ic_chat"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -103,11 +105,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/o400"
-            android:minHeight="@dimen/list_two_lines_min_height"
+            android:drawablePadding="@dimen/spacing_big"
             android:text="@string/setting_help_translate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_translator"
+            app:drawableStartCompat="@drawable/ic_translator"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -115,11 +116,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/o400"
-            android:minHeight="@dimen/list_two_lines_min_height"
+            android:drawablePadding="@dimen/spacing_big"
             android:text="@string/setting_share"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_share"
+            app:drawableStartCompat="@drawable/ic_share"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -127,23 +127,18 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/o400"
-            android:minHeight="@dimen/list_two_lines_min_height"
+            android:drawablePadding="@dimen/spacing_big"
             android:text="@string/settings_rate_app"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_satisfied"
+            app:drawableStartCompat="@drawable/ic_satisfied"
             app:drawableTint="?attr/colorControlNormal" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_big" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_big"
-            android:layout_marginVertical="@dimen/spacing_large"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="@dimen/spacing_big"
+            android:paddingVertical="@dimen/spacing_large"
             android:clipToPadding="false">
 
             <ImageView
