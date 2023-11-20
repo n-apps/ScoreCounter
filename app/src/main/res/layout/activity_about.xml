@@ -38,14 +38,14 @@
                     android:id="@+id/image_hero"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:contentDescription="@string/about_text"
                     android:scaleType="centerCrop"
                     android:src="@drawable/about"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="H,1024:880"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:contentDescription="@string/about_text" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -89,8 +89,15 @@
                 android:layout_marginVertical="@dimen/spacing_xlarge"
                 app:dividerColor="@color/primary_text_disabled_material_dark" />
 
+            <ImageView
+                android:layout_width="@dimen/empty_state_icon_size"
+                android:layout_height="@dimen/empty_state_icon_size"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/action_donate"
+                android:scaleType="fitCenter"
+                android:src="@drawable/globe" />
+
             <TextView
-                android:id="@+id/translators_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/o400"
@@ -100,54 +107,78 @@
                 android:textColor="@color/primary_text_default_material_dark" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_big"
                 android:fontFamily="@font/azm"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
                 android:lineSpacingMultiplier="1.5"
                 android:text="@string/about_translators"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@android:color/holo_blue_bright" />
+                android:textColor="@android:color/holo_green_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/azm"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:text="StasLeo"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@android:color/holo_green_light"
+                app:drawableStartCompat="@drawable/ic_bel"
+                tools:ignore="HardcodedText" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_help_translate"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/setting_help_translate"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/primary_text_default_material_dark"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="@android:color/holo_green_light"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:strokeColor="@android:color/holo_blue_bright" />
+                app:strokeColor="@android:color/holo_green_light" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_large"
+                android:layout_marginVertical="@dimen/spacing_xlarge"
                 app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/o400"
-                android:lineSpacingMultiplier="1.33"
-                android:paddingEnd="@dimen/padding_normal"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/azm"
+                android:gravity="center_horizontal"
+                android:lineSpacingMultiplier="1.2"
                 android:text="@string/about_credits"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/primary_text_default_material_dark" />
+                android:textColor="@android:color/holo_blue_light" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_big"
-                android:fontFamily="@font/o400"
-                android:lineSpacingMultiplier="1.33"
+                android:fontFamily="@font/azm"
+                android:gravity="center_horizontal"
+                android:lineSpacingMultiplier="1.2"
                 android:text="@string/about_testers"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/primary_text_default_material_dark" />
-
+                android:textColor="@android:color/holo_orange_light" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
@@ -158,10 +189,9 @@
             <!--                Donate-->
             <ImageView
                 android:id="@+id/hero_image"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/empty_state_icon_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/spacing_large"
                 android:contentDescription="@string/action_donate"
                 android:scaleType="fitCenter"
                 android:src="@drawable/coffee" />
@@ -173,11 +203,12 @@
                 android:layout_height="wrap_content"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="56dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnSecondary"
                 android:textSize="@dimen/font_title"
+                app:backgroundTint="@color/colorSecondaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -188,18 +219,17 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="56dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/settings_rate_app"
                 android:textAllCaps="false"
-                android:textColor="@color/colorOnSecondary"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="@dimen/font_title"
-                app:backgroundTint="@color/colorSecondaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_privacy_policy"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"

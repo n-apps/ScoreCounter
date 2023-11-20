@@ -50,7 +50,6 @@ public class AboutActivity extends AppCompatActivity {
             dialog.show(getSupportFragmentManager(), "donate");
         });
         findViewById(R.id.btn_help_translate).setOnClickListener(v -> launchEmailClient());
-        findViewById(R.id.translators_title).setOnClickListener(v -> launchEmailClient());
         findViewById(R.id.btn_privacy_policy).setOnClickListener(v -> {
                     Intent viewIntent =
                             new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/score-counter-privacy-policy/home"));

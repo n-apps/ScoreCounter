@@ -54,7 +54,6 @@
     <string name="settings_switch_tap_logic">Поменять короткое и&#160;долгое нажатие</string>
     <string name="message_lowest_wins">Логика изменилась</string>
     <string name="common_vibrate">Вибрировать</string>
-    <string name="about_testers">Тестировщики\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="dialog_predefined_steps">Вы можете изменить эти значения в настройках</string>
     <string name="history_subtitle">только эта сессия</string>
     <string name="menu_elektu">Кто ходит первым?</string>

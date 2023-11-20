@@ -54,7 +54,6 @@
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
     <string name="message_lowest_wins">La logique a&#160;changé</string>
     <string name="common_vibrate">Vibrer</string>
-    <string name="about_testers">Testeurs occasionnels\n\u2690 bleeerr\n\u2690 Moonua</string>
     <string name="dialog_predefined_steps">Vous pouvez modifier ces valeurs dans les paramètres</string>
     <string name="history_subtitle">seulement cette session</string>
     <string name="menu_elektu">Qui commence ?</string>

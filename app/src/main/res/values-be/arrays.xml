@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>Тыраназаўрык</item>
+        <item>Магілёўскі Пікачу</item>
+        <item>Снегір </item>
+        <item>Купальская Русалка</item>
+        <item>Пухнастык</item>
+        <item>Чырвоны Князь</item>
+        <item>Палеская Пчолка</item>
+        <item>Ведзьмачка</item>
+        <item>Гарадзенскі Гулівер</item>
+        <item>Бульбазаўрык</item>
+        <item>Менскі Муркаль</item>
+        <item>Вавёрка</item>
+        <item>Ігуаначка</item>
+        <item>Белавежская Фея</item>
+        <item>Брэстская Барыня</item>
+        <item>Алігатарчык</item>
+        <item>Смалявіцкі Смердзюк</item>
+        <item>Мурашка</item>
+        <item>Мурашкаедзік</item>
+        <item>Баранавічскі Бусел</item>
+        <item>Малпачка</item>
+        <item>Дранікаед</item>
+        <item>Драніказаўр</item>
+        <item>Смятанказаўр</item>
+        <item>Барсучок</item>
+        <item>Баракудачка</item>
+        <item>Мега-распрацоўшчык</item>
+        <item>Мядзведзік</item>
+        <item>Бабруйскі Бабёр</item>
+        <item>Камарык</item>
+        <item>Пушыстык</item>
+        <item>Рыжык Бурундучок</item>
+        <item>Матылёк</item>
+        <item>Вярблюдзік</item>
+        <item>Камаровачка</item>
+        <item>Коцік</item>
+        <item>Гусенічка</item>
+        <item>Слімак</item>
+        <item>Гепардзік</item>
+        <item>Курачка</item>
+        <item>Шымпанзэшачка</item>
+        <item>Шыншылачка</item>
+        <item>Шакаладачка</item>
+        <item>Радзівіл-Рысь</item>
+        <item>Журавiнка </item>
+        <item>Бусляня Буслiк </item>
+        <item>Лясны Джэк</item>
+        <item>Вадзяны Князь</item>
+        <item>Зефірачка</item>
+        <item>Пярунка</item>
+        <item>Журавель</item>
+        <item>Яблынька</item>
+        <item>Німфачка</item>
+        <item>Дыназаўрык</item>
+        <item>Сабачка Цява</item>
+        <item>Дэльфін мінскага мора</item>
+        <item>Зязюленька</item>
+        <item>Галубка</item>
+        <item>Стрэказа</item>
+        <item>Ганарлівы Арол</item>
+        <item>Піўны кароль</item>
+        <item>Вадзяны з Дняпра</item>
+        <item>Лакамка</item>
+        <item>Слонік</item>
+        <item>Марскі слонік</item>
+        <item>Радасць</item>
+        <item>Эму</item>
+        <item>Сакал</item>
+        <item>Краса</item>
+        <item>Ластаўка </item>
+        <item>Рыбка</item>
+        <item>Фламінга</item>
+        <item>Сонечка </item>
+        <item>Лісічка</item>
+        <item>Жабка</item>
+        <item>Пані Завіруха</item>
+        <item>Сівушка</item>
+        <item>Пандачка</item>
+        <item>Жырафа</item>
+        <item>Зубранёнак</item>
+        <item>Антылопачка</item>
+        <item>Козачка</item>
+        <item>Галоўны гусь</item>
+        <item>Залатая рыбка</item>
+        <item>Тоні Сапрана</item>
+        <item>Лазурка</item>
+        <item>Сол Гудман</item>
+        <item>Зорачка</item>
+        <item>Джэсі Пінкман</item>
+        <item>Марская свінка</item>
+        <item>Бярозка</item>
+        <item>Паляўнічка</item>
+        <item>Грыбочак</item>
+        <item>Кропелька</item>
+        <item>Вожык</item>
+        <item>Хмарка</item>
+        <item>Ягадка</item>
+        <item>Крынічка</item>
+        <item>Васілёк</item>
+        <item>Каласочак</item>
+        <item>Беларус</item>
+        <item>Калібры</item>
+        <item>Гіеначка</item>
+        <item>Сонейка</item>
+        <item>Месяц ясны</item>
+        <item>Зайка</item>
+        <item>Птушачка</item>
+        <item>Прыгожы дуб</item>
+        <item>Прыгажун(я)</item>
+        <item>Вясёлка</item>
+        <item>Каалачка</item>
+        <item>Верабейчык</item>
+        <item>Марнатраўны сын</item>
+        <item>Лемурчык</item>
+        <item>Трамвайчык</item>
+        <item>Моцны леў</item>
+        <item>Тыгралёў</item>
+        <item>Чырвоны лобстэр</item>
+        <item>Снегірок</item>
+        <item>Дажджынка</item>
+        <item>Ветрык</item>
+        <item>Вішанка</item>
+        <item>Джун</item>
+        <item>Качка</item>
+        <item>Яноцік Цёма</item>
+        <item>Цімошка</item>
+        <item>Багамолка</item>
+        <item>Фіялетавы сурыкат</item>
+        <item>Маляваныч</item>
+        <item>Кроцік</item>
+        <item>Фея сноў</item>
+        <item>Дзядуля Дабрадзей</item>
+        <item>Палінка</item>
+        <item>Мышаня</item>
+        <item>Мядзьведзяня Топа</item>
+        <item>Заяц Даўгавушык</item>
+        <item>Футравічок</item>
+        <item>Трытон</item>
+        <item>Салавей</item>
+        <item>Васьміног</item>
+        <item>Паца Ваца</item>
+        <item>Дзед Барадзед</item>
+        <item>Лесавічок</item>
+        <item>Шэры Воўк</item>
+        <item>Разумная сава</item>
+        <item>Пімачка</item>
+        <item>Парсючок Сеня</item>
+        <item>Сплюшык</item>
+        <item>Хамячок</item>
+        <item>Бегемотык</item>
+        <item>Гары Потэр</item>
+        <item>Герміёна Грэйнджэр</item>
+        <item>Рон Уізлі</item>
+        <item>Дэвід Бекхэм</item>
+        <item>Альбус Дамблдор</item>
+        <item>Северус Снэйп</item>
+        <item>Поні</item>
+        <item>Дыкабраз</item>
+        <item>Лідскі квак</item>
+        <item>Валдэморт</item>
+        <item>Перапелка</item>
+        <item>Чароўны Кролік</item>
+        <item>Хагрыд</item>
+        <item>Чарадзейка</item>
+        <item>Фіёна</item>
+        <item>Ружовы Шрэк</item>
+        <item>Кот у чаравіках</item>
+        <item>Насорожык</item>
+        <item>Джон Сноў</item>
+        <item>Дэйенэрыс Таргарыен</item>
+        <item>Тырыён Ланістэр</item>
+        <item>Скарпіёнчык</item>
+        <item>Марскі леў</item>
+        <item>Марскі вожык</item>
+        <item>Марскі конік</item>
+        <item>Ар’я Старк</item>
+        <item>Фіндус</item>
+        <item>Баранчык Шон</item>
+        <item>Груфала</item>
+        <item>Крумкач</item>
+        <item>Вольная птушка</item>
+        <item>Гэндальф</item>
+        <item>Мумітроль</item>
+        <item>Павук</item>
+        <item>Снусмумрык </item>
+        <item>Скворац</item>
+        <item>Карлсан-з-даху</item>
+        <item>Піпі Доўгаяпанчоха</item>
+        <item>Джудзі Хопс</item>
+        <item>Нік Уайлд</item>
+        <item>Цнянскі лебедзь</item>
+        <item>Тапір</item>
+        <item>Вал-і</item>
+        <item>Лянівец Сід</item>
+        <item>Тыграня</item>
+        <item>Дзядуля</item>
+        <item>Фарэль</item>
+        <item>Бабуля</item>
+        <item>Чарапаха</item>
+        <item>Кракадзіл Гена</item>
+        <item>Шапакляк</item>
+        <item>Пятачок</item>
+        <item>Кот Матроскін</item>
+        <item>Марскі кот</item>
+        <item>Помслівая аса</item>
+        <item>Джанга вызвалены</item>
+        <item>Вялізарны кіт</item>
+        <item>Пачтальён Печкін</item>
+        <item>Фораст Гамп</item>
+        <item>Маленькі прынц</item>
+        <item>Падынгтан</item>
+        <item>Чарвячок</item>
+        <item>Шэрлак Холмс</item>
+        <item>Каляровая зебра</item>
+        <item>Віні Пух</item>
+        <item>Кінг Конг</item>
+        <item>Пудзель</item>
+        <item>Аднарог</item>
+        <item>Агнядышны смок</item>
+        <item>Зомбі</item>
+        <item>Маці драконаў</item>
+        <item>Доббі</item>
+        <item>Чабурашка</item>
+        <item>Уолтар Уайт</item>
+        <item>Скубі Ду</item>
+        <item>Рапунцэль</item>
+        <item>Король Леў</item>
+        <item>Мікі Маус</item>
+        <item>Чупакабра</item>
+        <item>Нейкі незразумелы хлопец</item>
+        <item>Папялушка</item>
+        <item>Гуфі</item>
+        <item>Cімба</item>
+        <item>Арыель</item>
+        <item>Пакагонтас</item>
+        <item>Базз Лайтар</item>
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>Сістэма</item>
+        <item>Светлы</item>
+        <item>Цёмны</item>
+    </string-array>
+</resources>

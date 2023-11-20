@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="@dimen/padding_large"
-    android:paddingVertical="@dimen/padding_normal">
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_donate"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:layout_gravity="center|top"
+        android:contentDescription="@string/action_donate"
+        android:scaleType="fitXY"
+        android:src="@drawable/support" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:fontFamily="@font/o400"
+        android:fontFamily="@font/o600"
         android:gravity="start"
         android:maxLines="1"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_large"
         android:text="@string/action_donate"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-</FrameLayout>
+        android:textAppearance="?attr/textAppearanceSubtitle1" />
+</LinearLayout>

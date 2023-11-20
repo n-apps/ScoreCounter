@@ -12,7 +12,6 @@
         style="@style/SettingsSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
         android:text="@string/common_settings" />
 
     <TextView
@@ -51,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sw_keep_screen_on"
-            android:fontFamily="@font/o600"
+            android:fontFamily="@font/o400"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_stay_awake"
@@ -84,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sw_vibrate"
-            android:fontFamily="@font/o600"
+            android:fontFamily="@font/o400"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/common_vibrate"
@@ -102,20 +101,22 @@
             app:switcher_on_color="?attr/colorPrimary" />
     </RelativeLayout>
 
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         style="@style/SettingsSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/settings_counter_title"
-        app:drawableTint="?colorOnBackground"
-        tools:ignore="UnusedAttribute" />
+        android:text="@string/settings_counter_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_normal"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:layout_marginVertical="@dimen/spacing_normal"
         android:paddingHorizontal="@dimen/padding_large">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
@@ -195,9 +196,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sw_swap_press"
-            android:fontFamily="@font/o600"
+            android:fontFamily="@font/o400"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingEnd="@dimen/padding_normal"
             android:text="@string/settings_switch_tap_logic"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
 

@@ -137,7 +137,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingHorizontal="@dimen/spacing_big"
+            android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_large"
             android:clipToPadding="false">
 
@@ -148,7 +148,7 @@
                 android:contentDescription="@string/action_donate"
                 android:src="@drawable/support"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1024:408"
+                app:layout_constraintDimensionRatio="H,1024:320"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

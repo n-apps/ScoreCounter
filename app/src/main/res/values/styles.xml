@@ -109,8 +109,7 @@
         <item name="android:fontFamily">@font/o600</item>
         <item name="android:textAppearance">@style/EmptyStateMessage</item>
         <item name="android:gravity">start|center_vertical</item>
-        <item name="android:paddingStart">@dimen/padding_large</item>
-        <item name="android:paddingEnd">@dimen/padding_large</item>
+        <item name="android:paddingHorizontal">@dimen/padding_large</item>
         <item name="android:paddingTop">@dimen/padding_large</item>
         <item name="android:minHeight">@dimen/list_two_lines_min_height</item>
     </style>

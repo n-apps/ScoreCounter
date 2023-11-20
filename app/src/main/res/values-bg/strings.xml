@@ -58,7 +58,6 @@
     <string name="share_snippet">Здравейте! Score Counter ще ви помогне лесно да запазите резултата във всички игри, спортове или други дейности. Вземете безплатното приложение за Android тук:</string>
     <string name="message_one_more_counter">Още един</string>
     <string name="settings_switch_tap_logic">Размяна на кратко и дълго натискане</string>
-    <string name="about_testers">Пилотни потребители\n\u2690 bleeerr\n\u2690 Moonua\n\u2690 Podstolki</string>
     <string name="about_translators_title">Превод</string>
     <string name="simple_edit_value_hint">Въведете стойност</string>
 </resources>
