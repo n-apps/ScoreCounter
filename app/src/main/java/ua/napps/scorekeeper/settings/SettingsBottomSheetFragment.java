@@ -46,10 +46,8 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class SettingsBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
-    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4, openAppInfo;
-    private SwitcherX keepScreenOn;
-    private SwitcherX vibrate;
-    private SwitcherX pressLogic;
+    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private SwitcherX keepScreenOn, vibrate, pressLogic;
     private Vibrator vibrator;
 
     @Override
@@ -59,7 +57,6 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         vibrate = contentView.findViewById(R.id.sw_vibrate);
         pressLogic = contentView.findViewById(R.id.sw_swap_press);
-        openAppInfo = contentView.findViewById(R.id.tv_open_app_info);
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
         btn_c_3 = contentView.findViewById(R.id.btn_3_text);
@@ -79,15 +76,18 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         pressLogic.setClickable(false);
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+        TextView openAppInfo = contentView.findViewById(R.id.tv_open_app_info);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU || Utilities.isMiuiRom()) {
             openAppInfo.setVisibility(View.GONE);
+        } else {
+            openAppInfo.setVisibility(View.VISIBLE);
+            openAppInfo.setOnClickListener(this);
         }
 
         btn_c_1.setOnClickListener(this);
         btn_c_2.setOnClickListener(this);
         btn_c_3.setOnClickListener(this);
         btn_c_4.setOnClickListener(this);
-        openAppInfo.setOnClickListener(this);
 
         btn_c_1.setText(String.valueOf(LocalSettings.getCustomCounter(1)));
         btn_c_2.setText(String.valueOf(LocalSettings.getCustomCounter(2)));
@@ -210,14 +210,13 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 dismiss();
                 break;
             case R.id.tv_open_app_info:
-                if (Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
                     intent.setData(Uri.fromParts("package", requireActivity().getPackageName(), null));
                     requireActivity().startActivity(intent);
                 }
                 break;
         }
-
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
