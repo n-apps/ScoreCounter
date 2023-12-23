@@ -6,22 +6,16 @@
     android:viewportHeight="108">
   <path
       android:pathData="M0,0H108V108H0V0Z"
-      android:fillColor="#3333FF"
-      android:fillType="evenOdd"/>
-  <path
-      android:pathData="M0,0H108V108H0V0Z"
-      android:strokeAlpha="0.2"
-      android:fillType="evenOdd"
-      android:fillAlpha="0.2">
+      android:fillType="evenOdd">
     <aapt:attr name="android:fillColor">
       <gradient 
-          android:startX="16"
-          android:startY="91"
-          android:endX="99.5"
-          android:endY="21"
+          android:startX="24"
+          android:startY="0"
+          android:endX="103"
+          android:endY="110.5"
           android:type="linear">
-        <item android:offset="0.02" android:color="#38FFFFFF"/>
-        <item android:offset="1" android:color="#14FFFFFF"/>
+        <item android:offset="0" android:color="#FF219EBC"/>
+        <item android:offset="1" android:color="#FF31BADB"/>
       </gradient>
     </aapt:attr>
   </path>
