@@ -203,6 +203,7 @@
                 android:layout_height="wrap_content"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
@@ -212,17 +213,37 @@
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_buy_me_a_coffee"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
+                android:text="Buy me a coffee"
+                android:textAllCaps="false"
+                app:icon="@drawable/ic_bmc"
+                app:iconGravity="textEnd"
+                android:textColor="?attr/colorOnSecondary"
+                android:textSize="@dimen/font_title"
+                android:layout_marginTop="@dimen/spacing_large"
+                app:backgroundTint="@color/colorPrimaryVariant"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
+
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_rate_it"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
+                app:backgroundTint="@color/rippleColor"
                 android:insetBottom="0dp"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/settings_rate_app"
                 android:textAllCaps="false"
-                android:textColor="?attr/colorOnSecondary"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/font_title"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 

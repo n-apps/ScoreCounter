@@ -70,6 +70,7 @@ import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
+import ua.napps.scorekeeper.settings.AboutActivity;
 import ua.napps.scorekeeper.settings.LocalSettings;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
@@ -231,6 +232,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_log:
                 LogActivity.start(requireActivity());
+                break;
+            case R.id.menu_about_app:
+                AboutActivity.start(requireActivity());
                 break;
             case R.id.menu_elektu:
                 Intent viewIntent =
