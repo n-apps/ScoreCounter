@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:elevation="0dp"
         app:statusBarScrim="#181821">
 
@@ -86,7 +87,7 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xlarge"
+                android:layout_marginVertical="@dimen/spacing_big"
                 app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <ImageView
@@ -143,7 +144,6 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/setting_help_translate"
                 android:textAppearance="?attr/textAppearanceBody1"
@@ -154,7 +154,7 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xlarge"
+                android:layout_marginVertical="@dimen/spacing_big"
                 app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <TextView
@@ -183,7 +183,7 @@
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/spacing_xlarge"
+                android:layout_marginTop="@dimen/spacing_big"
                 app:dividerColor="@color/primary_text_disabled_material_dark" />
 
             <!--                Donate-->
@@ -201,9 +201,9 @@
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:layout_marginTop="@dimen/spacing_normal"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
@@ -217,18 +217,18 @@
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
                 android:minHeight="@dimen/list_single_line_min_height"
-                android:text="Buy me a coffee"
+                android:text="@string/action_buy_me_a_coffee"
                 android:textAllCaps="false"
-                app:icon="@drawable/ic_bmc"
-                app:iconGravity="textEnd"
-                android:textColor="?attr/colorOnSecondary"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/font_title"
-                android:layout_marginTop="@dimen/spacing_large"
                 app:backgroundTint="@color/colorPrimaryVariant"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+                app:icon="@drawable/ic_bmc"
+                app:iconGravity="textEnd" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -238,13 +238,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
-                app:backgroundTint="@color/rippleColor"
                 android:insetBottom="0dp"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/settings_rate_app"
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/font_title"
+                app:backgroundTint="@color/rippleColor"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -255,9 +255,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:gravity="center"
-                android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/settings_privacy_policy"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="@color/primary_text_default_material_dark"
                 android:textColorHighlight="@color/primary_text_default_material_dark"
                 app:rippleColor="@color/rippleColor" />

@@ -64,4 +64,5 @@
     <string name="settings_switch_tap_logic">Swap short and long press</string>
     <string name="share_snippet">Hi there! Score Counter will help you easily keep score in any games, sports or other activities. Get the&#160;free Android app here: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Enter value</string>
+    <string name="action_buy_me_a_coffee" translatable="false">Buy me a coffee</string>
 </resources>

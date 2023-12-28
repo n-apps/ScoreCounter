@@ -14,6 +14,10 @@
         android:title="@string/menu_history"
         app:showAsAction="always" />
     <item
+        android:id="@+id/menu_about_app"
+        android:title="@string/settings_about"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_elektu"
         android:title="@string/menu_elektu"
         app:showAsAction="never" />
@@ -24,9 +28,5 @@
     <item
         android:id="@+id/menu_remove_all"
         android:title="@string/menu_delete_all_counters"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_about_app"
-        android:title="@string/settings_about"
         app:showAsAction="never" />
 </menu>

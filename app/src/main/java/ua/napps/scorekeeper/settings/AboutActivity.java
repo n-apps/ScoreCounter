@@ -2,6 +2,7 @@ package ua.napps.scorekeeper.settings;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -72,9 +73,8 @@ public class AboutActivity extends AppCompatActivity {
                 }
         );
 
-        boolean nightModeActive = ViewUtil.isNightModeActive(this);
-        ViewUtil.setLightMode(this, !nightModeActive);
-        ViewUtil.setNavBarColor(this, !nightModeActive);
+        ViewUtil.setLightMode(this, false);
+        ViewUtil.setNavBarColor(this, false, Color.parseColor("#181821"));
     }
 
     private void launchEmailClient() {
