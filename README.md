@@ -37,8 +37,12 @@ Or I can prepare a Google Spreadsheet for you ;) 📩 scorekeeper.feedback@gmail
 ## Donate
 Score Counter is a free app without any ads and with all its features available. However, if you would like to support an indie developer from Ukraine (that's me!), you can make a one-time or multiple contributions within the app.
 
-<a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="56"></a>  
 If you enjoyed this project — or just feeling generous, consider buying me a coffee/borsch. Cheers! :beers:
 
+<a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="56"></a>
+
+<a href="https://www.buymeacoffee.com/score_counter_app" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
+----
 
 ## Commercial sale, making or distributing copies of this app or allowing such activity by third parties on your behalf is prohibited.
