@@ -3,12 +3,12 @@
     <string-array name="names">
         <item>Тыраназаўрык</item>
         <item>Магілёўскі Пікачу</item>
-        <item>Снегір </item>
+        <item>Гіль</item>
         <item>Купальская Русалка</item>
         <item>Пухнастык</item>
         <item>Чырвоны Князь</item>
         <item>Палеская Пчолка</item>
-        <item>Ведзьмачка</item>
+        <item>Вядзьмарка</item>
         <item>Гарадзенскі Гулівер</item>
         <item>Бульбазаўрык</item>
         <item>Менскі Муркаль</item>
@@ -17,10 +17,10 @@
         <item>Белавежская Фея</item>
         <item>Брэстская Барыня</item>
         <item>Алігатарчык</item>
-        <item>Смалявіцкі Смердзюк</item>
+        <item>Смярдзюк</item>
         <item>Мурашка</item>
         <item>Мурашкаедзік</item>
-        <item>Баранавічскі Бусел</item>
+        <item>бацян</item>
         <item>Малпачка</item>
         <item>Дранікаед</item>
         <item>Драніказаўр</item>
@@ -31,7 +31,7 @@
         <item>Мядзведзік</item>
         <item>Бабруйскі Бабёр</item>
         <item>Камарык</item>
-        <item>Пушыстык</item>
+        <item>пушысцік</item>
         <item>Рыжык Бурундучок</item>
         <item>Матылёк</item>
         <item>Вярблюдзік</item>
@@ -80,7 +80,7 @@
         <item>Сівушка</item>
         <item>Пандачка</item>
         <item>Жырафа</item>
-        <item>Зубранёнак</item>
+        <item>Зубраня</item>
         <item>Антылопачка</item>
         <item>Козачка</item>
         <item>Галоўны гусь</item>
@@ -161,7 +161,7 @@
         <item>Дыкабраз</item>
         <item>Лідскі квак</item>
         <item>Валдэморт</item>
-        <item>Перапелка</item>
+        <item>Перапёлка</item>
         <item>Чароўны Кролік</item>
         <item>Хагрыд</item>
         <item>Чарадзейка</item>
@@ -240,7 +240,7 @@
     </string-array>
     <string-array name="app_theme_options">
         <item>Сістэма</item>
-        <item>Светлы</item>
+        <item>Яркі</item>
         <item>Цёмны</item>
     </string-array>
 </resources>
