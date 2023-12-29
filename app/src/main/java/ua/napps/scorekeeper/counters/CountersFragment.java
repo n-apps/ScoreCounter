@@ -198,7 +198,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.counters_menu, menu);
 
-        MenuItem item = menu.getItem(4);
+        MenuItem item = menu.getItem(5);
         SpannableString s = new SpannableString(item.getTitle().toString());
         s.setSpan(new ForegroundColorSpan(Color.argb(255, 255, 79, 94)), 0, s.length(), 0);
         item.setTitle(s);

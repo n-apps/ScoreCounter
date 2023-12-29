@@ -9,10 +9,10 @@
     <ImageView
         android:id="@+id/iv_donate"
         android:layout_width="match_parent"
-        android:layout_height="320dp"
+        android:layout_height="128dp"
         android:contentDescription="@string/action_donate"
-        android:scaleType="centerCrop"
-        android:src="@drawable/about" />
+        android:scaleType="fitXY"
+        android:src="@drawable/support" />
 
     <LinearLayout
         android:layout_width="match_parent"
