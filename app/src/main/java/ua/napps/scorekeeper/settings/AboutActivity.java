@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +36,7 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Привіт!");
+        getSupportActionBar().setTitle("");
 
         ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
         findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6", Toast.LENGTH_SHORT).show());
@@ -73,8 +75,12 @@ public class AboutActivity extends AppCompatActivity {
                 }
         );
 
-        ViewUtil.setLightMode(this, false);
-        ViewUtil.setNavBarColor(this, false, Color.parseColor("#181821"));
+        ViewUtil.setLightMode(this, true);
+        ViewUtil.setNavBarColor(this, true, Color.parseColor("#A6CFE2"));
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.parseColor("#A6CFE2"));
     }
 
     private void launchEmailClient() {

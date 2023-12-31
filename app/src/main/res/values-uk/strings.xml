@@ -57,7 +57,7 @@
     <string name="dialog_predefined_steps">Ви можете змінити ці значення у налаштуваннях</string>
     <string name="history_subtitle">тільки ця сесія</string>
     <string name="menu_elektu">Хто перший гравець?</string>
-    <string name="about_translators_title">Запрошуємо всіх магів мов та прихильників тварин! Додамо нашому улюбленому додатку ще більше перекладів та веселих кличок тварин. Приєднуйтеся до вечірки і будьте такими ж крутими, як люди, які вже додали свою крутість:</string>
+    <string name="about_translators_title">Круті люди що допомогли з перекладом:</string>
     <string name="settings_change_language">Мова</string>
     <string name="simple_edit_value_hint">Введіть значення</string>
 </resources>

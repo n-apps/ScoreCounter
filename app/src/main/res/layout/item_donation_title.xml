@@ -17,11 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:fontFamily="@font/o600"
         android:gravity="start"
         android:maxLines="1"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingTop="@dimen/padding_large"
         android:text="@string/action_donate"
-        android:textAppearance="?attr/textAppearanceSubtitle1" />
+        android:textAppearance="?attr/textAppearanceHeadline5" />
 </LinearLayout>
