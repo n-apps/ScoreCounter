@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="settings_rate_app">Đánh giá trên Google&#160;Play ★</string>
-    <string name="about_text">Xin chào, tôi tên là Roma và tôi đến từ Kremenchuk, Ukraine. Tôi đã chơi các trò chơi bàn trong hơn 10 năm. Ý tưởng cho ứng dụng này xuất hiện trong tôi khi tôi đang chơi Star Realms (mà có các viên nặng kém).\n\nTôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi. Mỗi phản hồi của bạn, địa chỉ email hoặc sự ủng hộ tài chính khiến tôi hạnh phúc một chút. Nếu bạn có điều gì đó để chia sẻ, muốn giúp đỡ về bản dịch, hoặc chỉ muốn chia sẻ điều bạn đang tính, đừng ngần ngại liên hệ với tôi.\n\nBất kể cuộc chiến tranh đang diễn ra ở quê hương tôi, tôi quyết định giữ cho ứng dụng này miễn phí và không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), xin hãy xem xét ủng hộ thông qua ứng dụng.\n\nCảm ơn bạn!</string>
+    <string name="about_text">Xin chào, tên tôi là Roma và tôi đến từ Ukraina. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hạnh phúc. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, hãy cứ vui lòng liên hệ. Tôi đã mất công việc do chiến tranh ở đất nước của mình, nhưng tôi quyết định sẽ giữ ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
     <string name="action_donate">Mua cho tôi một \u263a\ufe0e</string>
     <string name="app_name">Bộ đếm điểm</string>
     <string name="common_counters">Bộ đếm</string>
@@ -11,14 +11,14 @@
     <string name="common_decrease">Giảm</string>
     <string name="common_edit">Chỉnh sửa</string>
     <string name="common_increase">Tăng</string>
-    <string name="common_more">Hơn</string>
-    <string name="common_set">Bộ</string>
+    <string name="common_more">Thêm nữa</string>
+    <string name="common_set">Đặt</string>
     <string name="common_vibrate">Rung</string>
     <string name="counter_added">Đã thêm bộ đếm</string>
     <string name="counter_deleted">Đã xóa bộ đếm</string>
     <string name="counter_details_default_value">Đặt lại giá trị</string>
     <string name="counter_details_name">Tên bộ đếm</string>
-    <string name="counter_details_step">Tăng</string>
+    <string name="counter_details_step">Mức tăng</string>
     <string name="counter_details_value">Giá trị</string>
     <string name="counters_empty_message">Nhấn vào nút \"+\" ở góc trên cùng bên phải để thêm bộ đếm mới</string>
     <string name="delete">Xóa bỏ</string>
@@ -27,7 +27,7 @@
     <string name="dialog_no">Không</string>
     <string name="dialog_yes">Có</string>
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>
-    <string name="dice_previous_result_label">Lần xổ trước:</string>
+    <string name="dice_previous_result_label">Lần tung trước:</string>
     <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraina. Tôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi.\n\nBất kể cuộc chiến tranh diễn ra ở đất nước của tôi, tôi quyết định giữ ứng dụng này miễn phí và hoàn toàn không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), vui lòng xem xét quyên góp trong ứng dụng. Cảm ơn!</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
@@ -39,7 +39,7 @@
     <string name="menu_delete_all_counters">Xóa hết</string>
     <string name="menu_elektu">Ai đi trước?</string>
     <string name="menu_history">Lịch sử</string>
-    <string name="history_subtitle">chỉ phiên</string>
+    <string name="history_subtitle">chỉ lần này</string>
     <string name="menu_reset_all_counters">Đặt lại tất cả</string>
     <string name="message_you_can_use_long_press">Hãy thử chạm lâu vào +/-</string>
     <string name="dialog_predefined_steps">Bạn có thể chỉnh sửa các giá trị này trong cài đặt</string>
@@ -52,12 +52,12 @@
     <string name="settings_counter_title">Bộ đếm (tăng điểm)</string>
     <string name="settings_feedback">Gửi phản hồi</string>
     <string name="settings_appearance">Giao diện</string>
-    <string name="settings_shake_to_roll">Lắc để xổ</string>
+    <string name="settings_shake_to_roll">Lắc để tung</string>
     <string name="settings_sound">Âm thanh</string>
     <string name="settings_stay_awake">Giữ màn hình sáng</string>
     <string name="share_snippet">Chào bạn! Bộ đếm điểm sẽ giúp bạn dễ dàng ghi điểm trong mọi trò chơi, thể thao hoặc các hoạt động khác. Tải ứng dụng Android miễn phí tại đây:</string>
     <string name="message_one_more_counter">Một lần nữa</string>
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
-    <string name="about_translators_title">Dịch thuật</string>
+    <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
     <string name="simple_edit_value_hint">Giá trị mới</string>
 </resources>

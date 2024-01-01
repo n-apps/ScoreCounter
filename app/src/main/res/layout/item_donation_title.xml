@@ -18,9 +18,8 @@
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="start"
-        android:maxLines="1"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingTop="@dimen/padding_large"
         android:text="@string/action_donate"
-        android:textAppearance="?attr/textAppearanceHeadline5" />
+        android:textAppearance="?attr/textAppearanceHeadline6" />
 </LinearLayout>
