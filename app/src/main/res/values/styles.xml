@@ -128,8 +128,4 @@
         <item name="backgroundTint">@color/outline_button_selector</item>
         <item name="rippleColor">@color/btn_text_btn_bg_color_selector</item>
     </style>
-
-    <style name="AppTheme.NoActionAndStatusBar" parent="ScoreCounter">
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
 </resources>
