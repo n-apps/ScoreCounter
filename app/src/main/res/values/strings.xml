@@ -64,5 +64,5 @@
     <string name="settings_switch_tap_logic">Swap short and long press</string>
     <string name="share_snippet">No need to run for pen and paper. Easy-to-use score keeper app for you. Get the&#160;free Android app: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Enter value</string>
-    <string name="action_buy_me_a_coffee" translatable="false">Buy me a coffee</string>
+    <string name="action_buy_me_a_coffee" translatable="false">Buy me a coffee or beer</string>
 </resources>

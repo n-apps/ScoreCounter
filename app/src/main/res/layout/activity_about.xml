@@ -194,7 +194,7 @@
                 android:textSize="@dimen/font_title"
                 app:backgroundTint="@color/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:icon="@drawable/ic_bmc"
+                app:icon="@drawable/ic_beer"
                 app:iconGravity="textEnd"
                 app:iconTint="?attr/colorOnSecondary" />
 
@@ -208,7 +208,6 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/settings_rate_app"
                 android:textAllCaps="false"
