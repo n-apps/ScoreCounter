@@ -60,4 +60,5 @@
     <string name="menu_elektu">Kto pierwszy?</string>
     <string name="settings_change_language">Zmiana języka</string>
     <string name="simple_edit_value_hint">Nowa wartość</string>
+    <string name="action_buy_me_a_coffee">kup mi kawę</string>
 </resources>

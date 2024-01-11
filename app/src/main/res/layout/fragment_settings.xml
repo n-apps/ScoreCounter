@@ -148,7 +148,7 @@
                 android:contentDescription="@string/action_donate"
                 android:src="@drawable/support"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1024:320"
+                app:layout_constraintDimensionRatio="H,1024:340"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

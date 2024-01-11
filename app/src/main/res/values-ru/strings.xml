@@ -60,4 +60,5 @@
     <string name="about_translators_title">Приглашаем всех языковых волшебников и любителей животных! Давайте придадим нашему любимому приложению изюминку с помощью переводов и забавных кличек животных. Присоединяйтесь к нашей вечеринке и будьте такими же крутыми, как те, кто уже проявил свою крутость:</string>
     <string name="settings_change_language">Язык</string>
     <string name="simple_edit_value_hint">Введите значение</string>
+    <string name="action_buy_me_a_coffee">купить мне кофе</string>
 </resources>

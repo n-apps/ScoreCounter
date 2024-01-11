@@ -60,4 +60,5 @@
     <string name="settings_switch_tap_logic">Памяняць кароткае і доўгае націсканне</string>
     <string name="share_snippet">Прывітанне! Лічыльнік Ачкоў дапаможа вам лёгка сачыць за рахункам у любых гульнях, спорце ці іншых занятках. Спампуйце бясплатны дадатак для Android тут: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Увядзіце значэнне</string>
+    <string name="action_buy_me_a_coffee">Купі мне піва</string>
 </resources>

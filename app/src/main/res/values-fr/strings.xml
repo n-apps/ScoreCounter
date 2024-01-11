@@ -60,4 +60,5 @@
     <string name="about_translators_title">À tous les magiciens des langues et les passionnés des animaux ! Égayons notre application adorée avec des traductions et des surnoms d\'animaux hilarants. Joignez-vous à la fête et soyez aussi cool que les personnes qui ont déjà prêté leur génie :</string>
     <string name="settings_change_language">Changer de langue</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
+    <string name="action_buy_me_a_coffee">m\'offrir un café</string>
 </resources>

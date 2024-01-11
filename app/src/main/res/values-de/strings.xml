@@ -60,4 +60,5 @@
     <string name="menu_elektu">Wer fängt an?</string>
     <string name="settings_change_language">Sprache</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
+    <string name="action_buy_me_a_coffee">mir einen Kaffe spendieren</string>
 </resources>
