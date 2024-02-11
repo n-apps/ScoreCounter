@@ -28,7 +28,7 @@
         android:id="@+id/price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/azm"
+        android:fontFamily="@font/mono"
         android:textAppearance="?attr/textAppearanceBody2"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textColor="?android:attr/textColorSecondary"

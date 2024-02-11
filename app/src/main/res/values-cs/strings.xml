@@ -4,7 +4,7 @@
     <string name="settings_rate_app">Ohodnotit na Google&#160;Play ★</string>
     <string name="about_text">Ahoj, jmenuji se Roma a&#160;pocházím z Kremenchuku, Ukrajiny. Hraji deskové hry více než 10 let. Nápad na tuto aplikaci mi přišel, když jsem hrál Star Realms (který má hrozné žetony).\n\nNejsem vývojář a&#160;na této aplikaci pracuji ve svém volném čase. Každá z vašich zpětných vazeb, vašeho e-mailu nebo daru mi udělá trochu šťastnějším. Pokud máte něco, co chcete sdílet, potřebujete pomoc s překladem, nebo jen chcete sdílet, co počítáte, neváhejte mě kontaktovat.\n\nNavzdory válce v mé zemi jsem se rozhodl tuto aplikaci udržet zdarma a&#160;bez reklam. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím darování v aplikaci.\n\nDěkuji!</string>
     <string name="common_counters">Počítadla</string>
-    <string name="action_donate">Podpořte vývojáře \u263a\ufe0e</string>
+    <string name="action_donate">Podpora přes Google Play</string>
     <string name="common_dice">Kostky</string>
     <string name="common_settings">Nastavení</string>
     <string name="common_back">Zpět</string>
@@ -60,5 +60,5 @@
     <string name="about_translators_title">Voláme všechny jazykové kouzelníky a&#160;nadšence do zvířat! Obohatme naši oblíbenou aplikaci překlady a&#160;vtipnými zvířecími přezdívkami. Připojte se k tomuto zábavnému večírku a&#160;buďte stejně skvělí jako lidé, kteří už přidali své fantastické nápady:</string>
     <string name="settings_change_language">Změna jazyka</string>
     <string name="simple_edit_value_hint">Zadejte hodnotu</string>
-    <string name="action_buy_me_a_coffee">koupit kafe</string>
+    <string name="action_buy_me_a_coffee">Koupit kafe</string>
 </resources>

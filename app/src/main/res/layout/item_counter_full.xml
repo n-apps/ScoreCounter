@@ -73,7 +73,7 @@
                     android:layout_gravity="center"
                     android:clickable="false"
                     android:contentDescription="@string/counter_details_value"
-                    android:fontFamily="@font/azm"
+                    android:fontFamily="@font/mono"
                     android:foreground="@android:color/transparent"
                     android:gravity="center"
                     android:includeFontPadding="false"

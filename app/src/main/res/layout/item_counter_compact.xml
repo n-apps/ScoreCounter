@@ -55,7 +55,7 @@
             android:id="@+id/tv_counter_value"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:fontFamily="@font/azm"
+            android:fontFamily="@font/mono"
             android:foreground="@drawable/ripple"
             android:gravity="center"
             android:includeFontPadding="false"

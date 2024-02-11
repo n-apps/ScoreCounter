@@ -2,7 +2,7 @@
 <resources>
     <string name="settings_rate_app">Betygsätt min app</string>
     <string name="about_text">Hej, mitt namn är Roma och jag kommer från Kremenchuk, Ukraina. Jag har spelat brädspel i över 10 år. Idén till den här appen kom till mig när jag spelade Star Realms (som har hemskt dåliga brickor).\n\nJag är inte en utvecklare och jag jobbar på den här appen på min fritid. Varje feedback, din e-post eller donation gör mig lite gladare. Om du har något att dela, behöver hjälp med översättning, eller bara vill berätta vad du räknar, tveka inte att kontakta mig.\n\nTrots kriget i mitt land har jag beslutat att behålla den här appen gratis och helt utan annonser. Om du skulle vilja stödja en oberoende utvecklare (mig), överväg att donera via appen.\n\nTack!</string>
-    <string name="action_donate">Köp mig en \u263a\ufe0e</string>
+    <string name="action_donate">Stöd via Google Play</string>
     <string name="app_name">Poängräknare</string>
     <string name="common_counters">Räknare</string>
     <string name="common_dice">Tärning</string>
@@ -60,5 +60,5 @@
     <string name="settings_switch_tap_logic">Byt kort och långa tryckning</string>
     <string name="about_translators_title">Kalla alla språkexperter och djurälskare! Vi kryddar upp vår älskade app med översättningar och roliga djurnamn. Gå med i festen och var lika cool som personerna som redan har bidragit med sin fantastiska kreativitet:</string>
     <string name="simple_edit_value_hint">Ange ett värde</string>
-    <string name="action_buy_me_a_coffee">bjud mig på kaffe.</string>
+    <string name="action_buy_me_a_coffee">Bjud mig på kaffe</string>
 </resources>

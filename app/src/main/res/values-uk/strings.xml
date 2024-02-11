@@ -36,7 +36,7 @@
     <string name="dialog_no">Ні</string>
     <string name="settings_privacy_policy">Політика конфіденційності</string>
     <string name="message_thank_you">Дякую за підтримку! \u2665\ufe0e</string>
-    <string name="action_donate">Підтримати Розробника \u263a\ufe0e</string>
+    <string name="action_donate">Підтримати через Google Play</string>
     <string name="settings_sound">Звук</string>
     <string name="message_error_generic">Виникла помилка.</string>
     <string name="action_save">Зберегти</string>
@@ -60,5 +60,5 @@
     <string name="about_translators_title">Круті люди що допомогли з перекладом:</string>
     <string name="settings_change_language">Мова</string>
     <string name="simple_edit_value_hint">Введіть значення</string>
-    <string name="action_buy_me_a_coffee">купити мені каву</string>
+    <string name="action_buy_me_a_coffee">Купити мені каву</string>
 </resources>

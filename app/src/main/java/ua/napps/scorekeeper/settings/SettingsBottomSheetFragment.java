@@ -220,7 +220,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
-        Typeface regular = getResources().getFont(R.font.azm);
+        Typeface regular = getResources().getFont(R.font.mono);
         Typeface medium = getResources().getFont(R.font.o600);
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())

@@ -3,7 +3,7 @@
     <string name="app_name">Scoreteller</string>
     <string name="settings_rate_app">Waarderen op Google&#160;Play ★</string>
     <string name="about_text">Hallo, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Ik speel al meer dan 10 jaar bordspellen. Het idee voor deze app kwam bij me op terwijl ik Star Realms speelde (die verschrikkelijke tokens heeft).\n\nIk ben geen ontwikkelaar en werk aan deze app in mijn vrije tijd. Elk stukje feedback, jouw e-mail of donatie maakt me een beetje gelukkiger. Als je iets wilt delen, hulp nodig hebt bij vertaling, of gewoon wilt delen waar je aan denkt, aarzel dan niet om contact met me op te nemen.\n\nOndanks de oorlog in mijn land, heb ik besloten om deze app gratis en zonder advertenties te houden. Als je een onafhankelijke ontwikkelaar (ik dus) wilt steunen, overweeg dan om een donatie in de app te doen.\n\nDank je wel!</string>
-    <string name="action_donate">Steun de ontwikkelaar&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Ondersteuning via Google Play</string>
     <string name="common_counters">Tellers</string>
     <string name="common_dice">Dobbelstenen</string>
     <string name="common_settings">Instellingen</string>
@@ -60,5 +60,5 @@
     <string name="about_translators_title">Alle taalwizards en dierenliefhebbers opgelet! Laten we onze geliefde app opfleuren met vertalingen en grappige dierennamen. Doe mee met het feest en wees net zo cool als de mensen die hun geweldigheid al hebben uitgeleend:</string>
     <string name="settings_change_language">Taal veranderen</string>
     <string name="simple_edit_value_hint">Nieuwe waarde</string>
-    <string name="action_buy_me_a_coffee">mij een kop koffie doneren</string>
+    <string name="action_buy_me_a_coffee">Mij een kop koffie doneren</string>
 </resources>

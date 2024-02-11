@@ -37,7 +37,7 @@
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
     <string name="message_thank_you">Спасибо за поддержку! \u2665\ufe0e</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Поддержать Разработчика&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Поддержать через Google Play</string>
     <string name="message_error_generic">Произошла ошибка.</string>
     <string name="action_save">Сохранить</string>
     <string name="common_more">Больше</string>
@@ -60,5 +60,5 @@
     <string name="about_translators_title">Приглашаем всех языковых волшебников и любителей животных! Давайте придадим нашему любимому приложению изюминку с помощью переводов и забавных кличек животных. Присоединяйтесь к нашей вечеринке и будьте такими же крутыми, как те, кто уже проявил свою крутость:</string>
     <string name="settings_change_language">Язык</string>
     <string name="simple_edit_value_hint">Введите значение</string>
-    <string name="action_buy_me_a_coffee">купить мне кофе</string>
+    <string name="action_buy_me_a_coffee">Угостить меня кофе</string>
 </resources>

@@ -3,7 +3,7 @@
     <string name="app_name">Pontszámláló</string>
     <string name="settings_rate_app">Értékelés a&#160;Google&#160;Playen</string>
     <string name="about_text">Szia, a&#160;nevem Roma, és Kremenchukból, Ukrajnából származom. Több mint 10 éve játszom társasjátékokkal. Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a&#160;Star Realms játékot játszottam (amelynek szörnyű zsetonjai vannak).\n\nNem vagyok fejlesztő, és a&#160;szabadidőmben dolgozom ezen az alkalmazáson. Minden visszajelzésed, e-mailcímed vagy adományod kicsit boldoggá tesz. Ha van valamid megosztani, segítségre van szükséged a&#160;fordításhoz, vagy csak szeretnél valamit megosztani, ne habozz kapcsolatba lépni velem.\n\nAnnak ellenére, hogy háború zajlik az országomban, úgy döntöttem, hogy ezt az alkalmazást ingyenesen és teljesen hirdetésmentesen tartom. Ha támogatni szeretnéd a&#160;független fejlesztőt (engem), fontold meg az alkalmazáson belüli adományozást.\n\nKöszönöm!</string>
-    <string name="action_donate">Vegyél nekem egy \u263a\ufe0e</string>
+    <string name="action_donate">Támogatás a Google Play-en keresztül</string>
     <string name="common_counters">Pontszámok</string>
     <string name="common_dice">Kockák</string>
     <string name="common_settings">Beállítások</string>
@@ -60,5 +60,5 @@
     <string name="about_translators_title">Hívjuk az összes nyelvi varázslót és állatbarátot! Fűszerezzük fel a&#160;kedvenc alkalmazásunkat fordításokkal és vicces állatnevekkel. Csatlakozz a&#160;bulihoz és légy olyan menő, mint azok az emberek, akik már hozzáadták saját fantasztikus ötleteiket:</string>
     <string name="settings_change_language">Nyelvváltás</string>
     <string name="simple_edit_value_hint">Új érték</string>
-    <string name="action_buy_me_a_coffee">hívjon meg egy kávéra</string>
+    <string name="action_buy_me_a_coffee">Hívjon meg egy kávéra</string>
 </resources>

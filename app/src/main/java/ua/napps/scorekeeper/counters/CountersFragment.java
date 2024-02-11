@@ -158,7 +158,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
 
-        mono = getResources().getFont(R.font.azm);
+        mono = getResources().getFont(R.font.mono);
         regular = getResources().getFont(R.font.o400);
 
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
