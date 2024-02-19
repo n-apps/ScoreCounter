@@ -33,9 +33,10 @@ public class DicesFragment extends Fragment {
     private static final String ARG_CURRENT_DICE_ROLL = "ARG_CURRENT_DICE_ROLL";
     private static final String ARG_PREVIOUS_DICE_ROLL = "ARG_PREVIOUS_DICE_ROLL";
 
-    private float accel;
-    private float accelCurrent;
-    private float accelLast;
+    private float myAccel = 0f; // acceleration apart from gravity
+    private float myAccelCurrent = SensorManager.GRAVITY_EARTH; // current acceleration including gravity
+    private float myAccelLast = SensorManager.GRAVITY_EARTH; // last acceleration including gravity
+    private long myLastShake;
     private int previousRoll;
     private int currentRoll;
     private TextView previousRollTextView;
@@ -163,9 +164,6 @@ public class DicesFragment extends Fragment {
     }
 
     private void initSensorData() {
-        accel = 0.00f;
-        accelCurrent = SensorManager.GRAVITY_EARTH;
-        accelLast = SensorManager.GRAVITY_EARTH;
         viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
             if (se == null) {
                 return;
@@ -174,11 +172,13 @@ public class DicesFragment extends Fragment {
             float x = se.values[0];
             float y = se.values[1];
             float z = se.values[2];
-            accelLast = accelCurrent;
-            accelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
-            float delta = accelCurrent - accelLast;
-            accel = accel * 0.9f + delta; // perform low-cut filter
-            if (accel > 5.0) {
+            myAccelLast = myAccelCurrent;
+            myAccelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
+            float delta = myAccelCurrent - myAccelLast;
+            myAccel = myAccel * 0.9f + delta; // perform low-cut filter
+
+            if (myAccel > 1.8 && viewModel != null && (System.currentTimeMillis() - myLastShake > 1000)) {
+                myLastShake = System.currentTimeMillis();
                 viewModel.rollDice();
             }
         });
