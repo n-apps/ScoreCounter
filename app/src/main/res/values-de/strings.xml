@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Drück die \"+\" Knopf in der oberen rechten Ecke, um einen neuen Zähler hinzuzufügen</string>
     <string name="dice_sides">Eigene Würfelseiten</string>
     <string name="dice_empty_state">Irgendwo drücken oder schütteln das Gerät um die Würfel zu rollen</string>
-    <string name="dice_previous_result_label">Vorheriger Wurf</string>
+    <string name="dice_previous_result_label">vorheriger roll</string>
     <string name="dialog_support_me_content">Hi, mein Name ist Roma und ich komme aus Kremenchuk, Ukraine. Ich bin kein Entwickler und arbeite in meiner Freizeit an dieser App.\n\nTrotz des Kriegs in meinem Land habe ich mich entschieden, diese App völlig kostenlos und ohne Werbung zu halten. Wenn Sie einen unabhängigen Entwickler (mich) unterstützen möchten, erwägen Sie bitte, in der App eine Spende zu tätigen. Vielen Dank!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="message_app_not_found">Für diese Aktion wurde keine App gefunden :(</string>

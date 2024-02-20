@@ -223,7 +223,7 @@
                     android:maxLength="9"
                     android:maxLines="1"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textAppearance="?attr/textAppearanceHeadline3"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

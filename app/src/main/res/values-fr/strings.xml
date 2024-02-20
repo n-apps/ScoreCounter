@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Tapez sur le \"+\" dans le coin supérieur droit pour ajouter un nouveau compteur</string>
     <string name="dice_sides">Nombre de faces</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>
-    <string name="dice_previous_result_label">Lancé précédent:</string>
+    <string name="dice_previous_result_label">lancé précédent:</string>
     <string name="dialog_support_me_content">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je ne suis pas un développeur et je travaille sur cette application pendant mon temps libre.\n\nMalgré la guerre dans mon pays, j\'ai décidé de maintenir cette application gratuite et sans publicité. Si vous souhaitez soutenir un développeur indépendant (moi), merci de envisager de faire un don dans l\'application. Merci !</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="message_app_not_found">Aucune application trouvée pour gérer cette action :(</string>

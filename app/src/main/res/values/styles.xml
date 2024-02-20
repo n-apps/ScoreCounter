@@ -75,8 +75,8 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/mono</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="autoSizeMaxTextSize">24sp</item>
-        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="autoSizeMaxTextSize">28sp</item>
+        <item name="autoSizeMinTextSize">14sp</item>
         <item name="autoSizeStepGranularity">2sp</item>
         <item name="autoSizeTextType">uniform</item>
     </style>

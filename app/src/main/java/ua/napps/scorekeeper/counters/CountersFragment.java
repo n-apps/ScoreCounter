@@ -215,7 +215,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(mono, regular)
+                        .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
                         .show();
@@ -225,7 +225,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .title(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.resetAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(mono, regular)
+                        .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)
                         .negativeText(R.string.dialog_no)
                         .show();
@@ -467,7 +467,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
                         inputEditText.setGravity(Gravity.CENTER);
-                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                     }
                 })
                 .onPositive((dialog, which) -> {

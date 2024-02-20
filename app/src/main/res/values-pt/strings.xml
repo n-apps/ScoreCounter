@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Toque no botão \"+\" no canto superior direito para adicionar um contador</string>
     <string name="dice_sides">Quantidade de lados</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
-    <string name="dice_previous_result_label">Valor anterior:</string>
+    <string name="dice_previous_result_label">valor anterior:</string>
     <string name="dialog_support_me_content">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Não sou um programador e trabalho nesta aplicação nos meus tempos livres.\n\nApesar da guerra no meu país, decidi manter esta aplicação gratuita e sem anúncios. Se gostaria de apoiar um programador independente (eu), por favor, considere fazer uma doação na aplicação. Obrigado!</string>
     <string name="dialog_support_me_remind_me_later">Agora não</string>
     <string name="message_app_not_found">Nenhum aplicativo de email no seu dispositivo :(</string>

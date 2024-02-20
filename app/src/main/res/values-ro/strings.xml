@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
-    <string name="dice_previous_result_label">Aruncarea anterioara:</string>
+    <string name="dice_previous_result_label">aruncarea anterioara:</string>
     <string name="dialog_support_me_content">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Nu sunt un dezvoltator și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda războiului din țara mea, am decis să păstrez această aplicație gratuită și fără reclame deloc. Dacă doriți să susțineți un dezvoltator independent (pe mine), vă rugăm să luați în considerare să donați în aplicație. Mulțumesc!</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>

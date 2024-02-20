@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Натисніть на \"+\" в правому верхньому кутку, щоб додати новий лічильник</string>
     <string name="dice_sides">Кількість граней</string>
     <string name="dice_empty_state">Натисніть в будь-якому місці або потрясіть пристрій, щоб кинути кубик</string>
-    <string name="dice_previous_result_label">Попередній кидок:</string>
+    <string name="dice_previous_result_label">випало минулого разу:</string>
     <string name="dialog_support_me_content">Привіт! Мене звати Рома, я зараз в Україні. Я працюю над цим застосунком у вільний час.\n\nНезважаючи на війну у моїй країні, я вирішив залишити цей застосунок без реклами. Якщо ви б хотіли підтримати інді-розробника (мене), будь ласка, розгляньте можливість пожертвування через застосунок. Дякую!</string>
     <string name="dialog_support_me_remind_me_later">Не зараз</string>
     <string name="message_app_not_found">Не знайдено програму для обробки цієї дії :(</string>

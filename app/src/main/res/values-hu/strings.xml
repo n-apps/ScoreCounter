@@ -27,7 +27,7 @@
     <string name="dialog_no">Nem</string>
     <string name="dialog_yes">Igen</string>
     <string name="dice_empty_state">Bökj bárhová vagy rázd meg a&#160;készüléket a&#160;kockadobáshoz!</string>
-    <string name="dice_previous_result_label">Előző dobás:</string>
+    <string name="dice_previous_result_label">előző dobás:</string>
     <string name="message_thank_you">Köszönöm szépen a&#160;támogatást \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Sziasztok, a&#160;nevem Roma, és Kremenchukból, Ukrajnából származom. Nem vagyok fejlesztő, és szabadidőmben dolgozom ezen az alkalmazáson.\n\nAnnak ellenére, hogy háború zajlik az országomban, úgy döntöttem, hogy az alkalmazást teljesen ingyenesen és reklámok nélkül tartom. Ha támogatni szeretnéd a&#160;független fejlesztőt (engem), kérlek, fontold meg az in-app adományozást. Köszönöm!</string>
     <string name="dialog_support_me_remind_me_later">Most nem</string>

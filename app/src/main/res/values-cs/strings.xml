@@ -28,7 +28,7 @@
     <string name="dialog_no">Ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
-    <string name="dice_previous_result_label">Předchozí hod:</string>
+    <string name="dice_previous_result_label">předchozí hod:</string>
     <string name="message_thank_you">Děkujeme za Vaši podporu \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Ahoj, jmenuji se Roma a&#160;pocházím z Kremenchuku, Ukrajina. Nejsem vývojář a&#160;na této aplikaci pracuji ve svém volném čase.\n\nNavzdory válce ve své zemi jsem se rozhodl, že tuto aplikaci udržím zdarma a&#160;bez reklam. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím darování přes aplikaci. Děkuji!</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>

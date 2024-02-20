@@ -30,7 +30,7 @@
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
-    <string name="dice_previous_result_label">Tirada anterior:</string>
+    <string name="dice_previous_result_label">tirada anterior:</string>
     <string name="dice_sides">Lados de dados personalizado</string>
     <string name="history_empty_message">No hay historial aún</string>
     <string name="history_subtitle">sólo para la sesión</string>

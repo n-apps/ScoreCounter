@@ -58,10 +58,9 @@
             android:fontFamily="@font/mono"
             android:foreground="@drawable/ripple"
             android:gravity="center"
-            android:includeFontPadding="false"
             android:lines="1"
             android:minEms="2"
-            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textAppearance="?attr/textAppearanceHeadline3"
             tools:text="37"
             tools:textColor="@android:color/white" />
 

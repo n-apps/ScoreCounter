@@ -27,7 +27,7 @@
     <string name="dialog_no">Не</string>
     <string name="dialog_yes">Да</string>
     <string name="dice_empty_state">Докоснете някъде или разклатете устройството, за да хвърлите заровете</string>
-    <string name="dice_previous_result_label">Предишно хвърляне:</string>
+    <string name="dice_previous_result_label">предишно хвърляне:</string>
     <string name="message_thank_you">Благодаря ви много за подкрепата \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Здравейте, казвам се Рома и съм от Кременчуг, Украйна. Не съм разработчик и работя по този приложение в свободното си време.\n\nВъпреки войната в моята страна, реших да направя това приложение безплатно и без реклами изобщо. Ако искате да подкрепите инди разработчика (мен), моля, разгледайте опцията за дарение в приложението. Благодаря ви!</string>
     <string name="dialog_support_me_remind_me_later">Не сега</string>

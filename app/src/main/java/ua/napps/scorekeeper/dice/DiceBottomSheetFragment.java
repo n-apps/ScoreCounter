@@ -108,8 +108,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceSide(20);
                         break;
                     case R.id.btn_4:
-                        Typeface regular = getResources().getFont(R.font.mono);
-                        Typeface medium = getResources().getFont(R.font.o600);
+                        Typeface mono = getResources().getFont(R.font.mono);
+                        Typeface regular = getResources().getFont(R.font.o400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dice_sides)
@@ -120,7 +120,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                 .widgetColorRes(R.color.colorPrimary)
                                 .positiveColorRes(R.color.colorPrimary)
                                 .alwaysCallInputCallback()
-                                .typeface(medium, regular)
+                                .typeface(regular, mono)
                                 .showListener(dialogInterface -> {
                                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                                     if (titleTextView != null) {
@@ -185,8 +185,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                         validateAndStoreDiceCount(4);
                         break;
                     case R.id.btn_x4:
-                        Typeface regular = getResources().getFont(R.font.mono);
-                        Typeface medium = getResources().getFont(R.font.o600);
+                        Typeface mono = getResources().getFont(R.font.mono);
+                        Typeface regular = getResources().getFont(R.font.o400);
 
                         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                                 .title(R.string.dice_sides)
@@ -197,7 +197,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                 .widgetColorRes(R.color.colorSecondary)
                                 .positiveColorRes(R.color.colorSecondary)
                                 .alwaysCallInputCallback()
-                                .typeface(medium, regular)
+                                .typeface(regular, mono)
                                 .showListener(dialogInterface -> {
                                     TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
                                     if (titleTextView != null) {

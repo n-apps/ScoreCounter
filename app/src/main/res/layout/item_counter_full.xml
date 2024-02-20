@@ -50,11 +50,11 @@
                     android:id="@+id/iv_counter_edit"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:alpha=".5"
                     android:contentDescription="@string/common_edit"
                     android:foreground="@drawable/ripple"
                     android:gravity="end"
                     android:padding="@dimen/spacing_normal"
-                    android:alpha=".5"
                     android:scaleType="center"
                     android:src="@drawable/ic_edit" />
             </LinearLayout>
@@ -81,8 +81,8 @@
                     android:lines="1"
                     android:paddingHorizontal="@dimen/padding_large"
                     android:textColor="?android:attr/textColorPrimary"
-                    app:autoSizeMaxTextSize="128sp"
-                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeMaxTextSize="140sp"
+                    app:autoSizeMinTextSize="20sp"
                     app:autoSizeStepGranularity="2sp"
                     app:autoSizeTextType="uniform"
                     tools:text="0" />

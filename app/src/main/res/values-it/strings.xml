@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Toccare il pulsante \"+\" nell\'angolo in alto a&#160;destra per aggiungere un nuovo seganpunti</string>
     <string name="dice_sides">Lati dei dadi personalizzati</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>
-    <string name="dice_previous_result_label">Lancio precedente:</string>
+    <string name="dice_previous_result_label">lancio precedente:</string>
     <string name="dialog_support_me_content">Salve, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Purtroppo ho perso il lavoro a&#160;causa della guerra nel mio Paese. Tuttavia, ho deciso di mantenere la mia applicazione, Score Counter, senza pubblicità e con tutte le funzionalità. Se volete sostenere uno sviluppatore indipendente come me, vi prego di considerare la possibilità di fare una donazione, una o più volte, all\'interno dell\'applicazione. Grazie!</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
     <string name="message_app_not_found">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>

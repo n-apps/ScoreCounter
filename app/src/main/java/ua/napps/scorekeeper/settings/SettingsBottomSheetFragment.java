@@ -175,7 +175,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                             return true;
                         })
                         .items(getResources().getStringArray(R.array.app_theme_options))
-                        .typeface(medium, regular)
+                        .typeface(regular, medium)
                         .show();
 
                 break;
@@ -220,8 +220,8 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void openCustomCounterDialog(final int id, CharSequence oldValue) {
-        Typeface regular = getResources().getFont(R.font.mono);
-        Typeface medium = getResources().getFont(R.font.o600);
+        Typeface mono = getResources().getFont(R.font.mono);
+        Typeface regular = getResources().getFont(R.font.o400);
 
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(R.string.settings_counter_title)
@@ -232,7 +232,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)
                 .alwaysCallInputCallback()
-                .typeface(medium, regular)
+                .typeface(regular, mono)
                 .input(oldValue, null, false, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {

@@ -12,8 +12,8 @@
         android:id="@+id/counter_info_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/list_single_line_min_height"
+        android:gravity="center"
+        android:minHeight="@dimen/list_two_lines_min_height"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingVertical="@dimen/padding_normal"
@@ -24,20 +24,16 @@
 
         <TextView
             android:id="@+id/counter_name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:fontFamily="@font/o600"
-            android:gravity="center_vertical"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/spacing_big"
             android:includeFontPadding="false"
             android:maxLines="1"
-            android:paddingEnd="@dimen/padding_normal"
-            android:text="Jessica — Jessica"
-            app:autoSizeMaxTextSize="@dimen/font_display"
-            app:autoSizeMinTextSize="@dimen/font_body"
-            app:autoSizeStepGranularity="1sp"
-            app:autoSizeTextType="uniform"
+            android:text="Jessica"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             tools:textColor="?attr/colorOnSurface" />
 
         <TextView
@@ -207,16 +203,16 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_xlarge"
+        android:hint="@string/simple_edit_value_hint"
         android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
         app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
-        android:hint="@string/simple_edit_value_hint"
         app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
-        app:hintEnabled="true"
-        app:hintTextColor="@color/colorSecondary"
-        app:hintTextAppearance="?attr/textAppearanceCaption"
         app:boxStrokeColor="@color/colorSecondary"
+        app:hintEnabled="true"
+        app:hintTextAppearance="?attr/textAppearanceCaption"
+        app:hintTextColor="@color/colorSecondary"
         app:layout_constraintEnd_toEndOf="@id/buttons_row"
         app:layout_constraintStart_toEndOf="@id/group_sign_btn"
         app:layout_constraintTop_toBottomOf="@id/tv_hint">
@@ -233,10 +229,10 @@
             android:inputType="numberSigned"
             android:maxLength="9"
             android:textAppearance="?attr/textAppearanceHeadline4"
-            tools:text="56"
-            tools:focusedByDefault="true"
-            tools:cursorVisible="true"
             app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"/>
+            app:autoSizeTextType="uniform"
+            tools:cursorVisible="true"
+            tools:focusedByDefault="true"
+            tools:text="56" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,6 +53,7 @@ public class DicesFragment extends Fragment {
     private boolean soundRollEnabled;
     private int maxSide;
     private int diceCount;
+    private TextView emojiTextView;
 
     public DicesFragment() {
         // Required empty public constructor
@@ -85,6 +86,7 @@ public class DicesFragment extends Fragment {
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
         diceCompositionTextView = contentView.findViewById(R.id.tv_dice_composition);
+        emojiTextView = contentView.findViewById(R.id.tv_emoji);
         root = contentView.findViewById(R.id.dices_fragment);
         contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
 
@@ -220,20 +222,124 @@ public class DicesFragment extends Fragment {
         if (rollsize == 1) {
             diceCompositionTextView.setText("");
             diceCompositionTextView.setVisibility(View.INVISIBLE);
+            emojiTextView.setText(rollInProgress ? " " : getRandomEmoji());
         } else if (rollsize >= 9) {
             diceCompositionTextView.setText("\uD83E\uDD2F \uD83E\uDD2F \uD83E\uDD2F");
             diceCompositionTextView.setVisibility(View.VISIBLE);
         } else {
             StringBuilder composition = new StringBuilder();
+            composition.append(rollInProgress ? "?: " : currentRoll + ": ");
+
             for (int i = 0; i < rollsize; i++) {
-                composition.append(rollInProgress ? "\u274f" : rolls.get(i));
+                composition.append(rollInProgress ? "×" : rolls.get(i));
                 if (i < (rollsize - 1)) {
                     composition.append(" + ");
                 }
             }
             diceCompositionTextView.setText(composition);
             diceCompositionTextView.setVisibility(View.VISIBLE);
+            StringBuilder emojis = new StringBuilder();
+            for (int i = 0; i < rollsize; i++) {
+                emojis.append(rollInProgress ? " " : getRandomEmoji());
+            }
+            emojiTextView.setText(emojis);
         }
+
+    }
+    private String getRandomEmoji() {
+        int[] unicodes = new int[] {
+                // Emoticons
+                0x1F601,
+                0x1F602,
+                0x1F603,
+                0x1F604,
+                0x1F605,
+                0x1F606,
+                0x1F609,
+                0x1F60A,
+                0x1F60B,
+                0x1F60C,
+                0x1F60D,
+                0x1F60F,
+                0x1F612,
+                0x1F613,
+                0x1F614,
+                0x1F616,
+                0x1F618,
+                0x1F61A,
+                0x1F61C,
+                0x1F61D,
+                0x1F61E,
+                0x1F620,
+                0x1F621,
+                0x1F622,
+                0x1F623,
+                0x1F624,
+                0x1F625,
+                0x1F628,
+                0x1F629,
+                0x1F62A,
+                0x1F62B,
+                0x1F62D,
+                0x1F630,
+                0x1F631,
+                0x1F632,
+                0x1F633,
+                0x1F635,
+                0x1F637,
+                0x1F638,
+                0x1F639,
+                0x1F63A,
+                0x1F63B,
+                0x1F63C,
+                0x1F63D,
+                0x1F63E,
+                0x1F63F,
+                0x1F640,
+                0x1F645,
+                0x1F646,
+                0x1F647,
+                0x1F648,
+                0x1F649,
+                0x1F64A,
+                0x1F64B,
+                0x1F64C,
+                0x1F64D,
+                0x1F64E,
+                0x1F64F,
+
+                // Uncategorized
+                0x1F40C,
+                0x1F40D,
+                0x1F40E,
+                0x1F411,
+                0x1F412,
+                0x1F414,
+                0x1F418,
+                0x1F419,
+                0x1F41A,
+                0x1F41B,
+                0x1F41C,
+                0x1F41D,
+                0x1F41E,
+                0x1F41F,
+                0x1F420,
+                0x1F421,
+                0x1F422,
+                0x1F423,
+                0x1F424,
+                0x1F425,
+                0x1F426,
+                0x1F427,
+                0x1F428,
+        };
+        int randomIndex = (int) (Math.random() * unicodes.length);
+        int unicode = unicodes[randomIndex];
+        String emoji = getEmijoByUnicode(unicode);
+        return emoji;
+    }
+    private String getEmijoByUnicode(int unicode) {
+        return new String(Character.toChars(unicode));
     }
 
     @SuppressLint("SetTextI18n")

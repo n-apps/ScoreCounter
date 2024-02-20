@@ -28,7 +28,7 @@
     <string name="dialog_no">Nee</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>
-    <string name="dice_previous_result_label">Vorige worp</string>
+    <string name="dice_previous_result_label">vorige worp</string>
     <string name="message_thank_you">Hartelijk dank voor je steun \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Hi, mijn naam is Roma en ik kom uit Kremenchuk, Oekraïne. Ik ben geen ontwikkelaar en ik werk aan deze app in mijn vrije tijd.\n\nOndanks de oorlog in mijn land heb ik besloten om deze app volledig gratis en zonder advertenties te houden. Als je een onafhankelijke ontwikkelaar (ik) wilt ondersteunen, overweeg dan een donatie in de app. Dank je wel!</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
