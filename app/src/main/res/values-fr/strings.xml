@@ -37,7 +37,7 @@
     <string name="settings_privacy_policy">Politique de confidentialité</string>
     <string name="message_thank_you">Merci \u2665\ufe0e</string>
     <string name="settings_sound">Son</string>
-    <string name="action_donate">Soutien via Google Play</string>
+    <string name="action_donate">Soutien via Google&#160;Play \u263a\ufe0e</string>
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
     <string name="action_save">Sauvegarder</string>
     <string name="common_more">Plus</string>
@@ -60,5 +60,4 @@
     <string name="about_translators_title">À tous les magiciens des langues et les passionnés des animaux ! Égayons notre application adorée avec des traductions et des surnoms d\'animaux hilarants. Joignez-vous à la fête et soyez aussi cool que les personnes qui ont déjà prêté leur génie :</string>
     <string name="settings_change_language">Changer de langue</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
-    <string name="action_buy_me_a_coffee">M\'offrir un café</string>
 </resources>

@@ -37,7 +37,7 @@
     <string name="settings_privacy_policy">Datenschutz-Bestimmungen</string>
     <string name="message_thank_you">Danke für Ihre Unterstützung&#160;\u2665\ufe0e</string>
     <string name="settings_sound">Klang</string>
-    <string name="action_donate">Unterstützung über Google Play</string>
+    <string name="action_donate">Unterstützung über Google&#160;Play \u263a\ufe0e</string>
     <string name="message_error_generic">Entschuldigung, es sieht so aus ob ein Fehler aufgetreten ist.</string>
     <string name="action_save">Speichern</string>
     <string name="common_more">Mehr</string>
@@ -60,5 +60,4 @@
     <string name="menu_elektu">Wer fängt an?</string>
     <string name="settings_change_language">Sprache</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
-    <string name="action_buy_me_a_coffee">Mir einen Kaffe spendieren</string>
 </resources>

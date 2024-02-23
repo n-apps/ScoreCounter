@@ -2,7 +2,7 @@
 <resources>
     <string name="settings_rate_app">Оценете в Google&#160;Play ★</string>
     <string name="about_text">Здравейте, наричам се Рома и съм от Кременчук, Украйна. Играя на настолни игри вече над 10 години. Идеята за този приложение ми дойде, докато играех на Star Realms (което има ужасни жетони).\n\nАз не съм програмист и работя по това приложение в свободното си време. Всяка отзив, вашият имейл или дарение ме прави малко по-щастлив. Ако имате нещо за споделяне, желаете помощ с превода или просто искате да споделите какво преброявате, не се колебайте да се свържете с мен.\n\nВъпреки войната в моята страна, реших да направя това приложение безплатно и без реклами изобщо. Ако желаете да подкрепите инди разработчика (мен), моля, обмислете възможността за дарение в приложението.\n\nБлагодаря ви!</string>
-    <string name="action_donate">Підтримати через Google Play</string>
+    <string name="action_donate">Поддръжка чрез Google&#160;Play \u263a\ufe0e</string>
     <string name="app_name">Брояч на резултати</string>
     <string name="common_counters">Броячи</string>
     <string name="common_dice">Зарове</string>
@@ -60,5 +60,4 @@
     <string name="settings_switch_tap_logic">Размяна на кратко и дълго натискане</string>
     <string name="about_translators_title">Превод</string>
     <string name="simple_edit_value_hint">Въведете стойност</string>
-    <string name="action_buy_me_a_coffee">Купите кафе</string>
 </resources>

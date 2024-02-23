@@ -2,7 +2,7 @@
 <resources>
     <string name="settings_rate_app">Đánh giá trên Google&#160;Play ★</string>
     <string name="about_text">Xin chào, tên tôi là Roma và tôi đến từ Ukraina. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hạnh phúc. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, hãy cứ vui lòng liên hệ. Tôi đã mất công việc do chiến tranh ở đất nước của mình, nhưng tôi quyết định sẽ giữ ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
-    <string name="action_donate">Đóng góp qua Google Play</string>
+    <string name="action_donate">Đóng góp qua Google&#160;Play \u263a\ufe0e</string>
     <string name="app_name">Bộ đếm điểm</string>
     <string name="common_counters">Bộ đếm</string>
     <string name="common_dice">Xúc xắc</string>
@@ -60,5 +60,4 @@
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
     <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
     <string name="simple_edit_value_hint">Giá trị mới</string>
-    <string name="action_buy_me_a_coffee">Mua tôi một cốc cafe</string>
 </resources>

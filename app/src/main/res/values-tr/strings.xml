@@ -3,7 +3,7 @@
     <string name="app_name">Skor Sayacı</string>
     <string name="settings_rate_app">Google&#160;Play’de puan ver</string>
     <string name="about_text">Merhaba, benim adım Roma ve ben Ukrayna\'nın Kremenchuk şehrindendir. 10 yılı aşkın süredir masa oyunları oynuyorum. Bu uygulamanın fikri, Star Realms oynarken (ki oyunun korkunç jetonları var) aklıma geldi.\n\nBen bir yazılım geliştirici değilim ve bu uyg üzerinde boş zamanlarımda çalışıyorum. Sizden gelen her geri bildirim, e-postanız veya bağış, beni biraz daha mutlu ediyor. Paylaşmak istediğiniz bir şeyiniz varsa, çeviri konusunda yardım istiyorsanız veya sadece neyi saydığınızı paylaşmak istiyorsanız, benimle iletişime geçmekten çekinmeyin.\n\nÜlkemdeki savaşa rağmen, bu uygulamayı tamamen ücretsiz ve reklamsız tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içi bağış yapmayı düşünün.\n\nTeşekkür ederim!</string>
-    <string name="action_donate">Google Play üzerinden destek</string>
+    <string name="action_donate">Google&#160;Play üzerinden destek</string>
     <string name="common_counters">Sayaçlar</string>
     <string name="common_dice">Zar</string>
     <string name="common_settings">Ayarlar</string>
@@ -60,5 +60,4 @@
     <string name="about_translators_title">Tüm dil büyücüleri ve hayvan tutkunlarına çağrı! Sevimli uygulamamızı çeviriler ve komik hayvan takma adlarıyla renklendirelim. Partiye katılın ve awesomeness\'lerini paylaşan insanlar kadar havalı olun:</string>
     <string name="settings_change_language">Dili değiştir</string>
     <string name="simple_edit_value_hint">Değer girin</string>
-    <string name="action_buy_me_a_coffee">Bir kahve ısmarla</string>
 </resources>

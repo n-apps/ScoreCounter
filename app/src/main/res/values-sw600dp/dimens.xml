@@ -3,7 +3,6 @@
 
     <dimen name="button_icon_size">48dp</dimen>
 
-    <dimen name="font_body">21sp</dimen>
     <dimen name="font_display">36sp</dimen>
     <dimen name="font_subheading">24sp</dimen>
 

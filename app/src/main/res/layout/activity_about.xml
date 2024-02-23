@@ -161,24 +161,24 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/coffee" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_buy_me_a_coffee"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_large"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
-                android:text="@string/action_buy_me_a_coffee"
-                android:textAllCaps="false"
-                android:textColor="?attr/colorOnSecondary"
-                android:textSize="@dimen/font_title"
-                app:backgroundTint="@color/colorSecondary"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:icon="@drawable/ic_beer"
-                app:iconGravity="textEnd"
-                app:iconTint="?attr/colorOnSecondary" />
+            <!--            <com.google.android.material.button.MaterialButton-->
+            <!--                android:id="@+id/btn_buy_me_a_coffee"-->
+            <!--                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginHorizontal="@dimen/spacing_large"-->
+            <!--                android:insetTop="0dp"-->
+            <!--                android:insetBottom="0dp"-->
+            <!--                android:minHeight="@dimen/list_single_line_min_height"-->
+            <!--                android:text="@string/action_buy_me_a_coffee"-->
+            <!--                android:textAllCaps="false"-->
+            <!--                android:textColor="?attr/colorOnSecondary"-->
+            <!--                android:textSize="@dimen/font_title"-->
+            <!--                app:backgroundTint="@color/colorSecondary"-->
+            <!--                app:cornerRadius="@dimen/material_button_full_round_corner_radius"-->
+            <!--                app:icon="@drawable/ic_beer"-->
+            <!--                app:iconGravity="textEnd"-->
+            <!--                app:iconTint="?attr/colorOnSecondary" />-->
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_donate_it"
@@ -186,34 +186,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
+                android:paddingVertical="@dimen/spacing_big"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
                 android:textSize="@dimen/font_title"
-                app:backgroundTint="@color/colorPrimaryVariant"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_rate_it"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/spacing_large"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
-                android:text="@string/settings_rate_app"
-                android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textSize="@dimen/font_title"
-                app:strokeColor="@color/colorPrimaryVariant"
-                app:rippleColor="@color/rippleColor"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius"/>
+                app:backgroundTint="@color/colorSecondary"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+              />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_privacy_policy"
@@ -227,6 +207,7 @@
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="@color/primary_text_default_material_light"
                 android:textColorHighlight="@color/primary_text_default_material_light"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:rippleColor="@color/rippleColor" />
 
             <ImageView
