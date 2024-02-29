@@ -28,9 +28,8 @@
             android:fontFamily="@font/o400"
             android:foreground="@drawable/ripple"
             android:gravity="center_vertical"
-            android:maxLines="1"
-            android:minWidth="56dp"
-            android:paddingStart="@dimen/padding_normal"
+            android:maxLines="3"
+            android:paddingStart="@dimen/spacing_normal"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:autoSizeMaxTextSize="@dimen/font_display"
             app:autoSizeMinTextSize="12sp"
@@ -60,8 +59,8 @@
             android:gravity="center"
             android:lines="1"
             android:minEms="2"
-            android:textAppearance="?attr/textAppearanceHeadline3"
-            tools:text="37"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            tools:text="34347"
             tools:textColor="@android:color/white" />
 
         <ImageView

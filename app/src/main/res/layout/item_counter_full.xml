@@ -71,21 +71,21 @@
                     android:id="@+id/tv_counter_value"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
                     android:clickable="false"
                     android:contentDescription="@string/counter_details_value"
                     android:fontFamily="@font/mono"
+                    android:fontFeatureSettings="tnum"
                     android:foreground="@android:color/transparent"
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:lines="1"
-                    android:paddingHorizontal="@dimen/padding_large"
+                    android:paddingHorizontal="40dp"
                     android:textColor="?android:attr/textColorPrimary"
-                    app:autoSizeMaxTextSize="140sp"
+                    app:autoSizeMaxTextSize="164sp"
                     app:autoSizeMinTextSize="20sp"
-                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeStepGranularity="4sp"
                     app:autoSizeTextType="uniform"
-                    tools:text="0" />
+                    tools:text="12369459" />
 
                 <ImageView
                     android:id="@+id/iv_decrease"
