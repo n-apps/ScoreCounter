@@ -5,23 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="@drawable/ripple"
-    android:paddingVertical="@dimen/spacing_micro"
-    android:paddingEnd="@dimen/padding_normal"
-    android:paddingStart="@dimen/padding_large">
+    android:paddingVertical="@dimen/spacing_normal"
+    android:paddingStart="@dimen/padding_large"
+    android:paddingEnd="@dimen/padding_normal">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_normal"
         android:fontFamily="@font/o600"
         android:paddingEnd="@dimen/padding_normal"
         android:textAppearance="?attr/textAppearanceSubtitle1"
+        app:layout_constraintBottom_toTopOf="@id/price"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
-        app:layout_constraintBottom_toTopOf="@id/price"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:layout_marginBottom="@dimen/spacing_normal"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:text="Good Black Coffee" />
 
     <TextView
@@ -29,9 +29,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mono"
-        android:textAppearance="?attr/textAppearanceBody2"
+        android:includeFontPadding="false"
+        android:textAppearance="?attr/textAppearanceCaption"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:textColor="?android:attr/textColorSecondary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/image"
         app:layout_constraintTop_toBottomOf="@id/title"
@@ -39,8 +39,9 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:padding="@dimen/spacing_micro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/title"
         app:layout_constraintRight_toRightOf="parent"

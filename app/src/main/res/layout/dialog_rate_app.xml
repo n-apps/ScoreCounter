@@ -39,7 +39,6 @@
             android:insetBottom="0dp"
             android:minHeight="@dimen/list_single_line_min_height"
             android:text="@string/action_donate"
-            android:textAllCaps="false"
             android:textColor="?attr/colorOnSecondary"
             android:textSize="@dimen/font_title"
             app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
@@ -51,10 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:gravity="center"
             android:paddingHorizontal="@dimen/padding_large"
             android:text="@string/dialog_support_me_remind_me_later"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:textColor="?attr/colorOnSurface"
+            app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
     </LinearLayout>
 </LinearLayout>

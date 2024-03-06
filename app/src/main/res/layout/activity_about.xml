@@ -72,12 +72,20 @@
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/primary_text_default_material_light" />
 
+            <ImageView
+                android:layout_width="172dp"
+                android:layout_height="172dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:src="@drawable/ic_hi" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
                 android:fontFamily="@font/o600"
+                android:gravity="center"
                 android:text="@string/about_translators_title"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="@color/primary_text_default_material_light" />
@@ -87,26 +95,26 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_big"
-                android:fontFamily="@font/mono"
+                android:fontFamily="@font/o400"
                 android:gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:lineSpacingMultiplier="1.5"
                 android:text="@string/about_translators"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/colorPrimaryVariant" />
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="#182e3f" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_normal"
-                android:drawablePadding="12dp"
-                android:fontFamily="@font/mono"
+                android:drawablePadding="@dimen/spacing_micro"
+                android:fontFamily="@font/o400"
                 android:gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:text="StasLeo"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/colorPrimaryVariant"
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textColor="#182e3f"
                 app:drawableStartCompat="@drawable/ic_bel"
                 tools:ignore="HardcodedText" />
 
@@ -116,69 +124,59 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_large"
+                android:layout_marginVertical="@dimen/spacing_large"
+                android:drawableTint="#182e3f"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/setting_help_translate"
                 android:textAppearance="?attr/textAppearanceBody1"
-                android:textColor="@color/colorPrimaryVariant"
+                android:textColor="#182e3f"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:strokeColor="@color/colorPrimaryVariant" />
+                app:icon="@drawable/ic_translator"
+                app:iconGravity="textEnd"
+                app:strokeColor="#182e3f" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:fontFamily="@font/mono"
                 android:gravity="center_horizontal"
-                android:lineSpacingMultiplier="1.2"
-                android:text="@string/about_credits"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@android:color/holo_purple" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_big"
-                android:fontFamily="@font/mono"
-                android:gravity="center_horizontal"
-                android:lineSpacingMultiplier="1.2"
-                android:text="@string/about_testers"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@android:color/holo_blue_dark" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/o400"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/about_credits"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#182e3f" />
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/o400"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/about_testers"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#182e3f" />
 
-            <!--                Donate-->
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/hero_image"
-                android:layout_width="400dp"
-                android:layout_height="320dp"
-                android:layout_gravity="end"
-                android:contentDescription="@string/action_donate"
-                android:scaleType="fitXY"
-                android:src="@drawable/coffee" />
-
-            <!--            <com.google.android.material.button.MaterialButton-->
-            <!--                android:id="@+id/btn_buy_me_a_coffee"-->
-            <!--                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginHorizontal="@dimen/spacing_large"-->
-            <!--                android:insetTop="0dp"-->
-            <!--                android:insetBottom="0dp"-->
-            <!--                android:minHeight="@dimen/list_single_line_min_height"-->
-            <!--                android:text="@string/action_buy_me_a_coffee"-->
-            <!--                android:textAllCaps="false"-->
-            <!--                android:textColor="?attr/colorOnSecondary"-->
-            <!--                android:textSize="@dimen/font_title"-->
-            <!--                app:backgroundTint="@color/colorSecondary"-->
-            <!--                app:cornerRadius="@dimen/material_button_full_round_corner_radius"-->
-            <!--                app:icon="@drawable/ic_beer"-->
-            <!--                app:iconGravity="textEnd"-->
-            <!--                app:iconTint="?attr/colorOnSecondary" />-->
+                android:layout_width="172dp"
+                android:layout_height="172dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:layout_marginBottom="-28dp"
+                android:src="@drawable/ic_flower" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_donate_it"
@@ -189,11 +187,10 @@
                 android:paddingVertical="@dimen/spacing_big"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
-                android:textColor="?attr/colorOnSecondary"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/font_title"
-                app:backgroundTint="@color/colorSecondary"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-              />
+                app:backgroundTint="#f46036"
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_privacy_policy"

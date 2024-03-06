@@ -21,5 +21,5 @@
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingTop="@dimen/padding_large"
         android:text="@string/action_donate"
-        android:textAppearance="?attr/textAppearanceHeadline6" />
+        android:textAppearance="?attr/textAppearanceSubtitle1" />
 </LinearLayout>
