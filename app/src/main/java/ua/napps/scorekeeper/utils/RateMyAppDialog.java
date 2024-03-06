@@ -1,8 +1,11 @@
 package ua.napps.scorekeeper.utils;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -123,6 +126,17 @@ public class RateMyAppDialog {
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
             remindMeLater();
+            dialog.dismiss();
+        });
+        contentView.findViewById(R.id.btn_bmc).setOnClickListener(v -> {
+            Intent viewIntent =
+                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.buymeacoffee.com/score_counter_app"));
+            try {
+                context.startActivity(viewIntent);
+            } catch (Exception e) {
+                Toast.makeText(context, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
+                Timber.e(e, "Launch web intent");
+            }
             dialog.dismiss();
         });
 

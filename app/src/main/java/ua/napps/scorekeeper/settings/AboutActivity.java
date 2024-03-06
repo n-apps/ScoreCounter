@@ -48,16 +48,6 @@ public class AboutActivity extends AppCompatActivity {
             DonateDialog dialog = new DonateDialog();
             dialog.show(getSupportFragmentManager(), "donate");
         });
-//        findViewById(R.id.btn_buy_me_a_coffee).setOnClickListener(v -> {
-//            Intent viewIntent =
-//                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.buymeacoffee.com/score_counter_app"));
-//            try {
-//                startActivity(viewIntent);
-//            } catch (Exception e) {
-//                Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-//                Timber.e(e, "Launch web intent");
-//            }
-//        });
         findViewById(R.id.btn_help_translate).setOnClickListener(v -> launchEmailClient());
         findViewById(R.id.btn_privacy_policy).setOnClickListener(v -> {
                     Intent viewIntent =

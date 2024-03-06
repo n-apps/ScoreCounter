@@ -11,7 +11,7 @@
         android:layout_gravity="center|top"
         android:contentDescription="@string/action_donate"
         android:scaleType="fitXY"
-        android:src="@drawable/support" />
+        android:src="@drawable/donate" />
 
     <TextView
         android:layout_width="match_parent"

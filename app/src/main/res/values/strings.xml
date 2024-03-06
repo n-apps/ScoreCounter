@@ -29,7 +29,7 @@
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">You can edit these values in the&#160;settings</string>
-    <string name="dialog_support_me_content">Hi, my name is Roma, I currently live in Ukraine. I\'m working on this app in my spare time.\n\nDespite the&#160;war in my country, I&#160;decided to&#160;keep this app ad-free. If&#160;you would like to&#160;support me, please consider a little Donation from the app.\n\nThank you and I&#160;wish you pleasant game nights!</string>
+    <string name="dialog_support_me_content">Hi, my name is Roma. I currently live in&#160;Ukraine and working on this app in my spare time.\n\nDespite the&#160;war in my&#160;country, I&#160;decided to&#160;keep this app ad-free. If&#160;you would like to&#160;support me, please consider donating.\n\nThank you and I&#160;wish you pleasant game nights!</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to&#160;roll the&#160;dice</string>
