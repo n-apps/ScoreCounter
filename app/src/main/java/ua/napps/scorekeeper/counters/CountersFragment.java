@@ -443,7 +443,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSetValueDialog(Counter counter, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(counter.getName() + " [" + counter.getValue() + "]")
+                .title(counter.getName())
                 .titleGravity(GravityEnum.CENTER)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
@@ -453,7 +453,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)
                 .alwaysCallInputCallback()
-                .input(R.string.simple_edit_value_hint, 0, false, (dialog, input) -> {
+                .input("" + counter.getValue(), null, true, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getTitleView();

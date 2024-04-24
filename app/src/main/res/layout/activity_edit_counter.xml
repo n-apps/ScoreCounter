@@ -185,7 +185,6 @@
                 android:layout_width="0dp"
                 android:layout_height="56dp"
                 android:layout_marginVertical="@dimen/spacing_normal"
-                app:cs_hex_colors="?colors_scheme"
                 app:layout_constraintBottom_toTopOf="@id/til_counter_name"
                 app:layout_constraintEnd_toStartOf="@id/btn_more_colors"
                 app:layout_constraintStart_toStartOf="parent"

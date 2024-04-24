@@ -170,6 +170,16 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
 
         colorSlider.setListener((position, color) -> applyNewColor(color));
 
+        int[] colorPalette;
+        boolean nightModeActive = ViewUtil.isNightModeActive(this);
+        String[] colorsArray = getResources().getStringArray(nightModeActive ? R.array.list_of_colors_dark : R.array.list_of_colors_light);
+        colorPalette = new int[colorsArray.length];
+        for (int i = 0; i < colorsArray.length; i++) {
+            colorPalette[i] = Color.parseColor(colorsArray[i]);
+        }
+
+        colorSlider.setColors(colorPalette);
+
         btnSave.setOnClickListener(v -> validateAndSave());
     }
 
