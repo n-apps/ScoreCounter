@@ -248,7 +248,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     if (editText != null) {
                         String value = editText.getText().toString();
                         Integer parseInt = Utilities.parseInt(value, 0);
-                        if (parseInt > 1) {
+                        if (parseInt > 0) {
                             setCustomCounter(id, parseInt);
                         }
                         dialog.dismiss();

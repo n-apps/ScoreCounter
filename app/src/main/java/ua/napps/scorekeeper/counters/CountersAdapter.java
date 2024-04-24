@@ -37,9 +37,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public static final int MODE_SET_VALUE = 3;
     public static final int TYPE_FULL = 1;
     public static final int TYPE_COMPACT = 2;
-
     public static final int COUNTERS_LAYOUT_THRESHOLD = 7;
-
     static final String INCREASE_VALUE_CLICK = "increase_value_click";
     static final String DECREASE_VALUE_CLICK = "decrease_value_click";
     private final CounterActionCallback callback;
@@ -183,9 +181,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         final ImageView increaseImageView;
         final TextView counterValue;
         final MaterialCardView container;
-
         private final CounterActionCallback counterActionCallback;
         private final TextView counterName;
+
         public Counter counter;
 
         @SuppressLint("ClickableViewAccessibility")
@@ -231,7 +229,6 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 return true;
             });
         }
-
     }
 
     public class CounterFullViewHolder extends RecyclerView.ViewHolder implements Callback {
@@ -249,6 +246,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private final ImageView counterOptionsImageView;
         private final TextView counterName;
         private final Handler handler;
+
         public Counter counter;
         private float lastX;
         private LongClickTimerTask timerTask;
@@ -339,10 +337,10 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             if (counter.getStep() == 0) return;
 
             float width = counterClickableArea.getWidth();
-            if (x >= width - width / 3) {
+            if (x >= width - width * 0.4) {
                 notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
                 counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
-            } else if (x <= width / 3) {
+            } else if (x <= width * 0.4) {
                 notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
                 counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
             } else {
