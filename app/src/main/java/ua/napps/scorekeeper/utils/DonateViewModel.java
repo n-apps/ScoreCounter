@@ -71,7 +71,6 @@ public class DonateViewModel extends AndroidViewModel {
                     getListsInAppDetail();
                     refreshPurchasesAsync();
                 } else if (billingResult.getResponseCode() == BillingResponseCode.BILLING_UNAVAILABLE) {
-                    Timber.e(new BillingStateException("BILLING_UNAVAILABLE :("));
                     eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
                 }
             }
@@ -106,7 +105,6 @@ public class DonateViewModel extends AndroidViewModel {
 
         ProductDetails productDetails = findProductDetails(productIDs.get(donateOption));
         if (productDetails == null) {
-            Timber.e(new BillingStateException("productDetails not found :("));
             eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
             return;
         }

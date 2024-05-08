@@ -3,7 +3,7 @@
     <string name="app_name">Contador de puntos</string>
     <string name="about_text">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je joue à des jeux de société depuis plus de 10 ans. L\'idée de cette application m\'est venue en jouant à Star Realms (qui a&#160;des jetons terribles).\n\nJe ne suis pas développeur et je travaille sur cette application pendant mon temps libre. Chacun de vos retours, votre email ou votre don me rend un peu plus heureux. Si vous avez quelque chose à partager, si vous avez besoin d\'aide pour la traduction ou si vous souhaitez simplement partager ce que vous comptez, n\'hésitez pas à me contacter.\n\nMalgré la guerre dans mon pays, j\'ai décidé de garder cette application gratuite et sans publicités du tout. Si vous souhaitez soutenir un développeur indépendant (moi), envisagez de faire un don dans l\'application.\n\nMerci !</string>
     <string name="about_translators_title">¡Llamando a&#160;todos los magos del lenguaje y los entusiastas de los animales! Vamos a&#160;darle un toque de diversión a&#160;nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a&#160;la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
-    <string name="action_donate">Asistencia a través de Google&#160;Play&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Asistencia a través de Google&#160;Play</string>
     <string name="action_save">Guardar</string>
     <string name="common_back">Atrás</string>
     <string name="common_counters">Contadores</string>

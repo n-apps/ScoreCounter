@@ -135,7 +135,6 @@ public class RateMyAppDialog {
                 context.startActivity(viewIntent);
             } catch (Exception e) {
                 Toast.makeText(context, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                Timber.e(e, "Launch web intent");
             }
             dialog.dismiss();
         });

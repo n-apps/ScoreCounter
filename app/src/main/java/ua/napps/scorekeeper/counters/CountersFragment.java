@@ -64,7 +64,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.listeners.DragItemListener;
 import ua.napps.scorekeeper.log.LogActivity;
@@ -243,7 +242,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     startActivity(viewIntent);
                 } catch (Exception e) {
                     Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                    Timber.e(e, "Launch web intent");
                 }
                 break;
         }

@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.RateMyAppDialog;
@@ -70,7 +69,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                     startActivity(i);
                 } catch (Exception e) {
                     Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                    Timber.e(e, "Launch email intent");
                 }
                 break;
             case R.id.tv_rate_app:

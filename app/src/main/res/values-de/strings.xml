@@ -3,7 +3,7 @@
     <string name="app_name">Punktezähler</string>
     <string name="about_text">Hallo, mein Name ist Roma und ich komme aus Kremenchuk, Ukraine. Ich spiele seit über 10 Jahren Brettspiele. Die Idee für diese App kam mir, als ich Star Realms spielte (die schreckliche Marker hat).\n\nIch bin kein Entwickler und arbeite in meiner Freizeit an dieser App. Jedes Feedback, Ihre E-Mail oder Spende macht mich ein wenig glücklicher. Wenn Sie etwas teilen möchten, Hilfe bei der Übersetzung benötigen oder einfach mitteilen möchten, woran Sie arbeiten, zögern Sie nicht, mich zu kontaktieren.\n\nTrotz des Kriegs in meinem Land habe ich beschlossen, diese App völlig kostenlos und ohne Werbung zu halten. Wenn Sie einen unabhängigen Entwickler (mich) unterstützen möchten, überlegen Sie bitte, in der App eine Spende zu leisten.\n\nVielen Dank!</string>
     <string name="about_translators_title">Alle Sprachzauberer und Tierliebhaber aufgepasst! Lasst uns unsere geliebte App mit Übersetzungen und witzigen Tier-Spitznamen aufpeppen. Sei dabei und werde genauso cool wie diejenigen, die bereits ihre Großartigkeit eingebracht haben:</string>
-    <string name="action_donate">Unterstützung über Google&#160;Play&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Unterstützung über Google&#160;Play</string>
     <string name="action_save">Speichern</string>
     <string name="common_back">Zurück</string>
     <string name="common_counters">Zähler</string>

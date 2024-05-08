@@ -37,7 +37,7 @@
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
     <string name="message_thank_you">Спасибо за поддержку! \u2665\ufe0e</string>
     <string name="settings_sound">Звук</string>
-    <string name="action_donate">Поддержать через Google&#160;Play&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Поддержать через Google&#160;Play</string>
     <string name="message_error_generic">Произошла ошибка.</string>
     <string name="action_save">Сохранить</string>
     <string name="common_more">Больше</string>

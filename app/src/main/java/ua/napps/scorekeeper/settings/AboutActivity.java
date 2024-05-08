@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.ViewUtil;
@@ -56,7 +55,6 @@ public class AboutActivity extends AppCompatActivity {
                         startActivity(viewIntent);
                     } catch (Exception e) {
                         Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                        Timber.e(e, "Launch web intent error");
                     }
                 }
         );
@@ -80,7 +78,6 @@ public class AboutActivity extends AppCompatActivity {
             startActivity(i);
         } catch (Exception e) {
             Toast.makeText(this, R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-            Timber.e(e, "Launch email intent error");
         }
     }
 

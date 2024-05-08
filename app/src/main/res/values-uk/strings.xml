@@ -36,7 +36,7 @@
     <string name="dialog_no">Ні</string>
     <string name="settings_privacy_policy">Політика конфіденційності</string>
     <string name="message_thank_you">Дякую за підтримку! \u2665\ufe0e</string>
-    <string name="action_donate">Підтримати через Google&#160;Play&#160;\u263a\ufe0e</string>
+    <string name="action_donate">Підтримати через Google&#160;Play</string>
     <string name="settings_sound">Звук</string>
     <string name="message_error_generic">Виникла помилка.</string>
     <string name="action_save">Зберегти</string>
