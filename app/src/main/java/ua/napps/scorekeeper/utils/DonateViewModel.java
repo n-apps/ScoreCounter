@@ -16,6 +16,7 @@ import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
 import com.android.billingclient.api.ConsumeParams;
+import com.android.billingclient.api.PendingPurchasesParams;
 import com.android.billingclient.api.ProductDetails;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.QueryProductDetailsParams;
@@ -45,7 +46,7 @@ public class DonateViewModel extends AndroidViewModel {
     public DonateViewModel(@NonNull Application application) {
         super(application);
         billingClient = newBuilder(application)
-                .enablePendingPurchases()
+                .enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
                 .setListener((billingResult, list) -> {
                     if (billingResult.getResponseCode() == BillingResponseCode.OK && list != null) {
                         for (Purchase purchase : list) {
@@ -71,7 +72,7 @@ public class DonateViewModel extends AndroidViewModel {
                     getListsInAppDetail();
                     refreshPurchasesAsync();
                 } else if (billingResult.getResponseCode() == BillingResponseCode.BILLING_UNAVAILABLE) {
-                    eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
+                    eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
                 }
             }
 
@@ -105,7 +106,7 @@ public class DonateViewModel extends AndroidViewModel {
 
         ProductDetails productDetails = findProductDetails(productIDs.get(donateOption));
         if (productDetails == null) {
-            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
+            eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
             return;
         }
         productList.add(
@@ -148,10 +149,10 @@ public class DonateViewModel extends AndroidViewModel {
         billingClient.consumeAsync(params, (billingResult, listener) -> {
             if (billingResult.getResponseCode() == BillingResponseCode.OK) {
                 Timber.d("Consumed successful");
-                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you,false)));
+                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you, false)));
             } else {
                 Timber.e(new BillingStateException("Consuming unsuccessful :("));
-                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic,true)));
+                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
             }
         });
     }

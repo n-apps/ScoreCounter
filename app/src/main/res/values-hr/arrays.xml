@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>micek</item>
+        <item>Groot</item>
+        <item>golum</item>
+        <item>pikachu</item>
+        <item>tiranosaur</item>
+        <item>Regoč</item>
+        <item>skočimiš</item>
+        <item>zlatna buba</item>
+        <item>kobra</item>
+        <item>jelen</item>
+        <item>vepar</item>
+        <item>vjeverica</item>
+        <item>iguana</item>
+        <item>mravojed</item>
+        <item>albatros</item>
+        <item>aligator</item>
+        <item>alpaka</item>
+        <item>mrav</item>
+        <item>mravojed</item>
+        <item>antilopa</item>
+        <item>majmun</item>
+        <item>oklopnjak</item>
+        <item>magarac</item>
+        <item>babun</item>
+        <item>jazavac</item>
+        <item>barakuda</item>
+        <item>šišmiš</item>
+        <item>medvjed</item>
+        <item>dabar</item>
+        <item>pčela</item>
+        <item>bizon</item>
+        <item>bivol</item>
+        <item>leptir</item>
+        <item>deva</item>
+        <item>karibu</item>
+        <item>mačka</item>
+        <item>gusjenica</item>
+        <item>govedo</item>
+        <item>gepard</item>
+        <item>pile</item>
+        <item>čimpanza</item>
+        <item>činčila</item>
+        <item>vrana</item>
+        <item>školjka</item>
+        <item>žohar</item>
+        <item>bakalar</item>
+        <item>kondor</item>
+        <item>kormoran</item>
+        <item>kojot</item>
+        <item>rak</item>
+        <item>ždral</item>
+        <item>krokodil</item>
+        <item>vrana</item>
+        <item>dinosaur</item>
+        <item>pas</item>
+        <item>delfin</item>
+        <item>magarac</item>
+        <item>golubica</item>
+        <item>vilin konjic</item>
+        <item>orao</item>
+        <item>Šuma Striborova</item>
+        <item>jegulja</item>
+        <item>Hlapić</item>
+        <item>slon</item>
+        <item>morski slon</item>
+        <item>los</item>
+        <item>emu</item>
+        <item>sokol</item>
+        <item>tvor</item>
+        <item>zeba</item>
+        <item>riba</item>
+        <item>flamingo</item>
+        <item>muha</item>
+        <item>lisica</item>
+        <item>žaba</item>
+        <item>gazela</item>
+        <item>gerbil</item>
+        <item>panda</item>
+        <item>žirafa</item>
+        <item>komarac</item>
+        <item>gnu</item>
+        <item>jarac</item>
+        <item>guska</item>
+        <item>zlatna ribica</item>
+        <item>gorila</item>
+        <item>jastreb kokošar</item>
+        <item>skakavac</item>
+        <item>tetrijeb</item>
+        <item>Baltazar</item>
+        <item>zamorac</item>
+        <item>galeb</item>
+        <item>hrčak</item>
+        <item>zec</item>
+        <item>sokol</item>
+        <item>jež</item>
+        <item>čaplja</item>
+        <item>haringa</item>
+        <item>nilski konj</item>
+        <item>stršljen</item>
+        <item>konj</item>
+        <item>čovjek</item>
+        <item>kolibrić</item>
+        <item>hijena</item>
+        <item>ibis</item>
+        <item>šakal</item>
+        <item>jaguar</item>
+        <item>šojka</item>
+        <item>plava šojka</item>
+        <item>meduza</item>
+        <item>klokan</item>
+        <item>koala</item>
+        <item>komodo</item>
+        <item>ševa</item>
+        <item>lemur</item>
+        <item>leopard</item>
+        <item>lav</item>
+        <item>ljama</item>
+        <item>jastog</item>
+        <item>skakavac</item>
+        <item>uš</item>
+        <item>liroptica</item>
+        <item>svraka</item>
+        <item>patka</item>
+        <item>patka</item>
+        <item>morska krava</item>
+        <item>pavijan</item>
+        <item>bogomoljka</item>
+        <item>merkat</item>
+        <item>mink</item>
+        <item>krtica</item>
+        <item>mungos</item>
+        <item>majmun</item>
+        <item>los</item>
+        <item>miš</item>
+        <item>komarac</item>
+        <item>mazga</item>
+        <item>narval</item>
+        <item>vodenjak</item>
+        <item>slavuj</item>
+        <item>hobotnica</item>
+        <item>okapi</item>
+        <item>oposum</item>
+        <item>noj</item>
+        <item>vidra</item>
+        <item>sova</item>
+        <item>vol</item>
+        <item>kamenica</item>
+        <item>pantera</item>
+        <item>papiga</item>
+        <item>jarebica</item>
+        <item>pelikan</item>
+        <item>pingvin</item>
+        <item>fazan</item>
+        <item>svinja</item>
+        <item>golub</item>
+        <item>polarni medvjed</item>
+        <item>poni</item>
+        <item>dikobraz</item>
+        <item>pliskavica</item>
+        <item>prerijski pas</item>
+        <item>prepelica</item>
+        <item>zec</item>
+        <item>rakun</item>
+        <item>ovan</item>
+        <item>štakor</item>
+        <item>gavran</item>
+        <item>sob</item>
+        <item>nosorog</item>
+        <item>salamander</item>
+        <item>losos</item>
+        <item>sardina</item>
+        <item>škorpion</item>
+        <item>morski lav</item>
+        <item>morski jež</item>
+        <item>morski konj</item>
+        <item>pečat</item>
+        <item>morski pas</item>
+        <item>ovca</item>
+        <item>rovka</item>
+        <item>tvor</item>
+        <item>puž</item>
+        <item>zmija</item>
+        <item>vrabac</item>
+        <item>pauk</item>
+        <item>lignja</item>
+        <item>čvorak</item>
+        <item>raža</item>
+        <item>smrdljivi martin</item>
+        <item>roda</item>
+        <item>lasta</item>
+        <item>labud</item>
+        <item>tapir</item>
+        <item>avetnjak</item>
+        <item>termit</item>
+        <item>tigar</item>
+        <item>krastača</item>
+        <item>pastrva</item>
+        <item>pura</item>
+        <item>kornjača</item>
+        <item>poskok</item>
+        <item>voluharica</item>
+        <item>sup</item>
+        <item>valabi</item>
+        <item>morž</item>
+        <item>osa</item>
+        <item>lasica</item>
+        <item>kit</item>
+        <item>vuk</item>
+        <item>kuna</item>
+        <item>vombat</item>
+        <item>djetlić</item>
+        <item>crv</item>
+        <item>jak</item>
+        <item>zebra</item>
+        <item>Winnie the Pooh</item>
+        <item>King Kong</item>
+        <item>pudlica</item>
+        <item>jednorog</item>
+        <item>zmaj</item>
+        <item>zombiji</item>
+        <item>vila</item>
+        <item>dobby</item>
+        <item>Super Hrvoje</item>
+        <item>Grga Čvarak</item>
+        <item>Scooby Doo</item>
+        <item>Zlatokosa</item>
+        <item>kralj lavova</item>
+        <item>Spužva Bob</item>
+        <item>čupakabra</item>
+        <item>kraken</item>
+        <item>Durica</item>
+        <item>Nyan Mačka</item>
+        <item>Čudnovati kljunaš</item>
+        <item>piton</item>
+        <item>Zagi</item>
+        <item>kuoka</item>
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>Automatikus (A rendszeren alapuló)</item>
+        <item>Világos téma</item>
+        <item>Fekete téma</item>
+    </string-array>
+</resources>

@@ -42,7 +42,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_support).setOnClickListener(this);
+        contentView.findViewById(R.id.title_container).setOnClickListener(this);
 
         return contentView;
     }
@@ -89,7 +89,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_about:
                 AboutActivity.start(requireActivity());
                 break;
-            case R.id.tv_support:
+            case R.id.title_container:
                 new RateMyAppDialog(requireActivity()).showAnyway();
                 break;
         }

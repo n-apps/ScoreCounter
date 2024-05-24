@@ -339,7 +339,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         } else { // At least the first and the second counters have the same value.
             int countersTotal = counters.size();
-            toolbar.setTitle(topSize == countersTotal ? countersTotal +"\uD83D\uDD39︎" : topSize + " \uD83D\uDFF0");
+            toolbar.setTitle(topSize == countersTotal ? countersTotal + "\uD83D\uDD39︎" : topSize + " \uD83D\uDFF0");
             ViewUtil.shakeView(toolbarTitle, 2, 2);
             previousTopCounterId = 0;
         }
@@ -439,11 +439,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         }
     }
 
-    private void showSetValueDialog(Counter counter, int position) {
+    private void showSetValueDialog(Counter c, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(counter.getName())
+                .title(c.getName() + ": "+ c.getValue())
                 .titleGravity(GravityEnum.CENTER)
-                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                .inputType(InputType.TYPE_CLASS_PHONE)
                 .positiveText(R.string.common_set)
                 .typeface(regular, mono)
                 .contentColorRes(R.color.textColorPrimary)
@@ -451,7 +451,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)
                 .alwaysCallInputCallback()
-                .input("" + counter.getValue(), null, true, (dialog, input) -> {
+                .input(R.string.simple_edit_value_hint, 0, true, (dialog, input) -> {
                 })
                 .showListener(dialogInterface -> {
                     TextView titleTextView = ((MaterialDialog) dialogInterface).getTitleView();
@@ -461,23 +461,62 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         titleTextView.setGravity(Gravity.CENTER);
                         titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
                     }
+                    TextView content = ((MaterialDialog) dialogInterface).getContentView();
+                    if (content != null) {
+                        content.setLines(1);
+                        content.setEllipsize(TextUtils.TruncateAt.END);
+                        content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                    }
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
                         inputEditText.setGravity(Gravity.CENTER);
-                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
                 })
                 .onPositive((dialog, which) -> {
                     EditText editText = dialog.getInputEditText();
-                    if (editText != null) {
-                        Integer value = Utilities.parseInt(editText.getText().toString(), counter.getValue());
-                        viewModel.modifyCurrentValue(counter, value);
-                        countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-                        dialog.dismiss();
+                    if (editText == null) {
+                        return;
                     }
+                    String input = editText.getText().toString();
+                    if (input.isEmpty()) {
+                        return;
+                    }
+                    int value;
+                    boolean isPositive = true;
+                    int startIndex = 0;
+                    char firstChar = input.charAt(0);
+
+                    if (firstChar == '+') {
+                        startIndex = 1;
+                    } else if (firstChar == '-') {
+                        isPositive = false;
+                        startIndex = 1;
+                    }
+                    if (startIndex < input.length()) {
+                        try {
+                            value = Integer.parseInt(input.substring(startIndex));
+                            if (startIndex == 0) {
+                                viewModel.modifyCurrentValue(c, value);
+                                countersAdapter.notifyItemChanged(position);
+                            } else {
+                                if (isPositive) {
+                                    increaseValue(c, value);
+                                    countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+                                } else {
+                                    decreaseValue(c, value);
+                                    countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+                                }
+                            }
+                        } catch (NumberFormatException e) {
+                            // Invalid input, ignore
+                        }
+                    }
+                    dialog.dismiss();
                 })
                 .build();
+
         EditText editText = md.getInputEditText();
         if (editText != null) {
             editText.setOnEditorActionListener((textView, actionId, event) -> {
@@ -556,7 +595,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep1, counter.getValue()));
 
                 viewModel.decreaseCounter(counter, counterStep1);
-                countersAdapter.notifyItemChanged(position, MODE_DECREASE_VALUE);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
 
             longClickDialog.dismiss();
