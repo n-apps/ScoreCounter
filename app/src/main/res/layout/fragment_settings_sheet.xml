@@ -125,7 +125,7 @@
             android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:background="@drawable/bg_selector_counter_toggle"
             android:foreground="@drawable/ripple">
 
             <TextView
@@ -142,7 +142,7 @@
             android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_counter_toggle">
 
             <TextView
                 android:id="@+id/btn_2_text"
@@ -158,7 +158,7 @@
             android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_counter_toggle">
 
             <TextView
                 android:id="@+id/btn_3_text"
@@ -174,7 +174,7 @@
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_mini_dice_toggle">
+            android:background="@drawable/bg_selector_counter_toggle">
 
             <TextView
                 android:id="@+id/btn_4_text"

@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Ne sada</string>
     <string name="dialog_yes">Da</string>
     <string name="dice_empty_state">Pritisni bilo gdje ili protresi uređaj za bacanje kockica</string>
-    <string name="dice_previous_result_label">prethodni rezultat:</string>
     <string name="dice_sides">Prilagođene stranice kockica</string>
     <string name="history_empty_message">Povijest je još prazna</string>
     <string name="history_subtitle">session-only</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Zamjeni kratki i dugi pritisak</string>
     <string name="share_snippet">Ne morate trčati po papir i olovku! Aplikacija za lako praćenje rezultata je ono što vam treba! Nabavite besplatnu Android aplikaciju ovdje: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Unesi vrijednost</string>
+    <string name="dice_roll_prefix">Kockadobás:</string>
+    <string name="dice_sum_prefix">Sum:</string>
+    <string name="settings_animate_roll">Animálja a kockadobásokat</string>
 </resources>

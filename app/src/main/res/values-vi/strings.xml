@@ -27,7 +27,6 @@
     <string name="dialog_no">Không</string>
     <string name="dialog_yes">Có</string>
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>
-    <string name="dice_previous_result_label">Lần tung trước:</string>
     <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kremenchuk, Ukraina. Tôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi.\n\nBất kể cuộc chiến tranh diễn ra ở đất nước của tôi, tôi quyết định giữ ứng dụng này miễn phí và hoàn toàn không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), vui lòng xem xét quyên góp trong ứng dụng. Cảm ơn!</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
     <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
     <string name="simple_edit_value_hint">Giá trị mới</string>
+    <string name="dice_roll_prefix">Lăn xúc xắc:</string>
+    <string name="dice_sum_prefix">Tổng:</string>
+    <string name="settings_animate_roll">Hoạt hình lăn xúc xắc</string>
 </resources>

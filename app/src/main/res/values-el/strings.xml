@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Όχι τώρα</string>
     <string name="dialog_yes">Ναι</string>
     <string name="dice_empty_state">Πατήστε οπουδήποτε ή ανακινήστε την συσκευή σας για να ρίξετε το ζάρι</string>
-    <string name="dice_previous_result_label">προηγούμενη ζαριά</string>
     <string name="dice_sides">Έδρες του ζαριού</string>
     <string name="history_empty_message">Δεν υπάρχει ιστορικό ακόμα</string>
     <string name="history_subtitle">Μόνο για αυτή την περίοδο λειτουργίας</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Ανταλλάξτε το σύντομο και το παρατεταμένο πάτημα</string>
     <string name="share_snippet">Γεια σας! Το Score Counter θα σας βοηθήσει να κρατήσετε πόντους εύκολα σε όλα τα παιχνίδια, τα αθλήματα ή άλλες δραστηριότητες. Αποκτήστε την δωρεάν εφαρμογή Android εδώ: https://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Νέα τιμή</string>
+    <string name="dice_roll_prefix">Ρίχνει ζάρια:</string>
+    <string name="dice_sum_prefix">Άθροισμα:</string>
+    <string name="settings_animate_roll">Ζωντανές ρίψεις ζαριών</string>
 </resources>

@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Tapper n\'importe où ou secouer l\'appareil pour lancer le dé</string>
-    <string name="dice_previous_result_label">lancé précédent:</string>
     <string name="dice_sides">Nombre de faces</string>
     <string name="history_empty_message">Pas encore d\'historique</string>
     <string name="history_subtitle">seulement cette session</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
     <string name="share_snippet">Salut! Score Counter vous permettra de maintenir facilement la feuille de score dans n\'importe quel jeu, sport ou activité. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
+    <string name="dice_roll_prefix">Jets de dés :</string>
+    <string name="dice_sum_prefix">Somme:</string>
+    <string name="settings_animate_roll">Animer les jets de dés</string>
 </resources>

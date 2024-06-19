@@ -256,7 +256,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 final int size = counters.size();
 
                 if (size == 0) {
-                    toolbar.setTitle(null);
+                    toolbar.setTitle(R.string.common_counters);
                     emptyState.setVisibility(View.VISIBLE);
                 } else if (size == 1) {
                     toolbar.setTitle(null);

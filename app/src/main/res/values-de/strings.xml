@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Irgendwo drücken oder schütteln das Gerät um die Würfel zu rollen</string>
-    <string name="dice_previous_result_label">vorheriger roll</string>
     <string name="dice_sides">Eigene Würfelseiten</string>
     <string name="history_empty_message">Keine Historie vorhanden</string>
     <string name="history_subtitle">Nur diese Sitzung</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Umschalten lang und kurz drücken</string>
     <string name="share_snippet">Hi! Mit dem Punktezähler können Sie bei Spielen, Sport oder anderen Aktivitäten problemlos Punkte sammeln. Laden Sie die kostenlose Android-App hier herunter:\nhttp://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
+    <string name="dice_roll_prefix">Würfeln Sie:</string>
+    <string name="dice_sum_prefix">Summe:</string>
+    <string name="settings_animate_roll">Würfelwürfe animieren</string>
 </resources>

@@ -27,7 +27,6 @@
     <string name="dialog_no">Nej</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Tryck var som helst eller skaka enheten för att kasta tärningarna.</string>
-    <string name="dice_previous_result_label">föregående kast:</string>
     <string name="message_thank_you">Tack så jätte mycket för ditt stöd \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Hej, mitt namn är Roma och jag är från Kremenchuk, Ukraina. Jag är inte en utvecklare och jag arbetar med den här appen på min fritid.\n\nTrots kriget i mitt land har jag beslutat att hålla den här appen gratis och helt utan annonser. Om du vill stödja en oberoende utvecklare (mig), överväg gärna att donera i appen. Tack!</string>
     <string name="dialog_support_me_remind_me_later">Inte nu</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Byt kort och långa tryckning</string>
     <string name="about_translators_title">Kalla alla språkexperter och djurälskare! Vi kryddar upp vår älskade app med översättningar och roliga djurnamn. Gå med i festen och var lika cool som personerna som redan har bidragit med sin fantastiska kreativitet:</string>
     <string name="simple_edit_value_hint">Ange ett värde</string>
+    <string name="dice_roll_prefix">Tärningsslag:</string>
+    <string name="dice_sum_prefix">Sum:</string>
+    <string name="settings_animate_roll">Animera tärningsslag</string>
 </resources>

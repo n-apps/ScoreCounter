@@ -16,7 +16,6 @@
     <string name="counters_empty_message">Toque no botão \"+\" no canto superior direito para adicionar um contador</string>
     <string name="dice_sides">Quantidade de lados</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
-    <string name="dice_previous_result_label">valor anterior:</string>
     <string name="dialog_support_me_content">Olá, o meu nome é Roma e sou de Kremenchuk, Ucrânia. Não sou um programador e trabalho nesta aplicação nos meus tempos livres.\n\nApesar da guerra no meu país, decidi manter esta aplicação gratuita e sem anúncios. Se gostaria de apoiar um programador independente (eu), por favor, considere fazer uma doação na aplicação. Obrigado!</string>
     <string name="dialog_support_me_remind_me_later">Agora não</string>
     <string name="message_app_not_found">Nenhum aplicativo de email no seu dispositivo :(</string>
@@ -60,4 +59,7 @@
     <string name="about_translators_title">Chamando todos os gênios da língua e os entusiastas dos animais! Vamos dar um toque especial ao nosso amado aplicativo com traduções e apelidos hilários de animais. Junte-se à festa e seja tão legal quanto as pessoas que já emprestaram sua genialidade:</string>
     <string name="settings_change_language">Mudar idioma</string>
     <string name="simple_edit_value_hint">Insira um valor</string>
+    <string name="dice_roll_prefix">Rolos de dados:</string>
+    <string name="dice_sum_prefix">Soma:</string>
+    <string name="settings_animate_roll">Animar os lançamentos de dados</string>
 </resources>

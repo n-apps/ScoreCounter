@@ -39,6 +39,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
 
     private DialogInterface.OnDismissListener onDismissListener;
     private SwitcherX shakeToRoll;
+    private SwitcherX animateRoll;
     private SwitcherX soundRoll;
 
     private Vibrator vibrator;
@@ -48,6 +49,9 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
         super.onCreateView(inflater, container, savedInstanceState);
         View contentView = inflater.inflate(R.layout.fragment_dice_sheet, container, false);
         shakeToRoll = contentView.findViewById(R.id.sw_shake_to_roll);
+        animateRoll = contentView.findViewById(R.id.sw_animation);
+        animateRoll.setChecked(LocalSettings.isDiceAnimated(), false);
+        animateRoll.setClickable(false);
         shakeToRoll.setChecked(LocalSettings.isShakeToRollEnabled(), false);
         shakeToRoll.setClickable(false);
 
@@ -57,25 +61,36 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
 
         contentView.findViewById(R.id.settings_sound).setOnClickListener(this);
         contentView.findViewById(R.id.settings_shake).setOnClickListener(this);
+        contentView.findViewById(R.id.settings_animate).setOnClickListener(this);
 
-        MaterialButtonToggleGroup diceSidesGroup = contentView.findViewById(R.id.dice_sides_group);
+        MaterialButtonToggleGroup diceSidesGroup1 = contentView.findViewById(R.id.dice_sides_group_1);
+        MaterialButtonToggleGroup diceSidesGroup2 = contentView.findViewById(R.id.dice_sides_group_2);
         MaterialButtonToggleGroup diceCountGroup = contentView.findViewById(R.id.dice_count_group);
 
-        int diceMaxSide = LocalSettings.getDiceMaxSide();
         int diceCount = LocalSettings.getDiceCount();
+        int diceMaxSide = LocalSettings.getDiceMaxSide();
 
         switch (diceMaxSide) {
+            case 4:
+                diceSidesGroup1.check(R.id.btn_1);
+                break;
             case 6:
-                diceSidesGroup.check(R.id.btn_1);
+                diceSidesGroup1.check(R.id.btn_2);
                 break;
             case 8:
-                diceSidesGroup.check(R.id.btn_2);
+                diceSidesGroup1.check(R.id.btn_3);
+                break;
+            case 10:
+                diceSidesGroup1.check(R.id.btn_4);
+                break;
+            case 12:
+                diceSidesGroup2.check(R.id.btn_5);
                 break;
             case 20:
-                diceSidesGroup.check(R.id.btn_3);
+                diceSidesGroup2.check(R.id.btn_6);
                 break;
             default:
-                diceSidesGroup.check(R.id.btn_4);
+                diceSidesGroup2.check(R.id.btn_7);
                 break;
         }
 
@@ -95,81 +110,16 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
         }
 
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
-        diceSidesGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+        diceSidesGroup1.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (isChecked) {
-                switch (checkedId) {
-                    case R.id.btn_1:
-                        validateAndStoreDiceSide(6);
-                        break;
-                    case R.id.btn_2:
-                        validateAndStoreDiceSide(8);
-                        break;
-                    case R.id.btn_3:
-                        validateAndStoreDiceSide(20);
-                        break;
-                    case R.id.btn_4:
-                        Typeface mono = getResources().getFont(R.font.mono);
-                        Typeface regular = getResources().getFont(R.font.o400);
-
-                        final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                                .title(R.string.dice_sides)
-                                .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
-                                .positiveText(R.string.common_set)
-                                .contentColorRes(R.color.textColorPrimary)
-                                .buttonRippleColorRes(R.color.rippleColor)
-                                .widgetColorRes(R.color.colorPrimary)
-                                .positiveColorRes(R.color.colorPrimary)
-                                .alwaysCallInputCallback()
-                                .typeface(regular, mono)
-                                .showListener(dialogInterface -> {
-                                    TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
-                                    if (titleTextView != null) {
-                                        titleTextView.setLines(1);
-                                        titleTextView.setEllipsize(TextUtils.TruncateAt.END);
-                                        titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-                                    }
-                                    EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
-                                    if (inputEditText != null) {
-                                        inputEditText.requestFocus();
-                                        inputEditText.setTransformationMethod(null);
-                                        inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
-                                        inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
-                                    }
-                                })
-                                .input("2-99", null, false,
-                                        (dialog, input) -> {
-                                            int parseInt = Utilities.parseInt(input.toString(), diceMaxSide);
-                                            dialog.getActionButton(DialogAction.POSITIVE).setEnabled(parseInt < 100 && parseInt > 1);
-                                        })
-                                .onPositive((dialog, which) -> {
-                                    EditText editText = dialog.getInputEditText();
-                                    if (editText != null) {
-                                        Integer side = Utilities.parseInt(editText.getText().toString(), diceMaxSide);
-                                        if (side > 0) {
-                                            validateAndStoreDiceSide(side);
-                                        }
-                                        ((Button) group.findViewById(checkedId)).setText("D" + side);
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .build();
-                        EditText editText = md.getInputEditText();
-                        if (editText != null) {
-                            editText.setOnEditorActionListener((textView, actionId, event) -> {
-                                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                                    View positiveButton = md.getActionButton(DialogAction.POSITIVE);
-                                    positiveButton.callOnClick();
-                                }
-                                return false;
-                            });
-                        }
-                        md.show();
-                        md.getWindow().setSoftInputMode(
-                                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                        break;
-                }
-            } else if (-1 == group.getCheckedButtonId()) {
-                group.check(R.id.btn_4);
+                validateDiceToggle(group, checkedId, diceMaxSide);
+                diceSidesGroup2.clearChecked();
+            }
+        });
+        diceSidesGroup2.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+            if (isChecked) {
+                validateDiceToggle(group, checkedId, diceMaxSide);
+                diceSidesGroup1.clearChecked();
             }
         });
         diceCountGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
@@ -252,6 +202,89 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
         return contentView;
     }
 
+    private void validateDiceToggle(MaterialButtonToggleGroup group, int checkedId, int diceMaxSide) {
+        switch (checkedId) {
+            case R.id.btn_1:
+               validateAndStoreDiceSide(4);
+                break;
+            case R.id.btn_2:
+                validateAndStoreDiceSide(6);
+                break;
+            case R.id.btn_3:
+                validateAndStoreDiceSide(8);
+                break;
+            case R.id.btn_4:
+                validateAndStoreDiceSide(10);
+                break;
+            case R.id.btn_5:
+                validateAndStoreDiceSide(12);
+                break;
+            case R.id.btn_6:
+                validateAndStoreDiceSide(20);
+                break;
+            case R.id.btn_7:
+                Typeface mono = DiceBottomSheetFragment.this.getResources().getFont(R.font.mono);
+                Typeface regular = DiceBottomSheetFragment.this.getResources().getFont(R.font.o400);
+
+                final MaterialDialog md = new MaterialDialog.Builder(DiceBottomSheetFragment.this.requireActivity())
+                        .title(R.string.dice_sides)
+                        .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
+                        .positiveText(R.string.common_set)
+                        .contentColorRes(R.color.textColorPrimary)
+                        .buttonRippleColorRes(R.color.rippleColor)
+                        .widgetColorRes(R.color.colorPrimary)
+                        .positiveColorRes(R.color.colorPrimary)
+                        .alwaysCallInputCallback()
+                        .typeface(regular, mono)
+                        .showListener(dialogInterface -> {
+                            TextView titleTextView = ((MaterialDialog) dialogInterface).getContentView();
+                            if (titleTextView != null) {
+                                titleTextView.setLines(1);
+                                titleTextView.setEllipsize(TextUtils.TruncateAt.END);
+                                titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+                            }
+                            EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
+                            if (inputEditText != null) {
+                                inputEditText.requestFocus();
+                                inputEditText.setTransformationMethod(null);
+                                inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
+                            }
+                        })
+                        .input("2-99", null, false,
+                                (dialog, input) -> {
+                                    int parseInt = Utilities.parseInt(input.toString(), diceMaxSide);
+                                    dialog.getActionButton(DialogAction.POSITIVE).setEnabled(parseInt < 100 && parseInt > 1);
+                                })
+                        .onPositive((dialog, which) -> {
+                            EditText editText = dialog.getInputEditText();
+                            if (editText != null) {
+                                Integer side = Utilities.parseInt(editText.getText().toString(), diceMaxSide);
+                                if (side > 0) {
+                                    DiceBottomSheetFragment.this.validateAndStoreDiceSide(side);
+                                }
+                                ((Button) group.findViewById(checkedId)).setText("D" + side);
+                                dialog.dismiss();
+                            }
+                        })
+                        .build();
+                EditText editText = md.getInputEditText();
+                if (editText != null) {
+                    editText.setOnEditorActionListener((textView, actionId, event) -> {
+                        if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                            View positiveButton = md.getActionButton(DialogAction.POSITIVE);
+                            positiveButton.callOnClick();
+                        }
+                        return false;
+                    });
+                }
+                md.show();
+                md.getWindow().setSoftInputMode(
+                        WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                break;
+        }
+    }
+
     @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
         super.onDismiss(dialog);
@@ -306,6 +339,15 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 shakeToRoll.setChecked(newStateShake, true);
                 tryVibrate();
                 if (newStateShake) {
+                    ViewUtil.shakeView(v, 2, 0);
+                }
+                break;
+            case R.id.settings_animate:
+                boolean newStateAnimate = !animateRoll.isChecked();
+                LocalSettings.saveDiceAnimate(newStateAnimate);
+                animateRoll.setChecked(newStateAnimate, true);
+                tryVibrate();
+                if (newStateAnimate) {
                     ViewUtil.shakeView(v, 2, 0);
                 }
                 break;

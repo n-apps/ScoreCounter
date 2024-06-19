@@ -62,32 +62,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="X"
+            android:text="X?"
             android:textColor="?colorSecondary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
+
 
     <TextView
         android:id="@+id/tv_dice_sides"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/spacing_normal"
-        android:fontFamily="@font/mono"
         android:gravity="center"
         android:includeFontPadding="false"
-        android:text="x"
+        android:text="×"
         android:textAppearance="?attr/textAppearanceHeadline4"
-        android:textColor="?attr/colorSecondary"
         tools:ignore="HardcodedText" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/dice_sides_group"
+        android:id="@+id/dice_sides_group_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_big"
-        app:selectionRequired="true"
         app:singleSelection="true"
         tools:layout_height="48dp">
 
@@ -97,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="d6"
+            android:text="d4"
             android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
@@ -108,7 +105,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="d8"
+            android:text="d6"
             android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
@@ -119,7 +116,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="d20"
+            android:text="d8"
             android:textColor="?android:textColorPrimary"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
@@ -129,13 +126,54 @@
             style="@style/DiceButtonOutlinedStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="?android:textColorPrimary"
             android:layout_weight="1"
-            android:text="dX"
-            android:textColor="?colorSecondary"
+            android:text="d10"
             android:textSize="@dimen/font_display"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/dice_sides_group_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_big"
+        app:singleSelection="true"
+        tools:layout_height="48dp">
 
+        <Button
+            android:id="@+id/btn_5"
+            style="@style/DiceButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d12"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_6"
+            style="@style/DiceButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d20"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btn_7"
+            style="@style/DiceButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="d??"
+            android:textColor="?colorSecondary"
+            android:textSize="@dimen/font_display"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,6 +199,36 @@
 
         <com.bitvale.switcher.SwitcherX
             android:id="@+id/sw_shake_to_roll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/settings_animate"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/sw_animation"
+            android:fontFamily="@font/o400"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:text="@string/settings_animate_roll"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/sw_animation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

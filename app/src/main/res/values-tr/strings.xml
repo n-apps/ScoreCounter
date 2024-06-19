@@ -28,7 +28,6 @@
     <string name="dialog_no">Hayır</string>
     <string name="dialog_yes">Evet</string>
     <string name="dice_empty_state">Zar atmak için herhangi bir yere dokunun veya cihazınızı sallayın</string>
-    <string name="dice_previous_result_label">önceki zar:</string>
     <string name="message_thank_you">Desteğiniz için çok teşekkür ederiz \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Merhaba, adım Roma ve ben Kremenchuk, Ukrayna\'dan geliyorum. Bir yazılım geliştirici değilim ve bu uygzerlik üzerinde boş zamanlarımda çalışıyorum.\n\nÜlkemdeki savaşa rağmen, bu uygulamayı tamamen ücretsiz ve reklamsız tutmaya karar verdim. Bağımsız bir geliştiriciyi (beni) desteklemek isterseniz, lütfen uygulama içi bağış yapmayı düşünün. Teşekkür ederim!</string>
     <string name="dialog_support_me_remind_me_later">Şimdi değil</string>
@@ -60,4 +59,7 @@
     <string name="about_translators_title">Tüm dil büyücüleri ve hayvan tutkunlarına çağrı! Sevimli uygulamamızı çeviriler ve komik hayvan takma adlarıyla renklendirelim. Partiye katılın ve awesomeness\'lerini paylaşan insanlar kadar havalı olun:</string>
     <string name="settings_change_language">Dili değiştir</string>
     <string name="simple_edit_value_hint">Değer girin</string>
+    <string name="dice_roll_prefix">Zarlar atılıyor:</string>
+    <string name="dice_sum_prefix">Toplam:</string>
+    <string name="settings_animate_roll">Zar atışlarını canlandırın</string>
 </resources>

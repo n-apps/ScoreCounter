@@ -33,7 +33,6 @@
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to&#160;roll the&#160;dice</string>
-    <string name="dice_previous_result_label">previous roll:</string>
     <string name="dice_sides">Custom dice sides</string>
     <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
     <string name="history_empty_message">No history yet</string>
@@ -64,4 +63,7 @@
     <string name="settings_switch_tap_logic">Swap short and long press</string>
     <string name="share_snippet">No need to run for pen and paper. Easy-to-use score keeper app for you. Get the&#160;free Android app: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Enter value</string>
+    <string name="dice_roll_prefix">Roll(s):</string>
+    <string name="dice_sum_prefix">Sum:</string>
+    <string name="settings_animate_roll">Animate rolls</string>
 </resources>

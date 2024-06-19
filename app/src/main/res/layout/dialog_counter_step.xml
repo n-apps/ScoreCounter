@@ -68,7 +68,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
 
             <TextView
@@ -87,7 +87,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
 
             <TextView
@@ -106,7 +106,7 @@
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
 
             <TextView
@@ -124,7 +124,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_weight="1"
-            android:background="@drawable/bg_selector_mini_dice_toggle"
+            android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
 
             <TextView
@@ -177,7 +177,7 @@
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="?android:attr/textColorPrimary"
             app:cornerRadius="24dp"
-            app:rippleColor="@color/colorSecondary"
+            app:rippleColor="@color/rippleColor"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
@@ -193,7 +193,7 @@
             android:textAppearance="?attr/textAppearanceHeadline4"
             android:textColor="?android:textColorPrimary"
             app:cornerRadius="24dp"
-            app:rippleColor="@color/colorSecondary"
+            app:rippleColor="@color/rippleColor"
             tools:ignore="HardcodedText" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
@@ -209,10 +209,10 @@
         app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
-        app:boxStrokeColor="@color/colorSecondary"
+        app:boxStrokeColor="@color/colorPrimary"
         app:hintEnabled="true"
         app:hintTextAppearance="?attr/textAppearanceCaption"
-        app:hintTextColor="@color/colorSecondary"
+        app:hintTextColor="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="@id/buttons_row"
         app:layout_constraintStart_toEndOf="@id/group_sign_btn"
         app:layout_constraintTop_toBottomOf="@id/tv_hint">

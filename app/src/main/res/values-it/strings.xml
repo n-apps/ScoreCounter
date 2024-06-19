@@ -16,7 +16,6 @@
     <string name="counters_empty_message">Toccare il pulsante \"+\" nell\'angolo in alto a&#160;destra per aggiungere un nuovo seganpunti</string>
     <string name="dice_sides">Lati dei dadi personalizzati</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>
-    <string name="dice_previous_result_label">lancio precedente:</string>
     <string name="dialog_support_me_content">Salve, mi chiamo Roma e vengo da Kremenchuk, Ucraina. Purtroppo ho perso il lavoro a&#160;causa della guerra nel mio Paese. Tuttavia, ho deciso di mantenere la mia applicazione, Score Counter, senza pubblicità e con tutte le funzionalità. Se volete sostenere uno sviluppatore indipendente come me, vi prego di considerare la possibilità di fare una donazione, una o più volte, all\'interno dell\'applicazione. Grazie!</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
     <string name="message_app_not_found">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>
@@ -60,4 +59,7 @@
     <string name="about_translators_title">Chiamiamo tutti gli esperti di lingue e gli appassionati di animali! Rendiamo la nostra adorata app più divertente con traduzioni e simpatici nomi di animali. Unisciti alla festa e sii altrettanto cool come le persone che hanno già messo a&#160;disposizione la loro fantastica creatività:</string>
     <string name="settings_change_language">Cambiare la lingua</string>
     <string name="simple_edit_value_hint">Immetti valore</string>
+    <string name="dice_roll_prefix">Lanci di dadi:</string>
+    <string name="dice_sum_prefix">Somma:</string>
+    <string name="settings_animate_roll">Animare i lanci di dadi</string>
 </resources>

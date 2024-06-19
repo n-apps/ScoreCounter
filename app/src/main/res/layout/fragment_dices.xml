@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_normal"
-        android:fontFamily="@font/mono"
+        android:fontFamily="@font/o600"
         android:foreground="@drawable/ripple"
         android:gravity="center"
         android:minHeight="@dimen/list_single_line_min_height"
@@ -20,7 +20,7 @@
         android:textAppearance="?attr/textAppearanceHeadline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="1d6" />
+        tools:text="1 × d6" />
 
     <ImageView
         android:id="@+id/iv_dice_menu"
@@ -45,7 +45,7 @@
         android:gravity="center"
         android:includeFontPadding="false"
         android:lines="1"
-        android:textColor="?attr/colorOnSecondary"
+        android:textColor="?attr/colorOnSurface"
         android:visibility="invisible"
         app:autoSizeMaxTextSize="140sp"
         app:autoSizeMinTextSize="20sp"
@@ -54,12 +54,12 @@
         app:layout_constraintBottom_toTopOf="@id/tv_dice_composition"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_min="200dp"
+        app:layout_constraintHeight_min="160dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_emoji"
-        app:layout_constraintWidth_min="200dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
+        app:layout_constraintWidth_min="160dp"
         tools:text="23"
         tools:visibility="visible" />
 
@@ -99,73 +99,22 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/tv_previous_roll_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/dice_previous_result_label"
-        android:textAppearance="?attr/textAppearanceSubtitle2"
-        android:textColor="?android:attr/textColorSecondary"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/tv_previous_roll"
-        app:layout_constraintTop_toBottomOf="@id/tv_dice_composition"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/tv_emoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_large"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:layout_constraintBottom_toTopOf="@id/dice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintVertical_bias="0.7"
-        tools:text="💖"
-        tools:visibility="visible" />
-
-    <TextView
         android:id="@+id/tv_dice_composition"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/spacing_xlarge"
+        android:layout_marginHorizontal="@dimen/spacing_xlarge"
         android:ellipsize="end"
-        android:fontFamily="@font/mono"
-        android:gravity="center"
+        android:fontFamily="@font/o400"
+        android:gravity="start"
         android:includeFontPadding="false"
-        android:maxLines="1"
-        android:padding="@dimen/padding_normal"
+        android:minHeight="@dimen/list_two_lines_min_height"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@id/tv_previous_roll"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
-        tools:text="2 + 4 + 5 + 7"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/tv_previous_roll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/mono"
-        android:gravity="center_horizontal"
-        android:padding="2dp"
-        android:textAppearance="?attr/textAppearanceSubtitle1"
-        android:textColor="?android:attr/textColorSecondary"
-        android:visibility="invisible"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_previous_roll_label"
-        app:layout_constraintLeft_toRightOf="@id/tv_previous_roll_label"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="18"
+        tools:text="Rolls: 2, 4, 5, 7\n\nSum: 45"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

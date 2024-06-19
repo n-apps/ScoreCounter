@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String TAG_COUNTERS_FRAGMENT = "COUNTERS_FRAGMENT";
     private static final String TAG_SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT";
     private static final String STATE_CURRENT_DICE_ROLL = "STATE_CURRENT_DICE_ROLL";
-    private static final String STATE_PREVIOUS_DICE_ROLL = "STATE_PREVIOUS_DICE_ROLL";
     private static final String[] TAGS = new String[]{TAG_COUNTERS_FRAGMENT, TAG_DICES_FRAGMENT, TAG_SETTINGS_FRAGMENT};
     private RateMyAppDialog rateMyAppDialog;
     private String currentFragmentTag;
@@ -50,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState != null) {
             currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
-            previousDiceRoll = savedInstanceState.getInt(STATE_PREVIOUS_DICE_ROLL);
         }
 
         applyAppTheme();
@@ -68,17 +65,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             switch (item.getItemId()) {
                 case R.id.counters:
                     switchFragment(TAGS[0]);
-                    if (currentDiceRoll > 0) {
-                        BadgeDrawable badge = bottomNavigationBar.getOrCreateBadge(R.id.dices);
-                        badge.setVisible(true);
-                        int bg = ContextCompat.getColor(this, R.color.colorSecondary);
-                        int text = ContextCompat.getColor(this, R.color.colorOnSecondary);
-                        badge.setBackgroundColor(bg);
-                        badge.setBadgeTextColor(text);
-                        badge.setNumber(currentDiceRoll);
-                    } else {
-                        hideDiceBadge();
-                    }
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
@@ -102,10 +88,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
         });
 
-        bottomNavigationBar.findViewById(R.id.dices).setOnLongClickListener(v -> {
-            hideDiceBadge();
-            return false;
-        });
 
         switchFragment(TAGS[0]);
 
@@ -141,7 +123,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(STATE_CURRENT_DICE_ROLL, currentDiceRoll);
-        outState.putInt(STATE_PREVIOUS_DICE_ROLL, previousDiceRoll);
     }
 
     @Override

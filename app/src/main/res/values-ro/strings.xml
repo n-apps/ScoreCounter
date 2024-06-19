@@ -16,7 +16,6 @@
     <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
-    <string name="dice_previous_result_label">aruncarea anterioara:</string>
     <string name="dialog_support_me_content">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Nu sunt un dezvoltator și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda războiului din țara mea, am decis să păstrez această aplicație gratuită și fără reclame deloc. Dacă doriți să susțineți un dezvoltator independent (pe mine), vă rugăm să luați în considerare să donați în aplicație. Mulțumesc!</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
@@ -55,9 +54,12 @@
     <string name="message_lowest_wins">Logica a&#160;fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
     <string name="dialog_predefined_steps">Puteți edita aceste valori în setările</string>
-    <string name="history_subtitle">doar această sesiune</string>
+    <string name="history_subtitle">doar această    sesiune</string>
     <string name="menu_elektu">Cine începe?</string>
     <string name="about_translators_title">Chemăm toți magicienii lingvistici și entuziaștii animalelor! Să îmbunătățim aplicația noastră dragă cu traduceri și porecle amuzante pentru animale. Alătură-te petrecerii și fii la fel de tare ca oamenii care și-au împrumutat deja talentul lor minunat:</string>
     <string name="settings_change_language">Schimbați limba</string>
     <string name="simple_edit_value_hint">Introduceți valoarea</string>
+    <string name="dice_roll_prefix">Aruncarea zarurilor:</string>
+    <string name="dice_sum_prefix">Suma:</string>
+    <string name="settings_animate_roll">Animați rolele de zaruri</string>
 </resources>

@@ -16,7 +16,6 @@
     <string name="counters_empty_message">Stuknij w \"+\" w prawym górnym rogu, aby dodać nowy licznik</string>
     <string name="dice_sides">Niestandardowe wartości kostki</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
-    <string name="dice_previous_result_label">poprzedni rzut:</string>
     <string name="dialog_support_me_content">Cześć, nazywam się Roma i pochodzę z Kremenczuk, Ukraina. Nie jestem programistą i pracuję nad tą aplikacją w wolnym czasie.\n\nMimo wojny w moim kraju, postanowiłem zachować tę aplikację jako bezpłatną i całkowicie bez reklam. Jeśli chcielibyście wesprzeć niezależnego dewelopera (mnie), rozważcie proszę wpłatę w aplikacji. Dziękuję!</string>
     <string name="dialog_support_me_remind_me_later">Nie teraz</string>
     <string name="message_app_not_found">Brak aplikacji email na twoim urządzeniu :(</string>
@@ -60,4 +59,7 @@
     <string name="menu_elektu">Kto pierwszy?</string>
     <string name="settings_change_language">Zmiana języka</string>
     <string name="simple_edit_value_hint">Nowa wartość</string>
+    <string name="dice_roll_prefix">Rzuty kostką:</string>
+    <string name="dice_sum_prefix">Suma:</string>
+    <string name="settings_animate_roll">Animowanie rzutów kośćmi</string>
 </resources>

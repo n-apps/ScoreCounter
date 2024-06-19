@@ -14,6 +14,7 @@ public class LocalSettings {
     private static final String SHAKE_TO_ROLL = "shake_to_roll";
     private static final String DICE_MAX_SIDE = "dice_max_side";
     private static final String DICE_COUNT = "dice_count";
+    private static final String DICE_ANIMATE = "dice_animate";
     private static final String SOUND_ROLL = "sound_roll";
 
     private static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
@@ -140,6 +141,14 @@ public class LocalSettings {
 
     public static void saveDiceCount(int diceCount) {
         App.getTinyDB().putInt(DICE_COUNT, diceCount);
+    }
+
+    public static boolean isDiceAnimated() {
+        return App.getTinyDB().getBoolean(DICE_ANIMATE, true);
+    }
+
+    public static void saveDiceAnimate(boolean enabled) {
+        App.getTinyDB().putBoolean(DICE_ANIMATE, enabled);
     }
 
     public static boolean isCountersVibrate() {

@@ -28,7 +28,6 @@
     <string name="dialog_no">Ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
-    <string name="dice_previous_result_label">předchozí hod:</string>
     <string name="message_thank_you">Děkujeme za Vaši podporu \u2665\ufe0e</string>
     <string name="dialog_support_me_content">Ahoj, jmenuji se Roma a&#160;pocházím z Kremenchuku, Ukrajina. Nejsem vývojář a&#160;na této aplikaci pracuji ve svém volném čase.\n\nNavzdory válce ve své zemi jsem se rozhodl, že tuto aplikaci udržím zdarma a&#160;bez reklam. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím darování přes aplikaci. Děkuji!</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>
@@ -60,4 +59,7 @@
     <string name="about_translators_title">Voláme všechny jazykové kouzelníky a&#160;nadšence do zvířat! Obohatme naši oblíbenou aplikaci překlady a&#160;vtipnými zvířecími přezdívkami. Připojte se k tomuto zábavnému večírku a&#160;buďte stejně skvělí jako lidé, kteří už přidali své fantastické nápady:</string>
     <string name="settings_change_language">Změna jazyka</string>
     <string name="simple_edit_value_hint">Zadejte hodnotu</string>
+    <string name="dice_roll_prefix">Hody kostkou:</string>
+    <string name="dice_sum_prefix">Součet:</string>
+    <string name="settings_animate_roll">Animovat hody kostkou</string>
 </resources>

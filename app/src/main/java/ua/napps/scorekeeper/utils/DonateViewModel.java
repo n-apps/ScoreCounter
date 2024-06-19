@@ -148,10 +148,8 @@ public class DonateViewModel extends AndroidViewModel {
 
         billingClient.consumeAsync(params, (billingResult, listener) -> {
             if (billingResult.getResponseCode() == BillingResponseCode.OK) {
-                Timber.d("Consumed successful");
                 eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you, false)));
             } else {
-                Timber.e(new BillingStateException("Consuming unsuccessful :("));
                 eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
             }
         });

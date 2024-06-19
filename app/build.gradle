@@ -11,8 +11,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
-ext.versionMinor = 8
-ext.versionPatch = 7
+ext.versionMinor = 9
+ext.versionPatch = 0
 ext.postfix = ''
 
 android {
@@ -71,7 +71,7 @@ android {
 
 dependencies {
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.0.0'
     implementation 'androidx.room:room-runtime:2.6.1'
     implementation "androidx.room:room-rxjava2:2.6.1"
@@ -87,7 +87,7 @@ dependencies {
     implementation 'io.github.bitvale:switcher:1.1.2'
     implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'
 
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.8.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.8.2'
     annotationProcessor 'androidx.room:room-compiler:2.6.1'
 }
 

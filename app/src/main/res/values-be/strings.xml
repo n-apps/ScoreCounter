@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Не зараз</string>
     <string name="dialog_yes">Так</string>
     <string name="dice_empty_state">Націсніце дзе-небудзь ці патрасіце ваш дэвайс, каб кінуць косці</string>
-    <string name="dice_previous_result_label">папярэдні кідок</string>
     <string name="dice_sides">Асабістыя бакі касцей</string>
     <string name="history_empty_message">Гісторыі пакуль няма</string>
     <string name="history_subtitle">толькі для сесіі</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Памяняць кароткае і доўгае націсканне</string>
     <string name="share_snippet">Прывітанне! Лічыльнік Ачкоў дапаможа вам лёгка сачыць за рахункам у любых гульнях, спорце ці іншых занятках. Спампуйце бясплатны дадатак для Android тут: http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Увядзіце значэнне</string>
+    <string name="dice_roll_prefix">Кідкі:</string>
+    <string name="dice_sum_prefix">Сума:</string>
+    <string name="settings_animate_roll">Аніміраваныя кідкі кубікаў</string>
 </resources>

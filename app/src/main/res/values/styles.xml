@@ -80,6 +80,19 @@
         <item name="autoSizeTextType">uniform</item>
     </style>
 
+    <style name="CounterStepStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/mono</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="autoSizeMaxTextSize">28sp</item>
+        <item name="autoSizeMinTextSize">14sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
     <style name="MyButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
         <item name="fontFamily">@font/o600</item>
         <item name="android:insetTop">0dp</item>
@@ -114,17 +127,17 @@
     </style>
 
     <style name="ThemeOverlay.AppTheme.TextInputEditText.Outlined" parent="">
-        <item name="colorControlActivated">@color/colorSecondary</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
     </style>
 
     <style name="DiceButtonOutlinedStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">?colorSecondary</item>
-        <item name="strokeWidth">2dp</item>
+        <item name="strokeWidth">1dp</item>
         <item name="android:fontFamily">@font/mono</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:padding">@dimen/padding_normal</item>
         <item name="android:textColor">?colorSecondary</item>
         <item name="backgroundTint">@color/outline_button_selector</item>
-        <item name="rippleColor">@color/btn_text_btn_bg_color_selector</item>
+        <item name="rippleColor">@color/rippleColor</item>
     </style>
 </resources>

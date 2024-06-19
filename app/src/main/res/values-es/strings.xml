@@ -30,7 +30,6 @@
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Pulsa en cualquier lugar o agita tu dispositivo para lanzar un dado.</string>
-    <string name="dice_previous_result_label">tirada anterior:</string>
     <string name="dice_sides">Lados de dados personalizado</string>
     <string name="history_empty_message">No hay historial aún</string>
     <string name="history_subtitle">sólo para la sesión</string>
@@ -60,4 +59,7 @@
     <string name="settings_switch_tap_logic">Cambiar pulsación corta y larga</string>
     <string name="share_snippet">¡Hola! Esta aplicación te ayudará a&#160;mantener fácilmente la puntuación en cualquier juego o actividad. Descarga la aplicación gratuita de Android aquí:\n http://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Nuevo valor</string>
+    <string name="dice_roll_prefix">Tiradas de dados:</string>
+    <string name="dice_sum_prefix">Suma:</string>
+    <string name="settings_animate_roll">Animar las tiradas de dados</string>
 </resources>
