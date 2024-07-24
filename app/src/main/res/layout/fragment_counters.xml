@@ -46,17 +46,6 @@
             android:layout_marginHorizontal="@dimen/spacing_xlarge"
             android:text="@string/counters_empty_message" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add_c"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/spacing_xlarge"
-            android:minHeight="@dimen/list_single_line_min_height"
-            android:text="@string/menu_add_new_counter"
-            android:textSize="@dimen/font_title"
-            app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

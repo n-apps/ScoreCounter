@@ -56,7 +56,7 @@
     <string name="share_snippet">Sziasztok! A Pontszámláló segítségével könnyedén követheted a&#160;pontszámokat bármilyen játékban, sportban vagy más tevékenységben. Szerezd meg az ingyenes Android alkalmazást itt</string>
     <string name="message_one_more_counter">Még egy</string>
     <string name="settings_switch_tap_logic">Rövid és hosszú gombnyomás felcserélése</string>
-    <string name="about_translators_title">Hívjuk az összes nyelvi varázslót és állatbarátot! Fűszerezzük fel a&#160;kedvenc alkalmazásunkat fordításokkal és vicces állatnevekkel. Csatlakozz a&#160;bulihoz és légy olyan menő, mint azok az emberek, akik már hozzáadták saját fantasztikus ötleteiket:</string>
+    <string name="about_translators_title">Félelmetes fordítók</string>
     <string name="settings_change_language">Nyelvváltás</string>
     <string name="simple_edit_value_hint">Új érték</string>
     <string name="dice_roll_prefix">Roll(s):</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animate rolls</string>
     <string name="common_continue">Continue</string>
     <string name="dialog_elektu_confirm">Megnyílik egy kis böngészőoldal, amely segít kiválasztani valakit a csoportból.\n\nKészítette: Julien&#160;Bellue</string>
+    <string name="counter_default_name">Counter</string>
 </resources>

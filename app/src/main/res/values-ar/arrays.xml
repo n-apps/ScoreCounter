@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string-array name="names">
+        <item>@string/counter_default_name</item>
+    </string-array>
+    <string-array name="app_theme_options">
+        <item>النظام</item>
+        <item>خفيف</item>
+        <item>داكن</item>
+    </string-array>
+</resources>

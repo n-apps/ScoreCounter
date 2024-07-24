@@ -47,7 +47,7 @@
     <string name="counter_added">Лічильник додано</string>
     <string name="message_one_more_counter">Ще один</string>
     <string name="about_text">Привіт! Мене звати Рома, я зараз в Україні. Я граю в настільні ігри вже понад 10 років. Ідея для цього додатку прийшла мені, коли я грав у "Star Realms" (в яких жахливі жетони).\n\nЯ не девелопер і працюю над цим додатком у вільний час. Кожен ваш відгук, ваша електронна пошта чи пожертвування роблять мене трохи щасливішим. Якщо у вас є щось, що ви хочете поділитися, потребуєте допомоги з перекладом або просто хочете поділитися своїми враженнями, не соромтеся зв\'язатися зі мною.\n\nНезважаючи на війну в моїй країні, я вирішив залишити цей застосунок безкоштовним і без реклами зовсім. Якщо ви хотіли б підтримати незалежного розробника (мене), розгляньте можливість пожертвування в додатку.\n\nДякую!</string>
-    <string name="settings_rate_app">Підтримати у Google&#160;Play&#160;★</string>
+    <string name="settings_rate_app">Підтримати у Google&#160;Play</string>
     <string name="settings_about">Про цей застосунок</string>
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="settings_switch_tap_logic">Змінити коротке та довге натискання</string>
@@ -56,7 +56,7 @@
     <string name="dialog_predefined_steps">Ви можете змінити ці значення у налаштуваннях</string>
     <string name="history_subtitle">тільки ця сесія</string>
     <string name="menu_elektu">Хто перший гравець?</string>
-    <string name="about_translators_title">Круті люди що допомогли з перекладом:</string>
+    <string name="about_translators_title">Круті люди що допомогли з перекладом</string>
     <string name="settings_change_language">Мова</string>
     <string name="simple_edit_value_hint">Введіть значення</string>
     <string name="dice_roll_prefix">Випало:</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Анімувати кидки кубиків</string>
     <string name="common_continue">Продовжити</string>
     <string name="dialog_elektu_confirm">Відкриється невелика сторінка браузера, яка допоможе вам вибрати когось із групи.\n\nРозробив Жюльєн Беллью</string>
+    <string name="counter_default_name">Лічильник</string>
 </resources>

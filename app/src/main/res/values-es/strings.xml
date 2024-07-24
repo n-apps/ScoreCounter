@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Contador de puntos</string>
     <string name="about_text">Salut, je m\'appelle Roma et je viens de Kremenchuk, en Ukraine. Je joue à des jeux de société depuis plus de 10 ans. L\'idée de cette application m\'est venue en jouant à Star Realms (qui a&#160;des jetons terribles).\n\nJe ne suis pas développeur et je travaille sur cette application pendant mon temps libre. Chacun de vos retours, votre email ou votre don me rend un peu plus heureux. Si vous avez quelque chose à partager, si vous avez besoin d\'aide pour la traduction ou si vous souhaitez simplement partager ce que vous comptez, n\'hésitez pas à me contacter.\n\nMalgré la guerre dans mon pays, j\'ai décidé de garder cette application gratuite et sans publicités du tout. Si vous souhaitez soutenir un développeur indépendant (moi), envisagez de faire un don dans l\'application.\n\nMerci !</string>
-    <string name="about_translators_title">¡Llamando a&#160;todos los magos del lenguaje y los entusiastas de los animales! Vamos a&#160;darle un toque de diversión a&#160;nuestra querida aplicación con traducciones y apodos de animales divertidos. Únete a&#160;la fiesta y sé tan genial como las personas que ya prestaron su genialidad:</string>
+    <string name="about_translators_title">Traductores increíbles</string>
     <string name="action_donate">Asistencia a través de Google&#160;Play</string>
     <string name="action_save">Guardar</string>
     <string name="common_back">Atrás</string>
@@ -52,7 +52,7 @@
     <string name="settings_counter_title">Contador (incrementos de puntuación)</string>
     <string name="settings_feedback">Contactar al desarrollador</string>
     <string name="settings_privacy_policy">Política de privacidad</string>
-    <string name="settings_rate_app">Calificar en Google&#160;Play ★</string>
+    <string name="settings_rate_app">Calificar en Google&#160;Play</string>
     <string name="settings_shake_to_roll">Agita para lanzar un dado</string>
     <string name="settings_sound">Apoyar al desarrollador</string>
     <string name="settings_stay_awake">Mantener la pantalla encendida</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animar las tiradas de dados</string>
     <string name="common_continue">Continuar</string>
     <string name="dialog_elektu_confirm">Se abrirá una pequeña página del navegador para ayudarte a seleccionar a alguien de un grupo.\n\nHecho por Julien&#160;Bellue</string>
+    <string name="counter_default_name">Contador</string>
 </resources>

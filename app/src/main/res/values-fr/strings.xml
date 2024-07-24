@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Score Counter</string>
     <string name="about_text">Bonjour, je m\'appelle Roma et je suis originaire de Kremenchuk, en Ukraine. J\'aime jouer à des jeux de société, Dead of Winter et Terraforming Mars étant deux de mes préférés. L\'idée de cette application m\'est venue en jouant à Star Realms (dont les jetons sont terribles).\n\nJ\'ai décidé de développer cette application mobile pendant mon temps libre. Chaque nouvelle critique, email ou don me rend heureux. Si vous avez quelque chose à partager, si vous avez trouvé des traductions désordonnées, ou si vous voulez simplement me faire savoir ce que vous comptez, n\'hésitez pas à me contacter.\n\nJ\'ai perdu mon travail à cause de la guerre dans mon pays, mais j\'ai décidé de garder cette application gratuite sans publicité et avec toutes ses fonctionnalités disponibles. Si vous souhaitez soutenir un développeur indépendant (moi), vous pouvez faire un petit don dans l\'application.\n\nMerci !</string>
-    <string name="about_translators_title">Des traducteurs formidables :</string>
+    <string name="about_translators_title">Des traducteurs formidables</string>
     <string name="action_donate">Soutien via Google&#160;Play</string>
     <string name="action_save">Sauvegarder</string>
     <string name="common_back">Retour</string>
@@ -52,7 +52,7 @@
     <string name="settings_counter_title">Сompteur (Incréments de score)</string>
     <string name="settings_feedback">Nous contacter</string>
     <string name="settings_privacy_policy">Politique de confidentialité</string>
-    <string name="settings_rate_app">Attribuer une note sur Google&#160;Play ★</string>
+    <string name="settings_rate_app">Attribuer une note sur Google&#160;Play</string>
     <string name="settings_shake_to_roll">Secouer pour lancer</string>
     <string name="settings_sound">Son</string>
     <string name="settings_stay_awake">Garder l\'écran allumé</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animer les jets de dés</string>
     <string name="common_continue">Continuer</string>
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'ouvre pour vous aider à sélectionner quelqu\'un dans un groupe.\n- Fabriqué par Julien&#160;Bellue</string>
+    <string name="counter_default_name">Compteur</string>
 </resources>

@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -81,6 +82,8 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
             holder.counterValue.setTextColor(tintColor);
+            holder.isRTL = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault())
+                    == View.LAYOUT_DIRECTION_RTL);
 
             Drawable wrapDrawable1 = DrawableCompat.wrap(holder.increaseImageView.getDrawable().mutate());
             Drawable wrapDrawable2 = DrawableCompat.wrap(holder.decreaseImageView.getDrawable().mutate());
@@ -249,7 +252,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         public Counter counter;
         private float lastX;
+        private boolean isRTL = false;
         private LongClickTimerTask timerTask;
+
 
         @SuppressLint("ClickableViewAccessibility")
         CounterFullViewHolder(View v, CounterActionCallback callback) {
@@ -277,10 +282,10 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 return false;
             });
 
-            counterClickableArea.setOnTouchListener((v12, e) -> {
-                switch (e.getActionMasked()) {
+            counterClickableArea.setOnTouchListener((view, touch) -> {
+                switch (touch.getActionMasked()) {
                     case MotionEvent.ACTION_DOWN:
-                        lastX = e.getX();
+                        lastX = touch.getX();
                         if (timerTask != null) {
                             timerTask.cancel();
                         }
@@ -291,10 +296,10 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                         break;
 
                     case MotionEvent.ACTION_UP:
-                        long time = e.getEventTime() - e.getDownTime();
+                        long time = touch.getEventTime() - touch.getDownTime();
                         if (time < TIME_LONG_CLICK) {
-                            v12.performClick();
-                            updateCounter(e.getX());
+                            view.performClick();
+                            processTouch(touch.getX());
                         }
                         cancelLongClickTask();
                         break;
@@ -306,6 +311,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
                 return false;
             });
+
         }
 
         @Override
@@ -314,9 +320,9 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 if (lastX != -1) {
                     int interactionAreaWidth = counterClickableArea.getWidth() / 3;
                     if (lastX >= interactionAreaWidth * 2) {
-                        counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
+                        counterActionCallback.onLongClick(counter, getAdapterPosition(), isRTL ? MODE_DECREASE_VALUE : MODE_INCREASE_VALUE);
                     } else if (lastX <= interactionAreaWidth) {
-                        counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
+                        counterActionCallback.onLongClick(counter, getAdapterPosition(), isRTL ? MODE_INCREASE_VALUE : MODE_DECREASE_VALUE);
                     } else {
                         counterActionCallback.onLongClick(counter, getAdapterPosition(), MODE_SET_VALUE);
                     }
@@ -333,16 +339,16 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             lastX = -1;
         }
 
-        private void updateCounter(float x) {
+        private void processTouch(float x) {
             if (counter.getStep() == 0) return;
 
             float width = counterClickableArea.getWidth();
-            if (x >= width - width * 0.4) {
-                notifyItemChanged(getAdapterPosition(), INCREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_INCREASE_VALUE);
+            if (x >=  width - width * 0.4) {
+                notifyItemChanged(getAdapterPosition(), isRTL ? DECREASE_VALUE_CLICK : INCREASE_VALUE_CLICK);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(),  isRTL ? MODE_DECREASE_VALUE : MODE_INCREASE_VALUE);
             } else if (x <= width * 0.4) {
-                notifyItemChanged(getAdapterPosition(), DECREASE_VALUE_CLICK);
-                counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_DECREASE_VALUE);
+                notifyItemChanged(getAdapterPosition(),  isRTL ? INCREASE_VALUE_CLICK : DECREASE_VALUE_CLICK);
+                counterActionCallback.onSingleClick(counter, getAdapterPosition(), isRTL ? MODE_INCREASE_VALUE : MODE_DECREASE_VALUE);
             } else {
                 counterActionCallback.onSingleClick(counter, getAdapterPosition(), MODE_SET_VALUE);
             }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Počítadlo skóre</string>
-    <string name="settings_rate_app">Ohodnotit na Google&#160;Play ★</string>
+    <string name="settings_rate_app">Ohodnotit na Google&#160;Play</string>
     <string name="about_text">Ahoj, jmenuji se Roma a&#160;pocházím z Kremenchuku, Ukrajiny. Hraji deskové hry více než 10 let. Nápad na tuto aplikaci mi přišel, když jsem hrál Star Realms (který má hrozné žetony).\n\nNejsem vývojář a&#160;na této aplikaci pracuji ve svém volném čase. Každá z vašich zpětných vazeb, vašeho e-mailu nebo daru mi udělá trochu šťastnějším. Pokud máte něco, co chcete sdílet, potřebujete pomoc s překladem, nebo jen chcete sdílet, co počítáte, neváhejte mě kontaktovat.\n\nNavzdory válce v mé zemi jsem se rozhodl tuto aplikaci udržet zdarma a&#160;bez reklam. Pokud byste chtěli podpořit nezávislého vývojáře (mě), zvažte prosím darování v aplikaci.\n\nDěkuji!</string>
     <string name="common_counters">Počítadla</string>
     <string name="action_donate">Podpora přes Google&#160;Play</string>
@@ -56,7 +56,7 @@
     <string name="share_snippet">Ahoj! Počítadlo skóre vám pomůže snadno počítat body v jakýchkoli hrách, sportech nebo jiných aktivitách. Bezplatnou aplikaci pro Android získáte zde</string>
     <string name="message_one_more_counter">Ještě jeden</string>
     <string name="settings_switch_tap_logic">Vyměnit krátké a&#160;dlouhé stisknutí</string>
-    <string name="about_translators_title">Voláme všechny jazykové kouzelníky a&#160;nadšence do zvířat! Obohatme naši oblíbenou aplikaci překlady a&#160;vtipnými zvířecími přezdívkami. Připojte se k tomuto zábavnému večírku a&#160;buďte stejně skvělí jako lidé, kteří už přidali své fantastické nápady:</string>
+    <string name="about_translators_title">Úžasní překladatelé</string>
     <string name="settings_change_language">Změna jazyka</string>
     <string name="simple_edit_value_hint">Zadejte hodnotu</string>
     <string name="dice_roll_prefix">Hody kostkou:</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animovat hody kostkou</string>
     <string name="common_continue">Pokračovat</string>
     <string name="dialog_elektu_confirm">Otevře se malá stránka prohlížeče, která vám pomůže vybrat někoho ze skupiny.\n\nVyrobil Julien&#160;Bellue</string>
+    <string name="counter_default_name">Počítadlo</string>
 </resources>

@@ -305,31 +305,37 @@ class CountersViewModel extends AndroidViewModel {
             String[] colors = getApplication().getResources().getStringArray(nightModeActive ? R.array.list_of_colors_dark : R.array.list_of_colors_light);
             colorSet.addAll(Arrays.asList(colors));
         }
+        if (!colorSet.isEmpty()) {
+            String[] array = colorSet.toArray(new String[0]);
 
-        String[] array = colorSet.toArray(new String[0]);
-
-        Random rndm = new Random();
-        int rndmNumber = rndm.nextInt(colorSet.size());
-        String value = array[rndmNumber];
-        colorSet.remove(value);
-        return value;
+            Random rndm = new Random();
+            int rndmNumber = rndm.nextInt(colorSet.size());
+            String value = array[rndmNumber];
+            colorSet.remove(value);
+            return value;
+        } else {
+            return "#5A646D";
+        }
     }
 
     private String getNextName() {
         if (namesSet.isEmpty()) {
             String[] initialNames = getApplication().getResources().getStringArray(R.array.names);
             namesSet.addAll(Arrays.asList(initialNames));
-
         }
 
-        String[] array = namesSet.toArray(new String[0]);
+        if (!namesSet.isEmpty()) {
+            String[] array = namesSet.toArray(new String[0]);
 
-        Random rndm = new Random();
-        int rndmNumber = rndm.nextInt(namesSet.size());
-        String value = array[rndmNumber];
-        namesSet.remove(value);
+            Random rndm = new Random();
+            int rndmNumber = rndm.nextInt(namesSet.size());
+            String value = array[rndmNumber];
+            namesSet.remove(value);
+            return value;
+        } else {
+            return getApplication().getResources().getString(R.string.counter_default_name);
+        }
 
-        return value;
     }
 
     public SnackbarMessage getSnackbarMessage() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <string name="about_text">Pozdrav! Zovem se Roma i trenutno živim u Ukrajini. Već više od 10 godina se zabavljam društvenim igrama. Ideja za ovu aplikaciju mi je došla dok sam igrao Star Realms (koji ima užasne chipove). Nisam developer i ovom aplikacijom se bavim u svoje slobodno vrijeme. Svaki review, email ili napojnica od vas me čini malo sretnijim u ova teška vremena. Unatoč ratu u mojoj zemlji, odlučio sam ostaviti ovu aplikaciju besplatnom i bez reklama. Hvala vam i želim vam sretno igranje!</string>
-    <string name="about_translators_title">Genijalni prevoditelji:</string>
+    <string name="about_translators_title">Genijalni prevoditelji</string>
     <string name="action_donate">Donacija kroz Google&#160;Play</string>
     <string name="action_save">Spremi</string>
     <string name="app_name">Brojač Rezultata</string>
@@ -52,7 +52,7 @@
     <string name="settings_counter_title">Brojač (povećanje bodova)</string>
     <string name="settings_feedback">Kontaktiraj developera</string>
     <string name="settings_privacy_policy">Pravila o privatnosti</string>
-    <string name="settings_rate_app">Ocjeni aplikaciju na Google&#160;Play&#160;\u2605</string>
+    <string name="settings_rate_app">Ocjeni aplikaciju na Google&#160;Play</string>
     <string name="settings_shake_to_roll">Protresi za bacanje kockice</string>
     <string name="settings_sound">Reproduciraj zvuk</string>
     <string name="settings_stay_awake">Ostavi zaslon uključen</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animálja a kockadobásokat</string>
     <string name="common_continue">Nastavi</string>
     <string name="dialog_elektu_confirm">Odprla se bo majhna stran brskalnika, ki vam bo pomagala izbrati nekoga iz skupine.\n\nMade by Julien&#160;Bellue</string>
+    <string name="counter_default_name">Brojači</string>
 </resources>

@@ -47,7 +47,7 @@
     <string name="counter_added">Segnapunti aggiunto</string>
     <string name="message_one_more_counter">Ancora uno</string>
     <string name="about_text">Ciao, il mio nome è Roma e vengo da Kremenchuk, Ucraina. Gioco giochi da tavolo da oltre 10 anni. L\'idea per questa app mi è venuta mentre giocavo a&#160;Star Realms (che ha gettoni terribili).\n\nNon sono uno sviluppatore e sto lavorando su questa app nel mio tempo libero. Ogni vostro feedback, la vostra email o donazione mi rende un po\' più felice. Se avete qualcosa da condividere, desiderate assistenza nella traduzione, o semplicemente volete condividere cosa state contando, non esitate a&#160;contattarmi.\n\nNonostante la guerra nel mio paese, ho deciso di mantenere questa app gratuita e senza alcuna pubblicità. Se desiderate sostenere uno sviluppatore indipendente (me), per favore considerate la possibilità di effettuare una donazione in-app.\n\nGrazie!</string>
-    <string name="settings_rate_app">Vota su Google&#160;Play ★</string>
+    <string name="settings_rate_app">Vota su Google&#160;Play</string>
     <string name="settings_about">Informazioni sull\'app</string>
     <string name="setting_help_translate">Aiuta a&#160;tradurre</string>
     <string name="settings_switch_tap_logic">Passa da un tocco lungo a&#160;uno breve</string>
@@ -56,7 +56,7 @@
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
     <string name="history_subtitle">Solo per questa sessione</string>
     <string name="menu_elektu">A chi tocca per primo?</string>
-    <string name="about_translators_title">Chiamiamo tutti gli esperti di lingue e gli appassionati di animali! Rendiamo la nostra adorata app più divertente con traduzioni e simpatici nomi di animali. Unisciti alla festa e sii altrettanto cool come le persone che hanno già messo a&#160;disposizione la loro fantastica creatività:</string>
+    <string name="about_translators_title">Traduttori fantastici</string>
     <string name="settings_change_language">Cambiare la lingua</string>
     <string name="simple_edit_value_hint">Immetti valore</string>
     <string name="dice_roll_prefix">Lanci di dadi:</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Animare i lanci di dadi</string>
     <string name="common_continue">Continua</string>
     <string name="dialog_elektu_confirm">Si aprirà una piccola pagina del browser che vi aiuterà a selezionare qualcuno da un gruppo.\nMade by Julien&#160;Bellue</string>
+    <string name="counter_default_name">Contatore</string>
 </resources>

@@ -242,7 +242,7 @@ public class DicesFragment extends Fragment {
             if (i != 0) {
                 stringBuilder.append(", ");
             }
-            stringBuilder.append(String.valueOf(rolls.get(i)));
+            stringBuilder.append(rolls.get(i));
 
             sum += rolls.get(i);
         }
@@ -250,8 +250,7 @@ public class DicesFragment extends Fragment {
         stringBuilder.append("<br><br><b>");
         stringBuilder.append(sumPrefix);
         stringBuilder.append(" </b>");
-        stringBuilder.append(String.valueOf(sum));
-
+        stringBuilder.append(sum);
         animateResults(diceCompositionTextView, Html.fromHtml(stringBuilder.toString()), 150);
     }
 

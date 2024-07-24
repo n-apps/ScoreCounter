@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_text">Прывітанне, мяне завуць Рома, і я з Крэмэнчука, Украіна. Я люблю гуляць у настольныя гульні. "Мёртвая зіма" і "Землеўпарадкаваньне Марсу" - мае улюбёныя настолкі. Ідэя гэтага мабільнага дадатку прыйшла да мяне падчас гульні ў "Зорныя імперыі" (у якой жудасныя токены). Я распрацоўваю Лічыльнік Ачкоў у свой вольны час. Кожны новы агляд, імэйл ці ахвяраванне рабіць мяне шчаслівым. Калі ў вас ёсць нешта, чым вы хацелі б падзяліцца, знайшлі які-небудзь няўдалы пераклад, альбо проста хочаце падзяліцца сваімі думкамі, не саромейцеся звязацца са мной. Я страціў працу з-за вайны ў маёй краіне, але я вырашыў захаваць гэты дадатак бясплатным, без рэкламы і з усімі даступнымі функцыямі. Калі вы хацелі б падтрымаць незалежнага распрацоўшчыка (мяне), калі ласка, разгледзьце магчымасць зрабіць невялікае ахвяраванне ўнутры мабільнага дадатку. Дзякуй!</string>
-    <string name="about_translators_title">Заклікаем усіх майстроў перакладу і&#160;аматараў жывёл! Давайце разнастайнім наш улюбёны дадатак і&#160;дададзім забаўных псеўданімаў жывёл. Далучайцеся да вечарыны і будзьце такімі ж класнымі, як людзі, што ўжо падзяліліся сваёй выдатнасцю:</string>
-    <string name="action_donate">Ахвяруйце праз Google&#160;Play︎ \u263a\ufe0e</string>
+    <string name="about_translators_title">Выдатныя перакладчыкі</string>
+    <string name="action_donate">Ахвяруйце праз Google&#160;Play</string>
     <string name="action_save">Захаваць</string>
     <string name="app_name">Лічыльнік ачкоў</string>
     <string name="common_back">Назад</string>
@@ -52,7 +52,7 @@
     <string name="settings_counter_title">Лічыльнік ачкоў</string>
     <string name="settings_feedback">Звязацца з распрацоўшчыкам</string>
     <string name="settings_privacy_policy">Палітыка прыватнасці</string>
-    <string name="settings_rate_app">Ацаніце на Google&#160;Play&#160;★</string>
+    <string name="settings_rate_app">Ацаніце на Google&#160;Play</string>
     <string name="settings_shake_to_roll">Патрасіце, каб кінуць косці</string>
     <string name="settings_sound">Прайграць гук</string>
     <string name="settings_stay_awake">Не выключаць экран</string>
@@ -63,5 +63,6 @@
     <string name="dice_sum_prefix">Сума:</string>
     <string name="settings_animate_roll">Аніміраваныя кідкі кубікаў</string>
     <string name="common_continue">Працягнуць</string>
-    <string name="dialog_elektu_confirm">"A small browser page will open to help you select someone from a group.\n\nMade by Julien&#160;Bellue "</string>
+    <string name="dialog_elektu_confirm">Адкрыецца маленькая старонка браўзера, каб дапамагчы вам выбраць каго-небудзь з групы.\n\nЗроблена Julien Bellue</string>
+    <string name="counter_default_name">Лічыльнік</string>
 </resources>

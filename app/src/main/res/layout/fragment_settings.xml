@@ -19,17 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorSurface"
-            android:paddingVertical="@dimen/spacing_large"
-            android:paddingHorizontal="@dimen/padding_large">
+            android:paddingHorizontal="@dimen/padding_large"
+            android:paddingVertical="@dimen/spacing_large">
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
                 android:src="@drawable/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/title"
+                app:layout_constraintEnd_toStartOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -41,8 +41,8 @@
                 android:text="@string/app_name"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintBottom_toTopOf="@id/tv_support"
-                app:layout_constraintLeft_toRightOf="@id/image"
-                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/image"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed" />
 
@@ -55,8 +55,8 @@
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/title"
-                app:layout_constraintRight_toRightOf="@id/title"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                app:layout_constraintStart_toStartOf="@id/title"
                 app:layout_constraintTop_toBottomOf="@id/title" />
 
 
@@ -72,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorSurface"
+            android:drawablePadding="@dimen/padding_normal"
             android:fontFamily="@font/o600"
             android:text="@string/settings_about"
             android:textAppearance="?attr/textAppearanceHeadline6"
@@ -82,8 +83,9 @@
             android:id="@+id/tv_open_settings"
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
-            android:background="?attr/colorSurface"
             android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            android:drawablePadding="@dimen/padding_normal"
             android:fontFamily="@font/o600"
             android:text="@string/common_settings"
             android:textAppearance="?attr/textAppearanceHeadline6"
@@ -95,10 +97,10 @@
             style="@style/TwoLinesStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/spacing_big"
+            android:drawablePadding="@dimen/padding_normal"
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_chat"
+            app:drawableEndCompat="@drawable/ic_chat"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -109,7 +111,7 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/setting_help_translate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_translator"
+            app:drawableEndCompat="@drawable/ic_translator"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -120,7 +122,7 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/setting_share"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_share"
+            app:drawableEndCompat="@drawable/ic_share"
             app:drawableTint="?attr/colorControlNormal" />
 
         <TextView
@@ -131,16 +133,20 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/settings_rate_app"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_satisfied"
+            app:drawableEndCompat="@drawable/ic_satisfied"
             app:drawableTint="?attr/colorControlNormal" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:clipToPadding="false"
             android:paddingHorizontal="@dimen/padding_large"
-            android:paddingVertical="@dimen/spacing_large"
-            android:clipToPadding="false">
+            android:paddingVertical="@dimen/spacing_large">
 
             <ImageView
                 android:id="@+id/iv_donate"

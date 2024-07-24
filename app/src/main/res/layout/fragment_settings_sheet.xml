@@ -22,6 +22,7 @@
         android:fontFamily="@font/o600"
         android:minHeight="@dimen/list_two_lines_min_height"
         android:text="@string/settings_appearance"
+        android:drawablePadding="@dimen/padding_normal"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableEndCompat="@drawable/ic_arrow_right"
         app:drawableTint="?attr/colorPrimary" />
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/o600"
         android:minHeight="@dimen/list_two_lines_min_height"
+        android:drawablePadding="@dimen/padding_normal"
         android:text="@string/settings_change_language"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableEndCompat="@drawable/ic_arrow_right"
@@ -51,6 +53,7 @@
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sw_keep_screen_on"
             android:fontFamily="@font/o400"
+            android:paddingEnd="@dimen/padding_normal"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_stay_awake"
@@ -86,6 +89,7 @@
             android:fontFamily="@font/o400"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingEnd="@dimen/padding_normal"
             android:text="@string/common_vibrate"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
 
@@ -196,10 +200,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@+id/sw_swap_press"
+            android:paddingEnd="@dimen/padding_normal"
             android:fontFamily="@font/o400"
             android:gravity="center_vertical"
             android:minHeight="@dimen/list_two_lines_min_height"
-            android:paddingEnd="@dimen/padding_normal"
             android:text="@string/settings_switch_tap_logic"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
 

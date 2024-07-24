@@ -57,11 +57,12 @@
     <string name="share_snippet">Hej där! Score Counter hjälper dig att enkelt räkna poäng i spel, sport eller andra aktiviteter. Skaffa den kostnadsfria Android-appen här</string>
     <string name="message_one_more_counter">En till</string>
     <string name="settings_switch_tap_logic">Byt kort och långa tryckning</string>
-    <string name="about_translators_title">Kalla alla språkexperter och djurälskare! Vi kryddar upp vår älskade app med översättningar och roliga djurnamn. Gå med i festen och var lika cool som personerna som redan har bidragit med sin fantastiska kreativitet:</string>
+    <string name="about_translators_title">Fantastiska översättare</string>
     <string name="simple_edit_value_hint">Ange ett värde</string>
     <string name="dice_roll_prefix">Tärningsslag:</string>
     <string name="dice_sum_prefix">Sum:</string>
     <string name="settings_animate_roll">Animera tärningsslag</string>
     <string name="common_continue">Fortsätt</string>
     <string name="dialog_elektu_confirm">En liten webbläsarsida öppnas för att hjälpa dig att välja någon från en grupp.\n\nTillverkad av Julien&#160;Bellue</string>
+    <string name="counter_default_name">Räknare</string>
 </resources>

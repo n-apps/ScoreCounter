@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_text">Γεια, το όνομά μου είναι Ρόμα και είμαι από το Κρεμεντσούκ, Ουκρανία. Παίζω επιτραπέζια παιχνίδια εδώ και πάνω από 10 χρόνια. Η ιδέα για αυτήν την εφαρμογή μου ήρθε όταν έπαιζα το Star Realms (το οποίο έχει φρικτά νομίσματα).\n\nΔεν είμαι προγραμματιστής και δουλεύω σε αυτήν την εφαρμογή στον ελεύθερο χρόνο μου. Κάθε ανατροφοδότησή σας, το email σας ή η δωρεά σας με κάνουν λίγο πιο χαρούμενο. Εάν έχετε κάτι να μοιραστείτε, θέλετε βοήθεια με τη μετάφραση ή απλά να μοιραστείτε το τι μετράτε, μην διστάσετε να επικοινωνήσετε μαζί μου.\n\nΠαρά τον πόλεμο στη χώρα μου, αποφάσισα να διατηρήσω αυτήν την εφαρμογή δωρεάν και χωρίς διαφημίσεις. Εάν θέλετε να υποστηρίξετε έναν ανεξάρτητο προγραμματιστή (εμένα), παρακαλώ εξετάστε τη δυνατότητα δωρεάς μέσα από την εφαρμογή.\n\nΣας ευχαριστώ!</string>
-    <string name="about_translators_title">Καλώ όλους τους μάγους της γλώσσας και τους λάτρεις των ζώων! Ας βελτιώσουμε την πολυαγαπημένη μας εφαρμογή με μεταφράσεις και ξεκαρδιστικά ψευδώνυμα ζώων. Μπείτε στο πάρτι και γίνετε το ίδιο κουλ με άτομα τα οποία έχουν ήδη δανείσει τη φαντασία τους:</string>
+    <string name="about_translators_title">Φοβεροί μεταφραστές</string>
     <string name="action_donate">Υποστήριξη μέσω του Google&#160;Play</string>
     <string name="action_save">Αποθήκευση</string>
     <string name="app_name">Μετρητής σκορ</string>
@@ -52,7 +52,7 @@
     <string name="settings_counter_title">Μετρητής (γρήγορη αύξηση/μείωση)</string>
     <string name="settings_feedback">Επικοινωνήστε με τον δημιουργό</string>
     <string name="settings_privacy_policy">Πολιτική απορρήτου</string>
-    <string name="settings_rate_app">Αξιολογήστε μας στο Google&#160;Play ★</string>
+    <string name="settings_rate_app">Αξιολογήστε μας στο Google&#160;Play</string>
     <string name="settings_shake_to_roll">Ανακινήστε για να ρίξετε το ζάρι</string>
     <string name="settings_sound">Ήχος</string>
     <string name="settings_stay_awake">Διατηρήστε την οθόνη ανοικτή</string>
@@ -64,4 +64,5 @@
     <string name="settings_animate_roll">Ζωντανές ρίψεις ζαριών</string>
     <string name="common_continue">Συνέχεια</string>
     <string name="dialog_elektu_confirm">Μια μικρή σελίδα του προγράμματος περιήγησης θα ανοίξει για να σας βοηθήσει να επιλέξετε κάποιον από μια ομάδα.\n\nΚατασκευάστηκε από τον Julien&#160;Bellue</string>
+    <string name="counter_default_name">Μετρητής</string>
 </resources>

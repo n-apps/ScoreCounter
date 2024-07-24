@@ -15,6 +15,7 @@
         android:fontFamily="@font/o600"
         android:foreground="@drawable/ripple"
         android:gravity="center"
+        android:textDirection="locale"
         android:minHeight="@dimen/list_single_line_min_height"
         android:paddingHorizontal="@dimen/padding_large"
         android:textAppearance="?attr/textAppearanceHeadline5"
@@ -31,7 +32,7 @@
         android:foreground="@drawable/ripple"
         android:padding="@dimen/padding_normal"
         android:src="@drawable/ic_settings"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -55,8 +56,6 @@
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_min="160dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
         app:layout_constraintWidth_min="160dp"
@@ -68,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone" />
 
@@ -105,13 +104,13 @@
         android:layout_marginHorizontal="@dimen/spacing_xlarge"
         android:ellipsize="end"
         android:fontFamily="@font/o400"
-        android:gravity="start"
         android:includeFontPadding="false"
         android:minHeight="@dimen/list_two_lines_min_height"
+        android:gravity="start"
+        android:textDirection="locale"
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
         tools:text="Rolls: 2, 4, 5, 7\n\nSum: 45"

@@ -193,6 +193,7 @@
             android:layout_toStartOf="@+id/sw_shake_to_roll"
             android:fontFamily="@font/o400"
             android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_normal"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_shake_to_roll"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
@@ -223,6 +224,7 @@
             android:layout_toStartOf="@+id/sw_animation"
             android:fontFamily="@font/o400"
             android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_normal"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_animate_roll"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
@@ -253,6 +255,7 @@
             android:layout_toStartOf="@+id/sw_sound"
             android:fontFamily="@font/o400"
             android:gravity="center_vertical"
+            android:paddingEnd="@dimen/padding_normal"
             android:minHeight="@dimen/list_two_lines_min_height"
             android:text="@string/settings_sound"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
