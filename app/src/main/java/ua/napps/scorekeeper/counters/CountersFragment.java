@@ -152,7 +152,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         recyclerView.setAdapter(countersAdapter);
 
         emptyState = contentView.findViewById(R.id.empty_state);
-        contentView.findViewById(R.id.btn_add_c).setOnClickListener(view -> viewModel.addCounter());
 
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
