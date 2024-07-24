@@ -30,7 +30,7 @@
     <string name="menu_history">История</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="settings_counter_title">Счетчик (смена баллов)</string>
-    <string name="dialog_confirmation_question">Рили хочешь?</string>
+    <string name="dialog_confirmation_question">Вы уверены?</string>
     <string name="dialog_yes">Да</string>
     <string name="dialog_no">Нет</string>
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
@@ -41,7 +41,7 @@
     <string name="action_save">Сохранить</string>
     <string name="common_more">Больше</string>
     <string name="setting_share">Отправить другу с Android-ом</string>
-    <string name="share_snippet">Не потрібно шукати ручку та папір. Лічильник Очок підстрахує тебе в карткових іграх та інших заняттях. Безкоштовний Android-застосунок:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Не нужно искать ручку и бумагу. Счетчик Очков подстрахует тебя в карточных играх и других занятиях. Бесплатное Android-приложение</string>
     <string name="common_edit">Изменить</string>
     <string name="counter_deleted">Счетчик удален</string>
     <string name="counter_added">Счетчик добавлен</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Выпало:</string>
     <string name="dice_sum_prefix">Сумма:</string>
     <string name="settings_animate_roll">Анимировать броски кубиков</string>
+    <string name="common_continue">Продолжить</string>
+    <string name="dialog_elektu_confirm">Откроется небольшая страница браузера, чтобы помочь вам выбрать кого-то из группы друзей.\n\nСделал Julien&#160;Bellue</string>
 </resources>

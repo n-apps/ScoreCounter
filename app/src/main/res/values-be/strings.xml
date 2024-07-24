@@ -57,9 +57,11 @@
     <string name="settings_sound">Прайграць гук</string>
     <string name="settings_stay_awake">Не выключаць экран</string>
     <string name="settings_switch_tap_logic">Памяняць кароткае і доўгае націсканне</string>
-    <string name="share_snippet">Прывітанне! Лічыльнік Ачкоў дапаможа вам лёгка сачыць за рахункам у любых гульнях, спорце ці іншых занятках. Спампуйце бясплатны дадатак для Android тут: http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Прывітанне! Лічыльнік Ачкоў дапаможа вам лёгка сачыць за рахункам у любых гульнях, спорце ці іншых занятках. Спампуйце бясплатны дадатак для Android тут</string>
     <string name="simple_edit_value_hint">Увядзіце значэнне</string>
     <string name="dice_roll_prefix">Кідкі:</string>
     <string name="dice_sum_prefix">Сума:</string>
     <string name="settings_animate_roll">Аніміраваныя кідкі кубікаў</string>
+    <string name="common_continue">Працягнуць</string>
+    <string name="dialog_elektu_confirm">"A small browser page will open to help you select someone from a group.\n\nMade by Julien&#160;Bellue "</string>
 </resources>

@@ -54,7 +54,7 @@
     <string name="settings_shake_to_roll">Lắc để tung</string>
     <string name="settings_sound">Âm thanh</string>
     <string name="settings_stay_awake">Giữ màn hình sáng</string>
-    <string name="share_snippet">Chào bạn! Bộ đếm điểm sẽ giúp bạn dễ dàng ghi điểm trong mọi trò chơi, thể thao hoặc các hoạt động khác. Tải ứng dụng Android miễn phí tại đây:</string>
+    <string name="share_snippet">Chào bạn! Bộ đếm điểm sẽ giúp bạn dễ dàng ghi điểm trong mọi trò chơi, thể thao hoặc các hoạt động khác. Tải ứng dụng Android miễn phí tại đây</string>
     <string name="message_one_more_counter">Một lần nữa</string>
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
     <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Lăn xúc xắc:</string>
     <string name="dice_sum_prefix">Tổng:</string>
     <string name="settings_animate_roll">Hoạt hình lăn xúc xắc</string>
+    <string name="common_continue">Tiếp tục</string>
+    <string name="dialog_elektu_confirm">Một trang trình duyệt nhỏ sẽ mở ra để giúp bạn chọn một người nào đó từ một nhóm.\n\nĐược tạo bởi Julien&#160;Bellue</string>
 </resources>

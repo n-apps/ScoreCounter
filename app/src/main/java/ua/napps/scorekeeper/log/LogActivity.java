@@ -78,7 +78,8 @@ public class LogActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.menu_delete) {
             new MaterialDialog.Builder(this)
-                    .title(R.string.dialog_confirmation_question)
+                    .title(R.string.delete)
+                    .content(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
                         Singleton.getInstance().clearLogEntries();
                         mAdapter.notifyDataSetChanged();
@@ -91,7 +92,8 @@ public class LogActivity extends AppCompatActivity {
                             content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                         }
                     })
-                    .positiveText(R.string.dialog_yes)
+                    .positiveText(R.string.delete)
+                    .positiveColorRes(R.color.colorError)
                     .negativeText(R.string.dialog_no)
                     .show();
         }

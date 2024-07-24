@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Ρίχνει ζάρια:</string>
     <string name="dice_sum_prefix">Άθροισμα:</string>
     <string name="settings_animate_roll">Ζωντανές ρίψεις ζαριών</string>
+    <string name="common_continue">Συνέχεια</string>
+    <string name="dialog_elektu_confirm">Μια μικρή σελίδα του προγράμματος περιήγησης θα ανοίξει για να σας βοηθήσει να επιλέξετε κάποιον από μια ομάδα.\n\nΚατασκευάστηκε από τον Julien&#160;Bellue</string>
 </resources>

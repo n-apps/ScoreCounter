@@ -54,7 +54,7 @@
     <string name="settings_shake_to_roll">Разклатете, за да хвърляте</string>
     <string name="settings_sound">Звук</string>
     <string name="settings_stay_awake">Поддържане на екрана включен</string>
-    <string name="share_snippet">Здравейте! Score Counter ще ви помогне лесно да запазите резултата във всички игри, спортове или други дейности. Вземете безплатното приложение за Android тук:</string>
+    <string name="share_snippet">Здравейте! Score Counter ще ви помогне лесно да запазите резултата във всички игри, спортове или други дейности. Вземете безплатното приложение за Android тук</string>
     <string name="message_one_more_counter">Още един</string>
     <string name="settings_switch_tap_logic">Размяна на кратко и дълго натискане</string>
     <string name="about_translators_title">Превод</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Хвърляне:</string>
     <string name="dice_sum_prefix">Сума:</string>
     <string name="settings_animate_roll">Анимиране зарове</string>
+    <string name="common_continue">Напред</string>
+    <string name="dialog_elektu_confirm">Ще се отвори малка страница в браузъра, за да ви помогне да изберете някого от групата.\n\nИзработено от Julien&#160;Bellue</string>
 </resources>

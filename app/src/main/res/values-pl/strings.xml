@@ -41,7 +41,7 @@
     <string name="action_save">Zapisz</string>
     <string name="common_more">Więcej</string>
     <string name="setting_share">Poleć znajomemu</string>
-    <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj: http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj</string>
     <string name="common_edit">Edytuj</string>
     <string name="counter_deleted">Usunięto licznik</string>
     <string name="counter_added">Dodano licznik</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Rzuty kostką:</string>
     <string name="dice_sum_prefix">Suma:</string>
     <string name="settings_animate_roll">Animowanie rzutów kośćmi</string>
+    <string name="common_continue">Dalej</string>
+    <string name="dialog_elektu_confirm">Otworzy się mała strona przeglądarki, która pomoże ci wybrać kogoś z grupy.\n\nWykonane przez Julien&#160;Bellue</string>
 </resources>

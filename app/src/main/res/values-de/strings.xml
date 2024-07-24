@@ -57,9 +57,11 @@
     <string name="settings_sound">Klang</string>
     <string name="settings_stay_awake">Bildschirm eingeschaltet lassen</string>
     <string name="settings_switch_tap_logic">Umschalten lang und kurz drücken</string>
-    <string name="share_snippet">Hi! Mit dem Punktezähler können Sie bei Spielen, Sport oder anderen Aktivitäten problemlos Punkte sammeln. Laden Sie die kostenlose Android-App hier herunter:\nhttp://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Hi! Mit dem Punktezähler können Sie bei Spielen, Sport oder anderen Aktivitäten problemlos Punkte sammeln. Laden Sie die kostenlose Android-App hier herunter</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
     <string name="dice_roll_prefix">Würfeln Sie:</string>
     <string name="dice_sum_prefix">Summe:</string>
     <string name="settings_animate_roll">Würfelwürfe animieren</string>
+    <string name="common_continue">Fortsetzen</string>
+    <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen.\n\nMade by Julien&#160;Bellue</string>
 </resources>

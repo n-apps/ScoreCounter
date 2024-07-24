@@ -41,7 +41,7 @@
     <string name="action_save">Salveaza</string>
     <string name="common_more">Mai multe</string>
     <string name="setting_share">Recomanda unui prieten</string>
-    <string name="share_snippet">Salut! Score Counter te ajuta sa tii scorul in orice joc, sport sau activitate. Descarca gratuit aplicatia pentru Android :\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Salut! Score Counter te ajuta sa tii scorul in orice joc, sport sau activitate. Descarca gratuit aplicatia pentru Android</string>
     <string name="common_edit">Editeaza</string>
     <string name="counter_deleted">Contor sters</string>
     <string name="counter_added">Contor adaugat</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Aruncarea zarurilor:</string>
     <string name="dice_sum_prefix">Suma:</string>
     <string name="settings_animate_roll">Animați rolele de zaruri</string>
+    <string name="common_continue">Continuați</string>
+    <string name="dialog_elektu_confirm">O mică pagină de browser se va deschide pentru a vă ajuta să selectați pe cineva dintr-un grup.\n\nRealizat de Julien&#160;Bellue</string>
 </resources>

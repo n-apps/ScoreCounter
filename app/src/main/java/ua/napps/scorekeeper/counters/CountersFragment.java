@@ -211,21 +211,25 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_remove_all:
                 new MaterialDialog.Builder(requireActivity())
-                        .title(R.string.dialog_confirmation_question)
+                        .title(R.string.menu_delete_all_counters)
+                        .content(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .typeface(regular, regular)
-                        .positiveText(R.string.dialog_yes)
+                        .positiveText(R.string.delete)
+                        .positiveColorRes(R.color.colorError)
                         .negativeText(R.string.dialog_no)
                         .show();
                 break;
             case R.id.menu_reset_all:
                 new MaterialDialog.Builder(requireActivity())
-                        .title(R.string.dialog_confirmation_question)
+                        .title(R.string.menu_reset_all_counters)
+                        .content(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.resetAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)
+                        .positiveColorRes(R.color.colorError)
                         .negativeText(R.string.dialog_no)
                         .show();
                 break;
@@ -236,13 +240,24 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 AboutActivity.start(requireActivity());
                 break;
             case R.id.menu_elektu:
-                Intent viewIntent =
-                        new Intent(Intent.ACTION_VIEW, Uri.parse("https://jbellue.github.io/elektu/"));
-                try {
-                    startActivity(viewIntent);
-                } catch (Exception e) {
-                    Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
-                }
+                new MaterialDialog.Builder(requireActivity())
+                        .title(R.string.menu_elektu)
+                        .content(R.string.dialog_elektu_confirm)
+                        .onPositive((dialog, which) -> {
+                            Intent viewIntent =
+                                    new Intent(Intent.ACTION_VIEW, Uri.parse("https://jbellue.github.io/elektu/"));
+                            try {
+                                startActivity(viewIntent);
+                            } catch (Exception e) {
+                                Toast.makeText(requireContext(), R.string.message_app_not_found, Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .onNegative((dialog, which) -> dialog.dismiss())
+                        .typeface(regular, regular)
+                        .positiveText(R.string.common_continue)
+                        .negativeText(R.string.common_back)
+                        .show();
+
                 break;
         }
         return true;

@@ -30,7 +30,7 @@
     <string name="menu_history">Історія</string>
     <string name="history_empty_message">Поки немає історії</string>
     <string name="settings_counter_title">Лічильник (зміни значення)</string>
-    <string name="dialog_confirmation_question">Дiйсно хочеш?</string>
+    <string name="dialog_confirmation_question">Дiйсно хочеш цього?</string>
     <string name="dialog_yes">Так</string>
     <string name="dialog_no">Ні</string>
     <string name="settings_privacy_policy">Політика конфіденційності</string>
@@ -41,7 +41,7 @@
     <string name="action_save">Зберегти</string>
     <string name="common_more">Більше</string>
     <string name="setting_share">Зкинути другу з Android-ом</string>
-    <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай застосунок для Android тут:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай застосунок для Android тут</string>
     <string name="common_edit">Редагувати</string>
     <string name="counter_deleted">Лічильник видалено</string>
     <string name="counter_added">Лічильник додано</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Випало:</string>
     <string name="dice_sum_prefix">Разом:</string>
     <string name="settings_animate_roll">Анімувати кидки кубиків</string>
+    <string name="common_continue">Продовжити</string>
+    <string name="dialog_elektu_confirm">Відкриється невелика сторінка браузера, яка допоможе вам вибрати когось із групи.\n\nРозробив Жюльєн Беллью</string>
 </resources>

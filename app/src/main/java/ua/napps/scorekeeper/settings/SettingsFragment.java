@@ -81,7 +81,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_snippet) + requireActivity().getPackageName());
+                String extra = getString(R.string.share_snippet) +
+                        ": " +
+                        "http://play.google.com/store/apps/details?id=" +
+                        requireActivity().getPackageName();
+                shareIntent.putExtra(Intent.EXTRA_TEXT, extra);
+
                 Intent chooserIntent = Intent.createChooser(shareIntent, getString(R.string.setting_share));
                 chooserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 requireActivity().startActivity(chooserIntent);

@@ -9,6 +9,7 @@
     <string name="action_save">Save</string>
     <string name="app_name">Score Counter</string>
     <string name="common_back">Back</string>
+    <string name="common_continue">Continue</string>
     <string name="common_counters">Counters</string>
     <string name="common_decrease">Decrease</string>
     <string name="common_dice">Dice</string>
@@ -27,13 +28,16 @@
     <string name="counters_empty_message">Tap on the&#160;\"+\" button in the&#160;top right corner to&#160;add a&#160;new counter</string>
     <string name="delete">Delete</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
+    <string name="dialog_elektu_confirm">A small browser page will open to help you select someone from a group.\n\nMade by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">You can edit these values in the&#160;settings</string>
     <string name="dialog_support_me_content">Hi, my name is Roma. I currently live in&#160;Ukraine and working on this app in my spare time.\n\nDespite the&#160;war in my&#160;country, I&#160;decided to&#160;keep this app ad-free. If&#160;you would like to&#160;support me, please consider donating.\n\nThank you and I&#160;wish you pleasant game nights!</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">Tap anywhere or shake your device to&#160;roll the&#160;dice</string>
+    <string name="dice_roll_prefix">Roll(s):</string>
     <string name="dice_sides">Custom dice sides</string>
+    <string name="dice_sum_prefix">Sum:</string>
     <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
     <string name="history_empty_message">No history yet</string>
     <string name="history_subtitle">session-only</string>
@@ -42,15 +46,16 @@
     <string name="menu_elektu">Who goes first?</string>
     <string name="menu_history">History</string>
     <string name="menu_reset_all_counters">Reset all counters</string>
+    <string name="message_app_not_found">No application found to&#160;handle this action&#160;:(</string>
     <string name="message_error_generic">Sorry, there seems to&#160;have been an error.</string>
     <string name="message_lowest_wins">Logic changed</string>
-    <string name="message_app_not_found">No application found to&#160;handle this action&#160;:(</string>
     <string name="message_one_more_counter">One more</string>
     <string name="message_thank_you">Thank you for the support! \u2665\ufe0e</string>
     <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>
     <string name="setting_help_translate">Help Translate</string>
     <string name="setting_share">Recommend to&#160;a&#160;Friend</string>
     <string name="settings_about">About App</string>
+    <string name="settings_animate_roll">Animate rolls</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_change_language">Language</string>
     <string name="settings_counter_title">Counter (score increments)</string>
@@ -61,9 +66,6 @@
     <string name="settings_sound">Play sound</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_switch_tap_logic">Swap short and long press</string>
-    <string name="share_snippet">No need to run for pen and paper. Easy-to-use score keeper app for you. Get the&#160;free Android app: http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">No need to run for pen and paper. Easy-to-use score keeper app for you. Get the&#160;free Android app</string>
     <string name="simple_edit_value_hint">Enter value</string>
-    <string name="dice_roll_prefix">Roll(s):</string>
-    <string name="dice_sum_prefix">Sum:</string>
-    <string name="settings_animate_roll">Animate rolls</string>
 </resources>

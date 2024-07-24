@@ -53,7 +53,7 @@
     <string name="settings_shake_to_roll">Zar atmak için salla</string>
     <string name="settings_sound">Ses</string>
     <string name="settings_stay_awake">Ekranı açık tut</string>
-    <string name="share_snippet">Merhabalar! Skor Sayacı, herhangi bir oyunda, sporda veya diğer etkinliklerde kolayca skor tutmanıza yardımcı olacaktır. Ücretsiz Android uygulamasını buradan indirin: http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Merhabalar! Skor Sayacı, herhangi bir oyunda, sporda veya diğer etkinliklerde kolayca skor tutmanıza yardımcı olacaktır. Ücretsiz Android uygulamasını buradan indirin</string>
     <string name="message_one_more_counter">Bir tane daha</string>
     <string name="settings_switch_tap_logic">Kısa ve uzun basmayı değiştirin</string>
     <string name="about_translators_title">Tüm dil büyücüleri ve hayvan tutkunlarına çağrı! Sevimli uygulamamızı çeviriler ve komik hayvan takma adlarıyla renklendirelim. Partiye katılın ve awesomeness\'lerini paylaşan insanlar kadar havalı olun:</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Zarlar atılıyor:</string>
     <string name="dice_sum_prefix">Toplam:</string>
     <string name="settings_animate_roll">Zar atışlarını canlandırın</string>
+    <string name="common_continue">Devam</string>
+    <string name="dialog_elektu_confirm">Gruptan birini seçmenize yardımcı olmak için küçük bir tarayıcı sayfası açılacaktır.\n\nMade by Julien&#160;Bellue</string>
 </resources>

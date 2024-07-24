@@ -41,7 +41,7 @@
     <string name="action_save">Salva</string>
     <string name="common_more">Di più</string>
     <string name="setting_share">Consiglia ad un amico</string>
-    <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui:\nhttp://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui</string>
     <string name="common_edit">Modifica</string>
     <string name="counter_deleted">Segnapunti cancellato</string>
     <string name="counter_added">Segnapunti aggiunto</string>
@@ -62,4 +62,6 @@
     <string name="dice_roll_prefix">Lanci di dadi:</string>
     <string name="dice_sum_prefix">Somma:</string>
     <string name="settings_animate_roll">Animare i lanci di dadi</string>
+    <string name="common_continue">Continua</string>
+    <string name="dialog_elektu_confirm">Si aprirà una piccola pagina del browser che vi aiuterà a selezionare qualcuno da un gruppo.\nMade by Julien&#160;Bellue</string>
 </resources>

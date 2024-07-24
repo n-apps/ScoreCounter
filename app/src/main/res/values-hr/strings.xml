@@ -57,9 +57,11 @@
     <string name="settings_sound">Reproduciraj zvuk</string>
     <string name="settings_stay_awake">Ostavi zaslon uključen</string>
     <string name="settings_switch_tap_logic">Zamjeni kratki i dugi pritisak</string>
-    <string name="share_snippet">Ne morate trčati po papir i olovku! Aplikacija za lako praćenje rezultata je ono što vam treba! Nabavite besplatnu Android aplikaciju ovdje: http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Ne morate trčati po papir i olovku! Aplikacija za lako praćenje rezultata je ono što vam treba! Nabavite besplatnu Android aplikaciju ovdje</string>
     <string name="simple_edit_value_hint">Unesi vrijednost</string>
     <string name="dice_roll_prefix">Kockadobás:</string>
     <string name="dice_sum_prefix">Sum:</string>
     <string name="settings_animate_roll">Animálja a kockadobásokat</string>
+    <string name="common_continue">Nastavi</string>
+    <string name="dialog_elektu_confirm">Odprla se bo majhna stran brskalnika, ki vam bo pomagala izbrati nekoga iz skupine.\n\nMade by Julien&#160;Bellue</string>
 </resources>

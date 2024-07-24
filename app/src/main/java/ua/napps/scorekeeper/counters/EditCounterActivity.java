@@ -111,7 +111,8 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         int id = item.getItemId();
         if (id == R.id.menu_delete) {
             new MaterialDialog.Builder(this)
-                    .title(R.string.dialog_confirmation_question)
+                    .title(R.string.delete)
+                    .content(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
                         Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
                         viewModel.deleteCounter();
@@ -123,7 +124,8 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
                             content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                         }
                     })
-                    .positiveText(R.string.dialog_yes)
+                    .positiveText(R.string.delete)
+                    .positiveColorRes(R.color.colorError)
                     .negativeText(R.string.dialog_no)
                     .show();
         }

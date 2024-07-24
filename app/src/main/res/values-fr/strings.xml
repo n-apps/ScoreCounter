@@ -57,9 +57,11 @@
     <string name="settings_sound">Son</string>
     <string name="settings_stay_awake">Garder l\'écran allumé</string>
     <string name="settings_switch_tap_logic">Échanger appui court et appui long</string>
-    <string name="share_snippet">Salut! Score Counter vous permettra de maintenir facilement la feuille de score dans n\'importe quel jeu, sport ou activité. Téléchargez l\'application Android gratuite ici:\n http://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Salut! Score Counter vous permettra de maintenir facilement la feuille de score dans n\'importe quel jeu, sport ou activité. Téléchargez l\'application Android gratuite ici</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
     <string name="dice_roll_prefix">Jets de dés :</string>
     <string name="dice_sum_prefix">Somme:</string>
     <string name="settings_animate_roll">Animer les jets de dés</string>
+    <string name="common_continue">Continuer</string>
+    <string name="dialog_elektu_confirm">Une petite page de navigateur s\'ouvre pour vous aider à sélectionner quelqu\'un dans un groupe.\n- Fabriqué par Julien&#160;Bellue</string>
 </resources>
