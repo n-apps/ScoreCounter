@@ -45,9 +45,10 @@
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
     </style>
 
-    <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline6">
+    <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/o600</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">-0.05</item>
     </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
@@ -63,24 +64,11 @@
     <style name="EmptyStateMessage" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:gravity">center_horizontal</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="fontFamily">@font/o400</item>
+        <item name="android:letterSpacing">-0.02</item>
     </style>
 
     <style name="MiniDiceStyle">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:includeFontPadding">false</item>
-        <item name="android:fontFamily">@font/mono</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="autoSizeMaxTextSize">28sp</item>
-        <item name="autoSizeMinTextSize">14sp</item>
-        <item name="autoSizeStepGranularity">2sp</item>
-        <item name="autoSizeTextType">uniform</item>
-    </style>
-
-    <style name="CounterStepStyle">
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:maxLines">1</item>

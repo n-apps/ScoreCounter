@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
-import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class AboutActivity extends AppCompatActivity {
@@ -59,14 +58,13 @@ public class AboutActivity extends AppCompatActivity {
                     }
                 }
         );
-        findViewById(R.id.iv_hello).setOnClickListener(v -> new RateMyAppDialog(this).showAnyway());
 
         ViewUtil.setLightMode(this, true);
-        ViewUtil.setNavBarColor(this, true, Color.parseColor("#A6CFE2"));
+        ViewUtil.setNavBarColor(this, true, Color.parseColor("#F3BFA9"));
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(Color.parseColor("#A6CFE2"));
+        window.setStatusBarColor(Color.parseColor("#F3BFA9"));
     }
 
     private void launchEmailClient() {
@@ -85,7 +83,7 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
 }

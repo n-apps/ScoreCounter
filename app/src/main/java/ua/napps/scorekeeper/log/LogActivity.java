@@ -24,7 +24,7 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class LogActivity extends AppCompatActivity {
 
-    private LogAdapter mAdapter;
+    private LogAdapter logAdapter;
     private Group emptyState;
 
     public static void start(Activity activity) {
@@ -54,11 +54,11 @@ public class LogActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
 
-        mAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
-        mRecyclerView.setAdapter(mAdapter);
+        logAdapter = new LogAdapter(Singleton.getInstance().getLogEntries());
+        mRecyclerView.setAdapter(logAdapter);
 
         emptyState = findViewById(R.id.g_empty_history);
-        emptyState.setVisibility(mAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
+        emptyState.setVisibility(logAdapter.getItemCount() > 0 ? View.GONE : View.VISIBLE);
         findViewById(R.id.btn_close).setOnClickListener(v -> finishAfterTransition());
 
         boolean nightModeActive = ViewUtil.isNightModeActive(this);
@@ -68,7 +68,7 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (mAdapter != null && mAdapter.getItemCount() > 0) {
+        if (logAdapter != null && logAdapter.getItemCount() > 0) {
             getMenuInflater().inflate(R.menu.menu_delete, menu);
         }
         return true;
@@ -81,8 +81,8 @@ public class LogActivity extends AppCompatActivity {
                     .title(R.string.delete)
                     .content(R.string.dialog_confirmation_question)
                     .onPositive((dialog, which) -> {
+                        logAdapter.notifyItemRangeRemoved(0, logAdapter.getItemCount());
                         Singleton.getInstance().clearLogEntries();
-                        mAdapter.notifyDataSetChanged();
                         emptyState.setVisibility(View.VISIBLE);
                     })
                     .onNegative((dialog, which) -> dialog.dismiss())
@@ -103,7 +103,7 @@ public class LogActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
 }

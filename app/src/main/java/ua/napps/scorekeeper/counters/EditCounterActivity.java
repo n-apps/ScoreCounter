@@ -271,16 +271,16 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
             return;
         }
         if (Utilities.hasQ()) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK));
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
         } else {
-            vibrator.vibrate(100L);
+            vibrator.vibrate(VibrationEffect.createOneShot(50L, 160));
         }
         viewModel.eventBus.removeObserver(eventBusObserver);
     }
 
     private void subscribeToModel(int id) {
         EditCounterViewModelFactory factory = new EditCounterViewModelFactory(id);
-        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(EditCounterViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(EditCounterViewModel.class);
         viewModel.getCounterLiveData().observe(this, c -> {
             if (c != null) {
                 counter = c;
@@ -302,7 +302,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        getOnBackPressedDispatcher().onBackPressed();
         return true;
     }
 

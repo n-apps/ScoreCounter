@@ -22,7 +22,7 @@ public class Singleton {
     }
 
     public void addLogEntry(LogEntry entry) {
-        if (logEntries.size() > 0) {
+        if (!logEntries.isEmpty()) {
             LogEntry lastEntry = logEntries.get(0);
             if (entry.type == LogType.INC || entry.type == LogType.DEC) {
                 if (lastEntry.type == entry.type && lastEntry.counter.equals(entry.counter) && System.currentTimeMillis() - lastEntry.timestamp.getTime() < 2000) {

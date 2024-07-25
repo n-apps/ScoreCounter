@@ -5,7 +5,6 @@
     android:id="@+id/settings_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0CDFE3FF"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
     tools:ignore="TouchTargetSizeCheck">
 
@@ -22,15 +21,25 @@
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_large">
 
-            <ImageView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/image"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:src="@drawable/logo"
+                app:cardBackgroundColor="#D1E9E3"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:padding="@dimen/spacing_normal"
+                    android:src="@drawable/ic_ten" />
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/title"
@@ -39,7 +48,7 @@
                 android:layout_marginStart="@dimen/spacing_big"
                 android:fontFamily="@font/o600"
                 android:text="@string/app_name"
-                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textAppearance="@style/TextAppearance.App.Toolbar.Title"
                 app:layout_constraintBottom_toTopOf="@id/tv_support"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image"
@@ -133,8 +142,10 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/settings_rate_app"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_satisfied"
-            app:drawableTint="?attr/colorControlNormal" />
+            app:drawableEndCompat="@drawable/ic_star"
+            app:drawableTint="?attr/colorControlNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"

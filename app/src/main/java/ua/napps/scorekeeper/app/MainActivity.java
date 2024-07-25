@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -92,6 +94,19 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         switchFragment(TAGS[0]);
 
         applyKeepScreenOnIfNeeded();
+
+        //Handle the case when back button is pressed. Show warning message
+        OnBackPressedDispatcher dispatcher = getOnBackPressedDispatcher();
+        dispatcher.addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (bottomNavigationBar.getSelectedItemId() == R.id.counters) {
+                    finish();
+                } else {
+                    bottomNavigationBar.setSelectedItemId(R.id.counters);
+                }
+            }
+        });
     }
 
     private void applyAppTheme() {
@@ -207,14 +222,5 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         fadeThrough.addTarget(R.id.settings_fragment);
 
         return fadeThrough;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (bottomNavigationBar.getSelectedItemId() == R.id.counters) {
-            super.onBackPressed();
-        } else {
-            bottomNavigationBar.setSelectedItemId(R.id.counters);
-        }
     }
 }

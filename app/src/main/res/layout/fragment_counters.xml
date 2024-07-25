@@ -5,7 +5,6 @@
     android:id="@+id/counters_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
     android:orientation="vertical"
     tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 
@@ -19,7 +18,8 @@
             android:id="@+id/toolbar"
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="?android:actionBarSize"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             app:title="@string/common_counters" />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -36,6 +36,7 @@
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
             android:layout_marginBottom="@dimen/spacing_normal"
+            android:rotationY="@integer/locale_mirror_flip"
             android:contentDescription="@string/counters_empty_message"
             android:src="@drawable/empty_counters" />
 

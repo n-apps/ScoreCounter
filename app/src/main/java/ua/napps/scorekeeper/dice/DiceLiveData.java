@@ -15,13 +15,6 @@ class DiceLiveData extends LiveData<Integer> {
         setValue(0);
     }
 
-    @Override
-    protected void onActive() {
-    }
-
-    @Override
-    protected void onInactive() {
-    }
 
     void rollDice() {
         this.rolls = new ArrayList<>();

@@ -23,7 +23,7 @@
     <string name="counter_details_name">Counter name</string>
     <string name="counter_details_step">Increment</string>
     <string name="counter_details_value">Value</string>
-    <string name="counters_empty_message">To add a new counter, tap&#160;the&#160;\"+\" button</string>
+    <string name="counters_empty_message">To add a new counter, tap&#160;the&#160;<b>+</b>&#160;icon</string>
     <string name="delete">Delete</string>
     <string name="dialog_confirmation_question">Are you sure?</string>
     <string name="dialog_elektu_confirm">A small browser page will open to help you select someone from a group.\n\nMade by Julien&#160;Bellue</string>
@@ -32,13 +32,13 @@
     <string name="dialog_support_me_content">Hi, my name is Roma. I currently live in&#160;Ukraine and working on this app in my spare time.\n\nDespite the&#160;terrible events in my&#160;country, I&#160;decided to&#160;keep this app ad-free. If&#160;you would like to&#160;support me, please consider donating.\n\nThank you and I&#160;wish you pleasant game nights!</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
-    <string name="dice_empty_state">Roll the dice by tapping or shaking your device.</string>
+    <string name="dice_empty_state">Roll the dice by tapping anywhere</string>
     <string name="dice_roll_prefix">Roll(s):</string>
     <string name="dice_sides">Custom dice sides</string>
     <string name="dice_sum_prefix">Sum:</string>
     <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
     <string name="history_empty_message">No history yet</string>
-    <string name="history_subtitle">session-only</string>
+    <string name="history_subtitle">session-only (!)</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all counters</string>
     <string name="menu_elektu">Who goes first?</string>

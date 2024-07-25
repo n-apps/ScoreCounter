@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
     tools:context="ua.napps.scorekeeper.log.LogActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -21,7 +20,8 @@
             android:id="@+id/toolbar_log_main"
             style="@style/ToolBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="?android:actionBarSize"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
             app:subtitle="@string/history_subtitle"
             app:title="@string/menu_history" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -41,6 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_bias="0.0"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:visibility="gone"
         tools:listitem="@layout/item_log_entry" />
 
@@ -51,6 +52,7 @@
         android:contentDescription="@string/history_empty_message"
         android:layout_marginBottom="@dimen/spacing_normal"
         android:src="@drawable/empty_log"
+        android:rotationY="@integer/locale_mirror_flip"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

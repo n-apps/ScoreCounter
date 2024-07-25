@@ -2,7 +2,7 @@ package ua.napps.scorekeeper.log;
 
 /**
  * Custom types for log entry types
- *
+ * <p>
  * INC: single increment (+ click)
  * INC_C: custom increment (long + click)
  * DEC: single decrement (- click)

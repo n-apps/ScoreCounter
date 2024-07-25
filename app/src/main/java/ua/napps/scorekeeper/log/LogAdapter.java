@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import ua.napps.scorekeeper.R;
 
-public class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
+class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
     private final ArrayList<LogEntry> logEntries;
 
     static class LogAdapterViewHolder extends RecyclerView.ViewHolder {

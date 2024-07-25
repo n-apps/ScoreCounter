@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.utils;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -66,7 +65,7 @@ public class DonateDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final View titleView = LayoutInflater.from(requireContext()).inflate(R.layout.item_donation_title, null);
+        final View titleView = getLayoutInflater().inflate(R.layout.item_donation_title, null);
 
         final MaterialAlertDialogBuilder materialAlertDialogBuilder = new MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.action_donate)

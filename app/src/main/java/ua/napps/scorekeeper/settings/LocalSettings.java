@@ -130,7 +130,7 @@ public class LocalSettings {
                 save_id = CUSTOM_COUNTER_4;
                 break;
         }
-        if (!save_id.equals("")) {
+        if (!save_id.isEmpty()) {
             App.getTinyDB().putInt(save_id, counterValue);
         }
     }

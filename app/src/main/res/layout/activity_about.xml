@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A6CFE2"
+    android:background="#F3BFA9"
     tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="270dp"
-        android:background="#A6CFE2"
+        android:background="#F3BFA9"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
         android:layout_marginTop="@dimen/spacing_large"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:statusBarScrim="#A6CFE2">
+        app:statusBarScrim="#F3BFA9">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:collapsedTitleTextColor="@color/primary_material_light"
-            app:contentScrim="#A6CFE2"
+            app:contentScrim="#F3BFA9"
             app:expandedTitleGravity="top"
             app:expandedTitleTextColor="@color/primary_material_light"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:statusBarScrim="#A6CFE2"
+            app:statusBarScrim="#F3BFA9"
             app:toolbarId="@+id/toolbar">
 
             <ImageView
@@ -73,11 +73,11 @@
                 android:textColor="@color/primary_text_default_material_light" />
 
             <ImageView
-                android:id="@+id/iv_hello"
                 android:layout_width="wrap_content"
                 android:layout_height="240dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
+                android:alpha=".8"
                 android:src="@drawable/hello" />
 
             <TextView
@@ -157,7 +157,7 @@
                 android:textAllCaps="false"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="@dimen/font_title"
-                app:backgroundTint="#f46036"
+                app:backgroundTint="@color/colorPrimaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -170,8 +170,8 @@
                 android:gravity="center"
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="@color/primary_text_default_material_light"
-                android:textColorHighlight="@color/primary_text_default_material_light"
+                android:textColor="@color/colorPrimaryVariant"
+                android:textColorHighlight="@color/colorPrimaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:rippleColor="@color/rippleColor" />
 

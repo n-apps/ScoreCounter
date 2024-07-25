@@ -162,7 +162,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
         Counter counter = counters.remove(fromPosition);
-        counters.add(toPosition > fromPosition ? toPosition : toPosition, counter);
+        counters.add(toPosition, counter);
         notifyItemMoved(fromPosition, toPosition);
 
         if (lastMovedCounter == null) {

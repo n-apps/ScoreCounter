@@ -159,7 +159,7 @@ public class DicesFragment extends Fragment {
         if (context instanceof OnDiceFragmentInteractionListener) {
             listener = (OnDiceFragmentInteractionListener) context;
         } else {
-            throw new RuntimeException(context.toString() + " must implement OnDiceFragmentInteractionListener");
+            throw new RuntimeException(context + " must implement OnDiceFragmentInteractionListener");
         }
     }
 
@@ -173,7 +173,7 @@ public class DicesFragment extends Fragment {
             float y = se.values[1];
             float z = se.values[2];
             myAccelLast = myAccelCurrent;
-            myAccelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
+            myAccelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
             float delta = myAccelCurrent - myAccelLast;
             myAccel = myAccel * 0.9f + delta; // perform low-cut filter
 
@@ -251,7 +251,7 @@ public class DicesFragment extends Fragment {
         stringBuilder.append(sumPrefix);
         stringBuilder.append(" </b>");
         stringBuilder.append(sum);
-        animateResults(diceCompositionTextView, Html.fromHtml(stringBuilder.toString()), 150);
+        animateResults(diceCompositionTextView, Html.fromHtml(stringBuilder.toString(), Html.FROM_HTML_MODE_LEGACY), 150);
     }
 
     public static void animateResults(final TextView resultsText, final CharSequence newText, final int animLength) {
@@ -265,11 +265,11 @@ public class DicesFragment extends Fragment {
             shrink.setInterpolator(new AccelerateInterpolator());
             shrink.addListener(new Animator.AnimatorListener() {
                 @Override
-                public void onAnimationStart(Animator animation) {
+                public void onAnimationStart(@NonNull Animator animation) {
                 }
 
                 @Override
-                public void onAnimationEnd(Animator animation) {
+                public void onAnimationEnd(@NonNull Animator animation) {
                     resultsText.setText(newText);
 
                     ObjectAnimator animX = ObjectAnimator.ofFloat(resultsText, "scaleX", 1.0f);
@@ -283,11 +283,11 @@ public class DicesFragment extends Fragment {
                 }
 
                 @Override
-                public void onAnimationCancel(Animator animation) {
+                public void onAnimationCancel(@NonNull Animator animation) {
                 }
 
                 @Override
-                public void onAnimationRepeat(Animator animation) {
+                public void onAnimationRepeat(@NonNull Animator animation) {
                 }
             });
             shrink.start();
@@ -296,7 +296,7 @@ public class DicesFragment extends Fragment {
 
     private void observeData() {
         DiceViewModelFactory factory = new DiceViewModelFactory(maxSide, diceCount);
-        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(DiceViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(DiceViewModel.class);
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {

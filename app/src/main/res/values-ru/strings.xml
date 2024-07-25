@@ -15,7 +15,7 @@
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите на \"+\" в правом верхнем углу, чтобы добавить новый счетчик</string>
     <string name="dice_sides">Количество граней</string>
-    <string name="dice_empty_state">Нажмите в любом месте или&#160;встряхните устройство, чтобы бросить кубик</string>
+    <string name="dice_empty_state">Чтобы бросить кубик, нажмите в любом месте</string>
     <string name="dialog_support_me_content">Привет, меня зовут Рома, я из Киева. Я не разработчик и я работаю над этим приложением в свободное время.\n\nНесмотря на ужасные события в моей стране, я решил оставить это приложение бесплатным и вообще без рекламы. Если вы хотите поддержать инди-разработчика (меня), пожалуйста, рассмотрите возможность пожертвования внутри приложения. Спасибо!</string>
     <string name="dialog_support_me_remind_me_later">Не сейчас</string>
     <string name="message_app_not_found">Невозможно обработать это действие :(</string>

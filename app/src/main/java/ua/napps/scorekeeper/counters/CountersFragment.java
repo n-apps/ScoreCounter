@@ -264,7 +264,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void observeData() {
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
-        viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) factory).get(CountersViewModel.class);
+        viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
             if (counters != null) {
                 final int size = counters.size();
@@ -554,7 +554,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         if (Utilities.hasQ()) {
             vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
         } else {
-            vibrator.vibrate(100L);
+            vibrator.vibrate(VibrationEffect.createOneShot(50L, 160));
         }
     }
 

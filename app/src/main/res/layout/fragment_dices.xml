@@ -18,7 +18,7 @@
         android:textDirection="locale"
         android:minHeight="@dimen/list_single_line_min_height"
         android:paddingHorizontal="@dimen/padding_large"
-        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textAppearance="@style/TextAppearance.App.Toolbar.Title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="1 × d6" />
@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
         app:layout_constraintWidth_min="160dp"
         tools:text="23"
-        tools:visibility="visible" />
+        tools:visibility="invisible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/empty_state_group"
@@ -69,7 +69,7 @@
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/im_empty_state"
@@ -78,6 +78,7 @@
         android:layout_marginBottom="@dimen/spacing_large"
         android:contentDescription="@string/dice_empty_state"
         android:src="@drawable/empty_dice"
+        android:rotationY="@integer/locale_mirror_flip"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +115,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
         tools:text="Rolls: 2, 4, 5, 7\n\nSum: 45"
-        tools:visibility="visible" />
+        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
