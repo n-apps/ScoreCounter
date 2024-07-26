@@ -40,7 +40,7 @@
     <string name="message_error_generic">Przepraszam, wygląda na to, że wystąpił jakiś błąd.</string>
     <string name="action_save">Zapisz</string>
     <string name="common_more">Więcej</string>
-    <string name="setting_share">Poleć znajomemu</string>
+    <string name="setting_share">Udostępnij adres pobierania dla Androida</string>
     <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj</string>
     <string name="common_edit">Edytuj</string>
     <string name="counter_deleted">Usunięto licznik</string>

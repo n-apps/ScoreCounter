@@ -46,7 +46,7 @@
     <string name="settings_privacy_policy">Privacybeleid</string>
     <string name="action_save">Opslaan</string>
     <string name="setting_help_translate">Help met vertalen</string>
-    <string name="setting_share">Aanbevelen aan een vriend</string>
+    <string name="setting_share">Deel het download-adres voor Android</string>
     <string name="settings_about">Over de app</string>
     <string name="settings_feedback">Terugkoppeling verzenden</string>
     <string name="settings_switch_tap_logic">Wissel lang en kort drukken</string>

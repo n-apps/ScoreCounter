@@ -45,7 +45,7 @@
     <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη \u263a\ufe0e</string>
     <string name="message_you_can_use_long_press">Μπορείτε να πατήσετε παρατεταμένα τα +/-</string>
     <string name="setting_help_translate">Βοηθήστε στην μετάφραση</string>
-    <string name="setting_share">Προτείνετε την εφαρμογή σε έναν φίλο</string>
+    <string name="setting_share">Κοινοποίηση της διεύθυνσης λήψης για Android</string>
     <string name="settings_about">Σχετικά με την εφαρμογή</string>
     <string name="settings_appearance">Εμφάνιση</string>
     <string name="settings_change_language">Γλώσσα</string>

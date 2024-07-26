@@ -46,7 +46,7 @@
     <string name="settings_privacy_policy">Gizlilik Politikası</string>
     <string name="action_save">Kaydet</string>
     <string name="setting_help_translate">Çeviriye yardım edin</string>
-    <string name="setting_share">Bir arkadaşınıza tavsiye edin</string>
+    <string name="setting_share">Android için indirme adresini paylaşın</string>
     <string name="settings_about">Uygulama hakkında</string>
     <string name="settings_feedback">Geri bildirim gönderin</string>
     <string name="settings_appearance">Görünüm</string>

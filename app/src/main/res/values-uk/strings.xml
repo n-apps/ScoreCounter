@@ -40,7 +40,7 @@
     <string name="message_error_generic">Виникла помилка.</string>
     <string name="action_save">Зберегти</string>
     <string name="common_more">Більше</string>
-    <string name="setting_share">Зкинути другу з Android-ом</string>
+    <string name="setting_share">Надіслати другу з Android-ом</string>
     <string name="share_snippet">Привіт! Лічильник Очок допоможе тобi з легкістю вести рахунок в настільних іграх, спорті або інших справах. Качай застосунок для Android тут</string>
     <string name="common_edit">Редагувати</string>
     <string name="counter_deleted">Лічильник видалено</string>

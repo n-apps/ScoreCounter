@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/o400"
-            android:lineSpacingMultiplier="1.24"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/dialog_support_me_content"
             android:textAppearance="?attr/textAppearanceBody1" />
 
@@ -74,7 +74,6 @@
             app:icon="@drawable/ic_bmc"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
-            app:strokeColor="@color/colorPrimaryVariant"
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
@@ -83,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_large"
             android:paddingHorizontal="@dimen/padding_large"
             android:text="@string/dialog_support_me_remind_me_later"
             android:textAppearance="?attr/textAppearanceBody1"
