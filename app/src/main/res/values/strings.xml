@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Hi, my name is Roma. I am currently living in Ukraine. I\'ve been fond of board games for more than 10 years. The idea of this app came to me when I was playing Star Realms (which has terrible chips). I\'m not a developer and I\'m working on this app in my spare time. Every review, email or money transaction from you makes me a little happier in these tough times\n\nDespite the terrible events in my country, I decided to keep this app free and not add ads.\n\nThank you and I wish you joyful games!</string>
+    <string name="about_text">Hi there! 🌻\n\nHi, I\'m Roma! I\'m currently living in Ukraine, which I absolutely love! I\'ve been crazy about board games for more than 10 years! The idea for this app came to me when I was playing Star Realms (which has terrible tokens, right?). I\'m working on this app in my spare time.\n\nEvery review, email, or donation from you makes me a little happier. Despite the terrible events in my country, I decided to keep this app free and not add ads.\n\nThank you so much, and I wish you joyful games!</string>
     <string name="about_translators" translatable="false">\ud83c\uddf7\ud83c\uddf4 Andrei Iacob\n\ud83c\uddf5\ud83c\uddf1 Osmine Retro, maiky\n\ud83c\uddea\ud83c\uddf8 ZVirus, rbergara\n\ud83c\uddeb\ud83c\uddf7 Jumar\n\ud83c\uddf5\ud83c\uddf9 Gustavo Araújo\n\ud83c\udde8\ud83c\uddff Adam Novák\n\ud83c\uddf3\ud83c\uddf1 Link Hogthrob (JvD NL)\n\ud83c\udde9\ud83c\uddea Link Hogthrob (JvD NL)\n\ud83c\uddee\ud83c\uddf9 Silvia Avvertenza\n\ud83c\uddf9\ud83c\uddf7 İpek Demir\n\ud83c\udded\ud83c\uddfa PiEm14B\n\ud83c\uddf8\ud83c\uddea Tarek Auf der Strasse\n\ud83c\uddfb\ud83c\uddf3 Thien Loc, Hiep Tran\n\ud83c\udde7\ud83c\uddec Godlev\n\ud83c\uddec\ud83c\uddf7 Giannis Ioannidis\n\ud83c\udded\ud83c\uddf7 Antonio</string>
     <string name="about_translators_title">Awesome translators</string>
     <string name="action_donate">Donate via Google&#160;Play</string>
@@ -18,6 +18,7 @@
     <string name="common_settings">Settings</string>
     <string name="common_vibrate">Vibrate</string>
     <string name="counter_added">Counter added</string>
+    <string name="counter_default_name">Counter</string>
     <string name="counter_deleted">Counter deleted</string>
     <string name="counter_details_default_value">Reset value</string>
     <string name="counter_details_name">Counter name</string>
@@ -25,46 +26,45 @@
     <string name="counter_details_value">Value</string>
     <string name="counters_empty_message">To add a new counter, tap&#160;the&#160;<b>+</b>&#160;icon</string>
     <string name="delete">Delete</string>
-    <string name="dialog_confirmation_question">Are you sure?</string>
-    <string name="dialog_elektu_confirm">A small browser page will open to help you select someone from a group.\n\nMade by Julien&#160;Bellue</string>
+    <string name="dialog_confirmation_question">Oh, you\'re sure about that?</string>
+    <string name="dialog_elektu_confirm">A small browser page will pop up to help you choose someone from a group.\n\nCreated by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
-    <string name="dialog_predefined_steps">You can edit these values in the Settings</string>
-    <string name="dialog_support_me_content">Hi, my name is Roma. I currently live in&#160;Ukraine and working on this app in my spare time.\n\nDespite the&#160;terrible events in my&#160;country, I&#160;decided to&#160;keep this app ad-free. If&#160;you would like to&#160;support me, please consider donating.\n\nThank you and I&#160;wish you pleasant game nights!</string>
+    <string name="dialog_predefined_steps">You can adjust these settings in the Settings screen.</string>
+    <string name="dialog_support_me_content">Hi, I\'m Roma. I\'m based in Ukraine and I\'m working on this app in my spare time.\n\nDespite the terrible events in my country, I\'ve decided to keep this app ad-free. If you\'d like to support me, please consider donating.\n\nThanks, and I hope you have some great game nights ahead!</string>
     <string name="dialog_support_me_remind_me_later">Not now</string>
     <string name="dialog_yes">Yes</string>
-    <string name="dice_empty_state">Roll the dice by tapping anywhere</string>
+    <string name="dice_empty_state">To roll the dice, just tap anywhere on the screen</string>
     <string name="dice_roll_prefix">Roll(s):</string>
     <string name="dice_sides">Custom dice sides</string>
     <string name="dice_sum_prefix">Sum:</string>
-    <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, my name is Roma too!</string>
-    <string name="history_empty_message">No history yet</string>
+    <string name="easter_wave" translatable="false">\ud83d\udc4b Hi, I\'m Roma too!</string>
+    <string name="history_empty_message">There\'s no history yet</string>
     <string name="history_subtitle">session-only (!)</string>
     <string name="menu_add_new_counter">Add counter</string>
     <string name="menu_delete_all_counters">Delete all counters</string>
     <string name="menu_elektu">Who goes first?</string>
     <string name="menu_history">History</string>
     <string name="menu_reset_all_counters">Reset all counters</string>
-    <string name="message_app_not_found">No application found to&#160;handle this action&#160;:(</string>
-    <string name="message_error_generic">Sorry, there seems to&#160;have been an error.</string>
+    <string name="message_app_not_found">It looks like there isn\'t an app that can handle this action.</string>
+    <string name="message_error_generic">Sorry, there seems to have been a glitch.</string>
     <string name="message_lowest_wins">Logic changed</string>
     <string name="message_one_more_counter">One more</string>
-    <string name="message_thank_you">Thank you for the support! \u2665\ufe0e</string>
-    <string name="message_you_can_use_long_press">Try long tapping onto +/-</string>
+    <string name="message_thank_you">Thanks for your support! \u2665\ufe0e</string>
+    <string name="message_you_can_use_long_press">Try a long tap on +/-</string>
     <string name="setting_help_translate">Help Translate</string>
     <string name="setting_share">Share Android App</string>
     <string name="settings_about">About App</string>
-    <string name="settings_animate_roll">Animate rolls</string>
+    <string name="settings_animate_roll">Dice roll animation</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_change_language">Language</string>
-    <string name="settings_counter_title">Counter (score increments)</string>
+    <string name="settings_counter_title">Counter (score steps)</string>
     <string name="settings_feedback">Contact Developer</string>
     <string name="settings_privacy_policy">Privacy Policy</string>
-    <string name="settings_rate_app">Rate app on Google&#160;Play</string>
-    <string name="settings_shake_to_roll">Shake to&#160;roll</string>
+    <string name="settings_rate_app">Rate this app on Google Play</string>
+    <string name="settings_shake_to_roll">Shake for dice roll</string>
     <string name="settings_sound">Play sound</string>
     <string name="settings_stay_awake">Keep screen on</string>
     <string name="settings_switch_tap_logic">Swap short and long press</string>
-    <string name="share_snippet">No need to run for pen and paper. Easy-to-use score keeper app for you. Get the&#160;free Android app</string>
+    <string name="share_snippet">No need to go looking for a pen and paper. Just get the free, easy-to-use scorekeeper Android app</string>
     <string name="simple_edit_value_hint">Enter value</string>
-    <string name="counter_default_name">Counter</string>
 </resources>

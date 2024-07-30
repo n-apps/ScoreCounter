@@ -54,7 +54,7 @@
     <string name="message_lowest_wins">Логика изменилась</string>
     <string name="common_vibrate">Вибрировать</string>
     <string name="dialog_predefined_steps">Вы можете изменить эти значения в настройках</string>
-    <string name="history_subtitle">только эта сессия</string>
+    <string name="history_subtitle">только эта сессия (!)</string>
     <string name="menu_elektu">Кто ходит первым?</string>
     <string name="about_translators_title">Крутезные переводчики</string>
     <string name="settings_change_language">Язык</string>
