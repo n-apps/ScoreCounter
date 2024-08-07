@@ -14,7 +14,6 @@
         android:background="#F3BFA9"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
-        android:layout_marginTop="@dimen/spacing_large"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:statusBarScrim="#F3BFA9">
 
