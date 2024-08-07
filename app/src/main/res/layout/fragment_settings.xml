@@ -17,7 +17,7 @@
             android:id="@+id/title_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorSurface"
+            android:background="@color/rippleColor"
             android:paddingHorizontal="@dimen/padding_large"
             android:paddingVertical="@dimen/spacing_large">
 
@@ -25,7 +25,7 @@
                 android:id="@+id/image"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                app:cardBackgroundColor="#D1E9E3"
+                app:cardBackgroundColor="@color/rippleColor"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -36,10 +36,9 @@
                 <ImageView
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:padding="@dimen/spacing_normal"
-                    android:src="@drawable/ic_ten" />
+                    android:padding="@dimen/spacing_micro"
+                    android:src="@drawable/ten" />
             </androidx.cardview.widget.CardView>
-
 
             <TextView
                 android:id="@+id/title"
