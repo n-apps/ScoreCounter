@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Atingeți \"+\" în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
-    <string name="dialog_support_me_content">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Nu sunt un dezvoltator și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda războiului din țara mea, am decis să păstrez această aplicație gratuită și fără reclame deloc. Dacă doriți să susțineți un dezvoltator independent (pe mine), vă rugăm să luați în considerare să donați în aplicație. Mulțumesc!</string>
+    <string name="dialog_support_me_content">Bună, eu sunt Roma. Sunt stabilită în Ucraina și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație fără reclame. Dacă doriți să mă sprijiniți, vă rog să vă gândiți la o donație.\n\nMulțumesc și sper să aveți parte de nopți minunate de jocuri!</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>
@@ -36,7 +36,7 @@
     <string name="settings_privacy_policy">Politica de confidentialitate</string>
     <string name="message_thank_you">Multumesc \u263a\ufe0e</string>
     <string name="settings_sound">Sunet</string>
-    <string name="action_donate">Suport prin Google&#160;Play</string>
+    <string name="action_donate">Cumpără-i dezvoltatorului o cafea</string>
     <string name="message_error_generic">Imi pare rau, se pare ca a&#160;intervenit o eroare</string>
     <string name="action_save">Salveaza</string>
     <string name="common_more">Mai multe</string>
@@ -49,7 +49,7 @@
     <string name="settings_rate_app">Evaluează pe Google&#160;Play</string>
     <string name="settings_about">Despre aplicație</string>
     <string name="setting_help_translate">Contribuie la traducere</string>
-    <string name="about_text">Salut, numele meu este Roma și sunt din Kremenchuk, Ucraina. Joc jocuri de societate de peste 10 ani. Ideea pentru această aplicație mi-a venit în timp ce jucam Star Realms (care are jetoane groaznice).\n\nNu sunt dezvoltator și lucrez la această aplicație în timpul meu liber. Fiecare dintre feedback-urile voastre, adresa voastră de email sau donația voastră mă fac puțin mai fericit. Dacă aveți ceva de împărtășit, doriți ajutor cu traducerea sau doar să împărtășiți ce numărați, nu ezitați să mă contactați.\n\nÎn ciuda războiului din țara mea, am decis să mențin această aplicație gratuită și fără reclame deloc. Dacă doriți să sprijiniți un dezvoltator independent (pe mine), vă rog să luați în considerare donarea în aplicație.\n\nVă mulțumesc!</string>
+    <string name="about_text">Bună ziua! 🌻\n\nHi, sunt Roma! În prezent locuiesc în Ucraina, pe care o iubesc la nebunie! Sunt înnebunită după jocurile de societate de mai bine de 10 ani! Ideea pentru această aplicație mi-a venit când jucam Star Realms (care are jetoane groaznice, nu?). Lucrez la această aplicație în timpul meu liber.\n\nFiecare recenzie, e-mail sau donație de la dvs. mă face un pic mai fericit. În ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație gratuită și să nu adaug reclame.\n\nVă mulțumesc foarte mult și vă doresc jocuri fericite!</string>
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="message_lowest_wins">Logica a&#160;fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
@@ -65,4 +65,5 @@
     <string name="common_continue">Continuați</string>
     <string name="dialog_elektu_confirm">O mică pagină de browser se va deschide pentru a vă ajuta să selectați pe cineva dintr-un grup.\n\nRealizat de Julien&#160;Bellue</string>
     <string name="counter_default_name">Contor</string>
+    <string name="donation_title">Keep this app ad-free</string>
 </resources>

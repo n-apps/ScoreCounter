@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">¡Hola! Soy Roma. Actualmente vivo en Ucrania, un país que me encanta. Llevo más de 10 años jugando a juegos de mesa. La idea de esta aplicación se me ocurrió mientras jugaba al Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en ella en mi tiempo libre. Cada reseña, correo electrónico o donación que recibo me hace un poco más feliz. A pesar de los terribles acontecimientos que están ocurriendo en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
+    <string name="about_text">Привіт! 🌻\n\nHola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. La idea de esta aplicación se me ocurrió mientras jugaba a Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
     <string name="about_translators_title">Traductores increíbles</string>
-    <string name="action_donate">Soporte a través de Google Play</string>
+    <string name="action_donate">Comprar café para el promotor</string>
     <string name="action_save">Guardar</string>
     <string name="app_name">Contador de puntos</string>
     <string name="common_back">Atrás</string>
@@ -65,4 +65,5 @@
     <string name="settings_switch_tap_logic">Intercambiar pulsación corta y larga</string>
     <string name="share_snippet">No es necesario ir en busca de un lápiz y un papel. Solo tienes que descargar la aplicación gratuita y fácil de usar Scorekeeper para Android</string>
     <string name="simple_edit_value_hint">Nuevo valor</string>
+    <string name="donation_title">Mantén la aplicación sin anuncios</string>
 </resources>

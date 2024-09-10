@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Hallo zusammen! 🌻\n\nHallo, ich bin Roma! I\ lebe momentan in der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
+    <string name="about_text">Привіт! 🌻\n\nHallo, ich bin Roma! I\ lebe momentan in der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
     <string name="about_translators_title">Tolle Übersetzer</string>
-    <string name="action_donate">Unterstützung durch Google Play</string>
+    <string name="action_donate">Kaufen Sie dem Entwickler einen Kaffee</string>
     <string name="action_save">Speichern</string>
     <string name="app_name">Punktezähler</string>
     <string name="common_back">Zurück</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen. Erstellt von Julien&#160;Bellue</string>
     <string name="dialog_no">Nein</string>
     <string name="dialog_predefined_steps">Diese Werte können in den Einstellungen angepasst werden</string>
-    <string name="dialog_support_me_content">Hi, mein Name ist Roma und ich komme aus Kyiv in der Ukraine. Ich bin kein Entwickler und arbeite in meiner Freizeit an dieser App.\n\nTrotz des Krieges in meinem Land habe ich mich entschieden, diese App völlig kostenlos und ohne Werbung anzubieten. Wenn Sie einen unabhängigen Entwickler (mich) unterstützen möchten, denken Sie bitte über eine Spende in der App nach.\n\nVielen Dank!</string>
+    <string name="dialog_support_me_content">Hallo, ich bin Roma. Ich lebe in der Ukraine und arbeite in meiner Freizeit an dieser App.\n\nTrotz der schrecklichen Ereignisse in meinem Land habe ich mich entschieden, diese App werbefrei zu halten. Wenn ihr mich unterstützen wollt, denkt bitte über eine Spende nach.\n\nDanke und ich hoffe, ihr habt ein paar tolle Spieleabende vor euch!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Um zu würfeln, tippen Sie einfach irgendwo auf den Bildschirm.</string>
@@ -65,4 +65,5 @@
     <string name="settings_switch_tap_logic">Kurz- und Langdruck vertauschen</string>
     <string name="share_snippet">Sie müssen nicht mehr nach Stift und Papier suchen. Holen Sie sich einfach die kostenlose und benutzerfreundliche Scorekeeper Android App.</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
+    <string name="donation_title">Die App werbefrei halten</string>
 </resources>

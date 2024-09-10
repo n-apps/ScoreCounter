@@ -4,6 +4,7 @@ import static ua.napps.scorekeeper.settings.LocalSettings.THEME_DARK;
 import static ua.napps.scorekeeper.settings.LocalSettings.THEME_LIGHT;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -12,6 +13,7 @@ import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -67,14 +69,20 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             switch (item.getItemId()) {
                 case R.id.counters:
                     switchFragment(TAGS[0]);
+                    getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.primaryBackground));
+                    ViewUtil.setLightMode(this, !nightModeActive);
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
                     hideDiceBadge();
+                    getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.primaryBackground));
+                    ViewUtil.setLightMode(this, !nightModeActive);
                     break;
                 case R.id.more:
                     switchFragment(TAGS[2]);
                     hideDiceBadge();
+                    getWindow().setStatusBarColor(Color.parseColor("#455a64"));
+                    ViewUtil.setLightMode(this, false);
                     break;
             }
 

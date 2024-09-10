@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="about_text">Bonjour à tous ! 🌻\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à Star Realms (qui a des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
+    <string name="about_text">Привіт! 🌻\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à Star Realms (qui a des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
     <string name="about_translators_title">Des traducteurs formidables</string>
-    <string name="action_donate">Soutien via Google&#160;Play</string>
+    <string name="action_donate">Offrir un café au développeur</string>
     <string name="action_save">Sauvegarder</string>
     <string name="app_name">Compteur de points</string>
     <string name="common_back">Retour</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
     <string name="dialog_no">Non</string>
     <string name="dialog_predefined_steps">Vous pouvez modifier ces valeurs dans les paramètres.</string>
-    <string name="dialog_support_me_content">Bonjour,\nJe m\'appelle Roma et je viens de Kyiv, en Ukraine. Je ne suis pas développeur et je travaille sur cette application pendant mon temps libre. Malgré la guerre dans mon pays, j\'ai décidé de maintenir cette application gratuite et sans publicité. Si vous souhaitez soutenir un développeur indépendant (moi), je vous remercie de bien vouloir envisager de faire un don dans l\'application. Merci !</string>
+    <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma. Je suis basée en Ukraine et je travaille sur cette application pendant mon temps libre. Malgré les terribles événements qui se déroulent dans mon pays, j\'ai décidé de garder cette application sans publicité. Si vous souhaitez me soutenir, n\'hésitez pas à faire un don. \n\nMerci, et j\'espère que vous passerez d\'excellentes soirées de jeu !</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Pour lancer les dés, il suffit de toucher n\'importe où sur l\'écran.</string>
@@ -65,4 +65,5 @@
     <string name="settings_switch_tap_logic">Échange de la presse courte et de la presse longue.</string>
     <string name="share_snippet">Vous n\'avez plus besoin de chercher un stylo et du papier. Il vous suffira d\'utiliser l\'application Android gratuite et facile à utiliser de scorekeeper</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
+    <string name="donation_title">Garder l\'application sans publicité</string>
 </resources>

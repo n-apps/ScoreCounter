@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3BFA9"
+    android:background="#b0bec5"
     tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="270dp"
-        android:background="#F3BFA9"
+        android:background="#b0bec5"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:statusBarScrim="#F3BFA9">
+        app:statusBarScrim="#b0bec5">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:collapsedTitleTextColor="@color/primary_material_light"
-            app:contentScrim="#F3BFA9"
+            app:contentScrim="#b0bec5"
             app:expandedTitleGravity="top"
             app:expandedTitleTextColor="@color/primary_material_light"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"

@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateDialog;
-import ua.napps.scorekeeper.utils.RateMyAppDialog;
 import ua.napps.scorekeeper.utils.Utilities;
 
 
@@ -33,10 +32,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(R.layout.fragment_settings, null);
 
-
-        contentView.findViewById(R.id.iv_donate).setOnClickListener(this);
+        contentView.findViewById(R.id.tv_donate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_open_settings).setOnClickListener(this);
-
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
         contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
@@ -74,10 +71,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             case R.id.tv_rate_app:
                 Utilities.rateApp(requireActivity());
                 break;
-            case R.id.iv_donate:
-                DonateDialog dialog = new DonateDialog();
-                dialog.show(getParentFragmentManager(), "donate");
-                break;
             case R.id.tv_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -96,7 +89,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 AboutActivity.start(requireActivity());
                 break;
             case R.id.title_container:
-                new RateMyAppDialog(requireActivity()).showAnyway();
+            case R.id.tv_donate:
+                DonateDialog dialog = new DonateDialog();
+                dialog.show(getParentFragmentManager(), "donate");
                 break;
         }
     }

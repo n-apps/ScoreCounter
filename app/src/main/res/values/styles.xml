@@ -128,4 +128,10 @@
         <item name="backgroundTint">@color/outline_button_selector</item>
         <item name="rippleColor">@color/rippleColor</item>
     </style>
+
+    <style name="ShapeAppearanceOverlay.App.Card.Media" parent="">
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+
+    </style>
 </resources>

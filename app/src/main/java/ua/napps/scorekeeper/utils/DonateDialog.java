@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -87,7 +86,7 @@ public class DonateDialog extends DialogFragment {
         Window window = alertDialog.getWindow();
         if (window != null) {
             window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-            window.setGravity(Gravity.BOTTOM);
+//            window.setGravity(Gravity.BOTTOM);
         }
         alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption));
 

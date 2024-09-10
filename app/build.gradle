@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
 ext.versionMinor = 10
-ext.versionPatch = 6
+ext.versionPatch = 7
 ext.postfix = ''
 
 android {
@@ -87,7 +87,7 @@ dependencies {
     implementation 'io.github.bitvale:switcher:1.1.2'
     implementation 'com.github.Kunzisoft:AndroidClearChroma:2.6'
 
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.8.4'
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.8.5'
     annotationProcessor 'androidx.room:room-compiler:2.6.1'
 }
 

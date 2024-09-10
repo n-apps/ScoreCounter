@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Pozdrav! Zovem se Roma i trenutno živim u Ukrajini. Već više od 10 godina se zabavljam društvenim igrama. Ideja za ovu aplikaciju mi je došla dok sam igrao Star Realms (koji ima užasne chipove). Nisam developer i ovom aplikacijom se bavim u svoje slobodno vrijeme. Svaki review, email ili napojnica od vas me čini malo sretnijim u ova teška vremena. Unatoč ratu u mojoj zemlji, odlučio sam ostaviti ovu aplikaciju besplatnom i bez reklama. Hvala vam i želim vam sretno igranje!</string>
+    <string name="about_text">Привіт! 🌻\n\nSzia, Roma vagyok! Jelenleg Ukrajnában élek, amit nagyon szeretek! Több mint 10 éve megőrülök a társasjátékokért! Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Star Realms játékkal játszottam (amiben szörnyűek a zsetonok, ugye?). I\'m working on this app in my spare time.\n\nMinden egyes vélemény, e-mail vagy adomány tőletek egy kicsit boldogabbá tesz. Az országomban zajló szörnyű események ellenére úgy döntöttem, hogy ez az alkalmazás ingyenes marad, és nem teszek bele reklámokat.\n\nSok köszönet, és örömteli játékokat kívánok!</string>
     <string name="about_translators_title">Genijalni prevoditelji</string>
-    <string name="action_donate">Donacija kroz Google&#160;Play</string>
+    <string name="action_donate">Kupite programeru kavu</string>
     <string name="action_save">Spremi</string>
     <string name="app_name">Brojač Rezultata</string>
     <string name="common_back">Povratak</string>
@@ -65,4 +65,5 @@
     <string name="common_continue">Nastavi</string>
     <string name="dialog_elektu_confirm">Odprla se bo majhna stran brskalnika, ki vam bo pomagala izbrati nekoga iz skupine.\n\nMade by Julien&#160;Bellue</string>
     <string name="counter_default_name">Brojači</string>
+    <string name="donation_title">Keep this app ad-free</string>
 </resources>

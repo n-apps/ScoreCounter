@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">大家好！🌻 我是 Roma！我目前居住在乌克兰，我深爱着这里！我痴迷于桌游已经10 多年了！我在游玩星域奇航时有了制作这款应用的想法，（星域奇航的token很糟糕，对吧？） 我利用空闲时间开发了这款应用。你们的每一条评论、每一封邮件、每一笔捐款都会让我更加开心。尽管我的国家发生了可怕的事情，但我还是决定让这款应用保持免费，并且不添加广告。非常感谢你们的支持，祝你们游戏愉快！</string>
+    <string name="about_text">Привіт! 🌻\n\n我是 Roma！我目前居住在乌克兰，我深爱着这里！我痴迷于桌游已经10 多年了！我在游玩星域奇航时有了制作这款应用的想法，（星域奇航的token很糟糕，对吧？） 我利用空闲时间开发了这款应用。你们的每一条评论、每一封邮件、每一笔捐款都会让我更加开心。尽管我的国家发生了可怕的事情，但我还是决定让这款应用保持免费，并且不添加广告。非常感谢你们的支持，祝你们游戏愉快！</string>
     <string name="about_translators_title">了不起的翻译者们</string>
-    <string name="action_donate">通过 Google Play 捐款</string>
+    <string name="action_donate">请开发人员喝咖啡</string>
     <string name="action_save">保存</string>
     <string name="app_name">Score Counter</string>
     <string name="common_back">返回</string>
@@ -65,4 +65,5 @@
     <string name="settings_switch_tap_logic">交换长按短按</string>
     <string name="share_snippet">无需寻找纸笔，只需要获取免费、易用的计数器安卓应用</string>
     <string name="simple_edit_value_hint">输入数值</string>
+    <string name="donation_title">让本应用继续无广告</string>
 </resources>
