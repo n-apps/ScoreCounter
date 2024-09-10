@@ -81,11 +81,11 @@
                     android:lines="1"
                     android:paddingHorizontal="40dp"
                     android:textColor="?android:attr/textColorPrimary"
-                    app:autoSizeMaxTextSize="164sp"
+                    app:autoSizeMaxTextSize="156sp"
                     app:autoSizeMinTextSize="20sp"
                     app:autoSizeStepGranularity="4sp"
                     app:autoSizeTextType="uniform"
-                    tools:text="12369459" />
+                    tools:text="523" />
 
                 <ImageView
                     android:id="@+id/iv_decrease"
