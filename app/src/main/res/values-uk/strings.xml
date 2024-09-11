@@ -36,7 +36,7 @@
     <string name="dice_roll_prefix">Випало:</string>
     <string name="dice_sides">Кількість граней</string>
     <string name="dice_sum_prefix">Разом:</string>
-    <string name="donation_title">Збережіть цей застосунок від реклами</string>
+    <string name="donation_title">Збережіть цей застосунок від&#160;реклами</string>
     <string name="history_empty_message">Поки немає історії</string>
     <string name="history_subtitle">тільки ця сесія</string>
     <string name="menu_add_new_counter">Додати лічильник</string>

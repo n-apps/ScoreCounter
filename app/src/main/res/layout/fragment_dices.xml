@@ -7,33 +7,60 @@
     android:layout_height="match_parent"
     tools:context="ua.napps.scorekeeper.dice.DicesFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="@string/common_dice" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <TextView
         android:id="@+id/tv_dice_variant_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_normal"
-        android:fontFamily="@font/o600"
+        android:fontFamily="@font/mono"
         android:foreground="@drawable/ripple"
+        android:paddingStart="@dimen/padding_large"
+
         android:gravity="center"
-        android:textDirection="locale"
+        android:letterSpacing="-0.05"
         android:minHeight="@dimen/list_single_line_min_height"
-        android:paddingHorizontal="@dimen/padding_large"
-        android:textAppearance="@style/TextAppearance.App.Toolbar.Title"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textDirection="locale"
+        app:layout_constraintBottom_toTopOf="@id/dice"
+        app:layout_constraintEnd_toStartOf="@+id/iv_edit"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
         tools:text="1 × d6" />
 
     <ImageView
-        android:id="@+id/iv_dice_menu"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_margin="@dimen/spacing_normal"
-        android:contentDescription="@string/common_settings"
+        android:id="@+id/iv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha=".5"
+        android:contentDescription="@string/common_edit"
         android:foreground="@drawable/ripple"
-        android:padding="@dimen/padding_normal"
-        android:src="@drawable/ic_settings"
+        android:gravity="end"
+        android:padding="@dimen/spacing_normal"
+        android:scaleType="center"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/tv_dice_variant_info"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/tv_dice_variant_info"
+        app:layout_constraintTop_toTopOf="@id/tv_dice_variant_info" />
 
     <TextView
         android:id="@+id/dice"
@@ -60,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
         app:layout_constraintWidth_min="160dp"
         tools:text="23"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/empty_state_group"
@@ -69,7 +96,7 @@
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/im_empty_state"
@@ -77,8 +104,8 @@
         android:layout_height="@dimen/empty_state_icon_size"
         android:layout_marginBottom="@dimen/spacing_large"
         android:contentDescription="@string/dice_empty_state"
-        android:src="@drawable/empty_dice"
         android:rotationY="@integer/locale_mirror_flip"
+        android:src="@drawable/empty_dice"
         app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,18 +130,34 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_xlarge"
+        android:layout_marginBottom="@dimen/spacing_xlarge"
         android:ellipsize="end"
         android:fontFamily="@font/o400"
-        android:includeFontPadding="false"
-        android:minHeight="@dimen/list_two_lines_min_height"
         android:gravity="start"
-        android:textDirection="locale"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.33"
+        android:minHeight="@dimen/list_two_lines_min_height"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textDirection="locale"
+        app:layout_constraintBottom_toTopOf="@id/tv_dice_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
-        tools:text="Rolls: 2, 4, 5, 7\n\nSum: 45"
-        tools:visibility="invisible" />
+        tools:text="Rolls: 2, 4, 5, 7\nSum: 45"
+        tools:visibility="visible" />
 
+
+    <TextView
+        android:id="@+id/tv_dice_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_normal"
+        android:gravity="center_horizontal"
+        android:text="@string/dice_empty_state"
+        android:visibility="invisible"
+        android:textAppearance="?attr/textAppearanceCaption"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice_composition" />
 </androidx.constraintlayout.widget.ConstraintLayout>

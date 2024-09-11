@@ -2,7 +2,6 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -54,11 +53,6 @@ public class Utilities {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(intent);
         }
-    }
-
-    public static int dip2px(float dpValue, Context context) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
     }
 
     public static boolean isMiuiRom() {

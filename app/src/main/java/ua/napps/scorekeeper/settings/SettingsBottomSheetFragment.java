@@ -101,7 +101,6 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         BottomSheetDialog dialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-
         dialog.setOnShowListener(dialog1 -> {
             BottomSheetDialog d = (BottomSheetDialog) dialog1;
 

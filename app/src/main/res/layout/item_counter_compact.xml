@@ -8,13 +8,15 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
-    app:strokeWidth="0dp"
+    app:strokeWidth="0.5dp"
+    app:strokeColor="@color/material_on_surface_disabled"
     tools:backgroundTint="#3AA99F">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
+        android:layout_marginVertical="@dimen/spacing_micro"
         android:gravity="center_vertical"
         android:minHeight="@dimen/list_two_lines_min_height"
         android:orientation="horizontal">
@@ -29,7 +31,7 @@
             android:foreground="@drawable/ripple"
             android:gravity="center_vertical"
             android:maxLines="3"
-            android:paddingStart="@dimen/spacing_normal"
+            android:paddingStart="@dimen/spacing_big"
             android:textAppearance="?attr/textAppearanceHeadline6"
             app:autoSizeMaxTextSize="@dimen/font_display"
             app:autoSizeMinTextSize="12sp"

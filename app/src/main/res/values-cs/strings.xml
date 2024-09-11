@@ -36,7 +36,7 @@
     <string name="dice_roll_prefix">Hody kostkou:</string>
     <string name="dice_sides">Vlastní strany kostky</string>
     <string name="dice_sum_prefix">Součet:</string>
-    <string name="donation_title">Udržujte aplikaci bez reklam</string>
+    <string name="donation_title">Udržujte aplikaci bez&#160;reklam</string>
     <string name="history_empty_message">Zatím žádná historie</string>
     <string name="history_subtitle">Pouze relace</string>
     <string name="menu_add_new_counter">Přidat počítadlo</string>

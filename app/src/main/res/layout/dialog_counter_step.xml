@@ -23,12 +23,12 @@
 
         <TextView
             android:id="@+id/counter_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_big"
+            android:layout_weight="1"
             android:ellipsize="end"
             android:fontFamily="@font/o600"
-            android:gravity="center"
-            android:layout_marginEnd="@dimen/spacing_big"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:text="Jessica"
@@ -44,7 +44,7 @@
             android:gravity="center"
             android:includeFontPadding="false"
             android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceHeadline4"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             android:textColor="?android:attr/textColorPrimary"
             tools:text="435" />
     </LinearLayout>
@@ -54,7 +54,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_big"
-        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:layout_marginTop="@dimen/spacing_large"
         android:baselineAligned="false"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"

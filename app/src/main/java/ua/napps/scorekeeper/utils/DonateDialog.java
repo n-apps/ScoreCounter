@@ -77,7 +77,7 @@ public class DonateDialog extends DialogFragment {
             alertBackground.setShapeAppearanceModel(
                     alertBackground.getShapeAppearanceModel()
                             .toBuilder()
-                            .setAllCorners(CornerFamily.ROUNDED, 32.0f)
+                            .setAllCorners(CornerFamily.ROUNDED, ViewUtil.dip2px(16, requireContext()))
                             .build());
         }
 

@@ -26,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/o600"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:text="@string/donation_title"

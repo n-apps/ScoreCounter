@@ -273,7 +273,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     toolbar.setTitle(R.string.common_counters);
                     emptyState.setVisibility(View.VISIBLE);
                 } else if (size == 1) {
-                    toolbar.setTitle(null);
                     emptyState.setVisibility(View.GONE);
                 } else { // size >= 2
                     findAndUpdateTopCounterView(counters);
@@ -353,8 +352,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         } else { // At least the first and the second counters have the same value.
             int countersTotal = counters.size();
-            toolbar.setTitle(topSize == countersTotal ? countersTotal + "\uD83D\uDD39︎" : topSize + " \uD83D\uDFF0");
-            ViewUtil.shakeView(toolbarTitle, 2, 2);
+            if (topSize != countersTotal) {
+                toolbar.setTitle(topSize + " =");
+                ViewUtil.shakeView(toolbarTitle, 2, 2);
+            }
             previousTopCounterId = 0;
         }
     }
@@ -455,7 +456,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSetValueDialog(Counter c, int position) {
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(c.getName() + ": "+ c.getValue())
+                .title(c.getName() + ": " + c.getValue())
                 .titleGravity(GravityEnum.CENTER)
                 .inputType(InputType.TYPE_CLASS_PHONE)
                 .positiveText(R.string.common_set)
@@ -698,7 +699,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             alertBackground.setShapeAppearanceModel(
                     alertBackground.getShapeAppearanceModel()
                             .toBuilder()
-                            .setAllCorners(CornerFamily.ROUNDED, 24.0f)
+                            .setAllCorners(CornerFamily.ROUNDED, ViewUtil.dip2px(16, requireContext()))
                             .build());
         }
 

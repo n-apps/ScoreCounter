@@ -145,7 +145,7 @@ public class RateMyAppDialog {
             alertBackground.setShapeAppearanceModel(
                     alertBackground.getShapeAppearanceModel()
                             .toBuilder()
-                            .setAllCorners(CornerFamily.ROUNDED, 32.0f)
+                            .setAllCorners(CornerFamily.ROUNDED, ViewUtil.dip2px(16, context))
                             .build());
         }
         return materialAlertDialogBuilder.create();

@@ -36,7 +36,7 @@
     <string name="dice_roll_prefix">Выпало:</string>
     <string name="dice_sides">Количество граней</string>
     <string name="dice_sum_prefix">Сумма:</string>
-    <string name="donation_title">Cохраните это приложение от рекламы</string>
+    <string name="donation_title">Cохраните это приложение от&#160;рекламы</string>
     <string name="history_empty_message">Пока нет истории</string>
     <string name="history_subtitle">только эта сессия (!)</string>
     <string name="menu_add_new_counter">Добавить счетчик</string>

@@ -42,6 +42,7 @@ public class DicesFragment extends Fragment {
     private long myLastShake;
     private int currentRoll;
     private TextView diceVariantInfo;
+    private TextView diceHint;
     private Group emptyStateGroup;
     private TextView diceTextView;
     private TextView diceCompositionTextView;
@@ -83,15 +84,16 @@ public class DicesFragment extends Fragment {
         diceVariantInfo = contentView.findViewById(R.id.tv_dice_variant_info);
         emptyStateGroup = contentView.findViewById(R.id.empty_state_group);
         diceTextView = contentView.findViewById(R.id.dice);
+        diceHint = contentView.findViewById(R.id.tv_dice_hint);
         diceCompositionTextView = contentView.findViewById(R.id.tv_dice_composition);
         rollsPrefix = getString(R.string.dice_roll_prefix);
         sumPrefix = getString(R.string.dice_sum_prefix);
         root = contentView.findViewById(R.id.dices_fragment);
-        contentView.findViewById(R.id.iv_dice_menu).setOnClickListener(v -> showBottomSheet());
+        contentView.findViewById(R.id.iv_edit).setOnClickListener(v -> showBottomSheet());
 
         maxSide = LocalSettings.getDiceMaxSide();
         diceCount = LocalSettings.getDiceCount();
-        diceVariantInfo.setText("\ud83c\udfb2 " + diceCount + " × d" + maxSide);
+        diceVariantInfo.setText(diceCount + " × d" + maxSide);
         diceVariantInfo.setOnClickListener(v -> showBottomSheet());
 
         root.setOnClickListener(v -> viewModel.rollDice());
@@ -133,13 +135,13 @@ public class DicesFragment extends Fragment {
             ViewUtil.shakeView(diceVariantInfo, 4, 0);
             diceCount = dc;
             viewModel.setDiceCount(diceCount);
-            diceVariantInfo.setText("\ud83c\udfb2 " + diceCount + " × d" + maxSide);
+            diceVariantInfo.setText(diceCount + " × d" + maxSide);
         }
         if (maxSide != ms) {
             ViewUtil.shakeView(diceVariantInfo, 4, 0);
             maxSide = ms;
             viewModel.setDiceMaxSide(maxSide);
-            diceVariantInfo.setText("\ud83c\udfb2 " + diceCount + " × d" + maxSide);
+            diceVariantInfo.setText(diceCount + " × d" + maxSide);
         }
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
         rollAnimateEnabled = LocalSettings.isDiceAnimated();
@@ -191,6 +193,7 @@ public class DicesFragment extends Fragment {
 
         TransitionManager.beginDelayedTransition(root);
         diceTextView.setVisibility(View.VISIBLE);
+        diceHint.setVisibility(View.VISIBLE);
         emptyStateGroup.setVisibility(View.GONE);
         diceTextView.setText("");
         currentRoll = roll;
@@ -247,7 +250,7 @@ public class DicesFragment extends Fragment {
             sum += rolls.get(i);
         }
 
-        stringBuilder.append("<br><br><b>");
+        stringBuilder.append("<br><b>");
         stringBuilder.append(sumPrefix);
         stringBuilder.append(" </b>");
         stringBuilder.append(sum);
