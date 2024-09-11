@@ -80,40 +80,43 @@
                 android:src="@drawable/hello" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/o600"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/about_translators_title"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textColor="@color/primary_text_default_material_light"
                 android:textDirection="locale" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_normal"
+                android:gravity="center"
                 android:fontFamily="@font/o400"
                 android:includeFontPadding="false"
                 android:lineSpacingMultiplier="1.5"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/about_translators"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="#182e3f"
                 android:textDirection="locale" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:drawablePadding="@dimen/spacing_micro"
                 android:fontFamily="@font/o400"
                 android:includeFontPadding="false"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="StasLeo"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="#182e3f"
                 android:textDirection="locale"
                 app:drawableLeftCompat="@drawable/ic_bel"
@@ -124,6 +127,7 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/padding_large"
                 android:drawableTint="#182e3f"
                 android:minHeight="@dimen/list_single_line_min_height"

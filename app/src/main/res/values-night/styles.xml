@@ -8,6 +8,7 @@
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryVariant</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="colorError">@color/colorError</item>
         <item name="colorOnError">@color/colorOnError</item>
         <item name="colorSurface">@color/primaryBackground</item>

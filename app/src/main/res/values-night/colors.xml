@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#a0a8ff</color>
-    <color name="colorPrimaryVariant">#675bf9</color>
-    <color name="colorOnPrimary">#fff</color>
-    <color name="colorSecondary">#ffe091</color>
-    <color name="colorSecondaryVariant">#ffbb00</color>
-    <color name="colorOnSecondary">#000016</color>
-    <color name="colorError">#ff5975</color>
+    <color name="colorPrimary">#298FCA</color>
+    <color name="colorPrimaryVariant">#2274A5</color>
+    <color name="colorOnPrimary">#ffffff</color>
+    <color name="colorSecondary">#EE6352</color>
+    <color name="colorSecondaryVariant">#E03615</color>
+    <color name="colorOnSecondary">#ffffff</color>
+    <color name="colorAccent">#FFF67F</color>
+    <color name="colorError">#DC0873</color>
     <color name="colorOnError">#ffffff</color>
     <color name="textColorPrimary">#FFFFFFFF</color>
     <color name="textColorSecondary">#DEFFFFFF</color>
     <color name="textColorHint">#89FFFFFF</color>
     <color name="primaryBackground">#181821</color>
-    <color name="rippleColor">#33dfe3ff</color>
+    <color name="rippleColor">#33DFEEFF</color>
 </resources>
