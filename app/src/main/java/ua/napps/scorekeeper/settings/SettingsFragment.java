@@ -35,7 +35,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         contentView.findViewById(R.id.tv_donate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_open_settings).setOnClickListener(this);
         contentView.findViewById(R.id.tv_request_feature).setOnClickListener(this);
-        contentView.findViewById(R.id.tv_help_translate).setOnClickListener(this);
         contentView.findViewById(R.id.tv_rate_app).setOnClickListener(this);
         contentView.findViewById(R.id.tv_about).setOnClickListener(this);
         contentView.findViewById(R.id.tv_share).setOnClickListener(this);
@@ -51,16 +50,10 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 showBottomSheet();
                 break;
             case R.id.tv_request_feature:
-            case R.id.tv_help_translate:
                 Intent i = new Intent(Intent.ACTION_SENDTO);
                 i.setData(Uri.parse("mailto:scorekeeper.feedback@gmail.com"));
                 i.putExtra(Intent.EXTRA_EMAIL, new String[]{"scorekeeper.feedback@gmail.com"});
-                if (v.getId() == R.id.tv_help_translate) {
-                    String s = getString(R.string.app_name) + ": " + getString(R.string.setting_help_translate);
-                    i.putExtra(Intent.EXTRA_SUBJECT, s);
-                } else {
-                    i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                }
+                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
 
                 try {
                     startActivity(i);

@@ -54,7 +54,7 @@ public class LocalSettings {
     }
 
     public static boolean isShakeToRollEnabled() {
-        return App.getTinyDB().getBoolean(SHAKE_TO_ROLL, true);
+        return App.getTinyDB().getBoolean(SHAKE_TO_ROLL, false);
     }
 
     public static void saveShakeToRoll(boolean enabled) {

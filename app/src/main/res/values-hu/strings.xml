@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Sum:</string>
     <string name="donation_title">Tartsd az hirdetésmentes élményt </string>
     <string name="history_empty_message">Nincs még előzmény</string>
-    <string name="history_subtitle">Csak ebben a&#160;munkamenetben</string>
+    <string name="history_subtitle">törlődik az alkalmazás újraindítása után \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Számláló hozzáadása</string>
     <string name="menu_delete_all_counters">Összes törlése</string>
     <string name="menu_elektu">Ki legyen a&#160;kezdőjátékos?</string>

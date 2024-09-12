@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Сума:</string>
     <string name="donation_title">Подкрепете, за да запазим приложението без реклами</string>
     <string name="history_empty_message">Все още няма история</string>
-    <string name="history_subtitle">Само за сесията</string>
+    <string name="history_subtitle">изчиства се след рестартиране на приложението \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Добавяне на брояч</string>
     <string name="menu_delete_all_counters">Изтриване на всички</string>
     <string name="menu_elektu">Кой ще започне пръв?</string>

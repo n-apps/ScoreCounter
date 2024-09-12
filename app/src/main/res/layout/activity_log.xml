@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:subtitle="@string/history_subtitle"
+            app:subtitleTextAppearance="@style/ToolbarSubtitleAppearance"
             app:title="@string/menu_history" />
     </com.google.android.material.appbar.AppBarLayout>
 

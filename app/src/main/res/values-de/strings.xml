@@ -37,7 +37,7 @@
     <string name="dice_sides">Eigene Würfelseiten</string>
     <string name="dice_sum_prefix">Summe:</string>
     <string name="history_empty_message">Es gibt noch keine Geschichte</string>
-    <string name="history_subtitle">Nur für diese Sitzung (!)</string>
+    <string name="history_subtitle">nach Neustart der App gelöscht \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Zähler hinzufügen</string>
     <string name="menu_delete_all_counters">Alle Zähler löschen</string>
     <string name="menu_elektu">Wer fängt an?</string>
@@ -55,10 +55,10 @@
     <string name="settings_animate_roll">Animation eines Würfelwurfs</string>
     <string name="settings_appearance">Design</string>
     <string name="settings_change_language">Sprache</string>
-    <string name="settings_counter_title">Zähler (Notenstufen)</string>
+    <string name="settings_counter_title">Zähler (langes Drücken)</string>
     <string name="settings_feedback">Kontakt Entwickler</string>
     <string name="settings_privacy_policy">Datenschutz-Bestimmungen</string>
-    <string name="settings_rate_app">Bewerten Sie diese Anwendung auf Google Play</string>
+    <string name="settings_rate_app">Diese App bewerten</string>
     <string name="settings_shake_to_roll">Schütteln für Würfelwurf</string>
     <string name="settings_sound">Ton abspielen</string>
     <string name="settings_stay_awake">Die Bildschirmbeleuchtung bleibt an</string>

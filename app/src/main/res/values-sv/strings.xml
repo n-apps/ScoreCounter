@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Sum:</string>
     <string name="donation_title">Håll appen reklamfri</string>
     <string name="history_empty_message">Ingen historik ännu</string>
-    <string name="history_subtitle">Endast sessionen</string>
+    <string name="history_subtitle">rensas efter omstart av appen \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Lägg till räknare</string>
     <string name="menu_delete_all_counters">Radera alla</string>
     <string name="menu_elektu">Vem går först?</string>

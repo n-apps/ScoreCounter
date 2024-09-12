@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Somma:</string>
     <string name="donation_title">Mantieni l\'app senza pubblicità</string>
     <string name="history_empty_message">Non c\'è ancora la cronologia</string>
-    <string name="history_subtitle">Solo per questa sessione</string>
+    <string name="history_subtitle">cancellato dopo il riavvio dell\'applicazione \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Aggiungi un seganpunti</string>
     <string name="menu_delete_all_counters">Cancella tutto</string>
     <string name="menu_elektu">A chi tocca per primo?</string>

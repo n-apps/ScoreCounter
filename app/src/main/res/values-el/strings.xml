@@ -32,7 +32,7 @@
     <string name="dice_empty_state">Πατήστε οπουδήποτε ή ανακινήστε την συσκευή σας για να ρίξετε το ζάρι</string>
     <string name="dice_sides">Έδρες του ζαριού</string>
     <string name="history_empty_message">Δεν υπάρχει ιστορικό ακόμα</string>
-    <string name="history_subtitle">Μόνο για αυτή την περίοδο λειτουργίας</string>
+    <string name="history_subtitle">διαγράφεται μετά την επανεκκίνηση της εφαρμογής \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Νέος μετρητής</string>
     <string name="menu_delete_all_counters">Διαγραφή όλων</string>
     <string name="menu_elektu">Ποιος παίζει πρώτος;</string>

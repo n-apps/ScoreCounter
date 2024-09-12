@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Suma:</string>
     <string name="donation_title">Niech ta aplikacja będzie wolna od&#160;reklam</string>
     <string name="history_empty_message">Brak historii</string>
-    <string name="history_subtitle">tylko ta sesja</string>
+    <string name="history_subtitle">wyczyszczone po ponownym uruchomieniu aplikacji \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
     <string name="menu_delete_all_counters">Usuń wszystko</string>
     <string name="menu_elektu">Kto pierwszy?</string>
@@ -56,7 +56,7 @@
     <string name="settings_animate_roll">Animowanie rzutów kośćmi</string>
     <string name="settings_appearance">Wygląd</string>
     <string name="settings_change_language">Zmiana języka</string>
-    <string name="settings_counter_title">Licznik (przyrosty punktów)</string>
+    <string name="settings_counter_title">Licznik (długie naciśnięcie)</string>
     <string name="settings_feedback">Wyślij opinię</string>
     <string name="settings_privacy_policy">Polityka prywatności</string>
     <string name="settings_rate_app">Oceń w Google&#160;Play</string>

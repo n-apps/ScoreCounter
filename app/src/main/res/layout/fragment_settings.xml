@@ -107,19 +107,10 @@
             android:drawablePadding="@dimen/padding_normal"
             android:text="@string/settings_feedback"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_chat"
-            app:drawableTint="?attr/colorControlNormal" />
-
-        <TextView
-            android:id="@+id/tv_help_translate"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/spacing_big"
-            android:text="@string/setting_help_translate"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_translator"
-            app:drawableTint="?attr/colorControlNormal" />
+            app:drawableStartCompat="@drawable/ic_email"
+            app:drawableTint="?attr/colorControlNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_share"
@@ -129,8 +120,10 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/setting_share"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_share"
-            app:drawableTint="?attr/colorControlNormal" />
+            app:drawableStartCompat="@drawable/ic_share"
+            app:drawableTint="?attr/colorControlNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_rate_app"
@@ -140,7 +133,7 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/settings_rate_app"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_star"
+            app:drawableStartCompat="@drawable/ic_review"
             app:drawableTint="?attr/colorControlNormal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -153,7 +146,7 @@
             android:drawablePadding="@dimen/spacing_big"
             android:text="@string/action_donate"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableEndCompat="@drawable/ic_cafe"
+            app:drawableStartCompat="@drawable/ic_cafe"
             app:drawableTint="?attr/colorControlNormal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

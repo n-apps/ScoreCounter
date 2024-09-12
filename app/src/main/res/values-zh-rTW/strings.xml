@@ -37,7 +37,7 @@
     <string name="dice_sides">自定義骰子面數</string>
     <string name="dice_sum_prefix">總和：</string>
     <string name="history_empty_message">還沒有歷史記錄</string>
-    <string name="history_subtitle">僅限本場 (!)</string>
+    <string name="history_subtitle">重新啟動應用程式後清除</string>
     <string name="menu_add_new_counter">添加計數器</string>
     <string name="menu_delete_all_counters">刪除所有計數器</string>
     <string name="menu_elektu">誰先開始？</string>

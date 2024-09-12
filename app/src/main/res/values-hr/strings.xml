@@ -32,7 +32,7 @@
     <string name="dice_empty_state">Pritisni bilo gdje ili protresi uređaj za bacanje kockica</string>
     <string name="dice_sides">Prilagođene stranice kockica</string>
     <string name="history_empty_message">Povijest je još prazna</string>
-    <string name="history_subtitle">session-only</string>
+    <string name="history_subtitle">briše se nakon ponovnog pokretanja aplikacije \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Dodaj brojač</string>
     <string name="menu_delete_all_counters">Obriši sve brojače</string>
     <string name="menu_elektu">Tko je prvi?</string>

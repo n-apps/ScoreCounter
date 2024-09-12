@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Toplam:</string>
     <string name="donation_title">Uygulamayı reklamsız tut</string>
     <string name="history_empty_message">Henüz geçmiş yok</string>
-    <string name="history_subtitle">sadece oturum</string>
+    <string name="history_subtitle">uygulama yeniden başlatıldıktan sonra temizlenir \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Sayaç ekle</string>
     <string name="menu_delete_all_counters">Tümünü sil</string>
     <string name="menu_elektu">İlk kim başlıyor?</string>

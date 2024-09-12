@@ -129,4 +129,8 @@
         <item name="rippleColor">@color/rippleColor</item>
     </style>
 
+    <style name="ToolbarSubtitleAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

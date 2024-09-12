@@ -37,7 +37,7 @@
     <string name="dice_sides">Lados de dados personalizado</string>
     <string name="dice_sum_prefix">Suma:</string>
     <string name="history_empty_message">Todavía no hay historia.</string>
-    <string name="history_subtitle">¡Solo sesión (!)</string>
+    <string name="history_subtitle">se borra después de reiniciar la aplicación \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_elektu">¿Quién va primero?</string>
@@ -55,7 +55,7 @@
     <string name="settings_animate_roll">Animación de la tirada de dados</string>
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_change_language">Cambiar de idioma</string>
-    <string name="settings_counter_title">Contador (incrementos de puntuación)</string>
+    <string name="settings_counter_title">Contador (pulsación larga)</string>
     <string name="settings_feedback">Contacto</string>
     <string name="settings_privacy_policy">Política de privacidad</string>
     <string name="settings_rate_app">Valora esta aplicación en Google Play</string>

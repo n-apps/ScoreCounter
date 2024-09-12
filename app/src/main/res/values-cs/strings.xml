@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Součet:</string>
     <string name="donation_title">Udržujte aplikaci bez&#160;reklam</string>
     <string name="history_empty_message">Zatím žádná historie</string>
-    <string name="history_subtitle">Pouze relace</string>
+    <string name="history_subtitle">vymazáno po restartu aplikace \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Přidat počítadlo</string>
     <string name="menu_delete_all_counters">Odstranit vše</string>
     <string name="menu_elektu">Kdo začíná?</string>

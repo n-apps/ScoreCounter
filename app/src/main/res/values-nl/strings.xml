@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Som:</string>
     <string name="donation_title">Houd deze app reclamevrij</string>
     <string name="history_empty_message">Geen geschiedenis aanwezig</string>
-    <string name="history_subtitle">Alleen deze sessie</string>
+    <string name="history_subtitle">gewist na opnieuw opstarten van de app \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Teller toevoegen</string>
     <string name="menu_delete_all_counters">Alles verwijderen</string>
     <string name="menu_elektu">Wie begint er?</string>

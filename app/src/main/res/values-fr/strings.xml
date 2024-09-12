@@ -37,7 +37,7 @@
     <string name="dice_sides">Nombre de faces</string>
     <string name="dice_sum_prefix">Somme :</string>
     <string name="history_empty_message">Il n\'y a pas encore d\'histoire.</string>
-    <string name="history_subtitle">cette session uniquement (!)</string>
+    <string name="history_subtitle">effacé après le redémarrage de l\'application \u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_delete_all_counters">Tout supprimer</string>
     <string name="menu_elektu">Qui commence ?</string>
@@ -55,10 +55,10 @@
     <string name="settings_animate_roll">Animation du jet de dés</string>
     <string name="settings_appearance">Apparence</string>
     <string name="settings_change_language">Changer de langue</string>
-    <string name="settings_counter_title">Compteur (pas de score)</string>
+    <string name="settings_counter_title">Compteur (appui long)</string>
     <string name="settings_feedback">Contactez le développeur</string>
     <string name="settings_privacy_policy">Politique de confidentialité</string>
-    <string name="settings_rate_app">Notez cette application sur Google Play</string>
+    <string name="settings_rate_app">Notez cette application</string>
     <string name="settings_shake_to_roll">Secouer pour lancer les dés</string>
     <string name="settings_sound">Jouer le son</string>
     <string name="settings_stay_awake">Maintenez l\'écran allumé</string>
