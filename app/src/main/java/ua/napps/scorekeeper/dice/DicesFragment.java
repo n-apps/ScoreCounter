@@ -149,9 +149,7 @@ public class DicesFragment extends Fragment {
         if (!LocalSettings.isShakeToRollEnabled()) {
             viewModel.getSensorLiveData(getActivity()).removeObservers(getViewLifecycleOwner());
         } else {
-            if (viewModel.getSensorLiveData(getActivity()) == null) {
-                initSensorData();
-            }
+            initSensorData();
         }
     }
 
