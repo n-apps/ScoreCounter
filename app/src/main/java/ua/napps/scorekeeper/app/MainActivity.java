@@ -17,7 +17,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.transition.platform.MaterialFadeThrough;
 
@@ -74,13 +73,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
-                    hideDiceBadge();
                     getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.primaryBackground));
                     ViewUtil.setLightMode(this, !nightModeActive);
                     break;
                 case R.id.more:
                     switchFragment(TAGS[2]);
-                    hideDiceBadge();
                     getWindow().setStatusBarColor(Color.parseColor("#455a64"));
                     ViewUtil.setLightMode(this, false);
                     break;
@@ -134,14 +131,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         AppCompatDelegate.setDefaultNightMode(nightMode);
     }
 
-    private void hideDiceBadge() {
-        BadgeDrawable badge = bottomNavigationBar.getBadge(R.id.dices);
-        if (badge != null) {
-            badge.setVisible(false);
-            badge.clearNumber();
-        }
-    }
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -190,7 +179,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Fragment fragment = getFragmentByTag(tag);
 
         fragment.setEnterTransition(createTransition());
-
         manager.beginTransaction()
                 .replace(R.id.container, fragment, tag)
                 .commit();

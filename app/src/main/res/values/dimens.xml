@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <dimen name="button_icon_size">24dp</dimen>
-    <dimen name="empty_state_icon_size">200dp</dimen>
+    <dimen name="empty_state_icon_size">160dp</dimen>
     <dimen name="font_display">24sp</dimen>
     <dimen name="font_subheading">17sp</dimen>
     <dimen name="font_title">20sp</dimen>

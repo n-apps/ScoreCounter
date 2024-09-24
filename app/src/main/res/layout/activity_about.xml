@@ -21,12 +21,8 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:collapsedTitleTextColor="@color/primary_material_light"
             app:contentScrim="#b0bec5"
-            app:expandedTitleGravity="top"
-            app:expandedTitleTextColor="@color/primary_material_light"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:statusBarScrim="#F3BFA9"
             app:toolbarId="@+id/toolbar">
 
             <ImageView
@@ -37,7 +33,7 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/about"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.5" />
+                app:layout_collapseParallaxMultiplier="0.6" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -58,7 +54,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/spacing_xlarge">
 
             <TextView
                 android:id="@+id/content"
@@ -73,20 +70,20 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="240dp"
+                android:layout_height="@dimen/empty_state_icon_size"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:alpha=".8"
-                android:src="@drawable/hello" />
+                android:layout_marginTop="@dimen/spacing_xlarge"
+                android:rotationY="@integer/locale_mirror_flip"
+                android:src="@drawable/translators" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/spacing_large"
                 android:fontFamily="@font/o600"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/about_translators_title"
-                android:layout_marginTop="@dimen/spacing_xlarge"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 android:textColor="@color/primary_text_default_material_light"
                 android:textDirection="locale" />
@@ -96,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_normal"
-                android:gravity="center"
                 android:fontFamily="@font/o400"
+                android:gravity="center"
                 android:includeFontPadding="false"
                 android:lineSpacingMultiplier="1.5"
                 android:paddingHorizontal="@dimen/padding_large"
@@ -125,18 +122,18 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_help_translate"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="@dimen/padding_large"
+                android:layout_margin="@dimen/spacing_large"
                 android:drawableTint="#182e3f"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
                 android:minHeight="@dimen/list_single_line_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/setting_help_translate"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="#182e3f"
-                android:insetTop="0dp"
-                android:insetBottom="0dp"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:icon="@drawable/ic_translator"
                 app:iconGravity="textEnd"
@@ -148,8 +145,8 @@
                 android:layout_height="172dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_xlarge"
-                android:layout_marginBottom="-28dp"
-                android:src="@drawable/ic_flower" />
+                android:layout_marginBottom="-12dp"
+                android:src="@drawable/flower" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_donate_it"
@@ -175,18 +172,9 @@
                 android:gravity="center"
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="@color/colorPrimaryVariant"
+                android:textColor="#182e3f"
                 android:textColorHighlight="@color/colorPrimaryVariant"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:rippleColor="@color/rippleColor" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="440dp"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="@dimen/spacing_large"
-                android:scaleType="fitXY"
-                android:src="@drawable/about_2" />
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

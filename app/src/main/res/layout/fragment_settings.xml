@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_fragment"
@@ -8,148 +8,173 @@
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
     tools:ignore="TouchTargetSizeCheck">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="192dp"
+        android:background="#455a64"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/title_container"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:foreground="@drawable/ripple"
-            android:layout_height="156dp"
-            android:background="#455a64"
-            android:padding="@dimen/padding_large">
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="snap"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_normal"
+                    android:fontFamily="@font/o600"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="@dimen/padding_large"
+                    android:text="@string/donation_title"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toTopOf="@id/subtitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/subtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/spacing_micro"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/action_donate"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:drawableEndCompat="@drawable/ic_arrow_right"
+                    app:drawableTint="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toTopOf="@id/rounded"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <FrameLayout
+                    android:id="@+id/rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:background="@drawable/bg_rounded_top_square"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/tv_about"
+                style="@style/TwoLinesStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding_normal"
                 android:fontFamily="@font/o600"
-                android:layout_marginHorizontal="@dimen/spacing_normal"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="@string/donation_title"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toTopOf="@id/subtitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/settings_about"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="?attr/colorPrimary" />
 
             <TextView
-                android:id="@+id/subtitle"
-                android:layout_width="wrap_content"
+                android:id="@+id/tv_open_settings"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:drawablePadding="@dimen/spacing_micro"
-                android:gravity="center"
-                android:includeFontPadding="false"
+                android:drawablePadding="@dimen/padding_normal"
+                android:fontFamily="@font/o600"
+                android:text="@string/common_settings"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="?attr/colorPrimary" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_normal" />
+
+            <TextView
+                android:id="@+id/tv_request_feature"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding_normal"
+                android:text="@string/settings_feedback"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_email"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_share"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
+                android:text="@string/setting_share"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_share"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_rate_app"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
+                android:text="@string/settings_rate_app"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_review"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_donate"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/action_donate"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnPrimary"
-                app:drawableEndCompat="@drawable/ic_arrow_right"
-                app:drawableTint="?attr/colorOnPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:drawableStartCompat="@drawable/ic_cafe"
+                app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#455a64">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:background="@drawable/bg_rounded_top_square" />
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/tv_about"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorSurface"
-            android:drawablePadding="@dimen/padding_normal"
-            android:fontFamily="@font/o600"
-            android:text="@string/settings_about"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="?attr/colorPrimary" />
-
-        <TextView
-            android:id="@+id/tv_open_settings"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorSurface"
-            android:drawablePadding="@dimen/padding_normal"
-            android:fontFamily="@font/o600"
-            android:text="@string/common_settings"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:drawableEndCompat="@drawable/ic_arrow_right"
-            app:drawableTint="?attr/colorPrimary" />
-
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal" />
-
-        <TextView
-            android:id="@+id/tv_request_feature"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/padding_normal"
-            android:text="@string/settings_feedback"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_email"
-            app:drawableTint="?attr/colorControlNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_share"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/spacing_big"
-            android:text="@string/setting_share"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_share"
-            app:drawableTint="?attr/colorControlNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_rate_app"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/spacing_big"
-            android:text="@string/settings_rate_app"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_review"
-            app:drawableTint="?attr/colorControlNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_donate"
-            style="@style/TwoLinesStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/spacing_big"
-            android:text="@string/action_donate"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:drawableStartCompat="@drawable/ic_cafe"
-            app:drawableTint="?attr/colorControlNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </LinearLayout>
-</ScrollView>
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -59,7 +59,7 @@
     <string name="settings_counter_title">Sayaç (puan artışları)</string>
     <string name="settings_feedback">Geri bildirim gönderin</string>
     <string name="settings_privacy_policy">Gizlilik Politikası</string>
-    <string name="settings_rate_app">Google&#160;Play’de puan ver</string>
+    <string name="settings_rate_app">Bu uygulamayı Google Play\'de değerlendir</string>
     <string name="settings_shake_to_roll">Zar atmak için salla</string>
     <string name="settings_sound">Ses</string>
     <string name="settings_stay_awake">Ekranı açık tut</string>

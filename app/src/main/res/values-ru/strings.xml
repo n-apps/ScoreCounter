@@ -59,7 +59,7 @@
     <string name="settings_counter_title">Счетчик (длинное нажатие)</string>
     <string name="settings_feedback">Написать письмо разработчику</string>
     <string name="settings_privacy_policy">Политика конфиденциальности</string>
-    <string name="settings_rate_app">Поставить оценку</string>
+    <string name="settings_rate_app">Оценить это приложение в Google Play</string>
     <string name="settings_shake_to_roll">Встряхнуть для броска</string>
     <string name="settings_sound">Звук при броске</string>
     <string name="settings_stay_awake">Не отключать экран</string>

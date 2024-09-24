@@ -59,7 +59,7 @@
     <string name="settings_counter_title">العداد (زيادات في النقاط)</string>
     <string name="settings_feedback">اتصل بالمطور</string>
     <string name="settings_privacy_policy">سياسة الخصوصية</string>
-    <string name="settings_rate_app">"تقييم التطبيق على جوجل بلاي "</string>
+    <string name="settings_rate_app">قيّم هذا التطبيق على جوجل بلاي</string>
     <string name="settings_shake_to_roll">اهتز لرمي النرد</string>
     <string name="settings_sound">تشغيل الصوت</string>
     <string name="settings_stay_awake">أبقِ الشاشة قيد التشغيل</string>
