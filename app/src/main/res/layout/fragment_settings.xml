@@ -11,8 +11,8 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
-        android:background="#455a64"
+        android:layout_height="172dp"
+        android:background="?attr/colorPrimaryVariant"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
@@ -52,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:drawablePadding="@dimen/spacing_micro"
                     android:gravity="center"
+                    android:layout_marginBottom="@dimen/spacing_normal"
                     android:includeFontPadding="false"
                     android:text="@string/action_donate"
                     android:textAppearance="?attr/textAppearanceSubtitle1"

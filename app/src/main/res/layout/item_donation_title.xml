@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="?attr/colorPrimaryVariant"
     android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_donate"
         android:layout_width="match_parent"
-        android:layout_height="128dp"
+        android:layout_height="120dp"
         android:layout_gravity="center|top"
         android:contentDescription="@string/action_donate"
         android:rotationY="@integer/locale_mirror_flip"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/donate" />
 
     <TextView
-        android:layout_width="310dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_big"
-        android:ellipsize="end"
         android:fontFamily="@font/o600"
         android:text="@string/action_donate"
         android:textAppearance="?attr/textAppearanceHeadline6"

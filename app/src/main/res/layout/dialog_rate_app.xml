@@ -8,12 +8,13 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:background="?attr/colorSecondary"
+        android:layout_height="120dp">
 
         <ImageView
             android:id="@+id/iv_donate"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center|top"
             android:contentDescription="@string/action_donate"
             android:scaleType="centerCrop"

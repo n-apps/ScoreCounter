@@ -4,7 +4,6 @@ import static ua.napps.scorekeeper.settings.LocalSettings.THEME_DARK;
 import static ua.napps.scorekeeper.settings.LocalSettings.THEME_LIGHT;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -68,17 +67,17 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             switch (item.getItemId()) {
                 case R.id.counters:
                     switchFragment(TAGS[0]);
-                    getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.primaryBackground));
+                    getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryBackground));
                     ViewUtil.setLightMode(this, !nightModeActive);
                     break;
                 case R.id.dices:
                     switchFragment(TAGS[1]);
-                    getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.primaryBackground));
+                    getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryBackground));
                     ViewUtil.setLightMode(this, !nightModeActive);
                     break;
                 case R.id.more:
                     switchFragment(TAGS[2]);
-                    getWindow().setStatusBarColor(Color.parseColor("#455a64"));
+                    getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryVariant));
                     ViewUtil.setLightMode(this, false);
                     break;
             }

@@ -10,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
+        android:layout_height="250dp"
         android:background="#b0bec5"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
@@ -62,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/o400"
-                android:lineSpacingMultiplier="1.33"
+                android:lineSpacingMultiplier="1.2"
                 android:padding="@dimen/padding_large"
                 android:text="@string/about_text"
                 android:textAppearance="?attr/textAppearanceHeadline6"
