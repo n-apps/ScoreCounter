@@ -1,16 +1,23 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="48dp"
-    android:autoMirrored="true"
     android:viewportWidth="32"
     android:viewportHeight="32">
-    <path
-        android:fillColor="?attr/colorOnSurface"
-        android:pathData="M28,9H22v2h6v4H24v2h4v4H22v2h6a2.003,2.003 0,0 0,2 -2V11A2.002,2.002 0,0 0,28 9Z" />
-    <path
-        android:fillColor="?attr/colorOnSurface"
-        android:pathData="M20,23H12V17a2.002,2.002 0,0 1,2 -2h4V11H12V9h6a2.002,2.002 0,0 1,2 2v4a2.002,2.002 0,0 1,-2 2H14v4h6Z" />
-    <path
-        android:fillColor="?attr/colorOnSurface"
-        android:pathData="M6,10V22H6V10M7,9H2v2H5V21H2v2h8V21H7V9Z" />
+
+    <group>
+
+        <path
+            android:fillColor="?attr/colorOnSurface"
+            android:pathData="M26.286,7H19.857V9.571H23.715V22.429H19.857V25H30.143V22.429H26.286V7Z" />
+
+        <path
+            android:fillColor="?attr/colorOnSurface"
+            android:pathData="M15,22H2V25H15V22Z" />
+
+        <path
+            android:fillColor="?attr/colorOnSurface"
+            android:pathData="M15,12.2H9.8V7H7.2V12.2H2V14.8H7.2V20H9.8V14.8H15V12.2Z" />
+
+    </group>
+
 </vector>
