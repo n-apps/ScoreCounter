@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nOlá, chamo-me Roma! Estou atualmente a viver na Ucrânia, que eu absolutamente amo! Sou louca por jogos de tabuleiro há mais de 10 anos! A ideia para esta aplicação surgiu-me quando estava a jogar Star Realms (que tem fichas terríveis, certo?). Estou a trabalhar nesta aplicação no meu tempo livre.\n\nCada crítica, e-mail ou donativo vosso deixa-me um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação gratuita e não adicionar anúncios.\n\nMuito obrigado, e desejo-vos jogos alegres!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nOlá, chamo-me Roma! Estou atualmente a viver na Ucrânia, que eu absolutamente amo! Sou louca por jogos de tabuleiro há mais de 10 anos! A ideia para esta aplicação surgiu-me quando estava a jogar Star Realms (que tem fichas terríveis, certo?). Estou a trabalhar nesta aplicação no meu tempo livre.\n\nCada crítica, e-mail ou donativo vosso deixa-me um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação gratuita e não adicionar anúncios.\n\nMuito obrigado, e desejo-vos jogos alegres!</string>
     <string name="about_translators_title">Tradutores fantásticos</string>
     <string name="action_donate">Comprar um café para o desenvolvedor</string>
     <string name="action_save">Salvar</string>
@@ -23,7 +23,7 @@
     <string name="counter_details_name">Nome do contador</string>
     <string name="counter_details_step">Incremento</string>
     <string name="counter_details_value">Valor</string>
-    <string name="counters_empty_message">Toque no botão \"+\" no canto superior direito para adicionar um contador</string>
+    <string name="counters_empty_message">Toque no botão <b>+</b> no canto superior direito para adicionar um contador</string>
     <string name="delete">Apagar</string>
     <string name="dialog_confirmation_question">Tem certeza?</string>
     <string name="dialog_elektu_confirm">Será aberta uma pequena página do browser para o ajudar a selecionar alguém de um grupo.\n\nFeito por Julien&#160;Bellue</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Soma:</string>
     <string name="donation_title">Mantenha o aplicativo sem anúncios</string>
     <string name="history_empty_message">Nenhum histórico ainda</string>
-    <string name="history_subtitle">apagado após o reinício da aplicação \u26a0\ufe0f</string>
+    <string name="history_subtitle">apagado após o reinício da aplicação&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Adicionar contador</string>
     <string name="menu_delete_all_counters">Remover todos</string>
     <string name="menu_elektu">Quem vai primeiro?</string>
@@ -48,7 +48,7 @@
     <string name="message_error_generic">Desculpe, parece que ocorreu um erro.</string>
     <string name="message_lowest_wins">Lógica modificada</string>
     <string name="message_one_more_counter">Mais um</string>MA
-    <string name="message_thank_you">Obrigado! \u2665\ufe0e</string>
+    <string name="message_thank_you">Obrigado!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Tente pressionar por mais tempo os botões +/-</string>
     <string name="setting_help_translate">Ajude a&#160;traduzir</string>
     <string name="setting_share">Partilhe o endereço de download para Android</string>

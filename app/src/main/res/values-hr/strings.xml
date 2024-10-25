@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nSzia, Roma vagyok! Jelenleg Ukrajnában élek, amit nagyon szeretek! Több mint 10 éve megőrülök a társasjátékokért! Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Star Realms játékkal játszottam (amiben szörnyűek a zsetonok, ugye?). I\'m working on this app in my spare time.\n\nMinden egyes vélemény, e-mail vagy adomány tőletek egy kicsit boldogabbá tesz. Az országomban zajló szörnyű események ellenére úgy döntöttem, hogy ez az alkalmazás ingyenes marad, és nem teszek bele reklámokat.\n\nSok köszönet, és örömteli játékokat kívánok!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nSzia, Roma vagyok! Jelenleg Ukrajnában élek, amit nagyon szeretek! Több mint 10 éve megőrülök a&#160;társasjátékokért! Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Star Realms játékkal játszottam (amiben szörnyűek a zsetonok, ugye?). I\'m working on this app in&#160;my spare time.\n\nMinden egyes vélemény, e-mail vagy adomány tőletek egy kicsit boldogabbá tesz. Az országomban zajló szörnyű események ellenére úgy döntöttem, hogy ez az alkalmazás ingyenes marad, és nem teszek bele reklámokat.\n\nSok köszönet, és örömteli játékokat kívánok!</string>
     <string name="about_translators_title">Genijalni prevoditelji</string>
     <string name="action_donate">Kupite programeru kavu</string>
     <string name="action_save">Spremi</string>
@@ -21,7 +21,7 @@
     <string name="counter_details_name">Ime brojača</string>
     <string name="counter_details_step">Povećanje</string>
     <string name="counter_details_value">Vrijednost</string>
-    <string name="counters_empty_message">Odaberi &#160;\"+\" gumb u gornjem desnom kutu za dodavanje novog brojača</string>
+    <string name="counters_empty_message">Odaberi&#160;<b>+</b> gumb u gornjem desnom kutu za dodavanje novog brojača</string>
     <string name="delete">Obriši</string>
     <string name="dialog_confirmation_question">Jeste li sigurni?</string>
     <string name="dialog_no">Ne</string>
@@ -32,7 +32,7 @@
     <string name="dice_empty_state">Pritisni bilo gdje ili protresi uređaj za bacanje kockica</string>
     <string name="dice_sides">Prilagođene stranice kockica</string>
     <string name="history_empty_message">Povijest je još prazna</string>
-    <string name="history_subtitle">briše se nakon ponovnog pokretanja aplikacije \u26a0\ufe0f</string>
+    <string name="history_subtitle">briše se nakon ponovnog pokretanja aplikacije&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Dodaj brojač</string>
     <string name="menu_delete_all_counters">Obriši sve brojače</string>
     <string name="menu_elektu">Tko je prvi?</string>
@@ -42,7 +42,7 @@
     <string name="message_lowest_wins">Logika promjenjena</string>
     <string name="message_app_not_found">Nije pronađena aplikacija za ovu radnju</string>
     <string name="message_one_more_counter">Još jedan</string>
-    <string name="message_thank_you">Hvala na donaciji! \u2665\ufe0e</string>
+    <string name="message_thank_you">Hvala na donaciji!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Pokušajte dugo pritisnuti na +/-</string>
     <string name="setting_help_translate">Pomozi prevesti</string>
     <string name="setting_share">Preporuči prijatelju</string>
@@ -61,7 +61,7 @@
     <string name="simple_edit_value_hint">Unesi vrijednost</string>
     <string name="dice_roll_prefix">Kockadobás:</string>
     <string name="dice_sum_prefix">Sum:</string>
-    <string name="settings_animate_roll">Animálja a kockadobásokat</string>
+    <string name="settings_animate_roll">Animálja a&#160;kockadobásokat</string>
     <string name="common_continue">Nastavi</string>
     <string name="dialog_elektu_confirm">Odprla se bo majhna stran brskalnika, ki vam bo pomagala izbrati nekoga iz skupine.\n\nMade by Julien&#160;Bellue</string>
     <string name="counter_default_name">Brojači</string>

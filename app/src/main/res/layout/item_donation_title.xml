@@ -15,7 +15,7 @@
         android:src="@drawable/donate" />
 
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_big"
         android:fontFamily="@font/o600"

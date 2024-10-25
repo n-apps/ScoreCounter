@@ -9,12 +9,12 @@
         <item>muffalo</item>
         <item>boomrat</item>
         <item>megascarab</item>
-        <item>cobra</item>
+        <item>kobra</item>
         <item>hjort</item>
         <item>vildsvin</item>
         <item>ekorre</item>
         <item>leguan</item>
-        <item>jordstampar</item>
+        <item>jordsvin</item>
         <item>albatross</item>
         <item>alligator</item>
         <item>alpacka</item>
@@ -35,15 +35,15 @@
         <item>buffel</item>
         <item>fjäril</item>
         <item>kamel</item>
-        <item>karibou</item>
+        <item>karibu</item>
         <item>katt</item>
         <item>larv</item>
-        <item>nötkreatur</item>
+        <item>boskap</item>
         <item>gepard</item>
         <item>kyckling</item>
         <item>schimpans</item>
         <item>chinchilla</item>
-        <item>kattunge</item>
+        <item>alpråka</item>
         <item>mussla</item>
         <item>kackerlacka</item>
         <item>torsk</item>
@@ -61,7 +61,7 @@
         <item>duva</item>
         <item>trollslända</item>
         <item>örn</item>
-        <item>Echidna</item>
+        <item>myrpiggsvin</item>
         <item>ål</item>
         <item>eland</item>
         <item>elefant</item>
@@ -86,9 +86,9 @@
         <item>gås</item>
         <item>guldfisk</item>
         <item>gorilla</item>
-        <item>goshawk</item>
+        <item>slaghök</item>
         <item>gräshoppa</item>
-        <item>ljungpipare</item>
+        <item>ripa</item>
         <item>guanaco</item>
         <item>marsvin</item>
         <item>mås</item>
@@ -99,21 +99,21 @@
         <item>häger</item>
         <item>sill</item>
         <item>flodhäst</item>
-        <item>Hornet</item>
+        <item>geting</item>
         <item>häst</item>
-        <item>människa</item>
+        <item>simba</item>
         <item>kolibri</item>
         <item>hyena</item>
         <item>ibis</item>
         <item>schakal</item>
         <item>jaguar</item>
         <item>jay</item>
-        <item>bluejay</item>
-        <item>maneter</item>
+        <item>blåskrika</item>
+        <item>manet</item>
         <item>känguru</item>
         <item>koala</item>
         <item>komodo</item>
-        <item>lärk</item>
+        <item>lärka</item>
         <item>lemur</item>
         <item>leopard</item>
         <item>lejon</item>
@@ -121,11 +121,11 @@
         <item>hummer</item>
         <item>gräshoppa</item>
         <item>lus</item>
-        <item>lyrebird</item>
-        <item>Elritsa</item>
+        <item>lyrfågel</item>
+        <item>skata</item>
         <item>gräsand</item>
         <item>anka</item>
-        <item>Manatee</item>
+        <item>manatee</item>
         <item>mandrill</item>
         <item>mantis</item>
         <item>surikat</item>
@@ -179,7 +179,7 @@
         <item>säl</item>
         <item>haj</item>
         <item>får</item>
-        <item>spindelmus</item>
+        <item>näbbmus</item>
         <item>skunk</item>
         <item>snigel</item>
         <item>orm</item>
@@ -188,7 +188,7 @@
         <item>bläckfisk</item>
         <item>starling</item>
         <item>stingrock</item>
-        <item>stinkbug</item>
+        <item>stinkbagge</item>
         <item>stork</item>
         <item>svalor</item>
         <item>svan</item>
@@ -201,8 +201,8 @@
         <item>kalkon</item>
         <item>sköldpadda</item>
         <item>huggorm</item>
-        <item>murmeldjur</item>
-        <item>gamar</item>
+        <item>sork</item>
+        <item>gam</item>
         <item>wallaby</item>
         <item>valross</item>
         <item>geting</item>
@@ -215,8 +215,8 @@
         <item>mask</item>
         <item>yak</item>
         <item>zebra</item>
-        <item>winnie the pooh</item>
-        <item>kung kong</item>
+        <item>Nalle Puh</item>
+        <item>King Kong</item>
         <item>pudel</item>
         <item>enhörning</item>
         <item>drake</item>
@@ -224,11 +224,11 @@
         <item>älva</item>
         <item>dobby</item>
         <item>cheburashka</item>
-        <item>simba</item>
+        <item>herkules</item>
         <item>scooby doo</item>
         <item>rapunzel</item>
         <item>lejonkungen</item>
-        <item>spongebob</item>
+        <item>svampbob</item>
         <item>chupacabra</item>
         <item>kraken</item>
         <item>loris</item>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nAhoj, já jsem Roma! Momentálně žiju na Ukrajině, kterou naprosto miluju! Do deskových her jsem blázen už více než 10 let! Nápad na tuhle aplikaci mě napadl, když jsem hrála Star Realms (které mají příšerné žetony, že?). Na této aplikaci pracuji ve svém volném čase.\n\nKaždá recenze, e-mail nebo příspěvek od vás mě udělá o něco šťastnějším. Navzdory hrozným událostem v mé zemi jsem se rozhodl ponechat tuto aplikaci zdarma a nepřidávat reklamy.\n\nMoc vám děkuji a přeji vám radostné hry!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nAhoj, já jsem Roma! Momentálně žiju na Ukrajině, kterou naprosto miluju! Do deskových her jsem blázen už více než 10 let! Nápad na tuhle aplikaci mě napadl, když jsem hrála Star Realms (které mají příšerné žetony, že?). Na této aplikaci pracuji ve svém volném čase.\n\nKaždá recenze, e-mail nebo příspěvek od vás mě udělá o něco šťastnějším. Navzdory hrozným událostem v mé zemi jsem se rozhodl ponechat tuto aplikaci zdarma a&#160;nepřidávat reklamy.\n\nMoc vám děkuji a&#160;přeji vám radostné hry!</string>
     <string name="about_translators_title">Úžasní překladatelé</string>
     <string name="action_donate">Koupit vývojáři kávu</string>
     <string name="action_save">Uložit</string>
@@ -23,13 +23,13 @@
     <string name="counter_details_name">Název počítadla</string>
     <string name="counter_details_step">Přírůstek</string>
     <string name="counter_details_value">Hodnota</string>
-    <string name="counters_empty_message">Klepnutím na tlačítko \"+\" v pravém horním rohu přidáte nové počítadlo.</string>
+    <string name="counters_empty_message">Klepnutím na tlačítko <b>+</b> v pravém horním rohu přidáte nové počítadlo.</string>
     <string name="delete">Odstranit</string>
     <string name="dialog_confirmation_question">Jste si jisti?</string>
     <string name="dialog_elektu_confirm">Otevře se malá stránka prohlížeče, která vám pomůže vybrat někoho ze skupiny.\n\nVyrobil Julien&#160;Bellue</string>
     <string name="dialog_no">Ne</string>
     <string name="dialog_predefined_steps">Tyto hodnoty můžete upravit v nastavení</string>
-    <string name="dialog_support_me_content">Ahoj, já jsem Roma. Žiji na Ukrajině a na této aplikaci pracuji ve svém volném čase.Navzdory hrozným událostem v mé zemi jsem se rozhodla, že tato aplikace bude bez reklam. Pokud mě chcete podpořit, zvažte prosím možnost přispět.\n\nDěkuji a doufám, že vás čekají skvělé herní večery!</string>
+    <string name="dialog_support_me_content">Ahoj, já jsem Roma. Žiji na Ukrajině a&#160;na této aplikaci pracuji ve svém volném čase.Navzdory hrozným událostem v mé zemi jsem se rozhodla, že tato aplikace bude bez reklam. Pokud mě chcete podpořit, zvažte prosím možnost přispět.\n\nDěkuji a doufám, že vás čekají skvělé herní večery!</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Součet:</string>
     <string name="donation_title">Udržujte aplikaci bez&#160;reklam</string>
     <string name="history_empty_message">Zatím žádná historie</string>
-    <string name="history_subtitle">vymazáno po restartu aplikace \u26a0\ufe0f</string>
+    <string name="history_subtitle">vymazáno po restartu aplikace&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Přidat počítadlo</string>
     <string name="menu_delete_all_counters">Odstranit vše</string>
     <string name="menu_elektu">Kdo začíná?</string>
@@ -48,7 +48,7 @@
     <string name="message_error_generic">Omlouváme se, zřejmě došlo k chybě.</string>
     <string name="message_lowest_wins">Logika se změnila</string>
     <string name="message_one_more_counter">Ještě jeden</string>
-    <string name="message_thank_you">Děkujeme za Vaši podporu \u2665\ufe0e</string>
+    <string name="message_thank_you">Děkujeme za Vaši podporu&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Zkuste podržet +/-</string>
     <string name="setting_help_translate">Pomoc s překladem</string>
     <string name="setting_share">Sdílejte odkaz ke stažení - Android OS</string>

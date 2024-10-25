@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nMerhaba, ben Roma! Şu anda kesinlikle sevdiğim Ukrayna\'da yaşıyorum! Masa oyunlarına 10 yıldan fazla bir süredir deli oluyorum! Bu uygulama fikri Star Realms oynarken aklıma geldi (korkunç jetonları var, değil mi?). Boş zamanlarımda bu uygulama üzerinde çalışıyorum.\n\nSizden gelen her yorum, e-posta veya bağış beni biraz daha mutlu ediyor. Ülkemdeki korkunç olaylara rağmen, bu uygulamayı ücretsiz tutmaya ve reklam eklememeye karar verdim.\n\nÇok teşekkür ederim ve size keyifli oyunlar dilerim!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nMerhaba, ben Roma! Şu anda kesinlikle sevdiğim Ukrayna\'da yaşıyorum! Masa oyunlarına 10 yıldan fazla bir süredir deli oluyorum! Bu uygulama fikri Star Realms oynarken aklıma geldi (korkunç jetonları var, değil mi?). Boş zamanlarımda bu uygulama üzerinde çalışıyorum.\n\nSizden gelen her yorum, e-posta veya bağış beni biraz daha mutlu ediyor. Ülkemdeki korkunç olaylara rağmen, bu uygulamayı ücretsiz tutmaya ve reklam eklememeye karar verdim.\n\nÇok teşekkür ederim ve size keyifli oyunlar dilerim!</string>
     <string name="about_translators_title">Harika çevirmenler</string>
     <string name="action_donate">Geliştiriciye Bir Kahve Alın</string>
     <string name="action_save">Kaydet</string>
@@ -23,7 +23,7 @@
     <string name="counter_details_name">Sayaç adı</string>
     <string name="counter_details_step">Artış</string>
     <string name="counter_details_value">Değer</string>
-    <string name="counters_empty_message">Yeni bir sayaç eklemek için sağ üst köşedeki \"+\" düğmesine dokunun</string>
+    <string name="counters_empty_message">Yeni bir sayaç eklemek için sağ üst köşedeki <b>+</b> düğmesine dokunun</string>
     <string name="delete">Sil</string>
     <string name="dialog_confirmation_question">Emin misiniz?</string>
     <string name="dialog_elektu_confirm">Gruptan birini seçmenize yardımcı olmak için küçük bir tarayıcı sayfası açılacaktır.\n\nMade by Julien&#160;Bellue</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Toplam:</string>
     <string name="donation_title">Uygulamayı reklamsız tut</string>
     <string name="history_empty_message">Henüz geçmiş yok</string>
-    <string name="history_subtitle">uygulama yeniden başlatıldıktan sonra temizlenir \u26a0\ufe0f</string>
+    <string name="history_subtitle">uygulama yeniden başlatıldıktan sonra temizlenir&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Sayaç ekle</string>
     <string name="menu_delete_all_counters">Tümünü sil</string>
     <string name="menu_elektu">İlk kim başlıyor?</string>
@@ -48,8 +48,8 @@
     <string name="message_error_generic">Üzgünüz, bir hata olmuş gibi görünüyor.</string>
     <string name="message_lowest_wins">Henüz geçmiş yok</string>
     <string name="message_one_more_counter">Bir tane daha</string>
-    <string name="message_thank_you">Desteğiniz için çok teşekkür ederiz \u2665\ufe0e</string>
-    <string name="message_you_can_use_long_press">" +/- tuşlarına daha uzun süre basmayı deneyin"</string>
+    <string name="message_thank_you">Desteğiniz için çok teşekkür ederiz&#160;\ud83d\udc99</string>
+    <string name="message_you_can_use_long_press">+/- tuşlarına daha uzun süre basmayı deneyin</string>
     <string name="setting_help_translate">Çeviriye yardım edin</string>
     <string name="setting_share">Android için indirme adresini paylaşın</string>
     <string name="settings_about">Uygulama hakkında</string>

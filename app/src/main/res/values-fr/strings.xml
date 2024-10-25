@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à Star Realms (qui a des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à Star Realms (qui a&#160;des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
     <string name="about_translators_title">Des traducteurs formidables</string>
     <string name="action_donate">Offrir un café au développeur</string>
     <string name="action_save">Sauvegarder</string>
@@ -23,7 +23,7 @@
     <string name="counter_details_name">Nom du compteur</string>
     <string name="counter_details_step">Incrémenter</string>
     <string name="counter_details_value">Valeur</string>
-    <string name="counters_empty_message">Pour ajouter un nouveau compteur, cliquez sur l\'icône « + » située dans la barre de menus.</string>
+    <string name="counters_empty_message">Pour ajouter un nouveau compteur, cliquez sur l\'icône <b>+</b> située dans la barre de menus.</string>
     <string name="delete">Supprimer</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr ?</string>
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
@@ -36,8 +36,8 @@
     <string name="dice_roll_prefix">Rouleau(x) :</string>
     <string name="dice_sides">Nombre de faces</string>
     <string name="dice_sum_prefix">Somme :</string>
-    <string name="history_empty_message">Il n\'y a pas encore d\'histoire.</string>
-    <string name="history_subtitle">effacé après le redémarrage de l\'application \u26a0\ufe0f</string>
+    <string name="history_empty_message">Il n\'y a&#160;pas encore d\'histoire.</string>
+    <string name="history_subtitle">effacé après le redémarrage de l\'application&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Ajouter un compteur</string>
     <string name="menu_delete_all_counters">Tout supprimer</string>
     <string name="menu_elektu">Qui commence ?</string>
@@ -47,7 +47,7 @@
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
     <string name="message_lowest_wins">La logique a changé.</string>
     <string name="message_one_more_counter">Un de plus</string>
-    <string name="message_thank_you">Merci.</string>
+    <string name="message_thank_you">Merci.&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Essayez d\'appuyer longuement sur la touche « +/- ».</string>
     <string name="setting_help_translate">Aide à la traduction</string>
     <string name="setting_share">Partagez l\'application Android</string>

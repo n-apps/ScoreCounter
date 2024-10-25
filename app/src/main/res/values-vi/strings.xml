@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nXin chào, tên tôi là Roma và tôi đến từ Ukraina. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hạnh phúc. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, hãy cứ vui lòng liên hệ. Tôi đã mất công việc do chiến tranh ở đất nước của mình, nhưng tôi quyết định sẽ giữ ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nXin chào, tên tôi là Roma và tôi đến từ Ukraina. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hạnh phúc. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, hãy cứ vui lòng liên hệ. Tôi đã mất công việc do chiến tranh ở đất nước của mình, nhưng tôi quyết định sẽ giữ ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
     <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
     <string name="action_donate">Đóng góp qua Google&#160;Play</string>
     <string name="action_save">Lưu</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Tổng:</string>
     <string name="donation_title">Ủng hộ để giữ ứng dụng không có quảng cáo</string>
     <string name="history_empty_message">Chưa có lịch sử</string>
-    <string name="history_subtitle">chỉ lần này</string>
+    <string name="history_subtitle">chỉ lần này&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Thêm bộ đếm</string>
     <string name="menu_delete_all_counters">Xóa hết</string>
     <string name="menu_elektu">Ai đi trước?</string>
@@ -48,7 +48,7 @@
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>
     <string name="message_lowest_wins">Logic đã thay đổi</string>
     <string name="message_one_more_counter">Một lần nữa</string>
-    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ \u2665\ufe0e</string>
+    <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Hãy thử chạm lâu vào +/-</string>
     <string name="setting_help_translate">Giúp dịch thuật</string>
     <string name="setting_share">Chia sẽ đường dẫn ứng dụng trên Android</string>

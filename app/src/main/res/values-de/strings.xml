@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nHallo, ich bin Roma! I\ lebe momentan in der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nHallo, ich bin Roma! I\ lebe momentan in&#160;der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in&#160;meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in&#160;meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
     <string name="about_translators_title">Tolle Übersetzer</string>
     <string name="action_donate">Kaufen Sie dem Entwickler einen Kaffee</string>
     <string name="action_save">Speichern</string>
@@ -23,13 +23,13 @@
     <string name="counter_details_name">Zählername</string>
     <string name="counter_details_step">Schritt erhöhen</string>
     <string name="counter_details_value">Wert</string>
-    <string name="counters_empty_message">Um einen neuen Zähler hinzuzufügen, tippen Sie auf das Symbol +.</string>
+    <string name="counters_empty_message">Um einen neuen Zähler hinzuzufügen, tippen Sie auf das Symbol <b>+</b>.</string>
     <string name="delete">Löschen</string>
     <string name="dialog_confirmation_question">Sind Sie sich da sicher?</string>
-    <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen. Erstellt von Julien&#160;Bellue</string>
+    <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen.\n\nErstellt von Julien&#160;Bellue</string>
     <string name="dialog_no">Nein</string>
-    <string name="dialog_predefined_steps">Diese Werte können in den Einstellungen angepasst werden</string>
-    <string name="dialog_support_me_content">Hallo, ich bin Roma. Ich lebe in der Ukraine und arbeite in meiner Freizeit an dieser App.\n\nTrotz der schrecklichen Ereignisse in meinem Land habe ich mich entschieden, diese App werbefrei zu halten. Wenn ihr mich unterstützen wollt, denkt bitte über eine Spende nach.\n\nDanke und ich hoffe, ihr habt ein paar tolle Spieleabende vor euch!</string>
+    <string name="dialog_predefined_steps">Diese Werte können in&#160;den Einstellungen angepasst werden</string>
+    <string name="dialog_support_me_content">Hallo, ich bin Roma. Ich lebe in&#160;der Ukraine und arbeite in&#160;meiner Freizeit an dieser App.\n\nTrotz der schrecklichen Ereignisse in&#160;meinem Land habe ich mich entschieden, diese App werbefrei zu halten. Wenn ihr mich unterstützen wollt, denkt bitte über eine Spende nach.\n\nDanke und ich hoffe, ihr habt ein paar tolle Spieleabende vor euch!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Um zu würfeln, tippen Sie einfach irgendwo auf den Bildschirm.</string>
@@ -37,7 +37,7 @@
     <string name="dice_sides">Eigene Würfelseiten</string>
     <string name="dice_sum_prefix">Summe:</string>
     <string name="history_empty_message">Es gibt noch keine Geschichte</string>
-    <string name="history_subtitle">nach Neustart der App gelöscht \u26a0\ufe0f</string>
+    <string name="history_subtitle">nach Neustart der App gelöscht&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Zähler hinzufügen</string>
     <string name="menu_delete_all_counters">Alle Zähler löschen</string>
     <string name="menu_elektu">Wer fängt an?</string>
@@ -47,7 +47,7 @@
     <string name="message_error_generic">Entschuldigung, es scheint ein Fehler aufgetreten zu sein.</string>
     <string name="message_lowest_wins">Logik verändert</string>
     <string name="message_one_more_counter">Noch einer</string>
-    <string name="message_thank_you">Danke für Ihre Unterstützung</string>
+    <string name="message_thank_you">Danke für Ihre Unterstützung&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Versuchen Sie es mit einem langen Druck auf +/-.</string>
     <string name="setting_help_translate">Übersetzen helfen</string>
     <string name="setting_share">Android-App freigeben</string>

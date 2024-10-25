@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\n我是 Roma！我目前居住在乌克兰，我深爱着这里！我痴迷于桌游已经10 多年了！我在游玩星域奇航时有了制作这款应用的想法，（星域奇航的token很糟糕，对吧？） 我利用空闲时间开发了这款应用。你们的每一条评论、每一封邮件、每一笔捐款都会让我更加开心。尽管我的国家发生了可怕的事情，但我还是决定让这款应用保持免费，并且不添加广告。非常感谢你们的支持，祝你们游戏愉快！</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\n我是 Roma！我目前居住在乌克兰，我深爱着这里！我痴迷于桌游已经10 多年了！我在游玩星域奇航时有了制作这款应用的想法，（星域奇航的token很糟糕，对吧？） 我利用空闲时间开发了这款应用。你们的每一条评论、每一封邮件、每一笔捐款都会让我更加开心。尽管我的国家发生了可怕的事情，但我还是决定让这款应用保持免费，并且不添加广告。非常感谢你们的支持，祝你们游戏愉快！</string>
     <string name="about_translators_title">了不起的翻译者们</string>
     <string name="action_donate">请开发人员喝咖啡</string>
     <string name="action_save">保存</string>
@@ -37,7 +37,7 @@
     <string name="dice_sides">自定义骰子面数</string>
     <string name="dice_sum_prefix">总和：</string>
     <string name="history_empty_message">还没有历史记录</string>
-    <string name="history_subtitle">应用程序重启后清除</string>
+    <string name="history_subtitle">应用程序重启后清除&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">添加计数器</string>
     <string name="menu_delete_all_counters">删除所有计数器</string>
     <string name="menu_elektu">谁先开始？</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\n Cześć, jestem Roma! Obecnie mieszkam w Ukrainie, którą absolutnie kocham! Mam bzika na punkcie gier planszowych od ponad 10 lat! Pomysł na tę aplikację przyszedł mi do głowy, gdy grałem w Star Realms (które ma okropne żetony, prawda?). Pracuję nad tą aplikacją w wolnym czasie. Każda recenzja, e-mail lub darowizna od ciebie sprawia, że jestem trochę szczęśliwszy. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację za darmo i nie dodawać reklam.\n\nDziękuję bardzo i życzę radosnych gier!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\n Cześć, jestem Roma! Obecnie mieszkam w Ukrainie, którą absolutnie kocham! Mam bzika na punkcie gier planszowych od ponad 10 lat! Pomysł na tę aplikację przyszedł mi do głowy, gdy grałem w Star Realms (które ma okropne żetony, prawda?). Pracuję nad tą aplikacją w wolnym czasie. Każda recenzja, e-mail lub darowizna od ciebie sprawia, że jestem trochę szczęśliwszy. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację za darmo i nie dodawać reklam.\n\nDziękuję bardzo i życzę radosnych gier!</string>
     <string name="about_translators_title">Niesamowici tłumacze</string>
     <string name="action_donate">Kup programiście kawę</string>
     <string name="action_save">Zapisz</string>
@@ -23,7 +23,7 @@
     <string name="counter_details_name">Nazwa licznika</string>
     <string name="counter_details_step">Increment</string>
     <string name="counter_details_value">Obecna wartość</string>
-    <string name="counters_empty_message">Stuknij w \"+\" w prawym górnym rogu, aby dodać nowy licznik</string>
+    <string name="counters_empty_message">Stuknij w <b>+</b> w prawym górnym rogu, aby dodać nowy licznik</string>
     <string name="delete">Usuń</string>
     <string name="dialog_confirmation_question">Jesteś pewny/a?</string>
     <string name="dialog_elektu_confirm">Otworzy się mała strona przeglądarki, która pomoże ci wybrać kogoś z grupy.\n\nWykonane przez Julien&#160;Bellue</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Suma:</string>
     <string name="donation_title">Niech ta aplikacja będzie wolna od&#160;reklam</string>
     <string name="history_empty_message">Brak historii</string>
-    <string name="history_subtitle">wyczyszczone po ponownym uruchomieniu aplikacji \u26a0\ufe0f</string>
+    <string name="history_subtitle">wyczyszczone po ponownym uruchomieniu aplikacji&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Dodaj licznik</string>
     <string name="menu_delete_all_counters">Usuń wszystko</string>
     <string name="menu_elektu">Kto pierwszy?</string>
@@ -48,7 +48,7 @@
     <string name="message_error_generic">Przepraszam, wygląda na to, że wystąpił jakiś błąd.</string>
     <string name="message_lowest_wins">Logika się zmieniła</string>
     <string name="message_one_more_counter">Jeszcze jeden</string>
-    <string name="message_thank_you">Dziękuje! \u2665\ufe0e</string>
+    <string name="message_thank_you">Dziękuje!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Spróbuj przytrzymać + lub -</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
     <string name="setting_share">Udostępnij adres pobierania dla Androida</string>

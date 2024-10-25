@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nHi, sono Roma! Attualmente vivo in Ucraina, che adoro! Sono pazza dei giochi da tavolo da più di 10 anni! L\'idea di questa app mi è venuta mentre giocavo a Star Realms (che ha delle pedine terribili, vero?). Sto lavorando a questa app nel mio tempo libero. Ogni recensione, e-mail o donazione da parte vostra mi rende un po\'più felice. Nonostante i terribili eventi nel mio paese, ho deciso di mantenere l\app gratuita e di non aggiungere pubblicità. Grazie mille e vi auguro di giocare con gioia!</string>
+    <string name="about_text">Привіт! \ud83c\<udf3b></udf3b>\n\nHi, sono Roma! Attualmente vivo in&#160;Ucraina, che adoro! Sono pazza dei giochi da tavolo da più di 10 anni! L\'idea di questa app mi è venuta mentre giocavo a Star Realms (che ha delle pedine terribili, vero?). Sto lavorando a questa app nel mio tempo libero. Ogni recensione, e-mail o donazione da parte vostra mi rende un po\'più felice. Nonostante i terribili eventi nel mio paese, ho deciso di mantenere l\app gratuita e di non aggiungere pubblicità. Grazie mille e vi auguro di giocare con gioia!</string>
     <string name="about_translators_title">Traduttori fantastici</string>
     <string name="action_donate">Offrite un caffè allo sviluppatore</string>
     <string name="action_save">Salva</string>
@@ -23,13 +23,13 @@
     <string name="counter_details_name">Nome del segnapunti</string>
     <string name="counter_details_step">Aumento</string>
     <string name="counter_details_value">Valore</string>
-    <string name="counters_empty_message">Toccare il pulsante \"+\" nell\'angolo in alto a&#160;destra per aggiungere un nuovo seganpunti</string>
+    <string name="counters_empty_message">Toccare il pulsante <b>+</b> nell\'angolo in&#160;alto a&#160;destra per aggiungere un nuovo seganpunti</string>
     <string name="delete">Cancella</string>
     <string name="dialog_confirmation_question">Sei sicuro?</string>
-    <string name="dialog_elektu_confirm">Si aprirà una piccola pagina del browser che vi aiuterà a selezionare qualcuno da un gruppo.\nMade by Julien&#160;Bellue</string>
+    <string name="dialog_elektu_confirm">Si aprirà una piccola pagina del browser che vi aiuterà a selezionare qualcuno da un gruppo.\n\nMade by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
-    <string name="dialog_support_me_content">Ciao, sono Roma. Vivo in Ucraina e sto lavorando a questa applicazione nel mio tempo libero.Nonostante i terribili eventi nel mio paese, ho deciso di mantenere questa applicazione senza pubblicità. Se volete sostenermi, prendete in considerazione l\'idea di fare una donazione.Grazie e spero che vi aspettino delle belle serate di gioco!</string>
+    <string name="dialog_support_me_content">Ciao, sono Roma. Vivo in&#160;Ucraina e sto lavorando a questa applicazione nel mio tempo libero.Nonostante i terribili eventi nel mio paese, ho deciso di mantenere questa applicazione senza pubblicità. Se volete sostenermi, prendete in&#160;considerazione l\'idea di fare una donazione.Grazie e spero che vi aspettino delle belle serate di gioco!</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
     <string name="dialog_yes">Sì</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>
@@ -38,7 +38,7 @@
     <string name="dice_sum_prefix">Somma:</string>
     <string name="donation_title">Mantieni l\'app senza pubblicità</string>
     <string name="history_empty_message">Non c\'è ancora la cronologia</string>
-    <string name="history_subtitle">cancellato dopo il riavvio dell\'applicazione \u26a0\ufe0f</string>
+    <string name="history_subtitle">cancellato dopo il riavvio dell\'applicazione&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Aggiungi un seganpunti</string>
     <string name="menu_delete_all_counters">Cancella tutto</string>
     <string name="menu_elektu">A chi tocca per primo?</string>
@@ -48,7 +48,7 @@
     <string name="message_error_generic">Spiacente, sembra essersi verificato un errore.</string>
     <string name="message_lowest_wins">Logica modificata</string>
     <string name="message_one_more_counter">Ancora uno</string>
-    <string name="message_thank_you">Grazie mille per il vostro supporto \u263a\ufe0e</string>
+    <string name="message_thank_you">Grazie mille per il vostro supporto&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Prova a&#160;toccare e tenere premuto +/-</string>
     <string name="setting_help_translate">Aiuta a&#160;tradurre</string>
     <string name="setting_share">Condividi l\'indirizzo di scaricamento per android</string>
@@ -64,6 +64,6 @@
     <string name="settings_sound">Suono</string>
     <string name="settings_stay_awake">Tieni lo schermo acceso</string>
     <string name="settings_switch_tap_logic">Passa da un tocco lungo a&#160;uno breve</string>
-    <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui</string>
+    <string name="share_snippet">Ciao! Score Counter ti aiuterà a&#160;tenere facilmente il punteggio in&#160;qualsiasi gioco, sport o altra attività. Scarica l\'applicazione gratuita per Android qui</string>
     <string name="simple_edit_value_hint">Immetti valore</string>
 </resources>

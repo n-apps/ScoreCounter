@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! 🌻\n\nΓεια σας, είμαι η Ρόμα! Αυτή τη στιγμή ζω στην Ουκρανία, την οποία αγαπώ πολύ! Είμαι τρελός για τα επιτραπέζια παιχνίδια για περισσότερα από 10 χρόνια! Η ιδέα για αυτή την εφαρμογή μου ήρθε όταν έπαιζα Star Realms (το οποίο έχει τρομερές μάρκες, σωστά;). Κάθε κριτική, email ή δωρεά από εσάς με κάνει λίγο πιο ευτυχισμένο. Παρά τα τρομερά γεγονότα στη χώρα μου, αποφάσισα να κρατήσω αυτή την εφαρμογή δωρεάν και να μην προσθέσω διαφημίσεις.\n\nΣας ευχαριστώ πολύ και σας εύχομαι χαρούμενα παιχνίδια!</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nΓεια σας, είμαι η Ρόμα! Αυτή τη στιγμή ζω στην Ουκρανία, την οποία αγαπώ πολύ! Είμαι τρελός για τα επιτραπέζια παιχνίδια για περισσότερα από 10 χρόνια! Η ιδέα για αυτή την εφαρμογή μου ήρθε όταν έπαιζα Star Realms (το οποίο έχει τρομερές μάρκες, σωστά;). Κάθε κριτική, email ή δωρεά από εσάς με κάνει λίγο πιο ευτυχισμένο. Παρά τα τρομερά γεγονότα στη χώρα μου, αποφάσισα να κρατήσω αυτή την εφαρμογή δωρεάν και να μην προσθέσω διαφημίσεις.\n\nΣας ευχαριστώ πολύ και σας εύχομαι χαρούμενα παιχνίδια!</string>
     <string name="about_translators_title">Φοβεροί μεταφραστές</string>
     <string name="action_donate">Αγοράστε έναν καφέ για τον προγραμματιστή</string>
     <string name="action_save">Αποθήκευση</string>
@@ -21,7 +21,7 @@
     <string name="counter_details_name">Όνομα μετρητή</string>
     <string name="counter_details_step">Αύξηση</string>
     <string name="counter_details_value">Τιμή</string>
-    <string name="counters_empty_message">Πατήστε το κουμπί \"+\" στην πάνω δεξιά γωνία για να προσθέσετε έναν μετρητή</string>
+    <string name="counters_empty_message">Πατήστε το κουμπί <b>+</b> στην πάνω δεξιά γωνία για να προσθέσετε έναν μετρητή</string>
     <string name="delete">Διαγραφή</string>
     <string name="dialog_confirmation_question">Είστε σίγουρος/η;</string>
     <string name="dialog_no">Όχι</string>
@@ -32,7 +32,7 @@
     <string name="dice_empty_state">Πατήστε οπουδήποτε ή ανακινήστε την συσκευή σας για να ρίξετε το ζάρι</string>
     <string name="dice_sides">Έδρες του ζαριού</string>
     <string name="history_empty_message">Δεν υπάρχει ιστορικό ακόμα</string>
-    <string name="history_subtitle">διαγράφεται μετά την επανεκκίνηση της εφαρμογής \u26a0\ufe0f</string>
+    <string name="history_subtitle">διαγράφεται μετά την επανεκκίνηση της εφαρμογής&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Νέος μετρητής</string>
     <string name="menu_delete_all_counters">Διαγραφή όλων</string>
     <string name="menu_elektu">Ποιος παίζει πρώτος;</string>
@@ -42,7 +42,7 @@
     <string name="message_lowest_wins">Ο αλγόριθμος άλλαξε</string>
     <string name="message_app_not_found">Δεν βρέθηκε εφαρμογή για αυτήν την ενέργεια</string>
     <string name="message_one_more_counter">Άλλος ένας</string>
-    <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη \u263a\ufe0e</string>
+    <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Μπορείτε να πατήσετε παρατεταμένα τα +/-</string>
     <string name="setting_help_translate">Βοηθήστε στην μετάφραση</string>
     <string name="setting_share">Κοινοποίηση της διεύθυνσης λήψης για Android</string>
