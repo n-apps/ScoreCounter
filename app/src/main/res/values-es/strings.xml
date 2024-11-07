@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nHola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. La idea de esta aplicación se me ocurrió mientras jugaba a&#160;Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nHola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. la&#160;idea de esta aplicación se me ocurrió mientras jugaba a&#160;Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
     <string name="about_translators_title">Traductores increíbles</string>
     <string name="action_donate">Comprar café para el promotor</string>
     <string name="action_save">Guardar</string>
@@ -29,15 +29,15 @@
     <string name="dialog_elektu_confirm">Aparecerá una pequeña página del navegador para ayudarte a&#160;elegir a&#160;alguien de un grupo.\n\nCreado por Julien Bellue.</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">Puedes ajustar esta configuración en el menú Configuración.</string>
-    <string name="dialog_support_me_content">Hola, soy Roma.\n\nVivo en Ucrania y trabajo en esta aplicación en mi tiempo libre. A pesar de los terribles acontecimientos que están ocurriendo en mi país, he decidido mantener esta aplicación sin publicidad. Si quieres ayudarme, considera la posibilidad de hacer una donación.\n\nGracias, ¡y espero que tengas unas noches de juego estupendas!</string>
+    <string name="dialog_support_me_content">Hola, soy Roma.\n\nVivo en Ucrania y trabajo en esta aplicación en mi tiempo libre. A pesar de los terribles acontecimientos que están ocurriendo en mi país, he decidido mantener esta aplicación sin publicidad. Si quieres ayudarme, considera la&#160;posibilidad de hacer una donación.\n\nGracias, ¡y espero que tengas unas noches de juego estupendas!</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
-    <string name="dice_empty_state">Para tirarlos, solo tienes que tocar cualquier parte de la pantalla.</string>
+    <string name="dice_empty_state">Para tirarlos, solo tienes que tocar cualquier parte de la&#160;pantalla.</string>
     <string name="dice_roll_prefix">Tiradas de dados:</string>
     <string name="dice_sides">Lados de dados personalizado</string>
     <string name="dice_sum_prefix">Suma:</string>
     <string name="history_empty_message">Todavía no hay historia.</string>
-    <string name="history_subtitle">se borra después de reiniciar la aplicación&#160;\u26a0\ufe0f</string>
+    <string name="history_subtitle">se borra después de reiniciar la&#160;aplicación&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Añadir contador</string>
     <string name="menu_delete_all_counters">Borrar todo</string>
     <string name="menu_elektu">¿Quién va primero?</string>
@@ -51,8 +51,8 @@
     <string name="message_you_can_use_long_press">Intenta un toque largo en +/-</string>
     <string name="setting_help_translate">Ayuda a&#160;traducir</string>
     <string name="setting_share">Compartir aplicación Android</string>
-    <string name="settings_about">Sobre la aplicación</string>
-    <string name="settings_animate_roll">Animación de la tirada de dados</string>
+    <string name="settings_about">Sobre la&#160;aplicación</string>
+    <string name="settings_animate_roll">Animación de la&#160;tirada de dados</string>
     <string name="settings_appearance">Apariencia</string>
     <string name="settings_change_language">Cambiar de idioma</string>
     <string name="settings_counter_title">Contador (pulsación larga)</string>
@@ -61,9 +61,9 @@
     <string name="settings_rate_app">Consigue esta app en Google Play</string>
     <string name="settings_shake_to_roll">Agitar para tirar los dados</string>
     <string name="settings_sound">Reproducir sonido</string>
-    <string name="settings_stay_awake">Mantener la pantalla encendida</string>
+    <string name="settings_stay_awake">Mantener la&#160;pantalla encendida</string>
     <string name="settings_switch_tap_logic">Intercambiar pulsación corta y larga</string>
-    <string name="share_snippet">No es necesario ir en busca de un lápiz y un papel. Solo tienes que descargar la aplicación gratuita y fácil de usar Scorekeeper para Android</string>
+    <string name="share_snippet">No es necesario ir en busca de un lápiz y un papel. Solo tienes que descargar la&#160;aplicación gratuita y fácil de usar Scorekeeper para Android</string>
     <string name="simple_edit_value_hint">Nuevo valor</string>
-    <string name="donation_title">Mantén la aplicación sin anuncios</string>
+    <string name="donation_title">Mantén la&#160;aplicación sin anuncios</string>
 </resources>

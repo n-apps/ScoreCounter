@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHallo, ich bin Roma! I\ lebe momentan in&#160;der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in&#160;meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in&#160;meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
     <string name="about_translators_title">Tolle Übersetzer</string>
-    <string name="action_donate">Kaufen Sie dem Entwickler einen Kaffee</string>
+    <string name="action_donate">Unterstützen Sie den Entwickler</string>
     <string name="action_save">Speichern</string>
     <string name="app_name">Punktezähler</string>
     <string name="common_back">Zurück</string>

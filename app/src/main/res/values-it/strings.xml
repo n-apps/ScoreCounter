@@ -37,7 +37,7 @@
     <string name="dice_sides">Lati dei dadi personalizzati</string>
     <string name="dice_sum_prefix">Somma:</string>
     <string name="donation_title">Mantieni l\'app senza pubblicità</string>
-    <string name="history_empty_message">Non c\'è ancora la cronologia</string>
+    <string name="history_empty_message">Non c\'è ancora la&#160;cronologia</string>
     <string name="history_subtitle">cancellato dopo il riavvio dell\'applicazione&#160;\u26a0\ufe0f</string>
     <string name="menu_add_new_counter">Aggiungi un seganpunti</string>
     <string name="menu_delete_all_counters">Cancella tutto</string>
@@ -55,7 +55,7 @@
     <string name="settings_about">Informazioni sull\'app</string>
     <string name="settings_animate_roll">Animare i lanci di dadi</string>
     <string name="settings_appearance">Aspetto</string>
-    <string name="settings_change_language">Cambiare la lingua</string>
+    <string name="settings_change_language">Cambiare la&#160;lingua</string>
     <string name="settings_counter_title">Сompteur (Incréments de score)</string>
     <string name="settings_feedback">Mandami i tuoi commenti</string>
     <string name="settings_privacy_policy">Informativa sulla privacy</string>

@@ -43,7 +43,7 @@
     <string name="menu_delete_all_counters">Slet alle tællere</string>
     <string name="menu_elektu">Hvem begynder?</string>
     <string name="menu_history">Historik</string>
-    <string name="menu_reset_all_counters">Nulstil alle tællere</string>
+    <string name="menu_reset_all_counters">Nulstil tællere</string>
     <string name="message_app_not_found">Det ser ud til, at der ikke findes en app, der kan håndtere denne handling.</string>
     <string name="message_error_generic">Det ser ud til, at der har været et teknisk problem.</string>
     <string name="message_lowest_wins">Ændret logik for ledertæller</string>

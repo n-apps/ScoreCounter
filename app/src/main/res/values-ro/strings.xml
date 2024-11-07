@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Atingeți <b>+</b> în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
-    <string name="dialog_support_me_content">Bună, eu sunt Roma. Sunt stabilită în Ucraina și lucrez la această aplicație în timpul meu liber.\n\nÎn ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație fără reclame. Dacă doriți să mă sprijiniți, vă rog să vă gândiți la o donație.\n\nMulțumesc și sper să aveți parte de nopți minunate de jocuri!</string>
+    <string name="dialog_support_me_content">Bună, eu sunt Roma. Sunt stabilită în Ucraina și lucrez la&#160;această aplicație în timpul meu liber.\n\nÎn ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație fără reclame. Dacă doriți să mă sprijiniți, vă rog să vă gândiți la&#160;o donație.\n\nMulțumesc și sper să aveți parte de nopți minunate de jocuri!</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>
@@ -48,8 +48,8 @@
     <string name="message_one_more_counter">Inca unul</string>
     <string name="settings_rate_app">Evaluează pe Google&#160;Play</string>
     <string name="settings_about">Despre aplicație</string>
-    <string name="setting_help_translate">Contribuie la traducere</string>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nHi, sunt Roma! În prezent locuiesc în Ucraina, pe care o iubesc la nebunie! Sunt înnebunită după jocurile de societate de mai bine de 10 ani! Ideea pentru această aplicație mi-a venit când jucam Star Realms (care are jetoane groaznice, nu?). Lucrez la această aplicație în timpul meu liber.\n\nFiecare recenzie, e-mail sau donație de la dvs. mă face un pic mai fericit. În ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație gratuită și să nu adaug reclame.\n\nVă mulțumesc foarte mult și vă doresc jocuri fericite!</string>
+    <string name="setting_help_translate">Contribuie la&#160;traducere</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nHi, sunt Roma! În prezent locuiesc în Ucraina, pe care o iubesc la&#160;nebunie! Sunt înnebunită după jocurile de societate de mai bine de 10 ani! Ideea pentru această aplicație mi-a venit când jucam Star Realms (care are jetoane groaznice, nu?). Lucrez la&#160;această aplicație în timpul meu liber.\n\nFiecare recenzie, e-mail sau donație de la&#160;dvs. mă face un pic mai fericit. În ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație gratuită și să nu adaug reclame.\n\nVă mulțumesc foarte mult și vă doresc jocuri fericite!</string>
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
     <string name="message_lowest_wins">Logica a&#160;fost modificată</string>
     <string name="common_vibrate">Vibrație</string>

@@ -43,7 +43,7 @@
     <string name="menu_delete_all_counters">Radera alla</string>
     <string name="menu_elektu">Vem ska starta?</string>
     <string name="menu_history">Historik</string>
-    <string name="menu_reset_all_counters">Det saknas en app för att hantera detta.</string>
+    <string name="menu_reset_all_counters">Återställ räknare</string>
     <string name="message_app_not_found">Det finns ingen e-postapp på din enhet :(</string>
     <string name="message_error_generic">Det verkar vara ett tekniskt fel.</string>
     <string name="message_lowest_wins">Logiken har ändrats</string>
