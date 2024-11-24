@@ -31,15 +31,13 @@ import java.util.ArrayList;
 
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.SensorHandler;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class DicesFragment extends Fragment {
 
     private static final String ARG_CURRENT_DICE_ROLL = "ARG_CURRENT_DICE_ROLL";
-    private float myAccel = 0f; // acceleration apart from gravity
-    private float myAccelCurrent = SensorManager.GRAVITY_EARTH; // current acceleration including gravity
-    private float myAccelLast = SensorManager.GRAVITY_EARTH; // last acceleration including gravity
-    private long myLastShake;
+
     private int currentRoll;
     private TextView diceVariantInfo;
     private TextView diceHint;
@@ -57,12 +55,13 @@ public class DicesFragment extends Fragment {
     private boolean rollAnimateEnabled;
     private String rollsPrefix;
     private String sumPrefix;
+    private SensorHandler sensorHandler;
 
     public DicesFragment() {
         // Required empty public constructor
     }
 
-    public static DicesFragment newInstance(int lastDiceRoll, int previousDiceRoll) {
+    public static DicesFragment newInstance(int lastDiceRoll) {
         DicesFragment fragment = new DicesFragment();
         Bundle args = new Bundle(1);
         args.putInt(ARG_CURRENT_DICE_ROLL, lastDiceRoll);
@@ -73,6 +72,13 @@ public class DicesFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SensorManager sensorManager = (SensorManager) requireContext().getSystemService(Context.SENSOR_SERVICE);
+        sensorHandler = new SensorHandler(sensorManager);
+        // Configure sensor handler
+        sensorHandler.setShakeThreshold(2.5f); // Increase to reduce accidental shakes
+        sensorHandler.setShakeCooldown(1000); // Keep cooldown to prevent frequent triggers
+
         if (getArguments() != null) {
             currentRoll = getArguments().getInt(ARG_CURRENT_DICE_ROLL);
         }
@@ -102,7 +108,6 @@ public class DicesFragment extends Fragment {
             return true;
         });
 
-
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
         if (soundRollEnabled) {
             mp = MediaPlayer.create(requireActivity(), R.raw.dice_roll);
@@ -115,9 +120,17 @@ public class DicesFragment extends Fragment {
                     .setFinalPosition(1);
         }
         observeData();
+
+        // Enable shake detection if enabled in settings
         if (LocalSettings.isShakeToRollEnabled()) {
-            initSensorData();
+            sensorHandler.enable();
+            sensorHandler.getSensorLiveData().observe(getViewLifecycleOwner(), event -> {
+                if (event != null) {
+                    viewModel.rollDice(); // Perform dice roll on shake event
+                }
+            });
         }
+
         return contentView;
     }
 
@@ -146,10 +159,10 @@ public class DicesFragment extends Fragment {
         soundRollEnabled = LocalSettings.isSoundRollEnabled();
         rollAnimateEnabled = LocalSettings.isDiceAnimated();
 
-        if (!LocalSettings.isShakeToRollEnabled()) {
-            viewModel.getSensorLiveData(getActivity()).removeObservers(getViewLifecycleOwner());
+        if (LocalSettings.isShakeToRollEnabled()) {
+            sensorHandler.enable();
         } else {
-            initSensorData();
+            sensorHandler.disable();
         }
     }
 
@@ -163,31 +176,7 @@ public class DicesFragment extends Fragment {
         }
     }
 
-    private void initSensorData() {
-        viewModel.getSensorLiveData(getActivity()).observe(getViewLifecycleOwner(), se -> {
-            if (se == null) {
-                return;
-            }
-
-            float x = se.values[0];
-            float y = se.values[1];
-            float z = se.values[2];
-            myAccelLast = myAccelCurrent;
-            myAccelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
-            float delta = myAccelCurrent - myAccelLast;
-            myAccel = myAccel * 0.9f + delta; // perform low-cut filter
-
-            if (myAccel > 1.8 && viewModel != null && (System.currentTimeMillis() - myLastShake > 1000)) {
-                myLastShake = System.currentTimeMillis();
-                viewModel.rollDice();
-            }
-        });
-    }
-
-    private void rollDice(@IntRange(from = 1, to = 100) int roll, @NonNull ArrayList<Integer> rolls) {
-        if (soundRollEnabled && mp != null) {
-            mp.start();
-        }
+    private void rollDice(@IntRange(from = 1, to = 100) int roll, @NonNull ArrayList<Integer> rolls, boolean skipAnimation) {
 
         TransitionManager.beginDelayedTransition(root);
         diceTextView.setVisibility(View.VISIBLE);
@@ -197,7 +186,7 @@ public class DicesFragment extends Fragment {
         currentRoll = roll;
         listener.updateCurrentRoll(currentRoll);
 
-        if (rollAnimateEnabled) {
+        if (!skipAnimation && rollAnimateEnabled) {
             if (springForce == null) {
                 springForce = new SpringForce()
                         .setDampingRatio(SpringForce.DAMPING_RATIO_LOW_BOUNCY)
@@ -221,6 +210,9 @@ public class DicesFragment extends Fragment {
                     .addEndListener((animation, canceled, value, velocity) -> {
                         diceTextView.setText("" + roll);
                         updateCompositionLabel(rolls);
+                        if (soundRollEnabled && mp != null) {
+                            mp.start();
+                        }
                     })
                     .start();
         } else {
@@ -301,11 +293,19 @@ public class DicesFragment extends Fragment {
         final DiceLiveData diceLiveData = viewModel.getDiceLiveData();
         diceLiveData.observe(getViewLifecycleOwner(), roll -> {
             if (roll != null && roll > 0) {
-                rollDice(roll, diceLiveData.getRolls());
+                rollDice(roll, diceLiveData.getRolls(), false);
             } else if (currentRoll > 0) {
-                rollDice(currentRoll, new ArrayList<>());
+                rollDice(currentRoll, new ArrayList<>(), true);
             }
         });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (sensorHandler != null) {
+            sensorHandler.disable(); // Clean up sensor registration
+        }
     }
 
     @Override

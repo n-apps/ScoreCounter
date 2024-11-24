@@ -17,17 +17,26 @@ public class LocalSettings {
     private static final String DICE_ANIMATE = "dice_animate";
     private static final String SOUND_ROLL = "sound_roll";
 
-    private static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
-    private static final String IS_SWAP_PRESS_LOGIC = "is_swap_press_logic";
+    public static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
+    public static final String IS_SWAP_PRESS_LOGIC = "is_swap_press_logic";
 
     private static final String KEY_FIRST_HIT_DATE = "key_first_hit_date";
     private static final String KEY_LAUNCH_TIMES = "key_launch_times";
     private static final String KEY_DONATED = "key_donated";
 
-    private static final String CUSTOM_COUNTER_1 = "custom_counter_1";
-    private static final String CUSTOM_COUNTER_2 = "custom_counter_2";
-    private static final String CUSTOM_COUNTER_3 = "custom_counter_3";
-    private static final String CUSTOM_COUNTER_4 = "custom_counter_4";
+    public static final String CUSTOM_COUNTER_1 = "custom_counter_1";
+    public static final String CUSTOM_COUNTER_2 = "custom_counter_2";
+    public static final String CUSTOM_COUNTER_3 = "custom_counter_3";
+    public static final String CUSTOM_COUNTER_4 = "custom_counter_4";
+
+    public static boolean isRelevantToCounters(String key) {
+        return IS_SWAP_PRESS_LOGIC.equals(key) ||
+                IS_COUNTERS_VIBRATE.equals(key) ||
+                CUSTOM_COUNTER_1.equals(key) ||
+                CUSTOM_COUNTER_2.equals(key) ||
+                CUSTOM_COUNTER_3.equals(key) ||
+                CUSTOM_COUNTER_4.equals(key);
+    }
 
     public static int getDefaultTheme() {
         return App.getTinyDB().getInt(APP_THEME_MODE, THEME_SYSTEM);
@@ -94,11 +103,12 @@ public class LocalSettings {
     }
 
     public static long getFirstHitDate() {
-        return App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, -1L);
-    }
-
-    public static void saveFirstHitDate(long hitCount) {
-        App.getTinyDB().putLong(KEY_FIRST_HIT_DATE, hitCount);
+        long firstLaunch = App.getTinyDB().getLong(KEY_FIRST_HIT_DATE, 0);
+        if (firstLaunch == 0) {
+            firstLaunch = System.currentTimeMillis();
+            App.getTinyDB().putLong(KEY_FIRST_HIT_DATE, firstLaunch);
+        }
+        return firstLaunch;
     }
 
     public static int getCustomCounter(int counterId) {

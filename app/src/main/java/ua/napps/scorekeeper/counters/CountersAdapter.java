@@ -77,6 +77,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counter = counter;
             holder.counterName.setText(counter.getName());
             holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
+            holder.counterValue.setTag(this);
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
             int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
@@ -182,7 +183,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         final ImageView decreaseImageView;
         final ImageView increaseImageView;
-        final TextView counterValue;
+        public final TextView counterValue;
         final MaterialCardView container;
         private final CounterActionCallback counterActionCallback;
         private final TextView counterName;
@@ -240,7 +241,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         final ImageView decreaseImageView;
         final ImageView increaseImageView;
-        final TextView counterValue;
+        public final TextView counterValue;
         final MaterialCardView container;
 
         private final int TIME_LONG_CLICK = 300;
@@ -345,6 +346,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             float width = counterClickableArea.getWidth();
             if (x >=  width - width * 0.4) {
                 notifyItemChanged(getAdapterPosition(), isRTL ? DECREASE_VALUE_CLICK : INCREASE_VALUE_CLICK);
+
                 counterActionCallback.onSingleClick(counter, getAdapterPosition(),  isRTL ? MODE_DECREASE_VALUE : MODE_INCREASE_VALUE);
             } else if (x <= width * 0.4) {
                 notifyItemChanged(getAdapterPosition(),  isRTL ? INCREASE_VALUE_CLICK : DECREASE_VALUE_CLICK);
@@ -374,6 +376,5 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
 
         }
-
     }
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.InputFilter;
 import android.text.InputType;
@@ -43,6 +42,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     private SwitcherX soundRoll;
 
     private Vibrator vibrator;
+    private boolean isCountersVibrate;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -69,6 +69,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
 
         int diceCount = LocalSettings.getDiceCount();
         int diceMaxSide = LocalSettings.getDiceMaxSide();
+        isCountersVibrate = LocalSettings.isCountersVibrate();
 
         switch (diceMaxSide) {
             case 4:
@@ -205,7 +206,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     private void validateDiceToggle(MaterialButtonToggleGroup group, int checkedId, int diceMaxSide) {
         switch (checkedId) {
             case R.id.btn_1:
-               validateAndStoreDiceSide(4);
+                validateAndStoreDiceSide(4);
                 break;
             case R.id.btn_2:
                 validateAndStoreDiceSide(6);
@@ -313,14 +314,8 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
     }
 
     private void tryVibrate() {
-        if (!isAdded() || !LocalSettings.isCountersVibrate() || vibrator == null) {
-            return;
-        }
-
-        if (Utilities.hasQ()) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
-        } else {
-            vibrator.vibrate(100L);
+        if (isCountersVibrate) {
+            Utilities.vibrate(requireContext(), vibrator);
         }
     }
 

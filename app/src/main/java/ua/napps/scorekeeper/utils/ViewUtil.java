@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
@@ -24,6 +25,16 @@ import java.lang.reflect.Method;
 import ua.napps.scorekeeper.R;
 
 public class ViewUtil {
+
+    public static void applyTheme(Activity activity, boolean nightModeActive, boolean moreScreen) {
+        int statusBarColor = moreScreen ?
+                ContextCompat.getColor(activity, R.color.colorPrimaryVariant) :
+                ContextCompat.getColor(activity, R.color.primaryBackground);
+
+        boolean lightMode = moreScreen || !nightModeActive;
+        activity.getWindow().setStatusBarColor(statusBarColor);
+        setLightMode(activity, lightMode);
+    }
 
     public static void setLightMode(@NonNull Activity activity, boolean light) {
         Window window = activity.getWindow();

@@ -2,9 +2,12 @@ package ua.napps.scorekeeper.utils;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.TextUtils;
 
 import java.io.BufferedReader;
@@ -81,5 +84,9 @@ public class Utilities {
         return line;
     }
 
-
+    public static void vibrate(Context context, Vibrator vibrator) {
+        if (context != null && vibrator != null) {
+            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+        }
+    }
 }

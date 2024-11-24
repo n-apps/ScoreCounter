@@ -15,17 +15,9 @@ class DiceLiveData extends LiveData<Integer> {
         setValue(0);
     }
 
-
     void rollDice() {
-        this.rolls = new ArrayList<>();
-        int total = 0;
-
-        for (int i = 0; i < diceCount; i++) {
-            int roll = ((int) (Math.random() * diceSides)) + 1;
-            total += roll;
-            this.rolls.add(roll);
-        }
-        setValue(total);
+        this.rolls = DiceRoller.rollDice(diceSides, diceCount);
+        setValue(rolls.stream().mapToInt(Integer::intValue).sum());
     }
 
     public ArrayList<Integer> getRolls(){

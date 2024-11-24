@@ -55,23 +55,7 @@ class CountersViewModel extends AndroidViewModel {
             repository.createCounter(nextName, nextColor, size)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(new CompletableObserver() {
-                        @Override
-                        public void onComplete() {
-                            showSnackbarMessage(R.string.counter_added);
-                            eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                        }
-
-                        @Override
-                        public void onError(@NonNull Throwable e) {
-                            Timber.e(e, "create counter");
-                        }
-
-                        @Override
-                        public void onSubscribe(@NonNull Disposable d) {
-
-                        }
-                    });
+                    .subscribe(createDefaultObserver());
         }
     }
 
@@ -80,47 +64,11 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void decreaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
-        repository.modifyCount(counter.getId(), -amount)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e, "modifyCount counter");
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+        modifyCounter(counter, -amount);
     }
 
     void increaseCounter(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int amount) {
-        repository.modifyCount(counter.getId(), amount)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e, "modifyCount counter");
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+        modifyCounter(counter, amount);
     }
 
     void modifyName(Counter counter, @NonNull String newName) {
@@ -133,22 +81,7 @@ class CountersViewModel extends AndroidViewModel {
         repository.modifyName(counter.getId(), newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e, "modifyName counter");
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createDefaultObserver());
     }
 
     void modifyCurrentValue(Counter counter, @IntRange(from = 0, to = Integer.MAX_VALUE) int newValue) {
@@ -161,22 +94,7 @@ class CountersViewModel extends AndroidViewModel {
         repository.setCount(counter.getId(), newValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createDefaultObserver());
     }
 
     void modifyPosition(Counter counter, int fromIndex, int toIndex) {
@@ -202,6 +120,13 @@ class CountersViewModel extends AndroidViewModel {
 
     }
 
+    private void modifyCounter(Counter counter, int amount) {
+        repository.modifyCount(counter.getId(), amount)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(createDefaultObserver());
+    }
+
     private SparseIntArray buildPositionUpdate(@NonNull List<Counter> counterList, int movedCounterId, int fromPosition, int toPosition) {
         int smallerPosition = Math.min(fromPosition, toPosition);
         int largerPosition = Math.max(fromPosition, toPosition);
@@ -225,25 +150,7 @@ class CountersViewModel extends AndroidViewModel {
         repository.deleteAll()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                        Singleton.getInstance().clearLogEntries();
-                        colorSet.clear();
-                        namesSet.clear();
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e, "remove all");
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createDefaultObserver());
     }
 
     void resetAll() {
@@ -257,85 +164,17 @@ class CountersViewModel extends AndroidViewModel {
         repository.resetAll()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e, "resetAll");
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
-    }
-
-    void resetCounter(Counter counter) {
-        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RST, counter.getDefaultValue(), counter.getValue()));
-
-        repository.setCount(counter.getId(), counter.getDefaultValue())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createDefaultObserver());
     }
 
     private String getNextColor() {
-        if (colorSet.isEmpty()) {
-            boolean nightModeActive = ViewUtil.isNightModeActive(getApplication());
-            String[] colors = getApplication().getResources().getStringArray(nightModeActive ? R.array.list_of_colors_dark : R.array.list_of_colors_light);
-            colorSet.addAll(Arrays.asList(colors));
-        }
-        if (!colorSet.isEmpty()) {
-            String[] array = colorSet.toArray(new String[0]);
-
-            Random rndm = new Random();
-            int rndmNumber = rndm.nextInt(colorSet.size());
-            String value = array[rndmNumber];
-            colorSet.remove(value);
-            return value;
-        } else {
-            return "#5A646D";
-        }
+        return getNextRandom(colorSet, getApplication().getResources()
+                .getStringArray(ViewUtil.isNightModeActive(getApplication()) ? R.array.list_of_colors_dark : R.array.list_of_colors_light), "#5A646D");
     }
 
     private String getNextName() {
-        if (namesSet.isEmpty()) {
-            String[] initialNames = getApplication().getResources().getStringArray(R.array.names);
-            namesSet.addAll(Arrays.asList(initialNames));
-        }
-
-        if (!namesSet.isEmpty()) {
-            String[] array = namesSet.toArray(new String[0]);
-
-            Random rndm = new Random();
-            int rndmNumber = rndm.nextInt(namesSet.size());
-            String value = array[rndmNumber];
-            namesSet.remove(value);
-            return value;
-        } else {
-            return getApplication().getResources().getString(R.string.counter_default_name);
-        }
-
+        return getNextRandom(namesSet, getApplication().getResources()
+                .getStringArray(R.array.names), getApplication().getResources().getString(R.string.counter_default_name));
     }
 
     public SnackbarMessage getSnackbarMessage() {
@@ -363,5 +202,43 @@ class CountersViewModel extends AndroidViewModel {
                 .doOnError(e -> Timber.e(e, "modifyPosition counter"))
                 .onErrorComplete()
                 .subscribe();
+    }
+
+    private void triggerVibration() {
+        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
+    }
+
+    private CompletableObserver createDefaultObserver() {
+        return new CompletableObserver() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+            }
+
+            @Override
+            public void onComplete() {
+                eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Timber.e(e, "subscriber error: %s", e.getMessage());
+            }
+        };
+    }
+
+    private String getNextRandom(Set<String> set, String[] defaultArray, String fallback) {
+        if (set.isEmpty()) {
+            set.addAll(Arrays.asList(defaultArray));
+        }
+
+        if (!set.isEmpty()) {
+            String[] array = set.toArray(new String[0]);
+            Random random = new Random();
+            int index = random.nextInt(set.size());
+            String value = array[index];
+            set.remove(value);
+            return value;
+        }
+        return fallback;
     }
 }

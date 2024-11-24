@@ -3,7 +3,6 @@ package ua.napps.scorekeeper.counters;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import io.reactivex.CompletableObserver;
@@ -14,12 +13,8 @@ import timber.log.Timber;
 import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.utils.Singleton;
-import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
-import ua.napps.scorekeeper.utils.livedata.VibrateIntent;
 
 class EditCounterViewModel extends ViewModel {
-
-    public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
 
     private final CountersRepository countersRepository;
     private final LiveData<Counter> counterLiveData;
@@ -44,84 +39,28 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.modifyColor(id, hex)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createObserver("updateColor"));
     }
 
     void updateDefaultValue(int defaultValue) {
         countersRepository.modifyDefaultValue(id, defaultValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createObserver("new defaultValue"));
     }
 
     void updateName(@NonNull String newName) {
         countersRepository.modifyName(id, newName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createObserver("modifyName"));
     }
 
     void updateStep(int step) {
         countersRepository.modifyStep(id, step)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createObserver("modifyStep"));
     }
 
     void updateValue(int value) {
@@ -130,43 +69,29 @@ class EditCounterViewModel extends ViewModel {
         countersRepository.setCount(id, value)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
-
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-                });
+                .subscribe(createObserver("set new value"));
     }
 
     void deleteCounter() {
         countersRepository.delete(counter)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onComplete() {
-                        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
-                    }
+                .subscribe(createObserver("delete counter"));
+    }
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Timber.e(e);
-                    }
+    private CompletableObserver createObserver(String operation) {
+        return new CompletableObserver() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) { }
 
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
+            @Override
+            public void onComplete() {
+            }
 
-                    }
-                });
+            @Override
+            public void onError(@NonNull Throwable e) {
+                Timber.e(e, "%s failed", operation);
+            }
+        };
     }
 }

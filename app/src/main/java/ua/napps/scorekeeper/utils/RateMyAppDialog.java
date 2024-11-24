@@ -13,16 +13,14 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 
-import java.util.Date;
-
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
 
 public class RateMyAppDialog {
 
-    public static final int MIM_LAUNCH_TIMES = 5;
-    public static final int MIN_DAYS = 5;
+    public static final int LAUNCHES_UNTIL_PROMPT = 6;
+    public static final int DAYS_UNTIL_PROMPT = 3;
 
     private final FragmentActivity context;
     private Dialog dialog;
@@ -31,22 +29,13 @@ public class RateMyAppDialog {
         this.context = activity;
     }
 
-    public void onStart() {
-        if (didDonateAlready()) return;
-
-        int launchTimes = LocalSettings.getAppLaunchTimes();
-        long firstDate = LocalSettings.getFirstHitDate();
-
-        if (firstDate == -1L) {
-            registerDate();
-        }
-
-        registerHitCount(++launchTimes);
-    }
-
     public void showIfNeeded() {
         if (shouldShow()) {
             tryShow(context);
+        } else {
+            int launchTimes = LocalSettings.getAppLaunchTimes();
+
+            registerHitCount(++launchTimes);
         }
     }
 
@@ -56,7 +45,6 @@ public class RateMyAppDialog {
 
     private void remindMeLater() {
         registerHitCount(0);
-        registerDate();
     }
 
     private boolean isShowing() {
@@ -87,24 +75,18 @@ public class RateMyAppDialog {
     private boolean shouldShow() {
         if (didDonateAlready()) return false;
 
-        int launchTimes = LocalSettings.getAppLaunchTimes();
-        long firstDate = LocalSettings.getFirstHitDate();
-        long today = new Date().getTime();
+        int launchCount = LocalSettings.getAppLaunchTimes();
 
-        return daysBetween(firstDate, today) > MIN_DAYS && launchTimes > MIM_LAUNCH_TIMES;
+        if (launchCount >= LAUNCHES_UNTIL_PROMPT) {
+            long firstLaunch = LocalSettings.getFirstHitDate();
+            return System.currentTimeMillis() >= firstLaunch +
+                    (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000);
+        }
+        return false;
     }
 
     private void registerHitCount(int hitCount) {
         LocalSettings.saveAppLaunchTimes(hitCount);
-    }
-
-    private void registerDate() {
-        Date today = new Date();
-        LocalSettings.saveFirstHitDate(today.getTime());
-    }
-
-    private long daysBetween(long firstDate, long lastDate) {
-        return (lastDate - firstDate) / (1000 * 60 * 60 * 24);
     }
 
     private Dialog createDialog(FragmentActivity context) {

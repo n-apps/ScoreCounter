@@ -16,7 +16,6 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.text.InputType;
 import android.text.SpannableString;
@@ -71,6 +70,7 @@ import ua.napps.scorekeeper.log.LogEntry;
 import ua.napps.scorekeeper.log.LogType;
 import ua.napps.scorekeeper.settings.AboutActivity;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.utils.BounceItemAnimator;
 import ua.napps.scorekeeper.utils.ColorUtil;
 import ua.napps.scorekeeper.utils.Singleton;
 import ua.napps.scorekeeper.utils.SpanningLinearLayoutManager;
@@ -94,6 +94,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
+    private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
     private int counterStepDialogMode;
     private int counterStep1;
@@ -148,13 +149,18 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         countersAdapter = new CountersAdapter(this, this);
         recyclerView = contentView.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(spanningLinearLayoutManager);
-        recyclerView.setItemAnimator(null);
+        recyclerView.setItemAnimator(new BounceItemAnimator());
         recyclerView.setAdapter(countersAdapter);
 
         emptyState = contentView.findViewById(R.id.empty_state);
 
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
+        isVibrate = LocalSettings.isCountersVibrate();
+        counterStep1 = LocalSettings.getCustomCounter(1);
+        counterStep2 = LocalSettings.getCustomCounter(2);
+        counterStep3 = LocalSettings.getCustomCounter(3);
+        counterStep4 = LocalSettings.getCustomCounter(4);
 
         mono = getResources().getFont(R.font.mono);
         regular = getResources().getFont(R.font.o400);
@@ -215,6 +221,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .typeface(regular, regular)
+                        .showListener(dialog1 -> {
+                            TextView content = ((MaterialDialog) dialog1).getContentView();
+                            if (content != null) {
+                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                            }
+                        })
                         .positiveText(R.string.delete)
                         .positiveColorRes(R.color.colorError)
                         .negativeText(R.string.dialog_no)
@@ -228,6 +240,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)
+                        .showListener(dialog1 -> {
+                            TextView content = ((MaterialDialog) dialog1).getContentView();
+                            if (content != null) {
+                                content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                            }
+                        })
                         .positiveColorRes(R.color.colorError)
                         .negativeText(R.string.dialog_no)
                         .show();
@@ -265,60 +283,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private void observeData() {
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
-        viewModel.getCounters().observe(getViewLifecycleOwner(), counters -> {
-            if (counters != null) {
-                final int size = counters.size();
-
-                if (size == 0) {
-                    toolbar.setTitle(R.string.common_counters);
-                    emptyState.setVisibility(View.VISIBLE);
-                } else if (size == 1) {
-                    emptyState.setVisibility(View.GONE);
-                } else { // size >= 2
-                    findAndUpdateTopCounterView(counters);
-                    emptyState.setVisibility(View.GONE);
-                }
-
-                if (oldListSize != size) {
-//                    countersAdapter.notifyDataSetChanged();
-                    if (size < CountersAdapter.COUNTERS_LAYOUT_THRESHOLD) {
-                        if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
-                            recyclerView.setLayoutManager(spanningLinearLayoutManager);
-                        }
-                    } else {
-                        if (recyclerView.getLayoutManager().equals(spanningLinearLayoutManager)) {
-                            recyclerView.setLayoutManager(linearLayoutManager);
-                        }
-                    }
-                }
-
-                countersAdapter.setCountersList(counters);
-
-                if (size > oldListSize && oldListSize > 0) {
-                    recyclerView.smoothScrollToPosition(size);
-                }
-                if (isFirstLoad) {
-                    isFirstLoad = false;
-                    recyclerView.post(() -> {
-                                recyclerView.setAdapter(countersAdapter);
-                                ItemTouchHelper.Callback callback = new ItemDragHelperCallback(countersAdapter);
-                                itemTouchHelper = new ItemTouchHelper(callback);
-                                itemTouchHelper.attachToRecyclerView(recyclerView);
-                            }
-                    );
-                } else {
-                    // TODO: 28-Mar-20 smells bad. should be better
-                    if (oldListSize - 1 == size) {
-                        showSnack(R.string.counter_deleted);
-                        viewModel.updatePositions();
-                    }
-
-                }
-                oldListSize = size;
-            } else {
-                emptyState.setVisibility(View.VISIBLE);
-            }
-        });
+        viewModel.getCounters().observe(getViewLifecycleOwner(), this::updateUI);
         viewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), (Observer<Integer>) resourceId -> {
             if (resourceId == R.string.counter_added) {
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
@@ -330,6 +295,58 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
         });
         viewModel.eventBus.observeForever(eventBusObserver);
+    }
+
+    private void updateUI(List<Counter> counters) {
+        if (counters != null) {
+            final int size = counters.size();
+
+            if (size == 0) {
+                toolbar.setTitle(R.string.common_counters);
+                emptyState.setVisibility(View.VISIBLE);
+            } else if (size == 1) {
+                emptyState.setVisibility(View.GONE);
+            } else { // size >= 2
+                findAndUpdateTopCounterView(counters);
+                emptyState.setVisibility(View.GONE);
+            }
+
+            if (oldListSize != size) {
+                if (size < CountersAdapter.COUNTERS_LAYOUT_THRESHOLD) {
+                    if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
+                        recyclerView.setLayoutManager(spanningLinearLayoutManager);
+                    }
+                } else {
+                    if (recyclerView.getLayoutManager().equals(spanningLinearLayoutManager)) {
+                        recyclerView.setLayoutManager(linearLayoutManager);
+                    }
+                }
+            }
+
+            countersAdapter.setCountersList(counters);
+
+            if (size > oldListSize && oldListSize > 0) {
+                recyclerView.smoothScrollToPosition(size);
+            }
+            if (isFirstLoad) {
+                isFirstLoad = false;
+                recyclerView.post(() -> {
+                            recyclerView.setAdapter(countersAdapter);
+                            ItemTouchHelper.Callback callback = new ItemDragHelperCallback(countersAdapter);
+                            itemTouchHelper = new ItemTouchHelper(callback);
+                            itemTouchHelper.attachToRecyclerView(recyclerView);
+                        }
+                );
+            } else {
+                if (oldListSize - 1 == size) {
+                    showSnack(R.string.counter_deleted);
+                    viewModel.updatePositions();
+                }
+            }
+            oldListSize = size;
+        } else {
+            emptyState.setVisibility(View.VISIBLE);
+        }
     }
 
     private void findAndUpdateTopCounterView(List<Counter> counters) {
@@ -407,12 +424,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void handleSingleStep(Counter counter, int mode) {
-        int step = counter.getStep();
-        if (mode == MODE_DECREASE_VALUE) {
-            decreaseValue(counter, step);
-        } else if (mode == MODE_INCREASE_VALUE) {
-            increaseValue(counter, step);
-        }
+        modifyCounterValue(counter, MODE_INCREASE_VALUE == mode);
     }
 
     private void increaseValue(Counter counter, int step) {
@@ -548,14 +560,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void tryVibrate() {
-        if (!isAdded() || !LocalSettings.isCountersVibrate() || vibrator == null) {
-            return;
-        }
-
-        if (Utilities.hasQ()) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
-        } else {
-            vibrator.vibrate(VibrationEffect.createOneShot(50L, 160));
+        if (isVibrate) {
+            Utilities.vibrate(requireContext(), vibrator);
         }
     }
 
@@ -782,6 +788,17 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         EditCounterActivity.start(getActivity(), counter);
     }
 
+    private void modifyCounterValue(Counter counter, boolean increase) {
+        int step = counter.getStep();
+        if (step == 0) return;
+        Singleton.getInstance().addLogEntry(new LogEntry(counter, increase ? LogType.INC : LogType.DEC, step, counter.getValue()));
+        if (increase) {
+            viewModel.increaseCounter(counter, step);
+        } else {
+            viewModel.decreaseCounter(counter, step);
+        }
+    }
+
     public void scrollToTop() {
         if (recyclerView != null) {
             recyclerView.smoothScrollToPosition(0);
@@ -798,14 +815,27 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         viewModel.modifyPosition(counter, fromIndex, toIndex);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
-        counterStep1 = LocalSettings.getCustomCounter(1);
-        counterStep2 = LocalSettings.getCustomCounter(2);
-        counterStep3 = LocalSettings.getCustomCounter(3);
-        counterStep4 = LocalSettings.getCustomCounter(4);
+    public void onSharedPreferencesUpdated(String key) {
+        switch (key) {
+            case LocalSettings.IS_SWAP_PRESS_LOGIC:
+                isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
+                break;
+            case LocalSettings.IS_COUNTERS_VIBRATE:
+                isVibrate = LocalSettings.isCountersVibrate();
+                break;
+            case LocalSettings.CUSTOM_COUNTER_1:
+                counterStep1 = LocalSettings.getCustomCounter(1);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_2:
+                counterStep2 = LocalSettings.getCustomCounter(2);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_3:
+                counterStep3 = LocalSettings.getCustomCounter(3);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_4:
+                counterStep4 = LocalSettings.getCustomCounter(4);
+                break;
+        }
     }
 
     @Override

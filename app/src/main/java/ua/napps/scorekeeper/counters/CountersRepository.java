@@ -8,6 +8,9 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import io.reactivex.Completable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Action;
+import io.reactivex.schedulers.Schedulers;
 
 class CountersRepository {
 
@@ -44,6 +47,9 @@ class CountersRepository {
     }
 
     public Completable modifyCount(int counterId, int difference) {
+        if (difference == 0) {
+            return Completable.complete(); // No-op
+        }
         return countersDao.modifyValue(counterId, difference);
     }
 
@@ -60,7 +66,7 @@ class CountersRepository {
     }
 
     public Completable modifyPositionBatch(@NonNull SparseIntArray positionMap) {
-        return Completable.fromAction(() -> countersDao.modifyPositionBatch(positionMap));
+        return wrapDaoOperation(() -> countersDao.modifyPositionBatch(positionMap));
     }
 
     public Completable resetAll() {
@@ -69,5 +75,11 @@ class CountersRepository {
 
     public Completable setCount(int counterId, int value) {
         return countersDao.setValue(counterId, value);
+    }
+
+    private Completable wrapDaoOperation(Action action) {
+        return Completable.fromAction(action)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }

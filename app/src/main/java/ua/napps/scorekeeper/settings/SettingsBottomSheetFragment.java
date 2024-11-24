@@ -12,7 +12,6 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.InputType;
@@ -49,6 +48,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
     private SwitcherX keepScreenOn, vibrate, pressLogic;
     private Vibrator vibrator;
+    private boolean isCountersVibrate;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container, @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -70,7 +70,8 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
 
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled(), false);
         keepScreenOn.setClickable(false);
-        vibrate.setChecked(LocalSettings.isCountersVibrate(), false);
+        isCountersVibrate = LocalSettings.isCountersVibrate();
+        vibrate.setChecked(isCountersVibrate, false);
         vibrate.setClickable(false);
         pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled(), false);
         pressLogic.setClickable(false);
@@ -294,14 +295,8 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
     }
 
     private void tryVibrate() {
-        if (!isAdded() || !LocalSettings.isCountersVibrate() || vibrator == null) {
-            return;
-        }
-
-        if (Utilities.hasQ()) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
-        } else {
-            vibrator.vibrate(100L);
+        if (isCountersVibrate) {
+            Utilities.vibrate(requireContext(), vibrator);
         }
     }
 

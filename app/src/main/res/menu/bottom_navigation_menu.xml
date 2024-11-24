@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_dice"
         android:title="@string/common_dice" />
     <item
-        android:id="@+id/more"
+        android:id="@+id/settings"
         android:icon="@drawable/ic_settings"
         android:title="@string/common_settings" />
 </menu>
