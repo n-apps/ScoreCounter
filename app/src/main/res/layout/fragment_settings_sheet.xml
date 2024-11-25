@@ -35,7 +35,7 @@
         tools:visibility="visible"
         android:text="@string/settings_change_language"
         android:textAppearance="?attr/textAppearanceSubtitle1"
-        app:drawableStartCompat="@drawable/ic_translator"
+        app:drawableStartCompat="@drawable/ic_translate"
         app:drawableTint="?attr/colorControlNormal" />
 
     <com.google.android.material.divider.MaterialDivider

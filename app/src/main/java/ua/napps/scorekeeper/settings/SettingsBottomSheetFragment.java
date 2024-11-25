@@ -16,6 +16,7 @@ import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.InputType;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -243,8 +244,10 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         Typeface mono = getResources().getFont(R.font.mono);
         Typeface regular = getResources().getFont(R.font.o400);
 
+        String title = getString(R.string.settings_counter_title) + ": " + id;
+
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
-                .title(R.string.settings_counter_title)
+                .title(title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
                 .contentColorRes(R.color.textColorPrimary)
@@ -255,11 +258,13 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 .typeface(regular, mono)
                 .input(oldValue, null, false, (dialog, input) -> {
                 })
+
                 .showListener(dialogInterface -> {
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
                         inputEditText.requestFocus();
                         inputEditText.setTransformationMethod(null);
+                        inputEditText.setGravity(Gravity.CENTER);
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                     }
                 })

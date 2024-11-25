@@ -6,7 +6,6 @@
 
     <path
         android:fillColor="?attr/colorOnSurface"
-        android:fillType="evenOdd"
-        android:pathData="M2.5,12A1.5,1.5 0,0 1,4 10.5h16a1.5,1.5 0,0 1,0 3H4A1.5,1.5 0,0 1,2.5 12" />
+        android:pathData="M10.5,20a1.5,1.5 0,0 0,3 0v-6.5H20a1.5,1.5 0,0 0,0 -3h-6.5V4a1.5,1.5 0,0 0,-3 0v6.5H4a1.5,1.5 0,0 0,0 3h6.5z" />
 
 </vector>

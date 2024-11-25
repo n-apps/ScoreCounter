@@ -90,6 +90,7 @@
                 <ImageView
                     android:id="@+id/iv_decrease"
                     android:layout_width="@dimen/button_icon_size"
+                    android:alpha=".5"
                     android:layout_height="@dimen/button_icon_size"
                     android:layout_gravity="start|center_vertical"
                     android:layout_marginStart="@dimen/spacing_big"
@@ -104,8 +105,9 @@
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginEnd="@dimen/spacing_big"
                     android:clickable="false"
+                    android:alpha=".5"
                     android:contentDescription="@string/common_increase"
-                    android:src="@drawable/ic_add" />
+                    android:src="@drawable/ic_plus" />
             </FrameLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -144,7 +144,7 @@
                 android:drawablePadding="@dimen/padding_normal"
                 android:text="@string/settings_feedback"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:drawableStartCompat="@drawable/ic_email"
+                app:drawableStartCompat="@drawable/ic_mail"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -170,7 +170,7 @@
                 android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/settings_rate_app"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:drawableStartCompat="@drawable/ic_review"
+                app:drawableStartCompat="@drawable/ic_star"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -183,7 +183,7 @@
                 android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/action_donate"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:drawableStartCompat="@drawable/ic_cafe"
+                app:drawableStartCompat="@drawable/ic_teacup"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

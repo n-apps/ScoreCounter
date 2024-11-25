@@ -135,7 +135,7 @@
                 android:textColor="#182e3f"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:iconPadding="@dimen/padding_normal"
-                app:icon="@drawable/ic_translator"
+                app:icon="@drawable/ic_translate"
                 app:iconGravity="textEnd"
                 app:iconTint="#182e3f" />
 

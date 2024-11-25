@@ -8,15 +8,15 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="0dp"
     app:cardElevation="0dp"
-    app:strokeWidth="0.5dp"
     app:strokeColor="@color/material_on_surface_disabled"
+    app:strokeWidth="0.5dp"
     tools:backgroundTint="#3AA99F">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
         android:layout_marginVertical="@dimen/spacing_micro"
+        android:baselineAligned="false"
         android:gravity="center_vertical"
         android:minHeight="@dimen/list_two_lines_min_height"
         android:orientation="horizontal">
@@ -45,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start|center_vertical"
+            android:alpha=".5"
             android:contentDescription="@string/common_increase"
             android:foreground="@drawable/ripple"
             android:paddingHorizontal="16dp"
@@ -69,11 +70,12 @@
             android:id="@+id/iv_increase"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:alpha=".5"
             android:contentDescription="@string/common_decrease"
             android:foreground="@drawable/ripple"
             android:paddingHorizontal="16dp"
             android:scaleType="center"
-            android:src="@drawable/ic_add"
+            android:src="@drawable/ic_plus"
             tools:tint="@color/primary_text_default_material_dark" />
 
     </LinearLayout>

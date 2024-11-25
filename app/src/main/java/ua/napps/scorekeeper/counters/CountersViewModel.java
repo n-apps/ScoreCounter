@@ -55,7 +55,22 @@ class CountersViewModel extends AndroidViewModel {
             repository.createCounter(nextName, nextColor, size)
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
-                    .subscribe(createDefaultObserver());
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
+                            showSnackbarMessage(R.string.counter_added);
+                        }
+
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            Timber.e(e, "subscriber error: %s", e.getMessage());
+                        }
+                    });
         }
     }
 
@@ -202,10 +217,6 @@ class CountersViewModel extends AndroidViewModel {
                 .doOnError(e -> Timber.e(e, "modifyPosition counter"))
                 .onErrorComplete()
                 .subscribe();
-    }
-
-    private void triggerVibration() {
-        eventBus.postValue(new SingleShotEvent<>(new VibrateIntent()));
     }
 
     private CompletableObserver createDefaultObserver() {

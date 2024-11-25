@@ -9,6 +9,7 @@ import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -161,6 +162,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                         inputEditText.requestFocus();
                                         inputEditText.setTransformationMethod(null);
                                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                        inputEditText.setGravity(Gravity.CENTER);
                                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                                     }
                                 })
@@ -249,6 +251,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                 inputEditText.requestFocus();
                                 inputEditText.setTransformationMethod(null);
                                 inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
+                                inputEditText.setGravity(Gravity.CENTER);
                                 inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 48);
                             }
                         })

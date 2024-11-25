@@ -181,7 +181,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private void showSnack(@StringRes Integer messageId) {
         Snackbar snack = Snackbar.make(recyclerView, messageId, Snackbar.LENGTH_SHORT);
-        snack.setAnchorView(R.id.bottom_navigation);
         snack.show();
     }
 
@@ -288,7 +287,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (resourceId == R.string.counter_added) {
                 Snackbar.make(recyclerView, getString(resourceId), Snackbar.LENGTH_SHORT)
                         .setAction(R.string.message_one_more_counter, v -> viewModel.addCounter())
-                        .setAnchorView(R.id.bottom_navigation)
                         .show();
             } else {
                 showSnack(resourceId);
