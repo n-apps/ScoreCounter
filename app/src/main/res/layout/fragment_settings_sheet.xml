@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/padding_normal"
+        android:foreground="@drawable/ripple"
         android:text="@string/settings_appearance"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableStartCompat="@drawable/ic_brightness"
@@ -30,6 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawablePadding="@dimen/padding_normal"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:text="@string/settings_change_language"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         app:drawableStartCompat="@drawable/ic_translator"
@@ -113,80 +116,6 @@
         android:layout_height="wrap_content"
         android:text="@string/settings_counter_title" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/spacing_normal"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:paddingHorizontal="@dimen/padding_large">
-
-        <ua.napps.scorekeeper.utils.SquareFrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_large"
-            android:layout_weight="1"
-            android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_counter_toggle"
-            android:foreground="@drawable/ripple">
-
-            <TextView
-                android:id="@+id/btn_1_text"
-                style="@style/MiniDiceStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="+5" />
-        </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-        <ua.napps.scorekeeper.utils.SquareFrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_large"
-            android:layout_weight="1"
-            android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_counter_toggle">
-
-            <TextView
-                android:id="@+id/btn_2_text"
-                style="@style/MiniDiceStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="+5" />
-        </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-        <ua.napps.scorekeeper.utils.SquareFrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_large"
-            android:layout_weight="1"
-            android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_counter_toggle">
-
-            <TextView
-                android:id="@+id/btn_3_text"
-                style="@style/MiniDiceStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="+5" />
-        </ua.napps.scorekeeper.utils.SquareFrameLayout>
-
-        <ua.napps.scorekeeper.utils.SquareFrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            android:layout_weight="1"
-            android:addStatesFromChildren="true"
-            android:background="@drawable/bg_selector_counter_toggle">
-
-            <TextView
-                android:id="@+id/btn_4_text"
-                style="@style/MiniDiceStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="+5" />
-        </ua.napps.scorekeeper.utils.SquareFrameLayout>
-    </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/settings_swap_press"
         style="@style/TwoLinesStyle"
@@ -218,12 +147,168 @@
 
     </RelativeLayout>
 
+
+    <LinearLayout
+        android:id="@+id/first_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_large"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/counter_info_header">
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_1_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_2_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+10"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_3_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+15"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_large"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_buttons">
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_4_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+20"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_5_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+50"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_six"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_6_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+100"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_seven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_7_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+200"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+    </LinearLayout>
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_close"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="@dimen/spacing_xlarge"
+        android:layout_marginVertical="@dimen/spacing_large"
         android:contentDescription="@string/common_back"
         app:backgroundTint="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"

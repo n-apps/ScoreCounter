@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">Oh, ¿estás seguro de eso?</string>
     <string name="dialog_elektu_confirm">Aparecerá una pequeña página del navegador para ayudarte a&#160;elegir a&#160;alguien de un grupo.\n\nCreado por Julien Bellue.</string>
     <string name="dialog_no">No</string>
-    <string name="dialog_predefined_steps">Puedes ajustar esta configuración en el menú Configuración.</string>
+    <string name="dialog_predefined_steps">☃︎: Puede cambiar estos valores en la configuración</string>
     <string name="dialog_support_me_content">Hola, soy Roma.\n\nVivo en Ucrania y trabajo en esta aplicación en mi tiempo libre. A pesar de los terribles acontecimientos que están ocurriendo en mi país, he decidido mantener esta aplicación sin publicidad. Si quieres ayudarme, considera la&#160;posibilidad de hacer una donación.\n\nGracias, ¡y espero que tengas unas noches de juego estupendas!</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>

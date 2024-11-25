@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/spacing_large"
+    android:paddingBottom="@dimen/padding_normal"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -12,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:minHeight="@dimen/list_two_lines_min_height"
         android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingVertical="@dimen/padding_normal"
-        app:layout_constraintBottom_toTopOf="@id/buttons_row"
+        app:layout_constraintBottom_toTopOf="@id/first_buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:background="#F2B04B">
@@ -50,11 +49,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/buttons_row"
+        android:id="@+id/first_buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/spacing_big"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/padding_large"
         android:baselineAligned="false"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +64,7 @@
             android:id="@+id/btn_one"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
@@ -83,8 +82,7 @@
             android:id="@+id/btn_two"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_large"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
@@ -103,7 +101,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/spacing_normal"
-            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
@@ -113,15 +110,29 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:text="+150"
+                tools:text="+15"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_big"
+        android:layout_marginTop="@dimen/padding_large"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_buttons">
 
         <ua.napps.scorekeeper.utils.SquareFrameLayout
             android:id="@+id/btn_four"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:layout_weight="1"
             android:background="@drawable/bg_selector_counter_toggle"
             android:padding="@dimen/spacing_micro">
@@ -131,7 +142,65 @@
                 style="@style/MiniDiceStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:text="+30"
+                android:padding="@dimen/spacing_micro"
+                tools:text="+20"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_five_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/spacing_micro"
+                tools:text="+50"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_six"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_six_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+100"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_seven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_seven_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+200"
                 tools:textSize="18sp" />
         </ua.napps.scorekeeper.utils.SquareFrameLayout>
     </LinearLayout>
@@ -144,9 +213,9 @@
         android:gravity="center_horizontal"
         android:text="@string/dialog_predefined_steps"
         android:textAppearance="?attr/textAppearanceCaption"
-        app:layout_constraintEnd_toEndOf="@id/buttons_row"
-        app:layout_constraintStart_toStartOf="@id/buttons_row"
-        app:layout_constraintTop_toBottomOf="@id/buttons_row" />
+        app:layout_constraintEnd_toEndOf="@id/first_buttons"
+        app:layout_constraintStart_toStartOf="@id/first_buttons"
+        app:layout_constraintTop_toBottomOf="@id/second_buttons" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/group_sign_btn"
@@ -156,7 +225,7 @@
         android:layout_marginEnd="@dimen/spacing_big"
         app:layout_constraintBottom_toBottomOf="@id/til_custom_step"
         app:layout_constraintEnd_toStartOf="@id/til_custom_step"
-        app:layout_constraintStart_toStartOf="@id/buttons_row"
+        app:layout_constraintStart_toStartOf="@id/first_buttons"
         app:layout_constraintTop_toTopOf="@id/til_custom_step"
         app:selectionRequired="true"
         app:singleSelection="true">
@@ -201,7 +270,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_xlarge"
+        android:layout_marginTop="@dimen/spacing_large"
         android:hint="@string/simple_edit_value_hint"
         android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
         app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
@@ -212,7 +281,7 @@
         app:hintEnabled="true"
         app:hintTextAppearance="?attr/textAppearanceCaption"
         app:hintTextColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="@id/buttons_row"
+        app:layout_constraintEnd_toEndOf="@id/first_buttons"
         app:layout_constraintStart_toEndOf="@id/group_sign_btn"
         app:layout_constraintTop_toBottomOf="@id/tv_hint">
 

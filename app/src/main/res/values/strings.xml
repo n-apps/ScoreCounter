@@ -29,7 +29,7 @@
     <string name="dialog_confirmation_question">Oh, you\'re sure about that?</string>
     <string name="dialog_elektu_confirm">A small browser page will pop up to&#160;help you choose someone from a&#160;group.\n\nCreated by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
-    <string name="dialog_predefined_steps">You can tweak these settings in&#160;the Settings screen.</string>
+    <string name="dialog_predefined_steps">☃︎: you can tweak these values in&#160;the Settings</string>
     <string name="dialog_support_me_content">Hi, I\'m Roma. I\'m based in&#160;Ukraine and I\'m working on this app in&#160;my spare time.\n\nDespite the&#160;terrible events in&#160;my country, I\'ve decided to&#160;keep this app ad-free. If you\'d like to&#160;support me, please consider donating.\n\nThanks, and I&#160;hope you have some great game nights ahead!</string>
     <string name="dialog_support_me_remind_me_later">Later</string>
     <string name="dialog_yes">Yes</string>

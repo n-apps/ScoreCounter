@@ -11,8 +11,8 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 7
-ext.versionMinor = 11
-ext.versionPatch = 7
+ext.versionMinor = 12
+ext.versionPatch = 1
 ext.postfix = ''
 
 android {

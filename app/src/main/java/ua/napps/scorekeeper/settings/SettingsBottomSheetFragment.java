@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -45,7 +46,7 @@ import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class SettingsBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
 
-    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4;
+    private TextView btn_c_1, btn_c_2, btn_c_3, btn_c_4, btn_c_5, btn_c_6, btn_c_7;
     private SwitcherX keepScreenOn, vibrate, pressLogic;
     private Vibrator vibrator;
     private boolean isCountersVibrate;
@@ -57,10 +58,14 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         keepScreenOn = contentView.findViewById(R.id.sw_keep_screen_on);
         vibrate = contentView.findViewById(R.id.sw_vibrate);
         pressLogic = contentView.findViewById(R.id.sw_swap_press);
+
         btn_c_1 = contentView.findViewById(R.id.btn_1_text);
         btn_c_2 = contentView.findViewById(R.id.btn_2_text);
         btn_c_3 = contentView.findViewById(R.id.btn_3_text);
         btn_c_4 = contentView.findViewById(R.id.btn_4_text);
+        btn_c_5 = contentView.findViewById(R.id.btn_5_text);
+        btn_c_6 = contentView.findViewById(R.id.btn_6_text);
+        btn_c_7 = contentView.findViewById(R.id.btn_7_text);
 
         contentView.findViewById(R.id.settings_keep_screen_on).setOnClickListener(this);
         contentView.findViewById(R.id.tv_app_theme).setOnClickListener(this);
@@ -71,29 +76,35 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         keepScreenOn.setChecked(LocalSettings.isKeepScreenOnEnabled(), false);
         keepScreenOn.setClickable(false);
         isCountersVibrate = LocalSettings.isCountersVibrate();
+
+        vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
         vibrate.setChecked(isCountersVibrate, false);
         vibrate.setClickable(false);
+
         pressLogic.setChecked(LocalSettings.isSwapPressLogicEnabled(), false);
         pressLogic.setClickable(false);
-        vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
-        TextView openAppInfo = contentView.findViewById(R.id.tv_open_app_info);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU || Utilities.isMiuiRom()) {
-            openAppInfo.setVisibility(View.GONE);
-        } else {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Utilities.isMiuiRom()) {
+            TextView openAppInfo = contentView.findViewById(R.id.tv_open_app_info);
             openAppInfo.setVisibility(View.VISIBLE);
             openAppInfo.setOnClickListener(this);
         }
 
-        btn_c_1.setOnClickListener(this);
-        btn_c_2.setOnClickListener(this);
-        btn_c_3.setOnClickListener(this);
-        btn_c_4.setOnClickListener(this);
+        contentView.findViewById(R.id.btn_one).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_two).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_three).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_four).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_five).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_six).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_seven).setOnClickListener(this);
 
         btn_c_1.setText(String.valueOf(LocalSettings.getCustomCounter(1)));
         btn_c_2.setText(String.valueOf(LocalSettings.getCustomCounter(2)));
         btn_c_3.setText(String.valueOf(LocalSettings.getCustomCounter(3)));
         btn_c_4.setText(String.valueOf(LocalSettings.getCustomCounter(4)));
+        btn_c_5.setText(String.valueOf(LocalSettings.getCustomCounter(5)));
+        btn_c_6.setText(String.valueOf(LocalSettings.getCustomCounter(6)));
+        btn_c_7.setText(String.valueOf(LocalSettings.getCustomCounter(7)));
 
         return contentView;
     }
@@ -188,17 +199,26 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                     ViewUtil.shakeView(v, 2, 0);
                 }
                 break;
-            case R.id.btn_1_text:
-                openCustomCounterDialog(1, ((TextView) v).getText());
+            case R.id.btn_one:
+                openCustomCounterDialog(1, btn_c_1.getText());
                 break;
-            case R.id.btn_2_text:
-                openCustomCounterDialog(2, ((TextView) v).getText());
+            case R.id.btn_two:
+                openCustomCounterDialog(2, btn_c_2.getText());
                 break;
-            case R.id.btn_3_text:
-                openCustomCounterDialog(3, ((TextView) v).getText());
+            case R.id.btn_three:
+                openCustomCounterDialog(3, btn_c_3.getText());
                 break;
-            case R.id.btn_4_text:
-                openCustomCounterDialog(4, ((TextView) v).getText());
+            case R.id.btn_four:
+                openCustomCounterDialog(4, btn_c_4.getText());
+                break;
+            case R.id.btn_five:
+                openCustomCounterDialog(5, btn_c_5.getText());
+                break;
+            case R.id.btn_six:
+                openCustomCounterDialog(6, btn_c_6.getText());
+                break;
+            case R.id.btn_seven:
+                openCustomCounterDialog(7, btn_c_7.getText());
                 break;
             case R.id.settings_swap_press:
                 boolean newStateSwapPress = !pressLogic.isChecked();
@@ -219,7 +239,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
         }
     }
 
-    private void openCustomCounterDialog(final int id, CharSequence oldValue) {
+    private void openCustomCounterDialog(@IntRange(from = 1, to = 7) final int id, CharSequence oldValue) {
         Typeface mono = getResources().getFont(R.font.mono);
         Typeface regular = getResources().getFont(R.font.o400);
 
@@ -271,7 +291,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
-    private void setCustomCounter(int id, int value) {
+    private void setCustomCounter(@IntRange(from = 1, to = 7) int id, int value) {
         LocalSettings.saveCustomCounter(id, value);
         tryVibrate();
         switch (id) {
@@ -290,6 +310,18 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
             case 4:
                 btn_c_4.setText(String.valueOf(value));
                 ViewUtil.shakeView(btn_c_4, 4, 0);
+                break;
+            case 5:
+                btn_c_5.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_5, 4, 0);
+                break;
+            case 6:
+                btn_c_6.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_6, 4, 0);
+                break;
+            case 7:
+                btn_c_7.setText(String.valueOf(value));
+                ViewUtil.shakeView(btn_c_7, 4, 0);
                 break;
         }
     }

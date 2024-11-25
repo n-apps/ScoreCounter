@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">Дiйсно хочеш цього?</string>
     <string name="dialog_elektu_confirm">Відкриється невелика сторінка браузера, яка допоможе вам вибрати когось із групи.\n\nРозробив Жюльєн Беллью</string>
     <string name="dialog_no">Ні</string>
-    <string name="dialog_predefined_steps">Ви можете змінити ці значення у налаштуваннях</string>
+    <string name="dialog_predefined_steps">☃︎: ви можете змінювати ці значення у налаштуваннях</string>
     <string name="dialog_support_me_content">Привіт! Мене звати Рома, я зараз в Києві. Працюю над цим застосунком у вільний час.\n\nНезважаючи на війну у моїй країні, я вирішив залишити його без додавання реклами. Якщо ви хочете підтримати мене, будь ласка, розгляньте можливість донату.\n\nДякую!</string>
     <string name="dialog_support_me_remind_me_later">Пізніше</string>
     <string name="dialog_yes">Так</string>

@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">Sind Sie sich da sicher?</string>
     <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen.\n\nErstellt von Julien&#160;Bellue</string>
     <string name="dialog_no">Nein</string>
-    <string name="dialog_predefined_steps">Diese Werte können in&#160;den Einstellungen angepasst werden</string>
+    <string name="dialog_predefined_steps">☃︎: Sie können diese Werte in den Einstellungen ändern</string>
     <string name="dialog_support_me_content">Hallo, ich bin Roma. Ich lebe in&#160;der Ukraine und arbeite in&#160;meiner Freizeit an dieser App.\n\nTrotz der schrecklichen Ereignisse in&#160;meinem Land habe ich mich entschieden, diese App werbefrei zu halten. Wenn ihr mich unterstützen wollt, denkt bitte über eine Spende nach.\n\nDanke und ich hoffe, ihr habt ein paar tolle Spieleabende vor euch!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="dialog_yes">Ja</string>

@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">Êtes-vous sûr ?</string>
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
     <string name="dialog_no">Non</string>
-    <string name="dialog_predefined_steps">Vous pouvez modifier ces valeurs dans les paramètres.</string>
+    <string name="dialog_predefined_steps">☃︎: vous pouvez modifier ces valeurs dans les Paramètres</string>
     <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma. Je suis basée en Ukraine et je travaille sur cette application pendant mon temps libre. Malgré les terribles événements qui se déroulent dans mon pays, j\'ai décidé de garder cette application sans publicité. Si vous souhaitez me soutenir, n\'hésitez pas à faire un don. \n\nMerci, et j\'espère que vous passerez d\'excellentes soirées de jeu !</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="dialog_yes">Oui</string>

@@ -1,5 +1,7 @@
 package ua.napps.scorekeeper.settings;
 
+import androidx.annotation.IntRange;
+
 import ua.napps.scorekeeper.app.App;
 
 public class LocalSettings {
@@ -28,6 +30,9 @@ public class LocalSettings {
     public static final String CUSTOM_COUNTER_2 = "custom_counter_2";
     public static final String CUSTOM_COUNTER_3 = "custom_counter_3";
     public static final String CUSTOM_COUNTER_4 = "custom_counter_4";
+    public static final String CUSTOM_COUNTER_5 = "custom_counter_5";
+    public static final String CUSTOM_COUNTER_6 = "custom_counter_6";
+    public static final String CUSTOM_COUNTER_7 = "custom_counter_7";
 
     public static boolean isRelevantToCounters(String key) {
         return IS_SWAP_PRESS_LOGIC.equals(key) ||
@@ -35,7 +40,10 @@ public class LocalSettings {
                 CUSTOM_COUNTER_1.equals(key) ||
                 CUSTOM_COUNTER_2.equals(key) ||
                 CUSTOM_COUNTER_3.equals(key) ||
-                CUSTOM_COUNTER_4.equals(key);
+                CUSTOM_COUNTER_4.equals(key) ||
+                CUSTOM_COUNTER_5.equals(key) ||
+                CUSTOM_COUNTER_6.equals(key) ||
+                CUSTOM_COUNTER_7.equals(key);
     }
 
     public static int getDefaultTheme() {
@@ -111,20 +119,26 @@ public class LocalSettings {
         return firstLaunch;
     }
 
-    public static int getCustomCounter(int counterId) {
+    public static int getCustomCounter(@IntRange(from = 1, to = 7) int counterId) {
         switch (counterId) {
             case 2:
                 return App.getTinyDB().getInt(CUSTOM_COUNTER_2, 10);
             case 3:
                 return App.getTinyDB().getInt(CUSTOM_COUNTER_3, 15);
             case 4:
-                return App.getTinyDB().getInt(CUSTOM_COUNTER_4, 30);
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_4, 20);
+            case 5:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_5, 50);
+            case 6:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_6, 100);
+            case 7:
+                return App.getTinyDB().getInt(CUSTOM_COUNTER_7, 200);
             default:
                 return App.getTinyDB().getInt(CUSTOM_COUNTER_1, 5);
         }
     }
 
-    public static void saveCustomCounter(int counterId, int counterValue) {
+    public static void saveCustomCounter(@IntRange(from = 1, to = 7) int counterId, int counterValue) {
         String save_id = "";
         switch (counterId) {
             case 1:
@@ -138,6 +152,15 @@ public class LocalSettings {
                 break;
             case 4:
                 save_id = CUSTOM_COUNTER_4;
+                break;
+            case 5:
+                save_id = CUSTOM_COUNTER_5;
+                break;
+            case 6:
+                save_id = CUSTOM_COUNTER_6;
+                break;
+            case 7:
+                save_id = CUSTOM_COUNTER_7;
                 break;
         }
         if (!save_id.isEmpty()) {

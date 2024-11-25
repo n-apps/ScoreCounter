@@ -85,6 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mono"
+                    android:gravity="center"
                     android:imeOptions="actionDone"
                     android:includeFontPadding="false"
                     android:inputType="numberSigned"
@@ -95,7 +96,6 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_counter_default_value"
@@ -122,9 +122,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mono"
+                    android:gravity="center"
                     android:imeOptions="actionDone"
-                    android:inputType="numberSigned"
                     android:includeFontPadding="false"
+                    android:inputType="numberSigned"
                     android:maxLength="9"
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/padding_large"
@@ -215,9 +216,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mono"
-                    android:includeFontPadding="false"
                     android:gravity="center"
                     android:imeOptions="actionDone"
+                    android:includeFontPadding="false"
                     android:inputType="numberSigned"
                     android:maxLength="9"
                     android:maxLines="1"

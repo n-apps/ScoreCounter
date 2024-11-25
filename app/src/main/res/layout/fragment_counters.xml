@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/counters_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     android:orientation="vertical"
     tools:context="ua.napps.scorekeeper.counters.CountersFragment">
 
@@ -36,8 +37,8 @@
             android:layout_width="@dimen/empty_state_icon_size"
             android:layout_height="@dimen/empty_state_icon_size"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:rotationY="@integer/locale_mirror_flip"
             android:contentDescription="@string/counters_empty_message"
+            android:rotationY="@integer/locale_mirror_flip"
             android:src="@drawable/es_counters" />
 
         <TextView
@@ -53,7 +54,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_counter_compact"
         tools:visibility="gone" />
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

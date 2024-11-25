@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private static final String TAG_DICES_FRAGMENT = "DICES_FRAGMENT";
     private static final String TAG_COUNTERS_FRAGMENT = "COUNTERS_FRAGMENT";
     private static final String TAG_SETTINGS_FRAGMENT = "SETTINGS_FRAGMENT";
-    private static final String STATE_CURRENT_DICE_ROLL = "STATE_CURRENT_DICE_ROLL";
 
     private String currentFragmentTag;
     private FragmentManager manager;
@@ -62,9 +61,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
         if (savedInstanceState != null) {
-            currentDiceRoll = savedInstanceState.getInt(STATE_CURRENT_DICE_ROLL);
+            currentDiceRoll = savedInstanceState.getInt("STATE_CURRENT_DICE_ROLL");
         }
 
         applyAppTheme();
@@ -72,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         ViewUtil.setLightMode(this, !nightModeActive);
         ViewUtil.setNavBarColor(this, !nightModeActive);
         setContentView(R.layout.activity_main);
-
 
         manager = getSupportFragmentManager();
 
@@ -136,8 +133,10 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(STATE_CURRENT_DICE_ROLL, currentDiceRoll);
+        outState.putInt("STATE_CURRENT_DICE_ROLL", currentDiceRoll);
+        outState.putString("CURRENT_FRAGMENT_TAG", currentFragmentTag);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -156,9 +155,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     }
 
     @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        currentFragmentTag = savedInstanceState.getString("CURRENT_FRAGMENT_TAG", TAG_COUNTERS_FRAGMENT);
+    }
+
+    @Override
     public void onSharedPreferenceChanged(final SharedPreferences sharedPreferences, final String key) {
         if (LocalSettings.KEEP_SCREEN_ON.equals(key)) {
-            isKeepScreenOn = LocalSettings.isKeepScreenOnEnabled();
             applyKeepScreenOnIfNeeded();
         } else if (LocalSettings.APP_THEME_MODE.equals(key)) {
             bottomNavigationBar.setSelectedItemId(R.id.counters);
@@ -172,24 +176,31 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-
     private void switchFragment(NavigationTag navigationTag) {
         String tag = navigationTag.getTag();
         if (tag.equals(currentFragmentTag)) return;
 
         FragmentTransaction transaction = manager.beginTransaction();
-        Fragment currentFragment = manager.findFragmentByTag(currentFragmentTag);
-        Fragment newFragment = getFragmentByTag(tag);
-        newFragment.setEnterTransition(createTransition());
 
-        if (currentFragment != null) transaction.hide(currentFragment);
-        if (newFragment.isAdded()) {
-            transaction.show(newFragment);
-        } else {
-            transaction.add(R.id.container, newFragment, tag);
+        Fragment currentFragment = manager.findFragmentByTag(currentFragmentTag);
+        Fragment newFragment = manager.findFragmentByTag(tag);
+
+        if (currentFragment != null) {
+            transaction.hide(currentFragment);
         }
 
-        transaction.commit();
+        if (newFragment != null) {
+            newFragment.setEnterTransition(createTransition(tag));
+            transaction.show(newFragment);
+        } else {
+            newFragment = getFragmentByTag(tag);
+            if (newFragment != null) {
+                newFragment.setEnterTransition(createTransition(tag));
+                transaction.add(R.id.container, newFragment, tag);
+            }
+        }
+
+        transaction.commitAllowingStateLoss();
         currentFragmentTag = tag;
     }
 
@@ -249,14 +260,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
-    private MaterialFadeThrough createTransition() {
+    private MaterialFadeThrough createTransition(String tag) {
         MaterialFadeThrough fadeThrough = new MaterialFadeThrough();
 
-        // Add targets for this transition to explicitly run transitions only on these views. Without
-        // targeting, a MaterialFadeThrough would be run for every view in the Fragment's layout.
-        fadeThrough.addTarget(R.id.counters_fragment);
-        fadeThrough.addTarget(R.id.dices_fragment);
-        fadeThrough.addTarget(R.id.settings_fragment);
+        if (TAG_COUNTERS_FRAGMENT.equals(tag)) {
+            fadeThrough.addTarget(R.id.counters_fragment);
+        } else if (TAG_DICES_FRAGMENT.equals(tag)) {
+            fadeThrough.addTarget(R.id.dices_fragment);
+        } else if (TAG_SETTINGS_FRAGMENT.equals(tag)) {
+            fadeThrough.addTarget(R.id.settings_fragment);
+        }
 
         return fadeThrough;
     }

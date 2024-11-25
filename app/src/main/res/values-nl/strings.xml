@@ -28,7 +28,7 @@
     <string name="dialog_confirmation_question">Weet je het zeker?</string>
     <string name="dialog_elektu_confirm">Er wordt een kleine browserpagina geopend om je te helpen iemand uit een groep te selecteren.\n\nGemaakt door Julien&#160;Bellue</string>
     <string name="dialog_no">Nee</string>
-    <string name="dialog_predefined_steps">Je kunt deze waarden in&#160;de instellingen aanpassen</string>
+    <string name="dialog_predefined_steps">☃︎: U kunt deze waarden wijzigen in de instellingen</string>
     <string name="dialog_support_me_content">Hallo, ik ben Roma. Ik woon in&#160;Oekraïne en werk in&#160;mijn vrije tijd aan deze app. Ondanks de verschrikkelijke gebeurtenissen in&#160;mijn land, heb ik besloten om deze app reclamevrij te houden. Als je me wilt steunen, overweeg dan om een donatie te doen. Bedankt, en ik hoop dat je leuke spelletjesavonden zult hebben!</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="dialog_yes">Ja</string>

@@ -97,10 +97,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
     private int counterStepDialogMode;
-    private int counterStep1;
-    private int counterStep2;
-    private int counterStep3;
-    private int counterStep4;
+    private int counterStep1, counterStep2, counterStep3, counterStep4, counterStep5, counterStep6, counterStep7;
     private SpanningLinearLayoutManager spanningLinearLayoutManager;
     private LinearLayoutManager linearLayoutManager;
     private Typeface mono;
@@ -161,6 +158,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         counterStep2 = LocalSettings.getCustomCounter(2);
         counterStep3 = LocalSettings.getCustomCounter(3);
         counterStep4 = LocalSettings.getCustomCounter(4);
+        counterStep5 = LocalSettings.getCustomCounter(5);
+        counterStep6 = LocalSettings.getCustomCounter(6);
+        counterStep7 = LocalSettings.getCustomCounter(7);
 
         mono = getResources().getFont(R.font.mono);
         regular = getResources().getFont(R.font.o400);
@@ -654,7 +654,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
+        contentView.findViewById(R.id.  btn_four).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
                 Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep4, counter.getValue()));
 
@@ -670,6 +670,55 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
             longClickDialog.dismiss();
         });
+        contentView.findViewById(R.id.btn_five).setOnClickListener(v -> {
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep5, counter.getValue()));
+
+                viewModel.increaseCounter(counter, counterStep5);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep5, counter.getValue()));
+
+                viewModel.decreaseCounter(counter, counterStep5);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+            }
+
+            longClickDialog.dismiss();
+        });
+        contentView.findViewById(R.id.btn_six).setOnClickListener(v -> {
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep6, counter.getValue()));
+
+                viewModel.increaseCounter(counter, counterStep6);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep6, counter.getValue()));
+
+                viewModel.decreaseCounter(counter, counterStep6);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+            }
+
+            longClickDialog.dismiss();
+        });
+        contentView.findViewById(R.id.btn_seven).setOnClickListener(v -> {
+            if (counterStepDialogMode == MODE_INCREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep7, counter.getValue()));
+
+                viewModel.increaseCounter(counter, counterStep7);
+                countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
+
+            } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep7, counter.getValue()));
+
+                viewModel.decreaseCounter(counter, counterStep7);
+                countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
+            }
+
+            longClickDialog.dismiss();
+        });
+
 
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
         editText.setTransformationMethod(null);
@@ -734,6 +783,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         ((TextView) contentView.findViewById(R.id.btn_two_text)).setText(sign + counterStep2);
         ((TextView) contentView.findViewById(R.id.btn_three_text)).setText(sign + counterStep3);
         ((TextView) contentView.findViewById(R.id.btn_four_text)).setText(sign + counterStep4);
+        ((TextView) contentView.findViewById(R.id.btn_five_text)).setText(sign + counterStep5);
+        ((TextView) contentView.findViewById(R.id.btn_six_text)).setText(sign + counterStep6);
+        ((TextView) contentView.findViewById(R.id.btn_seven_text)).setText(sign + counterStep7);
     }
 
     @Override
@@ -834,6 +886,15 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case LocalSettings.CUSTOM_COUNTER_4:
                 counterStep4 = LocalSettings.getCustomCounter(4);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_5:
+                counterStep5 = LocalSettings.getCustomCounter(5);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_6:
+                counterStep6 = LocalSettings.getCustomCounter(6);
+                break;
+            case LocalSettings.CUSTOM_COUNTER_7:
+                counterStep7 = LocalSettings.getCustomCounter(7);
                 break;
         }
     }
