@@ -86,7 +86,11 @@ public class Utilities {
 
     public static void vibrate(Context context, Vibrator vibrator) {
         if (context != null && vibrator != null) {
-            vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK));
+            } else {
+                vibrator.vibrate(VibrationEffect.createOneShot(200, 5));
+            }
         }
     }
 }
