@@ -54,11 +54,10 @@ public class DonateDialog extends DialogFragment {
         viewModel = new ViewModelProvider(this).get(DonateViewModel.class);
         adapter = new DonateAdapter(requireContext(), new ArrayList<>());
 
-        viewModel.productDetailsList.observe(requireActivity(), productDetails -> {
+        viewModel.oneTimeDetailsList.observe(requireActivity(), productDetails -> {
             adapter.updateData(productDetails);
             adapter.notifyDataSetChanged();
         });
-
     }
 
     @NonNull
@@ -88,7 +87,7 @@ public class DonateDialog extends DialogFragment {
             window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 //            window.setGravity(Gravity.BOTTOM);
         }
-        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption));
+        alertDialog.getListView().setOnItemClickListener((p, v, donateOption, id) -> viewModel.launchPurchaseFlow(requireActivity(), donateOption,true));
 
         return alertDialog;
     }

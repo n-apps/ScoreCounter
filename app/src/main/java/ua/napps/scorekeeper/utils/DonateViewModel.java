@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.android.billingclient.api.AcknowledgePurchaseParams;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -23,7 +24,9 @@ import com.android.billingclient.api.QueryProductDetailsParams;
 import com.android.billingclient.api.QueryPurchasesParams;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
@@ -33,15 +36,24 @@ import ua.napps.scorekeeper.utils.livedata.SingleShotEvent;
 
 public class DonateViewModel extends AndroidViewModel {
 
-    final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
-    final MutableLiveData<List<ProductDetails>> productDetailsList = new MutableLiveData<>();
+    private static final int MAX_CONNECTION_RETRY = 3;
+
+    public final MutableLiveData<SingleShotEvent> eventBus = new MutableLiveData<>();
+    public final MutableLiveData<List<ProductDetails>> oneTimeDetailsList = new MutableLiveData<>();
+    public final MutableLiveData<List<ProductDetails>> subsDetailsList = new MutableLiveData<>();
+    private final AtomicInteger connectionRetryCount = new AtomicInteger(0);
     private final BillingClient billingClient;
 
-    private final ArrayList<String> productIDs = new ArrayList<String>() {{
-        add("buy_me_a_coffee");
-        add("buy_me_a_pizza");
-        add("buy_me_a_xwing");
-    }};
+    private static final List<String> ONE_TIME_PRODUCT_IDS = List.of(
+            "buy_me_a_coffee",
+            "buy_me_a_pizza",
+            "buy_me_a_xwing"
+    );
+    private static final List<String> SUBSCRIPTION_IDS = List.of(
+            "buy_me_a_coffee_monthly",
+            "buy_me_a_pizza_monthly",
+            "buy_me_a_xwing_monthly"
+    );
 
     public DonateViewModel(@NonNull Application application) {
         super(application);
@@ -50,7 +62,7 @@ public class DonateViewModel extends AndroidViewModel {
                 .setListener((billingResult, list) -> {
                     if (billingResult.getResponseCode() == BillingResponseCode.OK && list != null) {
                         for (Purchase purchase : list) {
-                            handlePurchase(purchase);
+                            handleRealTimePurchase(purchase); // Separate method for real-time purchases
                         }
                     } else {
                         if (billingResult.getResponseCode() != BillingResponseCode.USER_CANCELED) {
@@ -69,7 +81,9 @@ public class DonateViewModel extends AndroidViewModel {
             @Override
             public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    connectionRetryCount.set(0);
                     getListsInAppDetail();
+                    getListsSubsDetail();
                     refreshPurchasesAsync();
                 } else if (billingResult.getResponseCode() == BillingResponseCode.BILLING_UNAVAILABLE) {
                     eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
@@ -78,18 +92,43 @@ public class DonateViewModel extends AndroidViewModel {
 
             @Override
             public void onBillingServiceDisconnected() {
-                establishConnection();
+                if (connectionRetryCount.incrementAndGet() <= MAX_CONNECTION_RETRY) {
+                    Timber.w("Billing service disconnected. Retry attempt: %s", connectionRetryCount.get());
+                    establishConnection();
+                } else {
+                    Timber.e("Max connection retries reached. Billing unavailable.");
+                    eventBus.postValue(new SingleShotEvent<>(
+                            new CloseScreenIntent(R.string.message_error_generic, true)));
+                }
             }
         });
+    }
+
+    private void getListsSubsDetail() {
+        ArrayList<QueryProductDetailsParams.Product> productList = new ArrayList<>();
+
+        for (String id : SUBSCRIPTION_IDS) {
+            productList.add(
+                    QueryProductDetailsParams.Product.newBuilder()
+                            .setProductId(id)
+                            .setProductType(BillingClient.ProductType.SUBS)
+                            .build());
+        }
+
+        QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder()
+                .setProductList(productList)
+                .build();
+
+        billingClient.queryProductDetailsAsync(params, (billingResult, list) -> subsDetailsList.postValue(list));
     }
 
     private void getListsInAppDetail() {
         ArrayList<QueryProductDetailsParams.Product> productList = new ArrayList<>();
 
-        for (String ids : productIDs) {
+        for (String id : ONE_TIME_PRODUCT_IDS) {
             productList.add(
                     QueryProductDetailsParams.Product.newBuilder()
-                            .setProductId(ids)
+                            .setProductId(id)
                             .setProductType(BillingClient.ProductType.INAPP)
                             .build());
         }
@@ -98,21 +137,34 @@ public class DonateViewModel extends AndroidViewModel {
                 .setProductList(productList)
                 .build();
 
-        billingClient.queryProductDetailsAsync(params, (billingResult, list) -> productDetailsList.postValue(list));
+        billingClient.queryProductDetailsAsync(params, (billingResult, list) -> oneTimeDetailsList.postValue(list));
     }
 
-    void launchPurchaseFlow(Activity activity, int donateOption) {
-        ArrayList<BillingFlowParams.ProductDetailsParams> productList = new ArrayList<>();
+    public void launchPurchaseFlow(Activity activity, int item, boolean isOneTime) {
 
-        ProductDetails productDetails = findProductDetails(productIDs.get(donateOption));
+        ProductDetails productDetails = findOneTimeProductsDetails(isOneTime, item);
+
         if (productDetails == null) {
             eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_error_generic, true)));
             return;
         }
-        productList.add(
-                BillingFlowParams.ProductDetailsParams.newBuilder()
-                        .setProductDetails(productDetails)
-                        .build());
+
+        ArrayList<BillingFlowParams.ProductDetailsParams> productList = new ArrayList<>();
+
+        if (isOneTime) {
+            productList.add(
+                    BillingFlowParams.ProductDetailsParams.newBuilder()
+                            .setProductDetails(productDetails)
+                            .build());
+        } else {
+            String offerToken = productDetails.getSubscriptionOfferDetails().get(0).getOfferToken();
+
+            productList.add(
+                    BillingFlowParams.ProductDetailsParams.newBuilder()
+                            .setProductDetails(productDetails)
+                            .setOfferToken(offerToken)
+                            .build());
+        }
 
         BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
                 .setProductDetailsParamsList(productList)
@@ -122,22 +174,44 @@ public class DonateViewModel extends AndroidViewModel {
     }
 
     @Nullable
-    private ProductDetails findProductDetails(String productDetailsString) {
-        List<ProductDetails> list = productDetailsList.getValue();
-        if (list != null) {
-            for (ProductDetails productDetails : list) {
-                if (productDetailsString.equals(productDetails.getProductId())) {
-                    return productDetails;
+    private ProductDetails findOneTimeProductsDetails(boolean isOneTime, int item) {
+        if (isOneTime) {
+            List<ProductDetails> list = oneTimeDetailsList.getValue();
+            if (list != null) {
+                for (ProductDetails product : list) {
+                    if (ONE_TIME_PRODUCT_IDS.get(item).equals(product.getProductId())) {
+                        return product;
+                    }
+                }
+            }
+        } else {
+            List<ProductDetails> list = subsDetailsList.getValue();
+            if (list != null) {
+                for (ProductDetails product : list) {
+                    if (SUBSCRIPTION_IDS.get(item).equals(product.getProductId())) {
+                        return product;
+                    }
                 }
             }
         }
+
         return null;
     }
 
+    private void acknowledgePurchase(Purchase purchase) {
+        if (!purchase.isAcknowledged()) {
+            AcknowledgePurchaseParams acknowledgePurchaseParams =
+                    AcknowledgePurchaseParams.newBuilder()
+                            .setPurchaseToken(purchase.getPurchaseToken())
+                            .build();
 
-    private void handlePurchase(Purchase purchase) {
-        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
-            consumePurchase(purchase);
+            billingClient.acknowledgePurchase(acknowledgePurchaseParams, billingResult -> {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    Timber.d("Purchase acknowledged successfully.");
+                } else {
+                    Timber.e("Failed to acknowledge purchase: %s", billingResult.getDebugMessage());
+                }
+            });
         }
     }
 
@@ -155,23 +229,60 @@ public class DonateViewModel extends AndroidViewModel {
         });
     }
 
-    public void refreshPurchasesAsync() {
-        billingClient.queryPurchasesAsync(QueryPurchasesParams.newBuilder()
-                        .setProductType(BillingClient.ProductType.INAPP)
-                        .build(),
-                (billingResult, list) -> {
-                    if (list.isEmpty()) {
-                        return;
-                    }
-                    if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-                        for (Purchase purchase : list) {
-                            handlePurchase(purchase);
-                        }
-                    }
-                });
+    private void handleRealTimePurchase(Purchase purchase) {
+        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+            List<String> purchasedProducts = purchase.getProducts();
+
+            // Check for subscriptions
+            if (purchasedProducts.stream().anyMatch(SUBSCRIPTION_IDS::contains)) {
+                // Acknowledge the subscription
+                acknowledgePurchase(purchase);
+
+                // Notify the UI with CloseScreenIntent for real-time purchase
+                eventBus.postValue(new SingleShotEvent<>(new CloseScreenIntent(R.string.message_thank_you, false)));
+            }
+
+            // Handle one-time purchases if needed
+            if (purchasedProducts.stream().anyMatch(ONE_TIME_PRODUCT_IDS::contains)) {
+                consumePurchase(purchase);
+            }
+        }
     }
 
+    public void refreshPurchasesAsync() {
+        List<String> productTypes = Arrays.asList(BillingClient.ProductType.INAPP, BillingClient.ProductType.SUBS);
 
+        for (String productType : productTypes) {
+            billingClient.queryPurchasesAsync(QueryPurchasesParams.newBuilder()
+                    .setProductType(productType)
+                    .build(), (billingResult, purchases) -> {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchases != null) {
+                    for (Purchase purchase : purchases) {
+                        handleRestoredPurchase(purchase); // Handle restored purchases separately
+                    }
+                } else {
+                    Timber.e("Error querying purchases: %s", billingResult.getDebugMessage());
+                }
+            });
+        }
+    }
+
+    private void handleRestoredPurchase(Purchase purchase) {
+        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+            List<String> purchasedProducts = purchase.getProducts();
+
+            // Acknowledge subscriptions (if not already acknowledged)
+            if (purchasedProducts.stream().anyMatch(SUBSCRIPTION_IDS::contains)) {
+                acknowledgePurchase(purchase);
+                Timber.d("Restored subscription purchase for %s", purchasedProducts);
+            }
+
+            // Consume one-time purchases if needed
+            if (purchasedProducts.stream().anyMatch(ONE_TIME_PRODUCT_IDS::contains)) {
+                consumePurchase(purchase);
+            }
+        }
+    }
     @Override
     protected void onCleared() {
         if (billingClient != null) {

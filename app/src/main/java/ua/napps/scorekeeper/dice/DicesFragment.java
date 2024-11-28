@@ -177,7 +177,6 @@ public class DicesFragment extends Fragment {
     }
 
     private void rollDice(@IntRange(from = 1, to = 100) int roll, @NonNull ArrayList<Integer> rolls, boolean skipAnimation) {
-
         TransitionManager.beginDelayedTransition(root);
         diceTextView.setVisibility(View.VISIBLE);
         diceHint.setVisibility(View.VISIBLE);

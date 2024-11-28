@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.Utilities;
 
 
@@ -83,10 +82,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.title_container:
             case R.id.tv_donate:
-                DonateDialog dialog = new DonateDialog();
-                dialog.show(getParentFragmentManager(), "donate");
+                showTipScreen();
                 break;
         }
+    }
+
+    private void showTipScreen() {
+        TipActivity.start(requireActivity());
     }
 
 

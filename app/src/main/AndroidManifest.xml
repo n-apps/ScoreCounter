@@ -58,6 +58,11 @@
             android:forceDarkAllowed="false"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".settings.TipActivity"
+            android:forceDarkAllowed="false"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="${crashlyticsEnabled}" />

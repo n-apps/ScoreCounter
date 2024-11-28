@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import ua.napps.scorekeeper.R;
-import ua.napps.scorekeeper.utils.DonateDialog;
 import ua.napps.scorekeeper.utils.ViewUtil;
 
 public class AboutActivity extends AppCompatActivity {
@@ -40,12 +39,10 @@ public class AboutActivity extends AppCompatActivity {
         findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6", Toast.LENGTH_SHORT).show());
 
         findViewById(R.id.hero_image).setOnClickListener(v -> {
-            DonateDialog dialog = new DonateDialog();
-            dialog.show(getSupportFragmentManager(), "donate");
+            showTipScreen();
         });
         findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
-            DonateDialog dialog = new DonateDialog();
-            dialog.show(getSupportFragmentManager(), "donate");
+            showTipScreen();
         });
         findViewById(R.id.btn_help_translate).setOnClickListener(v -> launchEmailClient());
         findViewById(R.id.btn_privacy_policy).setOnClickListener(v -> {
@@ -65,6 +62,10 @@ public class AboutActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.setStatusBarColor(Color.parseColor("#b0bec5"));
+    }
+
+    private void showTipScreen() {
+        TipActivity.start(this);
     }
 
     private void launchEmailClient() {

@@ -1,0 +1,342 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="@string/donation_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/empty_state_icon_size"
+        android:layout_gravity="center_horizontal"
+        android:rotationY="@integer/locale_mirror_flip"
+        android:src="@drawable/dog"
+        app:layout_constraintBottom_toTopOf="@id/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/o400"
+        android:gravity="center_horizontal"
+        android:lineSpacingMultiplier="1.2"
+        android:paddingHorizontal="@dimen/padding_normal"
+        android:text="@string/dialog_support_me_content"
+        android:textAppearance="?attr/textAppearanceBody2"
+        app:layout_constraintBottom_toTopOf="@id/paymentOptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
+    <!-- Payment Options -->
+    <LinearLayout
+        android:id="@+id/paymentOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/paymentButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/description">
+
+        <!-- Individual Buttons -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/in_app_coffee_card"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:clickable="true"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:focusable="true"
+            app:cardCornerRadius="4dp"
+            app:checkedIconTint="?attr/colorAccent"
+            app:strokeColor="?attr/colorPrimary">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/padding_normal">
+
+                <ImageView
+                    android:id="@+id/in_app_coffee_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="@dimen/spacing_micro"
+                    android:src="@drawable/in_app_food"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/in_app_coffee_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_micro"
+                    android:fontFamily="@font/o600"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toTopOf="@id/in_app_coffee_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_coffee_icon"
+                    tools:text="Good Black Coffee" />
+
+                <TextView
+                    android:id="@+id/in_app_coffee_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mono"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_coffee_title"
+                    tools:text="UAH 59.99" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/in_app_food_card"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:clickable="true"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:focusable="true"
+            app:cardCornerRadius="4dp"
+            app:checkedIconTint="?attr/colorAccent"
+            app:strokeColor="?attr/colorPrimary">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/padding_normal">
+
+                <ImageView
+                    android:id="@+id/in_app_food_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="@dimen/spacing_micro"
+                    android:src="@drawable/in_app_coffee"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/in_app_food_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_micro"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:fontFamily="@font/o600"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toTopOf="@id/in_app_food_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_food_icon"
+                    tools:text="Good Black Coffee" />
+
+                <TextView
+                    android:id="@+id/in_app_food_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mono"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_food_title"
+                    tools:text="UAH 59.99" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/in_app_xwing_card"
+            style="@style/Widget.MaterialComponents.CardView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="4dp"
+            app:checkedIconSize="@dimen/button_icon_size"
+            app:checkedIconTint="?attr/colorAccent"
+            app:strokeColor="?attr/colorPrimary">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingVertical="@dimen/padding_normal">
+
+                <ImageView
+                    android:id="@+id/in_app_xwing_icon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="@dimen/spacing_micro"
+                    android:src="@drawable/in_app_xwing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/in_app_xwing_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/spacing_micro"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:fontFamily="@font/o600"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    app:layout_constraintBottom_toTopOf="@id/in_app_xwing_price"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_xwing_icon"
+                    tools:text="Good Black Coffee" />
+
+                <TextView
+                    android:id="@+id/in_app_xwing_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/mono"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/in_app_xwing_title"
+                    tools:text="UAH 59.99" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <!-- Add as many buttons here as needed -->
+    </LinearLayout>
+
+    <!-- Payment Buttons -->
+    <LinearLayout
+        android:id="@+id/paymentButtons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paymentOptions">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_one_time"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support once"
+            android:textAllCaps="false"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="?attr/colorOnPrimary"
+            app:backgroundTint="@color/colorPrimaryVariant"
+            app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_monthly"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:text="Support monthly"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="?attr/colorOnPrimary"
+            app:backgroundTint="@color/colorPrimaryVariant"
+            app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
+    </LinearLayout>
+
+    <!-- Thank You Text -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paymentButtons">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Cancel any time"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/spacing_large"
+            android:gravity="center"
+            android:text="@string/message_thank_you"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <!-- PayPal Tip Option -->
+        <TextView
+            android:id="@+id/paypalTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Alternatively, tip with PayPal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+        <!-- PayPal Link -->
+        <TextView
+            android:id="@+id/paypalLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:text="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
