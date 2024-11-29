@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nOlá, chamo-me Roma! Estou atualmente a viver na Ucrânia, que eu absolutamente amo! Sou louca por jogos de tabuleiro há mais de 10 anos! A ideia para esta aplicação surgiu-me quando estava a jogar Star Realms (que tem fichas terríveis, certo?). Estou a trabalhar nesta aplicação no meu tempo livre.\n\nCada crítica, e-mail ou donativo vosso deixa-me um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação gratuita e não adicionar anúncios.\n\nMuito obrigado, e desejo-vos jogos alegres!</string>
     <string name="about_translators_title">Tradutores fantásticos</string>
-    <string name="action_donate">Comprar um café para o desenvolvedor</string>
+    <string name="action_donate">Suporte Contador de pontos</string>
     <string name="action_save">Salvar</string>
     <string name="app_name">Contador de pontos</string>
     <string name="common_back">Voltar</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Será aberta uma pequena página do browser para o ajudar a selecionar alguém de um grupo.\n\nFeito por Julien&#160;Bellue</string>
     <string name="dialog_no">Não</string>
     <string name="dialog_predefined_steps">Você pode editar esses valores nas configurações</string>
-    <string name="dialog_support_me_content">Olá, chamo-me Roma. Vivo na Ucrânia e estou a trabalhar nesta aplicação no meu tempo livre.\n\nApesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação sem anúncios. Se me quiseres apoiar, por favor considera fazer um donativo.\n\nObrigado, e espero que tenhas umas óptimas noites de jogo pela frente!</string>
+    <string name="dialog_support_me_content">Olá, chamo-me Roma! Vivo na Ucrânia e estou a trabalhar nesta aplicação no meu tempo livre. Comprometo-me a manter a Contador de pontos gratuita para sempre. Se gostas do Contador de pontos, por favor considera apoiá-lo.\n\nMesmo uma pequena contribuição conta!\n\nObrigado e boas noites de jogo!</string>
     <string name="dialog_support_me_remind_me_later">Agora não</string>
     <string name="dialog_yes">Sim</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Inverter toques curtos e longos</string>
     <string name="share_snippet">Olá! O Score Counter vai te ajudar a&#160;facilmente manter a&#160;pontuação em qualquer jogo, esporte ou outra atividade. Baixe gratuitamente a&#160;versão para Android aqui</string>
     <string name="simple_edit_value_hint">Insira um valor</string>
+    <string name="action_one_time_support">Apoio único</string>
+    <string name="action_monthly_support">Apoio mensal</string>
+    <string name="tip_cancel_any_time">Cancelar em qualquer altura</string>
+    <string name="tip_alternative_options">Opções alternativas à gorjeta:</string>
 </resources>

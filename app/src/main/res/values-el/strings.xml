@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nΓεια σας, είμαι η Ρόμα! Αυτή τη στιγμή ζω στην Ουκρανία, την οποία αγαπώ πολύ! Είμαι τρελός για τα επιτραπέζια παιχνίδια για περισσότερα από 10 χρόνια! Η ιδέα για αυτή την εφαρμογή μου ήρθε όταν έπαιζα Star Realms (το οποίο έχει τρομερές μάρκες, σωστά;). Κάθε κριτική, email ή δωρεά από εσάς με κάνει λίγο πιο ευτυχισμένο. Παρά τα τρομερά γεγονότα στη χώρα μου, αποφάσισα να κρατήσω αυτή την εφαρμογή δωρεάν και να μην προσθέσω διαφημίσεις.\n\nΣας ευχαριστώ πολύ και σας εύχομαι χαρούμενα παιχνίδια!</string>
     <string name="about_translators_title">Φοβεροί μεταφραστές</string>
-    <string name="action_donate">Αγοράστε έναν καφέ για τον προγραμματιστή</string>
+    <string name="action_donate">Υποστήριξη «Μετρητής σκορ»</string>
     <string name="action_save">Αποθήκευση</string>
     <string name="app_name">Μετρητής σκορ</string>
     <string name="common_back">Πίσω</string>
@@ -57,7 +57,7 @@
     <string name="settings_sound">Ήχος</string>
     <string name="settings_stay_awake">Διατηρήστε την οθόνη ανοικτή</string>
     <string name="settings_switch_tap_logic">Ανταλλάξτε το σύντομο και το παρατεταμένο πάτημα</string>
-    <string name="share_snippet">Γεια σας! Το Score Counter θα σας βοηθήσει να κρατήσετε πόντους εύκολα σε όλα τα παιχνίδια, τα αθλήματα ή άλλες δραστηριότητες. Αποκτήστε την δωρεάν εφαρμογή Android εδώ: https://play.google.com/store/apps/details?id=</string>
+    <string name="share_snippet">Γεια σας! Το Μετρητής σκορ θα σας βοηθήσει να κρατήσετε πόντους εύκολα σε όλα τα παιχνίδια, τα αθλήματα ή άλλες δραστηριότητες. Αποκτήστε την δωρεάν εφαρμογή Android εδώ: https://play.google.com/store/apps/details?id=</string>
     <string name="simple_edit_value_hint">Νέα τιμή</string>
     <string name="dice_roll_prefix">Ρίχνει ζάρια:</string>
     <string name="dice_sum_prefix">Άθροισμα:</string>
@@ -66,4 +66,8 @@
     <string name="dialog_elektu_confirm">Μια μικρή σελίδα του προγράμματος περιήγησης θα ανοίξει για να σας βοηθήσει να επιλέξετε κάποιον από μια ομάδα.\n\nΚατασκευάστηκε από τον Julien&#160;Bellue</string>
     <string name="counter_default_name">Μετρητής</string>
     <string name="donation_title">Διατηρήστε την εφαρμογή χωρίς διαφημίσεις</string>
+    <string name="action_one_time_support">Εφάπαξ υποστήριξη</string>
+    <string name="action_monthly_support">Μηνιαία υποστήριξη</string>
+    <string name="tip_cancel_any_time">Ακύρωση ανά πάσα στιγμή</string>
+    <string name="tip_alternative_options">Εναλλακτικές επιλογές για φιλοδώρημα:</string>
 </resources>

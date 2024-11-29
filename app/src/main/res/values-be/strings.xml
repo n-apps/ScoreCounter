@@ -66,4 +66,8 @@
     <string name="dialog_elektu_confirm">Адкрыецца маленькая старонка браўзера, каб дапамагчы вам выбраць каго-небудзь з групы.\n\nЗроблена Julien Bellue</string>
     <string name="counter_default_name">Лічыльнік</string>
     <string name="donation_title">Захавайце дадатак бесплатным ад рэкламы</string>
+    <string name="action_one_time_support">Аднаразовая падтрымка</string>
+    <string name="action_monthly_support">Штомесячная падтрымка</string>
+    <string name="tip_cancel_any_time">Скасаваць у любы час</string>
+    <string name="tip_alternative_options">Альтэрнатыўныя варыянты падказкі:</string>
 </resources>

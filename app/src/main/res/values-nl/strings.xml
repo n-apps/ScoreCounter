@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHoi, ik ben Roma! Ik woon momenteel in&#160;Oekraïne, waar ik helemaal weg van ben! Ik ben al meer dan 10 jaar gek op bordspellen! Het idee voor deze app kwam bij me op toen ik Star Realms aan het spelen was (dat heeft toch vreselijke tokens?). In mijn vrije tijd werk ik aan deze app. Elke recensie, e-mail of donatie van jullie maakt me een beetje gelukkiger. Ondanks de verschrikkelijke gebeurtenissen in&#160;mijn land, heb ik besloten om deze app gratis te houden en geen advertenties toe te voegen.Dank jullie wel, en ik wens jullie veel plezier met spelen!</string>
     <string name="about_translators_title">Geweldige vertalers</string>
-    <string name="action_donate">Koop een koffie voor Developer</string>
+    <string name="action_donate">Ondersteuning Scoreteller</string>
     <string name="action_save">Opslaan</string>
     <string name="app_name">Scoreteller</string>
     <string name="common_back">Terug</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Er wordt een kleine browserpagina geopend om je te helpen iemand uit een groep te selecteren.\n\nGemaakt door Julien&#160;Bellue</string>
     <string name="dialog_no">Nee</string>
     <string name="dialog_predefined_steps">☃︎: U kunt deze waarden wijzigen in de instellingen</string>
-    <string name="dialog_support_me_content">Hallo, ik ben Roma. Ik woon in&#160;Oekraïne en werk in&#160;mijn vrije tijd aan deze app. Ondanks de verschrikkelijke gebeurtenissen in&#160;mijn land, heb ik besloten om deze app reclamevrij te houden. Als je me wilt steunen, overweeg dan om een donatie te doen. Bedankt, en ik hoop dat je leuke spelletjesavonden zult hebben!</string>
+    <string name="dialog_support_me_content">Hallo, ik ben Roma! Ik woon in Oekraïne (ja, in een oorlogsgebied) en in mijn vrije tijd werk ik aan deze app. Ik ben vastbesloten om Scoreteller voor altijd gratis te houden.\n\nAls je Scoreteller leuk vindt, overweeg dan alsjeblieft om het te steunen. Zelfs een kleine bijdrage telt!\n\nBedankt en nog veel spellenavonden in het vooruitzicht!</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>
@@ -64,6 +64,10 @@
     <string name="settings_sound">Geluid</string>
     <string name="settings_stay_awake">Houd scherm aan</string>
     <string name="settings_switch_tap_logic">Wissel lang en kort drukken</string>
-    <string name="share_snippet">Hallo daar! Score Counter helpt je gemakkelijk de score bij te houden in&#160;spellen, sport of andere activiteiten. Download hier de gratis Android app</string>
+    <string name="share_snippet">Hallo daar! Scoreteller helpt je gemakkelijk de score bij te houden in&#160;spellen, sport of andere activiteiten. Download hier de gratis Android app</string>
     <string name="simple_edit_value_hint">Nieuwe waarde</string>
+    <string name="action_one_time_support">Eenmalige ondersteuning</string>
+    <string name="action_monthly_support">Maandelijkse ondersteuning</string>
+    <string name="tip_cancel_any_time">Annuleren</string>
+    <string name="tip_alternative_options">Alternatieve opties voor fooi:</string>
 </resources>

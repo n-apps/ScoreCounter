@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nXin chào, tên tôi là Roma và tôi đến từ Ukraina. Tôi thích chơi boardgame, trong đó Dead of Winter và Terraforming Mars là hai trò chơi yêu thích của tôi. Ý tưởng cho ứng dụng này đến với tôi khi chơi Stars Realms (có bộ đếm tệ khủng khiếp). Tôi quyết định phát triển ứng dụng di động này trong thời gian rảnh rỗi. Mỗi bài đánh giá, email hoặc đóng góp mới đều khiến tôi hạnh phúc. Nếu bạn có điều gì muốn chia sẻ, tìm thấy bất kỳ bản dịch lộn xộn nào hoặc chỉ muốn cho tôi biết những gì bạn đang đếm, hãy cứ vui lòng liên hệ. Tôi đã mất công việc do chiến tranh ở đất nước của mình, nhưng tôi quyết định sẽ giữ ứng dụng này miễn phí, không có quảng cáo và có sẵn tất cả các tính năng. Nếu bạn muốn hỗ trợ một nhà phát triển độc lập (tôi), vui lòng cân nhắc thực hiện một khoản đóng góp nhỏ trong ứng dụng. Cảm ơn!</string>
     <string name="about_translators_title">Những nhà dịch thuật tuyệt vời:</string>
-    <string name="action_donate">Đóng góp qua Google&#160;Play</string>
+    <string name="action_donate">Hỗ trợ «Bộ đếm điểm»</string>
     <string name="action_save">Lưu</string>
     <string name="app_name">Bộ đếm điểm</string>
     <string name="common_back">Mặt sau</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Hoán đổi chạm ngắn và dài</string>
     <string name="share_snippet">Chào bạn! Bộ đếm điểm sẽ giúp bạn dễ dàng ghi điểm trong mọi trò chơi, thể thao hoặc các hoạt động khác. Tải ứng dụng Android miễn phí tại đây</string>
     <string name="simple_edit_value_hint">Giá trị mới</string>
+    <string name="action_one_time_support">Hỗ trợ một lần</string>
+    <string name="action_monthly_support">Hỗ trợ hàng tháng</string>
+    <string name="tip_cancel_any_time">Hủy bất cứ lúc nào</string>
+    <string name="tip_alternative_options">Các lựa chọn thay thế cho tiền boa:</string>
 </resources>

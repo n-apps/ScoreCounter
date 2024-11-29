@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Swap short and long press</string>
     <string name="share_snippet">पेन और कागज़ की तलाश करने की ज़रूरत नहीं। निःशुल्क Android ऐप प्राप्त करें</string>
     <string name="simple_edit_value_hint">मान दर्ज करें</string>
+    <string name="action_one_time_support">एक बार का समर्थन</string>
+    <string name="action_monthly_support">मासिक सहायता</string>
+    <string name="tip_cancel_any_time">किसी भी समय रद्द करें</string>
+    <string name="tip_alternative_options">टिप देने के वैकल्पिक विकल्प:</string>
 </resources>

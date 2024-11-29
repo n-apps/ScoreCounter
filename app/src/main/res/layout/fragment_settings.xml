@@ -39,7 +39,7 @@
                     android:includeFontPadding="false"
                     android:paddingHorizontal="@dimen/padding_large"
                     android:text="@string/donation_title"
-                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textColor="?attr/colorOnPrimary"
                     app:layout_constraintBottom_toTopOf="@id/subtitle"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
                 <FrameLayout
                     android:id="@+id/rounded"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="20dp"
                     android:background="@drawable/bg_rounded_top_square"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

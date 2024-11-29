@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à Star Realms (qui a&#160;des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
+    <string name="about_text">Привіт! \ud83c\udf3b\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à&#160;Star Realms (qui a&#160;des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
     <string name="about_translators_title">Des traducteurs formidables</string>
-    <string name="action_donate">Soutenir le développeur</string>
+    <string name="action_donate">Prise en charge du Compteur de points</string>
     <string name="action_save">Sauvegarder</string>
     <string name="app_name">Compteur de points</string>
     <string name="common_back">Retour</string>
@@ -26,10 +26,10 @@
     <string name="counters_empty_message">Pour ajouter un nouveau compteur, cliquez sur l\'icône <b>+</b> située dans la&#160;barre de menus.</string>
     <string name="delete">Supprimer</string>
     <string name="dialog_confirmation_question">Êtes-vous sûr ?</string>
-    <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
+    <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à&#160;choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
     <string name="dialog_no">Non</string>
     <string name="dialog_predefined_steps">☃︎: vous pouvez modifier ces valeurs dans les Paramètres</string>
-    <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma. Je suis basée en Ukraine et je travaille sur cette application pendant mon temps libre. Malgré les terribles événements qui se déroulent dans mon pays, j\'ai décidé de garder cette application sans publicité. Si vous souhaitez me soutenir, n\'hésitez pas à faire un don. \n\nMerci, et j\'espère que vous passerez d\'excellentes soirées de jeu !</string>
+    <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma ! Je suis basé en Ukraine (oui, dans une zone de guerre) et je travaille sur cette application pendant mon temps libre. Je m\'engage à&#160;ce que Compteur de points reste gratuit pour toujours.\n\nSi vous aimez Compteur de points, pensez à&#160;le soutenir. Même une petite contribution compte ! \n\nMerci et bonnes soirées de jeu à&#160;tous !</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Pour lancer les dés, il suffit de toucher n\'importe où sur l\'écran.</string>
@@ -49,7 +49,7 @@
     <string name="message_one_more_counter">Un de plus</string>
     <string name="message_thank_you">Merci.&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Essayez d\'appuyer longuement sur la&#160;touche « +/- ».</string>
-    <string name="setting_help_translate">Aide à la&#160;traduction</string>
+    <string name="setting_help_translate">Aide à&#160;la&#160;traduction</string>
     <string name="setting_share">Partagez l\'application Android</string>
     <string name="settings_about">À propos de l\'application</string>
     <string name="settings_animate_roll">Animation du jet de dés</string>
@@ -63,7 +63,11 @@
     <string name="settings_sound">Jouer le son</string>
     <string name="settings_stay_awake">Maintenez l\'écran allumé</string>
     <string name="settings_switch_tap_logic">Échange de la&#160;presse courte et de la&#160;presse longue.</string>
-    <string name="share_snippet">Vous n\'avez plus besoin de chercher un stylo et du papier. Il vous suffira d\'utiliser l\'application Android gratuite et facile à utiliser de scorekeeper</string>
+    <string name="share_snippet">Vous n\'avez plus besoin de chercher un stylo et du papier. Il vous suffira d\'utiliser l\'application Android gratuite et facile à&#160;utiliser de scorekeeper</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
     <string name="donation_title">Garder l\'application sans publicité</string>
+    <string name="action_one_time_support">Soutien ponctuel</string>
+    <string name="action_monthly_support">Soutien mensuel</string>
+    <string name="tip_cancel_any_time">Annuler à tout moment</string>
+    <string name="tip_alternative_options">Options alternatives au pourboire :</string>
 </resources>

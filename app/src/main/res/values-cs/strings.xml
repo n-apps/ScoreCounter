@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nAhoj, já jsem Roma! Momentálně žiju na Ukrajině, kterou naprosto miluju! Do deskových her jsem blázen už více než 10 let! Nápad na tuhle aplikaci mě napadl, když jsem hrála Star Realms (které mají příšerné žetony, že?). Na této aplikaci pracuji ve svém volném čase.\n\nKaždá recenze, e-mail nebo příspěvek od vás mě udělá o něco šťastnějším. Navzdory hrozným událostem v mé zemi jsem se rozhodl ponechat tuto aplikaci zdarma a&#160;nepřidávat reklamy.\n\nMoc vám děkuji a&#160;přeji vám radostné hry!</string>
     <string name="about_translators_title">Úžasní překladatelé</string>
-    <string name="action_donate">Koupit vývojáři kávu</string>
+    <string name="action_donate">Podpora Počítadlo skóre</string>
     <string name="action_save">Uložit</string>
     <string name="app_name">Počítadlo skóre</string>
     <string name="common_back">Zpět</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Otevře se malá stránka prohlížeče, která vám pomůže vybrat někoho ze skupiny.\n\nVyrobil Julien&#160;Bellue</string>
     <string name="dialog_no">Ne</string>
     <string name="dialog_predefined_steps">Tyto hodnoty můžete upravit v nastavení</string>
-    <string name="dialog_support_me_content">Ahoj, já jsem Roma. Žiji na Ukrajině a&#160;na této aplikaci pracuji ve svém volném čase.Navzdory hrozným událostem v mé zemi jsem se rozhodla, že tato aplikace bude bez reklam. Pokud mě chcete podpořit, zvažte prosím možnost přispět.\n\nDěkuji a doufám, že vás čekají skvělé herní večery!</string>
+    <string name="dialog_support_me_content">Ahoj, já jsem Roma! Žiji na Ukrajině (ano, ve válečné zóně) a na této aplikaci pracuji ve svém volném čase. Jsem odhodlaný udržet Počítadlo skóre navždy zdarma. Pokud se vám Počítadlo skóre líbí, zvažte prosím jeho podporu.\n\nI malý příspěvek se počítá!\n\nDěkuji a přeji vám krásné herní večery!</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Vyměnit krátké a&#160;dlouhé stisknutí</string>
     <string name="share_snippet">Ahoj! Počítadlo skóre vám pomůže snadno počítat body v jakýchkoli hrách, sportech nebo jiných aktivitách. Bezplatnou aplikaci pro Android získáte zde</string>
     <string name="simple_edit_value_hint">Zadejte hodnotu</string>
+    <string name="action_one_time_support">Jednorázová podpora</string>
+    <string name="action_monthly_support">Měsíční podpora</string>
+    <string name="tip_cancel_any_time">Zrušit kdykoli</string>
+    <string name="tip_alternative_options">Alternativní možnosti spropitného:</string>
 </resources>

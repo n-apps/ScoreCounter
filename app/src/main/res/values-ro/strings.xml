@@ -36,7 +36,7 @@
     <string name="settings_privacy_policy">Politica de confidentialitate</string>
     <string name="message_thank_you">Multumesc&#160;\ud83d\udc99</string>
     <string name="settings_sound">Sunet</string>
-    <string name="action_donate">Cumpără-i dezvoltatorului o cafea</string>
+    <string name="action_donate">Asistență Score Counter</string>
     <string name="message_error_generic">Imi pare rau, se pare ca a&#160;intervenit o eroare</string>
     <string name="action_save">Salveaza</string>
     <string name="common_more">Mai multe</string>
@@ -66,4 +66,8 @@
     <string name="dialog_elektu_confirm">O mică pagină de browser se va deschide pentru a vă ajuta să selectați pe cineva dintr-un grup.\n\nRealizat de Julien&#160;Bellue</string>
     <string name="counter_default_name">Contor</string>
     <string name="donation_title">Păstrați această aplicație fără&#160;reclame</string>
+    <string name="action_one_time_support">Sprijin unic</string>
+    <string name="action_monthly_support">Suport lunar</string>
+    <string name="tip_cancel_any_time">Anulare în orice moment</string>
+    <string name="tip_alternative_options">Opțiuni alternative la bacșiș:</string>
 </resources>

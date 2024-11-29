@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. la&#160;idea de esta aplicación se me ocurrió mientras jugaba a&#160;Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
     <string name="about_translators_title">Traductores increíbles</string>
-    <string name="action_donate">Comprar café para el promotor</string>
+    <string name="action_donate">Soporte «Contador de puntos»</string>
     <string name="action_save">Guardar</string>
     <string name="app_name">Contador de puntos</string>
     <string name="common_back">Atrás</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Aparecerá una pequeña página del navegador para ayudarte a&#160;elegir a&#160;alguien de un grupo.\n\nCreado por Julien Bellue.</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">☃︎: Puede cambiar estos valores en la configuración</string>
-    <string name="dialog_support_me_content">Hola, soy Roma.\n\nVivo en Ucrania y trabajo en esta aplicación en mi tiempo libre. A pesar de los terribles acontecimientos que están ocurriendo en mi país, he decidido mantener esta aplicación sin publicidad. Si quieres ayudarme, considera la&#160;posibilidad de hacer una donación.\n\nGracias, ¡y espero que tengas unas noches de juego estupendas!</string>
+    <string name="dialog_support_me_content">Hola, soy Roma. Vivo en Ucrania (sí, en una zona de guerra) y&#160;trabajo en esta aplicación en mi tiempo libre. Me comprometo a&#160;mantener Contador de&#160;puntos gratis para siempre.\n\nSi te&#160;gusta Contador de&#160;puntos, por favor considera apoyarla.\n\n¡Incluso una pequeña contribución cuenta! Gracias y ¡que tengas buenas noches de&#160;juego!</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Para tirarlos, solo tienes que tocar cualquier parte de la&#160;pantalla.</string>
@@ -66,4 +66,8 @@
     <string name="share_snippet">No es necesario ir en busca de un lápiz y un papel. Solo tienes que descargar la&#160;aplicación gratuita y fácil de usar Scorekeeper para Android</string>
     <string name="simple_edit_value_hint">Nuevo valor</string>
     <string name="donation_title">Mantén la&#160;aplicación sin anuncios</string>
+    <string name="action_one_time_support">Ayuda puntual</string>
+    <string name="action_monthly_support">Ayuda mensual</string>
+    <string name="tip_cancel_any_time">Cancelar en cualquier momento</string>
+    <string name="tip_alternative_options">Opciones alternativas a la propina:</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nMerhaba, ben Roma! Şu anda kesinlikle sevdiğim Ukrayna\'da yaşıyorum! Masa oyunlarına 10 yıldan fazla bir süredir deli oluyorum! Bu uygulama fikri Star Realms oynarken aklıma geldi (korkunç jetonları var, değil mi?). Boş zamanlarımda bu uygulama üzerinde çalışıyorum.\n\nSizden gelen her yorum, e-posta veya bağış beni biraz daha mutlu ediyor. Ülkemdeki korkunç olaylara rağmen, bu uygulamayı ücretsiz tutmaya ve reklam eklememeye karar verdim.\n\nÇok teşekkür ederim ve size keyifli oyunlar dilerim!</string>
     <string name="about_translators_title">Harika çevirmenler</string>
-    <string name="action_donate">Geliştiriciye Bir Kahve Alın</string>
+    <string name="action_donate">“Skor Sayacı” Desteği</string>
     <string name="action_save">Kaydet</string>
     <string name="app_name">Skor Sayacı</string>
     <string name="common_back">Geri</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Kısa ve uzun basmayı değiştirin</string>
     <string name="share_snippet">Merhabalar! Skor Sayacı, herhangi bir oyunda, sporda veya diğer etkinliklerde kolayca skor tutmanıza yardımcı olacaktır. Ücretsiz Android uygulamasını buradan indirin</string>
     <string name="simple_edit_value_hint">Değer girin</string>
+    <string name="action_one_time_support">Tek Seferlik Destek</string>
+    <string name="action_monthly_support">Aylık Destek</string>
+    <string name="tip_cancel_any_time">İstediğiniz zaman iptal edin</string>
+    <string name="tip_alternative_options">Bahşiş için alternatif seçenekler:</string>
 </resources>

@@ -73,7 +73,7 @@
                 app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_step"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:helperTextTextAppearance="?attr/textAppearanceBody2"
                 app:layout_constraintEnd_toStartOf="@+id/til_counter_default_value"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/padding_large"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +110,7 @@
                 app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_default_value"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:helperTextTextAppearance="?attr/textAppearanceBody2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/til_counter_step"
@@ -130,7 +130,7 @@
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/padding_large"
                     android:selectAllOnFocus="true"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
                     tools:text="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -204,7 +204,7 @@
                 app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
                 app:boxStrokeWidthFocused="4dp"
                 app:helperText="@string/counter_details_value"
-                app:helperTextTextAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:helperTextTextAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintBottom_toTopOf="@+id/til_counter_step"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

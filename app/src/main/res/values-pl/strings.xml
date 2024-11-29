@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\n Cześć, jestem Roma! Obecnie mieszkam w Ukrainie, którą absolutnie kocham! Mam bzika na punkcie gier planszowych od ponad 10 lat! Pomysł na tę aplikację przyszedł mi do głowy, gdy grałem w Star Realms (które ma okropne żetony, prawda?). Pracuję nad tą aplikacją w wolnym czasie. Każda recenzja, e-mail lub darowizna od ciebie sprawia, że jestem trochę szczęśliwszy. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację za darmo i nie dodawać reklam.\n\nDziękuję bardzo i życzę radosnych gier!</string>
     <string name="about_translators_title">Niesamowici tłumacze</string>
-    <string name="action_donate">Kup programiście kawę</string>
+    <string name="action_donate">Wsparcie dla Licznik Punktów</string>
     <string name="action_save">Zapisz</string>
     <string name="app_name">Licznik Punktów</string>
     <string name="common_back">Cofnij</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Otworzy się mała strona przeglądarki, która pomoże ci wybrać kogoś z grupy.\n\nWykonane przez Julien&#160;Bellue</string>
     <string name="dialog_no">Nie</string>
     <string name="dialog_predefined_steps">Wartości te można edytować w ustawieniach</string>
-    <string name="dialog_support_me_content">Cześć, jestem Roma. Mieszkam na Ukrainie i pracuję nad tą aplikacją w wolnym czasie. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację bez reklam. Jeśli chcesz mnie wesprzeć, rozważ darowiznę. Dzięki i mam nadzieję, że czekają Cię wspaniałe wieczory z grami!</string>
+    <string name="dialog_support_me_content">Cześć, jestem Roma! Mieszkam w Ukrainie (yikes!) i pracuję nad tą aplikacją w wolnym czasie. Zależy mi na tym, aby Počítadlo skóre pozostał darmowy na zawsze. Jeśli podoba Ci się Počítadlo skóre, rozważ proszę wsparcie go.\n\nNawet niewielki wkład się liczy!\n\nDziękuję i życzę miłych wieczorów z grami!</string>
     <string name="dialog_support_me_remind_me_later">Nie teraz</string>
     <string name="dialog_yes">Tak</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Zamień krótkie i długie naciśnięcie</string>
     <string name="share_snippet">Czołem! Licznik Punktów pozwoli ci na łatwe śledzenie wyniku jakiejkolwiek gry, sportu i innych aktywności. Pobierz darmową aplikację tutaj</string>
     <string name="simple_edit_value_hint">Nowa wartość</string>
+    <string name="action_one_time_support">Jednorazowe wsparcie</string>
+    <string name="action_monthly_support">Wsparcie miesięczne</string>
+    <string name="tip_cancel_any_time">Anuluj w dowolnym momencie</string>
+    <string name="tip_alternative_options">Alternatywne opcje napiwków:</string>
 </resources>

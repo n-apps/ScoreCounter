@@ -68,4 +68,8 @@
     <string name="simple_edit_value_hint">أدخل القيمة</string>
     <string name="counter_default_name">العداد</string>
     <string name="donation_title">اجعل هذا التطبيق خالياً من الإعلانات</string>
+    <string name="action_one_time_support">الدعم لمرة واحدة</string>
+    <string name="action_monthly_support">الدعم الشهري</string>
+    <string name="tip_cancel_any_time">الإلغاء في أي وقت</string>
+    <string name="tip_alternative_options">خيارات بديلة للإكرامية:</string>
 </resources>

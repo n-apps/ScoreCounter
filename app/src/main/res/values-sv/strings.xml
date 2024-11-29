@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHej, jag heter Roma! Jag bor för närvarande i Ukraina, vilket jag absolut älskar! Jag har varit galen i brädspel i mer än 10 år! Idén till den här appen kom till mig när jag spelade Star Realms (som har hemska tokens, eller hur?). Jag arbetar med den här appen på fritiden.\n\nVarje recension, mejl eller donation från dig gör mig lite gladare. Trots de fruktansvärda händelserna i mitt land bestämde jag mig för att behålla den här appen gratis och inte lägga till annonser.\n\nTack så mycket, och jag hoppas du får kul spelstunder!</string>
     <string name="about_translators_title">Fantastiska översättare</string>
-    <string name="action_donate">Bjud utvecklaren på kaffe</string>
+    <string name="action_donate">Stöd för Poängräknare</string>
     <string name="action_save">Spara</string>
     <string name="app_name">Poängräknare</string>
     <string name="common_back">Tillbaka</string>
@@ -66,4 +66,8 @@
     <string name="settings_switch_tap_logic">Byt mellan kort och långa tryckning</string>
     <string name="share_snippet">Sluta leta efter papper och penna. Hämta den kostnadsfria Android-appen</string>
     <string name="simple_edit_value_hint">Ange värde</string>
+    <string name="action_one_time_support">Engångsstöd</string>
+    <string name="action_monthly_support">Engångsstöd</string>
+    <string name="tip_cancel_any_time">Avbryt när som helst</string>
+    <string name="tip_alternative_options">Alternativa möjligheter till tips:</string>
 </resources>

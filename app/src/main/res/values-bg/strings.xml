@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nЗдравейте, аз съм Рома! В момента живея в Украйна, която много обичам! От повече от 10 години съм луда по настолните игри! Идеята за това приложение ми хрумна, когато играех Star Realms (която има ужасни жетони, нали?). Работя върху това приложение в свободното си време.\n\nВсяко ревю, имейл или дарение от вас ме прави малко по-щастлив. Въпреки ужасните събития в моята страна, реших да запазя това приложение безплатно и да не добавям реклами.\n\nБлагодаря ви много и ви пожелавам радостни игри!</string>
     <string name="about_translators_title">Страхотни преводачи</string>
-    <string name="action_donate">Купете на разработчика кафе</string>
+    <string name="action_donate">Подкрепа „Брояч на резултати“</string>
     <string name="action_save">Запазване</string>
     <string name="app_name">Брояч на резултати</string>
     <string name="common_back">Обратно</string>
@@ -64,6 +64,10 @@
     <string name="settings_sound">Звук</string>
     <string name="settings_stay_awake">Поддържане на екрана включен</string>
     <string name="settings_switch_tap_logic">Размяна на кратко и дълго натискане</string>
-    <string name="share_snippet">Здравейте! Score Counter ще ви помогне лесно да запазите резултата във всички игри, спортове или други дейности. Вземете безплатното приложение за Android тук</string>
+    <string name="share_snippet">Здравейте! Брояч на резултати ще ви помогне лесно да запазите резултата във всички игри, спортове или други дейности. Вземете безплатното приложение за Android тук</string>
     <string name="simple_edit_value_hint">Въведете стойност</string>
+    <string name="action_one_time_support">Еднократна поддръжка</string>
+    <string name="action_monthly_support">Месечна подкрепа</string>
+    <string name="tip_cancel_any_time">Отмяна по всяко време</string>
+    <string name="tip_alternative_options">Алтернативни опции за бакшиш:</string>
 </resources>

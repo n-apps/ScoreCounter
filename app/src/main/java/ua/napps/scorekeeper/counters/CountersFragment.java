@@ -235,7 +235,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 new MaterialDialog.Builder(requireActivity())
                         .title(R.string.menu_reset_all_counters)
                         .content(R.string.dialog_confirmation_question)
-                        .onPositive((dialog, which) -> viewModel.resetAll())
+                        .onPositive((dialog, which) -> {
+                            viewModel.resetAll();
+                            toolbar.setTitle(R.string.common_counters);
+                        })
                         .onNegative((dialog, which) -> dialog.dismiss())
                         .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)

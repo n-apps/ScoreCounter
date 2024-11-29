@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHallo, ich bin Roma! I\ lebe momentan in&#160;der Ukraine, die ich absolut liebe! Ich bin schon seit mehr als 10 Jahren verrückt nach Brettspielen! Die Idee für diese App kam mir, als ich Star Realms gespielt habe (das schreckliche Spielsteine hat, oder?). Ich arbeite in&#160;meiner Freizeit an dieser App.\n\nJede Bewertung, E-Mail oder Spende von euch macht mich ein bisschen glücklicher. Trotz der schrecklichen Ereignisse in&#160;meinem Land habe ich beschlossen, diese App kostenlos zu halten und keine Werbung hinzuzufügen.\n\nVielen Dank, und ich wünsche euch viel Spaß beim Spielen!</string>
     <string name="about_translators_title">Tolle Übersetzer</string>
-    <string name="action_donate">Unterstützen Sie den Entwickler</string>
+    <string name="action_donate">Unterstützung Punktezähler</string>
     <string name="action_save">Speichern</string>
     <string name="app_name">Punktezähler</string>
     <string name="common_back">Zurück</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen.\n\nErstellt von Julien&#160;Bellue</string>
     <string name="dialog_no">Nein</string>
     <string name="dialog_predefined_steps">☃︎: Sie können diese Werte in den Einstellungen ändern</string>
-    <string name="dialog_support_me_content">Hallo, ich bin Roma. Ich lebe in&#160;der Ukraine und arbeite in&#160;meiner Freizeit an dieser App.\n\nTrotz der schrecklichen Ereignisse in&#160;meinem Land habe ich mich entschieden, diese App werbefrei zu halten. Wenn ihr mich unterstützen wollt, denkt bitte über eine Spende nach.\n\nDanke und ich hoffe, ihr habt ein paar tolle Spieleabende vor euch!</string>
+    <string name="dialog_support_me_content">Hallo, ich bin Roma! Ich wohne in der Ukraine (ja, in einem Kriegsgebiet) und arbeite in meiner Freizeit an dieser App. Ich werde mich dafür einsetzen, dass Punktezähler für immer kostenlos bleibt.\n\nWenn du Punktezähler magst, überlege bitte, es zu unterstützen. Selbst ein kleiner Beitrag zählt!\n\nVielen Dank und schöne Spieleabende!</string>
     <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Um zu würfeln, tippen Sie einfach irgendwo auf den Bildschirm.</string>
@@ -66,4 +66,8 @@
     <string name="share_snippet">Sie müssen nicht mehr nach Stift und Papier suchen. Holen Sie sich einfach die kostenlose und benutzerfreundliche Scorekeeper Android App.</string>
     <string name="simple_edit_value_hint">Wert eingeben</string>
     <string name="donation_title">Die App werbefrei halten</string>
+    <string name="action_one_time_support">Einmalige Unterstützung</string>
+    <string name="action_monthly_support">Monatliche Unterstützung</string>
+    <string name="tip_cancel_any_time">Jederzeit abbrechen</string>
+    <string name="tip_alternative_options">Alternative Optionen zum Trinkgeld:</string>
 </resources>
