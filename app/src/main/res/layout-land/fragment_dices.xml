@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dices_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    tools:context="ua.napps.scorekeeper.dice.DicesFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:title="@string/common_dice" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tv_dice_variant_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mono"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:foreground="@drawable/ripple"
+        android:gravity="center"
+        android:letterSpacing="-0.05"
+        android:minHeight="@dimen/list_single_line_min_height"
+        android:paddingStart="@dimen/padding_large"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:textDirection="locale"
+        app:layout_constraintBottom_toTopOf="@id/dice"
+        app:layout_constraintEnd_toStartOf="@+id/iv_edit"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1 × d6"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/iv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha=".5"
+        android:contentDescription="@string/common_edit"
+        android:foreground="@drawable/ripple"
+        android:gravity="end"
+        android:padding="@dimen/spacing_normal"
+        android:scaleType="center"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="@id/tv_dice_variant_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_dice_variant_info"
+        app:layout_constraintTop_toTopOf="@id/tv_dice_variant_info"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/dice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/spacing_normal"
+        android:background="@drawable/bg_dice"
+        android:ellipsize="none"
+        android:fontFamily="@font/mono"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:textColor="?attr/colorOnSurface"
+        android:visibility="invisible"
+        app:autoSizeMaxTextSize="88sp"
+        app:autoSizeMinTextSize="20sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/tv_dice_composition"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_min="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
+        app:layout_constraintWidth_min="160dp"
+        tools:text="23"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/empty_state_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="im_empty_state,tv_empty_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/im_empty_state"
+        android:layout_width="@dimen/empty_state_icon_size"
+        android:layout_height="@dimen/empty_state_icon_size"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:contentDescription="@string/dice_empty_state"
+        android:rotationY="@integer/locale_mirror_flip"
+        android:src="@drawable/es_dice"
+        app:layout_constraintBottom_toTopOf="@id/tv_empty_state"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_empty_state"
+        style="@style/EmptyStateMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_xlarge"
+        android:text="@string/dice_empty_state"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/im_empty_state"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_dice_composition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_xlarge"
+        android:ellipsize="end"
+        android:fontFamily="@font/o400"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:lineSpacingMultiplier="1.33"
+        android:minHeight="@dimen/list_two_lines_min_height"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textDirection="locale"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_dice_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dice"
+        tools:text="Rolls: 2, 4, 5, 7\nSum: 45"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_dice_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/spacing_normal"
+        android:gravity="center_horizontal"
+        android:text="@string/dice_empty_state"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="@id/tv_dice_composition"
+        app:layout_constraintBottom_toBottomOf="@id/tv_dice_composition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_dice_composition" />
+</androidx.constraintlayout.widget.ConstraintLayout>

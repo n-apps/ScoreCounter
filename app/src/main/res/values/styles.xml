@@ -39,10 +39,11 @@
     </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar.Surface">
-        <item name="theme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="theme">@style/AppTheme.AppBarOverlay</item>
         <item name="titleTextAppearance">@style/TextAppearance.App.Toolbar.Title</item>
         <item name="colorControlNormal">?attr/colorOnPrimary</item>
         <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+
     </style>
 
     <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline5">
@@ -50,6 +51,8 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:letterSpacing">-0.05</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents" />
 
@@ -125,6 +128,8 @@
         <item name="android:padding">@dimen/padding_normal</item>
         <item name="android:textColor">?colorSecondary</item>
         <item name="backgroundTint">@color/outline_button_selector</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
         <item name="rippleColor">@color/rippleColor</item>
     </style>
 

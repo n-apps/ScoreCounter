@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding_large"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:id="@+id/counter_info_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_large"
+        app:layout_constraintBottom_toTopOf="@id/first_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="#F2B04B">
+
+        <TextView
+            android:id="@+id/counter_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_big"
+            android:ellipsize="end"
+            android:fontFamily="@font/o600"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:text="Jessica"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            tools:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/counter_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:fontFamily="@font/mono"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?android:attr/textColorPrimary"
+            tools:text="435" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/first_buttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_large"
+        android:layout_marginVertical="@dimen/spacing_micro"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/counter_info_header">
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_one_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+5" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_two_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+10"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_three_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+15"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_four_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/spacing_micro"
+                tools:text="+20"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_five"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_five_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/spacing_micro"
+                tools:text="+50"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_six"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_six_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+100"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <ua.napps.scorekeeper.utils.SquareFrameLayout
+            android:id="@+id/btn_seven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_weight="1"
+            android:background="@drawable/bg_selector_counter_toggle"
+            android:padding="@dimen/spacing_micro">
+
+            <TextView
+                android:id="@+id/btn_seven_text"
+                style="@style/MiniDiceStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="+200"
+                tools:textSize="18sp" />
+        </ua.napps.scorekeeper.utils.SquareFrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_custom_step"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="@string/simple_edit_value_hint"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintEnabled="false"
+            app:hintTextAppearance="?attr/textAppearanceCaption"
+            app:hintTextColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_add_custom_value"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:digits="1234567890"
+                android:fontFamily="@font/mono"
+                android:gravity="center"
+                android:imeOptions="actionDone|flagNoExtractUi"
+                android:includeFontPadding="false"
+                android:inputType="numberSigned"
+                android:maxLength="9"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                app:autoSizeMaxTextSize="32sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:cursorVisible="true"
+                tools:focusedByDefault="true"
+                tools:text="56" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/group_sign_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_normal"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint"
+        app:layout_constraintEnd_toEndOf="@id/first_buttons"
+        app:layout_constraintStart_toStartOf="@id/first_buttons"
+        app:layout_constraintTop_toBottomOf="@id/first_buttons"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_dec"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="112dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingHorizontal="@dimen/padding_large"
+            android:text="–"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:textColor="?android:attr/textColorPrimary"
+            app:cornerRadius="24dp"
+            app:rippleColor="@color/rippleColor"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="112dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/btn_text_btn_bg_color_selector"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="+"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:textColor="?android:textColorPrimary"
+            app:cornerRadius="24dp"
+            app:rippleColor="@color/rippleColor"
+            tools:ignore="HardcodedText" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/dialog_predefined_steps"
+        android:textAppearance="?attr/textAppearanceCaption"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/first_buttons"
+        app:layout_constraintStart_toStartOf="@id/first_buttons"
+        app:layout_constraintTop_toBottomOf="@id/group_sign_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

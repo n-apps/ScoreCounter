@@ -262,6 +262,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 .showListener(dialogInterface -> {
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
+                        inputEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                         inputEditText.requestFocus();
                         inputEditText.setTransformationMethod(null);
                         inputEditText.setGravity(Gravity.CENTER);

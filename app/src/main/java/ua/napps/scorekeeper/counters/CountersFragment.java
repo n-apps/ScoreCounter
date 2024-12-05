@@ -10,6 +10,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -98,7 +99,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private boolean isSwapPressLogicEnabled;
     private int counterStepDialogMode;
     private int counterStep1, counterStep2, counterStep3, counterStep4, counterStep5, counterStep6, counterStep7;
-    private SpanningLinearLayoutManager spanningLinearLayoutManager;
+    private SpanningLinearLayoutManager spanningLayoutManager;
     private LinearLayoutManager linearLayoutManager;
     private Typeface mono;
     private Typeface regular;
@@ -140,12 +141,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         }
         toolbarTitle.setOnClickListener(v -> switchTopLogic());
 
-        spanningLinearLayoutManager = new SpanningLinearLayoutManager(requireContext());
+        spanningLayoutManager = createSpanningLayoutManager();
         linearLayoutManager = new LinearLayoutManager(requireContext());
 
-        countersAdapter = new CountersAdapter(this, this);
+        int layoutThreshold = getLayoutThreshold();
+        countersAdapter = new CountersAdapter(this, this, layoutThreshold);
         recyclerView = contentView.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(spanningLinearLayoutManager);
+        recyclerView.setLayoutManager(spanningLayoutManager);
         recyclerView.setItemAnimator(new BounceItemAnimator());
         recyclerView.setAdapter(countersAdapter);
 
@@ -313,12 +315,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             }
 
             if (oldListSize != size) {
-                if (size < CountersAdapter.COUNTERS_LAYOUT_THRESHOLD) {
+                if (size < getLayoutThreshold()) {
                     if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
-                        recyclerView.setLayoutManager(spanningLinearLayoutManager);
+                        recyclerView.setLayoutManager(spanningLayoutManager);
                     }
                 } else {
-                    if (recyclerView.getLayoutManager().equals(spanningLinearLayoutManager)) {
+                    if (recyclerView.getLayoutManager().equals(spanningLayoutManager)) {
                         recyclerView.setLayoutManager(linearLayoutManager);
                     }
                 }
@@ -497,6 +499,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     }
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
+                        inputEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                         inputEditText.requestFocus();
                         inputEditText.setGravity(Gravity.CENTER);
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
@@ -655,7 +658,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-        contentView.findViewById(R.id.  btn_four).setOnClickListener(v -> {
+        contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
                 Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep4, counter.getValue()));
 
@@ -811,6 +814,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     }
                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                     if (inputEditText != null) {
+                        inputEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                         inputEditText.requestFocus();
                         inputEditText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
                     }
@@ -898,6 +902,19 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 counterStep7 = LocalSettings.getCustomCounter(7);
                 break;
         }
+    }
+
+    /**
+     * Creates a SpanningLinearLayoutManager with the appropriate orientation based on the current configuration.
+     */
+    private SpanningLinearLayoutManager createSpanningLayoutManager() {
+        int orientation = getResources().getConfiguration().orientation;
+        return new SpanningLinearLayoutManager(requireContext(),
+                orientation == Configuration.ORIENTATION_LANDSCAPE ? LinearLayoutManager.HORIZONTAL : LinearLayoutManager.VERTICAL, false);
+    }
+
+    private int getLayoutThreshold() {
+        return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 5 : 7;
     }
 
     @Override

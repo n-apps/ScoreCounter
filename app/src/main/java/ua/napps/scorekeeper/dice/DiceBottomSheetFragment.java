@@ -1,5 +1,6 @@
 package ua.napps.scorekeeper.dice;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Typeface;
@@ -18,13 +19,17 @@ import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bitvale.switcher.SwitcherX;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
@@ -63,6 +68,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
         contentView.findViewById(R.id.settings_sound).setOnClickListener(this);
         contentView.findViewById(R.id.settings_shake).setOnClickListener(this);
         contentView.findViewById(R.id.settings_animate).setOnClickListener(this);
+        contentView.findViewById(R.id.btn_close).setOnClickListener(this);
 
         MaterialButtonToggleGroup diceSidesGroup1 = contentView.findViewById(R.id.dice_sides_group_1);
         MaterialButtonToggleGroup diceSidesGroup2 = contentView.findViewById(R.id.dice_sides_group_2);
@@ -159,6 +165,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                                     }
                                     EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                                     if (inputEditText != null) {
+                                        inputEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                                         inputEditText.requestFocus();
                                         inputEditText.setTransformationMethod(null);
                                         inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
@@ -205,6 +212,22 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
         return contentView;
     }
 
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        BottomSheetDialog dialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
+        dialog.setOnShowListener(dialog1 -> {
+            BottomSheetDialog d = (BottomSheetDialog) dialog1;
+
+            FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+            if (bottomSheet != null) {
+                BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+        return dialog;
+    }
+
     private void validateDiceToggle(MaterialButtonToggleGroup group, int checkedId, int diceMaxSide) {
         switch (checkedId) {
             case R.id.btn_1:
@@ -248,6 +271,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                             }
                             EditText inputEditText = ((MaterialDialog) dialogInterface).getInputEditText();
                             if (inputEditText != null) {
+                                inputEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
                                 inputEditText.requestFocus();
                                 inputEditText.setTransformationMethod(null);
                                 inputEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2)});
@@ -286,6 +310,7 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 md.getWindow().setSoftInputMode(
                         WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 break;
+
         }
     }
 
@@ -348,6 +373,9 @@ public class DiceBottomSheetFragment extends BottomSheetDialogFragment implement
                 if (newStateAnimate) {
                     ViewUtil.shakeView(v, 2, 0);
                 }
+                break;
+            case R.id.btn_close:
+                dismiss();
                 break;
         }
     }

@@ -7,53 +7,38 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
-        style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
+        style="@style/ToolBarStyle"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:background="@android:color/transparent"
+        android:layout_height="180dp"
         app:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorPrimaryVariant"
+            app:contentScrim="?attr/colorPrimaryVariant"
+            app:expandedTitleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|snap"
-            app:titleEnabled="false"
             app:toolbarId="@+id/toolbar">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/title_container"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:alpha=".6"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/hello" />
-
-                <FrameLayout
-                    android:id="@+id/rounded"
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:background="@drawable/bg_rounded_top_square"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_height="match_parent"
+                android:scaleType="fitEnd"
+                android:src="@drawable/hello" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
-                app:layout_collapseMode="pin"
+                app:layout_collapseMode="parallax"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:title="@string/action_donate"
                 app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
+                app:titleTextColor="?attr/colorOnPrimary"
                 tools:layout_editor_absoluteY="-1dp" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -77,7 +62,8 @@
                 android:fontFamily="@font/o400"
                 android:gravity="center_horizontal"
                 android:lineSpacingMultiplier="1.2"
-                android:paddingHorizontal="@dimen/padding_normal"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:paddingTop="@dimen/padding_large"
                 android:text="@string/dialog_support_me_content"
                 android:textAppearance="?attr/textAppearanceBody2"
                 app:layout_constraintBottom_toTopOf="@id/items"

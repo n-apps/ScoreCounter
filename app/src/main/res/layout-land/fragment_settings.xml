@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_fragment"
+    android:layout_width="match_parent"
+    android:background="?attr/colorSurface"
+    android:layout_height="match_parent"
+    tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
+    tools:ignore="TouchTargetSizeCheck">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:background="?attr/colorPrimaryVariant"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll"
+            app:toolbarId="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/title_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="@dimen/padding_large"
+                    android:text="@string/donation_title"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toTopOf="@id/subtitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/subtitle"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/spacing_micro"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:insetTop="0dp"
+                    android:clickable="false"
+                    android:insetBottom="0dp"
+                    android:paddingHorizontal="@dimen/padding_large"
+                    android:text="@string/action_donate"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="?attr/colorOnPrimary"
+                    app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+                    app:drawableEndCompat="@drawable/ic_arrow_right"
+                    app:drawableTint="?attr/colorOnPrimary"
+                    app:layout_constraintBottom_toTopOf="@id/rounded"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/winter" />
+
+                <FrameLayout
+                    android:id="@+id/rounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@drawable/bg_rounded_top_square"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_about"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding_normal"
+                android:fontFamily="@font/o600"
+                android:text="@string/settings_about"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="?attr/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tv_open_settings"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding_normal"
+                android:fontFamily="@font/o600"
+                android:text="@string/common_settings"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:drawableEndCompat="@drawable/ic_arrow_right"
+                app:drawableTint="?attr/colorPrimary" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_normal" />
+
+            <TextView
+                android:id="@+id/tv_request_feature"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/padding_normal"
+                android:text="@string/settings_feedback"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_mail"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_share"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
+                android:text="@string/setting_share"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_share"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_rate_app"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
+                android:text="@string/settings_rate_app"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_star"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_donate"
+                style="@style/TwoLinesStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_big"
+                android:text="@string/action_donate"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:drawableStartCompat="@drawable/ic_teacup"
+                app:drawableTint="?attr/colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
