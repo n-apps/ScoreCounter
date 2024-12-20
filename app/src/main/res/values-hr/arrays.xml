@@ -239,8 +239,8 @@
         <item>kuoka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Automatikus (A rendszeren alapuló)</item>
-        <item>Világos téma</item>
-        <item>Fekete téma</item>
+        <item>Slijedite sustav</item>
+        <item>Svijetla tema</item>
+        <item>Tamna tema</item>
     </string-array>
 </resources>

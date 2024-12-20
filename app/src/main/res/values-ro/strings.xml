@@ -16,7 +16,7 @@
     <string name="counters_empty_message">Atingeți <b>+</b> în colțul din dreapta sus pentru a&#160;adăuga un nou contor</string>
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
-    <string name="dialog_support_me_content">Bună, eu sunt Roma. Sunt stabilită în Ucraina și lucrez la&#160;această aplicație în timpul meu liber.\n\nÎn ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație fără reclame. Dacă doriți să mă sprijiniți, vă rog să vă gândiți la&#160;o donație.\n\nMulțumesc și sper să aveți parte de nopți minunate de jocuri!</string>
+    <string name="dialog_support_me_content"><b>Îți place Score Counter? Sprijină-mă cu o cafea!</b>\n\nBună, sunt Roma! Locuiesc în Ucraina și lucrez la această aplicație în timpul meu liber. Sunt hotărât să mențin Score Counter gratuit pentru totdeauna.\n\nSprijinul tău mă ajută să mențin Score Counter actualizat și gratuit pentru toată lumea, chiar și atunci când îl dezvolt în vremuri dificile.</string>
     <string name="dialog_support_me_remind_me_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>

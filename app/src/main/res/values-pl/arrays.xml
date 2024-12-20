@@ -239,7 +239,7 @@
         <item>quokka</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Automatyczne (Oparte na systemie)</item>
+        <item>Automatyczne</item>
         <item>Tryb jasny</item>
         <item>Tryb ciemny</item>
     </string-array>

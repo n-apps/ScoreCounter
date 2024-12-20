@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Aparecerá una pequeña página del navegador para ayudarte a&#160;elegir a&#160;alguien de un grupo.\n\nCreado por Julien Bellue.</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">☃︎: Puede cambiar estos valores en la configuración</string>
-    <string name="dialog_support_me_content">Hola, soy Roma. Vivo en Ucrania (sí, en una zona de guerra) y&#160;trabajo en esta aplicación en mi tiempo libre. Me comprometo a&#160;mantener Contador de&#160;puntos gratis para siempre.\n\nSi te&#160;gusta Contador de&#160;puntos, por favor considera apoyarla.\n\n¡Incluso una pequeña contribución cuenta! Gracias y ¡que tengas buenas noches de&#160;juego!</string>
+    <string name="dialog_support_me_content"><b>¿Te gusta Score Counter? ¡Apóyame con un café!</b>\n\nHola, soy Roma. Vivo en Ucrania y trabajo en esta aplicación en mi tiempo libre. Estoy comprometido a mantener Score Counter gratuito para siempre.\n\nTu apoyo me ayuda a mantener Score Counter actualizado y gratuito para todo el mundo, incluso mientras lo desarrollo en tiempos difíciles.</string>
     <string name="dialog_support_me_remind_me_later">Ahora no</string>
     <string name="dialog_yes">Sí</string>
     <string name="dice_empty_state">Para tirarlos, solo tienes que tocar cualquier parte de la&#160;pantalla.</string>

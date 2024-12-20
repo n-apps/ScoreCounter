@@ -7,7 +7,6 @@
         <item>pikachu</item>
         <item>khủng long bạo chúa</item>
         <item>bánh xốp</item>
-        <item>chuột cống</item>
         <item>siêu bọ hung</item>
         <item>rắn hổ mang</item>
         <item>nai</item>
@@ -22,8 +21,6 @@
         <item>thú ăn kiến</item>
         <item>linh dương</item>
         <item>vượn</item>
-        <item>tatu</item>
-        <item>lừa</item>
         <item>khỉ</item>
         <item>lửng</item>
         <item>cá nhồng</item>
@@ -45,7 +42,6 @@
         <item>chinchilla</item>
         <item>quạ chân đỏ</item>
         <item>ngao</item>
-        <item>cgián</item>
         <item>cá tuyết</item>
         <item>kền kền khoang cổ</item>
         <item>chim cốc</item>
@@ -69,7 +65,6 @@
         <item>nai sừng tấm</item>
         <item>Đà điểu</item>
         <item>chim ưng</item>
-        <item>chồn hôi</item>
         <item>chim sẻ</item>
         <item>cá</item>
         <item>Chim hồng hạc</item>
@@ -89,7 +84,6 @@
         <item>diều hâu</item>
         <item>châu chấu</item>
         <item>gà̀ gô trắng</item>
-        <item>guanaco</item>
         <item>chuột bạch</item>
         <item>mòng biển</item>
         <item>chuột đồng</item>
@@ -120,7 +114,6 @@
         <item>lạc đà không bướu</item>
         <item>tôm</item>
         <item>châu chấu</item>
-        <item>rận</item>
         <item>chim cầm</item>
         <item>chim ác là</item>
         <item>vịt trời</item>
@@ -128,7 +121,6 @@
         <item>lợn biển</item>
         <item>mũi khoan</item>
         <item>bọ ngựa</item>
-        <item>meerkat</item>
         <item>chồn</item>
         <item>nốt ruồi</item>
         <item>cầy mangut</item>
@@ -193,8 +185,6 @@
         <item>nuốt</item>
         <item>thiên nga</item>
         <item>heo vòi</item>
-        <item>tarsier</item>
-        <item>mối mọt</item>
         <item>hổ</item>
         <item>cóc</item>
         <item>cá hồi</item>
@@ -203,29 +193,26 @@
         <item>rắn lục</item>
         <item>chuột đồng</item>
         <item>kền kền</item>
-        <item>wallaby</item>
         <item>hải mã</item>
         <item>ong vò vẽ</item>
         <item>chồn</item>
         <item>cá voi</item>
         <item>chó sói</item>
-        <item>người sói</item>
         <item>gấu túi</item>
         <item>chuột túi</item>
         <item>sâu</item>
-        <item>yak</item>
         <item>ngựa vằn</item>
         <item>winnie the pooh</item>
         <item>king kong</item>
         <item>chó xù</item>
         <item>kỳ lân</item>
         <item>rồng</item>
-        <item>thây ma</item>
         <item>tiên</item>
         <item>dobby</item>
         <item>cheburashka</item>
         <item>bánh hạnh nhân</item>
         <item>scooby doo</item>
+        <item>chim sẻ</item>
         <item>rapunzel</item>
         <item>vua sư tử</item>
         <item>bọt biển</item>
@@ -235,8 +222,9 @@
         <item>mèo nyan</item>
         <item>thú mỏ vịt</item>
         <item>trăn</item>
-        <item>quagga</item>
-        <item>quokka</item>
+        <item>con trâu</item>
+        <item>cá chép</item>
+        <item>con ong</item>
     </string-array>
     <string-array name="app_theme_options">
         <item>Theo hệ thống</item>

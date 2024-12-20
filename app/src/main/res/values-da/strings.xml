@@ -2,7 +2,7 @@
 <resources>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHej, jeg hedder Roma! Jeg bor i øjeblikket i Ukraine, som jeg er helt forelsket i! Jeg har været vild med brætspil i mere end 10 år! Ideen til denne app fik jeg, da jeg spillede Star Realms (som har forfærdelige tokens, ikke?).\n\nJeg arbejder på denne app i min fritid. Hver eneste anmeldelse, e-mail eller donation fra jer gør mig lidt gladere. På trods af de forfærdelige begivenheder i mit land besluttede jeg at holde denne app gratis og ikke tilføje reklamer.\n\nTusind tak, og jeg ønsker jer god fornøjelse med spillene!</string>
     <string name="about_translators_title">Fantastiske oversættere</string>
-    <string name="action_donate">Understøttelse af »Pointtæller«</string>
+    <string name="action_donate">Understøttelse af Pointtæller</string>
     <string name="action_save">Gem</string>
     <string name="app_name">Pointtæller</string>
     <string name="common_back">Tilbage</string>
@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">En lille browserside dukker op for at hjælpe dig med at vælge en person fra en gruppe.\n\nLavet af Julien Bellue</string>
     <string name="dialog_no">Nej</string>
     <string name="dialog_predefined_steps">Du kan justere disse indstillinger på skærmen Indstillinger.</string>
-    <string name="dialog_support_me_content">Hej, jeg hedder Roma. Jeg bor i Ukraine, og jeg arbejder på denne app i min fritid.\n\nPå trods af de forfærdelige begivenheder i mit land har jeg besluttet at holde denne app reklamefri. Hvis du gerne vil støtte mig, kan du overveje at donere.\n\nTak, og jeg håber, at du får nogle gode spilaftener fremover!</string>
+    <string name="dialog_support_me_content"><b>Kan du lide Score Counter? Støt mig med en kop kaffe!</b>\n\nHej, jeg er Roma! Jeg bor i Ukraine og arbejder på denne app i min fritid. Jeg er fast besluttet på at holde Score Counter gratis for altid.\n\nDin støtte hjælper mig med at holde Score Counter opdateret og gratis for alle i hele verden, selv når jeg udvikler den i svære tider.</string>
     <string name="dialog_support_me_remind_me_later">Senere</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">For at kaste terningerne skal du bare trykke et sted på skærmen</string>

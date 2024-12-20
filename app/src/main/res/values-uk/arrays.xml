@@ -7,11 +7,9 @@
         <item>Грут</item>
         <item>пухнастик</item>
         <item>муффало</item>
-        <item>Гривня Петрівна</item>
         <item>мегаскарабей</item>
         <item>олень</item>
         <item>кобра</item>
-        <item>борів</item>
         <item>білка</item>
         <item>ігуана</item>
         <item>мурахоїд</item>
@@ -43,9 +41,7 @@
         <item>курча</item>
         <item>шимпанзе</item>
         <item>шиншила</item>
-        <item>клушица</item>
         <item>молюск</item>
-        <item>тарган</item>
         <item>тріска</item>
         <item>кондор</item>
         <item>баклан</item>
@@ -57,11 +53,10 @@
         <item>динозавр</item>
         <item>пес Патрон</item>
         <item>дельфін</item>
-        <item>віслюк</item>
         <item>голуб</item>
         <item>бабка</item>
         <item>орел</item>
-        <item>єхидна</item>
+        <item>котигорошко</item>
         <item>вугор</item>
         <item>антилопа канна</item>
         <item>слон</item>
@@ -120,7 +115,6 @@
         <item>лама</item>
         <item>омар</item>
         <item>сарана</item>
-        <item>воша</item>
         <item>лірохвіст</item>
         <item>сорока</item>
         <item>кряква</item>
@@ -130,9 +124,7 @@
         <item>богомол</item>
         <item>сурікат</item>
         <item>норка</item>
-        <item>моль</item>
         <item>мангуст</item>
-        <item>мавка</item>
         <item>лось</item>
         <item>миша</item>
         <item>москіт</item>
@@ -164,8 +156,6 @@
         <item>перепілка</item>
         <item>кролик</item>
         <item>єнот</item>
-        <item>поршень</item>
-        <item>пацюк</item>
         <item>ворон</item>
         <item>північний олень</item>
         <item>носоріг</item>
@@ -188,7 +178,6 @@
         <item>кальмар</item>
         <item>шпак</item>
         <item>скат</item>
-        <item>жук-вонючка</item>
         <item>лелека</item>
         <item>ластівка</item>
         <item>лебідь</item>
@@ -202,7 +191,6 @@
         <item>черепаха</item>
         <item>гадюка</item>
         <item>полівка</item>
-        <item>стерв\'ятник</item>
         <item>кенгуру-валлабі</item>
         <item>морж</item>
         <item>оса</item>
@@ -220,21 +208,18 @@
         <item>пудель</item>
         <item>єдиноріг</item>
         <item>дракон</item>
-        <item>зомбі</item>
         <item>фея</item>
         <item>доббі</item>
         <item>чебурашка</item>
-        <item>домовик</item>
         <item>Скубі Ду</item>
         <item>Рапунцель</item>
         <item>король Лев</item>
         <item>Губка Боб</item>
-        <item>чупакабра</item>
-        <item>Кракен</item>
         <item>лорі</item>
         <item>нян кіт</item>
         <item>качконіс</item>
         <item>пітон</item>
+        <item>кабанчик</item>
         <item>квагга</item>
         <item>квока</item>
     </string-array>

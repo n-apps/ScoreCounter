@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Megnyílik egy kis böngészőoldal, amely segít kiválasztani valakit a csoportból.\n\nKészítette: Julien&#160;Bellue</string>
     <string name="dialog_no">Nem</string>
     <string name="dialog_predefined_steps">A beállításokban átírhatod ezeket az értékeket</string>
-    <string name="dialog_support_me_content">Szia, Roma vagyok! Ukrajnában élek (igen, egy háborús övezetben), és szabadidőmben ezen az alkalmazáson dolgozom. Elkötelezett vagyok, hogy a Pontszámláló örökké ingyenes maradjon.\n\nHa tetszik a Pontszámláló, kérlek, fontold meg a támogatását. Még egy kis hozzájárulás is számít!\n\nKöszönöm, és további szép játékestéket kívánok!</string>
+    <string name="dialog_support_me_content"><b>Tetszik a Score Counter? Támogass egy kávéval!</b>\n\nSzia, én Roma vagyok! Ukrajnában élek, és szabadidőmben ezen az alkalmazáson dolgozom. Elkötelezett vagyok amellett, hogy a Score Counter örökké ingyenes maradjon.\n\nA támogatásod segít abban, hogy a Score Counter naprakész és ingyenes maradjon mindenki számára világszerte, még akkor is, ha nehéz időkben fejlesztem.</string>
     <string name="dialog_support_me_remind_me_later">Most nem</string>
     <string name="dialog_yes">Igen</string>
     <string name="dice_empty_state">Bökj bárhová vagy rázd meg a&#160;készüléket a&#160;kockadobáshoz!</string>

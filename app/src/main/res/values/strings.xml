@@ -30,7 +30,7 @@
     <string name="dialog_elektu_confirm">A small browser page will pop up to&#160;help you choose someone from a&#160;group.\n\nCreated by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">☃︎: you can tweak these values in&#160;the Settings</string>
-    <string name="dialog_support_me_content">Hi, I\'m Roma! I\'m based in&#160;Ukraine (yes, in a war zone) and I\'m working on this&#160;app in&#160;my spare time. I\'m&#160;committed to&#160;keeping Score&#160;Counter free forever.\n\nIf&#160;you\'d like Score&#160;Counter, please consider supporting&#160;it. Even a&#160;small contribution counts!\n\nThank you and have a great game nights ahead!</string>
+    <string name="dialog_support_me_content"><b>Enjoying Score Counter? Support me with a coffee!</b>\n\nHi, I\'m Roma! I\'m based in&#160;Ukraine and I\'m working on this&#160;app in&#160;my spare time. I\'m&#160;committed to&#160;keeping Score&#160;Counter free forever.\n\nYour support helps me keep Score Counter updated and&#160;free for&#160;everyone worldwide, even as&#160;I&#160;develop it&#160;during tough&#160;times.</string>
     <string name="dialog_support_me_remind_me_later">Later</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">To roll the&#160;dice, just tap anywhere on the&#160;screen</string>
@@ -71,5 +71,5 @@
     <string name="action_one_time_support">One-Time Support</string>
     <string name="action_monthly_support">Monthly Support</string>
     <string name="tip_cancel_any_time">Cancel any time</string>
-    <string name="tip_alternative_options">Alternative options to tip:</string>
+    <string name="tip_alternative_options">OR check out alternative options to tip:</string>
 </resources>

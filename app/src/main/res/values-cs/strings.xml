@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Otevře se malá stránka prohlížeče, která vám pomůže vybrat někoho ze skupiny.\n\nVyrobil Julien&#160;Bellue</string>
     <string name="dialog_no">Ne</string>
     <string name="dialog_predefined_steps">Tyto hodnoty můžete upravit v nastavení</string>
-    <string name="dialog_support_me_content">Ahoj, já jsem Roma! Žiji na Ukrajině (ano, ve válečné zóně) a na této aplikaci pracuji ve svém volném čase. Jsem odhodlaný udržet Počítadlo skóre navždy zdarma. Pokud se vám Počítadlo skóre líbí, zvažte prosím jeho podporu.\n\nI malý příspěvek se počítá!\n\nDěkuji a přeji vám krásné herní večery!</string>
+    <string name="dialog_support_me_content"><b>Líbí se vám Score Counter? Podpořte mě kávou!</b>\n\nAhoj, já jsem Roma! Bydlím na Ukrajině a na této aplikaci pracuji ve svém volném čase. Zavázal jsem se udržet Score Counter navždy zdarma.\n\nVaše podpora mi pomáhá udržovat Score Counter aktualizovaný a zdarma pro všechny po celém světě, i když ho vyvíjím v těžkých časech.</string>
     <string name="dialog_support_me_remind_me_later">Teď ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>

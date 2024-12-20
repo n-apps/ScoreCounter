@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Si aprirà una piccola pagina del browser che vi aiuterà a selezionare qualcuno da un gruppo.\n\nMade by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
-    <string name="dialog_support_me_content">Ciao, sono Roma! Vivo in Ucraina (sì, in una zona di guerra) e sto lavorando a questa applicazione nel mio tempo libero. Mi impegno a mantenere Segnapunti gratuito per sempre. Se vi piace Segnapunti, per favore prendete in considerazione l\'idea di supportarlo.\n\nAnche un piccolo contributo è importante!\n\nGrazie e buona serata di gioco!</string>
+    <string name="dialog_support_me_content"><b>Ti piace Score Counter? Supportami con un caffè!</b>\n\nCiao, sono Roma! Vivo in Ucraina e lavoro a questa app nel mio tempo libero. Sono impegnato a mantenere Score Counter gratuito per sempre.\n\nIl tuo supporto mi aiuta a mantenere Score Counter aggiornato e gratuito per tutti in tutto il mondo, anche mentre lo sviluppo in tempi difficili.</string>
     <string name="dialog_support_me_remind_me_later">Non ora</string>
     <string name="dialog_yes">Sì</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>

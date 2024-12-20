@@ -239,7 +239,7 @@
         <item>Mézga Géza</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Automatikus (A rendszeren alapuló)</item>
+        <item>Automatikus</item>
         <item>Világos téma</item>
         <item>Fekete téma</item>
     </string-array>

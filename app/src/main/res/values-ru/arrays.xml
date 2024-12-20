@@ -7,11 +7,9 @@
         <item>Грут</item>
         <item>пушистик</item>
         <item>муффало</item>
-        <item>бумкрыса</item>
         <item>мегаскарабей</item>
         <item>кобра</item>
         <item>олень</item>
-        <item>боров</item>
         <item>белка</item>
         <item>игуана</item>
         <item>муравьед</item>
@@ -23,8 +21,6 @@
         <item>антилопа</item>
         <item>обезьянка</item>
         <item>броненосец</item>
-        <item>осел</item>
-        <item>бабуин</item>
         <item>барсук</item>
         <item>барракуда</item>
         <item>летучая мышь</item>
@@ -43,9 +39,7 @@
         <item>цыпленок</item>
         <item>шимпанзе</item>
         <item>шиншилла</item>
-        <item>клушица</item>
         <item>моллюск</item>
-        <item>таракан</item>
         <item>треска</item>
         <item>кондор</item>
         <item>баклан</item>
@@ -69,7 +63,6 @@
         <item>лось</item>
         <item>страус эму</item>
         <item>сокол</item>
-        <item>хорёк</item>
         <item>зяблик</item>
         <item>рыба</item>
         <item>фламинго</item>
@@ -102,9 +95,7 @@
         <item>шершень</item>
         <item>лошадь</item>
         <item>колибри</item>
-        <item>гиена</item>
         <item>ибис</item>
-        <item>шакал</item>
         <item>ягуар</item>
         <item>сойка</item>
         <item>голубая сойка</item>
@@ -119,7 +110,6 @@
         <item>лама</item>
         <item>омар</item>
         <item>саранча</item>
-        <item>вошь</item>
         <item>лирохвост</item>
         <item>сорока</item>
         <item>кряква</item>
@@ -129,13 +119,11 @@
         <item>богомол</item>
         <item>сурикат</item>
         <item>норка</item>
-        <item>моль</item>
         <item>мангуст</item>
         <item>обезьяна</item>
         <item>лось</item>
         <item>мышь</item>
         <item>москит</item>
-        <item>мул</item>
         <item>нарвал</item>
         <item>тритон</item>
         <item>соловей</item>
@@ -153,7 +141,6 @@
         <item>пеликан</item>
         <item>пингвин</item>
         <item>фазан</item>
-        <item>свинка</item>
         <item>голубь</item>
         <item>белый медведь</item>
         <item>пони</item>
@@ -163,7 +150,7 @@
         <item>перепел</item>
         <item>кролик</item>
         <item>енот</item>
-        <item>поршень</item>
+        <item>поросёнок</item>
         <item>мышка</item>
         <item>ворон</item>
         <item>северный олень</item>
@@ -187,7 +174,6 @@
         <item>кальмар</item>
         <item>скворец</item>
         <item>скат</item>
-        <item>жук-вонючка</item>
         <item>аист</item>
         <item>ласточка</item>
         <item>лебедь</item>
@@ -204,14 +190,12 @@
         <item>стервятник</item>
         <item>кенгуру-валлаби</item>
         <item>морж</item>
-        <item>оса</item>
         <item>хорек</item>
         <item>кит</item>
         <item>волк</item>
         <item>росомаха</item>
         <item>вомбат</item>
         <item>дятел</item>
-        <item>червячок</item>
         <item>як</item>
         <item>зебра</item>
         <item>вини пух</item>

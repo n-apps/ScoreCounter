@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Một trang trình duyệt nhỏ sẽ mở ra để giúp bạn chọn một người nào đó từ một nhóm.\n\nĐược tạo bởi Julien&#160;Bellue</string>
     <string name="dialog_no">Không</string>
     <string name="dialog_predefined_steps">Bạn có thể chỉnh sửa các giá trị này trong cài đặt</string>
-    <string name="dialog_support_me_content">Xin chào, tên tôi là Roma và tôi đến từ Kyiv, Ukraina. Tôi không phải là một nhà phát triển và tôi đang làm việc trên ứng dụng này trong thời gian rảnh rỗi của tôi.\n\nBất kể cuộc chiến tranh diễn ra ở đất nước của tôi, tôi quyết định giữ ứng dụng này miễn phí và hoàn toàn không có quảng cáo. Nếu bạn muốn ủng hộ một nhà phát triển độc lập (tôi), vui lòng xem xét quyên góp trong ứng dụng. Cảm ơn!</string>
+    <string name="dialog_support_me_content"><b>Bạn có thích Score Counter không? Hãy ủng hộ tôi một tách cà phê!</b>\n\nXin chào, tôi là Roma! Tôi sống ở Ukraine và làm việc trên ứng dụng này vào thời gian rảnh. Tôi cam kết giữ cho Score Counter miễn phí mãi mãi.\n\nSự ủng hộ của bạn giúp tôi duy trì Score Counter được cập nhật và miễn phí cho tất cả mọi người trên toàn thế giới, ngay cả khi tôi phát triển nó trong thời điểm khó khăn.</string>
     <string name="dialog_support_me_remind_me_later">Không phải bây giờ</string>
     <string name="dialog_yes">Có</string>
     <string name="dice_empty_state">Nhấn vào bất cứ đâu hoặc lắc thiết bị của bạn để tung xúc xắc</string>

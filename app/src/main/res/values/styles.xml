@@ -47,9 +47,8 @@
     </style>
 
     <style name="TextAppearance.App.Toolbar.Title" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="fontFamily">@font/o600</item>
+        <item name="fontFamily">@font/decor</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:letterSpacing">-0.05</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light" />

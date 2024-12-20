@@ -312,8 +312,9 @@ public class DicesFragment extends Fragment {
         super.onDetach();
         listener = null;
         if (mp != null) {
+            mp.stop();
             mp.release();
+            mp = null;
         }
     }
-
 }

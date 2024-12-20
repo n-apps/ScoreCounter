@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">一个浏览器页面将会弹出以帮助你从玩家中选择出先手。由 Julien Bellue 制作</string>
     <string name="dialog_no">否</string>
     <string name="dialog_predefined_steps">您可以在 \"设置 \"界面调整这些设置。</string>
-    <string name="dialog_support_me_content">你好，我是 Roma。我居住在乌克兰，利用业余时间开发这款应用。尽管我的国家发生了可怕的事情，但我还是决定让这个应用保持无广告状态。如果您想支持我的话，请考虑一下捐赠。谢谢您，希望您能度过一个愉快的游戏之夜！</string>
+    <string name="dialog_support_me_content"><b>你喜欢 Score Counter 吗？请我喝杯咖啡吧！</b>\n\n你好，我是 Roma！我住在乌克兰，并在空闲时间开发这款应用。我致力于让 Score Counter 永远免费。\n\n你的支持帮助我保持 Score Counter 的更新，并让全世界的人们都能免费使用，即使我是在困难时期开发它。</string>
     <string name="dialog_support_me_remind_me_later">不是现在</string>
     <string name="dialog_yes">是</string>
     <string name="dice_empty_state">要掷骰时，只需点击屏幕上的任意位置即可</string>

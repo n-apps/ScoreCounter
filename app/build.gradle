@@ -12,7 +12,7 @@ apply plugin: 'com.google.firebase.crashlytics'
 
 ext.versionMajor = 8
 ext.versionMinor = 0
-ext.versionPatch = 0
+ext.versionPatch = 2
 ext.postfix = ''
 
 android {

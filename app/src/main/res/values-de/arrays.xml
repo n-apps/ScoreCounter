@@ -27,7 +27,6 @@
         <item>Pavian</item>
         <item>Dachs</item>
         <item>Barrakuda</item>
-        <item>Schläger</item>
         <item>Bär</item>
         <item>Biber</item>
         <item>Biene</item>
@@ -38,14 +37,11 @@
         <item>Karibu</item>
         <item>Katze</item>
         <item>Raupe</item>
-        <item>das Vieh</item>
         <item>Gepard</item>
         <item>Hähnchen</item>
         <item>Schimpanse</item>
         <item>Chinchilla</item>
-        <item>chough</item>
         <item>Muschel</item>
-        <item>Kakerlake</item>
         <item>Kabeljau</item>
         <item>Kondor</item>
         <item>Kormoran</item>
@@ -73,7 +69,6 @@
         <item>Fink</item>
         <item>Fisch</item>
         <item>Flamingo</item>
-        <item>fliegen</item>
         <item>Fuchs</item>
         <item>Frosch</item>
         <item>Gazelle</item>
@@ -101,18 +96,15 @@
         <item>Nilpferd</item>
         <item>Hornisse</item>
         <item>Pferd</item>
-        <item>Mensch</item>
         <item>Kolibri</item>
         <item>Hyäne</item>
         <item>ibis</item>
         <item>Schakal</item>
         <item>Jaguar</item>
         <item>Jay</item>
-        <item>Bluejay</item>
         <item>Qualle</item>
         <item>Känguru</item>
         <item>Koala</item>
-        <item>komodo</item>
         <item>Lerche</item>
         <item>Lemur</item>
         <item>Leopard</item>
@@ -120,8 +112,6 @@
         <item>Lama</item>
         <item>Hummer</item>
         <item>Heuschrecke</item>
-        <item>Laus</item>
-        <item>Lyrebird</item>
         <item>Elster</item>
         <item>Stockente</item>
         <item>Ente</item>
@@ -138,10 +128,8 @@
         <item>Moskito</item>
         <item>Maultier</item>
         <item>Narwal</item>
-        <item>Newt</item>
         <item>Nachtigall</item>
         <item>Tintenfisch</item>
-        <item>Okapi</item>
         <item>Beutelratte</item>
         <item>Strauß</item>
         <item>Otter</item>
@@ -154,7 +142,6 @@
         <item>Pelikan</item>
         <item>Pinguin</item>
         <item>Fasan</item>
-        <item>Schwein</item>
         <item>Taube</item>
         <item>Eisbär</item>
         <item>Pony</item>
@@ -163,8 +150,8 @@
         <item>Präriehund</item>
         <item>Wachtel</item>
         <item>Hase</item>
+        <item>Hexe</item>
         <item>Waschbär</item>
-        <item>RAM</item>
         <item>Ratte</item>
         <item>Rabe</item>
         <item>Rentier</item>
@@ -173,8 +160,10 @@
         <item>Lachs</item>
         <item>Sardine</item>
         <item>Skorpion</item>
+        <item>Biene Maja</item>
         <item>Seelöwe</item>
-        <item>Seeigel</item>
+        <item>Seelöwe</item>
+        <item>Heidi</item>
         <item>Seepferdchen</item>
         <item>Siegel</item>
         <item>Hai</item>
@@ -188,7 +177,6 @@
         <item>Tintenfisch</item>
         <item>Star</item>
         <item>Stachelrochen</item>
-        <item>Stinkbug</item>
         <item>Storch</item>
         <item>schlucken</item>
         <item>Schwan</item>
@@ -208,6 +196,7 @@
         <item>Wespe</item>
         <item>Wiesel</item>
         <item>Wal</item>
+        <item>Fuchs</item>
         <item>Wolf</item>
         <item>Vielfraß</item>
         <item>Wombat</item>
@@ -235,7 +224,6 @@
         <item>Nyan Katze</item>
         <item>Schnabeltier</item>
         <item>Python</item>
-        <item>Quagga</item>
         <item>Quokka</item>
     </string-array>
     <string-array name="app_theme_options">

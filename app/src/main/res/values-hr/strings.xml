@@ -26,7 +26,7 @@
     <string name="dialog_confirmation_question">Jeste li sigurni?</string>
     <string name="dialog_no">Ne</string>
     <string name="dialog_predefined_steps">Ove vrijednosti možete urediti u postavkama</string>
-    <string name="dialog_support_me_content">Pozdrav! Zovem se Roma i trenutno živim u Ukrajini. Ovom aplikacijom se bavim u svoje slobodno vrijeme. Unatoč ratu u mojoj zemlji odlučio sam ovu aplikaciju ostaviti bez reklama.\n\nAko mi želite pomoći, molim vas da razmislite o donaciji kroz aplikaciju.\n\nŽelim vam sretno igranje!</string>
+    <string name="dialog_support_me_content"><b>Sviđa ti se Score Counter? Podrži me kavom!</b>\n\nBok, ja sam Roma! Živim u Ukrajini i radim na ovoj aplikaciji u slobodno vrijeme. Predan sam tome da Score Counter zauvijek ostane besplatan.\n\nTvoja podrška mi pomaže da Score Counter bude ažuriran i besplatan za sve diljem svijeta, čak i dok ga razvijam u teškim vremenima.</string>
     <string name="dialog_support_me_remind_me_later">Ne sada</string>
     <string name="dialog_yes">Da</string>
     <string name="dice_empty_state">Pritisni bilo gdje ili protresi uređaj za bacanje kockica</string>

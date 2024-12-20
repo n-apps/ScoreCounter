@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Gruptan birini seçmenize yardımcı olmak için küçük bir tarayıcı sayfası açılacaktır.\n\nMade by Julien&#160;Bellue</string>
     <string name="dialog_no">Hayır</string>
     <string name="dialog_predefined_steps">Bu değerleri ayarlardan düzenleyebilirsiniz</string>
-    <string name="dialog_support_me_content">Merhaba, ben Roma. Ukrayna\'da yaşıyorum ve boş zamanlarımda bu uygulama üzerinde çalışıyorum.\n\nÜlkemdeki korkunç olaylara rağmen, bu uygulamayı reklamsız tutmaya karar verdim. Beni desteklemek isterseniz, lütfen bağış yapmayı düşünün.\n\nTeşekkürler ve umarım önünüzde harika oyun geceleri vardır!</string>
+    <string name="dialog_support_me_content"><b>Skor Sayacı beğeniyor musunuz? Beni bir kahve ile destekleyin!</b>\n\nMerhaba, ben Roma! Ukrayna\'da yaşıyorum ve bu uygulama üzerinde boş zamanlarımda çalışıyorum. Skor Sayacı sonsuza dek ücretsiz tutmaya kararlıyım.\n\nDesteğiniz, Skor Sayacı zor zamanlarda geliştiriyor olsam bile, dünya çapındaki herkes için güncel ve ücretsiz tutmama yardımcı oluyor.</string>
     <string name="dialog_support_me_remind_me_later">Şimdi değil</string>
     <string name="dialog_yes">Evet</string>
     <string name="dice_empty_state">Zar atmak için herhangi bir yere dokunun veya cihazınızı sallayın</string>

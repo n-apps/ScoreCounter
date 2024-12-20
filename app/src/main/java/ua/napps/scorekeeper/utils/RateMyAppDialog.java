@@ -13,6 +13,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import timber.log.Timber;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.settings.LocalSettings;
+import ua.napps.scorekeeper.settings.TipActivity;
 
 public class RateMyAppDialog {
 
@@ -94,13 +95,11 @@ public class RateMyAppDialog {
                 .setView(contentView);
 
         contentView.findViewById(R.id.iv_donate).setOnClickListener(v -> {
-            DonateDialog donateDialog = new DonateDialog();
-            donateDialog.show(context.getSupportFragmentManager(), "donate");
+            showTipScreen();
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
-            DonateDialog donateDialog = new DonateDialog();
-            donateDialog.show(context.getSupportFragmentManager(), "donate");
+            showTipScreen();
             dialog.dismiss();
         });
         contentView.findViewById(R.id.btn_remind_later).setOnClickListener(v -> {
@@ -118,6 +117,10 @@ public class RateMyAppDialog {
                             .build());
         }
         return materialAlertDialogBuilder.create();
+    }
+
+    private void showTipScreen() {
+        TipActivity.start(context);
     }
 
 }

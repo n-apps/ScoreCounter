@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à&#160;choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
     <string name="dialog_no">Non</string>
     <string name="dialog_predefined_steps">☃︎: vous pouvez modifier ces valeurs dans les Paramètres</string>
-    <string name="dialog_support_me_content">Bonjour, je m\'appelle Roma ! Je suis basé en Ukraine (oui, dans une zone de guerre) et je travaille sur cette application pendant mon temps libre. Je m\'engage à&#160;ce que Compteur de points reste gratuit pour toujours.\n\nSi vous aimez Compteur de points, pensez à&#160;le soutenir. Même une petite contribution compte ! \n\nMerci et bonnes soirées de jeu à&#160;tous !</string>
+    <string name="dialog_support_me_content"><b>Vous appréciez Score Counter ? Soutenez-moi avec un café !</b>\n\nBonjour, je suis Roma ! Je vis en Ukraine et je travaille sur cette application pendant mon temps libre. Je suis déterminé à maintenir Score Counter gratuit pour toujours.\n\nVotre soutien m’aide à maintenir Score Counter à jour et gratuit pour tout le monde, même lorsque je le développe dans des moments difficiles.</string>
     <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Pour lancer les dés, il suffit de toucher n\'importe où sur l\'écran.</string>

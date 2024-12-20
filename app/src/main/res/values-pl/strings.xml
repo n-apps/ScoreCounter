@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Otworzy się mała strona przeglądarki, która pomoże ci wybrać kogoś z grupy.\n\nWykonane przez Julien&#160;Bellue</string>
     <string name="dialog_no">Nie</string>
     <string name="dialog_predefined_steps">Wartości te można edytować w ustawieniach</string>
-    <string name="dialog_support_me_content">Cześć, jestem Roma! Mieszkam w Ukrainie (yikes!) i pracuję nad tą aplikacją w wolnym czasie. Zależy mi na tym, aby Počítadlo skóre pozostał darmowy na zawsze. Jeśli podoba Ci się Počítadlo skóre, rozważ proszę wsparcie go.\n\nNawet niewielki wkład się liczy!\n\nDziękuję i życzę miłych wieczorów z grami!</string>
+    <string name="dialog_support_me_content"><b>Podoba ci się Score Counter? Wesprzyj mnie kawą!</b>\n\nCześć, jestem Roma! Mieszkam na Ukrainie i pracuję nad tą aplikacją w wolnym czasie. Jestem zdecydowany utrzymać Score Counter na zawsze darmowy.\n\nTwoje wsparcie pomaga mi utrzymać Score Counter aktualnym i darmowym dla wszystkich na całym świecie, nawet gdy go rozwijam w trudnych czasach.</string>
     <string name="dialog_support_me_remind_me_later">Nie teraz</string>
     <string name="dialog_yes">Tak</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>

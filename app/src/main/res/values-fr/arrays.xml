@@ -6,8 +6,6 @@
         <item>gollum</item>
         <item>groot</item>
         <item>fluffy</item>
-        <item>buffle</item>
-        <item>boomrat</item>
         <item>megascarabé</item>
         <item>cobra</item>
         <item>chevreuil</item>
@@ -23,7 +21,6 @@
         <item>antilope</item>
         <item>singe</item>
         <item>tatou</item>
-        <item>âne</item>
         <item>babouin</item>
         <item>blaireau</item>
         <item>barracuda</item>
@@ -43,9 +40,7 @@
         <item>poulet</item>
         <item>chimpanzé</item>
         <item>chinchilla</item>
-        <item>crave</item>
         <item>palourde</item>
-        <item>cafard</item>
         <item>cabillaud</item>
         <item>condor</item>
         <item>cormoran</item>
@@ -55,16 +50,19 @@
         <item>crocodile</item>
         <item>corbeau</item>
         <item>dinosaure</item>
-        <item>chien</item>
         <item>dauphin</item>
         <item>âne</item>
         <item>colombe</item>
         <item>libellule</item>
         <item>aigle</item>
+        <item>chiot</item>
         <item>échidné</item>
         <item>anguille</item>
+        <item>chaton</item>
+        <item>hérisson</item>
         <item>éland</item>
         <item>éléphant</item>
+        <item>sirène</item>
         <item>éléphant de mer</item>
         <item>wapiti</item>
         <item>ému</item>
@@ -101,7 +99,6 @@
         <item>hippopotame</item>
         <item>frelon</item>
         <item>cheval</item>
-        <item>humain</item>
         <item>colibri</item>
         <item>hyène</item>
         <item>ibis</item>
@@ -120,7 +117,6 @@
         <item>lama</item>
         <item>homard</item>
         <item>criquet</item>
-        <item>pou</item>
         <item>oiseau lyre</item>
         <item>pie</item>
         <item>colvert</item>
@@ -188,7 +184,6 @@
         <item>calamar</item>
         <item>étourneau</item>
         <item>raie</item>
-        <item>punaise</item>
         <item>cigogne</item>
         <item>avaler</item>
         <item>cygne</item>
@@ -212,7 +207,6 @@
         <item>carcajou</item>
         <item>wombat</item>
         <item>pic-vert</item>
-        <item>ver</item>
         <item>yak</item>
         <item>zebre</item>
         <item>Winnie l\'ourson</item>
@@ -220,7 +214,6 @@
         <item>caniche</item>
         <item>licorne</item>
         <item>dragon</item>
-        <item>zombie</item>
         <item>fée</item>
         <item>Dobby</item>
         <item>Cheburashka</item>

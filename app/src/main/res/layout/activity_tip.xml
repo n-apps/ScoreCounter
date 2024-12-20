@@ -9,7 +9,7 @@
         android:id="@+id/app_bar"
         style="@style/Widget.MaterialComponents.AppBarLayout.Surface"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="250dp"
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
@@ -29,7 +29,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:alpha=".6"
+                    android:alpha=".7"
                     android:scaleType="centerCrop"
                     android:src="@drawable/hello" />
 
@@ -52,9 +52,8 @@
                 app:layout_collapseMode="pin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:title="@string/action_donate"
-                app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
-                tools:layout_editor_absoluteY="-1dp" />
+                app:title="Привіт! 👋"
+                app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -80,10 +79,24 @@
                 android:paddingHorizontal="@dimen/padding_normal"
                 android:text="@string/dialog_support_me_content"
                 android:textAppearance="?attr/textAppearanceBody2"
-                app:layout_constraintBottom_toTopOf="@id/items"
+                app:layout_constraintBottom_toTopOf="@id/tv_tips_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_tips_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_big"
+                android:fontFamily="@font/decor"
+                android:gravity="center"
+                android:text="@string/action_donate"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@id/items"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
 
             <!-- Payment Options -->
             <LinearLayout
@@ -96,23 +109,22 @@
                 app:layout_constraintBottom_toTopOf="@id/btn_one_time"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/description">
+                app:layout_constraintTop_toBottomOf="@id/tv_tips_title">
 
                 <!-- Individual Buttons -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/in_app_coffee_card"
-                    style="@style/Widget.MaterialComponents.CardView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:checkable="true"
                     android:clickable="true"
-                    android:elevation="@dimen/cardview_default_elevation"
                     android:focusable="true"
                     app:cardCornerRadius="8dp"
                     app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:strokeColor="?android:textColorHint"
+                    app:strokeWidth="0.5dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -140,6 +152,7 @@
                             app:layout_constraintBottom_toTopOf="@id/in_app_coffee_price"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
+                            android:minLines="2"
                             app:layout_constraintTop_toBottomOf="@id/in_app_coffee_icon"
                             tools:text="Black Coffee" />
 
@@ -162,18 +175,17 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/in_app_food_card"
-                    style="@style/Widget.MaterialComponents.CardView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
                     android:checkable="true"
                     android:clickable="true"
-                    android:elevation="@dimen/cardview_default_elevation"
                     android:focusable="true"
                     app:cardCornerRadius="8dp"
                     app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:strokeColor="?android:textColorHint"
+                    app:strokeWidth="0.5dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -197,6 +209,7 @@
                             android:layout_marginVertical="@dimen/spacing_micro"
                             android:layout_marginBottom="@dimen/spacing_normal"
                             android:fontFamily="@font/o600"
+                            android:minLines="2"
                             android:gravity="center_horizontal"
                             android:textAppearance="?attr/textAppearanceSubtitle2"
                             app:layout_constraintBottom_toTopOf="@id/in_app_food_price"
@@ -224,7 +237,6 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/in_app_xwing_card"
-                    style="@style/Widget.MaterialComponents.CardView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -235,7 +247,8 @@
                     app:cardCornerRadius="8dp"
                     app:checkedIconSize="@dimen/button_icon_size"
                     app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:strokeColor="?android:textColorHint"
+                    app:strokeWidth="0.5dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -260,6 +273,7 @@
                             android:layout_marginBottom="@dimen/spacing_normal"
                             android:fontFamily="@font/o600"
                             android:gravity="center_horizontal"
+                            android:minLines="2"
                             android:textAppearance="?attr/textAppearanceSubtitle2"
                             app:layout_constraintBottom_toTopOf="@id/in_app_xwing_price"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -303,8 +317,8 @@
                 android:textColor="?attr/colorOnPrimary"
                 app:backgroundTint="@color/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:layout_constraintEnd_toStartOf="@id/btn_monthly"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_monthly"
                 app:layout_constraintTop_toBottomOf="@id/items" />
 
             <com.google.android.material.button.MaterialButton
@@ -321,8 +335,8 @@
                 android:textColor="?attr/colorOnPrimary"
                 app:backgroundTint="@color/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/btn_one_time"
+                app:layout_constraintEnd_toStartOf="@id/btn_one_time"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/btn_one_time" />
 
             <TextView
@@ -354,6 +368,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/spacing_large"
+                    android:fontFamily="@font/decor"
                     android:gravity="center"
                     android:text="@string/message_thank_you"
                     android:textAppearance="?attr/textAppearanceBody2" />

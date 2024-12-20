@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Er wordt een kleine browserpagina geopend om je te helpen iemand uit een groep te selecteren.\n\nGemaakt door Julien&#160;Bellue</string>
     <string name="dialog_no">Nee</string>
     <string name="dialog_predefined_steps">☃︎: U kunt deze waarden wijzigen in de instellingen</string>
-    <string name="dialog_support_me_content">Hallo, ik ben Roma! Ik woon in Oekraïne (ja, in een oorlogsgebied) en in mijn vrije tijd werk ik aan deze app. Ik ben vastbesloten om Scoreteller voor altijd gratis te houden.\n\nAls je Scoreteller leuk vindt, overweeg dan alsjeblieft om het te steunen. Zelfs een kleine bijdrage telt!\n\nBedankt en nog veel spellenavonden in het vooruitzicht!</string>
+    <string name="dialog_support_me_content"><b>Vind je Score Counter leuk? Steun me met een kop koffie!</b>\n\nHallo, ik ben Roma! Ik woon in Oekraïne en werk in mijn vrije tijd aan deze app. Ik ben vastbesloten om Score Counter voor altijd gratis te houden.\n\nJouw steun helpt me om Score Counter up-to-date en gratis te houden voor iedereen wereldwijd, zelfs als ik het ontwikkel in moeilijke tijden.</string>
     <string name="dialog_support_me_remind_me_later">Niet nu</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>

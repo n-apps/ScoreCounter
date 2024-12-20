@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string-array name="names">
-        <item>शराबी</item>
         <item>ग्रूट</item>
-        <item>गोलम</item>
-        <item>पिकाचु</item>
         <item>टी-रेक्स</item>
-        <item>मफ़लो</item>
-        <item>बूमराट</item>
-        <item>मेगास्करब</item>
         <item>कोबरा</item>
         <item>हिरण</item>
-        <item>सूअर</item>
         <item>गिलहरी</item>
         <item>इगुआना</item>
         <item>आर्डवार्क</item>
@@ -150,7 +143,6 @@
         <item>सीप</item>
         <item>तेंदुआ</item>
         <item>तोता</item>
-        <item>तीतर</item>
         <item>पेलिकन</item>
         <item>पेंगुइन</item>
         <item>तीतर</item>
@@ -215,20 +207,10 @@
         <item>कीड़ा</item>
         <item>याक</item>
         <item>ज़ेबरा</item>
-        <item>विनी द पूह</item>
-        <item>किंग कांग</item>
         <item>पूडल</item>
-        <item>यूनिकॉर्न</item>
         <item>ड्रैगन</item>
-        <item>ज़ॉम्बी</item>
-        <item>परी</item>
-        <item>डॉबी</item>
-        <item>चेबुरश्का</item>
         <item>हरक्यूलिस</item>
-        <item>स्कूबी डू</item>
-        <item>रैपन्ज़ेल</item>
         <item>शेर राजा</item>
-        <item>स्पंजबॉब</item>
         <item>चुपकाबरा</item>
         <item>क्रैकन</item>
         <item>लोरिस</item>
@@ -237,10 +219,16 @@
         <item>अजगर</item>
         <item>क्वागा</item>
         <item>क्वोक्का</item>
+        <item>गरुड़</item>
+        <item>नाग</item>
+        <item>हनुमान</item>
+        <item>मयूर</item>
+        <item>नंदी</item>
+        <item>नीलगाय</item>
     </string-array>
     <string-array name="app_theme_options">
-        <item>Automático (basado en el sistema)</item>
-        <item>Modo luz</item>
-        <item>Modo Oscuro</item>
+        <item>प्रणाली</item>
+        <item>चमकदार</item>
+        <item>अँधेरा</item>
     </string-array>
 </resources>
