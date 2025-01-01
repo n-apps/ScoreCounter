@@ -1,48 +1,29 @@
-# Score Counter Android App
+[![Made in Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](#donate)
 
-![Score Counter Android App](https://github.com/n-apps/ScoreCounter/assets/16646251/70e172db-2666-461d-82a5-14a64a422419)
+## Score Counter Android app
+#### Save time and effort with the easy Scorekeeper app ❌📝
+Keep track of points, scores, and anything else — quick, easy, and ad-free. Forget about pen and paper.
 
-**The easy-to-use score keeper for all your games.**
+![Score Counter Android App](https://github.com/user-attachments/assets/82726c57-924f-4629-aeb6-365c1874912f)
 
-* Keep track of scores for any game or activity
-* Customizable design to fit your needs
-* Add and keep scores with a simple tap
-* Choose the amount by which scores are increased or decreased
-* Includes a virtual dice roll function
-* Perfect for big numbers and any number of players
-* Dark theme for low-light conditions
-* Completely free to use, with NO ads
+*Trusted by 150 000 players worldwide!*
 
-[Get Score Counter today and start keeping track of scores like a pro!](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper
-)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" 
+alt="Download from Google Play" 
+height="80">]([https://play.google.com/store/apps/details?id=com.nextcloud.client](https://play.google.com/store/apps/details?id=ua.napps.scorekeeper))
 
-****
+### Help with translation
+📩 Thanks for your interest in contributing! Pleace contact me @ scorekeeper.feedback@gmail.com
 
-Share your stories of how you're using my app in unique and interesting ways 😉 📩 scorekeeper.feedback@gmail.com.
-
-Thank you! 🇺🇦
-
-## Contribution 
-If you have any ideas or feature requests – don't hesitate to reach out to me. Every contribution is welcome 😉
-
-#### Helping Translate
-
-If you want to help translate the App you can do this in multiple ways.
-
-With Android Studio open any of the `string.xml` files in the `res\values` directory and add a new locale using the translation editor. 
-**Don't forget** to add your locale code to the `resConfig` setting in `app\build.gradle` (otherwise it wont be applied).
-
-Or I can prepare a Google Spreadsheet for you ;) 📩 scorekeeper.feedback@gmail.com.
-
-## Donate
-Score Counter is a free app without any ads and with all its features available. However, if you would like to support an indie developer from Ukraine (that's me!), you can make a one-time or multiple contributions within the app.
-
-If you enjoyed this project — or just feeling generous, consider buying me a coffee/borsch. Cheers! :beers:
-
-<a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="56"></a>
+### Donate
+Score Counter is a free app without ads. If you would like to support the development of the app, you can make one or more contributions within the app or via the links below. Thank you! 💙
 
 <a href="https://www.buymeacoffee.com/score_counter_app" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-----
+<a href="https://www.paypal.com/donate/?hosted_button_id=QCHWF4FJLKQ34"><img src="https://raw.githubusercontent.com/andreostrovsky/donate-with-paypal/master/blue.svg" height="48"></a>
 
-## Commercial sale, making or distributing copies of this app or allowing such activity by third parties on your behalf is prohibited.
+-----
+
+#### Commercial sale, making or distributing copies of this app or allowing such activity by third parties on your behalf is prohibited.
+
+<sup>THIS APPLICATION IS EXCLUSIVE FOR ANDROID USERS</sup>
