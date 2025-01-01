@@ -133,12 +133,12 @@
                 android:text="@string/setting_help_translate"
                 android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="#182e3f"
-                app:strokeColor="@color/colorPrimaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                app:iconPadding="@dimen/padding_normal"
                 app:icon="@drawable/ic_translate"
                 app:iconGravity="textEnd"
-                app:iconTint="#182e3f" />
+                app:iconPadding="@dimen/padding_normal"
+                app:iconTint="#182e3f"
+                app:strokeColor="@color/colorPrimaryVariant" />
 
             <ImageView
                 android:id="@+id/hero_image"
@@ -155,11 +155,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/spacing_large"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
+                android:paddingHorizontal="@dimen/padding_large"
                 android:paddingVertical="@dimen/spacing_big"
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="?attr/colorOnPrimary"
-                android:textSize="@dimen/font_title"
                 app:backgroundTint="@color/colorPrimaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
@@ -170,10 +174,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_large"
-                android:gravity="center"
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="#182e3f"
+                android:textColor="@color/colorPrimaryVariant"
                 android:textColorHighlight="@color/colorPrimaryVariant"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 

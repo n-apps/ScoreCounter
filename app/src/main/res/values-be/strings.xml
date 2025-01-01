@@ -39,7 +39,7 @@
     <string name="menu_history">Гісторыя</string>
     <string name="menu_reset_all_counters">Скінуць усё</string>
     <string name="message_error_generic">Выбачайце, здаецца, адбылася памылка</string>
-    <string name="message_lowest_wins">Логіка змянілася</string>
+    <string name="message_top_logic_changed">Логіка змянілася</string>
     <string name="message_app_not_found">Няма магчымасці, каб выканаць гэта дзеянне</string>
     <string name="message_one_more_counter">Яшчэ адзін</string>
     <string name="message_thank_you">Дзякуй!&#160;\ud83d\udc99</string>

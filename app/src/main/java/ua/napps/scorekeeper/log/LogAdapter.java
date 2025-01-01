@@ -71,7 +71,7 @@ class LogAdapter extends RecyclerView.Adapter<LogAdapter.LogAdapterViewHolder> {
                 info = "\uD83D\uDDD1  [" + decimalFormat.format(logEntry.prevValue) + " \u279d \u2620️ ]";
                 break;
             case RST:
-                info = "\uD83D\uDD04  [" + decimalFormat.format(logEntry.prevValue) + " \u279d 0]";
+                info = "\uD83D\uDD04  [" + decimalFormat.format(logEntry.prevValue) + " \u279d "+ logEntry.counter.getDefaultValue() + "]";
                 break;
         }
 

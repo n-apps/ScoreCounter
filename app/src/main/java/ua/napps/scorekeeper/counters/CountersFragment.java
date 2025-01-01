@@ -95,6 +95,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
+    private boolean isSumMode = true;
     private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
     private int counterStepDialogMode;
@@ -174,10 +175,23 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void switchTopLogic() {
-        isLowestScoreWins = !isLowestScoreWins;
+        // Modified to handle 3 states
+        if (!isLowestScoreWins && !isSumMode) {
+            // Switch to lowest wins mode
+            isLowestScoreWins = true;
+            isSumMode = false;
+        } else if (isLowestScoreWins && !isSumMode) {
+            // Switch to sum mode
+            isLowestScoreWins = false;
+            isSumMode = true;
+        } else {
+            // Switch back to highest wins mode
+            isLowestScoreWins = false;
+            isSumMode = false;
+        }
+        showSnack(R.string.message_top_logic_changed);
         List<Counter> counters = viewModel.getCounters().getValue();
         findAndUpdateTopCounterView(counters);
-        showSnack(R.string.message_lowest_wins);
         tryVibrate();
     }
 
@@ -353,24 +367,38 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void findAndUpdateTopCounterView(List<Counter> counters) {
+        if (counters == null || counters.isEmpty()) return;
+        if (isSumMode) {
+            // Calculate and display sum of all counters
+            int sum = 0;
+            for (Counter counter : counters) {
+                sum += counter.getValue();
+            }
+            toolbar.setTitle("\u2211 " + sum);  // Σ symbol for sum
+            previousTopCounterId = -1;  // Special value for sum mode
+            return;
+        }
+
+        // Existing logic for highest/lowest counter
         List<Counter> topCounters = findTopCounters(counters);
         int topSize = topCounters.size();
         if (topSize == 1) {
             Counter top = topCounters.get(0);
-            toolbar.setTitle("\uD83E\uDD47 " + top.getName());
+            toolbar.setTitle("\uD83C\uDF1F " + top.getName());
             int counterId = top.getId();
             if (previousTopCounterId != counterId) {
                 if (toolbarTitle != null) {
-                    ObjectAnimator animator =
-                            ObjectAnimator.ofPropertyValuesHolder(toolbarTitle,
-                                    PropertyValuesHolder.ofFloat("alpha", 1f, 0f, 1f),
-                                    PropertyValuesHolder.ofFloat("rotation", 0f, 360f));
+                    ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(
+                            toolbarTitle,
+                            PropertyValuesHolder.ofFloat("alpha", 1f, 0f, 1f),
+                            PropertyValuesHolder.ofFloat("rotation", 0f, 360f)
+                    );
                     animator.setDuration(500);
                     animator.start();
                 }
                 previousTopCounterId = counterId;
             }
-        } else { // At least the first and the second counters have the same value.
+        } else {
             int countersTotal = counters.size();
             if (topSize != countersTotal) {
                 toolbar.setTitle(topSize + " =");

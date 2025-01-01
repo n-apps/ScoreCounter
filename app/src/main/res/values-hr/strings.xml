@@ -39,7 +39,7 @@
     <string name="menu_history">Povijest</string>
     <string name="menu_reset_all_counters">Resetiraj sve brojače</string>
     <string name="message_error_generic">Žao mi je, čini se da se dogodila neka greška.</string>
-    <string name="message_lowest_wins">Logika promjenjena</string>
+    <string name="message_top_logic_changed">Logika promjenjena</string>
     <string name="message_app_not_found">Nije pronađena aplikacija za ovu radnju</string>
     <string name="message_one_more_counter">Još jedan</string>
     <string name="message_thank_you">Hvala na donaciji!&#160;\ud83d\udc99</string>

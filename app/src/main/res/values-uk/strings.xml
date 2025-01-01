@@ -46,7 +46,7 @@
     <string name="menu_reset_all_counters">Скинути всі</string>
     <string name="message_app_not_found">Не знайдено програму для обробки цієї дії :(</string>
     <string name="message_error_generic">Виникла помилка.</string>
-    <string name="message_lowest_wins">Логіка змінилася</string>
+    <string name="message_top_logic_changed">Змінено логіку відображення заголовка</string>
     <string name="message_one_more_counter">Ще один</string>
     <string name="message_thank_you">Дякую за підтримку!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>

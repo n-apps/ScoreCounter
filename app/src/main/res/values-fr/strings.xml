@@ -45,7 +45,7 @@
     <string name="menu_reset_all_counters">Tout réinitialiser</string>
     <string name="message_app_not_found">Il semble qu\'il n\'existe pas d\'application capable de gérer cette action.</string>
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
-    <string name="message_lowest_wins">La logique a changé.</string>
+    <string name="message_top_logic_changed">Modification de la logique d\'affichage des titres</string>
     <string name="message_one_more_counter">Un de plus</string>
     <string name="message_thank_you">Merci.&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Essayez d\'appuyer longuement sur la&#160;touche « +/- ».</string>

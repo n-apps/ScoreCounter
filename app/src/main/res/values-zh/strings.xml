@@ -45,7 +45,7 @@
     <string name="menu_reset_all_counters">重置所有计数器</string>
     <string name="message_app_not_found">似乎没有一个应用可以处理此操作。</string>
     <string name="message_error_generic">抱歉，好像出了点故障。</string>
-    <string name="message_lowest_wins">逻辑已更改</string>
+    <string name="message_top_logic_changed">逻辑已更改</string>
     <string name="message_one_more_counter">再来一个</string>
     <string name="message_thank_you">感谢您的支持！</string>
     <string name="message_you_can_use_long_press">尝试长按 +/-</string>

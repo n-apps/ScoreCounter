@@ -46,7 +46,7 @@
     <string name="menu_reset_all_counters">Нулиране на всички</string>
     <string name="message_app_not_found">На вашето устройство няма приложение за електронна поща :(</string>
     <string name="message_error_generic">Съжалявам, изглежда е станала грешка.</string>
-    <string name="message_lowest_wins">Логиката е променена</string>
+    <string name="message_top_logic_changed">Логиката е променена</string>
     <string name="message_one_more_counter">Още един</string>
     <string name="message_thank_you">Благодаря ви много за подкрепата&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Опитайте да докоснете дълго +/-</string>

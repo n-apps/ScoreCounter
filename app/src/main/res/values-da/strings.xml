@@ -46,7 +46,7 @@
     <string name="menu_reset_all_counters">Nulstil tællere</string>
     <string name="message_app_not_found">Det ser ud til, at der ikke findes en app, der kan håndtere denne handling.</string>
     <string name="message_error_generic">Det ser ud til, at der har været et teknisk problem.</string>
-    <string name="message_lowest_wins">Ændret logik for ledertæller</string>
+    <string name="message_top_logic_changed">Ændret logik for ledertæller</string>
     <string name="message_one_more_counter">En mere</string>
     <string name="message_thank_you">Tak for din støtte!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Prøv et langt tryk på +/- siden</string>

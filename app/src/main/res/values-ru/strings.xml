@@ -46,7 +46,7 @@
     <string name="menu_reset_all_counters">Сбросить все</string>
     <string name="message_app_not_found">Невозможно обработать это действие :(</string>
     <string name="message_error_generic">Произошла ошибка.</string>
-    <string name="message_lowest_wins">Изменена логика показа лидера</string>
+    <string name="message_top_logic_changed">Изменена логика показа лидера</string>
     <string name="message_one_more_counter">Еще один</string>
     <string name="message_thank_you">Спасибо за поддержку!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Попробуйте зажать палец на + или -</string>

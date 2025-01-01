@@ -51,7 +51,7 @@
     <string name="setting_help_translate">Contribuie la&#160;traducere</string>
     <string name="about_text">Привіт! \ud83c\udf3b\n\nHi, sunt Roma! În prezent locuiesc în Ucraina, pe care o iubesc la&#160;nebunie! Sunt înnebunită după jocurile de societate de mai bine de 10 ani! Ideea pentru această aplicație mi-a venit când jucam Star Realms (care are jetoane groaznice, nu?). Lucrez la&#160;această aplicație în timpul meu liber.\n\nFiecare recenzie, e-mail sau donație de la&#160;dvs. mă face un pic mai fericit. În ciuda evenimentelor teribile din țara mea, am decis să păstrez această aplicație gratuită și să nu adaug reclame.\n\nVă mulțumesc foarte mult și vă doresc jocuri fericite!</string>
     <string name="settings_switch_tap_logic">Schimbați apăsarea scurtă și lungă</string>
-    <string name="message_lowest_wins">Logica a&#160;fost modificată</string>
+    <string name="message_top_logic_changed">Logica a&#160;fost modificată</string>
     <string name="common_vibrate">Vibrație</string>
     <string name="dialog_predefined_steps">Puteți edita aceste valori în setările</string>
     <string name="history_subtitle">eliminat după repornirea aplicației&#160;\u26a0\ufe0f</string>

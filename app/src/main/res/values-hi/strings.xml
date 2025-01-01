@@ -46,7 +46,7 @@
     <string name="menu_reset_all_counters">सभी काउंटर रीसेट करें</string>
     <string name="message_app_not_found">ऐसा लगता है कि ऐसा कोई ऐप नहीं है जो इस कार्य को संभाल सके।</string>
     <string name="message_error_generic">ऐसा लगता है कि कोई तकनीकी समस्या आ गई है।</string>
-    <string name="message_lowest_wins">नेता प्रतिवाद तर्क परिवर्तित</string>
+    <string name="message_top_logic_changed">नेता प्रतिवाद तर्क परिवर्तित</string>
     <string name="message_one_more_counter">और एक</string>
     <string name="message_thank_you">आपके समर्थन के लिए धन्यवाद!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">+/- साइड पर एक लंबा टैप आज़माएं</string>
