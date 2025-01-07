@@ -186,12 +186,12 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         Fragment newFragment = manager.findFragmentByTag(tag);
 
         if (currentFragment != null) {
-            transaction.hide(currentFragment);
+            transaction.detach(currentFragment);
         }
 
         if (newFragment != null) {
             newFragment.setEnterTransition(createTransition(tag));
-            transaction.show(newFragment);
+            transaction.attach(newFragment);
         } else {
             newFragment = getFragmentByTag(tag);
             if (newFragment != null) {
