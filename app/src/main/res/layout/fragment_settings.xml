@@ -30,12 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/winter" />
-
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="match_parent"
@@ -76,7 +70,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title"
                     app:strokeColor="@color/colorPrimary" />
-
 
                 <FrameLayout
                     android:id="@+id/rounded"
@@ -146,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/padding_normal"
                 android:text="@string/settings_feedback"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
                 app:drawableStartCompat="@drawable/ic_mail"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -159,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/setting_share"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
                 app:drawableStartCompat="@drawable/ic_share"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/settings_rate_app"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
                 app:drawableStartCompat="@drawable/ic_star"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/spacing_big"
                 android:text="@string/action_donate"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
                 app:drawableStartCompat="@drawable/ic_teacup"
                 app:drawableTint="?attr/colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#b0bec5"
+    android:background="#519872"
     tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#b0bec5"
+        android:background="#519872"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:statusBarScrim="#b0bec5">
+        app:statusBarScrim="#519872">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="#b0bec5"
+            app:contentScrim="#519872"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:toolbarId="@+id/toolbar">
 
@@ -65,12 +65,12 @@
                 android:lineSpacingMultiplier="1.2"
                 android:padding="@dimen/padding_large"
                 android:text="@string/about_text"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="@color/primary_text_default_material_light" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/empty_state_icon_size"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:rotationY="@integer/locale_mirror_flip"
@@ -96,10 +96,10 @@
                 android:fontFamily="@font/o400"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:lineSpacingMultiplier="1.5"
+                android:lineSpacingMultiplier="1.53"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/about_translators"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="#182e3f"
                 android:textDirection="locale" />
 
@@ -164,7 +164,7 @@
                 android:textAllCaps="false"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="?attr/colorOnPrimary"
-                app:backgroundTint="@color/colorPrimaryVariant"
+                app:backgroundTint="@color/colorSecondary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -176,8 +176,8 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceCaption"
-                android:textColor="@color/colorPrimaryVariant"
-                android:textColorHighlight="@color/colorPrimaryVariant"
+                android:textColor="@color/secondary_text_default_material_light"
+                android:textColorHighlight="@color/colorAccent"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
         </LinearLayout>

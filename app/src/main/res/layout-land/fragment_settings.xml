@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/settings_fragment"
     android:layout_width="match_parent"
-    android:background="?attr/colorSurface"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     tools:context="ua.napps.scorekeeper.settings.SettingsFragment"
     tools:ignore="TouchTargetSizeCheck">
 
@@ -34,6 +34,7 @@
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/decor"
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:paddingHorizontal="@dimen/padding_large"
@@ -47,32 +48,29 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/subtitle"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
                     android:drawablePadding="@dimen/spacing_micro"
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:insetTop="0dp"
-                    android:clickable="false"
                     android:insetBottom="0dp"
                     android:paddingHorizontal="@dimen/padding_large"
                     android:text="@string/action_donate"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="?attr/colorOnPrimary"
+                    app:backgroundTint="@color/rippleColor"
                     app:cornerRadius="@dimen/material_button_full_round_corner_radius"
-                    app:drawableEndCompat="@drawable/ic_arrow_right"
+                    app:drawableEndCompat="@drawable/ic_teacup"
                     app:drawableTint="?attr/colorOnPrimary"
                     app:layout_constraintBottom_toTopOf="@id/rounded"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title" />
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:strokeColor="@color/colorPrimary" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/winter" />
 
                 <FrameLayout
                     android:id="@+id/rounded"
@@ -104,7 +102,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
             <TextView
                 android:id="@+id/tv_about"

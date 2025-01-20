@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Откроется небольшая страница браузера, чтобы помочь вам выбрать кого-то из группы друзей.\n\nСделал Julien&#160;Bellue</string>
     <string name="dialog_no">Нет</string>
     <string name="dialog_predefined_steps">☃︎: вы можете менять эти значения в настройках</string>
-    <string name="dialog_support_me_content"><b>Вам нравится Score Counter? Поддержите меня чашечкой кофе!</b>\n\nПривет, я Рома! Я живу в Украине и работаю над этим приложением в свободное время. Я намерен сохранить Score Counter бесплатным навсегда.\n\nВаша поддержка помогает мне поддерживать Score Counter в актуальном состоянии и бесплатным для всех во всем мире, даже когда я разрабатываю его в трудные времена.</string>
+    <string name="dialog_support_me_content"><b>Вам нравится Счетчик Очков? Поддержите меня чашечкой кофе!</b>\n\nПривет, я Рома! Я живу в Киеве и работаю над этим приложением в свободное время. Я намерен сохранить Счетчик бесплатным навсегда.\n\nВаша поддержка помогает обновлять и улучшать приложение.</string>
     <string name="dialog_support_me_remind_me_later">Позже</string>
     <string name="dialog_yes">Да</string>
     <string name="dice_empty_state">Чтобы бросить кубик, нажмите в любом месте</string>
