@@ -35,7 +35,7 @@ public class AboutActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("");
 
-        ((TextView) findViewById(R.id.content)).setMovementMethod(LinkMovementMethod.getInstance());
+        ((TextView) findViewById(R.id.tv_about_text)).setMovementMethod(LinkMovementMethod.getInstance());
         findViewById(R.id.image_hero).setOnClickListener(v -> Toast.makeText(this, "Привіт з України \uD83C\uDDFA\uD83C\uDDE6", Toast.LENGTH_SHORT).show());
 
         findViewById(R.id.hero_image).setOnClickListener(v -> {
@@ -57,11 +57,11 @@ public class AboutActivity extends AppCompatActivity {
         );
 
         ViewUtil.setLightMode(this, true);
-        ViewUtil.setNavBarColor(this, true, Color.parseColor("#519872"));
+        ViewUtil.setNavBarColor(this, true, Color.parseColor("#B5D99C"));
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(Color.parseColor("#519872"));
+        window.setStatusBarColor(Color.parseColor("#B5D99C"));
     }
 
     private void showTipScreen() {

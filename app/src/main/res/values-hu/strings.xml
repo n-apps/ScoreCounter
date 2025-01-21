@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nHi, Roma vagyok! Jelenleg Ukrajnában élek, amit nagyon szeretek! Több mint 10 éve megőrülök a társasjátékokért! Ennek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Star Realms játékkal játszottam (amiben szörnyűek a tokenek, ugye?). I\'m working on this app in&#160;my spare time.\n\nMinden egyes vélemény, e-mail vagy adomány tőletek egy kicsit boldogabbá tesz. Az országomban zajló szörnyű események ellenére úgy döntöttem, hogy ez az alkalmazás ingyenes marad, és nem teszek bele reklámokat.\n\nSok köszönet, és örömteli játékokat kívánok!</string>
+    <string name="about_text">Szia, Roma vagyok! Jelenleg Ukrajnában élek! Több mint 10 éve megőrülök a társasjátékokért!\n\nEnnek az alkalmazásnak az ötlete akkor jutott eszembe, amikor a Star Realms játékkal játszottam. Az országomban zajló szörnyű események ellenére úgy döntöttem, hogy ez az alkalmazás ingyenes marad, és nem teszek bele reklámokat.\n\nHa szeretnél adományozni, hogy támogasd az alkalmazás további fejlesztését, azt nagyra értékelem. Köszönöm szépen, és örömteli játékokat kívánok!</string>
     <string name="about_translators_title">Félelmetes fordítók</string>
     <string name="action_donate">Támogatás Pontszámláló</string>
     <string name="action_save">Mentés</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nHej, jeg hedder Roma! Jeg bor i øjeblikket i Ukraine, som jeg er helt forelsket i! Jeg har været vild med brætspil i mere end 10 år! Ideen til denne app fik jeg, da jeg spillede Star Realms (som har forfærdelige tokens, ikke?).\n\nJeg arbejder på denne app i min fritid. Hver eneste anmeldelse, e-mail eller donation fra jer gør mig lidt gladere. På trods af de forfærdelige begivenheder i mit land besluttede jeg at holde denne app gratis og ikke tilføje reklamer.\n\nTusind tak, og jeg ønsker jer god fornøjelse med spillene!</string>
+    <string name="about_text">Hej, jeg hedder Roma! Jeg bor i øjeblikket i Ukraine, som jeg er helt forelsket i! Jeg har været vild med brætspil i mere end 10 år! Ideen til denne app fik jeg, da jeg spillede Star Realms.\n\nJeg arbejder på denne app i min fritid. Hver eneste anmeldelse, e-mail eller donation fra jer gør mig lidt gladere. På trods af de forfærdelige begivenheder i mit land besluttede jeg at holde denne app gratis og ikke tilføje reklamer.\n\nTusind tak, og jeg ønsker jer god fornøjelse med spillene!</string>
     <string name="about_translators_title">Fantastiske oversættere</string>
     <string name="action_donate">Understøttelse af Pointtæller</string>
     <string name="action_save">Gem</string>

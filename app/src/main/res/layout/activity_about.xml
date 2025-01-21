@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#519872"
+    android:background="#B5D99C"
     tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#519872"
+        android:background="#B5D99C"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:elevation="0dp"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:statusBarScrim="#519872">
+        app:statusBarScrim="#B5D99C">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="#519872"
+            app:contentScrim="#B5D99C"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:toolbarId="@+id/toolbar">
 
@@ -58,14 +58,25 @@
             android:paddingBottom="@dimen/spacing_xlarge">
 
             <TextView
-                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:fontFamily="@font/decor"
+                android:text="Привіт! \ud83c\udf3b"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/primary_text_default_material_light" />
+
+            <TextView
+                android:id="@+id/tv_about_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/o400"
+                android:gravity="center"
                 android:lineSpacingMultiplier="1.2"
-                android:padding="@dimen/padding_large"
+                android:padding="@dimen/spacing_large"
                 android:text="@string/about_text"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceBody1"
                 android:textColor="@color/primary_text_default_material_light" />
 
             <ImageView
@@ -74,7 +85,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_xlarge"
                 android:rotationY="@integer/locale_mirror_flip"
-                android:src="@drawable/translators" />
+                android:src="@drawable/frog" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -96,11 +107,11 @@
                 android:fontFamily="@font/o400"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:lineSpacingMultiplier="1.53"
+                android:lineSpacingMultiplier="1.4"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/about_translators"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="#182e3f"
+                android:textColor="@color/primary_text_default_material_light"
                 android:textDirection="locale" />
 
             <TextView
@@ -113,8 +124,8 @@
                 android:lineSpacingMultiplier="1.5"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="StasLeo"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="#182e3f"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/primary_text_default_material_light"
                 android:textDirection="locale"
                 app:drawableLeftCompat="@drawable/ic_bel"
                 tools:ignore="HardcodedText" />
@@ -122,32 +133,32 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_help_translate"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/setting_help_translate"
                 android:textAppearance="?attr/textAppearanceBody1"
-                android:textColor="#182e3f"
+                android:textColor="@color/primary_text_default_material_light"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:icon="@drawable/ic_translate"
-                app:iconGravity="textEnd"
+                app:iconGravity="textStart"
                 app:iconPadding="@dimen/padding_normal"
-                app:iconTint="#182e3f"
+                app:iconTint="?attr/colorPrimary"
                 app:strokeColor="@color/colorPrimaryVariant" />
 
             <ImageView
                 android:id="@+id/hero_image"
-                android:layout_width="172dp"
-                android:layout_height="172dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:layout_gravity="end"
                 android:layout_marginTop="@dimen/spacing_xlarge"
-                android:layout_marginBottom="-12dp"
-                android:src="@drawable/flower" />
+                android:layout_marginBottom="-72dp"
+                android:rotationY="@integer/locale_mirror_flip"
+                android:src="@drawable/cat" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_donate_it"
@@ -157,7 +168,7 @@
                 android:layout_marginHorizontal="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:minHeight="@dimen/list_single_line_min_height"
+                android:minHeight="@dimen/list_two_lines_min_height"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:paddingVertical="@dimen/spacing_big"
                 android:text="@string/action_donate"
@@ -165,7 +176,10 @@
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="?attr/colorOnPrimary"
                 app:backgroundTint="@color/colorSecondary"
-                app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
+                app:cornerRadius="@dimen/material_button_full_round_corner_radius"
+                app:icon="@drawable/ic_teacup"
+                app:iconGravity="textStart" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_privacy_policy"

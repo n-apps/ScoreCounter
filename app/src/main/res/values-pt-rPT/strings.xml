@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Olá! \ud83c\udf3b\n\nOlá, chamo-me Roma! Estou atualmente a viver na Ucrânia, que adoro! Sou apaixonado por jogos de tabuleiro há mais de 10 anos! A ideia para esta aplicação surgiu-me quando estava a jogar Star Realms (que tem fichas terríveis, não é verdade?). Estou a trabalhar nesta aplicação no meu tempo livre.\n\nCada crítica, e-mail ou donativo vosso deixa-me um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação gratuita e sem anúncios.\n\nMuito obrigado e desejo-vos jogos divertidos!</string>
+    <string name="about_text">Olá! \ud83c\udf3b\n\nOlá, chamo-me Roma! Estou atualmente a viver na Ucrânia, que adoro! Sou apaixonado por jogos de tabuleiro há mais de 10 anos! A ideia para esta aplicação surgiu-me quando estava a jogar Star Realms. Estou a trabalhar nesta aplicação no meu tempo livre.\n\nCada crítica, e-mail ou donativo vosso deixa-me um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter esta aplicação gratuita e sem anúncios.\n\nMuito obrigado e desejo-vos jogos divertidos!</string>
     <string name="about_translators_title">Tradutores fantásticos</string>
     <string name="action_donate">Apoiar o Contador de Pontos</string>
     <string name="action_save">Guardar</string>

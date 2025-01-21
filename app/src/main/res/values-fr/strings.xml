@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nJe m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à&#160;Star Realms (qui a&#160;des jetons horribles, n\'est-ce pas ?). Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
+    <string name="about_text">Je m\'appelle Roma et je vis actuellement en Ukraine, un pays que j\'adore ! Je vis actuellement en Ukraine, que j\'adore ! Je joue aux jeux de société depuis plus de 10 ans ! L\'idée de cette application m\'est venue en jouant à&#160;Star Realms. Je travaille sur cette application pendant mon temps libre.\n\nChaque commentaire, e-mail ou don me rend un peu plus heureux. Malgré les terribles événements survenus dans mon pays, j\'ai décidé de garder cette application gratuite et de ne pas ajouter de publicités.\n\nMerci beaucoup, et je vous souhaite de joyeux jeux !</string>
     <string name="about_translators_title">Des traducteurs formidables</string>
     <string name="action_donate">Prise en charge du Compteur de points</string>
     <string name="action_save">Sauvegarder</string>

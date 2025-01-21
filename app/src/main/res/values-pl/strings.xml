@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\n Cześć, jestem Roma! Obecnie mieszkam w Ukrainie, którą absolutnie kocham! Mam bzika na punkcie gier planszowych od ponad 10 lat! Pomysł na tę aplikację przyszedł mi do głowy, gdy grałem w Star Realms (które ma okropne żetony, prawda?). Pracuję nad tą aplikacją w wolnym czasie. Każda recenzja, e-mail lub darowizna od ciebie sprawia, że jestem trochę szczęśliwszy. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację za darmo i nie dodawać reklam.\n\nDziękuję bardzo i życzę radosnych gier!</string>
+    <string name="about_text"> Cześć, jestem Roma! Obecnie mieszkam w Ukrainie, którą absolutnie kocham! Mam bzika na punkcie gier planszowych od ponad 10 lat! Pomysł na tę aplikację przyszedł mi do głowy, gdy grałem w Star Realms. Pracuję nad tą aplikacją w wolnym czasie. Każda recenzja, e-mail lub darowizna od ciebie sprawia, że jestem trochę szczęśliwszy. Pomimo strasznych wydarzeń w moim kraju, zdecydowałem się utrzymać tę aplikację za darmo i nie dodawać reklam.\n\nDziękuję bardzo i życzę radosnych gier!</string>
     <string name="about_translators_title">Niesamowici tłumacze</string>
     <string name="action_donate">Wsparcie dla Licznik Punktów</string>
     <string name="action_save">Zapisz</string>

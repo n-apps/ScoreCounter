@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Olá! \ud83c\udf3b\n\nOlá, meu nome é Roma! Atualmente moro na Ucrânia, que eu amo muito! Sou apaixonado por jogos de tabuleiro há mais de 10 anos! A ideia para este aplicativo surgiu quando eu estava jogando Star Realms (que tem fichas terríveis, né?). Estou trabalhando neste aplicativo no meu tempo livre.\n\nCada crítica, e-mail ou doação de vocês me deixa um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter este aplicativo gratuito e sem anúncios.\n\nMuito obrigado e desejo a vocês jogos divertidos!</string>
+    <string name="about_text">Olá! \ud83c\udf3b\n\nOlá, meu nome é Roma! Atualmente moro na Ucrânia, que eu amo muito! Sou apaixonado por jogos de tabuleiro há mais de 10 anos! A ideia para este aplicativo surgiu quando eu estava jogando Star Realms. Estou trabalhando neste aplicativo no meu tempo livre.\n\nCada crítica, e-mail ou doação de vocês me deixa um pouco mais feliz. Apesar dos terríveis acontecimentos no meu país, decidi manter este aplicativo gratuito e sem anúncios.\n\nMuito obrigado e desejo a vocês jogos divertidos!</string>
     <string name="about_translators_title">Tradutores fantásticos</string>
     <string name="action_donate">Apoiar o Contador de Pontos</string>
     <string name="action_save">Salvar</string>

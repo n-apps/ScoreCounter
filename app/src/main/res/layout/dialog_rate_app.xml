@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="never"
@@ -11,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/padding_normal">
+        android:paddingBottom="@dimen/padding_large">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="156dp"
+            android:layout_height="172dp"
             android:background="?attr/colorPrimaryVariant">
 
             <ImageView
@@ -31,13 +30,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/spacing_normal"
+                android:background="#B5D99C"
                 android:ellipsize="end"
                 android:fontFamily="@font/decor"
-                android:paddingEnd="@dimen/padding_large"
+                android:padding="@dimen/spacing_micro"
                 android:text="@string/action_donate"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnPrimary" />
+                android:textColor="@color/colorSecondary" />
         </FrameLayout>
 
         <LinearLayout
@@ -51,7 +52,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:lineSpacingMultiplier="1.2"
+                android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/dialog_support_me_content"
                 android:textAppearance="?attr/textAppearanceBody2" />
 
@@ -70,7 +73,6 @@
                 android:text="@string/action_donate"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="?attr/colorOnPrimary"
-                app:backgroundTint="@color/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
             <com.google.android.material.button.MaterialButton
@@ -79,30 +81,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_big"
                 android:paddingHorizontal="@dimen/padding_large"
                 android:text="@string/dialog_support_me_remind_me_later"
                 android:textAppearance="?attr/textAppearanceBody2"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_normal"
-                android:padding="@dimen/spacing_micro"
-                android:gravity="center"
-                android:text="@string/tip_alternative_options"
-                android:textAppearance="?attr/textAppearanceBody2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autoLink="web"
-                android:gravity="center"
-                android:text="https://github.com/n-apps/ScoreCounter?tab=readme-ov-file#donate"
-                android:textAppearance="?attr/textAppearanceCaption"
-                android:textColorLink="?android:textColorSecondary"
-                tools:ignore="HardcodedText" />
 
         </LinearLayout>
     </LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="about_text">Привіт! \ud83c\udf3b\n\nHola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. la&#160;idea de esta aplicación se me ocurrió mientras jugaba a&#160;Star Realms (que tiene unas fichas terribles, ¿verdad?). Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
+    <string name="about_text">Hola, soy Roma. Actualmente vivo en Ucrania, país que me encanta. Me encantan los juegos de mesa desde hace más de 10 años. la&#160;idea de esta aplicación se me ocurrió mientras jugaba a&#160;Star Realms. Estoy trabajando en esta aplicación en mi tiempo libre. Cada reseña, correo electrónico o donación que recibes me hace un poco más feliz. A pesar de los terribles acontecimientos en mi país, he decidido mantener esta aplicación gratuita y no añadir publicidad.</string>
     <string name="about_translators_title">Traductores increíbles</string>
     <string name="action_donate">Soporte «Contador de puntos»</string>
     <string name="action_save">Guardar</string>
