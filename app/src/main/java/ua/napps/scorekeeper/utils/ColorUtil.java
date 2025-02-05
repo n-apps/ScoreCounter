@@ -10,7 +10,7 @@ public final class ColorUtil {
     }
 
     public static boolean isDarkBackground(@ColorInt int color) {
-        return ColorUtils.calculateLuminance(color) < 0.5;
+        return ColorUtils.calculateLuminance(color) < 0.3;
     }
 
     private ColorUtil() {

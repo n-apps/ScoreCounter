@@ -98,6 +98,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private boolean isSumMode = true;
     private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
+    private boolean wasUsingLinearLayout;
     private int counterStepDialogMode;
     private int counterStep1, counterStep2, counterStep3, counterStep4, counterStep5, counterStep6, counterStep7;
     private SpanningLinearLayoutManager spanningLayoutManager;
@@ -330,12 +331,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
             if (oldListSize != size) {
                 if (size < getLayoutThreshold()) {
-                    if (recyclerView.getLayoutManager().equals(linearLayoutManager)) {
+                    if (wasUsingLinearLayout) {
                         recyclerView.setLayoutManager(spanningLayoutManager);
+                        wasUsingLinearLayout = false;
                     }
                 } else {
-                    if (recyclerView.getLayoutManager().equals(spanningLayoutManager)) {
+                    if (!wasUsingLinearLayout) {
                         recyclerView.setLayoutManager(linearLayoutManager);
+                        wasUsingLinearLayout = true;
                     }
                 }
             }
@@ -943,6 +946,33 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     private int getLayoutThreshold() {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 5 : 7;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        wasUsingLinearLayout = recyclerView.getLayoutManager().equals(linearLayoutManager);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (wasUsingLinearLayout) {
+            // Force correct LayoutManager based on current list size
+            int size = recyclerView.getAdapter() != null ? recyclerView.getAdapter().getItemCount() : 0;
+            if (size < getLayoutThreshold()) {
+                recyclerView.setLayoutManager(spanningLayoutManager);
+            } else {
+                recyclerView.setLayoutManager(linearLayoutManager);
+            }
+
+            recyclerView.post(() -> {
+                if (recyclerView.getAdapter() != null) {
+                    recyclerView.getAdapter().notifyDataSetChanged();
+                }
+            });
+        }
     }
 
     @Override
