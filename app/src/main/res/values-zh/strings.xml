@@ -70,4 +70,11 @@
     <string name="action_monthly_support">每月支持</string>
     <string name="tip_cancel_any_time">随时取消</string>
     <string name="tip_alternative_options">小费的替代选择：</string>
+    <string name="automatically_sort_counters">自动排序计数器</string>
+    <string name="turn_on_auto_sorting_3s">开启自动排序（3秒）</string>
+    <string name="the_highest_score_at_the_top">最高分置顶</string>
+    <string name="top_bar_content">顶部栏内容</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;显示最高分</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;显示最低分</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;显示总分</string>
 </resources>

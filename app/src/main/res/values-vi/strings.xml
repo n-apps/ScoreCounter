@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Hỗ trợ hàng tháng</string>
     <string name="tip_cancel_any_time">Hủy bất cứ lúc nào</string>
     <string name="tip_alternative_options">Các lựa chọn thay thế cho tiền boa:</string>
+    <string name="automatically_sort_counters">Tự động sắp xếp bộ đếm</string>
+    <string name="turn_on_auto_sorting_3s">Bật sắp xếp tự động (3s)</string>
+    <string name="the_highest_score_at_the_top">Điểm cao nhất ở trên cùng</string>
+    <string name="top_bar_content">Nội dung thanh trên cùng</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Hiển thị điểm cao nhất</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Hiển thị điểm thấp nhất</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Hiển thị tổng điểm</string>
 </resources>

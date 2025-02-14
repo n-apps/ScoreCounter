@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Apoio mensal</string>
     <string name="tip_cancel_any_time">Cancelar a qualquer momento</string>
     <string name="tip_alternative_options">Opções alternativas de apoio:</string>
+    <string name="automatically_sort_counters">Ordenar contadores automaticamente</string>
+    <string name="turn_on_auto_sorting_3s">Ativar ordenação automática (3s)</string>
+    <string name="the_highest_score_at_the_top">A pontuação mais alta no topo</string>
+    <string name="top_bar_content">Conteúdo da barra superior</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Mostrar a pontuação mais alta</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Mostrar a pontuação mais baixa</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Mostrar a pontuação total</string>
 </resources>

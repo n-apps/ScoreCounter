@@ -70,4 +70,11 @@
     <string name="action_monthly_support">मासिक सहायता</string>
     <string name="tip_cancel_any_time">किसी भी समय रद्द करें</string>
     <string name="tip_alternative_options">टिप देने के वैकल्पिक विकल्प:</string>
+    <string name="automatically_sort_counters">काउंटरों को स्वचालित रूप से क्रमबद्ध करें</string>
+    <string name="turn_on_auto_sorting_3s">स्वचालित क्रमबद्धता चालू करें (3s)</string>
+    <string name="the_highest_score_at_the_top">सबसे उच्च स्कोर शीर्ष पर</string>
+    <string name="top_bar_content">शीर्ष बार सामग्री</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;सबसे उच्च स्कोर दिखाएं</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;सबसे कम स्कोर दिखाएं</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;कुल स्कोर दिखाएं</string>
 </resources>

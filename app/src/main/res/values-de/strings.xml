@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Monatliche Unterstützung</string>
     <string name="tip_cancel_any_time">Jederzeit abbrechen</string>
     <string name="tip_alternative_options">Alternative Optionen zum Trinkgeld:</string>
+    <string name="automatically_sort_counters">Zähler automatisch sortieren</string>
+    <string name="turn_on_auto_sorting_3s">Automatische Sortierung einschalten (3s)</string>
+    <string name="the_highest_score_at_the_top">Die höchste Punktzahl oben</string>
+    <string name="top_bar_content">Inhalt der oberen Leiste</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Die höchste Punktzahl anzeigen</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Die niedrigste Punktzahl anzeigen</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Die Gesamtpunktzahl anzeigen</string>
 </resources>

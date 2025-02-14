@@ -72,4 +72,12 @@
     <string name="action_monthly_support">Monthly Support</string>
     <string name="tip_cancel_any_time">Cancel any time</string>
     <string name="tip_alternative_options">OR check out alternative options to tip:</string>
+
+    <string name="automatically_sort_counters">Automatically sort counters</string>
+    <string name="turn_on_auto_sorting_3s">Turn on auto-sorting (3s)</string>
+    <string name="the_highest_score_at_the_top">The highest score at the top</string>
+    <string name="top_bar_content">Top bar content</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Show the highest score</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Show the lowest score</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Show the total score</string>
 </resources>

@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Штомесячная падтрымка</string>
     <string name="tip_cancel_any_time">Скасаваць у любы час</string>
     <string name="tip_alternative_options">Альтэрнатыўныя варыянты падказкі:</string>
+    <string name="automatically_sort_counters">Аўтаматычна сартаваць лічыльнікі</string>
+    <string name="turn_on_auto_sorting_3s">Уключыць аўтаматычнае сартаванне (3с)</string>
+    <string name="the_highest_score_at_the_top">Найвышэйшы вынік уверсе</string>
+    <string name="top_bar_content">Змесціва верхняй панэлі</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Паказаць найвышэйшы вынік</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Паказаць найніжэйшы вынік</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Паказаць агульны вынік</string>
 </resources>

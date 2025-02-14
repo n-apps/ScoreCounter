@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Щомісячна підтримка</string>
     <string name="tip_cancel_any_time">Скасування в будь-який час</string>
     <string name="tip_alternative_options">Альтернативні варіанти задонатити:</string>
+    <string name="automatically_sort_counters">Автоматично сортувати лічильники</string>
+    <string name="turn_on_auto_sorting_3s">Увімкнути автомат. сортування (3с)</string>
+    <string name="the_highest_score_at_the_top">Найвищий результат зверху</string>
+    <string name="top_bar_content">Вміст верхньої панелі</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Показати найвищий результат</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Показати найнижчий результат</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Показати загальну суму</string>
 </resources>

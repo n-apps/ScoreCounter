@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Suport lunar</string>
     <string name="tip_cancel_any_time">Anulare în orice moment</string>
     <string name="tip_alternative_options">Opțiuni alternative la bacșiș:</string>
+    <string name="automatically_sort_counters">Sortare automată a contoarelor</string>
+    <string name="turn_on_auto_sorting_3s">Activează sortarea automată (3s)</string>
+    <string name="the_highest_score_at_the_top">Cel mai mare scor în partea de sus</string>
+    <string name="top_bar_content">Conținutul barei de sus</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Afișează cel mai mare scor</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Afișează cel mai mic scor</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Afișează scorul total</string>
 </resources>

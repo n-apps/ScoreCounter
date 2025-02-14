@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Maandelijkse ondersteuning</string>
     <string name="tip_cancel_any_time">Annuleren</string>
     <string name="tip_alternative_options">Alternatieve opties voor fooi:</string>
+    <string name="automatically_sort_counters">Tellers automatisch sorteren</string>
+    <string name="turn_on_auto_sorting_3s">Automatisch sorteren inschakelen (3s)</string>
+    <string name="the_highest_score_at_the_top">De hoogste score bovenaan</string>
+    <string name="top_bar_content">Inhoud van de bovenste balk</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Toon de hoogste score</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Toon de laagste score</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Toon de totale score</string>
 </resources>

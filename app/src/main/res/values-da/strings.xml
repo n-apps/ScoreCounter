@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Månedlig støtte</string>
     <string name="tip_cancel_any_time">Afbryd når som helst</string>
     <string name="tip_alternative_options">Alternative muligheder for at give drikkepenge:</string>
+    <string name="automatically_sort_counters">Sorter tællere automatisk</string>
+    <string name="turn_on_auto_sorting_3s">Slå automatisk sortering til (3s)</string>
+    <string name="the_highest_score_at_the_top">Den højeste score øverst</string>
+    <string name="top_bar_content">Indhold i topbaren</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Vis den højeste score</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Vis den laveste score</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Vis den samlede score</string>
 </resources>

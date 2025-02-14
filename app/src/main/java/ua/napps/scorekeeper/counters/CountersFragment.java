@@ -54,6 +54,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.bitvale.switcher.SwitcherX;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.shape.CornerFamily;
@@ -95,7 +96,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private TextView toolbarTitle;
     private int previousTopCounterId;
     private boolean isLowestScoreWins;
-    private boolean isSumMode = true;
+    private boolean isSumMode;
     private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
     private boolean wasUsingLinearLayout;
@@ -141,7 +142,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             }
         }
-        toolbarTitle.setOnClickListener(v -> switchTopLogic());
+        toolbarTitle.setOnClickListener(v -> showSortingControls());
 
         spanningLayoutManager = createSpanningLayoutManager();
         linearLayoutManager = new LinearLayoutManager(requireContext());
@@ -175,21 +176,83 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         return contentView;
     }
 
-    private void switchTopLogic() {
-        // Modified to handle 3 states
-        if (!isLowestScoreWins && !isSumMode) {
-            // Switch to lowest wins mode
-            isLowestScoreWins = true;
-            isSumMode = false;
-        } else if (isLowestScoreWins && !isSumMode) {
-            // Switch to sum mode
-            isLowestScoreWins = false;
-            isSumMode = true;
+    private void showSortingControls() {
+        // Inflate the popup layout
+        View dialogCustomView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.popup_sort_controls, null);
+
+        new MaterialDialog.Builder(requireActivity())
+                .customView(dialogCustomView, false)
+                .show();
+
+        // Get references to the switches
+        MaterialButtonToggleGroup titleButtonsGroup = dialogCustomView.findViewById(R.id.title_options_group);
+        SwitcherX autoSortSwitch = dialogCustomView.findViewById(R.id.switch_auto_sort);
+        SwitcherX sortDirectionSwitch = dialogCustomView.findViewById(R.id.switch_sort_direction);
+        View autoSortSwitchContainer = dialogCustomView.findViewById(R.id.container_auto_sort);
+        View sortDirectionSwitchContainer = dialogCustomView.findViewById(R.id.container_sort_direction);
+
+        // Set initial states
+        viewModel.isAutoSortEnabled().observe(getViewLifecycleOwner(),
+                checked -> {
+                    autoSortSwitch.setChecked(checked, false);
+                    autoSortSwitch.setClickable(false);
+
+                    // disable sort direction
+                    sortDirectionSwitchContainer.setAlpha(!checked ? 0.5f : 1.0f);
+                    sortDirectionSwitch.setEnabled(checked);
+                    sortDirectionSwitch.setClickable(false);
+                });
+        viewModel.isSortDescending().observe(getViewLifecycleOwner(),
+                checked -> {
+                    sortDirectionSwitch.setChecked(checked, false);
+                    sortDirectionSwitch.setClickable(false);
+                });
+
+        // Set up listeners
+        autoSortSwitchContainer.setOnClickListener(v -> {
+            viewModel.toggleAutoSort();
+            tryVibrate();
+        });
+
+        sortDirectionSwitchContainer.setOnClickListener(v -> {
+            viewModel.toggleSortDirection();
+            tryVibrate();
+        });
+
+        if (isSumMode) {
+            titleButtonsGroup.check(R.id.btn_sum_counter);
         } else {
-            // Switch back to highest wins mode
-            isLowestScoreWins = false;
-            isSumMode = false;
+            if (!isLowestScoreWins) {
+                titleButtonsGroup.check(R.id.btn_top_counter);
+            } else {
+                titleButtonsGroup.check(R.id.btn_last_counter);
+            }
         }
+
+        titleButtonsGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+            if (isChecked) {
+                switch (checkedId) {
+                    case R.id.btn_top_counter:
+                        isLowestScoreWins = false;
+                        isSumMode = false;
+                        updateTitle();
+                        break;
+                    case R.id.btn_last_counter:
+                        isLowestScoreWins = true;
+                        isSumMode = false;
+                        updateTitle();
+                        break;
+                    case R.id.btn_sum_counter:
+                        isSumMode = true;
+                        updateTitle();
+                        break;
+                }
+            }
+        });
+    }
+
+    private void updateTitle() {
         showSnack(R.string.message_top_logic_changed);
         List<Counter> counters = viewModel.getCounters().getValue();
         findAndUpdateTopCounterView(counters);
@@ -300,6 +363,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void observeData() {
+
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
         viewModel.getCounters().observe(getViewLifecycleOwner(), this::updateUI);
@@ -387,7 +451,11 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         int topSize = topCounters.size();
         if (topSize == 1) {
             Counter top = topCounters.get(0);
-            toolbar.setTitle("\uD83C\uDF1F " + top.getName());
+            if (isLowestScoreWins) {
+                toolbar.setTitle("\uD83D\uDCC9 " + top.getName());
+            } else {
+                toolbar.setTitle("\ud83c\udfc6" + top.getName());
+            }
             int counterId = top.getId();
             if (previousTopCounterId != counterId) {
                 if (toolbarTitle != null) {
@@ -900,6 +968,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
     @Override
     public void afterDrag(Counter counter, int fromIndex, int toIndex) {
+        viewModel.setAutoSort(false);
         viewModel.modifyPosition(counter, fromIndex, toIndex);
     }
 
@@ -973,6 +1042,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 }
             });
         }
+
+        viewModel.triggerAutoSortIfNeeded();
     }
 
     @Override

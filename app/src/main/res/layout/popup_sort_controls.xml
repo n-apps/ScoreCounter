@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/spacing_large">
+
+    <TextView
+        style="@style/SettingsSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/spacing_normal"
+        android:gravity="bottom|center_horizontal"
+        android:paddingHorizontal="@dimen/padding_normal"
+        android:paddingTop="@dimen/padding_normal"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:text="@string/automatically_sort_counters"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        app:drawableTopCompat="@drawable/ic_new" />
+
+    <RelativeLayout
+        android:id="@+id/container_auto_sort"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/switch_auto_sort"
+
+            android:fontFamily="@font/o400"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingEnd="@dimen/padding_normal"
+            android:text="@string/turn_on_auto_sorting_3s"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switch_auto_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/container_sort_direction"
+        style="@style/TwoLinesStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/switch_sort_direction"
+            android:fontFamily="@font/o400"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/list_two_lines_min_height"
+            android:paddingEnd="@dimen/padding_normal"
+            android:text="@string/the_highest_score_at_the_top"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+        <com.bitvale.switcher.SwitcherX
+            android:id="@+id/switch_sort_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            app:elevation="0dp"
+            app:switcher_icon_color="?attr/colorOnSecondary"
+            app:switcher_off_color="?android:textColorHint"
+            app:switcher_on_color="?attr/colorPrimary" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        style="@style/SettingsSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center_horizontal"
+        android:paddingHorizontal="@dimen/padding_normal"
+        android:paddingBottom="@dimen/spacing_normal"
+        android:text="@string/top_bar_content"
+        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/title_options_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_big"
+        android:orientation="vertical"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/btn_top_counter"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="@dimen/list_single_line_min_height"
+            android:paddingEnd="@dimen/padding_large"
+            android:text="@string/show_the_highest_score"
+            android:textColor="?android:textColorPrimary" />
+
+        <Button
+            android:id="@+id/btn_last_counter"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="@dimen/list_single_line_min_height"
+            android:paddingEnd="@dimen/padding_large"
+            android:text="@string/show_the_lowest_score"
+            android:textColor="?android:textColorPrimary" />
+
+        <Button
+            android:id="@+id/btn_sum_counter"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minHeight="@dimen/list_single_line_min_height"
+            android:paddingEnd="@dimen/padding_large"
+            android:text="@string/show_the_total_score"
+            android:textColor="?android:textColorPrimary" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+</LinearLayout>

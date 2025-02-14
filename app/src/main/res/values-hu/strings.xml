@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Havi támogatás</string>
     <string name="tip_cancel_any_time">Bármikor lemondható</string>
     <string name="tip_alternative_options">Alternatív lehetőségek a borravalóra:</string>
+    <string name="automatically_sort_counters">Automatikus számlálók rendezése</string>
+    <string name="turn_on_auto_sorting_3s">Automatikus rendezés bekapcsolása (3s)</string>
+    <string name="the_highest_score_at_the_top">A legmagasabb pontszám felül</string>
+    <string name="top_bar_content">Felső sáv tartalma</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;A legmagasabb pontszám mutatása</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;A legalacsonyabb pontszám mutatása</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Az összpontszám mutatása</string>
 </resources>

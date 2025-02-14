@@ -70,4 +70,11 @@
     <string name="action_monthly_support">Mjesečna podrška</string>
     <string name="tip_cancel_any_time">Otkažite bilo kada</string>
     <string name="tip_alternative_options">Alternativne opcije za savjet:</string>
+    <string name="automatically_sort_counters">Automatski sortiraj brojače</string>
+    <string name="turn_on_auto_sorting_3s">Uključi automatsko sortiranje (3s)</string>
+    <string name="the_highest_score_at_the_top">Najviši rezultat na vrhu</string>
+    <string name="top_bar_content">Sadržaj gornje trake</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Prikaži najviši rezultat</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Prikaži najniži rezultat</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Prikaži ukupni rezultat</string>
 </resources>
