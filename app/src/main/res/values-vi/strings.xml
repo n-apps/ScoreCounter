@@ -46,7 +46,6 @@
     <string name="menu_reset_all_counters">Đặt lại tất cả</string>
     <string name="message_app_not_found">Không có ứng dụng email trên thiết bị của bạn :(</string>
     <string name="message_error_generic">Xin lỗi, dường như đã xảy ra lỗi.</string>
-    <string name="message_top_logic_changed">Logic đã thay đổi</string>
     <string name="message_one_more_counter">Một lần nữa</string>
     <string name="message_thank_you">Xin chân thành cảm ơn các bạn đã ủng hộ&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Hãy thử chạm lâu vào +/-</string>
@@ -77,4 +76,5 @@
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Hiển thị điểm cao nhất</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Hiển thị điểm thấp nhất</string>
     <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Hiển thị tổng điểm</string>
+    <string name="menu_sort_counters">Kiểu sắp xếp…</string>
 </resources>

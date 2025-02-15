@@ -15,6 +15,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Vibrator;
@@ -89,7 +90,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private CountersViewModel viewModel;
     private boolean isFirstLoad = true;
     private AlertDialog longClickDialog;
-    private int oldListSize;
+    private int currentCountersCount;
     private boolean isLongPressTipShowed;
     private ItemTouchHelper itemTouchHelper;
     private Toolbar toolbar;
@@ -253,7 +254,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void updateTitle() {
-        showSnack(R.string.message_top_logic_changed);
         List<Counter> counters = viewModel.getCounters().getValue();
         findAndUpdateTopCounterView(counters);
         tryVibrate();
@@ -267,13 +267,18 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     @Override
     public void onPrepareOptionsMenu(@NonNull Menu menu) {
         MenuItem removeItem = menu.findItem(R.id.menu_remove_all);
-        final boolean hasCounters = oldListSize > 0;
+        final boolean hasCounters = currentCountersCount > 0;
         if (removeItem != null) {
             removeItem.setEnabled(hasCounters);
         }
-        MenuItem clearAllItem = menu.findItem(R.id.menu_reset_all);
-        if (clearAllItem != null) {
-            clearAllItem.setEnabled(hasCounters);
+        MenuItem clearAllItems = menu.findItem(R.id.menu_reset_all);
+        if (clearAllItems != null) {
+            clearAllItems.setEnabled(hasCounters);
+        }
+
+        MenuItem deleteAllItems = menu.findItem(R.id.menu_remove_all);
+        if (deleteAllItems != null) {
+            deleteAllItems.setEnabled(hasCounters);
         }
     }
 
@@ -281,10 +286,14 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.counters_menu, menu);
 
-        MenuItem item = menu.getItem(5);
+        MenuItem item = menu.findItem(R.id.menu_remove_all);
         SpannableString s = new SpannableString(item.getTitle().toString());
         s.setSpan(new ForegroundColorSpan(Color.argb(255, 255, 79, 94)), 0, s.length(), 0);
         item.setTitle(s);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            menu.setGroupDividerEnabled(true);
+        }
     }
 
     @Override
@@ -337,6 +346,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 break;
             case R.id.menu_about_app:
                 AboutActivity.start(requireActivity());
+                break;
+            case R.id.menu_sort:
+                showSortingControls();
                 break;
             case R.id.menu_elektu:
                 new MaterialDialog.Builder(requireActivity())
@@ -393,7 +405,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 emptyState.setVisibility(View.GONE);
             }
 
-            if (oldListSize != size) {
+            if (currentCountersCount != size) {
                 if (size < getLayoutThreshold()) {
                     if (wasUsingLinearLayout) {
                         recyclerView.setLayoutManager(spanningLayoutManager);
@@ -409,7 +421,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
             countersAdapter.setCountersList(counters);
 
-            if (size > oldListSize && oldListSize > 0) {
+            if (size > currentCountersCount && currentCountersCount > 0) {
                 recyclerView.smoothScrollToPosition(size);
             }
             if (isFirstLoad) {
@@ -422,12 +434,12 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         }
                 );
             } else {
-                if (oldListSize - 1 == size) {
+                if (currentCountersCount - 1 == size) {
                     showSnack(R.string.counter_deleted);
                     viewModel.updatePositions();
                 }
             }
-            oldListSize = size;
+            currentCountersCount = size;
         } else {
             emptyState.setVisibility(View.VISIBLE);
         }
@@ -454,7 +466,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             if (isLowestScoreWins) {
                 toolbar.setTitle("\uD83D\uDCC9 " + top.getName());
             } else {
-                toolbar.setTitle("\ud83c\udfc6" + top.getName());
+                toolbar.setTitle("\ud83c\udfc6 " + top.getName());
             }
             int counterId = top.getId();
             if (previousTopCounterId != counterId) {
@@ -1027,23 +1039,26 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     public void onResume() {
         super.onResume();
 
-        if (wasUsingLinearLayout) {
-            // Force correct LayoutManager based on current list size
-            int size = recyclerView.getAdapter() != null ? recyclerView.getAdapter().getItemCount() : 0;
-            if (size < getLayoutThreshold()) {
-                recyclerView.setLayoutManager(spanningLayoutManager);
-            } else {
-                recyclerView.setLayoutManager(linearLayoutManager);
+        if (currentCountersCount > 0) {
+
+            if (wasUsingLinearLayout) {
+                // Force correct LayoutManager based on current list size
+                int size = recyclerView.getAdapter() != null ? recyclerView.getAdapter().getItemCount() : 0;
+                if (size < getLayoutThreshold()) {
+                    recyclerView.setLayoutManager(spanningLayoutManager);
+                } else {
+                    recyclerView.setLayoutManager(linearLayoutManager);
+                }
+
+                recyclerView.post(() -> {
+                    if (recyclerView.getAdapter() != null) {
+                        recyclerView.getAdapter().notifyDataSetChanged();
+                    }
+                });
             }
 
-            recyclerView.post(() -> {
-                if (recyclerView.getAdapter() != null) {
-                    recyclerView.getAdapter().notifyDataSetChanged();
-                }
-            });
+            viewModel.triggerAutoSortIfNeeded();
         }
-
-        viewModel.triggerAutoSortIfNeeded();
     }
 
     @Override

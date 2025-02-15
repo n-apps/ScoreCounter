@@ -13,20 +13,30 @@
         android:icon="@drawable/ic_log"
         android:title="@string/menu_history"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/menu_about_app"
-        android:title="@string/settings_about"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_elektu"
-        android:title="@string/menu_elektu"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_reset_all"
-        android:title="@string/menu_reset_all_counters"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/menu_remove_all"
-        android:title="@string/menu_delete_all_counters"
-        app:showAsAction="never" />
+
+    <group android:id="@+id/id_2">
+        <item
+            android:id="@+id/menu_sort"
+            android:title="@string/menu_sort_counters"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_reset_all"
+            android:title="@string/menu_reset_all_counters"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_remove_all"
+            android:title="@string/menu_delete_all_counters"
+            app:showAsAction="never" />
+    </group>
+
+    <group android:id="@+id/id_1">
+        <item
+            android:id="@+id/menu_elektu"
+            android:title="@string/menu_elektu"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menu_about_app"
+            android:title="@string/settings_about"
+            app:showAsAction="never" />
+    </group>
 </menu>

@@ -46,7 +46,6 @@
     <string name="menu_reset_all_counters">Összes nullázása</string>
     <string name="message_app_not_found">Nincs e-mail alkalmazás a&#160;készülékeden :(</string>
     <string name="message_error_generic">Elnézést, úgy tűnik, hiba történt.</string>
-    <string name="message_top_logic_changed">Logika megváltozott</string>
     <string name="message_one_more_counter">Még egy</string>
     <string name="message_thank_you">Köszönöm szépen a&#160;támogatást&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Próbálj meg hosszan rábökni a&#160;+/- gombokra</string>
@@ -77,4 +76,5 @@
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;A legmagasabb pontszám mutatása</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;A legalacsonyabb pontszám mutatása</string>
     <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Az összpontszám mutatása</string>
+    <string name="menu_sort_counters">Rendezési beállítások</string>
 </resources>

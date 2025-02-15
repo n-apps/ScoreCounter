@@ -48,7 +48,6 @@
     <string name="menu_reset_all_counters">Reset all counters</string>
     <string name="message_app_not_found">It seems there isn\'t an app that can handle this action.</string>
     <string name="message_error_generic">It looks like there\'s been a technical issue.</string>
-    <string name="message_top_logic_changed">Changed title display logic</string>
     <string name="message_one_more_counter">One more</string>
     <string name="message_thank_you">Thanks for your support!&#160;\ud83d\udc99</string>
     <string name="message_you_can_use_long_press">Try a long tap on <b>+/-</b> side</string>
@@ -80,4 +79,5 @@
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Show the highest score</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Show the lowest score</string>
     <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Show the total score</string>
+    <string name="menu_sort_counters">Sort options…</string>
 </resources>

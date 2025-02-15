@@ -39,7 +39,6 @@
     <string name="menu_history">Ιστορικό</string>
     <string name="menu_reset_all_counters">Επαναφορά όλων</string>
     <string name="message_error_generic">Συγγνώμη, παρουσιάστηκε ένα σφάλμα</string>
-    <string name="message_top_logic_changed">Ο αλγόριθμος άλλαξε</string>
     <string name="message_app_not_found">Δεν βρέθηκε εφαρμογή για αυτήν την ενέργεια</string>
     <string name="message_one_more_counter">Άλλος ένας</string>
     <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη&#160;\ud83d\udc99</string>
@@ -77,4 +76,5 @@
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Εμφάνιση της υψηλότερης βαθμολογίας</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Εμφάνιση της χαμηλότερης βαθμολογίας</string>
     <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Εμφάνιση της συνολικής βαθμολογίας</string>
+    <string name="menu_sort_counters">Επιλογή ταξινόμησης</string>
 </resources>
