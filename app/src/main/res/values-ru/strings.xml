@@ -72,9 +72,9 @@
     <string name="automatically_sort_counters">Автомат. сортировать счетчики</string>
     <string name="turn_on_auto_sorting_3s">Включить автомат. сортировку (3с)</string>
     <string name="the_highest_score_at_the_top">Наивысший результат вверху</string>
-    <string name="top_bar_content">Содержимое верхней панели</string>
-    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Показать наивысший результат</string>
-    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Показать наименьший результат</string>
+    <string name="top_bar_content">Показывать в заголовке</string>
+    <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Показать наивысший счет</string>
+    <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Показать наименьший счет</string>
     <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Показать общую сумму</string>
     <string name="menu_sort_counters">Параметры сортировки…</string>
 </resources>

@@ -19,6 +19,9 @@ public class LocalSettings {
     private static final String DICE_ANIMATE = "dice_animate";
     private static final String SOUND_ROLL = "sound_roll";
 
+    private static final String IS_AUTOSORT_ENABLED = "is_autosort_enabled";
+    private static final String IS_AUTO_SORT_DESC = "is_auto_sort_desc";
+
     public static final String IS_COUNTERS_VIBRATE = "is_counters_vibrate";
     public static final String IS_SWAP_PRESS_LOGIC = "is_swap_press_logic";
 
@@ -37,6 +40,8 @@ public class LocalSettings {
     public static boolean isRelevantToCounters(String key) {
         return IS_SWAP_PRESS_LOGIC.equals(key) ||
                 IS_COUNTERS_VIBRATE.equals(key) ||
+                IS_AUTOSORT_ENABLED.equals(key) ||
+                IS_AUTO_SORT_DESC.equals(key) ||
                 CUSTOM_COUNTER_1.equals(key) ||
                 CUSTOM_COUNTER_2.equals(key) ||
                 CUSTOM_COUNTER_3.equals(key) ||
@@ -190,6 +195,22 @@ public class LocalSettings {
 
     public static void saveCountersVibrate(boolean enabled) {
         App.getTinyDB().putBoolean(IS_COUNTERS_VIBRATE, enabled);
+    }
+
+    public static boolean isAutoSortEnabled() {
+        return App.getTinyDB().getBoolean(IS_AUTOSORT_ENABLED, false);
+    }
+
+    public static void saveAutoSortEnabled(boolean enabled) {
+        App.getTinyDB().putBoolean(IS_AUTOSORT_ENABLED, enabled);
+    }
+
+    public static boolean isAutoSortDescending() {
+        return App.getTinyDB().getBoolean(IS_AUTO_SORT_DESC, true);
+    }
+
+    public static void saveAutoSortDescending(boolean enabled) {
+        App.getTinyDB().putBoolean(IS_AUTO_SORT_DESC, enabled);
     }
 
     public static void saveSwapPressLogic(boolean incrementByOneTap) {

@@ -100,6 +100,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private boolean isSumMode;
     private boolean isVibrate;
     private boolean isSwapPressLogicEnabled;
+    private boolean isAutoSortEnabled;
+    private boolean isAutosSortDescending;
     private boolean wasUsingLinearLayout;
     private int counterStepDialogMode;
     private int counterStep1, counterStep2, counterStep3, counterStep4, counterStep5, counterStep6, counterStep7;
@@ -160,6 +162,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         isLongPressTipShowed = LocalSettings.getLongPressTipShowed();
         isSwapPressLogicEnabled = LocalSettings.isSwapPressLogicEnabled();
         isVibrate = LocalSettings.isCountersVibrate();
+        isAutoSortEnabled = LocalSettings.isAutoSortEnabled();
+        isAutosSortDescending = LocalSettings.isAutoSortDescending();
         counterStep1 = LocalSettings.getCustomCounter(1);
         counterStep2 = LocalSettings.getCustomCounter(2);
         counterStep3 = LocalSettings.getCustomCounter(3);
@@ -203,11 +207,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                     sortDirectionSwitchContainer.setAlpha(!checked ? 0.5f : 1.0f);
                     sortDirectionSwitch.setEnabled(checked);
                     sortDirectionSwitch.setClickable(false);
+                    LocalSettings.saveAutoSortEnabled(checked);
                 });
         viewModel.isSortDescending().observe(getViewLifecycleOwner(),
                 checked -> {
                     sortDirectionSwitch.setChecked(checked, false);
                     sortDirectionSwitch.setClickable(false);
+                    LocalSettings.saveAutoSortDescending(checked);
                 });
 
         // Set up listeners
@@ -375,9 +381,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void observeData() {
-
         CountersViewModelFactory factory = new CountersViewModelFactory(requireActivity().getApplication());
         viewModel = new ViewModelProvider(this, factory).get(CountersViewModel.class);
+        viewModel.setAutoSort(isAutoSortEnabled);
+        viewModel.setSortDescending(isAutosSortDescending);
         viewModel.getCounters().observe(getViewLifecycleOwner(), this::updateUI);
         viewModel.getSnackbarMessage().observe(getViewLifecycleOwner(), (Observer<Integer>) resourceId -> {
             if (resourceId == R.string.counter_added) {

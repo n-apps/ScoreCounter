@@ -44,7 +44,7 @@ class CountersViewModel extends AndroidViewModel {
     private final CountersRepository repository;
     private final LiveData<List<Counter>> counters;
 
-    private final MutableLiveData<Boolean> autoSortEnabled = new MutableLiveData<>(true);
+    private final MutableLiveData<Boolean> autoSortEnabled = new MutableLiveData<>(false);
     private final MutableLiveData<Boolean> sortDescending = new MutableLiveData<>(true);
     private final Set<String> colorSet = new HashSet<>();
     private final Set<String> namesSet = new HashSet<>();
@@ -237,7 +237,7 @@ class CountersViewModel extends AndroidViewModel {
         }
     }
 
-    public void setSortDirection(boolean descending) {
+    public void setSortDescending(boolean descending) {
         sortDescending.setValue(descending);
     }
 
