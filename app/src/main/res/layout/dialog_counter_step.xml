@@ -7,46 +7,31 @@
     android:paddingBottom="@dimen/padding_normal"
     tools:ignore="HardcodedText">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/counter_info_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_large"
         android:paddingVertical="@dimen/padding_normal"
         app:layout_constraintBottom_toTopOf="@id/first_buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:background="#F2B04B">
+        tools:background="@color/colorSecondary">
 
         <TextView
-            android:id="@+id/counter_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/spacing_big"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:fontFamily="@font/o600"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:text="Jessica"
-            android:textAppearance="?attr/textAppearanceHeadline5"
-            tools:textColor="?attr/colorOnSurface" />
-
-        <TextView
-            android:id="@+id/counter_value"
+            android:id="@+id/counter_info_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/mono"
-            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:ellipsize="end"
+            android:fontFamily="@font/o400"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:textAppearance="?attr/textAppearanceHeadline5"
-            android:textColor="?android:attr/textColorPrimary"
-            tools:text="435" />
-    </LinearLayout>
+            tools:text="Jessica – 456"
+            tools:textColor="?attr/colorOnSecondary" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/first_buttons"
@@ -273,14 +258,15 @@
         android:layout_marginTop="@dimen/spacing_large"
         android:hint="@string/simple_edit_value_hint"
         android:theme="@style/ThemeOverlay.AppTheme.TextInputEditText.Outlined"
+        app:boxBackgroundColor="?attr/colorPrimaryContainer"
         app:boxCornerRadiusBottomEnd="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopEnd="@dimen/material_button_full_round_corner_radius"
         app:boxCornerRadiusTopStart="@dimen/material_button_full_round_corner_radius"
-        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeColor="?attr/colorPrimary"
         app:hintEnabled="true"
         app:hintTextAppearance="?attr/textAppearanceCaption"
-        app:hintTextColor="@color/colorPrimary"
+        app:hintTextColor="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="@id/first_buttons"
         app:layout_constraintStart_toEndOf="@id/group_sign_btn"
         app:layout_constraintTop_toBottomOf="@id/tv_hint">

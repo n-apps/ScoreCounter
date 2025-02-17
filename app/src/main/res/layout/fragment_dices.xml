@@ -45,7 +45,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar"
         tools:text="1 × d6"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/iv_edit"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_dice_variant_info"
         app:layout_constraintTop_toTopOf="@id/tv_dice_variant_info"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/dice"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_dice_variant_info"
         app:layout_constraintWidth_min="160dp"
         tools:text="23"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/empty_state_group"
@@ -98,7 +98,7 @@
         app:constraint_referenced_ids="im_empty_state,tv_empty_state"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <ImageView
         android:id="@+id/im_empty_state"
@@ -147,7 +147,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dice"
         tools:text="Rolls: 2, 4, 5, 7\nSum: 45"
-        tools:visibility="invisible" />
+        tools:visibility="visible" />
 
 
     <TextView

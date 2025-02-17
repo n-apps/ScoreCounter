@@ -27,7 +27,7 @@
     <string name="dialog_no">Не</string>
     <string name="dialog_predefined_steps">Вы можаце змяніць гэтыя значэнні ў наладах.</string>
     <string name="dialog_support_me_content"><b>Ці падабаецца вам лічыльнік балаў? Падтрымайце мяне кубачкам кавы!</b>\n\nПрывітанне, я Рома! Я жыву ва Украіне і працую над гэтай праграмай у вольны час. Я імкнуся захаваць лічыльнік балаў бясплатным назаўжды.\n\nВаша падтрымка дапамагае мне падтрымліваць лічыльнік балаў абноўленым і бясплатным для ўсіх ва ўсім свеце, нават калі я распрацоўваю яго ў цяжкія часы.</string>
-    <string name="dialog_support_me_remind_me_later">Не зараз</string>
+    <string name="action_remind_later">Не зараз</string>
     <string name="dialog_yes">Так</string>
     <string name="dice_empty_state">Націсніце дзе-небудзь ці патрасіце ваш дэвайс, каб кінуць косці</string>
     <string name="dice_sides">Асабістыя бакі касцей</string>
@@ -41,7 +41,7 @@
     <string name="message_error_generic">Выбачайце, здаецца, адбылася памылка</string>
     <string name="message_app_not_found">Няма магчымасці, каб выканаць гэта дзеянне</string>
     <string name="message_one_more_counter">Яшчэ адзін</string>
-    <string name="message_thank_you">Дзякуй!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Дзякуй!</string>
     <string name="message_you_can_use_long_press">Паспрабуйце доўгае націсканне на&#160;+/-</string>
     <string name="setting_help_translate">Дапамажыце перакласці</string>
     <string name="setting_share">Рэкамендаваць сябру</string>

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -18,7 +17,6 @@ import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -171,17 +169,10 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         btnSave.setOnClickListener(v -> validateAndSave());
     }
 
-    private void updateButtonColors(int newcolor) {
-        Drawable drawable = DrawableCompat.wrap(moreColorsButton.getDrawable().mutate());
-        if (ColorUtil.isDarkBackground(newcolor)) {
-            btnSave.setTextColor(0xDEFFFFFF);
-            DrawableCompat.setTint(drawable, 0xDEFFFFFF);
-        } else {
-            btnSave.setTextColor(0xDE000000);
-            DrawableCompat.setTint(drawable, 0xDE000000);
-        }
-        moreColorsButton.setBackgroundColor(newcolor);
-        btnSave.setBackgroundColor(newcolor);
+    private void updateButtonColors(int newColor) {
+        final boolean darkBackground = ColorUtil.isDarkBackground(newColor);
+        btnSave.setTextColor(darkBackground ? 0xF7FFFFFF : 0xDE000000);
+        btnSave.setBackgroundColor(newColor);
     }
 
     private void setInputsColorStateDefault() {

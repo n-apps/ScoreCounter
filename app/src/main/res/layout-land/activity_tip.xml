@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface">
+    android:background="?attr/colorSurfaceVariant">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -16,8 +16,10 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimaryVariant"
+            android:background="?attr/colorPrimaryVariant"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
             app:contentScrim="?attr/colorPrimaryVariant"
+            app:expandedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
             app:expandedTitleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|snap"
             app:toolbarId="@+id/toolbar">
@@ -36,7 +38,7 @@
                 app:layout_collapseMode="parallax"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:title="@string/action_donate"
+                app:title="@string/donation_title"
                 app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
                 app:titleTextColor="?attr/colorOnPrimary"
                 tools:layout_editor_absoluteY="-1dp" />
@@ -52,20 +54,21 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/spacing_xlarge">
 
             <!-- Description -->
             <TextView
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_xlarge"
+                android:layout_marginTop="@dimen/spacing_large"
                 android:fontFamily="@font/o400"
                 android:gravity="center_horizontal"
                 android:lineSpacingMultiplier="1.2"
-                android:paddingHorizontal="@dimen/padding_large"
-                android:paddingTop="@dimen/padding_large"
                 android:text="@string/dialog_support_me_content"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceBody1"
                 app:layout_constraintBottom_toTopOf="@id/items"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,11 +97,15 @@
                     android:layout_weight="1"
                     android:checkable="true"
                     android:clickable="true"
-                    android:elevation="@dimen/cardview_default_elevation"
-                    android:focusable="true"
+                    app:cardBackgroundColor="@color/cardview_checkable_background_color"
                     app:cardCornerRadius="8dp"
-                    app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:cardElevation="0dp"
+                    app:cardForegroundColor="@null"
+                    app:cardPreventCornerOverlap="true"
+                    app:checkedIcon="@drawable/ic_heart"
+                    app:checkedIconTint="@null"
+                    app:strokeColor="@color/cardview_checkable_stroke_color"
+                    app:strokeWidth="1dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -155,11 +162,15 @@
                     android:layout_weight="1"
                     android:checkable="true"
                     android:clickable="true"
-                    android:elevation="@dimen/cardview_default_elevation"
-                    android:focusable="true"
+                    app:cardBackgroundColor="@color/cardview_checkable_background_color"
                     app:cardCornerRadius="8dp"
-                    app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:cardElevation="0dp"
+                    app:cardForegroundColor="@null"
+                    app:cardPreventCornerOverlap="true"
+                    app:checkedIcon="@drawable/ic_heart"
+                    app:checkedIconTint="@null"
+                    app:strokeColor="@color/cardview_checkable_stroke_color"
+                    app:strokeWidth="1dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -218,10 +229,15 @@
                     android:checkable="true"
                     android:clickable="true"
                     android:focusable="true"
+                    app:cardBackgroundColor="@color/cardview_checkable_background_color"
                     app:cardCornerRadius="8dp"
-                    app:checkedIconSize="@dimen/button_icon_size"
-                    app:checkedIconTint="?attr/colorAccent"
-                    app:strokeColor="?attr/colorPrimary">
+                    app:cardElevation="0dp"
+                    app:cardForegroundColor="@null"
+                    app:cardPreventCornerOverlap="true"
+                    app:checkedIcon="@drawable/ic_heart"
+                    app:checkedIconTint="@null"
+                    app:strokeColor="@color/cardview_checkable_stroke_color"
+                    app:strokeWidth="1dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -283,11 +299,12 @@
                 android:layout_marginTop="@dimen/spacing_large"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_one_time_support"
                 android:textAllCaps="false"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?attr/colorOnPrimary"
-                app:backgroundTint="@color/colorPrimary"
+                app:backgroundTint="?attr/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:layout_constraintEnd_toStartOf="@id/btn_monthly"
                 app:layout_constraintStart_toStartOf="parent"
@@ -301,11 +318,12 @@
                 android:layout_marginHorizontal="@dimen/spacing_normal"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
+                android:minHeight="@dimen/list_single_line_min_height"
                 android:text="@string/action_monthly_support"
                 android:textAllCaps="false"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?attr/colorOnPrimary"
-                app:backgroundTint="@color/colorPrimary"
+                app:backgroundTint="?attr/colorPrimary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/btn_one_time"
@@ -340,9 +358,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/spacing_large"
+                    android:drawablePadding="@dimen/spacing_normal"
+                    android:fontFamily="@font/decor"
                     android:gravity="center"
                     android:text="@string/message_thank_you"
-                    android:textAppearance="?attr/textAppearanceBody2" />
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    app:drawableEndCompat="@drawable/ic_heart" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,8 +379,22 @@
                     android:gravity="center"
                     android:text="https://github.com/n-apps/ScoreCounter?tab=readme-ov-file#donate"
                     android:textAppearance="?attr/textAppearanceCaption"
-                    android:textColorLink="?android:textColorHint"
+                    android:textColorLink="?android:textColorSecondary"
                     tools:ignore="HardcodedText" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_remind_later"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginHorizontal="@dimen/spacing_large"
+                    android:layout_marginTop="@dimen/spacing_xlarge"
+                    android:minHeight="@dimen/list_single_line_min_height"
+                    android:text="@string/action_remind_later"
+                    android:textColor="@color/colorPrimary"
+                    app:backgroundTint="?attr/colorPrimaryContainer"
+                    app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

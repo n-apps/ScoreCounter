@@ -594,7 +594,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_CLASS_PHONE)
                 .positiveText(R.string.common_set)
                 .typeface(regular, mono)
-                .contentColorRes(R.color.textColorPrimary)
+                .contentColorRes(R.color.colorOnSurface)
                 .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)
@@ -720,13 +720,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         updateButtonLabels(contentView);
         int color = Color.parseColor(counter.getColor());
         final boolean darkBackground = ColorUtil.isDarkBackground(color);
-        int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
+        int tintColor = darkBackground ? 0xF7FFFFFF : 0xDE000000;
 
-        ((TextView) contentView.findViewById(R.id.counter_value)).setText("" + counter.getValue());
-        ((TextView) contentView.findViewById(R.id.counter_name)).setText(counter.getName());
+        String text = counter.getName() + ": " + counter.getValue();
         contentView.findViewById(R.id.counter_info_header).setBackgroundColor(color);
-        ((TextView) contentView.findViewById(R.id.counter_value)).setTextColor(tintColor);
-        ((TextView) contentView.findViewById(R.id.counter_name)).setTextColor(tintColor);
+        TextView title = contentView.findViewById(R.id.counter_info_content);
+        title.setText(text);
+        title.setTextColor(tintColor);
 
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
@@ -918,7 +918,7 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
                 .typeface(regular, regular)
-                .contentColorRes(R.color.textColorPrimary)
+                .contentColorRes(R.color.colorOnSurface)
                 .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)

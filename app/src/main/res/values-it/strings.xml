@@ -30,7 +30,7 @@
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">È possibile modificare questi valori nelle impostazioni</string>
     <string name="dialog_support_me_content"><b>Ti piace Score Counter? Supportami con un caffè!</b>\n\nCiao, sono Roma! Vivo in Ucraina e lavoro a questa app nel mio tempo libero. Sono impegnato a mantenere Score Counter gratuito per sempre.\n\nIl tuo supporto mi aiuta a mantenere Score Counter aggiornato e gratuito per tutti in tutto il mondo, anche mentre lo sviluppo in tempi difficili.</string>
-    <string name="dialog_support_me_remind_me_later">Non ora</string>
+    <string name="action_remind_later">Non ora</string>
     <string name="dialog_yes">Sì</string>
     <string name="dice_empty_state">Toccare un punto qualsiasi o scuotere il dispositivo per lanciare i dadi</string>
     <string name="dice_roll_prefix">Lanci di dadi:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Non c\'è nessuna app di posta elettronica sul tuo dispositivo :(</string>
     <string name="message_error_generic">Spiacente, sembra essersi verificato un errore.</string>
     <string name="message_one_more_counter">Ancora uno</string>
-    <string name="message_thank_you">Grazie mille per il vostro supporto&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Grazie mille per il vostro supporto</string>
     <string name="message_you_can_use_long_press">Prova a&#160;toccare e tenere premuto +/-</string>
     <string name="setting_help_translate">Aiuta a&#160;tradurre</string>
     <string name="setting_share">Condividi l\'indirizzo di scaricamento per android</string>

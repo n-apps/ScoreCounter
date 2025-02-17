@@ -30,7 +30,7 @@
     <string name="dialog_no">Non</string>
     <string name="dialog_predefined_steps">☃︎: vous pouvez modifier ces valeurs dans les Paramètres</string>
     <string name="dialog_support_me_content"><b>Vous appréciez Score Counter ? Soutenez-moi avec un café !</b>\n\nBonjour, je suis Roma ! Je vis en Ukraine et je travaille sur cette application pendant mon temps libre. Je suis déterminé à maintenir Score Counter gratuit pour toujours.\n\nVotre soutien m’aide à maintenir Score Counter à jour et gratuit pour tout le monde, même lorsque je le développe dans des moments difficiles.</string>
-    <string name="dialog_support_me_remind_me_later">Pas maintenant</string>
+    <string name="action_remind_later">Peut-être plus tard</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Pour lancer les dés, il suffit de toucher n\'importe où sur l\'écran.</string>
     <string name="dice_roll_prefix">Rouleau(x) :</string>
@@ -46,7 +46,7 @@
     <string name="message_app_not_found">Il semble qu\'il n\'existe pas d\'application capable de gérer cette action.</string>
     <string name="message_error_generic">Désolé, il semblerait qu\'il y ait eu une erreur.</string>
     <string name="message_one_more_counter">Un de plus</string>
-    <string name="message_thank_you">Merci.&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Merci.</string>
     <string name="message_you_can_use_long_press">Essayez d\'appuyer longuement sur la&#160;touche « +/- ».</string>
     <string name="setting_help_translate">Aide à&#160;la&#160;traduction</string>
     <string name="setting_share">Partagez l\'application Android</string>

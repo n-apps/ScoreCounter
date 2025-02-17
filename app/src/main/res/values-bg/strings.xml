@@ -30,7 +30,7 @@
     <string name="dialog_no">Не</string>
     <string name="dialog_predefined_steps">Можете да редактирате тези стойности в настройките</string>
     <string name="dialog_support_me_content"><b>Харесва ли ви Score Counter? Подкрепете ме с едно кафе!</b>\n\nЗдравейте, аз съм Рома! Живея в Украйна и работя по това приложение в свободното си време. Ангажиран съм да поддържам Score Counter безплатен завинаги.\n\nВашата подкрепа ми помага да поддържам Score Counter актуализиран и безплатен за всички по света, дори когато го разработвам в трудни времена.</string>
-    <string name="dialog_support_me_remind_me_later">Не сега</string>
+    <string name="action_remind_later">Не сега</string>
     <string name="dialog_yes">Да</string>
     <string name="dice_empty_state">Докоснете някъде или разклатете устройството, за да хвърлите заровете</string>
     <string name="dice_roll_prefix">Хвърляне:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">На вашето устройство няма приложение за електронна поща :(</string>
     <string name="message_error_generic">Съжалявам, изглежда е станала грешка.</string>
     <string name="message_one_more_counter">Още един</string>
-    <string name="message_thank_you">Благодаря ви много за подкрепата&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Благодаря ви много за подкрепата</string>
     <string name="message_you_can_use_long_press">Опитайте да докоснете дълго +/-</string>
     <string name="setting_help_translate">Помощ за превод</string>
     <string name="setting_share">Споделете връзката за изтегляне за Android</string>

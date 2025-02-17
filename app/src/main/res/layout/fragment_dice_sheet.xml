@@ -73,10 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:textColor="?android:textColorPrimary"
             android:includeFontPadding="false"
             android:text="×"
-            android:textAppearance="?attr/textAppearanceHeadline3" />
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            android:textColor="?android:textColorPrimary" />
 
         <com.google.android.material.button.MaterialButtonToggleGroup
             android:id="@+id/dice_sides_group_1"
@@ -168,9 +168,9 @@
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
             app:dividerInsetEnd="@dimen/padding_large"
-            app:dividerInsetStart="@dimen/padding_large"
-            android:layout_marginTop="@dimen/spacing_large" />
+            app:dividerInsetStart="@dimen/padding_large" />
 
         <RelativeLayout
             android:id="@+id/settings_animate"
@@ -264,6 +264,7 @@
                 app:switcher_on_color="?attr/colorPrimary" />
 
         </RelativeLayout>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_close"
             android:layout_width="56dp"

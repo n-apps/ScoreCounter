@@ -250,7 +250,7 @@ public class SettingsBottomSheetFragment extends BottomSheetDialogFragment imple
                 .title(title)
                 .inputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_SIGNED)
                 .positiveText(R.string.common_set)
-                .contentColorRes(R.color.textColorPrimary)
+                .contentColorRes(R.color.colorOnSurface)
                 .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorPrimary)
                 .positiveColorRes(R.color.colorPrimary)

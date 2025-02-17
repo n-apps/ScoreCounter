@@ -30,7 +30,7 @@
     <string name="dialog_no">Нет</string>
     <string name="dialog_predefined_steps">☃︎: вы можете менять эти значения в настройках</string>
     <string name="dialog_support_me_content"><b>Вам нравится Счетчик Очков? Поддержите меня чашечкой кофе!</b>\n\nПривет, я Рома! Я живу в Киеве и работаю над этим приложением в свободное время. Я намерен сохранить Счетчик бесплатным навсегда.\n\nВаша поддержка помогает обновлять и улучшать приложение.</string>
-    <string name="dialog_support_me_remind_me_later">Позже</string>
+    <string name="action_remind_later">Может быть позже</string>
     <string name="dialog_yes">Да</string>
     <string name="dice_empty_state">Чтобы бросить кубик, нажмите в любом месте</string>
     <string name="dice_roll_prefix">Выпало:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Невозможно обработать это действие :(</string>
     <string name="message_error_generic">Произошла ошибка.</string>
     <string name="message_one_more_counter">Еще один</string>
-    <string name="message_thank_you">Спасибо за поддержку!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Спасибо за поддержку!</string>
     <string name="message_you_can_use_long_press">Попробуйте зажать палец на + или -</string>
     <string name="setting_help_translate">Помочь с переводом</string>
     <string name="setting_share">Отправить друзьям с андроидом</string>

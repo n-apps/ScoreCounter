@@ -30,7 +30,7 @@
     <string name="dialog_no">Nie</string>
     <string name="dialog_predefined_steps">Wartości te można edytować w ustawieniach</string>
     <string name="dialog_support_me_content"><b>Podoba ci się Score Counter? Wesprzyj mnie kawą!</b>\n\nCześć, jestem Roma! Mieszkam na Ukrainie i pracuję nad tą aplikacją w wolnym czasie. Jestem zdecydowany utrzymać Score Counter na zawsze darmowy.\n\nTwoje wsparcie pomaga mi utrzymać Score Counter aktualnym i darmowym dla wszystkich na całym świecie, nawet gdy go rozwijam w trudnych czasach.</string>
-    <string name="dialog_support_me_remind_me_later">Nie teraz</string>
+    <string name="action_remind_later">Może później</string>
     <string name="dialog_yes">Tak</string>
     <string name="dice_empty_state">Stuknij gdziekolwiek lub potrząśnij urządzeniem żeby rzucić kostką</string>
     <string name="dice_roll_prefix">Rzuty kostką:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Brak aplikacji email na twoim urządzeniu :(</string>
     <string name="message_error_generic">Przepraszam, wygląda na to, że wystąpił jakiś błąd.</string>
     <string name="message_one_more_counter">Jeszcze jeden</string>
-    <string name="message_thank_you">Dziękuje!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Dziękuje!</string>
     <string name="message_you_can_use_long_press">Spróbuj przytrzymać + lub -</string>
     <string name="setting_help_translate">Pomóż przetłumaczyć</string>
     <string name="setting_share">Udostępnij adres pobierania dla Androida</string>

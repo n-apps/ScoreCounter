@@ -17,7 +17,7 @@
     <string name="dice_sides">Fete personalizate ale zarului</string>
     <string name="dice_empty_state">Atinge oriunde sau scutura dispozitivul pentru a&#160;da cu zarul</string>
     <string name="dialog_support_me_content"><b>Îți place Score Counter? Sprijină-mă cu o cafea!</b>\n\nBună, sunt Roma! Locuiesc în Ucraina și lucrez la această aplicație în timpul meu liber. Sunt hotărât să mențin Score Counter gratuit pentru totdeauna.\n\nSprijinul tău mă ajută să mențin Score Counter actualizat și gratuit pentru toată lumea, chiar și atunci când îl dezvolt în vremuri dificile.</string>
-    <string name="dialog_support_me_remind_me_later">Nu acum</string>
+    <string name="action_remind_later">Nu acum</string>
     <string name="message_app_not_found">Nu exista nicio aplicati de email pe dispozitivul tau :(</string>
     <string name="menu_add_new_counter">Adauga contor</string>
     <string name="menu_delete_all_counters">Sterge tot</string>
@@ -34,7 +34,7 @@
     <string name="dialog_yes">Da</string>
     <string name="dialog_no">Nu</string>
     <string name="settings_privacy_policy">Politica de confidentialitate</string>
-    <string name="message_thank_you">Multumesc&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Multumesc</string>
     <string name="settings_sound">Sunet</string>
     <string name="action_donate">Asistență Score Counter</string>
     <string name="message_error_generic">Imi pare rau, se pare ca a&#160;intervenit o eroare</string>

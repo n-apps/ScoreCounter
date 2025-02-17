@@ -30,7 +30,7 @@
     <string name="dialog_no">Nein</string>
     <string name="dialog_predefined_steps">☃︎: Sie können diese Werte in den Einstellungen ändern</string>
     <string name="dialog_support_me_content"><b>Gefällt dir Score Counter? Unterstütze mich mit einem Kaffee!</b>\n\nHallo, ich bin Roma! Ich lebe in der Ukraine und arbeite in meiner Freizeit an dieser App. Ich bin fest entschlossen, Score Counter für immer kostenlos zu halten.\n\nDeine Unterstützung hilft mir, Score Counter aktuell und für alle weltweit kostenlos zu halten, auch wenn ich es in schwierigen Zeiten entwickle.</string>
-    <string name="dialog_support_me_remind_me_later">Nicht jetzt</string>
+    <string name="action_remind_later">Vielleicht später</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Um zu würfeln, tippen Sie einfach irgendwo auf den Bildschirm.</string>
     <string name="dice_roll_prefix">Würfeln Sie:</string>
@@ -46,7 +46,7 @@
     <string name="message_app_not_found">Für diese Aktion wurde keine Anwendung gefunden :(</string>
     <string name="message_error_generic">Entschuldigung, es scheint ein Fehler aufgetreten zu sein.</string>
     <string name="message_one_more_counter">Noch einer</string>
-    <string name="message_thank_you">Danke für Ihre Unterstützung&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Danke für Ihre Unterstützung</string>
     <string name="message_you_can_use_long_press">Versuchen Sie es mit einem langen Druck auf +/-.</string>
     <string name="setting_help_translate">Übersetzen helfen</string>
     <string name="setting_share">Android-App freigeben</string>

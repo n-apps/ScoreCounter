@@ -30,7 +30,7 @@
     <string name="dialog_no">Ne</string>
     <string name="dialog_predefined_steps">Tyto hodnoty můžete upravit v nastavení</string>
     <string name="dialog_support_me_content"><b>Líbí se vám Score Counter? Podpořte mě kávou!</b>\n\nAhoj, já jsem Roma! Bydlím na Ukrajině a na této aplikaci pracuji ve svém volném čase. Zavázal jsem se udržet Score Counter navždy zdarma.\n\nVaše podpora mi pomáhá udržovat Score Counter aktualizovaný a zdarma pro všechny po celém světě, i když ho vyvíjím v těžkých časech.</string>
-    <string name="dialog_support_me_remind_me_later">Teď ne</string>
+    <string name="action_remind_later">Teď ne</string>
     <string name="dialog_yes">Ano</string>
     <string name="dice_empty_state">Klepnutím kamkoli nebo zatřesením zařízením můžete házet kostkami.</string>
     <string name="dice_roll_prefix">Hody kostkou:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Ve vašem zařízení není žádná e-mailová aplikace :(</string>
     <string name="message_error_generic">Omlouváme se, zřejmě došlo k chybě.</string>
     <string name="message_one_more_counter">Ještě jeden</string>
-    <string name="message_thank_you">Děkujeme za Vaši podporu&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Děkujeme za Vaši podporu</string>
     <string name="message_you_can_use_long_press">Zkuste podržet +/-</string>
     <string name="setting_help_translate">Pomoc s překladem</string>
     <string name="setting_share">Sdílejte odkaz ke stažení - Android OS</string>

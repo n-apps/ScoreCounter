@@ -83,7 +83,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_big"
                 android:paddingHorizontal="@dimen/padding_large"
-                android:text="@string/dialog_support_me_remind_me_later"
+                android:text="@string/action_remind_later"
                 android:textAppearance="?attr/textAppearanceBody2"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 

@@ -29,7 +29,7 @@ public class ViewUtil {
     public static void applyTheme(Activity activity, boolean nightModeActive, boolean moreScreen) {
         int statusBarColor = moreScreen ?
                 ContextCompat.getColor(activity, R.color.colorPrimaryVariant) :
-                ContextCompat.getColor(activity, R.color.primaryBackground);
+                ContextCompat.getColor(activity, R.color.colorSurface);
 
         boolean lightMode = moreScreen || !nightModeActive;
         activity.getWindow().setStatusBarColor(statusBarColor);
@@ -98,7 +98,7 @@ public class ViewUtil {
         } else {
             newFlags &= ~(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         }
-        activity.getWindow().setNavigationBarColor(activity.getColor(R.color.primaryBackground));
+        activity.getWindow().setNavigationBarColor(activity.getColor(R.color.colorSurface));
         if (newFlags != oldFlags) {
             activity.getWindow().getDecorView().setSystemUiVisibility(newFlags);
         }

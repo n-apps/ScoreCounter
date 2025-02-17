@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?attr/colorPrimaryContainer" android:state_checked="true" />
+    <item android:color="?attr/colorPrimary" app:state_dragged="true" />
+    <item android:color="?attr/colorSurface" android:state_checked="false" app:state_dragged="false" />
+</selector>

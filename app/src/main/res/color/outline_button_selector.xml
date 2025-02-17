@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:alpha="0.1" android:color="?attr/colorSecondary" android:state_pressed="true" />
+    <item android:alpha="0.3" android:color="?attr/colorSecondaryVariant" android:state_pressed="true" />
     <item android:alpha="0.3" android:color="?attr/colorSecondary" android:state_checked="true" />
-    <item android:color="@android:color/transparent" android:state_checked="false" />
+    <item android:alpha="1.0" android:color="?attr/colorSecondaryContainer" android:state_checked="false" />
 </selector>

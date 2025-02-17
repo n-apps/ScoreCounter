@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryVariant);
             lightMode = false;
         } else {
-            statusBarColor = ContextCompat.getColor(this, R.color.primaryBackground);
+            statusBarColor = ContextCompat.getColor(this, R.color.colorSurface);
             lightMode = !isNightMode;
         }
 

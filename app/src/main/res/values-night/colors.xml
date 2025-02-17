@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#298FCA</color>
-    <color name="colorPrimaryVariant">#2274A5</color>
-    <color name="colorOnPrimary">#ffffff</color>
-    <color name="colorSecondary">#EE6352</color>
-    <color name="colorSecondaryVariant">#E03615</color>
-    <color name="colorOnSecondary">#ffffff</color>
-    <color name="colorAccent">#FFF67F</color>
-    <color name="colorError">#DC0873</color>
-    <color name="colorOnError">#ffffff</color>
-    <color name="textColorPrimary">#FFFFFFFF</color>
-    <color name="textColorSecondary">#DEFFFFFF</color>
-    <color name="textColorHint">#89FFFFFF</color>
-    <color name="primaryBackground">#181821</color>
-    <color name="rippleColor">#33DFEEFF</color>
+    <color name="colorPrimary">#88BDDD</color>
+    <color name="colorPrimaryVariant">#60A7D2</color>
+    <color name="colorOnPrimary">#0B1D28</color>
+    <color name="colorPrimaryContainer">#0C88BDDD</color>
+    <color name="colorSecondary">#E28D83</color>
+    <color name="colorSecondaryVariant">#D8675A</color>
+    <color name="colorOnSecondary">#290D0A</color>
+    <color name="colorSecondaryContainer">#0CE28D83</color>
+    <color name="colorAccent">#96C03F</color>
+    <color name="colorError">#DD224B</color>
+    <color name="colorOnError">#FEFBFB</color>
+    <color name="colorSurface">#191A1A</color>
+    <color name="colorSurfaceVariant">#323334</color>
+    <color name="colorOnSurface">#DEFBFDFE</color>
+    <color name="colorOnSurfaceVariant">#89FBFDFE</color>
+    <color name="colorOnSurfaceMuted">#42FBFDFE</color>
+    <color name="rippleColor">#1FD0D8DF</color>
 </resources>

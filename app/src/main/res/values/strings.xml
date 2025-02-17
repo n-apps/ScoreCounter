@@ -31,7 +31,7 @@
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">☃︎: you can tweak these values in&#160;the Settings</string>
     <string name="dialog_support_me_content"><b>Enjoying Score Counter? Support me with a coffee!</b>\n\nHi, I\'m Roma! I\'m based in&#160;Ukraine and I\'m working on&#160;this&#160;app in&#160;my spare time. I\'m&#160;committed to&#160;keeping Score&#160;Counter free forever.\n\nYour support helps me keep this app updated and&#160;free for&#160;everyone worldwide.</string>
-    <string name="dialog_support_me_remind_me_later">Later</string>
+    <string name="action_remind_later">Maybe later</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">To roll the&#160;dice, just tap anywhere on the&#160;screen</string>
     <string name="dice_roll_prefix">Roll(s):</string>
@@ -49,7 +49,7 @@
     <string name="message_app_not_found">It seems there isn\'t an app that can handle this action.</string>
     <string name="message_error_generic">It looks like there\'s been a technical issue.</string>
     <string name="message_one_more_counter">One more</string>
-    <string name="message_thank_you">Thanks for your support!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Thanks for your support!</string>
     <string name="message_you_can_use_long_press">Try a long tap on <b>+/-</b> side</string>
     <string name="setting_help_translate">Help translate the&#160;app</string>
     <string name="setting_share">Share Android app link</string>

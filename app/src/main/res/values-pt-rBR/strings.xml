@@ -30,7 +30,7 @@
     <string name="dialog_no">Não</string>
     <string name="dialog_predefined_steps">Você pode editar esses valores nas configurações</string>
     <string name="dialog_support_me_content"><b>Está gostando do Contador de Pontos? Apoie-me com um café!</b>\n\nOlá, sou o Roma! Moro na Ucrânia e trabalho neste aplicativo no meu tempo livre. Estou empenhado em manter o Contador de Pontos gratuito para sempre.\n\nSeu apoio me ajuda a manter o Contador de Pontos atualizado e gratuito para todos no mundo todo, mesmo enquanto o desenvolvo em tempos difíceis.</string>
-    <string name="dialog_support_me_remind_me_later">Lembrar mais tarde</string>
+    <string name="action_remind_later">Lembrar mais tarde</string>
     <string name="dialog_yes">Sim</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o aparelho para rolar o dado</string>
     <string name="dice_roll_prefix">Rolagens de dados:</string>

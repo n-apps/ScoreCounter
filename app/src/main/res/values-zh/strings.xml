@@ -30,7 +30,7 @@
     <string name="dialog_no">否</string>
     <string name="dialog_predefined_steps">您可以在 \"设置 \"界面调整这些设置。</string>
     <string name="dialog_support_me_content"><b>你喜欢 Score Counter 吗？请我喝杯咖啡吧！</b>\n\n你好，我是 Roma！我住在乌克兰，并在空闲时间开发这款应用。我致力于让 Score Counter 永远免费。\n\n你的支持帮助我保持 Score Counter 的更新，并让全世界的人们都能免费使用，即使我是在困难时期开发它。</string>
-    <string name="dialog_support_me_remind_me_later">不是现在</string>
+    <string name="action_remind_later">不是现在</string>
     <string name="dialog_yes">是</string>
     <string name="dice_empty_state">要掷骰时，只需点击屏幕上的任意位置即可</string>
     <string name="dice_roll_prefix">掷骰结果</string>

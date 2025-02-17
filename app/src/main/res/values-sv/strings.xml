@@ -30,7 +30,7 @@
     <string name="dialog_no">Nej</string>
     <string name="dialog_predefined_steps">Du kan ändra dessa värden i inställningarna</string>
     <string name="dialog_support_me_content"><b>Gillar du Score Counter? Stöd mig med en kopp kaffe!</b>\n\nHej, jag är Roma! Jag bor i Ukraina och jobbar med den här appen på min fritid. Jag är fast besluten att hålla Score Counter gratis för alltid.\n\nDitt stöd hjälper mig att hålla Score Counter uppdaterad och gratis för alla i hela världen, även när jag utvecklar den under svåra tider.</string>
-    <string name="dialog_support_me_remind_me_later">Inte nu</string>
+    <string name="action_remind_later">Inte nu</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Tryck var som helst eller skaka enheten för att kasta tärningarna.</string>
     <string name="dice_roll_prefix">Tärningsslag:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Det finns ingen e-postapp på din enhet :(</string>
     <string name="message_error_generic">Det verkar vara ett tekniskt fel.</string>
     <string name="message_one_more_counter">En till</string>
-    <string name="message_thank_you">Tack för ditt stöd!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Tack för ditt stöd!</string>
     <string name="message_you_can_use_long_press">Prova att trycka länge på +/-</string>
     <string name="setting_help_translate">Hjälp till att översätta</string>
     <string name="setting_share">Dela Androidappen</string>

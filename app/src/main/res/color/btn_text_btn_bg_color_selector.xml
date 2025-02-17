@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-  <item android:alpha="0.12" android:color="?attr/colorPrimary" android:state_checked="true"/>
-  <item android:alpha="0.24" android:color="?attr/colorPrimary" android:state_pressed="true"/>
-  <item android:alpha="0.06" android:color="?attr/colorPrimary" android:state_checked="false"/>
+  <item android:alpha="0.20" android:color="?attr/colorPrimary" android:state_checked="true"/>
+  <item android:alpha="0.20" android:color="?attr/colorPrimaryVariant" android:state_pressed="true"/>
+  <item android:alpha="1.0" android:color="?attr/colorPrimaryContainer" android:state_checked="false"/>
 </selector>

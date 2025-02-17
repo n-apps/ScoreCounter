@@ -29,7 +29,7 @@
     <string name="dialog_no">لا يوجد</string>
     <string name="dialog_predefined_steps">يمكنك تعديل هذه القيم في الإعدادات</string>
     <string name="dialog_support_me_content"><b>هل تستمتع بـ عداد النقاط؟ ادعمني بفنجان قهوة!</b>\n\nمرحباً، أنا روما! أقيم في أوكرانيا وأعمل على هذا التطبيق في وقت فراغي. أنا ملتزم بالحفاظ على عداد النقاط مجانيًا إلى الأبد.\n\nيساعدني دعمك في الحفاظ على تحديث عداد النقاط ومجانيًا للجميع في جميع أنحاء العالم، حتى أثناء تطويره في الأوقات الصعبة.</string>
-    <string name="dialog_support_me_remind_me_later">ليس الآن</string>
+    <string name="action_remind_later">ليس الآن</string>
     <string name="dialog_yes">نعم</string>
     <string name="dice_empty_state">قم برمي النرد عن طريق النقر أو هز جهازك.</string>
     <string name="dice_roll_prefix">رول (ق):</string>

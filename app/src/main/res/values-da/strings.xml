@@ -30,7 +30,7 @@
     <string name="dialog_no">Nej</string>
     <string name="dialog_predefined_steps">Du kan justere disse indstillinger på skærmen Indstillinger.</string>
     <string name="dialog_support_me_content"><b>Kan du lide Score Counter? Støt mig med en kop kaffe!</b>\n\nHej, jeg er Roma! Jeg bor i Ukraine og arbejder på denne app i min fritid. Jeg er fast besluttet på at holde Score Counter gratis for altid.\n\nDin støtte hjælper mig med at holde Score Counter opdateret og gratis for alle i hele verden, selv når jeg udvikler den i svære tider.</string>
-    <string name="dialog_support_me_remind_me_later">Senere</string>
+    <string name="action_remind_later">Senere</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">For at kaste terningerne skal du bare trykke et sted på skærmen</string>
     <string name="dice_roll_prefix">Kast(e):</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Det ser ud til, at der ikke findes en app, der kan håndtere denne handling.</string>
     <string name="message_error_generic">Det ser ud til, at der har været et teknisk problem.</string>
     <string name="message_one_more_counter">En mere</string>
-    <string name="message_thank_you">Tak for din støtte!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Tak for din støtte!</string>
     <string name="message_you_can_use_long_press">Prøv et langt tryk på +/- siden</string>
     <string name="setting_help_translate">Hjælp mig med at oversætte appen</string>
     <string name="setting_share">Del Android-app</string>

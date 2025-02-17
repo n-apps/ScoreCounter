@@ -30,7 +30,7 @@
     <string name="dialog_no">Ні</string>
     <string name="dialog_predefined_steps">☃︎: ви можете змінювати ці значення у налаштуваннях</string>
     <string name="dialog_support_me_content"><b>Вам подобається Лічильник Очок? Підтримайте мене чашкою кави!</b>\n\nПривіт, я Рома! Я живу в Києві та працюю над цим застосунком у вільний час. Я маю намір зберегти його безкоштовним назавжди.\n\nВаша підтримка допомагає мені оновлювати та&#160;покращувати цей застосунок разом.</string>
-    <string name="dialog_support_me_remind_me_later">Пізніше</string>
+    <string name="action_remind_later">Пізніше</string>
     <string name="dialog_yes">Так</string>
     <string name="dice_empty_state">Щоб кинути кубик, натисніть в будь-якому місці</string>
     <string name="dice_roll_prefix">Випало:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Не знайдено програму для обробки цієї дії :(</string>
     <string name="message_error_generic">Виникла помилка.</string>
     <string name="message_one_more_counter">Ще один</string>
-    <string name="message_thank_you">Дякую за підтримку!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Дякую за підтримку!</string>
     <string name="message_you_can_use_long_press">Спробуйте затримати дотик на + або -</string>
     <string name="setting_help_translate">Допомогти з перекладом</string>
     <string name="setting_share">Надіслати друзям з андроїдом</string>

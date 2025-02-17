@@ -7,44 +7,31 @@
     android:paddingBottom="@dimen/padding_large"
     tools:ignore="HardcodedText">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/counter_info_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
         android:paddingHorizontal="@dimen/padding_large"
+        android:paddingVertical="@dimen/spacing_micro"
         app:layout_constraintBottom_toTopOf="@id/first_buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:background="#F2B04B">
+        tools:background="@color/colorSecondary">
 
         <TextView
-            android:id="@+id/counter_name"
+            android:id="@+id/counter_info_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/spacing_big"
+            android:layout_gravity="center_horizontal"
             android:ellipsize="end"
             android:fontFamily="@font/o600"
             android:includeFontPadding="false"
             android:maxLines="1"
-            android:text="Jessica"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            tools:textColor="?attr/colorOnSurface" />
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            tools:text="Jessica – 456"
+            tools:textColor="?attr/colorOnSecondary" />
 
-        <TextView
-            android:id="@+id/counter_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/mono"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:textColor="?android:attr/textColorPrimary"
-            tools:text="435" />
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/first_buttons"
@@ -192,10 +179,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/simple_edit_value_hint"
-            app:boxStrokeColor="@color/colorPrimary"
+            app:boxBackgroundColor="?attr/colorPrimaryContainer"
+            app:boxStrokeColor="?attr/colorPrimary"
             app:hintEnabled="false"
             app:hintTextAppearance="?attr/textAppearanceCaption"
-            app:hintTextColor="@color/colorPrimary">
+            app:hintTextColor="?attr/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_add_custom_value"

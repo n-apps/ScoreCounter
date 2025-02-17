@@ -86,7 +86,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counterValue.setTag(this);
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
-            int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
+            int tintColor = darkBackground ?  0xF7FFFFFF : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
             holder.counterValue.setTextColor(tintColor);
             holder.isRTL = (TextUtils.getLayoutDirectionFromLocale(Locale.getDefault())
@@ -105,7 +105,7 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
-            int tintColor = darkBackground ? Color.WHITE : 0xDE000000;
+            int tintColor = darkBackground ?  0xF7FFFFFF : 0xDE000000;
             holder.counterName.setTextColor(tintColor);
             holder.counterValue.setTextColor(tintColor);
 

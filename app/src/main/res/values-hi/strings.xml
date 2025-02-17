@@ -30,7 +30,7 @@
     <string name="dialog_no">नहीं</string>
     <string name="dialog_predefined_steps">आप सेटिंग्स स्क्रीन में इन सेटिंग्स को बदल सकते हैं।</string>
     <string name="dialog_support_me_content"><b>क्या आपको स्कोर काउंटर पसंद है? एक कॉफ़ी से मेरा समर्थन करें!</b>\n\nनमस्ते, मैं रोमा हूँ! मैं यूक्रेन में रहता हूँ और अपने खाली समय में इस ऐप पर काम करता हूँ। मैं स्कोर काउंटर को हमेशा के लिए मुफ़्त रखने के लिए प्रतिबद्ध हूँ।\n\nआपका समर्थन मुझे स्कोर काउंटर को दुनिया भर के सभी लोगों के लिए अपडेट और मुफ़्त रखने में मदद करता है, यहाँ तक कि तब भी जब मैं इसे कठिन समय में विकसित कर रहा हूँ।</string>
-    <string name="dialog_support_me_remind_me_later">बाद में</string>
+    <string name="action_remind_later">बाद में</string>
     <string name="dialog_yes">हाँ</string>
     <string name="dice_empty_state">पासा फेंकने के लिए, स्क्रीन पर कहीं भी टैप करें</string>
     <string name="dice_roll_prefix">रोल:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">ऐसा लगता है कि ऐसा कोई ऐप नहीं है जो इस कार्य को संभाल सके।</string>
     <string name="message_error_generic">ऐसा लगता है कि कोई तकनीकी समस्या आ गई है।</string>
     <string name="message_one_more_counter">और एक</string>
-    <string name="message_thank_you">आपके समर्थन के लिए धन्यवाद!&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">आपके समर्थन के लिए धन्यवाद!</string>
     <string name="message_you_can_use_long_press">+/- साइड पर एक लंबा टैप आज़माएं</string>
     <string name="setting_help_translate">Help me translate the&#160;app</string>
     <string name="setting_share">एंड्रॉयड ऐप साझा करें</string>

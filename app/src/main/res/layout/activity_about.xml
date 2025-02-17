@@ -12,9 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="#B5D99C"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/Theme.AppCompat.Light"
         app:elevation="0dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:statusBarScrim="#B5D99C">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -147,8 +146,8 @@
                 app:icon="@drawable/ic_translate"
                 app:iconGravity="textStart"
                 app:iconPadding="@dimen/padding_normal"
-                app:iconTint="?attr/colorPrimary"
-                app:strokeColor="@color/colorPrimaryVariant" />
+                app:iconTint="@color/primary_text_default_material_light"
+                app:strokeColor="@color/primary_text_default_material_light" />
 
             <ImageView
                 android:id="@+id/hero_image"

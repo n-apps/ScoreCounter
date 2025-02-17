@@ -3,11 +3,14 @@ package ua.napps.scorekeeper.settings;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.billingclient.api.ProductDetails;
@@ -44,33 +47,18 @@ public class TipActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
 
-        boolean nightModeActive = ViewUtil.isNightModeActive(this);
-        ViewUtil.setLightMode(this, !nightModeActive);
-        ViewUtil.setNavBarColor(this, !nightModeActive);
+        ViewUtil.setLightMode(this, false);
+        ViewUtil.setNavBarColor(this, false);
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        int color = ContextCompat.getColor(this, R.color.colorPrimaryVariant);
+        window.setStatusBarColor(color);
 
-        viewModel = new ViewModelProvider(this).get(DonateViewModel.class);
-        viewModel.oneTimeDetailsList.observe(this, this::updateUI);
-
-        viewModel.eventBus.observe(this, event -> {
-            Object intent = event.getValueAndConsume();
-            if (intent instanceof MessageIntent) {
-                int messageResId = ((MessageIntent) intent).messageResId;
-                Toast.makeText(TipActivity.this, messageResId, Toast.LENGTH_SHORT).show();
-            }  else if (intent instanceof CloseScreenIntent) {
-                int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
-                boolean dueToError = ((CloseScreenIntent) intent).dueToError;
-                if (dueToError) {
-                    Toast.makeText(getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
-                    LocalSettings.markDonated();
-                }
-              TipActivity.this.finish();
-            }
-        });
+        observeData();
 
         coffee_cardview = findViewById(R.id.in_app_coffee_card);
         food_cardview = findViewById(R.id.in_app_food_card);
@@ -102,6 +90,30 @@ public class TipActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_one_time).setOnClickListener(v -> viewModel.launchPurchaseFlow(TipActivity.this, selected_in_app, true));
         findViewById(R.id.btn_monthly).setOnClickListener(v -> viewModel.launchPurchaseFlow(TipActivity.this, selected_in_app, false));
+        findViewById(R.id.btn_remind_later).setOnClickListener(v -> finish());
+    }
+
+    private void observeData() {
+        viewModel = new ViewModelProvider(this).get(DonateViewModel.class);
+        viewModel.oneTimeDetailsList.observe(this, this::updateUI);
+
+        viewModel.eventBus.observe(this, event -> {
+            Object intent = event.getValueAndConsume();
+            if (intent instanceof MessageIntent) {
+                int messageResId = ((MessageIntent) intent).messageResId;
+                Toast.makeText(TipActivity.this, messageResId, Toast.LENGTH_SHORT).show();
+            } else if (intent instanceof CloseScreenIntent) {
+                int messageResId = ((CloseScreenIntent) intent).resultMessageResId;
+                boolean dueToError = ((CloseScreenIntent) intent).dueToError;
+                if (dueToError) {
+                    Toast.makeText(getApplicationContext(), messageResId, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), messageResId, Toast.LENGTH_LONG).show();
+                    LocalSettings.markDonated();
+                }
+                TipActivity.this.finish();
+            }
+        });
     }
 
     private void updateUI(List<ProductDetails> productDetails) {
@@ -129,9 +141,4 @@ public class TipActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        getOnBackPressedDispatcher().onBackPressed();
-        return true;
-    }
 }

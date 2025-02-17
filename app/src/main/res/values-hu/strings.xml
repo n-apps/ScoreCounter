@@ -30,7 +30,7 @@
     <string name="dialog_no">Nem</string>
     <string name="dialog_predefined_steps">A beállításokban átírhatod ezeket az értékeket</string>
     <string name="dialog_support_me_content"><b>Tetszik a Score Counter? Támogass egy kávéval!</b>\n\nSzia, én Roma vagyok! Ukrajnában élek, és szabadidőmben ezen az alkalmazáson dolgozom. Elkötelezett vagyok amellett, hogy a Score Counter örökké ingyenes maradjon.\n\nA támogatásod segít abban, hogy a Score Counter naprakész és ingyenes maradjon mindenki számára világszerte, még akkor is, ha nehéz időkben fejlesztem.</string>
-    <string name="dialog_support_me_remind_me_later">Most nem</string>
+    <string name="action_remind_later">Most nem</string>
     <string name="dialog_yes">Igen</string>
     <string name="dice_empty_state">Bökj bárhová vagy rázd meg a&#160;készüléket a&#160;kockadobáshoz!</string>
     <string name="dice_roll_prefix">Roll(s):</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Nincs e-mail alkalmazás a&#160;készülékeden :(</string>
     <string name="message_error_generic">Elnézést, úgy tűnik, hiba történt.</string>
     <string name="message_one_more_counter">Még egy</string>
-    <string name="message_thank_you">Köszönöm szépen a&#160;támogatást&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Köszönöm szépen a&#160;támogatást</string>
     <string name="message_you_can_use_long_press">Próbálj meg hosszan rábökni a&#160;+/- gombokra</string>
     <string name="setting_help_translate">Segítség a&#160;fordításban</string>
     <string name="setting_share">Ossza meg az Android APP letöltési címet</string>

@@ -30,7 +30,7 @@
     <string name="dialog_no">Nee</string>
     <string name="dialog_predefined_steps">☃︎: U kunt deze waarden wijzigen in de instellingen</string>
     <string name="dialog_support_me_content"><b>Vind je Score Counter leuk? Steun me met een kop koffie!</b>\n\nHallo, ik ben Roma! Ik woon in Oekraïne en werk in mijn vrije tijd aan deze app. Ik ben vastbesloten om Score Counter voor altijd gratis te houden.\n\nJouw steun helpt me om Score Counter up-to-date en gratis te houden voor iedereen wereldwijd, zelfs als ik het ontwikkel in moeilijke tijden.</string>
-    <string name="dialog_support_me_remind_me_later">Niet nu</string>
+    <string name="action_remind_later">Misschien later</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Druk op een willekeurige plek of schudt je apparaat om de dobbelstenen te rollen</string>
     <string name="dice_roll_prefix">Dobbelen:</string>
@@ -47,7 +47,7 @@
     <string name="message_app_not_found">Geen e-mail app op je apparaat :(</string>
     <string name="message_error_generic">Sorry, er lijkt iets fout gegaan te zijn.</string>
     <string name="message_one_more_counter">Nog een</string>
-    <string name="message_thank_you">Hartelijk dank voor je steun&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Hartelijk dank voor je steun</string>
     <string name="message_you_can_use_long_press">Probeer lang op +/- te drukken</string>
     <string name="setting_help_translate">Help met vertalen</string>
     <string name="setting_share">Deel het download-adres voor Android</string>

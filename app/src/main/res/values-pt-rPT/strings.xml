@@ -30,7 +30,7 @@
     <string name="dialog_no">Não</string>
     <string name="dialog_predefined_steps">Pode editar estes valores nas definições</string>
     <string name="dialog_support_me_content"><b>Está a gostar do Contador de Pontos? Apoie-me com um café!</b>\n\nOlá, sou o Roma! Vivo na Ucrânia e trabalho nesta aplicação no meu tempo livre. Estou empenhado em manter o Contador de Pontos gratuito para sempre.\n\nO seu apoio ajuda-me a manter o Contador de Pontos atualizado e gratuito para todos em todo o mundo, mesmo enquanto o desenvolvo em tempos difíceis.</string>
-    <string name="dialog_support_me_remind_me_later">Mais tarde</string>
+    <string name="action_remind_later">Mais tarde</string>
     <string name="dialog_yes">Sim</string>
     <string name="dice_empty_state">Toque em qualquer lugar ou agite o dispositivo para lançar o dado</string>
     <string name="dice_roll_prefix">Lançamentos de dados:</string>

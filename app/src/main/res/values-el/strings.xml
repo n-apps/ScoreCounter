@@ -27,7 +27,7 @@
     <string name="dialog_no">Όχι</string>
     <string name="dialog_predefined_steps">Μπορείτε να επεξεργαστείτε αυτές τις τιμές στις ρυθμίσεις</string>
     <string name="dialog_support_me_content"><b>Σας αρέσει το Score Counter; Υποστηρίξτε με με έναν καφέ!</b>\n\nΓεια σας, είμαι ο Ρόμα! Μένω στην Ουκρανία και εργάζομαι σε αυτήν την εφαρμογή στον ελεύθερο χρόνο μου. Δεσμεύομαι να διατηρήσω το Score Counter δωρεάν για πάντα.\n\nΗ υποστήριξή σας με βοηθά να διατηρώ το Score Counter ενημερωμένο και δωρεάν για όλους σε όλο τον κόσμο, ακόμα και όταν το αναπτύσσω σε δύσκολες στιγμές.</string>
-    <string name="dialog_support_me_remind_me_later">Όχι τώρα</string>
+    <string name="action_remind_later">Όχι τώρα</string>
     <string name="dialog_yes">Ναι</string>
     <string name="dice_empty_state">Πατήστε οπουδήποτε ή ανακινήστε την συσκευή σας για να ρίξετε το ζάρι</string>
     <string name="dice_sides">Έδρες του ζαριού</string>
@@ -41,7 +41,7 @@
     <string name="message_error_generic">Συγγνώμη, παρουσιάστηκε ένα σφάλμα</string>
     <string name="message_app_not_found">Δεν βρέθηκε εφαρμογή για αυτήν την ενέργεια</string>
     <string name="message_one_more_counter">Άλλος ένας</string>
-    <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη&#160;\ud83d\udc99</string>
+    <string name="message_thank_you">Σας ευχαριστώ πολύ για την υποστήριξη</string>
     <string name="message_you_can_use_long_press">Μπορείτε να πατήσετε παρατεταμένα τα +/-</string>
     <string name="setting_help_translate">Βοηθήστε στην μετάφραση</string>
     <string name="setting_share">Κοινοποίηση της διεύθυνσης λήψης για Android</string>
