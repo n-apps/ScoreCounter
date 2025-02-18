@@ -1,9 +1,11 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceVariant">
+    android:background="?attr/colorSurfaceVariant"
+    app:statusBarBackground="#86CEBE">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -16,9 +18,10 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimaryVariant"
+            android:background="#86CEBE"
             app:collapsedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
-            app:contentScrim="?attr/colorPrimaryVariant"
+            app:collapsedTitleTextColor="?attr/colorOnPrimary"
+            app:contentScrim="#86CEBE"
             app:expandedTitleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
             app:expandedTitleTextColor="?attr/colorOnPrimary"
             app:layout_scrollFlags="scroll|snap"
@@ -39,13 +42,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:title="@string/donation_title"
-                app:titleTextAppearance="@style/TextAppearance.App.Toolbar.Title"
-                app:titleTextColor="?attr/colorOnPrimary"
                 tools:layout_editor_absoluteY="-1dp" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
@@ -398,4 +400,31 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tv_thanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        android:clickable="false"
+        android:drawablePadding="@dimen/spacing_large"
+        android:fontFamily="@font/decor"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:text="@string/message_thank_you"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:visibility="invisible"
+        app:drawableBottomCompat="@drawable/hrushka" />
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfetti_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
