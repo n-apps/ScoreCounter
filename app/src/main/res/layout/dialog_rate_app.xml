@@ -32,13 +32,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/spacing_normal"
-                android:background="#B5D99C"
+                android:background="#86CEBE"
                 android:ellipsize="end"
                 android:fontFamily="@font/decor"
                 android:padding="@dimen/spacing_micro"
                 android:text="@string/action_donate"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="@color/colorSecondary" />
+                android:textColor="?attr/colorOnPrimary" />
         </FrameLayout>
 
         <LinearLayout

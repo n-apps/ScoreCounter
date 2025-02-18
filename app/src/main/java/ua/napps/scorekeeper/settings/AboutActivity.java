@@ -57,11 +57,11 @@ public class AboutActivity extends AppCompatActivity {
         );
 
         ViewUtil.setLightMode(this, true);
-        ViewUtil.setNavBarColor(this, true, Color.parseColor("#B5D99C"));
+        ViewUtil.setNavBarColor(this, true, Color.parseColor("#86CEBE"));
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.setStatusBarColor(Color.parseColor("#B5D99C"));
+        window.setStatusBarColor(Color.parseColor("#86CEBE"));
     }
 
     private void showTipScreen() {

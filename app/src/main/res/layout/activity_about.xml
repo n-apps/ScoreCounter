@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B5D99C"
+    android:background="#86CEBE"
     tools:context=".settings.AboutActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#B5D99C"
+        android:background="#86CEBE"
         android:theme="@style/Theme.AppCompat.Light"
         app:elevation="0dp"
-        app:statusBarScrim="#B5D99C">
+        app:statusBarScrim="#86CEBE">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:contentScrim="#B5D99C"
+            app:contentScrim="#86CEBE"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:toolbarId="@+id/toolbar">
 
@@ -93,6 +93,7 @@
                 android:layout_marginVertical="@dimen/spacing_normal"
                 android:fontFamily="@font/decor"
                 android:paddingHorizontal="@dimen/padding_large"
+                android:gravity="center_horizontal"
                 android:text="@string/about_translators_title"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="@color/primary_text_default_material_light"
@@ -173,7 +174,7 @@
                 android:text="@string/action_donate"
                 android:textAllCaps="false"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="?attr/colorOnSecondary"
                 app:backgroundTint="@color/colorSecondary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius"
                 app:icon="@drawable/ic_teacup"
@@ -190,7 +191,7 @@
                 android:text="@string/settings_privacy_policy"
                 android:textAppearance="?attr/textAppearanceCaption"
                 android:textColor="@color/secondary_text_default_material_light"
-                android:textColorHighlight="@color/colorAccent"
+                android:textColorHighlight="?attr/colorSecondary"
                 app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
 
         </LinearLayout>

@@ -1,9 +1,11 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceVariant">
+    android:background="?attr/colorSurfaceVariant"
+    app:statusBarBackground="#86CEBE">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -17,7 +19,8 @@
             android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|snap"
+            app:collapsedTitleTextColor="?attr/colorOnPrimary"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
             app:titleEnabled="false"
             app:toolbarId="@+id/toolbar">
 
@@ -25,18 +28,19 @@
                 android:id="@+id/title_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/colorPrimaryVariant">
+                android:background="#86CEBE">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingBottom="32dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/hello" />
 
                 <FrameLayout
                     android:id="@+id/rounded"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="32dp"
                     android:background="@drawable/bg_rounded_top_square_variant"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +67,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
@@ -143,9 +148,8 @@
 
                         <ImageView
                             android:id="@+id/in_app_coffee_icon"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/spacing_micro"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/in_app_coffee"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +159,7 @@
                             android:id="@+id/in_app_coffee_title"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="@dimen/spacing_micro"
+                            android:layout_marginTop="@dimen/spacing_big"
                             android:fontFamily="@font/o600"
                             android:gravity="center_horizontal"
                             android:minLines="2"
@@ -200,7 +204,7 @@
                     app:checkedIcon="@drawable/ic_heart"
                     app:checkedIconTint="@null"
                     app:strokeColor="@color/cardview_checkable_stroke_color"
-                    app:strokeWidth="3dp">
+                    app:strokeWidth="2dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -209,9 +213,8 @@
 
                         <ImageView
                             android:id="@+id/in_app_food_icon"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/spacing_micro"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/in_app_food"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -221,8 +224,7 @@
                             android:id="@+id/in_app_food_title"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="@dimen/spacing_micro"
-                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_big"
                             android:fontFamily="@font/o600"
                             android:gravity="center_horizontal"
                             android:minLines="2"
@@ -276,9 +278,8 @@
 
                         <ImageView
                             android:id="@+id/in_app_xwing_icon"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:padding="@dimen/spacing_micro"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:src="@drawable/in_app_xwing"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -288,8 +289,7 @@
                             android:id="@+id/in_app_xwing_title"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="@dimen/spacing_micro"
-                            android:layout_marginBottom="@dimen/spacing_normal"
+                            android:layout_marginTop="@dimen/spacing_big"
                             android:fontFamily="@font/o600"
                             android:gravity="center_horizontal"
                             android:minLines="2"
@@ -427,6 +427,34 @@
                     app:backgroundTint="?attr/colorPrimaryContainer"
                     app:cornerRadius="@dimen/material_button_full_round_corner_radius" />
             </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tv_thanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        android:clickable="false"
+        android:drawablePadding="@dimen/spacing_large"
+        android:fontFamily="@font/decor"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="@dimen/padding_large"
+        android:text="@string/message_thank_you"
+        android:textAppearance="?attr/textAppearanceHeadline4"
+        android:visibility="invisible"
+        app:drawableBottomCompat="@drawable/hrushka" />
+
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfetti_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
