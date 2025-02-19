@@ -1,9 +1,11 @@
 package ua.napps.scorekeeper.settings;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,6 +38,7 @@ import nl.dionsegijn.konfetti.xml.KonfettiView;
 import nl.dionsegijn.konfetti.xml.listeners.OnParticleSystemUpdateListener;
 import ua.napps.scorekeeper.R;
 import ua.napps.scorekeeper.utils.DonateViewModel;
+import ua.napps.scorekeeper.utils.Utilities;
 import ua.napps.scorekeeper.utils.ViewUtil;
 import ua.napps.scorekeeper.utils.livedata.CloseScreenIntent;
 import ua.napps.scorekeeper.utils.livedata.MessageIntent;
@@ -53,6 +56,7 @@ public class TipActivity extends AppCompatActivity {
     private TextView tv_thanks;
     private CoordinatorLayout root;
     private KonfettiView konfettiView;
+    private Vibrator vibrator;
 
 
     public static void start(Activity activity) {
@@ -95,6 +99,7 @@ public class TipActivity extends AppCompatActivity {
             xwing_cardview.setChecked(false);
             coffee_cardview.setChecked(true);
             selected_in_app = COFFEE_IN_APP;
+            tryVibrate();
         });
 
         food_cardview.setOnClickListener(view -> {
@@ -102,6 +107,7 @@ public class TipActivity extends AppCompatActivity {
             xwing_cardview.setChecked(false);
             food_cardview.setChecked(true);
             selected_in_app = FOOD_IN_APP;
+            tryVibrate();
         });
 
         xwing_cardview.setOnClickListener(view -> {
@@ -109,6 +115,7 @@ public class TipActivity extends AppCompatActivity {
             food_cardview.setChecked(false);
             xwing_cardview.setChecked(true);
             selected_in_app = XWING_IN_APP;
+            tryVibrate();
         });
 
         findViewById(R.id.btn_one_time).setOnClickListener(v -> viewModel.launchPurchaseFlow(TipActivity.this, selected_in_app, true));
@@ -132,7 +139,7 @@ public class TipActivity extends AppCompatActivity {
                 if (!dueToError) {
                     // in-app success
                     LocalSettings.markDonated();
-
+                    tryVibrate();
                     //confetti
                     showParty();
                 } else {
@@ -202,4 +209,10 @@ public class TipActivity extends AppCompatActivity {
         }
     }
 
+    private void tryVibrate() {
+        if (vibrator == null) {
+            vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        }
+        Utilities.vibrate(this, vibrator);
+    }
 }
