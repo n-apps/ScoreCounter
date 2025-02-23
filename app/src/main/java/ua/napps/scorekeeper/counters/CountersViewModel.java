@@ -261,6 +261,13 @@ class CountersViewModel extends AndroidViewModel {
     }
 
     void removeAll() {
+        List<Counter> counterList = counters.getValue();
+        if (counterList != null) {
+            for (int i = 0; i < counterList.size(); i++) {
+                Singleton.getInstance().addLogEntry(new LogEntry(counterList.get(i), LogType.RMV, 0, counterList.get(i).getValue()));
+            }
+        }
+
         repository.deleteAll()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())

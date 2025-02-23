@@ -9,7 +9,6 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +49,6 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     private TextInputEditText counterDefaultValueEditText;
     private TextInputEditText counterValueEditText;
     private Button btnSave;
-    private ImageView moreColorsButton;
     private EditCounterViewModel viewModel;
     private String newCounterColor;
     private ColorSlider colorSlider;
@@ -94,27 +92,33 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_delete) {
-            new MaterialDialog.Builder(this)
-                    .title(R.string.delete)
-                    .content(R.string.dialog_confirmation_question)
-                    .onPositive((dialog, which) -> {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
-                        viewModel.deleteCounter();
-                    })
-                    .onNegative((dialog, which) -> dialog.dismiss())
-                    .showListener(dialog1 -> {
-                        TextView content = ((MaterialDialog) dialog1).getContentView();
-                        if (content != null) {
-                            content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-                        }
-                    })
-                    .positiveText(R.string.delete)
-                    .positiveColorRes(R.color.colorError)
-                    .negativeText(R.string.dialog_no)
-                    .show();
+            showRemoveDialog();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showRemoveDialog() {
+        String title = getString(R.string.delete) + " \"" + counter.getName() + "\"";
+
+        new MaterialDialog.Builder(this)
+                .title(title)
+                .content(R.string.dialog_confirmation_question)
+                .onPositive((dialog, which) -> {
+                    Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.RMV, 0, counter.getValue()));
+                    viewModel.deleteCounter();
+                })
+                .onNegative((dialog, which) -> dialog.dismiss())
+                .showListener(dialog -> {
+                    TextView content = ((MaterialDialog) dialog).getContentView();
+                    if (content != null) {
+                        content.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                    }
+                })
+                .positiveText(R.string.delete)
+                .positiveColorRes(R.color.colorError)
+                .negativeText(R.string.dialog_no)
+                .show();
     }
 
     private void initViews() {
@@ -132,7 +136,6 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
         counterStepLayout = findViewById(R.id.til_counter_step);
         btnSave = findViewById(R.id.btn_save);
         colorSlider = findViewById(R.id.color_slider);
-        moreColorsButton = findViewById(R.id.btn_more_colors);
 
         String colorHex = getIntent().getStringExtra(ARGUMENT_COUNTER_COLOR);
         if (colorHex != null) {
@@ -148,7 +151,7 @@ public class EditCounterActivity extends AppCompatActivity implements OnColorSel
             }
         }
 
-        moreColorsButton.setOnClickListener(v -> new ChromaDialog.Builder()
+        findViewById(R.id.btn_more_colors).setOnClickListener(v -> new ChromaDialog.Builder()
                 .initialColor(selectedColor)
                 .colorMode(ColorMode.HSL)
                 .create()

@@ -107,8 +107,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     private int counterStep1, counterStep2, counterStep3, counterStep4, counterStep5, counterStep6, counterStep7;
     private SpanningLinearLayoutManager spanningLayoutManager;
     private LinearLayoutManager linearLayoutManager;
-    private Typeface mono;
-    private Typeface regular;
     private Vibrator vibrator;
 
     private final Observer<SingleShotEvent> eventBusObserver = event -> {
@@ -171,9 +169,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         counterStep5 = LocalSettings.getCustomCounter(5);
         counterStep6 = LocalSettings.getCustomCounter(6);
         counterStep7 = LocalSettings.getCustomCounter(7);
-
-        mono = getResources().getFont(R.font.mono);
-        regular = getResources().getFont(R.font.o400);
 
         vibrator = (Vibrator) requireActivity().getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -314,7 +309,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                         .content(R.string.dialog_confirmation_question)
                         .onPositive((dialog, which) -> viewModel.removeAll())
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(regular, regular)
                         .showListener(dialog1 -> {
                             TextView content = ((MaterialDialog) dialog1).getContentView();
                             if (content != null) {
@@ -335,7 +329,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             toolbar.setTitle(R.string.common_counters);
                         })
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(regular, regular)
                         .positiveText(R.string.dialog_yes)
                         .showListener(dialog1 -> {
                             TextView content = ((MaterialDialog) dialog1).getContentView();
@@ -370,7 +363,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                             }
                         })
                         .onNegative((dialog, which) -> dialog.dismiss())
-                        .typeface(regular, regular)
                         .positiveText(R.string.common_continue)
                         .negativeText(R.string.common_back)
                         .show();
@@ -602,6 +594,8 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
     }
 
     private void showSetValueDialog(Counter c, int position) {
+        Typeface mono = getResources().getFont(R.font.mono);
+        Typeface regular = getResources().getFont(R.font.o400);
         final MaterialDialog md = new MaterialDialog.Builder(requireActivity())
                 .title(c.getName() + ": " + c.getValue())
                 .titleGravity(GravityEnum.CENTER)
@@ -930,7 +924,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 .inputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME)
                 .positiveText(R.string.common_set)
                 .neutralText(R.string.common_more)
-                .typeface(regular, regular)
                 .contentColorRes(R.color.colorOnSurface)
                 .buttonRippleColorRes(R.color.rippleColor)
                 .widgetColorRes(R.color.colorPrimary)

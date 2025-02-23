@@ -21,7 +21,7 @@
     <string name="counter_deleted">Счетчик удален</string>
     <string name="counter_details_default_value">Значение после сброса</string>
     <string name="counter_details_name">Название счетчика</string>
-    <string name="counter_details_step">Инкремент</string>
+    <string name="counter_details_step">Шаг</string>
     <string name="counter_details_value">Текущее значение</string>
     <string name="counters_empty_message">Нажмите на <b>+</b> в правом верхнем углу, чтобы добавить новый счетчик</string>
     <string name="delete">Удалить</string>

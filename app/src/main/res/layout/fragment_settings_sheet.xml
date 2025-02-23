@@ -42,12 +42,6 @@
             app:drawableStartCompat="@drawable/ic_translate"
             app:drawableTint="?attr/colorControlNormal" />
 
-        <com.google.android.material.divider.MaterialDivider
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:dividerInsetEnd="@dimen/padding_large"
-            app:dividerInsetStart="@dimen/padding_large" />
-
         <RelativeLayout
             android:id="@+id/settings_keep_screen_on"
             style="@style/TwoLinesStyle"
@@ -154,6 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/padding_large"
+            android:layout_marginTop="@dimen/spacing_normal"
             android:baselineAligned="false"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
