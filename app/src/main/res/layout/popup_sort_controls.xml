@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="?attr/colorSurface"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/spacing_large">
 
     <TextView
@@ -14,7 +14,6 @@
         android:drawablePadding="@dimen/spacing_big"
         android:gravity="bottom|center_horizontal"
         android:paddingHorizontal="@dimen/padding_normal"
-        android:paddingTop="@dimen/padding_normal"
         android:paddingBottom="@dimen/spacing_normal"
         android:text="@string/automatically_sort_counters"
         android:textAppearance="?attr/textAppearanceHeadline6"
