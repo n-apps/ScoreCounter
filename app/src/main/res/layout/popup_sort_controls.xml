@@ -11,14 +11,14 @@
         style="@style/SettingsSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="@dimen/spacing_normal"
+        android:drawablePadding="@dimen/spacing_big"
         android:gravity="bottom|center_horizontal"
         android:paddingHorizontal="@dimen/padding_normal"
         android:paddingTop="@dimen/padding_normal"
         android:paddingBottom="@dimen/spacing_normal"
         android:text="@string/automatically_sort_counters"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        app:drawableTopCompat="@drawable/ic_new" />
+        app:drawableTopCompat="@drawable/ic_sort" />
 
     <RelativeLayout
         android:id="@+id/container_auto_sort"
