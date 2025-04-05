@@ -740,13 +740,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
 
         contentView.findViewById(R.id.btn_one).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep1, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep1);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep1, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep1);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -755,13 +751,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_two).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep2, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep2);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep2, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep2);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -770,13 +762,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_three).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep3, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep3);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep3, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep3);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -785,14 +773,9 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_four).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep4, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep4);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
-
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep4, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep4);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -801,14 +784,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_five).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep5, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep5);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
 
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep5, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep5);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -817,14 +796,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_six).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep6, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep6);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
 
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep6, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep6);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }
@@ -833,14 +808,10 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
         });
         contentView.findViewById(R.id.btn_seven).setOnClickListener(v -> {
             if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, counterStep7, counter.getValue()));
-
                 increaseCounterValue(counter, counterStep7);
                 countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
 
             } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, counterStep7, counter.getValue()));
-
                 decreaseCounterValue(counter, counterStep7);
                 countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
             }

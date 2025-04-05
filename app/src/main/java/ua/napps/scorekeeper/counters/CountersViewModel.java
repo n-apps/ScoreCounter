@@ -119,7 +119,22 @@ class CountersViewModel extends AndroidViewModel {
         repository.setCount(counter.getId(), newValue)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(createDefaultObserver());
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        scheduleSorting(); // Schedule sorting after modification
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+                });
     }
 
     void modifyPosition(Counter counter, int fromIndex, int toIndex) {
