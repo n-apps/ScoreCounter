@@ -819,7 +819,6 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
             longClickDialog.dismiss();
         });
 
-
         final EditText editText = contentView.findViewById(R.id.et_add_custom_value);
         editText.setTransformationMethod(null);
         editText.requestFocus();
@@ -830,18 +829,13 @@ public class CountersFragment extends Fragment implements CounterActionCallback,
                 if (!TextUtils.isEmpty(value)) {
                     int intValue = Utilities.parseInt(value, 0);
                     if (counterStepDialogMode == MODE_INCREASE_VALUE) {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.INC_C, intValue, counter.getValue()));
-
                         increaseCounterValue(counter, intValue);
                         countersAdapter.notifyItemChanged(position, INCREASE_VALUE_CLICK);
                     } else if (counterStepDialogMode == MODE_DECREASE_VALUE) {
-                        Singleton.getInstance().addLogEntry(new LogEntry(counter, LogType.DEC_C, intValue, counter.getValue()));
-
                         decreaseCounterValue(counter, intValue);
                         countersAdapter.notifyItemChanged(position, DECREASE_VALUE_CLICK);
                     }
                 }
-
                 longClickDialog.dismiss();
             }
             return false;

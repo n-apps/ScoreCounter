@@ -75,6 +75,6 @@
     <string name="top_bar_content">Innehåll i toppfältet</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Visa högsta poängen</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Visa lägsta poängen</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Visa totala summan</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Visa totala summan</string>
     <string name="menu_sort_counters">Sorteringsalternativ…</string>
 </resources>

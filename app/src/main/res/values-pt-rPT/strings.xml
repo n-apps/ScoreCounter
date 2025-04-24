@@ -75,6 +75,6 @@
     <string name="top_bar_content">Conteúdo da barra superior</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Mostrar a pontuação mais alta</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Mostrar a pontuação mais baixa</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Mostrar a pontuação total</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Mostrar a pontuação total</string>
     <string name="menu_sort_counters">Organização…</string>
 </resources>

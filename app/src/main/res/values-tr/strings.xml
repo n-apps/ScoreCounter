@@ -75,6 +75,6 @@
     <string name="top_bar_content">Üst çubuk içeriği</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;En yüksek puanı göster</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;En düşük puanı göster</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Toplam puanı göster</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Toplam puanı göster</string>
     <string name="menu_sort_counters">Sıralama seçeneği</string>
 </resources>

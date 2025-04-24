@@ -11,13 +11,8 @@
         style="@style/SettingsSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawablePadding="@dimen/spacing_big"
-        android:gravity="bottom|center_horizontal"
-        android:paddingHorizontal="@dimen/padding_normal"
-        android:paddingBottom="@dimen/spacing_normal"
         android:text="@string/automatically_sort_counters"
-        android:textAppearance="?attr/textAppearanceHeadline6"
-        app:drawableTopCompat="@drawable/ic_sort" />
+        android:textAppearance="?attr/textAppearanceHeadline6" />
 
     <RelativeLayout
         android:id="@+id/container_auto_sort"
@@ -91,9 +86,6 @@
         style="@style/SettingsSectionHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom|center_horizontal"
-        android:paddingHorizontal="@dimen/padding_normal"
-        android:paddingBottom="@dimen/spacing_normal"
         android:text="@string/top_bar_content"
         android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -111,10 +103,10 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minHeight="@dimen/list_single_line_min_height"
-            android:paddingEnd="@dimen/padding_large"
             android:text="@string/show_the_highest_score"
             android:textColor="?android:textColorPrimary" />
 
@@ -123,10 +115,10 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minHeight="@dimen/list_single_line_min_height"
-            android:paddingEnd="@dimen/padding_large"
             android:text="@string/show_the_lowest_score"
             android:textColor="?android:textColorPrimary" />
 
@@ -135,10 +127,10 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:minHeight="@dimen/list_single_line_min_height"
-            android:paddingEnd="@dimen/padding_large"
             android:text="@string/show_the_total_score"
             android:textColor="?android:textColorPrimary" />
 

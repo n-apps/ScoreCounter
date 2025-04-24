@@ -75,6 +75,6 @@
     <string name="top_bar_content">顶部栏内容</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;显示最高分</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;显示最低分</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;显示总分</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;显示总分</string>
     <string name="menu_sort_counters">排序选项</string>
 </resources>

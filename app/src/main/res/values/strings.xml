@@ -78,6 +78,6 @@
     <string name="top_bar_content">Top bar content</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Show the highest score</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Show the lowest score</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Show the total score</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Show the total score</string>
     <string name="menu_sort_counters">Sort options…</string>
 </resources>

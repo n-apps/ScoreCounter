@@ -75,6 +75,6 @@
     <string name="top_bar_content">Inhalt der oberen Leiste</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Die höchste Punktzahl anzeigen</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Die niedrigste Punktzahl anzeigen</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Die Gesamtpunktzahl anzeigen</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Die Gesamtpunktzahl anzeigen</string>
     <string name="menu_sort_counters">Sortier-Optionen…</string>
 </resources>

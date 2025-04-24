@@ -75,6 +75,6 @@
     <string name="top_bar_content">Съдържание на горната лента</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Показване на най-високия резултат</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Показване на най-ниския резултат</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Показване на общия резултат</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Показване на общия резултат</string>
     <string name="menu_sort_counters">Опция за сортиране</string>
 </resources>

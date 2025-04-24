@@ -75,6 +75,6 @@
     <string name="top_bar_content">Inhoud van de bovenste balk</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Toon de hoogste score</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Toon de laagste score</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Toon de totale score</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Toon de totale score</string>
     <string name="menu_sort_counters">Sorteeropties…</string>
 </resources>

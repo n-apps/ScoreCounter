@@ -75,6 +75,6 @@
     <string name="top_bar_content">Περιεχόμενο της επάνω μπάρας</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;Εμφάνιση της υψηλότερης βαθμολογίας</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;Εμφάνιση της χαμηλότερης βαθμολογίας</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;Εμφάνιση της συνολικής βαθμολογίας</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;Εμφάνιση της συνολικής βαθμολογίας</string>
     <string name="menu_sort_counters">Επιλογή ταξινόμησης</string>
 </resources>

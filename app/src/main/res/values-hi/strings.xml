@@ -75,6 +75,6 @@
     <string name="top_bar_content">शीर्ष बार सामग्री</string>
     <string name="show_the_highest_score">\ud83c\udfc6&#160;&#160;&#160;&#160;सबसे उच्च स्कोर दिखाएं</string>
     <string name="show_the_lowest_score">\ud83d\udcc9&#160;&#160;&#160;&#160;सबसे कम स्कोर दिखाएं</string>
-    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;कुल स्कोर दिखाएं</string>
+    <string name="show_the_total_score">\u2211&#160;&#160;&#160;&#160;&#160;&#160;&#160;कुल स्कोर दिखाएं</string>
     <string name="menu_sort_counters">सॉर्ट विकल्प</string>
 </resources>
