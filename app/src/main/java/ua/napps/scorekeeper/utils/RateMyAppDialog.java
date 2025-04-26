@@ -94,10 +94,6 @@ public class RateMyAppDialog {
                 .setOnCancelListener(d -> remindMeLater())
                 .setView(contentView);
 
-        contentView.findViewById(R.id.iv_donate).setOnClickListener(v -> {
-            showTipScreen();
-            dialog.dismiss();
-        });
         contentView.findViewById(R.id.btn_donate_it).setOnClickListener(v -> {
             showTipScreen();
             dialog.dismiss();

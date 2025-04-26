@@ -30,7 +30,7 @@
     <string name="dialog_elektu_confirm">A small browser page will pop up to&#160;help you choose someone from a&#160;group.\n\nCreated by Julien&#160;Bellue</string>
     <string name="dialog_no">No</string>
     <string name="dialog_predefined_steps">☃︎: you can tweak these values in&#160;the Settings</string>
-    <string name="dialog_support_me_content"><b>Enjoying Score Counter?\nSupport me with&#160;a&#160;coffee!</b>\n\nHi, I\'m Roma! I\'m based in&#160;Ukraine and I\'m working on&#160;this&#160;app in&#160;my spare time. I\'m&#160;committed to&#160;keeping Score&#160;Counter free forever for everyone.\n\nYour support helps me keep this app updated.</string>
+    <string name="dialog_support_me_content"><b>Enjoying Score Counter? Buy a coffee to&#160;support! \u2615</b>\n\nHey there!  I\'m Roma from Ukraine, working on this app in my spare time. My goal is to keep Score Counter easy to use and  free forever for everyone.\n\nYour support keeps this app updated&#160;\ud83d\ude80</string>
     <string name="action_remind_later">Maybe later</string>
     <string name="dialog_yes">Yes</string>
     <string name="dice_empty_state">To roll the&#160;dice, just tap anywhere on the&#160;screen</string>

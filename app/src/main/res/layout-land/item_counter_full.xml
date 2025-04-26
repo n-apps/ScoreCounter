@@ -14,7 +14,8 @@
         android:layout_marginHorizontal="@dimen/spacing_normal"
         android:layout_marginVertical="@dimen/spacing_micro"
         app:cardCornerRadius="@dimen/cardview_default_radius"
-        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
         tools:cardBackgroundColor="#F2B04B">
 
         <LinearLayout
@@ -22,25 +23,22 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0DFFFFFF"
-                android:orientation="horizontal">
+                android:background="#0DFFFFFF">
 
                 <TextView
                     android:id="@+id/tv_counter_name"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
+                    android:layout_gravity="center"
                     android:contentDescription="@string/counter_details_name"
                     android:ellipsize="end"
+                    android:letterSpacing="0.015"
                     android:fontFamily="@font/o600"
                     android:foreground="@drawable/ripple"
-                    android:gravity="center_vertical"
                     android:maxLines="1"
-                    android:paddingStart="@dimen/padding_normal"
                     android:textAppearance="?attr/textAppearanceHeadline5"
                     tools:text="@tools:sample/first_names" />
 
@@ -48,14 +46,13 @@
                     android:id="@+id/iv_counter_edit"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:layout_gravity="end"
                     android:alpha=".5"
                     android:contentDescription="@string/common_edit"
                     android:foreground="@drawable/ripple"
-                    android:gravity="end"
-                    android:padding="@dimen/spacing_normal"
                     android:scaleType="center"
                     android:src="@drawable/ic_edit" />
-            </LinearLayout>
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/counter_interaction_area"

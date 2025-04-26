@@ -6,17 +6,16 @@
     style="@style/Widget.MaterialComponents.CardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="4dp"
-    android:layout_marginHorizontal="2dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="8dp"
+    app:cardCornerRadius="12dp"
     app:cardElevation="0dp"
-    app:strokeColor="?attr/colorSurface"
-    app:strokeWidth="1dp"
+    app:strokeWidth="0dp"
     tools:backgroundTint="#3AA99F">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/spacing_micro"
         android:baselineAligned="false"
         android:gravity="center_vertical"
         android:minHeight="@dimen/list_two_lines_min_height"
@@ -32,13 +31,14 @@
             android:foreground="@drawable/ripple"
             android:gravity="center_vertical"
             android:maxLines="3"
-            android:paddingStart="@dimen/spacing_big"
-            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:lineSpacingMultiplier="0.85"
+            android:paddingStart="@dimen/padding_normal"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
             app:autoSizeMaxTextSize="@dimen/font_display"
             app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="1sp"
+            app:autoSizeStepGranularity="2sp"
             app:autoSizeTextType="uniform"
-            tools:text="гвинтики"
+            tools:text="гвинтики гвинтики"
             tools:textColor="@android:color/white" />
 
         <ImageView

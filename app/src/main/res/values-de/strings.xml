@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Es öffnet sich eine kleine Browserseite, die Ihnen hilft, jemanden aus einer Gruppe auszuwählen.\n\nErstellt von Julien&#160;Bellue</string>
     <string name="dialog_no">Nein</string>
     <string name="dialog_predefined_steps">☃︎: Sie können diese Werte in den Einstellungen ändern</string>
-    <string name="dialog_support_me_content"><b>Gefällt dir Score Counter? Unterstütze mich mit einem Kaffee!</b>\n\nHallo, ich bin Roma! Ich lebe in der Ukraine und arbeite in meiner Freizeit an dieser App. Ich bin fest entschlossen, Score Counter für immer kostenlos zu halten.\n\nDeine Unterstützung hilft mir, Score Counter aktuell und für alle weltweit kostenlos zu halten, auch wenn ich es in schwierigen Zeiten entwickle.</string>
+    <string name="dialog_support_me_content"><b>Genießen Sie Punktezähler? Kaufen Sie einen Kaffee zur Unterstützung! \u2615</b>\n\nHallo zusammen! Ich bin Roma aus der Ukraine und arbeite in meiner Freizeit an dieser App. Mein Ziel ist es, dass Punktezähler einfach zu benutzen und für immer kostenlos für alle bleibt.\n\nDeine Unterstützung hält diese App auf dem neuesten Standn&#160;\ud83d\ude80</string>
     <string name="action_remind_later">Vielleicht später</string>
     <string name="dialog_yes">Ja</string>
     <string name="dice_empty_state">Um zu würfeln, tippen Sie einfach irgendwo auf den Bildschirm.</string>

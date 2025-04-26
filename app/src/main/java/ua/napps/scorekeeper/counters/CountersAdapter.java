@@ -78,11 +78,15 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
         final Counter counter = counters.get(position);
         int counterColor = Color.parseColor(counter.getColor());
+        String counterValue = String.format(Locale.FRANCE, "%,d", counter.getValue());
+        String counterName = counter.getName();
         if (getItemViewType(position) == TYPE_FULL) {
             CounterFullViewHolder holder = (CounterFullViewHolder) viewHolder;
             holder.counter = counter;
-            holder.counterName.setText(counter.getName());
-            holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
+            holder.counterName.setText(counterName);
+            holder.counterName.setContentDescription(counterName);
+            holder.counterValue.setText(counterValue);
+            holder.counterValue.setContentDescription(counterValue);
             holder.counterValue.setTag(this);
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
@@ -101,8 +105,10 @@ public class CountersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else {
             CounterCompactViewHolder holder = (CounterCompactViewHolder) viewHolder;
             holder.counter = counter;
-            holder.counterName.setText(counter.getName());
-            holder.counterValue.setText(String.format(Locale.FRANCE, "%,d", counter.getValue()));
+            holder.counterName.setText(counterName);
+            holder.counterName.setContentDescription(counterName);
+            holder.counterValue.setText(counterValue);
+            holder.counterValue.setContentDescription(counterValue);
             holder.container.setCardBackgroundColor(counterColor);
             final boolean darkBackground = ColorUtil.isDarkBackground(counterColor);
             int tintColor = darkBackground ?  0xF7FFFFFF : 0xDE000000;

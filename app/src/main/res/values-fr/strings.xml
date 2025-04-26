@@ -29,7 +29,7 @@
     <string name="dialog_elektu_confirm">Une petite page de navigateur s\'affichera pour vous aider à&#160;choisir quelqu\'un dans un groupe.\n\nCréée par Julien Bellue</string>
     <string name="dialog_no">Non</string>
     <string name="dialog_predefined_steps">☃︎: vous pouvez modifier ces valeurs dans les Paramètres</string>
-    <string name="dialog_support_me_content"><b>Vous appréciez Score Counter ? Soutenez-moi avec un café !</b>\n\nBonjour, je suis Roma ! Je vis en Ukraine et je travaille sur cette application pendant mon temps libre. Je suis déterminé à maintenir Score Counter gratuit pour toujours.\n\nVotre soutien m’aide à maintenir Score Counter à jour et gratuit pour tout le monde, même lorsque je le développe dans des moments difficiles.</string>
+    <string name="dialog_support_me_content"><b>Vous appréciez Compteur de points ? Achetez un café pour nous soutenir ! \u2615</b>\n\nBonjour à tous ! Je suis Roma, originaire d\'Ukraine, et je travaille sur cette application pendant mon temps libre. Mon but est de faire en sorte que Compteur de points reste facile à utiliser et gratuit pour tout le monde.\n\nVotre soutien permet de maintenir cette application à jour&#160;\ud83d\ude80</string>
     <string name="action_remind_later">Peut-être plus tard</string>
     <string name="dialog_yes">Oui</string>
     <string name="dice_empty_state">Pour lancer les dés, il suffit de toucher n\'importe où sur l\'écran.</string>
@@ -62,7 +62,7 @@
     <string name="settings_sound">Jouer le son</string>
     <string name="settings_stay_awake">Maintenez l\'écran allumé</string>
     <string name="settings_switch_tap_logic">Échange de la&#160;presse courte et de la&#160;presse longue.</string>
-    <string name="share_snippet">Vous n\'avez plus besoin de chercher un stylo et du papier. Il vous suffira d\'utiliser l\'application Android gratuite et facile à&#160;utiliser de scorekeeper</string>
+    <string name="share_snippet">Vous n\'avez plus besoin de chercher un stylo et du papier. Il vous suffira d\'utiliser l\'application Android gratuite et facile à&#160;utiliser de Compteur de points</string>
     <string name="simple_edit_value_hint">Saisissez une valeur</string>
     <string name="donation_title">Garder l\'application sans publicité</string>
     <string name="action_one_time_support">Soutien ponctuel</string>
